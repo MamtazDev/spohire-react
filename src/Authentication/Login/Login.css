@@ -240,3 +240,20 @@
     font-weight: 500;
     line-height: normal;
 }
+
+.select_date {
+    /* padding: 6px; */
+    height: 24px !important;
+    border-radius: 5.659px;
+    border: 0.707px solid rgba(0, 0, 0, 0.04);
+    margin-right: 6px;
+    font-size: 9px !important;
+
+
+
+}
+
+.row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

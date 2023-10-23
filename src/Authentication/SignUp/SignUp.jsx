@@ -3,6 +3,7 @@ import arrowRight from "../../assets/ArrowRight.png";
 
 import { useState } from "react";
 import ReactFlagsSelect from "react-flags-select";
+import DateSelector from "./DateSelector";
 
 // const options = [
 //   { value: "1", label: "1" },
@@ -70,13 +71,16 @@ const SignUp = () => {
                       placeholder="Enter email"
                     />
                   </div>
-                  <div className="row flex-wrap">
+                  <div className="row flex-wrap date_wrapper">
                     <div className="col-lg-4">
                       <ReactFlagsSelect
                         selected={select}
                         onSelect={onSelect}
                         countries={["BD", "fi", "GB", "IE", "IT", "NL", "SE"]}
                       />
+                    </div>
+                    <div className="col-lg-8">
+                      <DateSelector />
                     </div>
                   </div>
                   {/* country select */}
@@ -112,3 +116,25 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+/* 
+<div class="select-date">
+  <select id="select-day"></select>
+  <select id="select-month">
+  	  <option value="0">January
+    	<option value="1">February
+  	  <option value="2">March
+  	  <option value="3">April
+  	  <option value="4">May
+  	  <option value="5">June
+  	  <option value="6">July
+  	  <option value="7">August
+  	  <option value="8">September
+  	  <option value="9">October
+  	  <option value="10">November
+  	  <option value="11">December
+  </select>
+  <select id="select-year"></select>
+</div>
+
+*/
