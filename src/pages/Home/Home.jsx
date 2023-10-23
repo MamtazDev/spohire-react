@@ -7,7 +7,7 @@ import HowItWorks from '../../components/howItWorks/HowItWorks'
 import WhatPeopleSay from '../../components/whatPeopleSay/WhatPeopleSay'
 import Trusted from '../../components/trusted/Trusted'
 import Footer from '../../components/footer/Footer'
-import Accordion from '../../components/Accordion/Accordion'
+import Accordion from '../../components/accordion/Accordion'
 
 const Home = () => {
   return (
