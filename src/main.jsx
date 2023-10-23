@@ -6,6 +6,7 @@ import "./responsive.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import Login from "./Authentication/Login/Login";
+import SignUp from "./Authentication/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -13,9 +14,13 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path:'/login',
-    element:<Login/>
-  }
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signUp",
+    element: <SignUp />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
