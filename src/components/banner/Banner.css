@@ -1,0 +1,97 @@
+/* Banner Start */
+
+
+.banner .bannerContent {
+    padding-top: 200px;
+}
+
+.banner .bannerContent span {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 50px;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0.32px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.banner .bannerContent h1 {
+    color: #FFF;
+    font-size: 82px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -0.82px;
+}
+
+.banner .bannerContent p {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 180%;
+    margin-bottom: 40px;
+}
+
+.banner .bannerContent a {
+    display: inline-block;
+    padding: 25px 54px;
+    border-radius: 60px;
+    background: #3378FF;
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    transition: 0.4s ease-in-out;
+}
+
+.banner .bannerContent a:hover {
+    opacity: 0.9;
+}
+
+
+.marque-container {
+    display: flex;
+    padding: 1vw 0 0.7vw;
+}
+
+
+.playTxt {
+    border-radius: 50px;
+    padding: 21px 50px;
+}
+
+.playTxt span {
+    color: #0A0119;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+.middleLine {
+    width: 30px;
+    height: 5px;
+    background-color: #0A0119;
+}
+
+.playTxt span::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #0A0119;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+/* Banner End */

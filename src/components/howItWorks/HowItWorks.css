@@ -1,0 +1,283 @@
+/* Hoe it Works Start */
+
+.workBg {
+    background: url("../../assets/howitworkBg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 100px 0 200px 0;
+    margin-bottom: 90px;
+}
+
+
+.workBg h3 {
+    color: #FFF;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 93px;
+    margin-bottom: 50px;
+}
+
+.workBg .tabOutter {
+    padding: 10px 15px;
+    border-radius: 18px;
+    background: #0F0C39;
+    width: max-content;
+    margin-bottom: 90px;
+}
+
+.workBg .tabOutter button {
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    padding: 20px 65px;
+    color: #cfced7;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 23px;
+    transition: 0.4s ease-in-out;
+}
+
+.workBg .tabOutter .btnaActive,
+.workBg .tabOutter button:hover {
+    border-radius: 12px;
+    background: #2D5BFF;
+    color: #FFF;
+}
+
+.workBg .innerWhiteBox {
+    padding: 34px 40px;
+    border-radius: 20px;
+    background: #FFF;
+    width: max-content;
+}
+
+.workBg .local p {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.workBg .local button {
+    border: none;
+    padding: 14px 24px;
+    border-radius: 6px;
+    background: #F5F3FA;
+    color: #2D5BFF;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 21px;
+    transition: 0.4s ease-in-out;
+}
+
+.workBg .local button:hover {
+    opacity: 0.9;
+}
+
+.workBg .playerBox p {
+    color: #080537;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.workBg .playerBox span,
+.workBg .detailBox span {
+    padding: 6px 12px;
+    border-radius: 14px;
+    background: #F5F3FA;
+    color: #04012F;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+.workBg .detailBox p {
+    padding: 10px 20px;
+    color: #2D5BFF;
+    font-size: 15.967px;
+    font-weight: 700;
+    line-height: 18px;
+    border-radius: 5px;
+    border: 1px solid #E6E5EC;
+    background: #F5F3FA;
+}
+
+.workBg .leftBlueBox {
+    padding: 40px 60px;
+    border-radius: 28px;
+    background: #2D5BFF;
+}
+
+.workBg .leftBlueBox button {
+    border: none;
+    background: transparent;
+    color: #FFF;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 24px;
+    transition: 0.4s ease-in-out;
+}
+
+.workBg .leftBlueBox button:hover {
+    opacity: 0.9;
+}
+
+.numTag {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numTag p {
+    color: #000;
+    text-align: center;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 29px;
+    margin: auto;
+}
+
+
+.workBg .connect p {
+    color: #F5F3FA;
+    text-align: start;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.workBg .connect span {
+    color: #a5b6fc;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.workBg .howWorkRight {
+    padding: 53px 42px 42px 42px;
+    border-radius: 28px;
+    background: #2D5BFF;
+}
+
+.workBg .howWorkRight p {
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 12px;
+}
+
+
+.workBg .howWorkRight span {
+    color: #a5b6fc;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    margin-bottom: 20px;
+}
+
+.workBg .howWorkRight form {
+    padding: 30px 50px;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.workBg .howWorkRight form .txtInput label {
+    display: block;
+    color: #0F0C39;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 34px;
+    margin-bottom: 8px;
+}
+
+.workBg .howWorkRight form .txtInput input {
+    color: #0F0C39;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 34px;
+    border-radius: 8px;
+    border: 1px solid #E6E5EC;
+    background: #F5F3FA;
+    width: 222px;
+    height: 52px;
+    padding: 10px;
+}
+
+.workBg .howWorkRight form p {
+    color: #0F0C39;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+}
+
+/* custom radio button start */
+
+.playOption label {
+    color: #686782;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    padding-left: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.playOption input[type="radio"] {
+    display: none;
+}
+
+.playOption label::before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-color: #04012F;
+    border: 1.5px solid #04012F;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: border-color 400ms ease;
+}
+
+.playOption label::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #FFF;
+    border: 1.5px solid #FFF;
+    border-radius: 50%;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%) scale(0.5);
+    transition: transform 400ms ease;
+}
+
+.playOption input[type="radio"]:checked+label::before {
+    border-color: #2D5BFF;
+    background-color: #2D5BFF;
+}
+
+.payment_option form input:checked~.label-text {
+    color: #686782;
+}
+
+
+/* custom radio button end */
+
+/* Hoe it Works End */

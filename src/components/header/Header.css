@@ -1,0 +1,89 @@
+/* Header Start */
+
+.bgBanner {
+    background-image: url("../../assets/bannerbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    padding: 47px 0 11px 0;
+}
+
+
+.nav-link {
+    padding: 0;
+    font-size: 20px;
+    color: #9d99a3;
+    text-align: center;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.navbar-nav {
+    gap: 52px;
+}
+
+.nav-link:hover {
+    color: #FFF;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #FFF !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler i {
+    color: #FFF;
+}
+
+:focus-visible {
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.authBtn {
+    background-image: url("../../assets/signinBtn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-size: cover; */
+}
+
+.authBtn.btnNone {
+    background-color: transparent;
+    border: none;
+}
+
+.authBtn a,
+.logIn {
+    background: transparent;
+    border: none;
+    padding: 15px 35px;
+    color: #FFF;
+    font-family: 'Gilroy', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: uppercase;
+    transition: 0.4s ease-in-out;
+}
+
+.authBtn button:hover,
+.logIn:hover {
+    opacity: .9;
+}
+
+/* Header End */

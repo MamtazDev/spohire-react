@@ -1,0 +1,53 @@
+.feature {
+    color: #0A0119;
+}
+
+.feature .featureTop h2 {
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -0.62px;
+}
+
+.feature .featureTop p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 160%;
+}
+
+.feature .featureBottom h4 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -0.32px;
+}
+
+.feature .featureBottom p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.feature .featureBoxStart {
+    background: url("../../assets/fearurebg1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 20px 0 0 50px;
+}
+
+.feature .featureBoxMiddle {
+    background: url("../../assets/fearurebg2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 20px 0 0 50px;
+}
+
+.feature .featureBoxEnd {
+    background: url("../../assets/fearurebg2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 20px 0 0 50px;
+}

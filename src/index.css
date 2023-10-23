@@ -1,0 +1,64 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+/* How it works section font family did not add i didn't get cdn */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gilroy', sans-serif;
+  /* font-family: 'Plus Jakarta Sans', sans-serif; */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1720px;
+}
+
+.Work_container {
+  max-width: 1472px;
+}
+
+.say_container {
+  max-width: 1320px;
+}
+
+.mb_40 {
+  margin-bottom: 35px;
+}
+
+.mb_60 {
+  margin-bottom: 55px;
+}
+
+.all_mb {
+  margin-bottom: 130px;
+}
