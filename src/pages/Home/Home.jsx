@@ -7,6 +7,7 @@ import HowItWorks from '../../components/howItWorks/HowItWorks'
 import WhatPeopleSay from '../../components/whatPeopleSay/WhatPeopleSay'
 import Trusted from '../../components/trusted/Trusted'
 import Footer from '../../components/footer/Footer'
+import WhyWe from '../../components/whyWe/WhyWe'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         <HowItWorks />
         <WhatPeopleSay />
         <Trusted />
+        <WhyWe />
       </main>
       <Footer />
     </>

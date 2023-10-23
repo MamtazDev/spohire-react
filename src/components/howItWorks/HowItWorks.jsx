@@ -13,9 +13,15 @@ const HowItWorks = () => {
                     <h3>How it works</h3>
                     <div
                         class="tabOutter d-flex flex-column flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
-                        <button class="btnaActive">Player</button>
-                        <button>Coach</button>
-                        <button>Manager/Agent</button>
+                        <button class="btnaActive">
+                            Player
+                        </button>
+                        <button>
+                            Coach
+                        </button>
+                        <button>
+                            Manager/Agent
+                        </button>
                     </div>
 
                     <div class="row gy-4">
