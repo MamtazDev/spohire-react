@@ -1,6 +1,5 @@
 import React from 'react'
 import './Feature.css'
-import { Image } from 'react-bootstrap'
 import FeatureOne from '../../assets/fearure1.png'
 import FeatureTwo from '../../assets/fearure2.png'
 import FeatureThree from '../../assets/fearure3.png'
@@ -35,7 +34,7 @@ const Feature = () => {
                                             information was never easier.</p>
                                     </div>
                                     <div class="col-6">
-                                        <Image class="img-fluid" src={FeatureOne} alt="img" />
+                                        <img class="img-fluid" src={FeatureOne} alt="img" />
                                     </div>
                                 </div>
                             </div>

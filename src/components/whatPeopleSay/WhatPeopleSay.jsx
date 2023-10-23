@@ -5,7 +5,10 @@ import ProfoleImg from '../../assets/profoleimg.png'
 import GoogleImg from '../../assets/google.png'
 import SliderButton from '../../assets/sliderbutton.png'
 
+
 const WhatPeopleSay = () => {
+
+
     return (
         <section>
             <div class="container say_container all_mb">
@@ -16,7 +19,10 @@ const WhatPeopleSay = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit soldin.
                         </span>
                     </div>
+
                     <div class="row gy-3">
+
+
                         <div class="col-12 col-md-6">
                             <div class="sayInnerBox">
                                 <div class="d-flex justify-content-start align-items-center gap-3 mb-3">
@@ -68,6 +74,7 @@ const WhatPeopleSay = () => {
                                     arcu odio volutpat.”
                                 </h5>
                                 <div
+
                                     class="d-flex flex-column flex-md-row justify-content-start align-items-center gap-3">
                                     <img src={GoogleImg} alt="Logo" />
                                     <div
@@ -86,6 +93,8 @@ const WhatPeopleSay = () => {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </section>

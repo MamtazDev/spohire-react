@@ -1,6 +1,5 @@
 import React from 'react'
 import './WhyWe.css'
-import { Image } from 'react-bootstrap'
 import BasketPerson from '../../assets/why-we.png';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ const WhyWe = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="left_img">
-                            <Image src={BasketPerson} alt='baskert-person' />
+                            <img className='img-fluid' src={BasketPerson} alt='baskert-person' />
                         </div>
                     </div>
                     <div className="col-lg-6">

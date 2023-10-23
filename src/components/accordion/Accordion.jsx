@@ -56,20 +56,22 @@ const Accordion = () => {
     },
   ];
   return (
-    <div className="accordion">
+    <div className="accordion section_padding">
       <div className="container">
-        <h2>Frequently Asked Questions</h2>
+        <div className="section_heading text-center">
+          <h2 className=" fs_62 text_color_19 font-bold">Frequently Asked Questions</h2>
+        </div>
         <div>
           {accoprdionData.map((data, index) => (
-            <div key={index}>
+            <div key={index} className="accordion_items mb-4">
               <div
                 onClick={() => setIsOpen(index === isOpen ? null : index)}
                 className="d-flex align-items-center justify-content-between"
               >
-                <p className="question">{data.ques}</p>
+                <p className="question text_color_19 fs-4 fw-medium">{data.ques}</p>
                 <img src={isOpen === index ? minus : plus} alt="" />
               </div>
-              {isOpen === index && <p className="answer">{data.ans}</p>}
+              {isOpen === index && <p className="answer text_color_19_7 fs-5 fw-medium">{data.ans}</p>}
             </div>
           ))}
         </div>

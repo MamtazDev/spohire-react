@@ -14,7 +14,6 @@ body {
   font-family: 'Gilroy', sans-serif;
 }
 
-
 h1,
 h2,
 h3,
@@ -38,17 +37,23 @@ a {
   text-decoration: none;
 }
 
+:root {
+  --color_19: #0A0119;
+  --color_19_7: #0a01195e;
+}
+
 .container {
   max-width: 1720px;
 }
 
-/* .Work_container {
+.Work_container {
   max-width: 1472px;
 }
 
 .say_container {
   max-width: 1320px;
-} */
+}
+
 
 .mb_40 {
   margin-bottom: 35px;
@@ -67,6 +72,11 @@ a {
   line-height: 42px;
 }
 
+.fs_62 {
+  font-size: 62px;
+  line-height: 72px;
+}
+
 .fs_82 {
   font-size: 82px;
   line-height: 92px;
@@ -76,9 +86,21 @@ a {
   font-family: 'Gilroy', sans-serif;
 }
 
+.text_color_19 {
+  color: var(--color_19);
+}
+
+.text_color_19_7 {
+  color: var(--color_19_7);
+}
+
 .section_padding {
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+.section_heading {
+  margin-bottom: 80px;
 }
 
 .common_btn a {
