@@ -7,8 +7,8 @@ import HowItWorks from '../components/howItWorks/HowItWorks'
 import WhatPeopleSay from '../components/whatPeopleSay/WhatPeopleSay'
 import Trusted from '../components/trusted/Trusted'
 import Footer from '../components/footer/Footer'
-import Accordion from '../components/Accordion/Accordion'
 import WhyWe from '../components/whyWe/WhyWe'
+import FaqAccordion from '../components/faqAccordion/FaqAccordion'
 
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
         <WhatPeopleSay />
         <Trusted />
         <WhyWe />
-        <Accordion />
+        <FaqAccordion />
       </main>
       <Footer />
     </>
