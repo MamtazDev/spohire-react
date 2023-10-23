@@ -1,7 +1,7 @@
 import React from 'react'
 import FooterLogo from '../../assets/footerLogo.png'
 import Ig from '../../assets/ig.png'
-import Fb from '../../assets/Fb.png'
+import Fb from '../../assets/fb.png'
 import LinkeDin from '../../assets/linkedin.png'
 import Twitter from '../../assets/twitter.png'
 import './Footer.css'
