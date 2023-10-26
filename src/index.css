@@ -74,14 +74,42 @@ a {
   margin-bottom: 130px;
 }
 
+.mb_40 {
+  margin-bottom: 35px;
+}
+
+.mb_60 {
+  margin-bottom: 55px;
+}
+
+.all_mb {
+  margin-bottom: 130px;
+}
+
 .fs_14 {
   font-size: 14px;
   line-height: 16px;
 }
 
+.fs_16 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.fs_28 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
 .fs_32 {
   font-size: 32px;
   line-height: 42px;
+}
+
+.fs_40 {
+  font-size: 40px;
+  font-weight: 700;
 }
 
 .fs_62 {
@@ -94,8 +122,31 @@ a {
   line-height: 92px;
 }
 
+
+.fs_18 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fs_15 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.fs_17 {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+
+
 .f_gilroy {
   font-family: 'Gilroy', sans-serif;
+}
+
+.f_sfPro {
+  font-family: 'SF Pro Display', sans-serif;
+
 }
 
 .text_color_19 {

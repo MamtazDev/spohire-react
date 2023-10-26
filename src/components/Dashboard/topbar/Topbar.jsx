@@ -14,8 +14,8 @@ const Topbar = () => {
 
         <div className="dashbord_topbar_title">
           <h2 className='text_color_36 fs-4 fw-medium text-capitalize'>
-            {location.pathname === '/dashboard/players' && 'Players'}
             {location.pathname === '/dashboard/jobOffers' && 'job offer'}
+            {location.pathname === '/dashboard/players' && 'Players'}
           </h2>
         </div>
 
@@ -27,13 +27,13 @@ const Topbar = () => {
             </span>
           </Link>
 
-          <Link to={"#"} className='add_btn d-flex gap-2 text-decoration-none bg_color_fb'>
+          <Link to={`${location.pathname === '/dashboard/jobOffers' ? '/dashboard/jobOffers' : '/dashboard/viewDetails'}`} className='add_btn d-flex gap-2 text-decoration-none bg_color_fb'>
             {location.pathname === '/dashboard/jobOffers' ? <img src={addIcon} alt="icon" /> : ''}
-            {/* <img src={addIcon} alt="icon" /> */}
             <span className='text-white'>
-              Add Job Offer
+              {location.pathname === '/dashboard/jobOffers' ? 'Add Job Offer' : 'View Details'}
             </span>
           </Link>
+
         </div>
       </div>
     </div>

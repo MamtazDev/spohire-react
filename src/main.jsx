@@ -12,6 +12,7 @@ import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLay
 import JobOffer from './pages/JobOffer';
 import JobOffers from './components/Dashboard/dashbordJobOffers/JobOffers';
 import Players from './components/Dashboard/players/Players';
+import ViewDetails from './components/Dashboard/viewDetails/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/players',
         element: <Players />
+      },
+      {
+        path: '/dashboard/viewDetails',
+        element: <ViewDetails />
       }
 
     ]

@@ -64,7 +64,7 @@ const FaqAccordion = () => {
                 </div>
                 <div>
                     {accoprdionData.map((data, index) => (
-                        <div key={index} className="accordion_items mb-4">
+                        <div key={index} className="accordion_items mb-4 m-auto">
                             <div
                                 onClick={() => setIsOpen(index === isOpen ? null : index)}
                                 className="d-flex align-items-center justify-content-between"

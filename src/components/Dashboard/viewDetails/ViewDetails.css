@@ -1,0 +1,68 @@
+/* Job Offers Start */
+
+
+.job_offer {
+    /* background-image: url("../assets/jobofferBg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;*/
+    padding: 100px 45px 50px 75px;
+    position: relative;
+}
+
+.job_offer::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(180deg, #FFF 0%, #EFF7FF 100%);
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.personalInfo {
+    border-radius: 16px;
+    border: 1px solid #DFE5F1;
+    background: #FFF;
+    padding: 31px 24px;
+    position: relative;
+}
+
+.personalInfo .message {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: -40px;
+    right: 16%;
+}
+
+.job_offerSlider {
+    text-align: center;
+}
+
+.job_offerSlider img {
+    border-radius: 7px;
+    max-width: 285px;
+    /* max-width: 196px; */
+}
+
+/* Job Offers End */
+
+@media only screen and (max-width:425px) {
+    .personalInfo .message {
+        right: 0;
+    }
+
+    .fs_40 {
+        font-size: 30px;
+    }
+
+    .fs_28 {
+        font-size: 20px;
+    }
+
+    .job_offer {
+        padding: 40px;
+    }
+}
