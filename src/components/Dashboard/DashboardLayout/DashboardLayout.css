@@ -1,0 +1,9 @@
+.dashobard_layout {
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+.dashobard_layout .dashbord_sidebar {
+    padding: 30px;
+    border-right: 2px solid #DFE5F1;
+    height: 100vh;
+}

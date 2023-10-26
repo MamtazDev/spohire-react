@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/gilroy:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 
 /* How it works section font family did not add i didn't get cdn */
 
@@ -40,6 +41,9 @@ a {
 :root {
   --color_19: #0A0119;
   --color_19_7: #0a01195e;
+  --color_36: #141736;
+  --color_cb: #A5B4CB;
+  --color_f1: #DFE5F1;
 }
 
 .container {
@@ -67,6 +71,11 @@ a {
   margin-bottom: 130px;
 }
 
+.fs_14 {
+  font-size: 14px;
+  line-height: 16px;
+}
+
 .fs_32 {
   font-size: 32px;
   line-height: 42px;
@@ -92,6 +101,18 @@ a {
 
 .text_color_19_7 {
   color: var(--color_19_7);
+}
+
+.text_color_36 {
+  color: var(--color_36);
+}
+
+.text_color_cb {
+  color: var(--color_cb);
+}
+
+.text_color_f1 {
+  color: var(--color_f1);
 }
 
 .section_padding {

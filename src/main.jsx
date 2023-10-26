@@ -9,6 +9,7 @@ import TransfarMarket from './pages/TransfarMarket';
 import JobOffer from './pages/JobOffer';
 import Announcements from './pages/Announcements';
 import Pricing from './pages/Pricing';
+import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,16 @@ const router = createBrowserRouter([
     path: '/pricing',
     element: <Pricing />
   },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      /*  {
+         path: '/dashboard',
+         // element:
+       }, */
+    ]
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
