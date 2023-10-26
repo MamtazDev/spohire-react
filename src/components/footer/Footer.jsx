@@ -9,13 +9,13 @@ import './Footer.css'
 const Footer = () => {
     return (
         <footer>
-            <div class="container">
-                <div class="row gy-5">
-                    <div class="col-12 col-xl-3 text-center">
-                        <img class="mx-auto" src={FooterLogo} alt="LOGO" />
+            <div className="container">
+                <div className="row gy-5">
+                    <div className="col-12 col-xl-3 text-center">
+                        <img className="mx-auto" src={FooterLogo} alt="LOGO" />
                     </div>
-                    <div class="col-12 col-lg-3 col-xl-3">
-                        <ul class="text-center text-lg-start">
+                    <div className="col-12 col-lg-3 col-xl-3">
+                        <ul className="text-center text-lg-start">
                             <li>
                                 Info
                             </li>
@@ -28,8 +28,8 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div class="col-12 col-lg-3 col-xl-2">
-                        <ul class="text-center text-lg-start">
+                    <div className="col-12 col-lg-3 col-xl-2">
+                        <ul className="text-center text-lg-start">
                             <li>
                                 Contact
                             </li>
@@ -51,9 +51,9 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div class="col-12 col-lg-6 col-xl-4">
+                    <div className="col-12 col-lg-6 col-xl-4">
                         <div></div>
-                        <div class="followBox d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                        <div className="followBox d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                             <p>Follow us</p>
                             <a href="#">
                                 <img src={Ig} alt="Instagram" />
@@ -71,7 +71,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <hr />
-                <div class="fooBottom d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
+                <div className="fooBottom d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
                     <a href="#">
                         Privacy policy
                     </a>

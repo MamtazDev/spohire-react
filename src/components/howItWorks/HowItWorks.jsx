@@ -12,12 +12,12 @@ const HowItWorks = () => {
     }
 
     return (
-        <section class="workBg">
+        <section className="workBg">
             <section id="signUp">
-                <div class="container Work_container">
+                <div className="container Work_container">
                     <h3>How it works</h3>
                     <div
-                        class="tabOutter d-flex flex-column flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
+                        className="tabOutter d-flex flex-column flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
                         <button className={worksTab === 'player' ? 'btnActive' : ''} onClick={() => handleTabClick('player')} >
                             Player
                         </button>
@@ -31,44 +31,44 @@ const HowItWorks = () => {
 
                     {
                         worksTab === 'player' && (
-                            <div class="row gy-4">
-                                <div class="col-12 col-xl-6">
-                                    <div class="d-flex flex-column gap-4 h-100">
+                            <div className="row gy-4">
+                                <div className="col-12 col-xl-6">
+                                    <div className="d-flex flex-column gap-4 h-100">
                                         <div
-                                            class="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
-                                            <div class="local d-flex flex-column align-items-center align-items-lg-start">
-                                                <p class="mb-2">
+                                            className="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            <div className="local d-flex flex-column align-items-center align-items-lg-start">
+                                                <p className="mb-2">
                                                     Local News, Teams & Players
                                                 </p>
-                                                <button class="d-block">Allow Location</button>
+                                                <button className="d-block">Allow Location</button>
 
                                             </div>
-                                            <img class="img-fluid" src={localOne} alt="img" />
-                                            <img class="img-fluid" src={localTwo} alt="img" />
+                                            <img className="img-fluid" src={localOne} alt="img" />
+                                            <img className="img-fluid" src={localTwo} alt="img" />
                                         </div>
 
                                         <div
-                                            class="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
-                                            <div class="playerBox">
-                                                <p class="mb-2">
+                                            className="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            <div className="playerBox">
+                                                <p className="mb-2">
                                                     Robert Lewandowski
                                                 </p>
-                                                <div class="d-flex justify-content-start gap-2">
+                                                <div className="d-flex justify-content-start gap-2">
                                                     <div
-                                                        class="d-flex flex-column justify-content-start gap-2 align-items-center">
+                                                        className="d-flex flex-column justify-content-start gap-2 align-items-center">
                                                         <span>Place of birth:</span>
                                                         <span>Current Team:</span>
                                                     </div>
                                                     <div
-                                                        class="d-flex flex-column justify-content-end gap-2 align-items-center">
+                                                        className="d-flex flex-column justify-content-end gap-2 align-items-center">
                                                         <span>Poland</span>
                                                         <span>Barcelona</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img class="img-fluid" src={Robert} alt="img" />
-                                            <div class="detailBox d-flex justify-content-between align-items-start gap-3">
-                                                <div class="d-flex flex-column justify-content-start gap-2">
+                                            <img className="img-fluid" src={Robert} alt="img" />
+                                            <div className="detailBox d-flex justify-content-between align-items-start gap-3">
+                                                <div className="d-flex flex-column justify-content-start gap-2">
                                                     <span>Age:</span>
                                                     <span style={{ background: "#F4DBFF" }}>Height :</span>
                                                     <span style={{ background: "#FFE3D4" }}>Weight:</span>
@@ -80,29 +80,29 @@ const HowItWorks = () => {
                                         </div>
 
                                         <div
-                                            class="leftBlueBox d-flex flex-column-reverse flex-lg-row  justify-content-between align-items-start gap-4">
-                                            <div class="d-flex flex-column gap-4">
-                                                <div class="d-flex justify-content-start gap-2 align-items-center">
-                                                    <div class="numTag ">
+                                            className="leftBlueBox d-flex flex-column-reverse flex-lg-row  justify-content-between align-items-start gap-4">
+                                            <div className="d-flex flex-column gap-4">
+                                                <div className="d-flex justify-content-start gap-2 align-items-center">
+                                                    <div className="numTag ">
                                                         <p>03</p>
                                                     </div>
-                                                    <div class="connect">
+                                                    <div className="connect">
                                                         <p>Connect With Us</p>
-                                                        <span class="d-block">Wait for contact with your new team.</span>
+                                                        <span className="d-block">Wait for contact with your new team.</span>
                                                     </div>
                                                 </div>
-                                                <div class="d-flex justify-content-start gap-2 align-items-center">
-                                                    <div class="numTag ">
+                                                <div className="d-flex justify-content-start gap-2 align-items-center">
+                                                    <div className="numTag ">
                                                         <p>04</p>
                                                     </div>
-                                                    <div class="connect">
+                                                    <div className="connect">
                                                         <p>Connect With Us</p>
-                                                        <span class="d-block">Wait for contact with your new team.</span>
+                                                        <span className="d-block">Wait for contact with your new team.</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <button class="d-flex justify-content-center gap-2 align-items-center">
+                                                <button className="d-flex justify-content-center gap-2 align-items-center">
                                                     Filter
                                                     <img src={Filter} alt="Filter" />
                                                 </button>
@@ -111,19 +111,19 @@ const HowItWorks = () => {
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-xl-6">
-                                    <div class="howWorkRight h-100">
-                                        <div class="ps-2">
+                                <div className="col-12 col-xl-6">
+                                    <div className="howWorkRight h-100">
+                                        <div className="ps-2">
                                             <p>Sign Up</p>
-                                            <span class="d-block">
+                                            <span className="d-block">
                                                 Create an account ad add your<br /> profile for those loking.
                                             </span>
                                         </div>
 
                                         <form>
-                                            <div class="d-flex flex-column justify-content-start gap-3">
+                                            <div className="d-flex flex-column justify-content-start gap-3">
                                                 <div
-                                                    class="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
                                                     <div>
                                                         <label for="fName">First Name</label>
                                                         <input type="text" name="firstName" id="fName" />
@@ -134,7 +134,7 @@ const HowItWorks = () => {
                                                     </div>
                                                 </div>
                                                 <div
-                                                    class="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
                                                     <div>
                                                         <label for="email">Email Address</label>
                                                         <input type="email" name="email" id="email" />
@@ -148,8 +148,8 @@ const HowItWorks = () => {
                                                     <p>
                                                         Kind Of Sports
                                                     </p>
-                                                    <div class="d-flex flex-column flex-md-row justify-content-start gap-4">
-                                                        <div class="playOption">
+                                                    <div className="d-flex flex-column flex-md-row justify-content-start gap-4">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="football" id="football" />
                                                                 <label for="football">
@@ -158,7 +158,7 @@ const HowItWorks = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div class="playOption">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="Baskeball" id="baskeball" />
                                                                 <label for="baskeball">
@@ -167,7 +167,7 @@ const HowItWorks = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div class="playOption">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="handball" id="handball" />
                                                                 <label for="handball">
@@ -176,7 +176,7 @@ const HowItWorks = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div class="playOption">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="vollyeball" id="vollyeball" />
                                                                 <label for="vollyeball">
@@ -188,8 +188,8 @@ const HowItWorks = () => {
                                                 </div>
                                                 <div>
                                                     <p>You</p>
-                                                    <div class="d-flex flex-column flex-md-row justify-content-start gap-4">
-                                                        <div class="playOption">
+                                                    <div className="d-flex flex-column flex-md-row justify-content-start gap-4">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="player" id="player" />
                                                                 <label for="player">
@@ -198,7 +198,7 @@ const HowItWorks = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div class="playOption">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="manager" id="manager" />
                                                                 <label for="manager">
@@ -207,7 +207,7 @@ const HowItWorks = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div class="playOption">
+                                                        <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="coach" id="coach" />
                                                                 <label for="coach">
