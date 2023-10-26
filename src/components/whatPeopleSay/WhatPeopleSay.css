@@ -77,4 +77,40 @@
     border: none;
     background: transparent;
 }
+
 /* What people say End */
+
+.carousel-item {
+    height: 600px;
+}
+
+.carousel-caption {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.carousel-indicators {
+    display: none;
+}
+
+.carousel-control-prev {
+    display: none;
+}
+
+.carousel-control-next {
+    width: unset;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: unset;
+    opacity: 1;
+}
+
+.carousel-control-next-icon {
+    background-image: url('../../assets/carousel-control.png') !important;
+    filter: unset !important;
+    width: 99.508px;
+    height: 99.508px;
+
+}
