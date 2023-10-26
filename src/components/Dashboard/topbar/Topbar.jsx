@@ -7,14 +7,15 @@ import addIcon from '../../../assets/add-icon.svg'
 
 const Topbar = () => {
   let location = useLocation();
+
   return (
     <div className='dashbord_topbar'>
       <div className="dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
 
         <div className="dashbord_topbar_title">
           <h2 className='text_color_36 fs-4 fw-medium text-capitalize'>
-            {location.pathname === '/dashboard/jobOffers' && 'job offers'}
             {location.pathname === '/dashboard/players' && 'Players'}
+            {location.pathname === '/dashboard/jobOffers' && 'job offer'}
           </h2>
         </div>
 
@@ -27,7 +28,8 @@ const Topbar = () => {
           </Link>
 
           <Link to={"#"} className='add_btn d-flex gap-2 text-decoration-none bg_color_fb'>
-            <img src={addIcon} alt="icon" />
+            {location.pathname === '/dashboard/jobOffers' ? <img src={addIcon} alt="icon" /> : ''}
+            {/* <img src={addIcon} alt="icon" /> */}
             <span className='text-white'>
               Add Job Offer
             </span>
