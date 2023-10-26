@@ -1,5 +1,7 @@
 .accordion .accordion_items {
     max-width: 920px;
+    border-bottom: 1px solid #CECCD1;
+    padding-bottom: 27px;
 }
 
 .accordion .container {
