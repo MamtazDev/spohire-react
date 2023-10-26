@@ -6,12 +6,31 @@
     border-bottom: 1px solid var(--color_f1);
 }
 
-.dashbord_sidebar {}
+.dashbord_sidebar .overview {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--color_f1);
+}
 
-.dashbord_sidebar {}
+.dashbord_sidebar .menu_link .menu_wrapper_one {
+    padding-top: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color_f1);
+}
 
-.dashbord_sidebar {}
+.dashbord_sidebar .menu_link .menu_wrapper_two {
+    padding-top: 16px;
+}
 
-.dashbord_sidebar {}
+.dashbord_sidebar .menu_link .nav_item {
+    margin-bottom: 24px;
+}
 
-.dashbord_sidebar {}
+.dashbord_sidebar .dashbord_sidebar_content {
+    height: 90%;
+}
+
+.dashbord_sidebar .dashbord_sidebar_content .bottom .logout {
+    padding-top: 35px;
+    border-top: 1px solid var(--color_f1);
+}

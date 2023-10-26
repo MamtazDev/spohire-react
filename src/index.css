@@ -44,6 +44,8 @@ a {
   --color_36: #141736;
   --color_cb: #A5B4CB;
   --color_f1: #DFE5F1;
+  --color_fb: #0177FB;
+  --color_80: #546580;
 }
 
 .container {
@@ -113,6 +115,18 @@ a {
 
 .text_color_f1 {
   color: var(--color_f1);
+}
+
+.text_color_80 {
+  color: var(--color_80);
+}
+
+.bg_color_fb {
+  background-color: var(--color_fb);
+}
+
+.text_color_fb {
+  color: var(--color_fb);
 }
 
 .section_padding {
