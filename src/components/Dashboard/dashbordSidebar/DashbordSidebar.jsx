@@ -12,7 +12,9 @@ import messageIcon from '../../../assets/messages-icon.svg'
 import settingsIcon from '../../../assets/settings-icon.svg'
 import helpIcon from '../../../assets/help-icon.svg'
 import logoutIcon from '../../../assets/logout-icon.svg'
-import { Accordion, Nav } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
+import basketBallIcon from '../../../assets/basketBall-icon.svg'
+import coachesIcon from '../../../assets/coaches-icon.svg'
 
 const DashbordSidebar = () => {
     return (
@@ -50,56 +52,49 @@ const DashbordSidebar = () => {
                     </div>
 
                     <div className="menu_link">
-
-                        <Accordion defaultActiveKey="0">
-                            <Nav defaultActiveKey="/home" className="flex-column">
-                                <Nav.Item>
-                                    <Nav.Link as={Link} to="/home">
-                                        Home
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Accordion.Toggle eventKey="0">
-                                    Dropdown
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="0">
-                                    <Nav.Item>
-                                        <Link to={"subMenu"}>
-                                            Submenu 1
-                                        </Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Link to={"subMenutwo"}>
-                                            Submenu 2
-                                        </Link>
-                                    </Nav.Item>
-                                </Accordion.Collapse>
-                            </Nav>
-                        </Accordion>
-
-
-
-
-
-
-
-
-
-
-
                         <ul className='menu_wrapper_one list-unstyled m-0'>
-                            <li className='nav_item'>
-                                <Link to={"#"} className='text-decoration-none d-flex align-items-center gap-4'>
-                                    <img src={transfarIcon} alt="icon" />
-                                    <span to={"#"} className='text_color_36 text-capitalize fs-6'>
-                                        Transfer Market
-                                    </span>
-                                </Link>
-                            </li>
+                            <Accordion className='nav_item'>
+                                <Accordion.Item eventKey="0" className='border-0'>
+                                    <Accordion.Header className='p-0'>
+                                        <li className=''>
+                                            <Link to={"#"} className='text-decoration-none d-flex align-items-center gap-4'>
+                                                <img src={transfarIcon} alt="icon" />
+                                                <span to={"#"} className='text_color_36 text-capitalize fs-6'>
+                                                    Transfer Market
+                                                </span>
+                                            </Link>
+                                        </li>
+                                    </Accordion.Header>
+                                    <Accordion.Body className='pb-0'>
+                                        <ul className='list-unstyled' style={{ paddingLeft: '30px' }}>
+                                            <li className='nav_item'>
+                                                <Link to={"/dashboard/players"} className='text-decoration-none d-flex align-items-center gap-3'>
+                                                    <img src={basketBallIcon} alt="icon" />
+                                                    <span to={"#"} className='text_color_36 text-capitalize fs-6'>
+                                                        Players
+                                                    </span>
+                                                </Link>
+                                            </li>
+
+                                            <li className=''>
+                                                <Link to={"#"} className='text-decoration-none d-flex align-items-center gap-3'>
+                                                    <img src={coachesIcon} alt="icon" />
+                                                    <span to={"#"} className='text_color_36 text-capitalize fs-6'>
+                                                        Coaches
+                                                    </span>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+
+
 
                             <li className='nav_item'>
-                                <Link to={"#"} className='text-decoration-none d-flex align-items-center gap-4'>
+                                <Link to={"/dashboard/jobOffers"} className='text-decoration-none d-flex align-items-center gap-4'>
                                     <img src={jobOfferIcon} alt="icon" />
-                                    <span to={"#"} className='text_color_36 text-capitalize fs-6'>
+                                    <span className='text_color_36 text-capitalize fs-6'>
                                         Job Offers
                                     </span>
                                 </Link>

@@ -3,6 +3,11 @@
 }
 
 .dashobard_layout .dashbord_sidebar {
+    background-color: white;
+    position: fixed;
+    width: inherit;
+    top: 0;
+    left: 0;
     padding: 30px;
     border-right: 2px solid #DFE5F1;
     height: 100vh;
@@ -10,4 +15,5 @@
 
 .dashobard_layout .dashbord_content {
     padding: 30px;
+    margin-top: 90px;
 }

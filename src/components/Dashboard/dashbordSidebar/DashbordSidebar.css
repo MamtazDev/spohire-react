@@ -34,3 +34,24 @@
     padding-top: 35px;
     border-top: 1px solid var(--color_f1);
 }
+
+.accordion-button{
+    padding: 0;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed{
+    border-radius: 0;
+}
+
+.accordion-item:first-of-type .accordion-button{
+    border-radius: 0;
+}
+
+.accordion-button:not(.collapsed){
+    background-color: white;
+    box-shadow: none;
+}

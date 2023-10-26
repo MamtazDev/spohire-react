@@ -46,6 +46,7 @@ a {
   --color_f1: #DFE5F1;
   --color_fb: #0177FB;
   --color_80: #546580;
+  --color_55: #2B2E55;
 }
 
 .container {
@@ -119,6 +120,10 @@ a {
 
 .text_color_80 {
   color: var(--color_80);
+}
+
+.text_color_55{
+  color: var(--color_55);
 }
 
 .bg_color_fb {

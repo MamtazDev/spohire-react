@@ -11,6 +11,7 @@ import Pricing from './pages/Pricing';
 import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';
 import JobOffer from './pages/JobOffer';
 import JobOffers from './components/Dashboard/dashbordJobOffers/JobOffers';
+import Players from './components/Dashboard/players/Players';
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,12 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/jobOffers',
         element: <JobOffers />
+      },
+      {
+        path: '/dashboard/players',
+        element: <Players />
       }
+
     ]
 
   }

@@ -1,18 +1,20 @@
 import React from 'react'
 import './Topbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import filterIcon from '../../../assets/filter-icon.svg'
 import addIcon from '../../../assets/add-icon.svg'
 
 
 const Topbar = () => {
+  let location = useLocation();
   return (
     <div className='dashbord_topbar'>
       <div className="dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
 
         <div className="dashbord_topbar_title">
-          <h2 className='text_color_36 fs-4 fw-medium'>
-            Job Offers
+          <h2 className='text_color_36 fs-4 fw-medium text-capitalize'>
+            {location.pathname === '/dashboard/jobOffers' && 'job offers'}
+            {location.pathname === '/dashboard/players' && 'Players'}
           </h2>
         </div>
 

@@ -3,8 +3,6 @@
     border-bottom: 1px solid var(--color_f1);
 }
 
-.dashbord_topbar .dashbord_topbar_wrapper {}
-
 .dashbord_topbar .dashbord_topbar_button .filter_btn {
     padding: 10px 14px;
     border-radius: 8px;
@@ -17,6 +15,10 @@
     border: 2px solid var(--color_fb);
 }
 
-.dashbord_topbar {}
+.dashbord_topbar {
+    position: fixed;
+    width: inherit;
+    background-color: white;
+}
 
 .dashbord_topbar {}
