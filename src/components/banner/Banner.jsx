@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 
 const Banner = () => {
     return (
-        <section class="banner mb_40">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="bannerContent">
+        <section className="banner mb_40">
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div className="bannerContent">
                             <span>Sports + Announcements only for you</span>
-                            <img class="mb-2 img-fluid" src={readyToget} alt="Ready to get" />
+                            <img className="mb-2 img-fluid" src={readyToget} alt="Ready to get" />
                             <h1>
                                 Get matched with new sports club
                             </h1>
@@ -20,9 +20,9 @@ const Banner = () => {
                             <Link to="#" className='text-decoration'>Get Started Now</Link>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="text-center">
-                            <img class="img-fluid" src={bannerImg} alt="Banner" />
+                    <div className="col-12 col-md-6">
+                        <div className="text-center">
+                            <img className="img-fluid" src={bannerImg} alt="Banner" />
                         </div>
                     </div>
                 </div>

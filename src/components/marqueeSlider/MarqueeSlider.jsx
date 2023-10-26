@@ -5,8 +5,8 @@ import MarqueeContent from '../marqueeContent/MarqueeContent'
 
 const MarqueeSlider = () => {
     return (
-        <section class="all_mb">
-            <div class="marque-container">
+        <section className="all_mb">
+            <div className="marque-container">
                 <Marquee>
                     <MarqueeContent />
                 </Marquee>
