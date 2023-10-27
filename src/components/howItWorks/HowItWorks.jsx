@@ -17,7 +17,7 @@ const HowItWorks = () => {
                 <div className="container Work_container">
                     <h3>How it works</h3>
                     <div
-                        className="tabOutter d-flex flex-column flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
+                        className="tabOutter d-flex  flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
                         <button className={worksTab === 'player' ? 'btnActive' : ''} onClick={() => handleTabClick('player')} >
                             Player
                         </button>
@@ -35,19 +35,19 @@ const HowItWorks = () => {
                                 <div className="col-12 col-xl-6">
                                     <div className="d-flex flex-column gap-4 h-100">
                                         <div
-                                            className="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            className="innerWhiteBox d-flex  flex-lg-row justify-content-center align-items-center gap-2 w-100">
                                             <div className="local d-flex flex-column align-items-center align-items-lg-start">
                                                 <p className="mb-2">
                                                     Local News, Teams & Players
                                                 </p>
                                                 <button className="d-block">Allow Location</button>
                                             </div>
-                                            <img className="img-fluid" src={localOne} alt="img" />
-                                            <img className="img-fluid" src={localTwo} alt="img" />
+                                            <img className="img-fluid img1" src={localOne} alt="img" />
+                                            <img className="img-fluid img2" src={localTwo} alt="img" />
                                         </div>
 
                                         <div
-                                            className="innerWhiteBox d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            className="innerWhiteBox d-flex  flex-lg-row justify-content-center align-items-center gap-2 w-100 innerBox2">
                                             <div className="playerBox">
                                                 <p className="mb-2">
                                                     Robert Lewandowski
@@ -65,7 +65,7 @@ const HowItWorks = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img className="img-fluid" src={Robert} alt="img" />
+                                            <img className="img-fluid img3" src={Robert} alt="img" />
                                             <div className="detailBox d-flex justify-content-between align-items-start gap-3">
                                                 <div className="d-flex flex-column justify-content-start gap-2">
                                                     <span>Age:</span>
@@ -122,7 +122,7 @@ const HowItWorks = () => {
                                         <form>
                                             <div className="d-flex flex-column justify-content-start gap-3">
                                                 <div
-                                                    className="txtInput  d-flex flex-column flex-md-row  justify-content-between align-items-center">
+                                                    className="txtInput flex-wrap    d-flex flex-column flex-md-row justify-content-between align-items-center">
                                                     <div>
                                                         <label for="fName">First Name</label>
                                                         <input type="text" name="firstName" id="fName" />

@@ -13,7 +13,7 @@ const Feature = () => {
                         <div className="col-12 col-lg-4">
                             <h2>Some features of spohire</h2>
                         </div>
-                        <div className="col-12 col-md-4"></div>
+                        <div className="col-12 col-md-4 feature_mobile"></div>
                         <div className="col-12 col-lg-4">
                             <p>I can tell you first hand, ChainGPT is absolutely amazing. They have helped me and my
                                 team speed up our working process by 125%. The access to blockchain information was
@@ -78,7 +78,7 @@ const Feature = () => {
                 </div>
             </div>
         </section>
-    )
+    )   
 }
 
 export default Feature

@@ -220,17 +220,6 @@ a {
     margin-top: 30px !important;
   }
 
-  .banner .bannerContent {
-    padding-top: 90px !important;
-  }
-
-  .banner .bannerContent h1 {
-    font-size: 60px !important;
-  }
-
-  .banner-right-image {
-    margin-top: 50px !important;
-  }
 
   .feature .featureBoxStart,
   .feature .featureBoxMiddle,
@@ -244,10 +233,151 @@ a {
 
   .fs_82 {
     font-size: 60px !important;
-    line-height:70px;
+    line-height: 70px;
   }
-  .right_content_wrapper{
+
+  .right_content_wrapper {
     margin-top: 30px;
     text-align: center;
+  }
+
+  .carousel-control-next-icon {
+    display: none !important;
+  }
+
+  .star_design {
+    margin: 7px;
+  }
+
+  .carousel-item {
+    height: 1250px !important;
+  }
+
+  /* banner */
+  .banner .bannerContent span {
+    font-size: 8.5px !important;
+    padding: 6px 19px !important;
+  }
+
+  .banner .bannerContent {
+    text-align: center;
+  }
+
+  .banner .bannerContent {
+    padding-top: 40px !important;
+  }
+
+  .banner .bannerContent h1 {
+    font-size: 36px !important;
+  }
+
+  .banner-right-image {
+    margin-top: 50px !important;
+  }
+
+  .banner .bannerContent p {
+    font-size: 10.8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .banner .bannerContent a {
+    padding: 10px 16px !important;
+    font-size: 9px !important;
+  }
+
+  /* banner */
+
+  /* some features */
+  .feature .featureTop h2 {
+    font-size: 24px !important;
+  }
+
+  .feature .featureTop p {
+    font-size: 10px !important;
+  }
+
+  .featureTop {
+    text-align: center;
+  }
+
+  .feature_mobile {
+    display: none !important;
+  }
+
+  .feature .featureBottom h4 {
+    font-size: 17px !important;
+  }
+
+  .feature .featureBottom p {
+    font-size: 9.5px !important;
+  }
+
+  /* some features */
+
+  /* work */
+  .workBg h3 {
+    font-size: 24px !important;
+  }
+
+  .workBg .tabOutter button {
+    font-size: 13.465px !important;
+    padding: 11px 35px !important;
+  }
+
+  .workBg .local p {
+    font-size: 16.161px !important;
+  }
+
+  .workBg .local button {
+    font-size: 11.408px !important;
+    padding: 7px 11px !important;
+  }
+
+  .workBg .innerWhiteBox {
+    padding: 17px 24px !important;
+  }
+
+  .Work_container {
+    width: 100% !important;
+  }
+
+  .workBg .tabOutter {
+    width: 100% !important;
+  }
+
+  .workBg .playerBox p {
+    font-size: 12.801px !important;
+  }
+
+  .img1 {
+    width: 82.706px !important;
+    height: 41.829px !important;
+  }
+
+  .img2 {
+    width: 72.249px !important;
+    height: 72.992px !important;
+  }
+
+  .img3 {
+    width: 83.388px !important;
+    height: 41.966px !important;
+  }
+
+  .local {
+    align-items: start !important;
+  }
+
+  .workBg .playerBox span,
+  .workBg .detailBox span {
+    font-size: 8.534px !important;
+    padding: 4px 6px !important;
+
+  }
+
+  .workBg .detailBox p {
+    font-size: 8.534px !important;
+    padding: 5px 10px !important;
   }
 }
