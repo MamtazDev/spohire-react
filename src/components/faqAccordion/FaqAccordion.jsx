@@ -70,7 +70,7 @@ const FaqAccordion = () => {
                                 className="d-flex align-items-center justify-content-between"
                             >
                                 <p className="question text_color_19 fs-4 fw-medium">{data.ques}</p>
-                                <img src={isOpen === index ? minus : plus} alt="icon" />
+                                <img className='mobile_icon' src={isOpen === index ? minus : plus} alt="icon" />
                             </div>
                             {isOpen === index && <p className="answer text_color_19_7 fs-5 fw-medium">{data.ans}</p>}
                         </div>

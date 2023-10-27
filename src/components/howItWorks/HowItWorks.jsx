@@ -79,9 +79,9 @@ const HowItWorks = () => {
                                         </div>
 
                                         <div
-                                            className="leftBlueBox d-flex flex-column-reverse flex-lg-row  justify-content-between align-items-start gap-4">
+                                            className="leftBlueBox d-flex  flex-lg-row  justify-content-between align-items-start gap-4">
                                             <div className="d-flex flex-column gap-4">
-                                                <div className="d-flex justify-content-start gap-2 align-items-center">
+                                                <div className="d-flex justify-content-start gap-2 align-items-center mobile_numtag">
                                                     <div className="numTag ">
                                                         <p>03</p>
                                                     </div>
@@ -90,7 +90,7 @@ const HowItWorks = () => {
                                                         <span className="d-block">Wait for contact with your new team.</span>
                                                     </div>
                                                 </div>
-                                                <div className="d-flex justify-content-start gap-2 align-items-center">
+                                                <div className="d-flex justify-content-start gap-2 align-items-center mobile_numtag">
                                                     <div className="numTag ">
                                                         <p>04</p>
                                                     </div>
@@ -122,7 +122,7 @@ const HowItWorks = () => {
                                         <form>
                                             <div className="d-flex flex-column justify-content-start gap-3">
                                                 <div
-                                                    className="txtInput flex-wrap    d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput flex-wrap    d-flex  flex-md-row justify-content-between align-items-center">
                                                     <div>
                                                         <label for="fName">First Name</label>
                                                         <input type="text" name="firstName" id="fName" />
@@ -133,7 +133,7 @@ const HowItWorks = () => {
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput d-flex flex-md-row justify-content-between align-items-center">
                                                     <div>
                                                         <label for="email">Email Address</label>
                                                         <input type="email" name="email" id="email" />
@@ -147,7 +147,7 @@ const HowItWorks = () => {
                                                     <p>
                                                         Kind Of Sports
                                                     </p>
-                                                    <div className="d-flex flex-column flex-md-row justify-content-start gap-4">
+                                                    <div className="d-flex  flex-md-row justify-content-start gap-4">
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="football" id="football" />
@@ -187,7 +187,7 @@ const HowItWorks = () => {
                                                 </div>
                                                 <div>
                                                     <p>You</p>
-                                                    <div className="d-flex flex-column flex-md-row justify-content-start gap-4">
+                                                    <div className="d-flex  flex-md-row justify-content-start gap-4">
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="player" id="player" />

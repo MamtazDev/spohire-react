@@ -7,7 +7,7 @@ const WhyWe = () => {
     return (
         <section id='whyWe'>
             <div className="container">
-                <div className="row align-items-center">
+                <div className="row align-items-center why_we_mobile">
                     <div className="col-lg-6">
                         <div className="left_img">
                             <img className='img-fluid' src={BasketPerson} alt='baskert-person' />

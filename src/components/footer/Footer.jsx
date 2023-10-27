@@ -53,7 +53,7 @@ const Footer = () => {
 
                     <div className="col-12 col-lg-6 col-xl-4">
                         <div></div>
-                        <div className="followBox d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                        <div className="followBox d-flex flex-md-row justify-content-between align-items-center gap-3">
                             <p>Follow us</p>
                             <a href="#">
                                 <img src={Ig} alt="Instagram" />
@@ -71,7 +71,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <hr />
-                <div className="fooBottom d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
+                <div className="fooBottom d-flex  flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
                     <a href="#">
                         Privacy policy
                     </a>

@@ -11,12 +11,12 @@ const Trusted = () => {
         <section>
             <div className="container say_container all_mb">
                 <p className="trustContent mb-5">Trusted by Greatest Companies</p>
-                <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
-                    <img className="img-fluid" src={TrustCompanyOne} alt="Logo" />
-                    <img className="img-fluid" src={TrustCompanyTwo} alt="Logo" />
-                    <img className="img-fluid" src={TrustCompanyThree} alt="Logo" />
-                    <img className="img-fluid" src={TrustCompanyFour} alt="Logo" />
-                    <img className="img-fluid" src={TrustCompanyFive} alt="Logo" />
+                <div className="d-flex flex-wrap  flex-lg-row justify-content-between align-items-center gap-3 trustContent_mobile">
+                    <img className="img-fluid trust_img" src={TrustCompanyOne} alt="Logo" />
+                    <img className="img-fluid trust_img" src={TrustCompanyTwo} alt="Logo" />
+                    <img className="img-fluid trust_img" src={TrustCompanyThree} alt="Logo" />
+                    <img className="img-fluid trust_img" src={TrustCompanyFour} alt="Logo" />
+                    <img className="img-fluid trust_img" src={TrustCompanyFive} alt="Logo" />
                 </div>
             </div>
         </section>
