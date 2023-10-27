@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import loginBanner from "../../assets/login-banner.png";
+import loginBanner from "../../assets/sign-up.png";
 import arrowRight from "../../assets/ArrowRight.png";
 import { useState } from "react";
 import DateSelector from "./DateSelector";
@@ -239,23 +239,25 @@ const SignUp = () => {
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
-          <div className="col-lg-5 ">
+          <div className="col-lg-5 p-0">
             <div className="login-left_bg">
-              <img style={{ width: "100%" }} src={loginBanner} alt="" />
+              <h2 className="fs-3">Sign up</h2>
+              <p>
+                Fostering a sense of camaraderie and unity among athletes and
+                fans alike.
+              </p>
             </div>
           </div>
 
-          <div className="col-lg-7">
+          <div className="col-lg-7 p-0">
             <div className="login_wrapper">
               <div>
                 <h3>Create new account</h3>
                 <p>Fill all input to create a account</p>
                 <form>
                   <div className="row right-inner-addon input-container">
-                  <label htmlFor="">Full name</label>
+                    <label htmlFor="">Full name</label>
                     <div className="col-lg-6">
-                      
-
                       <input
                         type="text"
                         className="mt-2 form-control login_input"

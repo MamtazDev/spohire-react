@@ -71,3 +71,9 @@ input {
     box-shadow: none !important;
     outline: none !important;
 }
+
+.login-left_bg {
+    background-image: url(../../assets/sign-up.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
