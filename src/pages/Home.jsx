@@ -10,7 +10,6 @@ import Footer from '../components/footer/Footer'
 import WhyWe from '../components/whyWe/WhyWe'
 import FaqAccordion from '../components/faqAccordion/FaqAccordion'
 
-
 const Home = () => {
   return (
     <>

@@ -211,7 +211,7 @@
     border-radius: 8px;
     border: 1px solid #E6E5EC;
     background: #F5F3FA;
-    width: 222px;
+    /* width: 222px; */
     height: 52px;
     padding: 10px;
 }

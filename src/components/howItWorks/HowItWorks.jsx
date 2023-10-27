@@ -41,7 +41,6 @@ const HowItWorks = () => {
                                                     Local News, Teams & Players
                                                 </p>
                                                 <button className="d-block">Allow Location</button>
-
                                             </div>
                                             <img className="img-fluid" src={localOne} alt="img" />
                                             <img className="img-fluid" src={localTwo} alt="img" />
@@ -123,7 +122,7 @@ const HowItWorks = () => {
                                         <form>
                                             <div className="d-flex flex-column justify-content-start gap-3">
                                                 <div
-                                                    className="txtInput d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput  d-flex flex-column flex-md-row  justify-content-between align-items-center">
                                                     <div>
                                                         <label for="fName">First Name</label>
                                                         <input type="text" name="firstName" id="fName" />

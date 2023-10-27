@@ -173,7 +173,7 @@ a {
   color: var(--color_80);
 }
 
-.text_color_55{
+.text_color_55 {
   color: var(--color_55);
 }
 
@@ -210,4 +210,44 @@ a {
 
 .common_btn a:hover {
   opacity: 0.9;
+}
+
+
+
+
+@media (max-width:990px) {
+  .nav_form_small {
+    margin-top: 30px !important;
+  }
+
+  .banner .bannerContent {
+    padding-top: 90px !important;
+  }
+
+  .banner .bannerContent h1 {
+    font-size: 60px !important;
+  }
+
+  .banner-right-image {
+    margin-top: 50px !important;
+  }
+
+  .feature .featureBoxStart,
+  .feature .featureBoxMiddle,
+  .feature .featureBoxEnd {
+    padding: 20px 10px 30px 40px !important;
+  }
+
+  .right_content_wrapper {
+    padding-bottom: 50px !important;
+  }
+
+  .fs_82 {
+    font-size: 60px !important;
+    line-height:70px;
+  }
+  .right_content_wrapper{
+    margin-top: 30px;
+    text-align: center;
+  }
 }
