@@ -1,0 +1,7 @@
+.players .form-check {
+    min-height: 0;
+}
+
+.players .table>tbody {
+    vertical-align: middle !important;
+}

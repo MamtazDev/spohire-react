@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/gilroy:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 
 /* How it works section font family did not add i didn't get cdn */
 
@@ -13,7 +14,6 @@
 body {
   font-family: 'Gilroy', sans-serif;
 }
-
 
 h1,
 h2,
@@ -38,17 +38,29 @@ a {
   text-decoration: none;
 }
 
+:root {
+  --color_19: #0A0119;
+  --color_19_7: #0a01195e;
+  --color_36: #141736;
+  --color_cb: #A5B4CB;
+  --color_f1: #DFE5F1;
+  --color_fb: #0177FB;
+  --color_80: #546580;
+  --color_55: #2B2E55;
+}
+
 .container {
   max-width: 1720px;
 }
 
-/* .Work_container {
+.Work_container {
   max-width: 1472px;
 }
 
 .say_container {
   max-width: 1320px;
-} */
+}
+
 
 .mb_40 {
   margin-bottom: 35px;
@@ -62,9 +74,47 @@ a {
   margin-bottom: 130px;
 }
 
+.mb_40 {
+  margin-bottom: 35px;
+}
+
+.mb_60 {
+  margin-bottom: 55px;
+}
+
+.all_mb {
+  margin-bottom: 130px;
+}
+
+.fs_14 {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.fs_16 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.fs_28 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
 .fs_32 {
   font-size: 32px;
   line-height: 42px;
+}
+
+.fs_40 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.fs_62 {
+  font-size: 62px;
+  line-height: 72px;
 }
 
 .fs_82 {
@@ -72,13 +122,76 @@ a {
   line-height: 92px;
 }
 
+
+.fs_18 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fs_15 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.fs_17 {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+
+
 .f_gilroy {
   font-family: 'Gilroy', sans-serif;
+}
+
+.f_sfPro {
+  font-family: 'SF Pro Display', sans-serif;
+
+}
+
+.text_color_19 {
+  color: var(--color_19);
+}
+
+.text_color_19_7 {
+  color: var(--color_19_7);
+}
+
+.text_color_36 {
+  color: var(--color_36);
+}
+
+.text_color_cb {
+  color: var(--color_cb);
+}
+
+.text_color_f1 {
+  color: var(--color_f1);
+}
+
+.text_color_80 {
+  color: var(--color_80);
+}
+
+.text_color_55 {
+  color: var(--color_55);
+}
+
+.bg_color_fb {
+  background-color: var(--color_fb);
+}
+
+.text_color_fb {
+  color: var(--color_fb);
 }
 
 .section_padding {
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+.section_heading {
+  margin-bottom: 80px;
 }
 
 .common_btn a {
@@ -97,4 +210,180 @@ a {
 
 .common_btn a:hover {
   opacity: 0.9;
+}
+
+
+
+
+@media (max-width:990px) {
+  .nav_form_small {
+    margin-top: 30px !important;
+  }
+
+
+  .feature .featureBoxStart,
+  .feature .featureBoxMiddle,
+  .feature .featureBoxEnd {
+    padding: 20px 10px 30px 40px !important;
+  }
+
+  .right_content_wrapper {
+    padding-bottom: 50px !important;
+  }
+
+  .fs_82 {
+    font-size: 60px !important;
+    line-height: 70px;
+  }
+
+  .right_content_wrapper {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .carousel-control-next-icon {
+    display: none !important;
+  }
+
+  .star_design {
+    margin: 7px;
+  }
+
+  .carousel-item {
+    height: 1250px !important;
+  }
+
+  /* banner */
+  .banner .bannerContent span {
+    font-size: 8.5px !important;
+    padding: 6px 19px !important;
+  }
+
+  .banner .bannerContent {
+    text-align: center;
+  }
+
+  .banner .bannerContent {
+    padding-top: 40px !important;
+  }
+
+  .banner .bannerContent h1 {
+    font-size: 36px !important;
+  }
+
+  .banner-right-image {
+    margin-top: 50px !important;
+  }
+
+  .banner .bannerContent p {
+    font-size: 10.8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .banner .bannerContent a {
+    padding: 10px 16px !important;
+    font-size: 9px !important;
+  }
+
+  /* banner */
+
+  /* some features */
+  .feature .featureTop h2 {
+    font-size: 24px !important;
+  }
+
+  .feature .featureTop p {
+    font-size: 10px !important;
+  }
+
+  .featureTop {
+    text-align: center;
+  }
+
+  .feature_mobile {
+    display: none !important;
+  }
+
+  .feature .featureBottom h4 {
+    font-size: 17px !important;
+  }
+
+  .feature .featureBottom p {
+    font-size: 9.5px !important;
+  }
+
+  /* some features */
+
+  /* work */
+  .workBg h3 {
+    font-size: 24px !important;
+  }
+
+  .workBg .tabOutter button {
+    font-size: 13.465px !important;
+    padding: 11px 35px !important;
+  }
+
+  .workBg .local p {
+    font-size: 16.161px !important;
+  }
+
+  .workBg .local button {
+    font-size: 11.408px !important;
+    padding: 7px 11px !important;
+  }
+
+  .workBg .innerWhiteBox {
+    padding: 17px 24px !important;
+  }
+
+  .Work_container {
+    width: 100% !important;
+  }
+
+  .workBg .tabOutter {
+    width: 100% !important;
+  }
+
+  .workBg .playerBox p {
+    font-size: 12.801px !important;
+  }
+
+  .img1 {
+    width: 82.706px !important;
+    height: 41.829px !important;
+  }
+
+  .img2 {
+    width: 72.249px !important;
+    height: 72.992px !important;
+  }
+
+  .img3 {
+    width: 83.388px !important;
+    height: 41.966px !important;
+  }
+
+  .local {
+    align-items: start !important;
+  }
+
+  .workBg .playerBox span,
+  .workBg .detailBox span {
+    font-size: 8.534px !important;
+    padding: 4px 6px !important;
+
+  }
+
+  .workBg .detailBox p {
+    font-size: 8.534px !important;
+    padding: 5px 10px !important;
+  }
+
+  .workBg .leftBlueBox {
+    padding-top: 21px !important;
+  }
+
+
 }
