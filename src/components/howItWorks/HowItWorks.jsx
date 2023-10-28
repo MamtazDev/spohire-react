@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './HowItWorks.css'
 import localOne from '../../assets/local1.png'
 import localTwo from '../../assets/local2.png'
@@ -17,7 +17,7 @@ const HowItWorks = () => {
                 <div className="container Work_container">
                     <h3>How it works</h3>
                     <div
-                        className="tabOutter d-flex  flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
+                        className="tabOutter d-flex flex flex-wrap  flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
                         <button className={worksTab === 'player' ? 'btnActive' : ''} onClick={() => handleTabClick('player')} >
                             Player
                         </button>
@@ -35,7 +35,7 @@ const HowItWorks = () => {
                                 <div className="col-12 col-xl-6">
                                     <div className="d-flex flex-column gap-4 h-100">
                                         <div
-                                            className="innerWhiteBox d-flex  flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            className="innerWhiteBox d-flex  flex-wrap  flex-lg-row justify-content-center align-items-center gap-2 w-100">
                                             <div className="local d-flex flex-column align-items-center align-items-lg-start">
                                                 <p className="mb-2">
                                                     Local News, Teams & Players
@@ -47,7 +47,7 @@ const HowItWorks = () => {
                                         </div>
 
                                         <div
-                                            className="innerWhiteBox d-flex  flex-lg-row justify-content-center align-items-center gap-2 w-100 innerBox2">
+                                            className="innerWhiteBox d-flex  flex-wrap  flex-lg-row justify-content-center align-items-center gap-2 w-100 innerBox2">
                                             <div className="playerBox">
                                                 <p className="mb-2">
                                                     Robert Lewandowski
@@ -124,22 +124,22 @@ const HowItWorks = () => {
                                                 <div
                                                     className="txtInput flex-wrap    d-flex  flex-md-row justify-content-between align-items-center">
                                                     <div>
-                                                        <label for="fName">First Name</label>
+                                                        <label htmlFor="fName">First Name</label>
                                                         <input type="text" name="firstName" id="fName" />
                                                     </div>
                                                     <div>
-                                                        <label for="lName">Last Name</label>
+                                                        <label htmlFor="lName">Last Name</label>
                                                         <input type="text" name="lastName" id="lName" />
                                                     </div>
                                                 </div>
                                                 <div
-                                                    className="txtInput d-flex flex-md-row justify-content-between align-items-center">
+                                                    className="txtInput d-flex  flex-wrap  flex-md-row justify-content-between align-items-center">
                                                     <div>
-                                                        <label for="email">Email Address</label>
+                                                        <label htmlFor="email">Email Address</label>
                                                         <input type="email" name="email" id="email" />
                                                     </div>
                                                     <div>
-                                                        <label for="cellNo">Mobile Number</label>
+                                                        <label htmlFor="cellNo">Mobile Number</label>
                                                         <input type="text" name="phone" id="cellNo" />
                                                     </div>
                                                 </div>
@@ -147,11 +147,11 @@ const HowItWorks = () => {
                                                     <p>
                                                         Kind Of Sports
                                                     </p>
-                                                    <div className="d-flex  flex-md-row justify-content-start gap-4">
+                                                    <div className="d-flex   flex-wrap  flex-md-row justify-content-start gap-4">
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="football" id="football" />
-                                                                <label for="football">
+                                                                <label htmlFor="football">
                                                                     Football
                                                                 </label>
                                                             </div>
@@ -160,7 +160,7 @@ const HowItWorks = () => {
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="Baskeball" id="baskeball" />
-                                                                <label for="baskeball">
+                                                                <label htmlFor="baskeball">
                                                                     Baskeball
                                                                 </label>
                                                             </div>
@@ -169,7 +169,7 @@ const HowItWorks = () => {
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="handball" id="handball" />
-                                                                <label for="handball">
+                                                                <label htmlFor="handball">
                                                                     Handball
                                                                 </label>
                                                             </div>
@@ -178,7 +178,7 @@ const HowItWorks = () => {
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="vollyeball" id="vollyeball" />
-                                                                <label for="vollyeball">
+                                                                <label htmlFor="vollyeball">
                                                                     Vollyeball
                                                                 </label>
                                                             </div>
@@ -187,11 +187,11 @@ const HowItWorks = () => {
                                                 </div>
                                                 <div>
                                                     <p>You</p>
-                                                    <div className="d-flex  flex-md-row justify-content-start gap-4">
+                                                    <div className="d-flex  flex-wrap  flex-md-row justify-content-start gap-4">
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="player" id="player" />
-                                                                <label for="player">
+                                                                <label htmlFor="player">
                                                                     Player
                                                                 </label>
                                                             </div>
@@ -200,7 +200,7 @@ const HowItWorks = () => {
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="manager" id="manager" />
-                                                                <label for="manager">
+                                                                <label htmlFor="manager">
                                                                     Manager
                                                                 </label>
                                                             </div>
@@ -209,7 +209,7 @@ const HowItWorks = () => {
                                                         <div className="playOption">
                                                             <div>
                                                                 <input type="radio" name="coach" id="coach" />
-                                                                <label for="coach">
+                                                                <label htmlFor="coach">
                                                                     Coach
                                                                 </label>
                                                             </div>

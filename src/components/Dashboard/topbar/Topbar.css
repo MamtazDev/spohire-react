@@ -21,4 +21,42 @@
     background-color: white;
 }
 
-.dashbord_topbar {}
+.dashboard_mobile {
+    /* width: inherit; */
+    /* background-color: white; */
+}
+
+.job_title_mobile {
+    text-align: center;
+    margin-top: 30px;
+}
+.topbar_desk{
+    display: block !important;
+}
+.topbar_mobile{
+    display: none !important;
+}
+@media(max-width:768px) {
+    .dashbord_topbar .dashbord_topbar_button .add_btn {
+        padding: 10px 14px;
+        border-radius: 0px !important;
+        border: none !important;
+    }
+
+    .dashbord_topbar {
+        padding: 20px 40px 0px 30px;
+        border-bottom: 0 !important;
+        position: relative !important;
+    }
+
+    .dashbord_content {
+        margin-top: 32px !important;
+        padding-top: 0px !important;
+    }
+    .topbar_desk{
+        display: none !important;
+    }
+    .topbar_mobile{
+        display: block !important;
+    }
+}
