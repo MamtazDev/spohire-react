@@ -9,6 +9,9 @@
 .players_mobile {
     display: none !important;
 }
+.mobile_btns{
+    display: none !important;
+}
 
 @media(max-width:768px) {
     .players_desk {
@@ -18,6 +21,10 @@
     .players_mobile {
         display: block !important;
     }
+    .mobile_btns{
+        display: block !important;
+    }
+    
 }
 
 .players_wrapper {

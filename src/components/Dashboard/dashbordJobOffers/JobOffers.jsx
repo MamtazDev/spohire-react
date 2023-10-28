@@ -4,11 +4,11 @@ import locationIcon from "../../../assets/location-icon.svg";
 import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
 import starIcon from "../../../assets/starIcon.svg";
+import MobileButtons from "../players/MobileButtons";
 
 const JobOffers = () => {
   return (
     <div className="job_offers_wrapper">
-        
       <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
         <div className="job_offers_topBtn_left d-flex gap-4">
           <button className="fs-6 fw-medium text_color_80">Hybrid</button>
@@ -81,9 +81,7 @@ const JobOffers = () => {
           </>
         ))}
       </div>
-
-
-      
+      <MobileButtons />
     </div>
   );
 };
