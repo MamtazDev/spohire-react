@@ -240,10 +240,10 @@ const SignUp = () => {
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-5 p-0">
-            <div className="login-left_bg">
-              <h2 className="fs-3">Sign up</h2>
+            <div className="login-left_bg text-center pt-5 ">
+              <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
               <p>
-                Fostering a sense of camaraderie and unity among athletes and
+                Fostering a sense of camaraderie and unity <br /> among athletes and
                 fans alike.
               </p>
             </div>

@@ -1,22 +1,26 @@
-import loginBanner from "../../assets/login-banner.png";
 import arrowRight from "../../assets/ArrowRight.png";
-
 import { AiOutlineTwitter } from "react-icons/ai";
 import { RiGoogleLine } from "react-icons/ri";
 import { AiOutlineApple } from "react-icons/ai";
 import "./Login.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import LoginSlider from "./LoginSlider";
+
 const Login = () => {
   return (
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
-          <div className="col-lg-5 ">
-            <div className="login-left_bg">
-              <img style={{ width: "100%" }} src={loginBanner} alt="" />
+          <div className="col-lg-5 p-0">
+            <div className="login-left_bg_img">
+              <div className="login_slider">
+                <LoginSlider/>
+              </div>
             </div>
             {/* <h1>hello logion</h1> */}
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-7 p-0">
             <div className="login_wrapper">
               <div>
                 <h3>Log in</h3>
