@@ -607,7 +607,9 @@ a {
     line-height: normal !important;
   }
 }
-
+/* .job_offers_wrapper{
+  padding: 40px;
+} */
 @media(max-width:768px) {
   .dashbord_sidebar {
     display: none;

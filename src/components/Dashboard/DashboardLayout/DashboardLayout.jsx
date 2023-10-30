@@ -15,10 +15,7 @@ const DashboardLayout = () => {
             </div>
             <div className="col-lg-10 p-0">
               <Topbar className="deskTopbar" />
-              <MobileTopbar
-             
-                style={{ marginTop: "100px" }}
-              />
+              <MobileTopbar/>
               <div className="dashbord_content">
                 <Outlet />
               </div>

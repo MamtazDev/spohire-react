@@ -50,7 +50,7 @@ const Players = () => {
                 <td className="border-bottom-0"></td>
               </tr>
 
-              <tr>
+              <tr className="table_hover">
                 <td className="border-bottom-0">
                   <div className="player_info d-flex align-items-center gap-2">
                     <div className="form-check">
@@ -107,7 +107,6 @@ const Players = () => {
               </tr>
             </>
           ))}
-
           {/* blank tr for taking space */}
         </tbody>
       </Table>
