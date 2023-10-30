@@ -66,16 +66,29 @@
     font-weight: 400;
     line-height: normal;
 }
-.mobileTopbar{
+
+.mobileTopbar {
     display: none !important;
 }
-@media(max-width:768px) {
-    .deskTopbar{
+
+@media(max-width:1024px) {
+    .deskTopbar {
         display: none;
     }
-    .mobileTopbar{
+    .mobileTopbar {
         display: block !important;
     }
+}
+
+@media(max-width:768px) {
+  /*   .deskTopbar {
+        display: none;
+    }
+
+    .mobileTopbar {
+        display: block !important;
+    }
+ */
     .dashbord_topbar .dashbord_topbar_button .add_btn {
         padding: 10px 14px;
         border-radius: 0px !important;

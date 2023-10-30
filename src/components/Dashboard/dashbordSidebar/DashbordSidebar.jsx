@@ -1,4 +1,3 @@
-import React from 'react';
 import DashbordLogo from '../../../assets/dashbord-logo.png';
 import DashbordUser from '../../../assets/dashbord-user.png';
 import './DashbordSidebar.css'
