@@ -35,7 +35,7 @@ const HowItWorks = () => {
                                 <div className="col-12 col-xl-6">
                                     <div className="d-flex flex-column gap-4 h-100">
                                         <div
-                                            className="innerWhiteBox d-flex  flex-wrap  flex-lg-row justify-content-center align-items-center gap-2 w-100">
+                                            className="innerWhiteBox d-flex  flex-wrap flex-md-nowrap  flex-lg-row justify-content-center align-items-center gap-2 w-100">
                                             <div className="local d-flex flex-column align-items-center align-items-lg-start">
                                                 <p className="mb-2">
                                                     Local News, Teams & Players
