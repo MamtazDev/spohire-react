@@ -11,8 +11,8 @@ const Gallary = () => {
         spaceBetween={10}
         breakpoints={{
           430: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 3,
+            spaceBetween: 12,
           },
 
           768: {
