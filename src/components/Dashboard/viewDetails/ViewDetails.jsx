@@ -7,22 +7,21 @@ import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
-import sliderOne from "../../../assets/slader1.png";
-import sliderTwo from "../../../assets/slider2.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
+import Gallary from "./Gallary";
 
 const ViewDetails = () => {
   return (
-    <div className="View_details">
+    <div className="View_details container mb-5">
       {/* <!-- Personal Info Start --> */}
-      {/* <div className="job_offer">
+      <div className="job_offer desktop_vd ps-0">
         <div className="row">
-          <div className="col-12 col-lg-4 ">
-            <div className=" text-center text-lg-end">
+          <div className="col-12 col-lg-3 ">
+            <div className="">
               <img className="img-fluid" src={profileImage} alt="Profile" />
             </div>
           </div>
-          <div className="col-12 col-lg-8">
+          <div className="col-12 col-lg-9">
             <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
             <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
               Basketball
@@ -145,14 +144,13 @@ const ViewDetails = () => {
             </div>
           </div>
         </div>
-      </div> */}
-      <ViewDetailsMobile/>
+      </div>
+      <ViewDetailsMobile />
       {/* <!-- Personal Info End --> */}
-
       {/* <!-- Strengths, About Me part Start --> */}
-      <div className="strAbout mb_60">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+      <div className="strAbout mb_60 ">
+        <div className="row justify-content-start">
+          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">
               Strengths Advantages
             </p>
@@ -171,7 +169,7 @@ const ViewDetails = () => {
               </a>
             </p>
           </div>
-          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">About Me</p>
             <p className="f_sfPro text_color_cb fs_16">
               I started playing basketball because of my original favorite
@@ -191,7 +189,7 @@ const ViewDetails = () => {
             </p>
           </div>
 
-          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">
               Expectations From a New Club
             </p>
@@ -216,30 +214,8 @@ const ViewDetails = () => {
       {/* <!-- Strengths, About Me part End --> */}
 
       {/* <!-- Slider Start --> */}
-      <p className="f_sfPro text_color_36 fs_18 mb-4">Gallery</p>
-      <div className="row gy-3 mb_60">
-        <div className="col-12 col-md-6 col-lg-3">
-          <div className="job_offerSlider">
-            <img src={sliderOne} alt="img" />
-          </div>
-        </div>
-        <div className="col-12 col-md-6 col-lg-3">
-          <div className="job_offerSlider">
-            <img src={sliderTwo} alt="img" />
-          </div>
-        </div>
-        <div className="col-12 col-md-6 col-lg-3">
-          <div className="job_offerSlider">
-            <img src={sliderTwo} alt="img" />
-          </div>
-        </div>
-        <div className="col-12 col-md-6 col-lg-3">
-          <div className="job_offerSlider">
-            <img src={sliderTwo} alt="img" />
-          </div>
-        </div>
-      </div>
-
+      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-4">Gallery</p>
+      <Gallary />
       {/* <!-- Slider End --> */}
     </div>
   );

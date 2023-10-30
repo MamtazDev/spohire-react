@@ -12,12 +12,16 @@
 .mobile_btns{
     display: none !important;
 }
-
+.table_hover:hover{
+    border-radius: 10px !important;
+    border: 1px solid #0177FB; 
+    background: #FFF;
+    transition: 0.3s;
+}
 @media(max-width:768px) {
     .players_desk {
         display: none;
     }
-
     .players_mobile {
         display: block !important;
     }
@@ -33,8 +37,6 @@
     background: #FFF;
     box-shadow: 12px 12px 40px 0px rgba(0, 0, 0, 0.03);
     padding: 12px !important;
-    /* width: 175.873px;
-    height: 127.571px; */
 }
 
 .location_div {
@@ -43,7 +45,6 @@
 }
 
 .location_div p {
-    /* font-size: 14px; */
     font-style: normal;
     font-weight: 400;
     line-height: normal;

@@ -11,7 +11,7 @@ import edit from "../../../assets/edit.png";
 const ViewDetailsMobile = () => {
   return (
     <>
-      <div className="job_offer">
+      <div className="job_offer mobile_design_vd">
         <div className="d-flex justify-content-between mb-5">
           <div className="d-flex gap-3 ">
             <div className="">
@@ -107,7 +107,6 @@ const ViewDetailsMobile = () => {
               </div>
             </div>
           </div>
-
           <div>
             <p className="f_sfPro text_color_cb fs_15 mb-2">Experience</p>
             <div className="d-flex  flex-lg-row align-items-start gap-5">

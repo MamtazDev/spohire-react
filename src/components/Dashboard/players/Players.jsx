@@ -38,7 +38,7 @@ const Players = () => {
             <th className="fs_14 text_color_36 fw-normal">Status</th>
 
             <th className="fs_14 text_color_36 fw-normal">Action</th>
-            {/* ))} */}
+           
           </tr>
         </thead>
 
@@ -49,8 +49,7 @@ const Players = () => {
               <tr>
                 <td className="border-bottom-0"></td>
               </tr>
-
-              <tr>
+              <tr className="table_hover">
                 <td className="border-bottom-0">
                   <div className="player_info d-flex align-items-center gap-2">
                     <div className="form-check">
@@ -97,21 +96,19 @@ const Players = () => {
 
                 <td className="border-bottom-0 d-flex align-items-center">
                   <p className="text_color_55 fw-normal fs_14">
-                    <img src={startIcon} alt="star-icon" />
+                    <img src={startIcon} alt="star-icon" className="" />
                   </p>
 
                   <p className="text_color_55 fw-normal fs_14">
-                    <img src={messageIcon} alt="message-icon" />
+                    <img src={messageIcon} alt="message-icon"  className="ms-2"/>
                   </p>
                 </td>
               </tr>
             </>
           ))}
-
           {/* blank tr for taking space */}
         </tbody>
       </Table>
-
       <div className="players_mobile ">
         <div className=" d-flex flex-wrap gap-5 justify-content-center">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
