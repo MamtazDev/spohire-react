@@ -100,8 +100,8 @@ a {
 .fs_20 {
   font-size: 20px;
   font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .fs_28 {
@@ -606,28 +606,12 @@ line-height: normal;
     font-weight: 500 !important;
     line-height: normal !important;
   }
-
-  /* footer */
-
-  /* dashboard */
-  /* .dashobard_layout .dashbord_sidebar{
-  display: none;
-} */
-  /* dashboard */
-  /*   .filter_btn,.add_btn{
-    display: none !important;
-  } */
-
-
 }
 
 @media(max-width:768px) {
-
-
   .dashbord_sidebar {
     display: none;
   }
-
   .text_color_80 {
     font-size: 9.956px !important;
 
@@ -651,25 +635,12 @@ line-height: normal;
     width: 15.626px !important;
     height: 15.481px !important;
   }
-
-
-
-  
-}
-
-
-
-.swiper {
-  width: 100%;
-  height: 100%;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
