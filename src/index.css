@@ -97,6 +97,13 @@ a {
   font-weight: 400;
 }
 
+.fs_20 {
+  font-size: 20px;
+  font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
 .fs_28 {
   font-size: 28px;
   font-weight: 500;
@@ -607,7 +614,7 @@ a {
   display: none;
 } */
   /* dashboard */
-/*   .filter_btn,.add_btn{
+  /*   .filter_btn,.add_btn{
     display: none !important;
   } */
 
@@ -644,7 +651,8 @@ a {
     width: 15.626px !important;
     height: 15.481px !important;
   }
- /*  .filter_btn .add_btn{
+
+  /*  .filter_btn .add_btn{
     display: none !important;
   } */
 }

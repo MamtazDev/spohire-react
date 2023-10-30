@@ -168,7 +168,6 @@ const Players = () => {
           ))}
         </div>
       </div>
-
       <MobileButtons />
     </div>
   );
