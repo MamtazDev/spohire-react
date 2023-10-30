@@ -93,3 +93,20 @@
 }
 
 /* Banner End */
+
+@media screen and (max-width:767px) {
+    .banner .bannerContent span {
+        border-width: 0.8px !important;
+        font-size: 8.5px;
+        margin-bottom: 25px;
+    }
+
+    .banner .bannerContent h1 {
+        line-height: 46px;
+    }
+
+    .banner .bannerContent p {
+        color: #B5B3BA;
+        font-size: 10.8px;
+    }
+}
