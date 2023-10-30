@@ -1,7 +1,7 @@
 import profileImage from "../../../assets/mobile_profile.png";
-// import messageImage from "../../../assets/chatIconmb.png";
+import messageImage from "../../../assets/chatIconmb.png";
 // import messageImage from "../../../assets/message.png";
-// import star from "../../../assets/stariconmb.png";
+import star from "../../../assets/stariconmb.png";
 import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
@@ -27,10 +27,10 @@ const ViewDetailsMobile = () => {
           </div>
 
           {/* img */}
-          {/* <div className="d-flex gap-0 ">
-            <img className="" src={messageImage} alt="Message" />
-            <img className="" src={star} alt="Message" />
-          </div> */}
+          <div className="d-flex gap-0 ">
+            <img className="img-fluid" style={{marginRight:"24px"}} src={messageImage} alt="Message" />
+            <img className="img-fluid" src={star} alt="Message" />
+          </div>
         </div>
 
         {/* PERSONAL INFO */}

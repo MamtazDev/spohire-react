@@ -55,7 +55,7 @@
 }
 
 .dashbord_content {
-    margin-bottom: 150px;
+    margin-bottom: 70px;
 }
 
 .mobile_topbar p {
@@ -75,13 +75,15 @@
     .deskTopbar {
         display: none;
     }
+
     .mobileTopbar {
         display: block !important;
     }
 }
 
 @media(max-width:768px) {
-  /*   .deskTopbar {
+
+    /*   .deskTopbar {
         display: none;
     }
 
