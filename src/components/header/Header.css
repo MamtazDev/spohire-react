@@ -94,6 +94,11 @@
 /* Header End */
 
 @media screen and (max-width:767px) {
+    .navbar {
+        padding-top: 28px;
+        padding-bottom: 0;
+    }
+
     .navbar-nav {
         margin-top: 20px !important;
         gap: 20px
@@ -111,5 +116,6 @@
     .authBtn {
         background-image: url('../../assets/signupbgsm.png');
     }
+ 
 
 }
