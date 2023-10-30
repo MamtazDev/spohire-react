@@ -11,7 +11,7 @@ import edit from "../../../assets/edit.png";
 const ViewDetailsMobile = () => {
   return (
     <>
-      <div className="job_offer">
+      <div className="job_offer mobile_design_vd">
         <div className="d-flex justify-content-between mb-5">
           <div className="d-flex gap-3 ">
             <div className="">

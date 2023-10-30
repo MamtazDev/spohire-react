@@ -19,12 +19,9 @@
     position: fixed;
     width: inherit;
     background-color: white;
+    z-index: 100000;
 }
 
-.dashboard_mobile {
-    /* width: inherit; */
-    /* background-color: white; */
-}
 
 .job_title_mobile {
     text-align: center;

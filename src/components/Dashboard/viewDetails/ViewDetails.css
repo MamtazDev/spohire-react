@@ -60,6 +60,21 @@
     }
 }
 
+.mobile_design_vd {
+    display: none;
+}
+
+.strAbout {
+    padding-left: 30px;
+}
+.gap_57{
+    gap: 57px ;
+}
+
+.padding_left {
+   padding-left: 34px;
+}
+
 @media only screen and (max-width:768px) {
 
     .job_offer {
@@ -76,5 +91,13 @@
 
     .fs_17 {
         font-size: 12.089px !important;
+    }
+
+    .desktop_vd {
+        display: none;
+    }
+
+    .mobile_design_vd {
+        display: block;
     }
 }
