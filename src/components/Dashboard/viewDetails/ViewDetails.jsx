@@ -7,8 +7,6 @@ import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
-import sliderOne from "../../../assets/slader1.png";
-import sliderTwo from "../../../assets/slider2.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
 
@@ -149,7 +147,6 @@ const ViewDetails = () => {
       </div>
       <ViewDetailsMobile />
       {/* <!-- Personal Info End --> */}
-
       {/* <!-- Strengths, About Me part Start --> */}
       <div className="strAbout mb_60 ">
         <div className="row justify-content-start">
@@ -218,7 +215,6 @@ const ViewDetails = () => {
 
       {/* <!-- Slider Start --> */}
       <p className="f_sfPro text_color_36 fs_18 mb-4 ps-4">Gallery</p>
-
       <Gallary />
       {/* <!-- Slider End --> */}
     </div>

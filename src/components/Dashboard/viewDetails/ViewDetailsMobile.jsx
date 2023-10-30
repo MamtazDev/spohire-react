@@ -107,7 +107,6 @@ const ViewDetailsMobile = () => {
               </div>
             </div>
           </div>
-
           <div>
             <p className="f_sfPro text_color_cb fs_15 mb-2">Experience</p>
             <div className="d-flex  flex-lg-row align-items-start gap-5">
