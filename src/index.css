@@ -454,7 +454,7 @@ a {
 
   .workBg .howWorkRight form .txtInput input {
     padding: 0 !important;
-    width: 108.574px !important;
+    width: 100% !important;
     height: 24.517px !important;
   }
 
@@ -607,13 +607,22 @@ a {
     line-height: normal !important;
   }
 }
+
 /* .job_offers_wrapper{
   padding: 40px;
 } */
-@media(max-width:768px) {
+@media(max-width:1024px) {
   .dashbord_sidebar {
-    display: none;
+    display: none !important;
   }
+
+  .mobileTopbar {
+    display: block !important;
+  }
+}
+
+@media(max-width:768px) {
+
   .text_color_80 {
     font-size: 9.956px !important;
 
@@ -646,6 +655,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 30px !important;
+  max-width: 285px;
+  width: 100%;
 }
 
 .swiper-slide img {
