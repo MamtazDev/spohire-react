@@ -13,16 +13,15 @@
     display: none !important;
 }
 .table_hover:hover{
-    border-radius: 16px;
-    border-color: var(red);
+    border-radius: 10px !important;
+    border: 1px solid #0177FB; 
     background: #FFF;
-    /* box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15); */
+    transition: 0.3s;
 }
 @media(max-width:768px) {
     .players_desk {
         display: none;
     }
-
     .players_mobile {
         display: block !important;
     }

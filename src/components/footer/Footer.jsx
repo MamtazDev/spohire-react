@@ -16,7 +16,7 @@ const Footer = () => {
             <img className="mx-auto" src={FooterLogo} alt="LOGO" />
           </div>
           <div className="col-12 col-lg-3 col-xl-3">
-            <ul className="text-center text-lg-start">
+            <ul className="text-center text-lg-start list-unstyled">
               <li>Info</li>
               <li>
                 <a href="#">How it works</a>
@@ -26,9 +26,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
+          
           <div className="col-12 col-lg-3 col-xl-2">
-            <ul className="text-center text-lg-start">
+            <ul className="text-center text-lg-start list-unstyled">
               <li>Contact</li>
               <li>
                 <a href="#">spohire@gmail.com</a>

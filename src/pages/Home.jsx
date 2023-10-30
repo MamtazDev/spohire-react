@@ -11,7 +11,7 @@ import Footer from "../components/footer/Footer";
 import WhyWe from "../components/whyWe/WhyWe";
 import FaqAccordion from "../components/faqAccordion/FaqAccordion";
 import MobileFooter from "../components/footer/MobileFooter";
-
+import MobileMarqueeSlider from "../components/marqueeSlider/MobileMarqueeSlider";
 const Home = () => {
   return (
     <>
@@ -21,6 +21,7 @@ const Home = () => {
           <Banner />
         </div>
         <MarqueeSlider />
+        <MobileMarqueeSlider />
         <Feature />
         <HowItWorks />
         <WhatPeopleSay />
