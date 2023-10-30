@@ -24,9 +24,15 @@
     letter-spacing: 0.455px;
 }
 
-.sayInnerBox {
-    border: 40px solid #F17415 !important;
+.sayInnerBox.sayLeftbox {
+    border: 40px solid #F17415;
     padding: 62px 54px;
+}
+
+.sayInnerBox.sayRightbox {
+    border: 40px solid #0177FB !important;
+    padding: 62px 54px;
+
 }
 
 .sayInnerBox .profoleImg {
@@ -112,5 +118,52 @@
     filter: unset !important;
     width: 99.508px;
     height: 99.508px;
+
+}
+
+
+@media screen and (max-width:767px) {
+    .sayInnerBox {
+        padding: 31px 28px;
+    }
+
+    .sayInnerBox p {
+        font-size: 11.191px;
+        text-align: start;
+        line-height: 16.787px;
+    }
+
+    .sayInnerBox span {
+        font-size: 8.953px;
+    }
+
+    .sayInnerBox h5 {
+        font-size: 15.855px;
+        line-height: 21.549px;
+        text-align: start;
+    }
+
+    .sayHeader span {
+        color: #0A0119;
+    }
+
+    .carousel-item {
+        height: 714px !important;
+        font-size: 10px;
+    }
+
+
+
+    .carousel-control-next-icon {
+        /* background-image: url('../../assets/carousel-control-sm.png') !important; */
+        width: 61px;
+        height: 61px;
+
+    }
+
+    .sayInnerBox.sayLeftbox,
+    .sayInnerBox.sayRightbox {
+        padding: 30px 28px;
+    }
 
 }
