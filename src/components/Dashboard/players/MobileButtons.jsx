@@ -17,5 +17,4 @@ const MobileButtons = () => {
     </div>
   );
 };
-
 export default MobileButtons;
