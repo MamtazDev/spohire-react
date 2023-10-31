@@ -17,7 +17,7 @@ const HowItWorks = () => {
       <section id="signUp">
         <div className="container Work_container">
           <h3>How it works</h3>
-          <div className="tabOutter d-flex flex flex-wrap  flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
+          <div className="tabOutter d-flex flex flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
             <button
               className={worksTab === "player" ? "btnActive" : ""}
               onClick={() => handleTabClick("player")}
@@ -114,7 +114,7 @@ const HowItWorks = () => {
               </div>
 
               <div className="col-12 col-xl-6">
-             <SignUp/>
+                <SignUp />
               </div>
             </div>
           )}

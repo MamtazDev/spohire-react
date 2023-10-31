@@ -296,3 +296,9 @@
         margin-bottom: 0;
     }
 }
+
+@media(max-width:420px) {
+    .tabOutter {
+        flex-wrap: wrap !important;
+    }
+}
