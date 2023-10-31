@@ -28,7 +28,7 @@ const DateSelector = () => {
   
   return (
     <>
-      <div className="d-flex align-items-center gap-3">
+      <div className="d-flex align-items-center gap-1">
         <div className="year_input">
           <DatePicker
             selected={myYear}
