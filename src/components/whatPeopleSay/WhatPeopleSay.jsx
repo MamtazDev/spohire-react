@@ -23,7 +23,7 @@ const WhatPeopleSay = () => {
           <Carousel.Item>
             <Carousel.Caption>
               <div className="row gy-3">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayLeftbox">
                     <div className="d-flex justify-content-start align-items-center gap-3 mb-3">
                       <img
@@ -42,12 +42,12 @@ const WhatPeopleSay = () => {
                     </h5>
                     <div className="d-flex  flex-md-row justify-content-start align-items-center gap-1 gap-lg-3 google_mobile">
                       <img
-                        className="d-none d-md-block"
+                        className="d-none d-lg-block"
                         src={GoogleImg}
                         alt="Logo"
                       />
                       <img
-                        className="d-block d-md-none"
+                        className="d-block d-lg-none"
                         src={Googlesm}
                         alt="Logo"
                       />
@@ -66,7 +66,7 @@ const WhatPeopleSay = () => {
                   </div>
                 </div>
 
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayRightbox">
                     {/* <button>
                         <img src={SliderButton} alt="Slider" />
@@ -88,12 +88,12 @@ const WhatPeopleSay = () => {
                     </h5>
                     <div className="d-flex flex-md-row justify-content-start align-items-center gap-1 gap-lg-3 google_mobile">
                       <img
-                        className="d-none d-md-block"
+                        className="d-none d-lg-block"
                         src={GoogleImg}
                         alt="Logo"
                       />
                       <img
-                        className="d-block d-md-none"
+                        className="d-block d-lg-none"
                         src={Googlesm}
                         alt="Logo"
                       />
@@ -117,7 +117,7 @@ const WhatPeopleSay = () => {
           <Carousel.Item>
             <Carousel.Caption>
               <div className="row gy-3">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayLeftbox">
                     <div className="d-flex justify-content-start align-items-center gap-3 mb-3">
                       <img
@@ -136,12 +136,12 @@ const WhatPeopleSay = () => {
                     </h5>
                     <div className="d-flex  flex-md-row justify-content-start align-items-center gap-1 gap-lg-3 google_mobile">
                       <img
-                        className="d-none d-md-block"
+                        className="d-none d-lg-block"
                         src={GoogleImg}
                         alt="Logo"
                       />
                       <img
-                        className="d-block d-md-none"
+                        className="d-block d-lg-none"
                         src={Googlesm}
                         alt="Logo"
                       />
@@ -160,7 +160,7 @@ const WhatPeopleSay = () => {
                   </div>
                 </div>
 
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayRightbox">
                     {/* <button>
                         <img src={SliderButton} alt="Slider" />
@@ -182,12 +182,12 @@ const WhatPeopleSay = () => {
                     </h5>
                     <div className="d-flex flex-md-row justify-content-start align-items-center gap-1 gap-lg-3 google_mobile">
                       <img
-                        className="d-none d-md-block"
+                        className="d-none d-lg-block"
                         src={GoogleImg}
                         alt="Logo"
                       />
                       <img
-                        className="d-block d-md-none"
+                        className="d-block d-lg-none"
                         src={Googlesm}
                         alt="Logo"
                       />
