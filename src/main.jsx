@@ -13,11 +13,16 @@ import JobOffer from './pages/JobOffer';
 import JobOffers from './components/Dashboard/dashbordJobOffers/JobOffers';
 import Players from './components/Dashboard/players/Players';
 import ViewDetails from './components/Dashboard/viewDetails/ViewDetails';
+import Login from './Authentication/Login/Login';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
+  },
+  {
+    path: '/login',
+    element: <Login />
   },
   {
     path: '/transfarMarket',

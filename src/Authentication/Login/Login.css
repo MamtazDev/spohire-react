@@ -3,6 +3,16 @@
     overflow: hidden;
 }
 
+.login-left_bg_img {
+    background-image: url(../../assets/login-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 0 19px;
+}
+
 .input-container {
     padding-bottom: 1em;
 }
@@ -316,9 +326,11 @@
         border: none;
         box-shadow: none;
     }
-    .login_with_social,.login_wrapper .login-btn{
+
+    .login_with_social,
+    .login_wrapper .login-btn {
         width: 100%;
         text-align: center;
     }
-   
+
 }
