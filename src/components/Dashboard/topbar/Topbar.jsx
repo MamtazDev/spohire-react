@@ -50,7 +50,7 @@ const Topbar = () => {
       {/* mobile */}
       <div className="topbar_mobile">
         <div className="d-flex justify-content-between align-items-center">
-          <button className="btn btn-outline-primary">Back</button>
+          <button className="btn btn-outline-primary fs_10">Back</button>
           <div style={{ marginRight: "50px" }}>
             <img src={logo} alt="" />
           </div>

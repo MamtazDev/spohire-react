@@ -9,26 +9,74 @@
 .players_mobile {
     display: none !important;
 }
-.mobile_btns{
+
+.mobile_btns {
     display: none !important;
 }
-.table_hover:hover{
-    border-radius: 10px !important;
-    border: 1px solid #0177FB; 
-    background: #FFF;
-    transition: 0.3s;
+
+.form-check-input:focus {
+    box-shadow: none !important;
 }
+
+table {
+    border-collapse: initial;
+    border-spacing: 0 50px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 1.5rem;
+}
+
+td {
+    border: solid 1px transparent;
+    border-style: solid none;
+    padding: 10px;
+}
+
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+tr:hover{
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
+tr:hover td {
+    border: 1px solid #0177FB;
+    border-style: solid none;
+    box-shadow: none!important;
+}
+
+
+tr:hover td:first-child {
+    border-left-style: solid;
+}
+
+tr:hover td:last-child {
+    border-right-style: solid;
+}
+
 @media(max-width:1024px) {
     .players_desk {
         display: none;
     }
+
     .players_mobile {
         display: block !important;
     }
-    .mobile_btns{
+
+    .mobile_btns {
         display: block !important;
     }
-    
+
 }
 
 .players_wrapper {
@@ -40,8 +88,8 @@
 }
 
 .location_div {
-    padding: 0 24.44px !important;
     margin-top: 14px;
+    padding: 0 12px;
 }
 
 .location_div p {
@@ -60,4 +108,15 @@
 .details_mob {
     padding: 12px 24px;
 
+}
+
+.socialIcon button{
+    background: transparent;
+    border: none;
+   
+}
+
+.socialIcon button img{
+    height: 12px;
+    width: 12px;
 }
