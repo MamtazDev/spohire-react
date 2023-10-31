@@ -77,6 +77,9 @@ input {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding:0 19px;
 }
 
 .login-left_bg {
