@@ -52,14 +52,8 @@ const Header = () => {
                 </clipPath>
               </defs>
             </svg>
-<<<<<<< HEAD
           </Navbar.Toggle> 
           <button className="logIn">Log in</button>
-=======
-          </Navbar.Toggle>
-          <div className="d-block d-md-none">
-          <Link to="/login" className="logIn">Log in</Link>
->>>>>>> 52bd51b3557afff0a8dcbb9eca8cbd5d66e8c267
               <button className="authBtn btnNone">
                 <Link
                   href="#signUp"
