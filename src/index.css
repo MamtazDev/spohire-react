@@ -224,6 +224,14 @@ a {
 
 
 @media (max-width:990px) {
+  .section_padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  
+  .section_heading {
+    margin-bottom: 32px;
+  }
   .nav_form_small {
     margin-top: 30px !important;
   }
@@ -232,7 +240,7 @@ a {
   .feature .featureBoxStart,
   .feature .featureBoxMiddle,
   .feature .featureBoxEnd {
-    padding: 20px 10px 30px 40px !important;
+    padding: 20px 0px 30px 40px !important;
   }
 
   .right_content_wrapper {
@@ -293,12 +301,25 @@ a {
   /* banner */
 
   /* some features */
+  .feature_card {
+    padding-right: 0px !important;
+  }
+
   .feature .featureTop h2 {
     font-size: 24px !important;
+    font-style: normal;
+    font-weight: 700 !important;
+    line-height: 30px !important;
+    /* 125% */
+    letter-spacing: -0.24px !important;
+    width: 192px;
+    margin: auto;
   }
 
   .feature .featureTop p {
     font-size: 10px !important;
+    width: 257px;
+    margin: auto;
   }
 
   .featureTop {
@@ -315,6 +336,12 @@ a {
 
   .feature .featureBottom p {
     font-size: 9.5px !important;
+    font-weight: 500 !important;
+    line-height: 12px !important;
+  }
+
+  .feature {
+    padding: 0 50px !important;
   }
 
   /* some features */
