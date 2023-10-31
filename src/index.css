@@ -229,14 +229,20 @@ a {
 
 
 @media (max-width:990px) {
+  .trustContent {
+    font-size: 16px !important;
+    margin-bottom: 34px !important;
+  }
+
   .section_padding {
     padding-top: 64px;
     padding-bottom: 64px;
   }
-  
+
   .section_heading {
     margin-bottom: 32px;
   }
+
   .nav_form_small {
     margin-top: 30px !important;
   }

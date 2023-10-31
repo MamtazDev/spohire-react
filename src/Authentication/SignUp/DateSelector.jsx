@@ -61,22 +61,3 @@ const DateSelector = () => {
 };
 
 export default DateSelector;
-
-{
-  /* <select
-id="select-month"
-className="select_date"
-value={selectedDate.getMonth()}
-onChange={handleMonthChange}
->
-{monthOptions}
-</select>
-<select
-id="select-year"
-className="select_date"
-value={selectedDate.getFullYear()}
-onChange={handleYearChange}
->
-{yearOptions}
-</select> */
-}

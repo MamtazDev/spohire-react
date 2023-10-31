@@ -1,4 +1,4 @@
-@media only screen and (max-width:1024px) {
+/* @media only screen and (max-width:1024px) {
     .navbar-nav {
         gap: 20px;
     }
@@ -127,10 +127,6 @@
         line-height: 1.5;
     }
 
-    .trustContent {
-        font-size: 16px !important;
-        margin-bottom: 34px !important;
-    }
 
     footer hr {
         margin-top: 20px;
@@ -153,4 +149,4 @@
         font-size: 10px;
         line-height: 20px;
     }
-}
+} */
