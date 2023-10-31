@@ -51,7 +51,9 @@ const Feature = () => {
                                         </p>
                                     </div>
                                     <div className="col-6 feature_card">
-                                        <img className="img-fluid" src={FeatureTwo} alt="img" />
+                                        <div>
+                                            <img className="img-fluid" src={FeatureTwo} alt="img" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +79,7 @@ const Feature = () => {
                 </div>
             </div>
         </section>
-    )   
+    )
 }
 
 export default Feature

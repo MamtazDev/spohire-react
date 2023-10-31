@@ -3,6 +3,8 @@ const MarqueeContent = () => {
     return (
         <div className="moving">
             <div className="d-flex align-items-center gap-5 ">
+                <div></div>
+                <div className="middleLine"></div>
                 <div className="playTxt" style={{ border: '1px solid #6B71FF' }} >
                     <span>
                         Volleyball
@@ -32,7 +34,7 @@ const MarqueeContent = () => {
                         Football
                     </span>
                 </div>
-                
+
             </div>
         </div>
     )
