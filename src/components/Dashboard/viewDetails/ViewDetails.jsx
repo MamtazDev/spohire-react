@@ -12,7 +12,7 @@ import Gallary from "./Gallary";
 
 const ViewDetails = () => {
   return (
-    <div className="View_details container ps-0 pe-0 overflow-hidden">
+    <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
       <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
