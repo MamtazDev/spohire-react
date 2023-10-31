@@ -6,6 +6,7 @@ import Fb from "../../assets/fb.png";
 import LinkeDin from "../../assets/linkedin.png";
 import Twitter from "../../assets/twitter.png";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,7 +14,9 @@ const Footer = () => {
       <div className="container">
         <div className="row gy-5">
           <div className="col-12 col-xl-3 text-center">
-            <img className="mx-auto" src={FooterLogo} alt="LOGO" />
+            <Link to="/">
+              <img className="mx-auto" src={FooterLogo} alt="LOGO" />
+            </Link>
           </div>
           <div className="col-12 col-lg-3 col-xl-3">
             <ul className="text-center text-lg-start list-unstyled">
@@ -26,7 +29,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div className="col-12 col-lg-3 col-xl-2">
             <ul className="text-center text-lg-start list-unstyled">
               <li>Contact</li>

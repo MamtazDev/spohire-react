@@ -82,10 +82,6 @@ a {
   margin-bottom: 55px;
 }
 
-.all_mb {
-  margin-bottom: 130px;
-}
-
 .fs_10 {
   font-size: 10px;
   font-weight: 400;
@@ -264,7 +260,7 @@ a {
   }
 
   .right_content_wrapper {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     text-align: center;
   }
 
@@ -459,6 +455,7 @@ a {
     padding-top: 21px !important;
     padding-left: 33px !important;
     padding-right: 21px !important;
+    padding-bottom: 21px !important;
   }
 
   /* sign up */
@@ -559,13 +556,15 @@ a {
     font-size: 36px !important;
     line-height: 46px !important;
     margin-bottom: 0 !important;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
   }
 
   .top_content p {
-    font-size: 14.8px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
-
     line-height: 24px;
   }
 
@@ -582,6 +581,11 @@ a {
     text-transform: uppercase !important;
   }
 
+  .WhyWeList li {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+  }
 
   /* why we */
   /* faq section */
@@ -610,16 +614,27 @@ a {
   } */
 
   /* faq section */
+
+
   /* footer */
+
+  footer {
+   background: url("../src/assets/mobile_footer_bg.png") !important;
+   background-repeat: no-repeat !important;
+   background-position: center !important;
+   background-size: cover !important;
+   padding: 30px 0 !important;
+  }
+
   footer p {
-    font-size: 24px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
   }
 
   .fooBottom a {
-    font-size: 11.3px !important;
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
@@ -633,10 +648,24 @@ a {
   }
 
   footer ul li a {
-    font-size: 11.3px !important;
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
+  }
+
+  .followBox {
+    padding: 17px;
+  }
+
+  .followBox a {
+    height: 34px !important;
+    width: 34px !important;
+  }
+
+  .followBox a img{
+    height: 18px;
+    width: 18px;
   }
 }
 
@@ -654,6 +683,9 @@ a {
 }
 
 @media(max-width:768px) {
+  .all_mb {
+    margin-bottom: 64px;
+  }
 
   .text_color_80 {
     font-size: 9.956px !important;
