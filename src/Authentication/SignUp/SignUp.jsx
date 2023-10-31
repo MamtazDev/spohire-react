@@ -258,7 +258,7 @@ const SignUp = () => {
                 <form>
                   <div className="row right-inner-addon input-container">
                     <label htmlFor="">Full name</label>
-                    <div className="col-lg-6 w-100">
+                    <div className="col-lg-6">
                       <input
                         type="text"
                         className="mt-2 form-control login_input"
