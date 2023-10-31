@@ -166,7 +166,7 @@
 
 @media(max-width : 990px) {
     .login_wrapper {
-        margin-top: 50px;
+        /* margin-top: 50px; */
         margin-bottom: 50px;
     }
 }

@@ -92,3 +92,9 @@ input {
     font-size: 12px;
     font-weight: 400;
 }
+
+.css-11l6u31-control {
+    border-radius: 5px;
+    background: #FAFAFA;
+    border: none !important;
+}
