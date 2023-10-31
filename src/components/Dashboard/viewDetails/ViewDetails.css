@@ -82,6 +82,11 @@
 }
 
 @media only screen and (max-width:768px) {
+    .about_part {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
     .social_icon {
         height: 17px !important;
         width: 17px !important;

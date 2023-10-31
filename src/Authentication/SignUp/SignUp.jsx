@@ -274,7 +274,7 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                    <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="text"

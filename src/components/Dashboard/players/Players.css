@@ -22,7 +22,7 @@
 
 table {
     border-collapse: initial;
-    border-spacing: 0 50px;
+    border-spacing: 0 20px;
 }
 
 .table>:not(caption)>*>* {
