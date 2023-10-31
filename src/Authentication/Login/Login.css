@@ -311,11 +311,11 @@
 
 }
 
-.row {
+/* .row {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
+ */
 .line {
     border-top: 1px solid rgba(0, 0, 0, 0.04);
     width: 100%;
