@@ -94,6 +94,10 @@
 /* Header End */
 
 @media screen and (max-width:767px) {
+
+    .bgBanner {
+        background-position: top right;
+    }
     .navbar {
         padding-top: 28px;
         padding-bottom: 0;

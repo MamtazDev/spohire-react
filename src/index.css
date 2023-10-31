@@ -245,7 +245,7 @@ a {
   .feature .featureBoxStart,
   .feature .featureBoxMiddle,
   .feature .featureBoxEnd {
-    padding: 20px 0px 30px 40px !important;
+    padding: 20px 10px 30px 40px !important;
   }
 
   .right_content_wrapper {
@@ -293,7 +293,7 @@ a {
   }
 
   .banner .bannerContent p {
-    font-size: 10.8px;
+    font-size: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -301,6 +301,7 @@ a {
   .banner .bannerContent a {
     padding: 10px 16px !important;
     font-size: 9px !important;
+    line-height: 17px !important;
   }
 
   /* banner */
@@ -418,10 +419,6 @@ a {
     padding: 5px 10px !important;
   }
 
-  .workBg .leftBlueBox {
-    padding-top: 21px !important;
-  }
-
   .numTag {
     width: 33.273px !important;
     height: 33.273px !important;
@@ -460,7 +457,7 @@ a {
 
   /* sign up */
   .workBg .howWorkRight p {
-    font-size: 15.761px !important;
+    font-size: 15px !important;
   }
 
   .workBg .howWorkRight span {

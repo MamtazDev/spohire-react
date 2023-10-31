@@ -57,25 +57,12 @@
         margin-bottom: 8px;
     }
 
-    .banner .bannerContent a {
-        font-size: 20px;
-        padding: 15px 30px;
-    }
 
-    .feature .featureTop h2 {
-        font-size: 38px;
-    }
 
     .feature .featureTop p {
         font-size: 18px;
     }
 
-    .feature .featureBoxStart,
-    .feature .featureBoxMiddle,
-    .feature .featureBoxEnd {
-        padding: 15px 0 0 15px;
-
-    }
 
     .feature .featureBottom h4,
     footer ul li:first-child,
