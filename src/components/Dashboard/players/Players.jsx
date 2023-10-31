@@ -10,7 +10,7 @@ import MobileButtons from "./MobileButtons";
 const Players = () => {
   return (
     <div className="players">
-      <Table responsive className="players_desk">
+      <Table responsive className="players_desk content">
         <thead>
           <tr>
             <th className="fs_14 text_color_36 fw-normal">

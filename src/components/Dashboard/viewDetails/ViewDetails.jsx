@@ -12,9 +12,9 @@ import Gallary from "./Gallary";
 
 const ViewDetails = () => {
   return (
-    <div className="View_details container mb-5">
+    <div className="View_details container ps-0 pe-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
-      <div className="job_offer desktop_vd ps-0">
+      <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
           <div className="col-12 col-lg-3 ">
             <div className="">
@@ -149,7 +149,7 @@ const ViewDetails = () => {
       {/* <!-- Personal Info End --> */}
       {/* <!-- Strengths, About Me part Start --> */}
       <div className="strAbout mb_60 ">
-        <div className="row justify-content-start">
+        <div className="row justify-content-start" style={{paddingLeft:"24px",paddingRight:"60px"}}>
           <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">
               Strengths Advantages
@@ -164,7 +164,6 @@ const ViewDetails = () => {
                 className="f_sfPro fs_16"
                 style={{ color: "#0177FB" }}
               >
-                {" "}
                 See More
               </a>
             </p>
@@ -212,9 +211,8 @@ const ViewDetails = () => {
         </div>
       </div>
       {/* <!-- Strengths, About Me part End --> */}
-
       {/* <!-- Slider Start --> */}
-      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-4">Gallery</p>
+      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-lg-4" style={{paddingLeft:"24px"}}>Gallery</p>
       <Gallary />
       {/* <!-- Slider End --> */}
     </div>

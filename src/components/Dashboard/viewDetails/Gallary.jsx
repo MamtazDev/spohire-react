@@ -5,7 +5,7 @@ import sliderOne from "../../../assets/slader1.png";
 import sliderTwo from "../../../assets/slider2.png";
 const Gallary = () => {
   return (
-    <div className="container ps-4">
+    <div className="container ps-lg-4  mb-5" style={{paddingLeft:"24px"}}>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}

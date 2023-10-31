@@ -9,26 +9,32 @@
 .players_mobile {
     display: none !important;
 }
-.mobile_btns{
+
+.mobile_btns {
     display: none !important;
 }
-.table_hover:hover{
+
+.table_hover:hover {
     border-radius: 10px !important;
-    border: 1px solid #0177FB; 
+    border: 1px solid #0177FB;
     background: #FFF;
     transition: 0.3s;
 }
+
 @media(max-width:1024px) {
     .players_desk {
         display: none;
     }
+
     .players_mobile {
         display: block !important;
     }
-    .mobile_btns{
+
+    .mobile_btns {
         display: block !important;
+        gap: 1rem !important;
     }
-    
+
 }
 
 .players_wrapper {
@@ -60,4 +66,7 @@
 .details_mob {
     padding: 12px 24px;
 
+}
+.players{
+    padding: 30px;
 }

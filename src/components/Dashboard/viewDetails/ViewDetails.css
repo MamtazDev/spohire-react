@@ -40,25 +40,11 @@
     max-width: 285px;
 }
 
-/* Job Offers End */
-
-@media only screen and (max-width:425px) {
-    .personalInfo .message {
-        right: 0;
-    }
-
-    .fs_40 {
-        font-size: 30px;
-    }
-
-    .fs_28 {
-        font-size: 20px;
-    }
-
-    .job_offer {
-        padding: 40px !important;
-    }
+.col_padding {
+    padding-right: 85px;
 }
+
+/* Job Offers End */
 
 .mobile_design_vd {
     display: none;
@@ -76,14 +62,55 @@
     padding-left: 34px;
 }
 
+@media only screen and (max-width:425px) {
+
+    .personalInfo .message {
+        right: 0;
+    }
+
+    .fs_40 {
+        font-size: 30px;
+    }
+
+    .fs_28 {
+        font-size: 20px;
+    }
+
+    .job_offer {
+        padding: 40px !important;
+    }
+}
+
 @media only screen and (max-width:768px) {
+    .social_icon {
+        height: 17px !important;
+        width: 17px !important;
+    }
+
+    .p_35 {
+        padding: 0 35px !important;
+    }
+
+    .m_35 {
+        margin: 0 35px !important;
+    }
+
+    .col_padding {
+        padding-right: 0px !important;
+    }
+
+
+
+    .strAbout {
+        padding-left: 0px !important;
+    }
 
     .job_offer {
         padding: 0px !important;
     }
 
     .info_title_mobile {
-        font-size: 12.8px !important;
+        font-size: 11px !important;
     }
 
     .fs_15 {
@@ -130,9 +157,11 @@
     .col_padding {
         margin-bottom: 32px !important;
     }
+
     .col_padding:first-child {
         margin-top: 62px !important;
     }
+
     .personalInfo {
         margin-top: 39px !important;
     }

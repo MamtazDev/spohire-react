@@ -104,6 +104,7 @@
 
     .workBg .local p {
         font-size: 25px;
+        line-height: 23.766px !important;
     }
 
     .workBg .leftBlueBox {
