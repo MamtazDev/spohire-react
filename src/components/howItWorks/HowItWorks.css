@@ -281,3 +281,24 @@
 /* custom radio button end */
 
 /* Hoe it Works End */
+
+@media screen and (max-width:767px) {
+    .workBg .howWorkRight form .txtInput input {
+        max-width: 108.574px;
+
+    }
+
+    .workBg .howWorkRight form .txtInput label {
+        margin-bottom: 0;
+    }
+
+    .workBg .howWorkRight form p {
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width:420px) {
+    .tabOutter {
+        flex-wrap: wrap !important;
+    }
+}

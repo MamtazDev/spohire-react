@@ -1,4 +1,3 @@
-import React from "react";
 import "./Header.css";
 import Logo from "../../assets/logo.png";
 import Logosm from "../../assets/responsive-logo.png";
@@ -16,6 +15,8 @@ const Header = () => {
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
             </Nav.Link>
           </Navbar.Brand>
+   
+          <div className="d-block d-md-none">
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             {/* <i className="fa-solid fa-bars"></i> */}
             <svg
@@ -51,8 +52,7 @@ const Header = () => {
                 </clipPath>
               </defs>
             </svg>
-          </Navbar.Toggle>
-          <div className="d-block d-md-none">
+          </Navbar.Toggle> 
           <button className="logIn">Log in</button>
               <button className="authBtn btnNone">
                 <Link
@@ -91,7 +91,7 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <form className="d-flex flex-column flex-lg-row align-items-center gap-2 nav_form_small d-none d-md-block">
-              <button className="logIn">Log in</button>
+              <Link to="/login" className="logIn">Log in</Link>
               <button className="authBtn btnNone">
                 <Link
                   href="#signUp"

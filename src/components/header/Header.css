@@ -111,11 +111,12 @@
     .logIn,
     .authBtn a {
         font-size: 10.667px;
+        padding: 27px;
     }
 
     .authBtn {
         background-image: url('../../assets/signupbgsm.png');
     }
- 
+
 
 }

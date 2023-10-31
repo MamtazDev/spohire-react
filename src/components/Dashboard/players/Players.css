@@ -75,6 +75,7 @@ tr:hover td:last-child {
 
     .mobile_btns {
         display: block !important;
+        gap: 1rem !important;
     }
 
 }
