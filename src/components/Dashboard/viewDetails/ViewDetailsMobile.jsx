@@ -12,7 +12,7 @@ const ViewDetailsMobile = () => {
   return (
     <>
       <div className="job_offer mobile_design_vd">
-        <div className="d-flex justify-content-between mb-5">
+        <div className="d-flex justify-content-between mb-5  p_35">
           <div className="d-flex gap-3 ">
             <div className="">
               <img className="img-fluid" src={profileImage} alt="Profile" />
@@ -34,7 +34,7 @@ const ViewDetailsMobile = () => {
         </div>
 
         {/* PERSONAL INFO */}
-        <div className="personalInfo mb-5">
+        <div className="personalInfo m_35">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <p className="f_sfPro text_color_36 fs_18 info_title_mobile  d-flex align-items-center">
               Personal Information
@@ -126,16 +126,16 @@ const ViewDetailsMobile = () => {
               </div>
               <div className="d-flex gap-2">
                 <a href="#">
-                  <img src={twitterIcon} alt="Twitter" />
+                  <img src={twitterIcon}  className="social_icon" alt="Twitter" />
                 </a>
                 <a href="#">
-                  <img src={instagramIcon} alt="Instagram" />
+                  <img src={instagramIcon}  className="social_icon" alt="Instagram" />
                 </a>
                 <a href="#">
-                  <img src={facebookIcon} alt="FaceBook" />
+                  <img src={facebookIcon} className="social_icon"  alt="FaceBook" />
                 </a>
                 <a href="#">
-                  <img src={youtubeIcon} alt="Youtube" />
+                  <img src={youtubeIcon} className="social_icon"  alt="Youtube" />
                 </a>
               </div>
             </div>
