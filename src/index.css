@@ -97,6 +97,13 @@ a {
   font-weight: 400;
 }
 
+.fs_20 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .fs_28 {
   font-size: 28px;
   font-weight: 500;
@@ -171,6 +178,7 @@ a {
 
 .text_color_80 {
   color: var(--color_80);
+
 }
 
 .text_color_55 {
@@ -239,10 +247,6 @@ a {
   .right_content_wrapper {
     margin-top: 30px;
     text-align: center;
-  }
-
-  .carousel-control-next-icon {
-    display: none !important;
   }
 
   .star_design {
@@ -446,7 +450,7 @@ a {
 
   .workBg .howWorkRight form .txtInput input {
     padding: 0 !important;
-    width: 108.574px !important;
+    width: 100% !important;
     height: 24.517px !important;
   }
 
@@ -507,6 +511,7 @@ a {
   .trustContent_mobile {
     justify-content: center !important;
     gap: 30px !important;
+    flex-wrap: wrap !important;
   }
 
   /* what people say */
@@ -564,10 +569,10 @@ a {
     line-height: 19px !important;
   }
 
-  .mobile_icon {
+  /* .mobile_icon {
     height: 30px !important;
     width: 30px !important;
-  }
+  } */
 
   /* faq section */
   /* footer */
@@ -584,17 +589,77 @@ a {
     font-weight: 500 !important;
     line-height: normal !important;
   }
-footer ul li:first-child{
-  font-size: 14px !important;
+
+  footer ul li:first-child {
+    font-size: 14px !important;
     font-style: normal !important;
-      font-weight: 400 !important;
-      line-height: normal !important;
-}
-footer ul li a{
-  font-size: 11.3px !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+  }
+
+  footer ul li a {
+    font-size: 11.3px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
+  }
 }
-  /* footer */
+
+/* .job_offers_wrapper{
+  padding: 40px;
+} */
+@media(max-width:1024px) {
+  .dashbord_sidebar {
+    display: none !important;
+  }
+
+  .mobileTopbar {
+    display: block !important;
+  }
+}
+
+@media(max-width:768px) {
+
+  .text_color_80 {
+    font-size: 9.956px !important;
+
+  }
+
+  .p-3 {
+    padding: 12px !important;
+  }
+
+  .job_offer_item_img img {
+    width: 57.533px !important;
+    height: 57px !important;
+  }
+
+  .right {
+    width: 17.047px !important;
+    height: 16.889px !important;
+  }
+
+  .job_offerItem_address img {
+    width: 15.626px !important;
+    height: 15.481px !important;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px !important;
+  max-width: 285px;
+  width: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './FaqAccordion.css'
 import plus from "../../assets/accordion-plus.png";
 import minus from "../../assets/accordion-minus.png";
+import up from "../../assets/uparrow.png";
+import down from "../../assets/downarrow.png";
 
 
 const FaqAccordion = () => {
@@ -70,7 +72,10 @@ const FaqAccordion = () => {
                                 className="d-flex align-items-center justify-content-between"
                             >
                                 <p className="question text_color_19 fs-4 fw-medium">{data.ques}</p>
-                                <img className='mobile_icon' src={isOpen === index ? minus : plus} alt="icon" />
+                                <img className='deshtop_icon' src={isOpen === index ? minus : plus} alt="icon" />
+                               <div className="mobile_icons">
+                               <img className='mobile_icon' src={isOpen === index ? up : down} alt="icon" />
+                               </div>
                             </div>
                             {isOpen === index && <p className="answer text_color_19_7 fs-5 fw-medium">{data.ans}</p>}
                         </div>

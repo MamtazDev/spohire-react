@@ -7,3 +7,31 @@
 .accordion .container {
     max-width: 1140px;
 }
+
+.mobile_icons {
+    display: none;
+}
+
+@media(max-width:1023px) {
+    .accordion .accordion_items {
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        background: #FFF;
+
+        padding: 16px;
+    }
+
+    .deshtop_icon {
+        display: none !important;
+    }
+
+    .mobile_icons {
+        display: block;
+    }
+
+    .mobile_icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
