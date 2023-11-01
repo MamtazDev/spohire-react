@@ -2,6 +2,10 @@ import './Feature.css'
 import FeatureOne from '../../assets/fearure1.png'
 import FeatureTwo from '../../assets/fearure2.png'
 import FeatureThree from '../../assets/fearure3.png'
+import featureBg1 from '../../assets/fearurebg1.png'
+import featureBg2 from '../../assets/fearurebg2.png'
+import featureBg3 from '../../assets/fearurebg3.png'
+
 
 const Feature = () => {
     return (
@@ -23,7 +27,7 @@ const Feature = () => {
                 <div className="featureBottom">
                     <div className="row gy-3 justify-content-center">
                         <div className="col-12 col-md-6 col-xl-4">
-                            <div className="featureBoxStart h-100">
+                            <div className="featureBoxInner h-100" style={{ background: `url(${featureBg1})` }}>
                                 <div className="row align-items-center p-0 pe-0 ">
                                     <div className="col-6">
                                         <h4 className="mb-1">Confidentiality</h4>
@@ -33,13 +37,13 @@ const Feature = () => {
                                             information was never easier.</p>
                                     </div>
                                     <div className="col-6 feature_card" >
-                                        <img className="img-fluid" src={FeatureOne} alt="img" />
+                                        <img className="" src={FeatureOne} alt="img" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 col-xl-4">
-                            <div className="featureBoxMiddle h-100">
+                            <div className="featureBoxInner h-100" style={{ background: `url(${featureBg2})` }}>
                                 <div className="row align-items-center p-0">
                                     <div className="col-6">
                                         <h4 className="mb-1">Stay in Touch</h4>
@@ -51,15 +55,13 @@ const Feature = () => {
                                         </p>
                                     </div>
                                     <div className="col-6 feature_card">
-                                        <div>
-                                            <img className="img-fluid" src={FeatureTwo} alt="img" />
-                                        </div>
+                                            <img className="" src={FeatureTwo} alt="img" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6 col-xl-4 ">
-                            <div className="featureBoxEnd h-100">
+                            <div className="featureBoxInner h-100" style={{ background: `url(${featureBg3})` }}>
                                 <div className="row align-items-center p-0">
                                     <div className="col-6">
                                         <h4 className="mb-1">Confidentiality</h4>
@@ -70,7 +72,7 @@ const Feature = () => {
                                             information was never easier.</p>
                                     </div>
                                     <div className="col-6 feature_card">
-                                        <img className="img-fluid" src={FeatureThree} alt="img" />
+                                        <img className="" src={FeatureThree} alt="img" />
                                     </div>
                                 </div>
                             </div>
