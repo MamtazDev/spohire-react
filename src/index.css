@@ -638,10 +638,6 @@ a {
   .mobileTopbar {
     display: block !important;
   }
-
-  .feature .featureBoxInner img{
-    height: 300px;
-  }
 }
 
 @media(max-width:768px) {
@@ -650,7 +646,7 @@ a {
   }
 
   .text_color_80 {
-    font-size: 9.956px !important;
+    font-size: 10px !important;
 
   }
 

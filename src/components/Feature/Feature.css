@@ -26,85 +26,69 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 72px;
 }
 
 .feature .featureBoxInner {
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: cover !important;
-    padding: 80px 0 0 50px;
+    padding: 20px 0 0 50px;
     position: relative;
 }
 
 .feature .featureBoxInner img {
-    position: absolute;
-    bottom: 0;
-    right: -4px;
-    max-height: 340px;
+    /* max-height: 340px; */
+    height: 100%;
 }
 
 @media (max-width: 990px) {
-    .feature .featureBoxInner img {
-        height: 166px !important;
+
+    .feature .featureBoxInner {
+        padding: 26px 0 0 26px !important;
     }
 
-    /* some features */
-  .feature_card {
-    padding-right: 0px !important;
-  }
+    .feature_card {
+        padding-right: 0px !important;
+    }
 
-  .feature .featureTop h2 {
-    font-size: 24px !important;
-    font-style: normal;
-    font-weight: 700 !important;
-    line-height: 30px !important;
-    /* 125% */
-    letter-spacing: -0.24px !important;
-    width: 192px;
-    margin: auto;
-  }
+    .feature .featureTop h2 {
+        font-size: 24px !important;
+        font-style: normal;
+        font-weight: 700 !important;
+        line-height: 30px !important;
+        letter-spacing: -0.24px !important;
+        width: 192px;
+        margin: auto;
+    }
 
-  .feature .featureTop p {
-    font-size: 10px !important;
-    width: 257px;
-    margin: auto;
-  }
+    .feature .featureTop p {
+        font-size: 10px !important;
+        width: 257px;
+        margin: auto;
+    }
 
-  .featureTop {
-    text-align: center;
-  }
+    .featureTop {
+        text-align: center;
+    }
 
-  .feature_mobile {
-    display: none !important;
-  }
+    .feature_mobile {
+        display: none !important;
+    }
 
-  .feature .featureBottom h4 {
-    font-size: 17px !important;
-  }
+    .feature .featureBottom h4 {
+        font-size: 17px !important;
+    }
 
-  .feature .featureBottom p {
-    font-size: 9.5px !important;
-    font-weight: 500 !important;
-    line-height: 12px !important;
-  }
+    .feature .featureBottom p {
+        font-size: 9px !important;
+        font-weight: 500 !important;
+        line-height: 12px !important;
+        margin-bottom: 40px !important;
+    }
 
-  .feature {
-    padding: 0 50px !important;
-  }
+    .feature {
+        padding: 0 50px !important;
+    }
 
-  .feature .featureBoxInner img{
-    height: 180px !important;
-    right: -6px;
-  }
-
-  .feature .featureBoxInner{
-    padding: 50px 0 0 26px !important;
-  }
-
-  .feature .featureBottom p{
-    margin-bottom: 38px !important;
-  }
-
-  /* some features */
 }
