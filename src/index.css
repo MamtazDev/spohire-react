@@ -221,9 +221,6 @@ a {
   opacity: 0.9;
 }
 
-
-
-
 @media (max-width:990px) {
   .trustContent {
     font-size: 16px !important;
@@ -248,6 +245,10 @@ a {
   .feature .featureBoxMiddle,
   .feature .featureBoxEnd {
     padding: 20px 10px 30px 40px !important;
+  }
+
+  .feature .featureBoxEnd img, .feature .featureBoxMiddle img{
+    margin-top: 0 !important;
   }
 
   .right_content_wrapper {

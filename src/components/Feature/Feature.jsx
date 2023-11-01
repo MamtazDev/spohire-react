@@ -8,7 +8,7 @@ const Feature = () => {
         <section className="feature all_mb">
             <div className="container" >
                 <div className="featureTop">
-                    <div className="row align-items-end mb_60 gy-3">
+                    <div className="row mb_60 gy-3">
                         <div className="col-12 col-lg-4">
                             <h2>Some features of spohire</h2>
                         </div>

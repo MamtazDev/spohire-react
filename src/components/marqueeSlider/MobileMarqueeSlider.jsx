@@ -12,13 +12,13 @@ const MobileMarqueeSlider = () => {
           </Marquee>
         </div>
       </section>
-      <section className="">
+      {/* <section className="">
         <div className="marque-container" style={{marginBottom:"49px"}}>
           <Marquee>
             <MobileMarqueeContents />
           </Marquee>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

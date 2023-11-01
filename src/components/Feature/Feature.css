@@ -41,8 +41,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 20px 0 0 50px;
+    padding: 48px 0 0 50px;
 }
+
+.feature .featureBoxMiddle img{
+    margin-top: 33px;
+} 
 
 .feature .featureBoxEnd {
     background: url("../../assets/fearurebg2.png");
@@ -50,4 +54,8 @@
     background-position: center;
     background-size: cover;
     padding: 20px 0 0 50px;
+}
+
+.feature .featureBoxEnd img{
+    margin-top: 34px;
 }
