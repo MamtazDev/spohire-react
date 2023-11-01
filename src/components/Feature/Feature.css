@@ -40,7 +40,8 @@
 .feature .featureBoxInner img {
     position: absolute;
     bottom: 0;
-    right: -14px;
+    right: -4px;
+    max-height: 340px;
 }
 
 @media (max-width: 990px) {
