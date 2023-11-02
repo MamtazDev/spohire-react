@@ -240,17 +240,6 @@ a {
     margin-top: 30px !important;
   }
 
-
-  /* .feature .featureBoxStart,
-  .feature .featureBoxMiddle,
-  .feature .featureBoxEnd {
-    padding: 20px 10px 30px 40px !important;
-  }
-
-  .feature .featureBoxEnd img, .feature .featureBoxMiddle img{
-    margin-top: 0 !important;
-  } */
-
   .right_content_wrapper {
     padding-bottom: 50px !important;
   }
@@ -317,17 +306,17 @@ a {
   }
 
   .workBg .tabOutter button {
-    font-size: 13.465px !important;
+    font-size: 13px !important;
     padding: 11px 35px !important;
   }
 
   .workBg .local p {
-    font-size: 16.161px !important;
-    line-height: 23.766px;
+    font-size: 16px !important;
+    line-height: 23px;
   }
 
   .workBg .local button {
-    font-size: 11.408px !important;
+    font-size: 11px !important;
     padding: 7px 11px !important;
   }
 
@@ -344,12 +333,12 @@ a {
   }
 
   .workBg .playerBox p {
-    font-size: 12.801px !important;
+    font-size: 12px !important;
   }
 
   .img1 {
-    width: 82.706px !important;
-    height: 41.829px !important;
+    width: 82px !important;
+    height: 41px !important;
   }
 
   .img2 {
@@ -358,8 +347,8 @@ a {
   }
 
   .img3 {
-    width: 83.388px !important;
-    height: 41.966px !important;
+    width: 83px !important;
+    height: 41px !important;
   }
 
   .local {
@@ -368,31 +357,33 @@ a {
 
   .workBg .playerBox span,
   .workBg .detailBox span {
-    font-size: 8.534px !important;
+    font-size: 8px !important;
     padding: 4px 6px !important;
 
   }
 
   .workBg .detailBox p {
-    font-size: 8.534px !important;
+    font-size: 8px !important;
     padding: 5px 10px !important;
   }
 
   .numTag {
-    width: 33.273px !important;
-    height: 33.273px !important;
+    width: 33px !important;
+    height: 33px !important;
   }
 
   .numTag p {
-    font-size: 15.645px !important;
+    font-size: 15px !important;
   }
 
   .workBg .connect p {
-    font-size: 14.26px !important;
+    font-size: 14px !important;
   }
 
   .workBg .connect span {
-    font-size: 11.408px !important;
+    font-size: 11px !important;
+    line-height: 14px !important;
+    
   }
 
   .mobile_numtag {
@@ -400,12 +391,12 @@ a {
   }
 
   .workBg .leftBlueBox button {
-    font-size: 11.378px !important;
+    font-size: 11px !important;
   }
 
   .workBg .leftBlueBox button img {
-    width: 13.46px;
-    height: 13.309px;
+    width: 13px;
+    height: 13px;
   }
 
   .workBg .leftBlueBox {
@@ -421,8 +412,8 @@ a {
   }
 
   .workBg .howWorkRight span {
-    font-size: 11.733px !important;
-    line-height: 17.03px !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
   }
 
   .workBg .howWorkRight {
@@ -434,17 +425,17 @@ a {
   }
 
   .workBg .howWorkRight form .txtInput label {
-    font-size: 11.79px !important;
+    font-size: 11px !important;
   }
 
   .workBg .howWorkRight form .txtInput input {
     padding: 0 !important;
     width: 100% !important;
-    height: 24.517px !important;
+    height: 24px !important;
   }
 
   .playOption label {
-    font-size: 9.17px !important;
+    font-size: 9px !important;
   }
 
   .playOption label::after {
@@ -556,7 +547,7 @@ a {
     font-size: 14px !important;
     font-style: normal !important;
     font-weight: 400 !important;
-    line-height: 20.786px !important;
+    line-height: 20px !important;
     margin-bottom: 8px;
   }
 
@@ -656,18 +647,18 @@ a {
   }
 
   .job_offer_item_img img {
-    width: 57.533px !important;
+    width: 57px !important;
     height: 57px !important;
   }
 
   .right {
-    width: 17.047px !important;
-    height: 16.889px !important;
+    width: 17px !important;
+    height: 16px !important;
   }
 
   .job_offerItem_address img {
-    width: 15.626px !important;
-    height: 15.481px !important;
+    width: 15px !important;
+    height: 15px !important;
   }
 }
 

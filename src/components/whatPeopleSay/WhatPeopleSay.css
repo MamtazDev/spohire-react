@@ -176,23 +176,32 @@
 
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:767px) {
     .say_container .carousel-item {
         height: 660px !important;
+    }
+}
 
+@media screen and (max-width:425px) {
+    .say_container .carousel-item {
+        height: 680px !important;
+    }
+}
+
+@media screen and (max-width:389px){
+    .say_container .carousel-item {
+        height: 712px !important;
     }
 }
 
 @media screen and (max-width:375px) {
     .say_container .carousel-item {
-        height: 720px !important;
-
+        height: 750px !important;
     }
 }
 
 @media screen and (max-width:320px) {
     .say_container .carousel-item {
         height: 760px !important;
-
     }
 }
