@@ -184,11 +184,11 @@
 
 @media screen and (max-width:425px) {
     .say_container .carousel-item {
-        height: 680px !important;
+        height: 640px !important;
     }
 }
 
-@media screen and (max-width:389px){
+@media screen and (max-width:389px) {
     .say_container .carousel-item {
         height: 712px !important;
     }
@@ -196,7 +196,13 @@
 
 @media screen and (max-width:375px) {
     .say_container .carousel-item {
-        height: 750px !important;
+        height: 715px !important;
+    }
+}
+
+@media screen and (max-width:372px) {
+    .say_container .carousel-item {
+        height: 760px !important;
     }
 }
 

@@ -29,10 +29,10 @@ const ViewDetailsMobile = () => {
           {/* img */}
           <div className="smallMsg d-flex gap-2">
             <button>
-              <img className="img-fluid" src={messageImage} alt="Message" />
+              <img className="img-fluid" src={star} alt="Star" />
             </button>
             <button>
-              <img className="img-fluid" src={star} alt="Message" />
+              <img className="img-fluid" src={messageImage} alt="Message" />
             </button>
           </div>
         </div>
