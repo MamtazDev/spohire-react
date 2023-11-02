@@ -27,8 +27,8 @@ const JobOffers = () => {
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
           <>
             <div className="job_offers_item p-3">
-              <div className="job_offers_item_content d-flex flex-wrap justify-content-between align-items-center">
-                <div className="left d-flex gap-4">
+              <div className="job_offers_item_content d-flex justify-content-between align-items-center">
+                <div className="left d-flex align-items-center gap-3">
                   <div className="job_offer_item_img">
                     <img src={footBallCoachImg} alt="img" />
                   </div>
@@ -45,21 +45,21 @@ const JobOffers = () => {
                     </div>
 
                     <div className="job_offerItem_address flex-wrap d-flex align-items-center gap-2 gap-md-4">
-                      <div className="job_offer_location  d-flex flex-wrap align-items-center gap-2">
+                      <div className="job_offer_location  d-flex align-items-center gap-1">
                         <img src={locationIcon} alt="icon" />
                         <span className="fs-14 fw-normal text_color_80">
                           Kieke, Poland
                         </span>
                       </div>
 
-                      <div className="job_offer_flag d-flex align-items-center gap-2">
+                      <div className="job_offer_flag d-flex align-items-center gap-1">
                         <img src={flagIcon} alt="icon" />
                         <span className="fs-14 fw-normal text_color_80">
                           Enlish, Pdish
                         </span>
                       </div>
 
-                      <div className="job_offer_flag d-flex align-items-center gap-2">
+                      <div className="job_offer_flag d-flex align-items-center gap-1">
                         <img src={dollarIcon} alt="icon" />
                         <span className="fs-14 fw-normal text_color_80">
                           USD 5000

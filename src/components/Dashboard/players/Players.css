@@ -1,9 +1,11 @@
 .players .form-check {
     min-height: 0;
 }
-.players{
+
+.players {
     padding: 30px;
 }
+
 .players .table>tbody {
     vertical-align: middle !important;
 }
@@ -47,14 +49,14 @@ td:last-child {
     border-top-right-radius: 10px;
 }
 
-tr:hover{
+tr:hover {
     box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
 }
 
 tr:hover td {
     border: 1px solid #0177FB;
     border-style: solid none;
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 
@@ -90,9 +92,14 @@ tr:hover td:last-child {
     padding: 12px !important;
 }
 
+.players_wrapper:hover {
+    border: 1px solid #0177FB;
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
 .location_div {
     margin-top: 14px;
-    padding: 0 12px;
+    padding: 0 8px;
 }
 
 .location_div p {
@@ -113,13 +120,46 @@ tr:hover td:last-child {
 
 }
 
-.socialIcon button{
+.socialIcon button {
     background: transparent;
     border: none;
-   
+
 }
 
-.socialIcon button img{
+.socialIcon button img {
     height: 12px;
     width: 12px;
+}
+
+.smallMsg button{
+    background: transparent;
+    border: none;
+}
+
+.smallMsg button img{
+    height: 41px;
+    width: 41px;
+    object-fit: contain;
+}
+
+
+
+@media screen and (max-width:400px) {
+    .location_div {
+        padding: 0px !important;
+    }
+
+    .fs_10 {
+        font-size: 8px !important;
+    }
+}
+
+.textWrap{
+    white-space: nowrap;
+}
+
+@media screen and (max-width:365px){
+    .textWrap{
+        white-space: wrap !important;
+    }
 }
