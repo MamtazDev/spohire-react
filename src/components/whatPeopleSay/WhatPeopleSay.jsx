@@ -51,7 +51,7 @@ const WhatPeopleSay = () => {
                         src={Googlesm}
                         alt="Logo"
                       />
-                      <div className="g_review d-flex  flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
+                      <div className="g_review d-flex flex-wrap flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
                         <span>A 5.00</span>
                         <div className="d-flex align-items-center gap-1 star_design">
                           <img src={Start} alt="star" />
@@ -97,7 +97,7 @@ const WhatPeopleSay = () => {
                         src={Googlesm}
                         alt="Logo"
                       />
-                      <div className="g_review d-flex  flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
+                      <div className="g_review d-flex flex-wrap flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
                         <span>A 5.00</span>
                         <div className="d-flex align-items-center gap-1 star_design">
                           <img src={Start} alt="star" />
@@ -145,7 +145,7 @@ const WhatPeopleSay = () => {
                         src={Googlesm}
                         alt="Logo"
                       />
-                      <div className="g_review d-flex flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
+                      <div className="g_review d-flex flex-wrap flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
                         <span>A 5.00</span>
                         <div className="d-flex align-items-center gap-1 star_design">
                           <img src={Start} alt="star" />
@@ -191,7 +191,7 @@ const WhatPeopleSay = () => {
                         src={Googlesm}
                         alt="Logo"
                       />
-                      <div className="g_review d-flex  flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
+                      <div className="g_review d-flex flex-wrap  flex-lg-row justify-content-start align-items-start align-items-lg-center gap-1">
                         <span>A 5.00</span>
                         <div className="d-flex align-items-center gap-1 star_design">
                           <img src={Start} alt="star" />
