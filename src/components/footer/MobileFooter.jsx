@@ -18,18 +18,18 @@ const MobileFooter = () => {
             <div></div>
             <div className="followBox d-flex flex-md-row justify-content-between align-items-center gap-3">
               <p>Follow us</p>
-              <a href="#">
+              <Link to="#">
                 <img src={Ig} alt="Instagram" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img src={Fb} alt="FaceBook" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img src={LinkeDin} alt="LinkedIn" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img src={Twitter} alt="Twitter" />
-              </a>
+              </Link>
             </div>
           </div>
           <div
@@ -40,10 +40,10 @@ const MobileFooter = () => {
               <ul className="text-center text-lg-start list-unstyled">
                 <li>Info</li>
                 <li>
-                  <a href="#">How it works</a>
+                  <Link to="#">How it works</Link>
                 </li>
                 <li>
-                  <a href="#"> About us</a>
+                  <Link to="#"> About us</Link>
                 </li>
               </ul>
             </div>
@@ -52,13 +52,13 @@ const MobileFooter = () => {
               <ul className="text-center text-lg-start list-unstyled">
                 <li>Contact</li>
                 <li>
-                  <a href="#">spohire@gmail.com</a>
+                  <Link to="#">spohire@gmail.com</Link>
                 </li>
                 <li>
-                  <a href="#">+48 565 25 654</a>
+                  <Link to="#">+48 565 25 654</Link>
                 </li>
                 <li>
-                  <a href="#">+12 485 54684</a>
+                  <Link to="#">+12 485 54684</Link>
                 </li>
               </ul>
             </div>
@@ -66,9 +66,9 @@ const MobileFooter = () => {
         </div>
         <hr />
         <div className="fooBottom d-flex justify-content-center align-items-center gap-3 gap-lg-5">
-          <a href="#">Privacy policy</a>
-          <a href="#">Terms & condition</a>
-          <a href="#">AMSL All Right Reserved</a>
+          <Link to="#">Privacy policy</Link>
+          <Link to="#">Terms & condition</Link>
+          <Link to="#">AMSL All Right Reserved</Link>
         </div>
       </div>
     </footer>
