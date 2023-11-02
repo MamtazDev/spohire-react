@@ -116,9 +116,21 @@
 .say_container .carousel-control-next-icon {
     background-image: url('../../assets/carousel-control.png') !important;
     filter: unset !important;
-    width: 99.508px;
-    height: 99.508px;
+    width: 99px;
+    height: 99px;
 
+}
+
+@media screen and (max-width:1190px) {
+    .say_container .carousel-item {
+        height: 585px !important;
+    }
+}
+
+@media screen and (max-width:1140px) {
+    .say_container .carousel-item {
+        height: 660px !important;
+    }
 }
 
 
@@ -155,7 +167,7 @@
     }
 
     .say_container .carousel-item {
-        height: 616px !important;
+        height: 565px !important;
         font-size: 10px;
     }
 
@@ -176,9 +188,22 @@
 
 }
 
+@media screen and (max-width:827px) {
+    .say_container .carousel-item {
+        height: 600px !important;
+    }
+}
+
+
 @media screen and (max-width:767px) {
     .say_container .carousel-item {
-        height: 660px !important;
+        height: 600px !important;
+    }
+}
+
+@media screen and (max-width:488px) {
+    .say_container .carousel-item {
+        height: 640px !important;
     }
 }
 
