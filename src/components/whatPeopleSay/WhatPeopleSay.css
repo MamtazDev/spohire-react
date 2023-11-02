@@ -122,6 +122,13 @@
 }
 
 
+@media screen and (max-width:1024px) {
+    .say_container .carousel-item {
+        height: 700px !important;
+        font-size: 10px;
+    }
+}
+
 @media screen and (max-width:991px) {
     .sayInnerBox {
         padding: 31px 28px;
@@ -148,7 +155,7 @@
     }
 
     .say_container .carousel-item {
-        height: 714px !important;
+        height: 616px !important;
         font-size: 10px;
     }
 
@@ -164,6 +171,28 @@
     .sayInnerBox.sayLeftbox,
     .sayInnerBox.sayRightbox {
         padding: 30px 28px;
+        border-width: 25px !important;
     }
 
+}
+
+@media screen and (max-width:425px) {
+    .say_container .carousel-item {
+        height: 660px !important;
+
+    }
+}
+
+@media screen and (max-width:375px) {
+    .say_container .carousel-item {
+        height: 720px !important;
+
+    }
+}
+
+@media screen and (max-width:320px) {
+    .say_container .carousel-item {
+        height: 760px !important;
+
+    }
 }
