@@ -76,6 +76,8 @@ footer hr {
 }
 
 @media screen and (max-width:768px) {
+
+    
     .mobile_footer {
         display: block;
     }

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Trusted.css";
 import TrustCompanyOne from "../../assets/trustCompany1.png";
 import TrustCompanyTwo from "../../assets/trustCompany2.png";
@@ -28,7 +27,7 @@ const Trusted = () => {
             alt="Logo"
           />
           <img
-            className="img-fluid trust_img"
+            className="img-fluid trust_img" 
             src={TrustCompanyFour}
             alt="Logo"
           />

@@ -15,54 +15,50 @@ const Header = () => {
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
             </Nav.Link>
           </Navbar.Brand>
-   
+
           <div className="d-block d-md-none">
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
-            {/* <i className="fa-solid fa-bars"></i> */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <g clipPath="url(#clip0_239_167)">
-                <path
-                  d="M2.5 8H13.5"
-                  stroke="white"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M2.5 4H13.5"
-                  stroke="white"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M2.5 12H13.5"
-                  stroke="white"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_239_167">
-                  <rect width="16" height="16" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </Navbar.Toggle> 
-          <button className="logIn">Log in</button>
-              <button className="authBtn btnNone">
-                <Link
-                  href="#signUp"
-                  type="submit"
-                  className="text-decoration-none"
-                >
-                  Sign Up
-                </Link>
-              </button>
+            <Navbar.Toggle aria-controls="basic-navbar-nav">
+              {/* <i className="fa-solid fa-bars"></i> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <g clipPath="url(#clip0_239_167)">
+                  <path
+                    d="M2.5 8H13.5"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M2.5 4H13.5"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M2.5 12H13.5"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_239_167">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </Navbar.Toggle>
+            <button className="logIn">Log in</button>
+            <button className="authBtn btnNone">
+              <Link to="/signup" type="submit" className="text-decoration-none">
+                Sign Up
+              </Link>
+            </button>
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
@@ -91,10 +87,12 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <form className="d-flex flex-column flex-lg-row align-items-center gap-2 nav_form_small d-none d-md-block">
-              <Link to="/login" className="logIn">Log in</Link>
+              <Link to="/login" className="logIn">
+                Log in
+              </Link>
               <button className="authBtn btnNone">
                 <Link
-                  href="#signUp"
+                  to="/signup"
                   type="submit"
                   className="text-decoration-none"
                 >

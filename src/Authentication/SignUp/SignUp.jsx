@@ -239,16 +239,17 @@ const SignUp = () => {
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
-          <div className="col-lg-5 p-0">
-            <div className="login-left_bg text-center pt-5 ">
-              <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
-              <p>
-                Fostering a sense of camaraderie and unity <br /> among athletes and
-                fans alike.
-              </p>
+          <div className="col-lg-5 p-0  d-none d-lg-block">
+            <div className="login-left_bg text-center ">
+              <div className="d-flex flex-column justify-content-center align-items-center pt-5 mt-5">
+                <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
+                <p>
+                  Fostering a sense of camaraderie and unity <br /> among
+                  athletes and fans alike.
+                </p>
+              </div>
             </div>
           </div>
-
           <div className="col-lg-7 p-0">
             <div className="login_wrapper">
               <div>
@@ -257,14 +258,14 @@ const SignUp = () => {
                 <form>
                   <div className="row right-inner-addon input-container">
                     <label htmlFor="">Full name</label>
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <input
                         type="text"
                         className="mt-2 form-control login_input"
                         placeholder="First name"
                       />
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <input
                         type="text"
                         className="form-control login_input"
@@ -273,7 +274,7 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                    <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="text"
@@ -282,7 +283,7 @@ const SignUp = () => {
                     />
                   </div>
                   <div className="row flex-wrap date_wrapper mb-3">
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <label htmlFor="">Nationality</label>
                       <Select
                         options={options1}
@@ -340,7 +341,7 @@ const SignUp = () => {
                       />
                     </div>
 
-                    <div className="col-lg-6">
+                    <div className="col-6">
                       <label htmlFor="">Date of birth</label>
                       <DateSelector />
                     </div>
@@ -349,7 +350,7 @@ const SignUp = () => {
                   {/* email input */}
                   <div className="row email_input">
                     <label htmlFor="">Phone number</label>
-                    <div className="col-lg-4 mb-3">
+                    <div className="col-4 mb-3">
                       <Select
                         placeholder="+880"
                         options={options2}
@@ -406,7 +407,7 @@ const SignUp = () => {
                         }}
                       />
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-8">
                       <div className="phone_number">
                         <div></div>
                         <input
@@ -436,7 +437,7 @@ const SignUp = () => {
                   <div className="d-flex justify-content-center mt-4">
                     <button type="submit" className="login-btn">
                       Create account
-                      <img src={arrowRight} alt="" />
+                      <img src={arrowRight} alt="img" className="ms-1" />
                     </button>
                   </div>
                 </form>
@@ -455,18 +456,18 @@ export default SignUp;
 <div class="select-date">
   <select id="select-day"></select>
   <select id="select-month">
-  	  <option value="0">January
-    	<option value="1">February
-  	  <option value="2">March
-  	  <option value="3">April
-  	  <option value="4">May
-  	  <option value="5">June
-  	  <option value="6">July
-  	  <option value="7">August
-  	  <option value="8">September
-  	  <option value="9">October
-  	  <option value="10">November
-  	  <option value="11">December
+      <option value="0">January
+      <option value="1">February
+      <option value="2">March
+      <option value="3">April
+      <option value="4">May
+      <option value="5">June
+      <option value="6">July
+      <option value="7">August
+      <option value="8">September
+      <option value="9">October
+      <option value="10">November
+      <option value="11">December
   </select>
   <select id="select-year"></select>
 </div>

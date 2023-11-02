@@ -1,4 +1,4 @@
-@media only screen and (max-width:1024px) {
+/* @media only screen and (max-width:1024px) {
     .navbar-nav {
         gap: 20px;
     }
@@ -57,25 +57,12 @@
         margin-bottom: 8px;
     }
 
-    .banner .bannerContent a {
-        font-size: 20px;
-        padding: 15px 30px;
-    }
 
-    .feature .featureTop h2 {
-        font-size: 38px;
-    }
 
     .feature .featureTop p {
         font-size: 18px;
     }
 
-    .feature .featureBoxStart,
-    .feature .featureBoxMiddle,
-    .feature .featureBoxEnd {
-        padding: 15px 0 0 15px;
-
-    }
 
     .feature .featureBottom h4,
     footer ul li:first-child,
@@ -140,10 +127,6 @@
         line-height: 1.5;
     }
 
-    .trustContent {
-        font-size: 16px !important;
-        margin-bottom: 34px !important;
-    }
 
     footer hr {
         margin-top: 20px;
@@ -166,4 +149,4 @@
         font-size: 10px;
         line-height: 20px;
     }
-}
+} */

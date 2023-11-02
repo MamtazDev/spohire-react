@@ -4,6 +4,7 @@
     background-image: url("../../assets/bannerbg.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #0a0119;
 }
 
 .navbar {
@@ -94,6 +95,10 @@
 /* Header End */
 
 @media screen and (max-width:767px) {
+
+    .bgBanner {
+        background-position: top right;
+    }
     .navbar {
         padding-top: 28px;
         padding-bottom: 0;

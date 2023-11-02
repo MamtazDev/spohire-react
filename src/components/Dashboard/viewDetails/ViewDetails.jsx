@@ -12,7 +12,7 @@ import Gallary from "./Gallary";
 
 const ViewDetails = () => {
   return (
-    <div className="View_details container ps-0 pe-0 overflow-hidden">
+    <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
       <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
@@ -149,7 +149,7 @@ const ViewDetails = () => {
       {/* <!-- Personal Info End --> */}
       {/* <!-- Strengths, About Me part Start --> */}
       <div className="strAbout mb_60 ">
-        <div className="row justify-content-start" style={{paddingLeft:"24px",paddingRight:"60px"}}>
+        <div className="row justify-content-start about_part">
           <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">
               Strengths Advantages

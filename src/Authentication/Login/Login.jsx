@@ -22,10 +22,9 @@ const Login = () => {
               <div>
                 <h3>Log in</h3>
                 <p>Fill all input to Login on your account</p>
-
                 <form>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                  <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="text"
@@ -34,7 +33,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                  <i className="fa-solid fa-lock"></i>
                     <label htmlFor="">Password</label>
                     <input
                       type="text"
@@ -61,11 +60,11 @@ const Login = () => {
               </div>
               <div className="login_with_social">
                 <RiGoogleLine />
-                <span>Continue with Twitter</span>
+                <span>Continue with Google</span>
               </div>
               <div className="login_with_social">
                 <AiOutlineApple />
-                <span>Continue with Twitter</span>
+                <span>Continue with Apple</span>
               </div>
             </div>
           </div>

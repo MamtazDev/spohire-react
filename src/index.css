@@ -82,10 +82,6 @@ a {
   margin-bottom: 55px;
 }
 
-.all_mb {
-  margin-bottom: 130px;
-}
-
 .fs_10 {
   font-size: 10px;
   font-weight: 400;
@@ -225,28 +221,35 @@ a {
   opacity: 0.9;
 }
 
-
-
-
 @media (max-width:990px) {
+  .trustContent {
+    font-size: 16px !important;
+    margin-bottom: 34px !important;
+  }
+
   .section_padding {
     padding-top: 64px;
     padding-bottom: 64px;
   }
-  
+
   .section_heading {
     margin-bottom: 32px;
   }
+
   .nav_form_small {
     margin-top: 30px !important;
   }
 
 
-  .feature .featureBoxStart,
+  /* .feature .featureBoxStart,
   .feature .featureBoxMiddle,
   .feature .featureBoxEnd {
-    padding: 20px 0px 30px 40px !important;
+    padding: 20px 10px 30px 40px !important;
   }
+
+  .feature .featureBoxEnd img, .feature .featureBoxMiddle img{
+    margin-top: 0 !important;
+  } */
 
   .right_content_wrapper {
     padding-bottom: 50px !important;
@@ -258,7 +261,7 @@ a {
   }
 
   .right_content_wrapper {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     text-align: center;
   }
 
@@ -293,7 +296,7 @@ a {
   }
 
   .banner .bannerContent p {
-    font-size: 10.8px;
+    font-size: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -301,55 +304,12 @@ a {
   .banner .bannerContent a {
     padding: 10px 16px !important;
     font-size: 9px !important;
+    line-height: 17px !important;
   }
 
   /* banner */
 
-  /* some features */
-  .feature_card {
-    padding-right: 0px !important;
-  }
-
-  .feature .featureTop h2 {
-    font-size: 24px !important;
-    font-style: normal;
-    font-weight: 700 !important;
-    line-height: 30px !important;
-    /* 125% */
-    letter-spacing: -0.24px !important;
-    width: 192px;
-    margin: auto;
-  }
-
-  .feature .featureTop p {
-    font-size: 10px !important;
-    width: 257px;
-    margin: auto;
-  }
-
-  .featureTop {
-    text-align: center;
-  }
-
-  .feature_mobile {
-    display: none !important;
-  }
-
-  .feature .featureBottom h4 {
-    font-size: 17px !important;
-  }
-
-  .feature .featureBottom p {
-    font-size: 9.5px !important;
-    font-weight: 500 !important;
-    line-height: 12px !important;
-  }
-
-  .feature {
-    padding: 0 50px !important;
-  }
-
-  /* some features */
+  
 
   /* work */
   .workBg h3 {
@@ -418,10 +378,6 @@ a {
     padding: 5px 10px !important;
   }
 
-  .workBg .leftBlueBox {
-    padding-top: 21px !important;
-  }
-
   .numTag {
     width: 33.273px !important;
     height: 33.273px !important;
@@ -456,11 +412,12 @@ a {
     padding-top: 21px !important;
     padding-left: 33px !important;
     padding-right: 21px !important;
+    padding-bottom: 21px !important;
   }
 
   /* sign up */
   .workBg .howWorkRight p {
-    font-size: 15.761px !important;
+    font-size: 15px !important;
   }
 
   .workBg .howWorkRight span {
@@ -556,13 +513,15 @@ a {
     font-size: 36px !important;
     line-height: 46px !important;
     margin-bottom: 0 !important;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
   }
 
   .top_content p {
-    font-size: 14.8px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
-
     line-height: 24px;
   }
 
@@ -579,12 +538,18 @@ a {
     text-transform: uppercase !important;
   }
 
+  .WhyWeList li {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+  }
 
   /* why we */
   /* faq section */
   .section_heading h2 {
     font-size: 24px !important;
     font-weight: 700 !important;
+    line-height: 30px !important;
   }
 
   .question {
@@ -592,6 +557,7 @@ a {
     font-style: normal !important;
     font-weight: 400 !important;
     line-height: 20.786px !important;
+    margin-bottom: 8px;
   }
 
   .answer {
@@ -607,16 +573,27 @@ a {
   } */
 
   /* faq section */
+
+
   /* footer */
+
+  footer {
+   background: url("../src/assets/mobile_footer_bg.png") !important;
+   background-repeat: no-repeat !important;
+   background-position: center !important;
+   background-size: cover !important;
+   padding: 30px 0 !important;
+  }
+
   footer p {
-    font-size: 24px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
   }
 
   .fooBottom a {
-    font-size: 11.3px !important;
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
@@ -630,10 +607,24 @@ a {
   }
 
   footer ul li a {
-    font-size: 11.3px !important;
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
+  }
+
+  .followBox {
+    padding: 17px !important;
+  }
+
+  .followBox a {
+    height: 34px !important;
+    width: 34px !important;
+  }
+
+  .followBox a img{
+    height: 18px;
+    width: 18px;
   }
 }
 
@@ -651,9 +642,12 @@ a {
 }
 
 @media(max-width:768px) {
+  .all_mb {
+    margin-bottom: 64px;
+  }
 
   .text_color_80 {
-    font-size: 9.956px !important;
+    font-size: 10px !important;
 
   }
 

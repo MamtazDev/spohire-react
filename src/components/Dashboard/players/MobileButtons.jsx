@@ -6,7 +6,7 @@ const MobileButtons = () => {
   return (
     <div className="mobile_btns">
       <div className=" d-flex flex-wrap gap-3  gap-md-5 justify-content-center mt-5">
-        <button className="btn filter_mb_btn">
+        <button className="btn filter_mb_btn fs_10">
           Filter options <img src={plus} alt="" />
         </button>
         <button className="btn btn-primary details_mob fs_10">

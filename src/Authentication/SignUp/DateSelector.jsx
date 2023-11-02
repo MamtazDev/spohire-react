@@ -28,7 +28,7 @@ const DateSelector = () => {
   
   return (
     <>
-      <div className="d-flex align-items-center gap-3">
+      <div className="d-flex align-items-center gap-1">
         <div className="year_input">
           <DatePicker
             selected={myYear}
@@ -55,28 +55,12 @@ const DateSelector = () => {
             onChange={(date) => setMyDay(date)}
           />
         </div>
+
+
+        
       </div>
     </>
   );
 };
 
 export default DateSelector;
-
-{
-  /* <select
-id="select-month"
-className="select_date"
-value={selectedDate.getMonth()}
-onChange={handleMonthChange}
->
-{monthOptions}
-</select>
-<select
-id="select-year"
-className="select_date"
-value={selectedDate.getFullYear()}
-onChange={handleYearChange}
->
-{yearOptions}
-</select> */
-}
