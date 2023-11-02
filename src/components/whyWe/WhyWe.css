@@ -18,4 +18,8 @@
         padding-top: 32px;
     }
 
+    .common_btn a {
+        margin-bottom: 0px;
+    }
+
 }
