@@ -549,6 +549,7 @@ a {
   .section_heading h2 {
     font-size: 24px !important;
     font-weight: 700 !important;
+    line-height: 30px !important;
   }
 
   .question {
@@ -613,7 +614,7 @@ a {
   }
 
   .followBox {
-    padding: 17px;
+    padding: 17px !important;
   }
 
   .followBox a {
