@@ -24,9 +24,15 @@
     letter-spacing: 0.455px;
 }
 
-.sayInnerBox {
-    border: 40px solid #F17415 !important;
+.sayInnerBox.sayLeftbox {
+    border: 40px solid #F17415;
     padding: 62px 54px;
+}
+
+.sayInnerBox.sayRightbox {
+    border: 40px solid #0177FB !important;
+    padding: 62px 54px;
+
 }
 
 .sayInnerBox .profoleImg {
@@ -80,25 +86,25 @@
 
 /* What people say End */
 
-.carousel-item {
+.say_container .carousel-item {
     height: 600px;
 }
 
-.carousel-caption {
+.say_container .carousel-caption {
     width: 100%;
     left: 0;
     right: 0;
 }
 
-.carousel-indicators {
+.say_container .carousel-indicators {
     display: none;
 }
 
-.carousel-control-prev {
+.say_container .carousel-control-prev {
     display: none;
 }
 
-.carousel-control-next {
+.say_container .carousel-control-next {
     width: unset;
     left: 5%;
     top: 50%;
@@ -107,10 +113,126 @@
     opacity: 1;
 }
 
-.carousel-control-next-icon {
+.say_container .carousel-control-next-icon {
     background-image: url('../../assets/carousel-control.png') !important;
     filter: unset !important;
-    width: 99.508px;
-    height: 99.508px;
+    width: 99px;
+    height: 99px;
 
+}
+
+@media screen and (max-width:1190px) {
+    .say_container .carousel-item {
+        height: 585px !important;
+    }
+}
+
+@media screen and (max-width:1140px) {
+    .say_container .carousel-item {
+        height: 660px !important;
+    }
+}
+
+
+@media screen and (max-width:1024px) {
+    .say_container .carousel-item {
+        height: 700px !important;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .sayInnerBox {
+        padding: 31px 28px;
+    }
+
+    .sayInnerBox p {
+        font-size: 11.191px;
+        text-align: start;
+        line-height: 16.787px;
+    }
+
+    .sayInnerBox span {
+        font-size: 8.953px;
+    }
+
+    .sayInnerBox h5 {
+        font-size: 15.855px;
+        line-height: 21.549px;
+        text-align: start;
+    }
+
+    .sayHeader span {
+        color: #0A0119;
+    }
+
+    .say_container .carousel-item {
+        height: 565px !important;
+        font-size: 10px;
+    }
+
+
+
+    .say_container .carousel-control-next-icon {
+        /* background-image: url('../../assets/carousel-control-sm.png') !important; */
+        width: 61px;
+        height: 61px;
+
+    }
+
+    .sayInnerBox.sayLeftbox,
+    .sayInnerBox.sayRightbox {
+        padding: 30px 28px;
+        border-width: 25px !important;
+    }
+
+}
+
+@media screen and (max-width:827px) {
+    .say_container .carousel-item {
+        height: 600px !important;
+    }
+}
+
+
+@media screen and (max-width:767px) {
+    .say_container .carousel-item {
+        height: 600px !important;
+    }
+}
+
+@media screen and (max-width:488px) {
+    .say_container .carousel-item {
+        height: 640px !important;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .say_container .carousel-item {
+        height: 640px !important;
+    }
+}
+
+@media screen and (max-width:389px) {
+    .say_container .carousel-item {
+        height: 712px !important;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .say_container .carousel-item {
+        height: 715px !important;
+    }
+}
+
+@media screen and (max-width:372px) {
+    .say_container .carousel-item {
+        height: 760px !important;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .say_container .carousel-item {
+        height: 760px !important;
+    }
 }

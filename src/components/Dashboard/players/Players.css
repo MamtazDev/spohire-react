@@ -2,6 +2,173 @@
     min-height: 0;
 }
 
+.players {
+    padding: 25px;
+}
+
 .players .table>tbody {
     vertical-align: middle !important;
+}
+
+.players_mobile {
+    display: none !important;
+}
+
+.mobile_btns {
+    display: none !important;
+}
+
+.form-check-input:focus {
+    box-shadow: none !important;
+}
+
+table {
+    border-collapse: initial;
+    border-spacing: 0 20px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 1.5rem;
+}
+
+td {
+    border: solid 1px transparent;
+    border-style: solid none;
+    padding: 10px;
+}
+
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+tr:hover {
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
+tr:hover td {
+    border: 1px solid #0177FB;
+    border-style: solid none;
+    box-shadow: none !important;
+}
+
+
+tr:hover td:first-child {
+    border-left-style: solid;
+}
+
+tr:hover td:last-child {
+    border-right-style: solid;
+}
+
+@media(max-width:1024px) {
+    .players_desk {
+        display: none;
+    }
+
+    .players_mobile {
+        display: block !important;
+    }
+
+    .mobile_btns {
+        display: block !important;
+        gap: 1rem !important;
+    }
+
+}
+
+.players_wrapper {
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: #FFF;
+    box-shadow: 12px 12px 40px 0px rgba(0, 0, 0, 0.03);
+    padding: 12px !important;
+}
+
+.players_wrapper:hover {
+    border: 1px solid #0177FB;
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
+.location_div {
+    margin-top: 14px;
+    padding: 0 8px;
+}
+
+.location_div p {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.filter_mb_btn {
+    border-radius: 8px;
+    background: rgba(45, 91, 255, 0.08);
+
+    padding: 12px 24px;
+}
+
+.details_mob {
+    padding: 12px 24px;
+
+}
+
+.socialIcon button {
+    background: transparent;
+    border: none;
+
+}
+
+.socialIcon button img {
+    height: 12px;
+    width: 12px;
+}
+
+.smallMsg button{
+    background: transparent;
+    border: none;
+}
+
+.smallMsg button img{
+    height: 41px;
+    width: 41px;
+    object-fit: contain;
+}
+
+
+
+@media screen and (max-width:400px) {
+    .location_div {
+        padding: 0px !important;
+    }
+
+    .fs_10 {
+        font-size: 8px !important;
+    }
+}
+
+.textWrap{
+    white-space: nowrap;
+}
+
+@media screen and (max-width:365px){
+    .textWrap{
+        white-space: wrap !important;
+    }
+}
+
+@media screen and (max-width:375px){
+    .players {
+        padding: 20px !important;
+    }
+    .players_wrapper {
+        padding: 10px !important;
+    }
 }

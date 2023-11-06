@@ -4,3 +4,22 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media screen and (max-width:1024px) {
+    .common_btn a {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (max-width:990px) {
+
+    #whyWe {
+        padding-top: 32px;
+    }
+
+    .common_btn a {
+        margin-bottom: 0px;
+    }
+
+}

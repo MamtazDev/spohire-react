@@ -11,9 +11,10 @@ const Login = () => {
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-5 p-0">
-            <div className="login-left_bg_img"></div>
-            <div className="login_slider">
-              <LoginSlider />
+            <div className="login-left_bg_img d-none d-lg-block">
+              <div className="login_slider">
+                <LoginSlider />
+              </div>
             </div>
           </div>
           <div className="col-lg-7 p-0">
@@ -21,10 +22,9 @@ const Login = () => {
               <div>
                 <h3>Log in</h3>
                 <p>Fill all input to Login on your account</p>
-                {/* input field */}
                 <form>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                  <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="text"
@@ -33,7 +33,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa fa-search"></i>
+                  <i className="fa-solid fa-lock"></i>
                     <label htmlFor="">Password</label>
                     <input
                       type="text"
@@ -43,27 +43,28 @@ const Login = () => {
                   </div>
                   <div className="d-flex justify-content-center">
                     <button className="login-btn" type="submit">
-                      Log in <img src={arrowRight} alt="" />
+                      Log in <img className="ms-1" src={arrowRight} alt="" />
                     </button>
                   </div>
-                  <p>or</p>
+                  <div className="d-flex align-items-center gap-1 my-4">
+                    <div className="line"></div>
+                    <p className="mb-0">or</p>
+                    <div className="line"></div>
+                  </div>
                 </form>
               </div>
 
               <div className="login_with_social">
-                {/* <i className="fa fa-search"></i> */}
                 <AiOutlineTwitter />
                 <span>Continue with Twitter</span>
               </div>
               <div className="login_with_social">
-                {/* <i className="fa fa-search"></i> */}
                 <RiGoogleLine />
-                <span>Continue with Twitter</span>
+                <span>Continue with Google</span>
               </div>
               <div className="login_with_social">
-                {/* <i className="fa fa-search"></i> */}
                 <AiOutlineApple />
-                <span>Continue with Twitter</span>
+                <span>Continue with Apple</span>
               </div>
             </div>
           </div>

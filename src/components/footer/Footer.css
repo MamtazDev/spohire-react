@@ -71,4 +71,20 @@ footer hr {
     text-decoration: underline;
 }
 
+.mobile_footer {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+
+    
+    .mobile_footer {
+        display: block;
+    }
+
+    .deskFooter {
+        display: none;
+    }
+}
+
 /* Footer End */

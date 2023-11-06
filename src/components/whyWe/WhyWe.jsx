@@ -1,4 +1,3 @@
-import React from 'react'
 import './WhyWe.css'
 import BasketPerson from '../../assets/why-we.png';
 import { Link } from 'react-router-dom';
@@ -23,12 +22,12 @@ const WhyWe = () => {
                                     Why we made Spohire
                                 </h1>
 
-                                <p className='fs_32 fw-semibold text-white'>
-                                    We aimed to simplify the process of  finding a club for the player and coach.
+                                <p className='fs_32 fw-semibold' style={{ color: '#746f7c' }}>
+                                    We aimed to simplify the process of  finding <br className='d-block d-md-none'/> a club for the player and coach.
                                 </p>
                             </div>
-                            <ul className='mb-5'>
-                                <li className='fs_18 fw-medium mb-3' style={{ color: '#ffffff6e' }}>
+                            <ul className='mb-2 md-mb-5 p-3 WhyWeList'>
+                                <li className='md-fs_18  fw-medium mb-3' style={{ color: '#ffffff6e' }}>
                                     I can tell you first hand, ChainGPT is absolutely amazing. They have helped me and my team speed up our working process by 125%. The access to blockchain information was never easier.
                                 </li>
 

@@ -82,8 +82,9 @@ a {
   margin-bottom: 55px;
 }
 
-.all_mb {
-  margin-bottom: 130px;
+.fs_10 {
+  font-size: 10px;
+  font-weight: 400;
 }
 
 .fs_14 {
@@ -95,6 +96,13 @@ a {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+}
+
+.fs_20 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .fs_28 {
@@ -171,6 +179,7 @@ a {
 
 .text_color_80 {
   color: var(--color_80);
+
 }
 
 .text_color_55 {
@@ -212,19 +221,23 @@ a {
   opacity: 0.9;
 }
 
-
-
-
 @media (max-width:990px) {
-  .nav_form_small {
-    margin-top: 30px !important;
+  .trustContent {
+    font-size: 16px !important;
+    margin-bottom: 34px !important;
   }
 
+  .section_padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 
-  .feature .featureBoxStart,
-  .feature .featureBoxMiddle,
-  .feature .featureBoxEnd {
-    padding: 20px 10px 30px 40px !important;
+  .section_heading {
+    margin-bottom: 32px;
+  }
+
+  .nav_form_small {
+    margin-top: 30px !important;
   }
 
   .right_content_wrapper {
@@ -237,12 +250,8 @@ a {
   }
 
   .right_content_wrapper {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     text-align: center;
-  }
-
-  .carousel-control-next-icon {
-    display: none !important;
   }
 
   .star_design {
@@ -276,7 +285,7 @@ a {
   }
 
   .banner .bannerContent p {
-    font-size: 10.8px;
+    font-size: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -284,36 +293,12 @@ a {
   .banner .bannerContent a {
     padding: 10px 16px !important;
     font-size: 9px !important;
+    line-height: 17px !important;
   }
 
   /* banner */
 
-  /* some features */
-  .feature .featureTop h2 {
-    font-size: 24px !important;
-  }
-
-  .feature .featureTop p {
-    font-size: 10px !important;
-  }
-
-  .featureTop {
-    text-align: center;
-  }
-
-  .feature_mobile {
-    display: none !important;
-  }
-
-  .feature .featureBottom h4 {
-    font-size: 17px !important;
-  }
-
-  .feature .featureBottom p {
-    font-size: 9.5px !important;
-  }
-
-  /* some features */
+  
 
   /* work */
   .workBg h3 {
@@ -321,17 +306,17 @@ a {
   }
 
   .workBg .tabOutter button {
-    font-size: 13.465px !important;
+    font-size: 13px !important;
     padding: 11px 35px !important;
   }
 
   .workBg .local p {
-    font-size: 16.161px !important;
-    line-height: 23.766px;
+    font-size: 16px !important;
+    line-height: 23px;
   }
 
   .workBg .local button {
-    font-size: 11.408px !important;
+    font-size: 11px !important;
     padding: 7px 11px !important;
   }
 
@@ -348,12 +333,12 @@ a {
   }
 
   .workBg .playerBox p {
-    font-size: 12.801px !important;
+    font-size: 12px !important;
   }
 
   .img1 {
-    width: 82.706px !important;
-    height: 41.829px !important;
+    width: 82px !important;
+    height: 41px !important;
   }
 
   .img2 {
@@ -362,8 +347,8 @@ a {
   }
 
   .img3 {
-    width: 83.388px !important;
-    height: 41.966px !important;
+    width: 83px !important;
+    height: 41px !important;
   }
 
   .local {
@@ -372,35 +357,33 @@ a {
 
   .workBg .playerBox span,
   .workBg .detailBox span {
-    font-size: 8.534px !important;
+    font-size: 8px !important;
     padding: 4px 6px !important;
 
   }
 
   .workBg .detailBox p {
-    font-size: 8.534px !important;
+    font-size: 8px !important;
     padding: 5px 10px !important;
   }
 
-  .workBg .leftBlueBox {
-    padding-top: 21px !important;
-  }
-
   .numTag {
-    width: 33.273px !important;
-    height: 33.273px !important;
+    width: 33px !important;
+    height: 33px !important;
   }
 
   .numTag p {
-    font-size: 15.645px !important;
+    font-size: 15px !important;
   }
 
   .workBg .connect p {
-    font-size: 14.26px !important;
+    font-size: 14px !important;
   }
 
   .workBg .connect span {
-    font-size: 11.408px !important;
+    font-size: 11px !important;
+    line-height: 14px !important;
+    
   }
 
   .mobile_numtag {
@@ -408,28 +391,29 @@ a {
   }
 
   .workBg .leftBlueBox button {
-    font-size: 11.378px !important;
+    font-size: 11px !important;
   }
 
   .workBg .leftBlueBox button img {
-    width: 13.46px;
-    height: 13.309px;
+    width: 13px;
+    height: 13px;
   }
 
   .workBg .leftBlueBox {
     padding-top: 21px !important;
     padding-left: 33px !important;
     padding-right: 21px !important;
+    padding-bottom: 21px !important;
   }
 
   /* sign up */
   .workBg .howWorkRight p {
-    font-size: 15.761px !important;
+    font-size: 15px !important;
   }
 
   .workBg .howWorkRight span {
-    font-size: 11.733px !important;
-    line-height: 17.03px !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
   }
 
   .workBg .howWorkRight {
@@ -441,17 +425,17 @@ a {
   }
 
   .workBg .howWorkRight form .txtInput label {
-    font-size: 11.79px !important;
+    font-size: 11px !important;
   }
 
   .workBg .howWorkRight form .txtInput input {
     padding: 0 !important;
-    width: 108.574px !important;
-    height: 24.517px !important;
+    width: 100% !important;
+    height: 24px !important;
   }
 
   .playOption label {
-    font-size: 9.17px !important;
+    font-size: 9px !important;
   }
 
   .playOption label::after {
@@ -507,6 +491,7 @@ a {
   .trustContent_mobile {
     justify-content: center !important;
     gap: 30px !important;
+    flex-wrap: wrap !important;
   }
 
   /* what people say */
@@ -519,13 +504,15 @@ a {
     font-size: 36px !important;
     line-height: 46px !important;
     margin-bottom: 0 !important;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
   }
 
   .top_content p {
-    font-size: 14.8px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
-
     line-height: 24px;
   }
 
@@ -542,19 +529,26 @@ a {
     text-transform: uppercase !important;
   }
 
+  .WhyWeList li {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+  }
 
   /* why we */
   /* faq section */
   .section_heading h2 {
     font-size: 24px !important;
     font-weight: 700 !important;
+    line-height: 30px !important;
   }
 
   .question {
     font-size: 14px !important;
     font-style: normal !important;
     font-weight: 400 !important;
-    line-height: 20.786px !important;
+    line-height: 20px !important;
+    margin-bottom: 8px;
   }
 
   .answer {
@@ -564,37 +558,125 @@ a {
     line-height: 19px !important;
   }
 
-  .mobile_icon {
+  /* .mobile_icon {
     height: 30px !important;
     width: 30px !important;
-  }
+  } */
 
   /* faq section */
+
+
   /* footer */
+
+  footer {
+   background: url("../src/assets/mobile_footer_bg.png") !important;
+   background-repeat: no-repeat !important;
+   background-position: center !important;
+   background-size: cover !important;
+   padding: 30px 0 !important;
+  }
+
   footer p {
-    font-size: 24px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
   }
 
   .fooBottom a {
-    font-size: 11.3px !important;
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
   }
-footer ul li:first-child{
-  font-size: 14px !important;
+
+  footer ul li:first-child {
+    font-size: 14px !important;
     font-style: normal !important;
-      font-weight: 400 !important;
-      line-height: normal !important;
-}
-footer ul li a{
-  font-size: 11.3px !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+  }
+
+  footer ul li a {
+    font-size: 11px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
+  }
+
+  .followBox {
+    padding: 17px !important;
+  }
+
+  .followBox a {
+    height: 34px !important;
+    width: 34px !important;
+  }
+
+  .followBox a img{
+    height: 18px;
+    width: 18px;
+  }
 }
-  /* footer */
+
+/* .job_offers_wrapper{
+  padding: 40px;
+} */
+@media(max-width:1024px) {
+  .dashbord_sidebar {
+    display: none !important;
+  }
+
+  .mobileTopbar {
+    display: block !important;
+  }
+}
+
+@media(max-width:768px) {
+  .all_mb {
+    margin-bottom: 64px;
+  }
+
+  .text_color_80 {
+    font-size: 10px !important;
+
+  }
+
+  .p-3 {
+    padding: 12px !important;
+  }
+
+  .job_offer_item_img img {
+    width: 57px !important;
+    height: 57px !important;
+  }
+
+  .right {
+    width: 17px !important;
+    height: 16px !important;
+  }
+
+  .job_offerItem_address img {
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px !important;
+  max-width: 285px;
+  width: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -4,6 +4,7 @@
     background-image: url("../../assets/bannerbg.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #0a0119;
 }
 
 .navbar {
@@ -39,12 +40,16 @@
 }
 
 .navbar-toggler {
-    border: none;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 32px;
+    height: 32px;
+    padding: unset;
+    font-size: unset;
+
 }
 
-.navbar-toggler i {
-    color: #FFF;
-}
+
 
 :focus-visible {
     outline: none;
@@ -88,3 +93,35 @@
 
 
 /* Header End */
+
+@media screen and (max-width:767px) {
+
+    .bgBanner {
+        background-position: top right;
+    }
+    .navbar {
+        padding-top: 28px;
+        padding-bottom: 0;
+    }
+
+    .navbar-nav {
+        margin-top: 20px !important;
+        gap: 20px
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .logIn,
+    .authBtn a {
+        font-size: 10.667px;
+        padding: 27px;
+    }
+
+    .authBtn {
+        background-image: url('../../assets/signupbgsm.png');
+    }
+
+
+}

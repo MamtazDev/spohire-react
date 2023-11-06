@@ -72,12 +72,7 @@ input {
     outline: none !important;
 }
 
-.login-left_bg_img {
-    background-image: url(../../assets/login-banner.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
+
 
 .login-left_bg {
     background-image: url(../../assets/sign-up.png);
@@ -96,4 +91,10 @@ input {
     color: #A5B4CB;
     font-size: 12px;
     font-weight: 400;
+}
+
+.css-11l6u31-control {
+    border-radius: 5px;
+    background: #FAFAFA;
+    border: none !important;
 }

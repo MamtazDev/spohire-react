@@ -40,9 +40,35 @@
     max-width: 285px;
 }
 
+.col_padding {
+    padding-right: 85px;
+}
+
 /* Job Offers End */
 
+.mobile_design_vd {
+    display: none;
+}
+
+.strAbout {
+    padding-left: 30px;
+}
+
+.gap_57 {
+    gap: 57px;
+}
+
+.padding_left {
+    padding-left: 34px;
+}
+
+.edit_Btn{
+    background: transparent;
+    border: none;
+}
+
 @media only screen and (max-width:425px) {
+
     .personalInfo .message {
         right: 0;
     }
@@ -56,6 +82,97 @@
     }
 
     .job_offer {
-        padding: 40px;
+        padding: 40px !important;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .about_part {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .social_icon {
+        height: 17px !important;
+        width: 17px !important;
+    }
+
+    .p_35 {
+        padding: 0 35px !important;
+    }
+
+    .m_35 {
+        margin: 0 35px !important;
+    }
+
+    .col_padding {
+        padding-right: 0px !important;
+    }
+
+
+
+    .strAbout {
+        padding-left: 0px !important;
+    }
+
+    .job_offer {
+        padding: 0px !important;
+    }
+
+    .info_title_mobile {
+        font-size: 11px !important;
+    }
+
+    .fs_15 {
+        font-size: 10.6px !important;
+    }
+
+    .fs_17 {
+        font-size: 12.089px !important;
+    }
+
+    .desktop_vd {
+        display: none;
+    }
+
+    .mobile_design_vd {
+        display: block;
+    }
+
+    .col_padding p:first-child {
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 500 !important;
+        line-height: normal !important;
+
+    }
+
+    .col_padding p {
+        font-size: 12px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: normal !important;
+        line-height: 17px;
+    }
+
+    .col_padding a {
+        color: #0177FB;
+        font-family: SF Pro Display;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 17.067px;
+    }
+
+    .col_padding {
+        margin-bottom: 32px !important;
+    }
+
+    .col_padding:first-child {
+        margin-top: 62px !important;
+    }
+
+    .personalInfo {
+        margin-top: 39px !important;
     }
 }
