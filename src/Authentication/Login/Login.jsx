@@ -11,12 +11,10 @@ const Login = () => {
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-5 p-0">
-            <div className="login-left_bg_img">
-              <div className="login_slider">
-                <LoginSlider />
-              </div>
+            <div className="login-left_bg_img"></div>
+            <div className="login_slider">
+              <LoginSlider />
             </div>
-            {/* <h1>hello logion</h1> */}
           </div>
           <div className="col-lg-7 p-0">
             <div className="login_wrapper">
