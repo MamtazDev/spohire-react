@@ -1,11 +1,36 @@
-import arrowRight from "../../assets/ArrowRight.png";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { RiGoogleLine } from "react-icons/ri";
-import { AiOutlineApple } from "react-icons/ai";
-import "./Login.css";
-import LoginSlider from "./LoginSlider";
+import React, { useState } from 'react';
+import arrowRight from '../../assets/ArrowRight.png';
+import { AiOutlineTwitter } from 'react-icons/ai';
+import { RiGoogleLine } from 'react-icons/ri';
+import { AiOutlineApple } from 'react-icons/ai';
+import './Login.css';
+import LoginSlider from './LoginSlider';
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const location = useLocation(); // Get the current location object
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (!password) {
+      alert('Please enter a password.');
+      return;
+    }
+
+    // If email and password are valid, navigate to the home page
+    window.location.pathname = '/'; // Use window.location.pathname to navigate
+  };
+
   return (
     <>
       <div className="container-fluid">
@@ -24,25 +49,29 @@ const Login = () => {
                 <p>Fill all input to Login on your account</p>
                 <form>
                   <div className="right-inner-addon input-container">
-                  <i className="fa-regular fa-envelope"></i>
-                    <label htmlFor="">Email Address</label>
+                    <i className="fa-regular fa-envelope"></i>
+                    <label htmlFor="email">Email Address</label>
                     <input
-                      type="text"
+                      type="email"
                       className="form-control login_input"
                       placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="right-inner-addon input-container">
-                  <i className="fa-solid fa-lock"></i>
-                    <label htmlFor="">Password</label>
+                    <i className="fa-solid fa-lock"></i>
+                    <label htmlFor="password">Password</label>
                     <input
-                      type="text"
+                      type="password"
                       className="form-control login_input"
                       placeholder="Enter password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <div className="d-flex justify-content-center">
-                    <button className="login-btn" type="submit">
+                    <button className="login-btn" type="submit" onClick={handleSubmit}>
                       Log in <img className="ms-1" src={arrowRight} alt="" />
                     </button>
                   </div>
@@ -53,7 +82,6 @@ const Login = () => {
                   </div>
                 </form>
               </div>
-
               <div className="login_with_social">
                 <AiOutlineTwitter />
                 <span>Continue with Twitter</span>

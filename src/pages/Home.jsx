@@ -16,8 +16,8 @@ const Home = () => {
   return (
     <>
       <main>
-        <div className="bgBanner">
-          <Header />
+        <Header />
+        <div className="bgBanner section_padding pb-0">
           <Banner />
         </div>
         <MarqueeSlider />

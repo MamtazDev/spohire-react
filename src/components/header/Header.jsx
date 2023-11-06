@@ -1,19 +1,24 @@
 import "./Header.css";
 import Logo from "../../assets/logo.png";
 import Logosm from "../../assets/responsive-logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
+
+  const currentLocation = useLocation();
+  const homePath = currentLocation.pathname;
+
   return (
-    <header>
+    // className = { homePath === "/" ? 'position-absolute w-100' : 'position-absolute w-100 bg_color_black'
+    <header className={'position-absolute w-100'}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
-          <Navbar.Brand href="#home">
-            <Nav.Link className="navbar-brand" href="#home">
+          <Navbar.Brand className="d-flex align-items-center">
+            <Link className="navbar-brand" to="/">
               <img className="d-none d-md-block" src={Logo} alt="Logo" />
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
-            </Nav.Link>
+            </Link>
           </Navbar.Brand>
 
           <div className="d-block d-md-none">

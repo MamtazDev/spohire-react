@@ -13,12 +13,14 @@ const Footer = () => {
     <footer className="deskFooter">
       <div className="container">
         <div className="row gy-5">
-          <div className="col-12 col-xl-3 text-center">
+
+          <div className="col-lg-3">
             <Link to="/">
               <img className="mx-auto" src={FooterLogo} alt="LOGO" />
             </Link>
           </div>
-          <div className="col-12 col-lg-3 col-xl-3">
+
+          <div className="col-lg-3 col-xl-3">
             <ul className="text-center text-lg-start list-unstyled">
               <li>Info</li>
               <li>
@@ -30,7 +32,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-12 col-lg-3 col-xl-2">
+          <div className="col-lg-3 col-xl-2">
             <ul className="text-center text-lg-start list-unstyled">
               <li>Contact</li>
               <li>
@@ -45,7 +47,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-12 col-lg-6 col-xl-4">
+          <div className="col-lg-6 col-xl-4">
             <div></div>
             <div className="followBox d-flex flex-md-row justify-content-between align-items-center gap-3">
               <p>Follow us</p>
@@ -63,13 +65,17 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+
         </div>
+
         <hr />
+
         <div className="fooBottom d-flex  flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
           <Link to="#">Privacy policy</Link>
           <Link to="#">Terms & condition</Link>
           <Link to="#">AMSL All Right Reserved</Link>
         </div>
+
       </div>
     </footer>
   );

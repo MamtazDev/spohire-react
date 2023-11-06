@@ -11,6 +11,7 @@ const Feature = () => {
     return (
         <section className="feature all_mb">
             <div className="container" >
+
                 <div className="featureTop">
                     <div className="row mb_60 gy-3">
                         <div className="col-12 col-lg-4">
@@ -24,6 +25,7 @@ const Feature = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="featureBottom">
                     <div className="row gy-3 justify-content-center">
                         <div className="col-12 col-md-6 col-xl-4">
@@ -79,6 +81,7 @@ const Feature = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     )

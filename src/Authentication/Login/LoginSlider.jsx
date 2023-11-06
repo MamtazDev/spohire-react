@@ -13,6 +13,7 @@ const LoginSlider = () => {
           </p>
         </Carousel.Caption>
       </Carousel.Item>
+
       <Carousel.Item>
         <Carousel.Caption>
           <p>
@@ -22,6 +23,7 @@ const LoginSlider = () => {
           </p>
         </Carousel.Caption>
       </Carousel.Item>
+
       <Carousel.Item>
         <Carousel.Caption>
           <p>
@@ -31,6 +33,7 @@ const LoginSlider = () => {
           </p>
         </Carousel.Caption>
       </Carousel.Item>
+
       <Carousel.Item>
         <Carousel.Caption>
           <p>

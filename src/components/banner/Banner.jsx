@@ -8,8 +8,8 @@ const Banner = () => {
   return (
     <div className="banner mb_40">
       <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-6">
+        <div className="row align-items-center">
+          <div className="col-md-6">
             <div className="bannerContent">
               <span>Sports + Announcements only for you</span>
               <img
@@ -34,7 +34,8 @@ const Banner = () => {
               </Link>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+
+          <div className="col-md-6">
             <div className="text-center banner-right-image">
               <img className="img-fluid" src={bannerImg} alt="Banner" />
             </div>

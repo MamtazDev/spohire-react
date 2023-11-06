@@ -277,7 +277,7 @@ const SignUp = () => {
                     <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
                     <input
-                      type="text"
+                      type="email"
                       className="form-control login_input"
                       placeholder="Enter email"
                     />
@@ -452,7 +452,7 @@ const SignUp = () => {
 
 export default SignUp;
 
-/* 
+/*
 <div class="select-date">
   <select id="select-day"></select>
   <select id="select-month">

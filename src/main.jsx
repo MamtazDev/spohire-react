@@ -62,9 +62,7 @@ const router = createBrowserRouter([
         path: '/dashboard/viewDetails',
         element: <ViewDetails />
       }
-
     ]
-
   }
 
 ])

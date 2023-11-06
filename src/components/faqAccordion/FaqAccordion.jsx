@@ -7,6 +7,7 @@ import down from "../../assets/downarrow.png";
 
 const FaqAccordion = () => {
   const [isOpen, setIsOpen] = useState(null);
+
   const accoprdionData = [
     {
       ques: "What Are The Hours of Operation?",
@@ -57,6 +58,7 @@ const FaqAccordion = () => {
       ans: "Through a selection of ingenious residential projects –in which materials are immersed into a transformation, maintenance, or renovation process–, the article opens a discussion on how good architecture is durable and reusable.",
     },
   ];
+
   return (
     <div className="accordion section_padding">
       <div className="container">
@@ -65,6 +67,7 @@ const FaqAccordion = () => {
             Frequently Asked Questions
           </h2>
         </div>
+
         <div>
           {accoprdionData.map((data, index) => (
             <div key={index} className="accordion_items mb-4 m-auto">
