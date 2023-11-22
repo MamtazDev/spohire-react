@@ -8,7 +8,7 @@ import TransfarMarket from './pages/TransfarMarket';
 import Announcements from './pages/Announcement/Announcements.jsx';
 import Pricing from './pages/pricing/Pricing.jsx';
 import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';
-import JobOffer from './pages/JobOffer';
+import JobOffer from './pages/JobOffer/JobOffer.jsx';
 import JobOffers from './components/Dashboard/dashbordJobOffers/JobOffers';
 import Players from './components/Dashboard/players/Players';
 import ViewDetails from './components/Dashboard/viewDetails/ViewDetails';

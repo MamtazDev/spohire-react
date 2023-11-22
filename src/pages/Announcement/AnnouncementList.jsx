@@ -1,19 +1,16 @@
 import a1 from '../../assets/a1.png';
-import a2 from '../../assets/a2.png';
-import a3 from '../../assets/a3.png';
-import a4 from '../../assets/a4.png';
+import flag from '../../assets/flag.png';
+import dollar from '../../assets/coin-dollar.png';
 import location from '../../assets/location.png';
 import plus2 from '../../assets/plus2.png';
-import flag from '../../assets/flag.png';
-import edit2 from '../../assets/edit2.png';
 import bookmark from '../../assets/bookmark.png';
+import edit2 from '../../assets/edit2.png';
 import delet from '../../assets/delete.png';
-import dollar from '../../assets/coin-dollar.png';
 
 const AnnouncementList = () => {
     return (
         <div>
-            <div className="container" style={{ marginTop: "104px" }}>
+            <div className="container" style={{ marginTop: "104px", marginBottom: "150px" }}>
                 <div className="row">
                     <div className="col-lg-9">
                         <div className="announcelist_wrapper">
@@ -299,21 +296,13 @@ const AnnouncementList = () => {
 
                         </div>
 
-
-
                         <div className='best_matched'>
                             <h3>Get Best Matched Jobs On your Email</h3>
                             <button className='apply_now_btn'>Apply Now</button>
                         </div>
-
-
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
     );
 };
