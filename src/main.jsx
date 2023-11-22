@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import TransfarMarket from './pages/TransfarMarket';
 import Announcements from './pages/Announcements';
-import Pricing from './pages/Pricing';
+import Pricing from './pages/pricing/Pricing.jsx';
 import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';
 import JobOffer from './pages/JobOffer';
 import JobOffers from './components/Dashboard/dashbordJobOffers/JobOffers';

@@ -1,0 +1,139 @@
+/* page_header start */
+:root {
+    --color_19: #0A0119;
+    --color_19_7: #0a01195e;
+    --color_36: #141736;
+    --color_cb: #A5B4CB;
+    --color_f1: #DFE5F1;
+    --color_fb: #0177FB;
+    --color_80: #546580;
+    --color_55: #2B2E55;
+}
+
+.page_header {
+    background-image: url('/src/assets/pricingbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 152px 0;
+}
+
+.page_header h2 {
+    color: #FFF;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+}
+
+.page_header h2 span {
+    color: var(--color_fb);
+}
+
+.page_header p {
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+/* best offera */
+.bestofferwrapper {
+    margin-top: 156px;
+}
+
+.bestOffer_title h1 {
+    color: #1A1A1A;
+    text-align: center;
+    font-size: 79px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 88px;
+    margin-bottom: 90px;
+}
+
+.bestOffer_title h1 span {
+    color: var(--color_fb);
+}
+
+.pricing_card {
+    padding: 50px;
+    border-radius: 11px 11px 0px 0px;
+    background: #04012F;
+}
+
+.pricing_card h3 {
+    color: #FFF;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.pricing_card span {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 100px;
+}
+
+.pricing_card h2 {
+    color: #0177FB;
+    font-family: SF Pro Display;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.pricing_card p {
+    color: #EEE;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.pricing_card button {
+    border-radius: 8px;
+    background: #2D5BFF;
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.white_wrapper {
+    padding: 50px 0 43px 52px;
+    border-radius: 0 0 11px 11px;
+    background: #F6F8FF;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.blue_dot {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+@media(max-width:990px){
+    .col-lg-4{
+        margin-bottom: 20px;
+    }
+}
+
+/* best offer */

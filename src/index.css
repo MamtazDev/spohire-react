@@ -62,6 +62,17 @@ a {
 }
 
 
+.mb_30 {
+  margin-bottom: 30px;
+}
+.mb_10 {
+  margin-bottom: 10px;
+}
+.mt_30 {
+  margin-top: 30px;
+}
+
+
 .mb_40 {
   margin-bottom: 35px;
 }
@@ -76,6 +87,9 @@ a {
 
 .mb_40 {
   margin-bottom: 35px;
+}
+.mb_150 {
+  margin-bottom: 150px;
 }
 
 .mb_60 {
