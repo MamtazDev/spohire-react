@@ -1,0 +1,19 @@
+/* page_header start */
+:root {
+    --color_19: #0A0119;
+    --color_19_7: #0a01195e;
+    --color_36: #141736;
+    --color_cb: #A5B4CB;
+    --color_f1: #DFE5F1;
+    --color_fb: #0177FB;
+    --color_80: #546580;
+    --color_55: #2B2E55;
+}
+
+.page_header {
+    background-image: url('/src/assets/announcementheaderbg.png') !important;
+
+}
+
+
+

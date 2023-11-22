@@ -14,6 +14,9 @@ import logoutIcon from "../../../assets/logout-icon.svg";
 import { Accordion } from "react-bootstrap";
 import basketBallIcon from "../../../assets/basketBall-icon.svg";
 import coachesIcon from "../../../assets/coaches-icon.svg";
+import billing from "../../../assets/BILLING.png";
+import notification from "../../../assets/notification.png";
+import coach from "../../../assets/coach.png";
 
 const DashbordSidebar = () => {
   return (
@@ -164,7 +167,7 @@ const DashbordSidebar = () => {
                 </Link>
               </li>
 
-              <li className="nav_item">
+              {/* <li className="nav_item">
                 <Link
                   to={"#"}
                   className="text-decoration-none d-flex align-items-center gap-4"
@@ -174,7 +177,88 @@ const DashbordSidebar = () => {
                     Settings
                   </span>
                 </Link>
-              </li>
+              </li> */}
+              <Accordion className="nav_item">
+                <Accordion.Item eventKey="0" className="border-0">
+                  <Accordion.Header className="p-0">
+                    <li className="">
+                      <Link
+                        to={"#"}
+                        className="text-decoration-none d-flex align-items-center gap-4"
+                      >
+                        <img src={settingsIcon} alt="icon" />
+                        <span to={"#"} className="text_color_36 text-capitalize fs-6">
+                          Settings
+                        </span>
+                      </Link>
+                    </li>
+                  </Accordion.Header>
+                  <Accordion.Body className="pb-0">
+                    <ul
+                      className="list-unstyled"
+                      style={{ paddingLeft: "30px" }}
+                    >
+                      <li className="nav_item">
+                        <Link
+                          to={"/dashboard/players"}
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={basketBallIcon} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Basic Information
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="nav_item">
+                        <Link
+                          to={"#"}
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={coach} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Password
+                          </span>
+                        </Link>
+                      </li>
+                      <li className="nav_item">
+                        <Link
+                          to={"#"}
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={notification} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Notification
+                          </span>
+                        </Link>
+                      </li>
+                      <li className="nav_item">
+                        <Link
+                          to={"#"}
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={billing} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Billing
+                          </span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
 
               <li className="nav_item">
                 <Link

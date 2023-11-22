@@ -5,7 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import TransfarMarket from './pages/TransfarMarket';
-import Announcements from './pages/Announcements';
+import Announcements from './pages/Announcement/Announcements.jsx';
 import Pricing from './pages/pricing/Pricing.jsx';
 import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';
 import JobOffer from './pages/JobOffer';
