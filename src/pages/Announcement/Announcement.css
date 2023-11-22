@@ -12,8 +12,164 @@
 
 .page_header {
     background-image: url('/src/assets/announcementheaderbg.png') !important;
-
 }
 
 
+.announcelist_wrapper {
+    border-radius: 16px;
+    border: 1px solid #DFE5F1;
+    background: #FFF;
+    padding: 18px 48px 16px 16px;
+    margin-bottom: 24px;
+}
 
+.announcement_pic {
+    padding: 11px;
+    border-radius: 10px;
+    background: #EDF1F8;
+}
+
+.announcelist_wrapper p {
+    margin-bottom: 13px;
+}
+
+.announcement_details {
+    margin-top: 12px;
+    color: #222;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.recruiment p {
+    color: #141736;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.recruiment span {
+    color: #546580;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.recruiment img {
+    height: 22px !important;
+    width: 22px !important;
+}
+
+.category_wrapper {
+    border-radius: 7px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    margin-bottom: 30px;
+}
+
+.blue_cat {
+    border-radius: 7px 7px 0px 0px;
+    background: #0177FB;
+    padding: 14px 0px 14px 20px;
+}
+
+.blue_cat p {
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.blue_square {
+    border-radius: 3px;
+    border: 1.25px solid #5EA9FE;
+    width: 14px;
+    height: 14px;
+}
+
+.category_wrapper .white_category_part {
+    padding: 20px 0 62px 20px;
+}
+
+.cat_list {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cat_list1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    color: #5EA9FE;
+    font-family: 'SF Pro Display';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cat_list span {
+    color: #747474;
+    font-family: 'SF Pro Display';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.blue_plus {
+    border-radius: 3px;
+    background: #5EA9FE;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.best_matched {
+    background-image: url('/src/assets/announcemenrightbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 86px 75px;
+    border-radius: 7px;
+    margin: auto;
+    text-align: center;
+}
+
+.apply_now_btn {
+    border-radius: 5px;
+    border: 0.7px solid rgba(0, 0, 0, 0.02);
+    background: #3378FF;
+    padding: 14px 81px 14px 82px;
+    color: #FFF;
+    font-family: 'SF Pro Display' sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: auto;
+}
+
+.best_matched h3 {
+    color: #FFF;
+    text-align: center;
+    font-family: 'SF Pro Display' sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    /* 144.444% */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
