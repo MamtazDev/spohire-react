@@ -109,8 +109,6 @@ const BestOffer = () => {
                             </div>
 
                         </div>
-
-
                     </div>
                 </div>
             </div>

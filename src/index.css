@@ -65,9 +65,11 @@ a {
 .mb_30 {
   margin-bottom: 30px;
 }
+
 .mb_10 {
   margin-bottom: 10px;
 }
+
 .mt_30 {
   margin-top: 30px;
 }
@@ -88,6 +90,7 @@ a {
 .mb_40 {
   margin-bottom: 35px;
 }
+
 .mb_150 {
   margin-bottom: 150px;
 }
@@ -161,7 +164,13 @@ a {
 }
 
 
-
+button{
+  border: none;
+  cursor: pointer;
+}
+a{
+cursor: pointer;
+}
 .f_gilroy {
   font-family: 'Gilroy', sans-serif;
 }
@@ -312,7 +321,7 @@ a {
 
   /* banner */
 
-  
+
 
   /* work */
   .workBg h3 {
@@ -397,7 +406,7 @@ a {
   .workBg .connect span {
     font-size: 11px !important;
     line-height: 14px !important;
-    
+
   }
 
   .mobile_numtag {
@@ -583,11 +592,11 @@ a {
   /* footer */
 
   footer {
-   background: url("../src/assets/mobile_footer_bg.png") !important;
-   background-repeat: no-repeat !important;
-   background-position: center !important;
-   background-size: cover !important;
-   padding: 30px 0 !important;
+    background: url("../src/assets/mobile_footer_bg.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    padding: 30px 0 !important;
   }
 
   footer p {
@@ -627,7 +636,7 @@ a {
     width: 34px !important;
   }
 
-  .followBox a img{
+  .followBox a img {
     height: 18px;
     width: 18px;
   }
@@ -679,7 +688,7 @@ a {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: #fff !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -693,4 +702,15 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.slider_bg {
+  background: #04012F;
+  padding: 83px 0 40px 0;
+  /* color: white  ; */
+  margin-bottom: 130px;
+}
+
+.sayInnerBox {
+  background-color: #fff;
 }

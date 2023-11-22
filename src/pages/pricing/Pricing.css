@@ -130,10 +130,51 @@
 
 }
 
-@media(max-width:990px){
-    .col-lg-4{
+@media(max-width:990px) {
+    .col-lg-4 {
         margin-bottom: 20px;
     }
 }
 
 /* best offer */
+
+/* get started section start */
+.getstartted_wrapper {
+    background-image: url('/src/assets/getstartedbg.png');
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 150px;
+    padding: 91px 0;
+
+}
+
+.getstarted_title {
+    color: #FFF;
+    text-align: center;
+    font-family: SF Pro Display;
+    font-size: 79px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 88px;
+    /* 111.392% */
+}
+
+.getstarted_btn {
+    padding: 25px;
+    border-radius: 60px;
+    background: #04012F;
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+}
+
+/* get started section end */

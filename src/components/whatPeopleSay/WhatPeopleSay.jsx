@@ -1,25 +1,19 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import "./WhatPeopleSay.css";
 import Start from "../../assets/star.png";
 import ProfoleImg from "../../assets/profoleimg.png";
 import GoogleImg from "../../assets/google.png";
 import Googlesm from "../../assets/googlesm.png";
 import { Carousel } from "react-bootstrap";
+import CaousalHeader from "./CaousalHeader";
 
-const WhatPeopleSay = () => {
+const WhatPeopleSay = ({color}) => {
   return (
     <section>
       <div className="container say_container all_mb">
-        <div className="sayHeader">
-          <p className="mb-1 mb-lg-3">What people say</p>
-          <span className="d-block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit soldin.
-          </span>
-        </div>
+        <CaousalHeader color={color}/>
 
         <Carousel data-bs-theme="dark">
-          {/* </Carousel.Caption>
-          </Carousel.Item>  */}
           <Carousel.Item>
             <Carousel.Caption>
               <div className="row gy-3">

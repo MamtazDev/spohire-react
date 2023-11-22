@@ -24,7 +24,7 @@ const Home = () => {
         <MobileMarqueeSlider />
         <Feature />
         <HowItWorks />
-        <WhatPeopleSay />
+        <WhatPeopleSay color="#2D2D2D"/>
         <Trusted />
         <WhyWe />
         <FaqAccordion />
