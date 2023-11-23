@@ -1,7 +1,8 @@
 .notification_wrapper {
     background: #FFF;
     box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
-    width: 608px;
+    max-width: 608px;
+    
     padding: 27px 36px 36px 36px;
     align-items: center;
     margin: auto;
