@@ -145,7 +145,7 @@ const DashbordSidebar = () => {
             <ul className="menu_wrapper_two list-unstyled m-0">
               <li className="nav_item">
                 <Link
-                  to={"#"}
+                  to='/dashboard/observed'
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
                   <img src={observedIcon} alt="icon" />

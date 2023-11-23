@@ -14,6 +14,9 @@ import Players from './components/Dashboard/players/Players';
 import ViewDetails from './components/Dashboard/viewDetails/ViewDetails';
 import Login from './Authentication/Login/Login';
 import SignUp from './Authentication/SignUp/SignUp';
+import PaymentProcess from './pages/pricing/PaymentProcess.jsx';
+import Observed from './components/Dashboard/observed/observed.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/transfarMarket',
     element: <TransfarMarket />
+  },
+  {
+    path: '/paymentProcess',
+    element: <PaymentProcess />
   },
   {
     path: '/jobOffer',
@@ -61,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/viewDetails',
         element: <ViewDetails />
+      },
+      {
+        path: '/dashboard/observed',
+        element: <Observed />
       }
 
     ]
