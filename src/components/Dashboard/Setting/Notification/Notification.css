@@ -1,0 +1,68 @@
+.notification_wrapper {
+    background: #FFF;
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+    width: 608px;
+    padding: 27px 36px 36px 36px;
+    align-items: center;
+    margin: auto;
+}
+.notification_wrapper input{
+    height: 24px;
+    width: 24px;
+}
+
+.notification_items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* padding-bottom: 32px !important; */
+}
+
+.notification_items1 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.save_btn {
+    display: flex;
+    padding: 15px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #0084FF;
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    width: 100%;
+    margin-top: 34px;
+}
+
+.notification_items h3,
+.notification_items1 h3 {
+    color: var(--neutral-07100, #141718);
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    /* 177.778% */
+    letter-spacing: -0.36px;
+}
+
+.notification_items p,
+.notification_items1 p {
+    color: var(--neutral-06100, #232627);
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 171.429% */
+    letter-spacing: -0.14px;
+}

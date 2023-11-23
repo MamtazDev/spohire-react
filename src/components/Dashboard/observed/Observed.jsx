@@ -16,7 +16,6 @@ import './Observed.css'
 const Observed = () => {
     return (
         <>
-
             <div className="announcement" style={{ margin: "30px" }}>
                 <div>
                     <p className='title'>Announcement</p>
@@ -176,7 +175,6 @@ const Observed = () => {
             <div className="job" style={{ margin: "30px" }}>
                 <div>
                     <p className='title'>Player Profile</p>
-
                     <div className="job_offers_wrapper p-0">
                         <div className="job_offer_items_wrapper">
                             {[1, 2].map(() => (
@@ -229,9 +227,6 @@ const Observed = () => {
 
                 </div>
             </div>
-
-
-
         </>
     );
 };

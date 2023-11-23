@@ -215,7 +215,7 @@ const DashbordSidebar = () => {
 
                       <li className="nav_item">
                         <Link
-                          to={"#"}
+                          to='/dashboard/password'
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={coach} alt="icon" />
@@ -229,7 +229,7 @@ const DashbordSidebar = () => {
                       </li>
                       <li className="nav_item">
                         <Link
-                          to={"#"}
+                          to="/dashboard/notification"
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={notification} alt="icon" />
@@ -243,7 +243,7 @@ const DashbordSidebar = () => {
                       </li>
                       <li className="nav_item">
                         <Link
-                          to={"#"}
+                          to="/dashboard/billing"
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={billing} alt="icon" />

@@ -16,6 +16,9 @@ import Login from './Authentication/Login/Login';
 import SignUp from './Authentication/SignUp/SignUp';
 import PaymentProcess from './pages/pricing/PaymentProcess.jsx';
 import Observed from './components/Dashboard/observed/observed.jsx';
+import Billing from './components/Dashboard/Setting/Billing/Billing.jsx';
+import Notification from './components/Dashboard/Setting/Notification/Notification.jsx';
+import Password from './components/Dashboard/Setting/Password/Password';
 
 
 const router = createBrowserRouter([
@@ -51,7 +54,6 @@ const router = createBrowserRouter([
     path: '/pricing',
     element: <Pricing />
   },
-
   {
     path: '/dashboard',
     element: <DashboardLayout />,
@@ -68,12 +70,27 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/viewDetails',
         element: <ViewDetails />
-      },
+      }
+      ,
       {
         path: '/dashboard/observed',
         element: <Observed />
       }
-
+      ,
+      {
+        path: '/dashboard/billing',
+        element: <Billing />
+      }
+      ,
+      {
+        path: '/dashboard/notification',
+        element: <Notification />
+      }
+      ,
+      {
+        path: '/dashboard/password',
+        element: <Password />
+      }
     ]
 
   }
