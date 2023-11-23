@@ -20,6 +20,8 @@ import Billing from './components/Dashboard/Setting/Billing/Billing.jsx';
 import Notification from './components/Dashboard/Setting/Notification/Notification.jsx';
 import Password from './components/Dashboard/Setting/Password/Password';
 import DashboardAnnouncements from './components/Dashboard/Announcements/DashboardAnnouncements.jsx';
+import BasicInformation from './components/Dashboard/Setting/BasicInformation/BasicInformation.jsx';
+import Coaches from './components/Dashboard/Coaches/Coaches.jsx';
 
 
 const router = createBrowserRouter([
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
         element: <Players />
       },
       {
+        path: '/dashboard/coaches',
+        element: <Coaches />
+      },
+      {
         path: '/dashboard/viewDetails',
         element: <ViewDetails />
       }
@@ -96,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/announcements',
         element: <DashboardAnnouncements />
+      },
+      {
+        path: '/dashboard/basicinfo',
+        element: <BasicInformation />
       }
     ]
 

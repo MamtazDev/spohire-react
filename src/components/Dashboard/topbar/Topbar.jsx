@@ -14,7 +14,14 @@ const Topbar = () => {
           <div className="dashbord_topbar_title">
             <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
               {location.pathname === "/dashboard/jobOffers" && "job offer"}
+              {location.pathname === "/dashboard/basicinfo" && "job offer"}
               {location.pathname === "/dashboard/players" && "Players List"}
+              {location.pathname === "/dashboard/announcements" && "Announcements"}
+              {location.pathname === "/dashboard/password" && "Password"}
+              {location.pathname === "/dashboard/notification" && "Notifications"}
+              {location.pathname === "/dashboard/billing" && "Billing history"}
+              {location.pathname === "/dashboard/observed" && "Observed"}
+              {location.pathname === "/dashboard/coaches" && "Coaches List"}
             </h2>
           </div>
           <div className="dashbord_topbar_button d-flex gap-4">

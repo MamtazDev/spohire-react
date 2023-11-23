@@ -100,7 +100,7 @@ const DashbordSidebar = () => {
 
                       <li className="">
                         <Link
-                          to={"#"}
+                          to='/dashboard/coaches'
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={coachesIcon} alt="icon" />
@@ -166,18 +166,6 @@ const DashbordSidebar = () => {
                   </span>
                 </Link>
               </li>
-
-              {/* <li className="nav_item">
-                <Link
-                  to={"#"}
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
-                  <img src={settingsIcon} alt="icon" />
-                  <span to={"#"} className="text_color_36 text-capitalize fs-6">
-                    Settings
-                  </span>
-                </Link>
-              </li> */}
               <Accordion className="nav_item">
                 <Accordion.Item eventKey="0" className="border-0">
                   <Accordion.Header className="p-0">
@@ -200,12 +188,12 @@ const DashbordSidebar = () => {
                     >
                       <li className="nav_item">
                         <Link
-                          to={"/dashboard/players"}
+                          to={"/dashboard/basicinfo"}
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={basketBallIcon} alt="icon" />
                           <span
-                            to={"#"}
+
                             className="text_color_36 text-capitalize fs-6"
                           >
                             Basic Information

@@ -13,7 +13,6 @@ const DashboardAnnouncements = () => {
             <div className="announcement" style={{ margin: "30px", paddingTop: "30px" }}>
                 <div>
                     <div className="announcelist_wrapper">
-                        {/* parent flex with edit delete  */}
                         <div className='d-flex justify-content-between align-items-start'>
                             <div className="d-flex" style={{ gap: "20px" }}>
                                 <div className='announcement_pic'>
@@ -35,7 +34,6 @@ const DashboardAnnouncements = () => {
                                             <span>Vegas Street Circuit</span>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
