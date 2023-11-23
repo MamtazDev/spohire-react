@@ -19,6 +19,7 @@ import Observed from './components/Dashboard/observed/observed.jsx';
 import Billing from './components/Dashboard/Setting/Billing/Billing.jsx';
 import Notification from './components/Dashboard/Setting/Notification/Notification.jsx';
 import Password from './components/Dashboard/Setting/Password/Password';
+import DashboardAnnouncements from './components/Dashboard/Announcements/DashboardAnnouncements.jsx';
 
 
 const router = createBrowserRouter([
@@ -90,6 +91,11 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/password',
         element: <Password />
+      }
+      ,
+      {
+        path: '/dashboard/announcements',
+        element: <DashboardAnnouncements />
       }
     ]
 

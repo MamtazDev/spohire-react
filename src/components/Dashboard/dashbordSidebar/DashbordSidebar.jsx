@@ -131,7 +131,7 @@ const DashbordSidebar = () => {
 
               <li className="nav_item">
                 <Link
-                  to={"#"}
+                  to='/dashboard/announcements'
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
                   <img src={announcementOffer} alt="icon" />

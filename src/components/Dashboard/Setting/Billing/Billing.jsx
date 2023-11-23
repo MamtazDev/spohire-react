@@ -1,9 +1,11 @@
-
+import './Billing.css'
 const Billing = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <div className="table-responsive billing_table">
+               
+            </div>
+        </>
     );
 };
 
