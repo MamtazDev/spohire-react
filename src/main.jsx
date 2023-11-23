@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
-import TransfarMarket from './pages/TransfarMarket';
+import TransfarMarket from './pages/TransferMarket/TransfarMarket.jsx';
 import Announcements from './pages/Announcement/Announcements.jsx';
 import Pricing from './pages/pricing/Pricing.jsx';
 import DashboardLayout from './components/Dashboard/DashboardLayout/DashboardLayout';

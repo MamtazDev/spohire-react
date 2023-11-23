@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
 import arrow from "../../assets/CaretDown.png";
@@ -5,7 +6,9 @@ import "./SignUp.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateSelector = () => {
+// ... (imports and other code)
+
+const DateSelector = ({ value, onChange, isFormSubmitted }) => {
   const currentDate = new Date();
 
   const [myMonth, setMyMonth] = useState(currentDate);
@@ -25,16 +28,40 @@ const DateSelector = () => {
     }
     return <span>{date.getDate()}</span>;
   };
-  
+
+  const handleYearChange = (date) => {
+    setMyYear(date);
+    // Only update the day if the form is not submitted
+    if (!isFormSubmitted) {
+      setMyDay(date);
+    }
+    onChange(date); // Propagate the change to the parent component
+  };
+
+  const handleMonthChange = (date) => {
+    setMyMonth(date);
+    // Only update the day if the form is not submitted
+    if (!isFormSubmitted) {
+      setMyDay(date);
+    }
+    onChange(date); // Propagate the change to the parent component
+  };
+
+  const handleDayChange = (date) => {
+    setMyDay(date);
+    onChange(date); // Propagate the change to the parent component
+  };
+
   return (
     <>
       <div className="d-flex align-items-center gap-1">
         <div className="year_input">
           <DatePicker
             selected={myYear}
-            onChange={(date) => setMyYear(date)}
+            onChange={handleYearChange}
             showYearPicker
             dateFormat="yyyy"
+            value={value}
           />
         </div>
 
@@ -43,7 +70,8 @@ const DateSelector = () => {
             showMonthYearPicker
             dateFormat="MMMM"
             selected={myMonth}
-            onChange={(date) => setMyMonth(date)}
+            onChange={handleMonthChange}
+            value={value}
           />
         </div>
 
@@ -52,12 +80,10 @@ const DateSelector = () => {
             dateFormat="dd"
             selected={myDay}
             renderDayContents={renderDayContents}
-            onChange={(date) => setMyDay(date)}
+            onChange={handleDayChange}
+            value={value}
           />
         </div>
-
-
-        
       </div>
     </>
   );

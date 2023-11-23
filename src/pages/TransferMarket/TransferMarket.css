@@ -1,0 +1,108 @@
+.page_header2 {
+    background-image: url('/src/assets/transferbg.png') !important;
+}
+
+.page_header2 {
+    background-image: url('/src/assets/pricingbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 152px 0;
+}
+
+.page_header2 h2 {
+    color: #FFF;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+    font-family: 'Gilroy', sans-serif;
+
+}
+
+.page_header2 h2 span {
+    color: var(--color_fb);
+}
+
+.page_header2 p {
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.tabOutter1 {
+    display: flex;
+    padding: 3px;
+    align-items: flex-start;
+    border-radius: 60px;
+    background: #EFF4FF;
+    width: fit-content;
+    margin-bottom: 60px;
+}
+
+.tabOutter1 .btnActive {
+    display: flex;
+    padding: 15px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    background: #0177FB;
+    color: #FFF;
+}
+
+.tabOutter1 button {
+    color: #2B2E55;
+    text-align: center;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    display: flex;
+    padding: 15px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    background: #EFF4FF;
+}
+
+/* compact section start */
+.compact_table_bg{
+    background: red !important;
+}
+.compact_wrapper {
+    padding: 54px;
+    background: #FFF;
+    box-shadow: 4px 0px 15px 0px rgba(0, 0, 0, 0.05), 0px 8px 20px 0px rgba(0, 0, 0, 0.08);
+    display: flex;
+    padding: 54px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.col1_wrapper h5 {
+    color: #000;
+    text-align: center;
+    font-family: 'Gilroy',sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 25px;
+}
+.col1_wrapper p {
+    color: #000;
+    font-family: 'Gilroy',sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* compact section end */

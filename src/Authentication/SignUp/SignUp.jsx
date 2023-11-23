@@ -234,7 +234,32 @@ const options2 = [
 const SignUp = () => {
   const [select, setSelect] = useState("SE");
   const onSelect = (code) => setSelect(code);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [functionType, setFunctionType] = useState("");
+  const [sports, setSports] = useState("");
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      firstName,
+      lastName,
+      email,
+      nationality,
+      dateOfBirth,
+      phoneNumber,
+      functionType,
+      sports,
+    };
+    console.log(formData)
+
+    localStorage.setItem("register", JSON.stringify(formData));
+
+  };
   return (
     <>
       <div className="container-fluid">
@@ -255,7 +280,7 @@ const SignUp = () => {
               <div>
                 <h3>Create new account</h3>
                 <p>Fill all input to create a account</p>
-                <form>
+                <form onSubmit={handleFormSubmit}>
                   <div className="row right-inner-addon input-container">
                     <label htmlFor="">Full name</label>
                     <div className="col-6">
@@ -263,6 +288,8 @@ const SignUp = () => {
                         type="text"
                         className="mt-2 form-control login_input"
                         placeholder="First name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                       />
                     </div>
                     <div className="col-6">
@@ -270,16 +297,22 @@ const SignUp = () => {
                         type="text"
                         className="form-control login_input"
                         placeholder="Last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
                     <i className="fa-regular fa-envelope"></i>
                     <label htmlFor="">Email Address</label>
+
                     <input
                       type="text"
                       className="form-control login_input"
                       placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+
                     />
                   </div>
                   <div className="row flex-wrap date_wrapper mb-3">
@@ -287,6 +320,12 @@ const SignUp = () => {
                       <label htmlFor="">Nationality</label>
                       <Select
                         options={options1}
+                        value={options1.find(
+                          (option) => option.value === nationality
+                        )}
+                        onChange={(selectedOption) =>
+                          setNationality(selectedOption.value)
+                        }
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
@@ -343,7 +382,10 @@ const SignUp = () => {
 
                     <div className="col-6">
                       <label htmlFor="">Date of birth</label>
-                      <DateSelector />
+                      <DateSelector value={dateOfBirth}
+                        onChange={(selectedDate) =>
+                          setDateOfBirth(selectedDate)
+                        } />
                     </div>
                   </div>
                   {/* country select */}
@@ -354,6 +396,12 @@ const SignUp = () => {
                       <Select
                         placeholder="+880"
                         options={options2}
+                        value={options2.find(
+                          (option) => option.label === phoneNumber
+                        )}
+                        onChange={(selectedOption) =>
+                          setPhoneNumber(selectedOption.label)
+                        }
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
@@ -414,25 +462,28 @@ const SignUp = () => {
                           type="number"
                           className="ph_number"
                           placeholder="0123 456 7890 "
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                       </div>
                     </div>
                   </div>
                   {/* email input end */}
                   {/* Function */}
-                  <label className="label_text">Function</label> <br />
+                  <label className="label_text" >Function</label> <br />
                   <div>
-                    <button className="btn function_btn">Player</button>
-                    <button className="btn function_btn">Coach</button>
-                    <button className="btn function_btn">Manager</button>
-                    <button className="btn function_btn">Other</button>
+                    <button className="btn function_btn" onClick={() => setFunctionType("Player")}>Player</button>
+                    <button className="btn function_btn" onClick={() => setFunctionType("Coach")}>Coach</button>
+                    <button className="btn function_btn" onClick={() => setFunctionType("Manager")}
+                    >Manager</button>
+                    <button className="btn function_btn" >Other</button>
                   </div>
                   <label className="label_text mt-3">Sports</label> <br />
                   <div>
-                    <button className="btn function_btn">Football</button>
-                    <button className="btn function_btn">Busketball</button>
-                    <button className="btn function_btn">Volleyball</button>
-                    <button className="btn function_btn">Handball</button>
+                    <button className="btn function_btn" onClick={() => setSports("Football")}>Football</button>
+                    <button className="btn function_btn" onClick={() => setSports("Basketball")}>Busketball</button>
+                    <button className="btn function_btn" onClick={() => setSports("Volleyball")} >Volleyball</button>
+                    <button className="btn function_btn" onClick={() => setSports("Handball")}>Handball</button>
                   </div>
                   <div className="d-flex justify-content-center mt-4">
                     <button type="submit" className="login-btn">
@@ -451,25 +502,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-/* 
-<div class="select-date">
-  <select id="select-day"></select>
-  <select id="select-month">
-      <option value="0">January
-      <option value="1">February
-      <option value="2">March
-      <option value="3">April
-      <option value="4">May
-      <option value="5">June
-      <option value="6">July
-      <option value="7">August
-      <option value="8">September
-      <option value="9">October
-      <option value="10">November
-      <option value="11">December
-  </select>
-  <select id="select-year"></select>
-</div>
-
-*/

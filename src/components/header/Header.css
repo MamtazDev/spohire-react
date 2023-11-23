@@ -99,6 +99,7 @@
     .bgBanner {
         background-position: top right;
     }
+
     .navbar {
         padding-top: 28px;
         padding-bottom: 0;
@@ -124,4 +125,70 @@
     }
 
 
+}
+
+.modal-body h2 {
+    color: #333;
+    text-align: center;
+    font-family: 'Gilroy' sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+
+.modal-body h2 span {
+    color: #0177FB;
+}
+
+.modal-body p {
+    color: #000;
+    text-align: center;
+    font-family: ' Gilroy-Regular' sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-dialog {
+    max-width: 100%;
+    margin: 100px;
+    height: 1090px !important;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-body img {
+    margin-top: 50px;
+}
+
+.modal_link {
+    background-color: transparent;
+    padding: 0;
+    font-size: 20px;
+    color: #9d99a3;
+    text-align: center;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.profilename {
+    color: #FFF;
+    text-align: center;
+    font-family: Gilroy-SemiBold;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 19.2px */
+    text-transform: uppercase;
 }
