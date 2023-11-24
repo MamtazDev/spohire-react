@@ -64,7 +64,7 @@ const options2 = [
     },
 ];
 
-const AddPlayer = () => {
+const AddPlayer2 = () => {
     const [select, setSelect] = useState("SE");
     const onSelect = (code) => setSelect(code);
     const [firstName, setFirstName] = useState("");
@@ -364,8 +364,8 @@ const AddPlayer = () => {
                                         </div>
                                     </div>
                                     <div className="next_skip_btns">
-                                        <button className="next_btn"><Link to="/addplayer2" className="text-light">Next</Link></button>
-                                        <button className="prev_btn"><Link to="/addplayer2" className="text-dark">Skip</Link></button>
+                                        <button className="next_btn"><Link to="/addplayer3" className="text-light">Next</Link></button>
+                                        <button className="prev_btn"><Link to="/addplayer3" className="text-dark">Skip</Link></button>
                                     </div>
 
 
@@ -379,4 +379,4 @@ const AddPlayer = () => {
     );
 };
 
-export default AddPlayer;
+export default AddPlayer2;

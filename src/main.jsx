@@ -23,6 +23,8 @@ import DashboardAnnouncements from './components/Dashboard/Announcements/Dashboa
 import BasicInformation from './components/Dashboard/Setting/BasicInformation/BasicInformation.jsx';
 import Coaches from './components/Dashboard/Coaches/Coaches.jsx';
 import AddPlayer from './pages/AddPlayer/AddPlayer.jsx';
+import AddPlayerInfo2 from './pages/AddPlayer/AddPlayerInfo2.jsx';
+import AddPlayerInfo3 from './pages/AddPlayer/AddPlayerInfo3.jsx';
 
 
 const router = createBrowserRouter([
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
   {
     path: '/addplayer',
     element: <AddPlayer />
+  },
+  {
+    path: '/addplayer2',
+    element: <AddPlayerInfo2 />
+  },
+  {
+    path: '/addplayer3',
+    element: <AddPlayerInfo3 />
   },
   {
     path: '/transfarMarket',

@@ -57,7 +57,16 @@ const Header = () => {
               </svg>
             </Navbar.Toggle>
             {
-              user ? "tonni" :
+              user ? <div>
+                <img src={profile} alt="" />
+                <Link
+                  to="/"
+                  type="submit"
+                  className="text-decoration-none ms-3 profilename"
+                >
+                  {user.firstName}
+                </Link>
+              </div> :
                 <>
                   <button className="logIn">Log in</button>
                   <button className="authBtn btnNone">
