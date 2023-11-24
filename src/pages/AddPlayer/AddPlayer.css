@@ -132,4 +132,10 @@
     align-items: center;
     gap: 9px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.media_wrapper img {
+    width: 63px;
+    height: 55px;
 }

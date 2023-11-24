@@ -5,7 +5,7 @@ import t2 from "../../assets/t2.png";
 import t3 from "../../assets/t3.png";
 import t4 from "../../assets/t4.png";
 import greyplus from "../../assets/greyplus.png";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import bdIcon from "../../assets/bd.svg";
 
@@ -77,6 +77,7 @@ const AddPlayerInfo3 = () => {
     const [functionType, setFunctionType] = useState("");
     const [sports, setSports] = useState("");
 
+    const [selectedImage, setSelectedImage] = useState([]);
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const formData = {
@@ -92,6 +93,23 @@ const AddPlayerInfo3 = () => {
         console.log(formData)
         localStorage.setItem("register", JSON.stringify(formData));
     };
+    const fileInputRef = React.useRef(null);
+
+    const handleImageClick = () => {
+        // Trigger the file input click event when the image is clicked
+        fileInputRef.current.click();
+    };
+
+
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+
+        // Update the selected image state
+        setSelectedImage([...selectedImage, URL.createObjectURL(selectedFile)]);
+    };
+
+
+
 
     return (
         <>
@@ -169,8 +187,18 @@ const AddPlayerInfo3 = () => {
                                         <div className="media_wrapper">
                                             <img src={t1} alt="" />
                                             <img src={t2} alt="" />
-                                            <img src={t3} alt="" />
-                                            <img src={t4} alt="" />
+                                            {selectedImage.map((image, index) => (
+                                                <img key={index} src={image} alt={`Selected ${index + 1}`} />
+                                            ))}
+                                            <input
+                                                type="file"
+                                                ref={fileInputRef}
+                                                style={{ display: 'none' }}
+                                                onChange={handleFileChange}
+                                            />
+                                            <img src={t4} alt="Upload"
+                                                style={{ cursor: 'pointer' }}
+                                                onClick={handleImageClick} />
                                         </div>
                                     </div>
                                     <div className="next_skip_btns">
