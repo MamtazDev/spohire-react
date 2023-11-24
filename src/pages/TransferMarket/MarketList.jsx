@@ -14,7 +14,7 @@ const MarketList = () => {
         <div>
             <section className="mt_150">
                 <section id="signUp">
-                    <div className="container Work_container">
+                    <div className="container">
                         <div className="tabOutter1 d-flex flex flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
                             <button
                                 className={worksTab === "player" ? "btnActive" : ""}

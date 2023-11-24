@@ -73,6 +73,7 @@ a {
 .mt_30 {
   margin-top: 30px;
 }
+
 .mt_150 {
   margin-top: 150px;
 }
@@ -167,13 +168,44 @@ a {
 }
 
 
-button{
+/* gap */
+.gap_11 {
+  gap: 11px;
+
+}
+
+.gap_14 {
+  gap: 14px;
+
+}
+
+.gap_19 {
+  gap: 19px;
+
+}
+
+.gap_4 {
+  gap: 4px;
+
+}
+
+/* gap */
+
+
+
+
+
+
+
+button {
   border: none;
   cursor: pointer;
 }
-a{
-cursor: pointer;
+
+a {
+  cursor: pointer;
 }
+
 .f_gilroy {
   font-family: 'Gilroy', sans-serif;
 }

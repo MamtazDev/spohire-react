@@ -72,9 +72,10 @@
 }
 
 /* compact section start */
-.compact_table_bg{
+.compact_table_bg {
     background: red !important;
 }
+
 .compact_wrapper {
     padding: 54px;
     background: #FFF;
@@ -86,19 +87,62 @@
     gap: 20px;
 }
 
-.col1_wrapper h5 {
+.col1_wrapper h4 {
     color: #000;
-    text-align: center;
-    font-family: 'Gilroy',sans-serif;
-    font-size: 24px;
+    /* text-align: center; */
+    font-family: 'Gilroy', sans-serif;
+    font-size: 23px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
     margin-bottom: 25px;
+
 }
+
+.col1_wrapper {
+    text-align: start;
+}
+
 .col1_wrapper p {
     color: #000;
-    font-family: 'Gilroy',sans-serif;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.div_design {
+    display: flex;
+    gap: 211px;
+    background-color: #F4F7FB;
+    padding: 13px 24px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.div_design2 {
+    display: flex;
+    gap: 211px;
+    background: #E0E8F1;
+    padding: 13px 24px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.postmouth_text {
+    color: #141736;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.age_text {
+    color: #000;
+    text-align: center;
+    font-family: 'Gilroy', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
