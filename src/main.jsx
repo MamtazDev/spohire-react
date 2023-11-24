@@ -22,6 +22,7 @@ import Password from './components/Dashboard/Setting/Password/Password';
 import DashboardAnnouncements from './components/Dashboard/Announcements/DashboardAnnouncements.jsx';
 import BasicInformation from './components/Dashboard/Setting/BasicInformation/BasicInformation.jsx';
 import Coaches from './components/Dashboard/Coaches/Coaches.jsx';
+import AddPlayer from './pages/AddPlayer/AddPlayer.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignUp />
+  },
+  {
+    path: '/addplayer',
+    element: <AddPlayer />
   },
   {
     path: '/transfarMarket',

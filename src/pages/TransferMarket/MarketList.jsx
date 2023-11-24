@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Compact from "./Compact";
+import Gallary from "./Gallary";
+import Detailed from './Detailed';
 
 const MarketList = () => {
 
@@ -42,12 +44,12 @@ const MarketList = () => {
 
                         {worksTab === "coach" && (
                             <>
-                                <h1 className="">Coach Tab</h1>
+                                <Detailed />
                             </>
                         )}
                         {worksTab === "manager" && (
                             <>
-                                <h1 className="">Manager</h1>
+                                <Gallary />
                             </>
                         )}
                     </div>

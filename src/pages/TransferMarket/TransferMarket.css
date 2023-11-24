@@ -120,6 +120,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
 .div_design2 {
     display: flex;
     gap: 211px;
@@ -150,3 +151,23 @@
 }
 
 /* compact section end */
+
+/* gallary start */
+.gallary_header p {
+    color: #141736;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.gallary_header {
+    display: flex;
+    gap: 54px;
+    align-items: center;
+    margin-bottom: 9px;
+}
+
+
+/* gallary end */

@@ -9,7 +9,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 const Header = () => {
   const getUser = localStorage.getItem('register')
   const user = JSON.parse(getUser);
-  
+
   return (
     <header>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
@@ -20,10 +20,8 @@ const Header = () => {
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
             </Nav.Link>
           </Navbar.Brand>
-
           <div className="d-block d-md-none">
             <Navbar.Toggle aria-controls="basic-navbar-nav">
-              {/* <i className="fa-solid fa-bars"></i> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
