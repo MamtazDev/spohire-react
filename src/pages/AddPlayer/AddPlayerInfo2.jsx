@@ -95,7 +95,7 @@ const AddPlayer2 = () => {
     };
     return (
         <>
-            <div className="container-fluid">
+               <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="col-lg-5 p-0  d-none d-lg-block">
                         <div className="addplayer_left_banner text-center ">
@@ -108,7 +108,7 @@ const AddPlayer2 = () => {
                                 <h3>Add Player</h3>
                                 <p>Fill all input to create a account</p>
                                 <form onSubmit={handleFormSubmit}>
-                                    <div className="row right-inner-addon input-container">
+                                    <div className="row right-inner-addon input-container align-items-center">
                                         <div className="col-6">
                                             <label htmlFor="">Full name</label>
                                             <input
@@ -184,7 +184,7 @@ const AddPlayer2 = () => {
                                         </div>
                                     </div>
 
-                                    <div className="row flex-wrap date_wrapper mb-3">
+                                    <div className="row flex-wrap date_wrapper mb-3 align-items-center">
                                         <div className="col-6">
                                             <label htmlFor="">Additional passport</label>
                                             <Select
@@ -251,8 +251,8 @@ const AddPlayer2 = () => {
                                     </div>
                                     {/* country select */}
                                     {/* email input */}
-                                    <div className="row email_input">
                                         <label htmlFor="">Phone number</label>
+                                    <div className="row email_input">
                                         <div className="col-4 mb-3">
                                             <Select
                                                 placeholder="+880"

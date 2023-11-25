@@ -33,43 +33,47 @@ const Topbar = () => {
               {location.pathname === "/dashboard/coaches" && "Coaches List"}
             </h2>
           </div>
-          <div className="dashbord_topbar_button d-flex gap-4">
+          <div>
+
+            <div className="dashbord_topbar_button d-flex gap-4">
 
 
-            <button
-              onClick={handleFilterModal}
-              className="filter_btn d-flex gap-2 text-decoration-none"
+              <button
+                onClick={handleFilterModal}
+                className="filter_btn d-flex gap-2 text-decoration-none"
 
-            >
-              <img src={filterIcon} alt="icon" />
-              <span className="text_color_cb">Filter</span>
-            </button>
+              >
+                <img src={filterIcon} alt="icon" />
+                <span className="text_color_cb">Filter</span>
+              </button>
 
 
+
+              <Link
+                to={`${location.pathname === "/dashboard/jobOffers"
+                  ? "/dashboard/jobOffers"
+                  : "/dashboard/viewDetails"
+                  }`}
+                className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+              >
+                {location.pathname === "/dashboard/jobOffers" ? (
+                  <img src={addIcon} alt="icon" />
+                ) : (
+                  ""
+                )}
+                <span className="text-white">
+                  {location.pathname === "/dashboard/jobOffers"
+                    ? "Add Job Offer"
+                    : "View Details"}
+                </span>
+              </Link>
+            </div>
             {filter && <FilterModal />}
-            <Link
-              to={`${location.pathname === "/dashboard/jobOffers"
-                ? "/dashboard/jobOffers"
-                : "/dashboard/viewDetails"
-                }`}
-              className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
-            >
-              {location.pathname === "/dashboard/jobOffers" ? (
-                <img src={addIcon} alt="icon" />
-              ) : (
-                ""
-              )}
-              <span className="text-white">
-                {location.pathname === "/dashboard/jobOffers"
-                  ? "Add Job Offer"
-                  : "View Details"}
-              </span>
-            </Link>
           </div>
         </div>
       </div>
       {/* mobile */}
-      <div className="topbar_mobile">p
+      <div className="topbar_mobile">
         <div className="d-flex justify-content-between align-items-center">
           <button className="btn btn-outline-primary fs_10">Back</button>
           <div style={{ marginRight: "50px" }}>

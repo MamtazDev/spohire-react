@@ -243,7 +243,7 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -318,7 +318,7 @@ const SignUp = () => {
 
                     />
                   </div>
-                  <div className="row flex-wrap date_wrapper mb-3">
+                  <div className="row flex-wrap date_wrapper mb-3 align-items-center">
                     <div className="col-6">
                       <label htmlFor="">Nationality</label>
                       <Select
@@ -474,7 +474,12 @@ const SignUp = () => {
                   {/* email input end */}
                   {/* Function */}
                   <label className="label_text" >Function</label> <br />
-            
+                  <div>
+                    <button className="btn function_btn" onClick={() => setSports("Player")}>Player</button>
+                    <button className="btn function_btn" onClick={() => setSports("Coach")}>Coach</button>
+                    <button className="btn function_btn" onClick={() => setSports("Manager")} >Manager</button>
+                    <button className="btn function_btn" onClick={() => setSports("Other")}>Other</button>
+                  </div>
                   <label className="label_text mt-3">Sports</label> <br />
                   <div>
                     <button className="btn function_btn" onClick={() => setSports("Football")}>Football</button>

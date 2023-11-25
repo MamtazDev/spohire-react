@@ -12,8 +12,6 @@ const TransfarMarket = () => {
                 </div>
                 <TransferMarketHeader />
                 <MarketList />
-
-
                 <Footer />
             </div>
 

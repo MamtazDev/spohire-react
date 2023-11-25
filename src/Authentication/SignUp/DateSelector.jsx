@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import arrow from "../../assets/CaretDown.png";
+import { useState, useEffect } from "react";
 import "./SignUp.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// ... (imports and other code)
 
 const DateSelector = ({ value, onChange, isFormSubmitted }) => {
   const currentDate = new Date();
@@ -31,49 +29,27 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
 
   const handleYearChange = (date) => {
     setMyYear(date);
-    // Only update the day if the form is not submitted
     if (!isFormSubmitted) {
       setMyDay(date);
     }
-    onChange(date); // Propagate the change to the parent component
+    onChange(date);
   };
 
   const handleMonthChange = (date) => {
     setMyMonth(date);
-    // Only update the day if the form is not submitted
     if (!isFormSubmitted) {
       setMyDay(date);
     }
-    onChange(date); // Propagate the change to the parent component
+    onChange(date);
   };
-
   const handleDayChange = (date) => {
     setMyDay(date);
-    onChange(date); // Propagate the change to the parent component
+    onChange(date);
   };
 
   return (
     <>
       <div className="d-flex align-items-center gap-1">
-        <div className="year_input">
-          <DatePicker
-            selected={myYear}
-            onChange={handleYearChange}
-            showYearPicker
-            dateFormat="yyyy"
-            value={value}
-          />
-        </div>
-
-        <div className="month_input">
-          <DatePicker
-            showMonthYearPicker
-            dateFormat="MMMM"
-            selected={myMonth}
-            onChange={handleMonthChange}
-            value={value}
-          />
-        </div>
 
         <div className="day">
           <DatePicker
@@ -82,6 +58,29 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
             renderDayContents={renderDayContents}
             onChange={handleDayChange}
             value={value}
+            placeholderText="Date"
+          />
+        </div>
+        <div className="month_input">
+          <DatePicker
+            showMonthYearPicker
+            dateFormat="MMMM"
+            selected={myMonth}
+            onChange={handleMonthChange}
+            value={value}
+            placeholderText="Month"
+          />
+        </div>
+
+
+        <div className="year_input">
+          <DatePicker
+            selected={myYear}
+            onChange={handleYearChange}
+            showYearPicker
+            dateFormat="yyyy"
+            value={value}
+            placeholderText="Year"
           />
         </div>
       </div>

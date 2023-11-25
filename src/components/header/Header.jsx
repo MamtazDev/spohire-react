@@ -90,6 +90,7 @@ const Header = () => {
                   Transfer Market
                 </button>
               }
+
               <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                   <div className="modal-content">
@@ -99,7 +100,7 @@ const Header = () => {
                     <div className="modal-body">
                       <h2>Unlock the Gateway to <span>Endless <br /> Excitement</span></h2>
                       <p> Log in and Dive into a World of Sports Thrills and Exclusive Content!</p>
-                      <button className="authBtn btnNone">
+                      <button className=" login_modal_btn">
                         <Link to="/signup" type="submit" className="text-decoration-none text-dark">
                           LOG IN
                         </Link>
@@ -112,6 +113,8 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+
+
               {/* modal hbe */}
 
 

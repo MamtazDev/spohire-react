@@ -163,10 +163,10 @@
     text-align: start;
 
 }
-
 @media(max-width : 990px) {
     .login_wrapper {
         /* margin-top: 50px; */
+        padding: 20px !important;
         margin-bottom: 50px;
     }
 }
