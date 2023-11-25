@@ -58,9 +58,9 @@ const Header = () => {
             </Navbar.Toggle>
             {
               user ? <div>
-                <img src={profile} alt="" />
+                <img className="d-none" src={profile} alt="" />
                 <Link
-                  to="/"
+                  to="/dashboard/jobOffers"
                   type="submit"
                   className="text-decoration-none ms-3 profilename"
                 >
@@ -81,7 +81,7 @@ const Header = () => {
             <Nav className="m-auto">
               {/* modal if the user is not logged in */}
               {user ? <Nav.Link href="#home">
-                <Link to={"/transfarMarket"} className="nav-link">
+                <Link to="/transfarMarket" className="nav-link">
                   Transfer Market
                 </Link>
               </Nav.Link>
@@ -114,37 +114,33 @@ const Header = () => {
                 </div>
               </div>
 
-
               {/* modal hbe */}
-
-
-              <Nav.Link href="#link">
-                <Link to={"/jobOffer"} className="nav-link">
+              <Nav.Link href="/jobOffer">
+                <Link to="/jobOffer" className="nav-link">
                   Job Offers
                 </Link>{" "}
               </Nav.Link>
-              <Nav.Link href="#link">
+              <Nav.Link href="/announcements">
                 {" "}
-                <Link to={"/announcements"} className="nav-link">
+                <Link to="/announcements" className="nav-link">
                   Announcements
                 </Link>
               </Nav.Link>
-              <Nav.Link href="#link">
-                {" "}
-                <Link to={"/pricing"} className="nav-link">
+              <Nav.Link href="/pricing">
+                <Link to="/pricing" className="nav-link">
                   Pricing
                 </Link>
               </Nav.Link>
             </Nav>
             {user ?
-              <div>
-                <img src={profile} alt="" />
+              <div className=" m-4 d-flex align-items-center justify-content-center">
+                <Link cto="/dashboard/jobOffers">   <img src={profile} alt="" /></Link>
                 <Link
-                  to="/"
+                  to="/dashboard/jobOffers"
                   type="submit"
                   className="text-decoration-none ms-3 profilename"
                 >
-                  {user.firstName}
+                  {user.firstName ? user.firstName : "Tonni"}
                 </Link>
               </div>
 
