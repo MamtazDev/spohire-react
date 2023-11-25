@@ -28,7 +28,7 @@
 
 .search_jobs input::placeholder {
     color: #747474;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -47,7 +47,7 @@
     border: 0.7px solid rgba(0, 0, 0, 0.02);
     background: #3378FF;
     color: #FFF;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -74,7 +74,7 @@
 
 .tennis_desc small {
     color: #546580;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -91,7 +91,7 @@
 
 .job_matches_title {
     color: #0A0119;
-    font-family: 'Gilroy-SemiBold' sans-serif;
+    font-family: 'SF Pro Display-SemiBold' sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 400;

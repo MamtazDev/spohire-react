@@ -93,7 +93,6 @@ const PaymentForm = () => {
                             <img src={v4} alt="" />
                         </div>
                     </div>
-
                     {/* Expiration */}
                     <div className="row mt-4">
                         <div className="col-lg-6">
@@ -185,24 +184,14 @@ const PaymentForm = () => {
                                     className="payment_input"
                                     placeholder="ZIP"
                                 />
-
                             </div>
                         </div>
-
-
                     </div>
-                   <div className='d-flex justify-content-center'>
-                   <button className='pay_nowbtn'>Pay Now</button>
-                   </div>
-
-
+                    <div className='d-flex justify-content-center'>
+                        <button className='pay_nowbtn'>Pay Now</button>
+                    </div>
                 </div>
-
-
             </div>
-
-
-
         </>
     );
 };

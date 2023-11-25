@@ -16,7 +16,7 @@
     font-weight: 400;
     line-height: normal;
     margin-bottom: 24px;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
 
 }
 
@@ -57,7 +57,7 @@
 .tabOutter1 button {
     color: #2B2E55;
     text-align: center;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -90,7 +90,7 @@
 .col1_wrapper h4 {
     color: #000;
     /* text-align: center; */
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 23px;
     font-style: normal;
     font-weight: 800;
@@ -105,7 +105,7 @@
 
 .col1_wrapper p {
     color: #000;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -133,7 +133,7 @@
 
 .postmouth_text {
     color: #141736;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -144,7 +144,7 @@
 .age_text {
     color: #000;
     text-align: center;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -156,7 +156,7 @@
 /* gallary start */
 .gallary_header p {
     color: #141736;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
@@ -256,7 +256,7 @@
 .detailed_header p {
     color: #000;
     text-align: center;
-    font-family: 'Gilroy' sans-serif;
+    font-family: 'SF Pro Display' sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 800;

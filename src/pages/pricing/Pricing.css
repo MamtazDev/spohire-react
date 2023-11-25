@@ -24,7 +24,7 @@
     font-weight: 400;
     line-height: normal;
     margin-bottom: 24px;
-    font-family: 'Gilroy-Bold' sans-serif;
+    font-family: 'SF Pro Display-Bold' sans-serif;
 
 }
 
@@ -86,7 +86,7 @@
 
 .pricing_card h2 {
     color: #0177FB;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
@@ -159,7 +159,7 @@
 .getstarted_title {
     color: #FFF;
     text-align: center;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 79px;
     font-style: normal;
     font-weight: 700;
@@ -223,7 +223,7 @@
     background: #2D5BFF;
     color: #FFF;
     text-align: center;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -242,7 +242,7 @@
     align-items: center;
     justify-content: center;
     color: #9CA3A9;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -399,7 +399,7 @@
 
 .country_select .css-11l6u31-control .css-14i3obi-placeholder {
     color: #9CA3A9;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display',sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

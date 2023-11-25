@@ -2,7 +2,7 @@
 const JobOfferHeader = () => {
     return (
         <>
-            <div className='page_header f_gilroy'>
+            <div className='page_header f_SF Pro Display'>
                 <h2><span>3,000+</span> Browse Jobs</h2>
                 <p>Find Jobs, Employment & Career Opportunities</p>
                 <div className="search_jobs">

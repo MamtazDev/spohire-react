@@ -62,7 +62,7 @@
 
 .billing_table p {
     color: #141736;
-    font-family: SF Pro Display;
+    font-family: 'SF Pro Display'sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

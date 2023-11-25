@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/gilroy:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/SF Pro Display:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'SF Pro Display', sans-serif !important;
 }
 
 h1,
@@ -206,8 +206,8 @@ a {
   cursor: pointer;
 }
 
-.f_gilroy {
-  font-family: 'Gilroy', sans-serif;
+.f_SF Pro Display {
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .f_sfPro {
