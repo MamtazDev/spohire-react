@@ -61,11 +61,6 @@
 /* job header end */
 
 
-.tennis_logo {
-    padding: 23px 10px;
-    border-radius: 10px;
-    background: #E3F0FF;
-}
 
 .tennis_desc p {
     color: #141736;
@@ -123,4 +118,32 @@
     font-weight: 500;
     line-height: normal;
     margin-top: 26px;
+}
+.jobs_details{
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+@media (max-width:768px) {
+    .job_matches_title {
+        text-align: center;
+    }
+    .tennis_logo img{
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .matchedJobs_wrapper{
+        padding: 25px;
+    }
+    .tennis_desc p{
+        font-size: 24px;
+    }
+    .tennis_desc small{
+        font-size: 16px;
+    }
+    .jobs_details{
+
+        gap: 20px;
+    }
 }

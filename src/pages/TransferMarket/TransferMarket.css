@@ -176,23 +176,18 @@
 
 .progress,
 .progress-stacked {
-
     --bs-progress-bar-bg: #0177FB !important;
-
     border-radius: 0 !important;
 }
 
 /* gallary end */
-
 @media(max-width:990px) {
-
     .tabOutter1 button {
         font-size: 13px !important;
         padding: 11px 20px !important;
     }
 
     /* compact */
-
     .col1_wrapper h4 {
         font-size: 16px;
     }
@@ -206,8 +201,6 @@
         gap: 20px;
     }
 }
-
-
 
 /* detailed page design */
 .dcol1 {
@@ -236,6 +229,9 @@
     align-items: center;
     margin-bottom: 28px;
     justify-content: start;
+
+    overflow-x: auto; /* Add horizontal scroll if needed */
+    box-sizing: border-box; 
 }
 
 .detailed_wrapper2 {
@@ -275,4 +271,7 @@
 .profile_image11 {
     width: 60px;
     height: 60px;
+}
+@media(max-width:1024px){
+
 }

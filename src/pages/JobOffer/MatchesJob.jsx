@@ -25,7 +25,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -54,7 +55,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -71,6 +73,7 @@ const MatchesJob = () => {
                                     <button className='apply_btn'>Apply</button>
                                 </div>
                             </div>
+                            
                         </div>
                         <div className="row">
                             <div className="col-lg-6">
@@ -85,7 +88,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -114,7 +118,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -131,6 +136,7 @@ const MatchesJob = () => {
                                     <button className='apply_btn'>Apply</button>
                                 </div>
                             </div>
+                            
                         </div>
                         <div className="row">
                             <div className="col-lg-6">
@@ -145,7 +151,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -174,7 +181,8 @@ const MatchesJob = () => {
                                         </div>
 
                                     </div>
-                                    <div className="d-flex gap-3" style={{ marginTop: "25px" }}>
+                                    <div className="jobs_details">
+                                       
                                         <div className='d-flex align-items-center' style={{ gap: "10px" }}>
                                             <img src={location} alt="" />
                                             <span>Bari, Haly</span>
@@ -191,7 +199,72 @@ const MatchesJob = () => {
                                     <button className='apply_btn'>Apply</button>
                                 </div>
                             </div>
+                            
                         </div>
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <div className="matchedJobs_wrapper">
+                                    <div className='d-flex gap-4 align-items-center'>
+                                        <div className='tennis_logo'>
+                                            <img src={tennis} alt="" />
+                                        </div>
+                                        <div className='tennis_desc'>
+                                            <p>Tennis Trades</p>
+                                            <small>Bet 365</small>
+                                        </div>
+
+                                    </div>
+                                    <div className="jobs_details">
+                                       
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={location} alt="" />
+                                            <span>Bari, Haly</span>
+                                        </div>
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={flag} alt="" />
+                                            <span>English   </span>
+                                        </div>
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={dollar} alt="" />
+                                            <span>Undisclosed Salary</span>
+                                        </div>
+                                    </div>
+                                    <button className='apply_btn'>Apply</button>
+                                </div>
+                            </div>
+                            <div className="col-lg-6">
+                                <div className="matchedJobs_wrapper">
+                                    <div className='d-flex gap-4 align-items-center'>
+                                        <div className='tennis_logo'>
+                                            <img src={tennis} alt="" />
+                                        </div>
+                                        <div className='tennis_desc'>
+                                            <p>Tennis Trades</p>
+                                            <small>Bet 365</small>
+                                        </div>
+
+                                    </div>
+                                    <div className="jobs_details">
+                                       
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={location} alt="" />
+                                            <span>Bari, Haly</span>
+                                        </div>
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={flag} alt="" />
+                                            <span>English   </span>
+                                        </div>
+                                        <div className='d-flex align-items-center' style={{ gap: "10px" }}>
+                                            <img src={dollar} alt="" />
+                                            <span>Undisclosed Salary</span>
+                                        </div>
+                                    </div>
+                                    <button className='apply_btn'>Apply</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                   
                     </div>
                     <div className="col-lg-3">
                         <div className="category_wrapper">
