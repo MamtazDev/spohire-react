@@ -11,7 +11,7 @@ const BestOffer = () => {
                     <div className="bestOffer_title">
                         <h1 className="f_sfPro">Choose the <span>best offer</span> for you</h1>
                     </div>
-
+                    
                     <div className="row">
                         <div className="col-lg-4">
                             <div>

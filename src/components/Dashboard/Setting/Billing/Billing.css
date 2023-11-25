@@ -1,5 +1,70 @@
-.billing_table {
-    margin: 30px;
+.billing_header {
+    display: flex;
+    padding: 16px 19px;
+    border-radius: 7px;
+    border: 1px solid #DFE5F1;
+    background: #FAFCFF;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+    margin-bottom: 24px !important;
+    align-items: center;
 }
 
+.billing_header1 {
+    display: flex;
+    padding: 16px 19px;
+    /* background: #FFF; */
+    align-items: center;
+}
 
+.billing_header1:not(:last-child) {
+    border-bottom: 1px solid #DFE5F1;
+
+}
+
+.billing_table {
+    padding-top: 30px;
+    width: 100%;
+    /* padding-right: 30px; */
+}
+
+.col1 {
+    width: 2%;
+}
+
+.col2 {
+    width: 53%;
+}
+
+.col3 {
+    width: 15%;
+}
+
+.paid_btn {
+    padding: 6px 14px;
+    border-radius: 3px;
+    border: 1px solid #0177FB;
+    background-color: transparent;
+    color: #141736;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.table_row_wrapper {
+    border-radius: 7px;
+    border: 1px solid #DFE5F1;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+}
+
+.billing_table p {
+    color: #141736;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

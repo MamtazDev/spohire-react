@@ -6,6 +6,7 @@ import DateSelector from "./DateSelector";
 import Select from "react-select";
 import bdIcon from "../../assets/bd.svg";
 import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
 
 const options = [
   {
@@ -242,6 +243,7 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
+  const navigate=useNavigate()
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -258,6 +260,7 @@ const SignUp = () => {
     console.log(formData)
 
     localStorage.setItem("register", JSON.stringify(formData));
+    navigate('/addPlayer')
 
   };
   return (
@@ -471,13 +474,7 @@ const SignUp = () => {
                   {/* email input end */}
                   {/* Function */}
                   <label className="label_text" >Function</label> <br />
-                  <div>
-                    <button className="btn function_btn" onClick={() => setFunctionType("Player")}>Player</button>
-                    <button className="btn function_btn" onClick={() => setFunctionType("Coach")}>Coach</button>
-                    <button className="btn function_btn" onClick={() => setFunctionType("Manager")}
-                    >Manager</button>
-                    <button className="btn function_btn" >Other</button>
-                  </div>
+            
                   <label className="label_text mt-3">Sports</label> <br />
                   <div>
                     <button className="btn function_btn" onClick={() => setSports("Football")}>Football</button>

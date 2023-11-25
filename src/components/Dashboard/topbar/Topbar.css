@@ -116,3 +116,81 @@
         display: block !important;
     }
 }
+
+/* filter_wrapper start */
+.filter_wrapper {
+    padding: 40px 40px 40px 40px !important;
+    position: absolute;
+    border-radius: 11px;
+    background: #FFF;
+    box-shadow: 5px 10px 50px -2px rgba(0, 0, 0, 0.15);
+    max-width: 496px;
+    width: 100%;
+    right: 12.5%;
+    top: 86%;
+}
+
+.css-1jqq78o-placeholder {
+    color: #9CA3A9 !important;
+    font-family: 'SF Pro Display' sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.filter_blue_btn {
+    padding: 11px 0 12px 0;
+    border-radius: 5px;
+    background: #0177FB;
+    color: #FFF;
+    font-family: 'SF Pro Display' sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 132px;
+    width: 100%;
+
+}
+
+.filter_btn1 {
+    padding: 11px 0 12px 0;
+    color: #9CA3A9;
+    font-family: 'SF Pro Display' sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 5px;
+    border: 1px solid #F5F5F5;
+    background: #FAFAFA;
+    max-width: 132px;
+    width: 100%;
+
+}
+
+.buttons1 {
+    margin-bottom: 20px;
+}
+
+.filter_wrapper h2 {
+    color: #141736;
+    font-family: SF Pro Display;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+.css-1u9des2-indicatorSeparator {
+    display: none;
+}
+
+.css-13cymwt-control {
+    height: 40px !important;
+}
+
+/* filter_wrapper end */

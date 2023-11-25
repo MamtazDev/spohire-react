@@ -145,7 +145,7 @@ const AddPlayerInfo3 = () => {
                                             />
                                         </div>
                                     </div>
-                                    <button className="add_btn">
+                                    <button className="add_btn1">
                                         <span>Add</span> <img src={greyplus} alt="plus btn" />
                                     </button>
 

@@ -39,7 +39,7 @@
     align-items: flex-start;
     border-radius: 60px;
     background: #EFF4FF;
-    width: fit-content;
+    max-width: fit-content;
     margin-bottom: 60px;
 }
 
@@ -118,7 +118,8 @@
     background-color: #F4F7FB;
     padding: 13px 24px;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    /* overflow-x: scroll; */
 }
 
 .div_design2 {
@@ -171,3 +172,25 @@
 
 
 /* gallary end */
+
+@media(max-width:990px) {
+
+    .tabOutter1 button {
+        font-size: 13px !important;
+        padding: 11px 20px !important;
+    }
+
+    /* compact */
+
+    .col1_wrapper h4 {
+        font-size: 16px;
+    }
+
+    .compact_wrapper {
+        padding: 16px;
+    }
+    .div_design {
+        width: 100%;
+        gap: 20px;
+    }
+}

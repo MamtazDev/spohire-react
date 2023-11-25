@@ -9,7 +9,6 @@ const Compact = () => {
     return (
         <>
             <div className="container-fluid">
-
                 <div className="compact_wrapper">
                     <div className="div-responsive">
                         <div className="div compact_div">

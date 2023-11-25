@@ -18,7 +18,6 @@ const Pricing = () => {
           <WhatPeopleSay color="#fff" />
         </div>
       </div>
-
       <GetStarted />
       <Footer />
     </div>

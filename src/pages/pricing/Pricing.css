@@ -24,7 +24,7 @@
     font-weight: 400;
     line-height: normal;
     margin-bottom: 24px;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'Gilroy-Bold' sans-serif;
 
 }
 
@@ -187,6 +187,79 @@
 
 
 
+
+/*  */
+@media (max-width:768px) {
+    .bestOffer_title h1 {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 50px;
+    }
+
+    .bestofferwrapper {
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+    }
+
+    .pricing_card {
+        padding: 30px;
+    }
+
+    .pricing_card h3 {
+        font-size: 24px;
+    }
+
+    .pricing_card span {
+        font-size: 16px;
+    }
+
+    .pricing_card h2 {
+        font-size: 32px;
+    }
+
+    .pricing_card p {
+        font-size: 14px;
+    }
+
+    .mt_30 {
+        margin-top: 20px;
+    }
+
+    .white_wrapper {
+        padding: 30px;
+    }
+
+    .col-lg-4 {
+        margin-bottom: 30px;
+    }
+
+    .slider_bg {
+        margin-bottom: 50px;
+    }
+
+    .getstarted_title {
+        font-size: 40px;
+    }
+
+    .getstartted_wrapper {
+        padding: 40px 0;
+        margin-bottom: 50px;
+
+    }
+
+    .getstarted_btn {
+        padding: 12px 20px;
+        font-size: 16px;
+
+    }
+    .page_header h2{
+        font-size: 28px;
+    }
+    .page_header p{
+        font-size: 16px;
+    }
+}
 
 
 

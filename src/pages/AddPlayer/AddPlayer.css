@@ -110,7 +110,7 @@
     margin-top: 17px;
 }
 
-.add_btn {
+.add_btn1 {
     display: inline-flex;
     padding: 10px 8px;
     align-items: center;
@@ -138,4 +138,6 @@
 .media_wrapper img {
     width: 63px;
     height: 55px;
+    border-radius: 7px;
+
 }
