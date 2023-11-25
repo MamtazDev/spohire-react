@@ -4,7 +4,7 @@ import './Pricing.css'
 const PaymentProcess = () => {
     return (
         <>
-            <div className="bgBanner" style={{ paddingBottom: "36px" }}>
+            <div className="bgBanner">
                 <Header />
             </div>
 

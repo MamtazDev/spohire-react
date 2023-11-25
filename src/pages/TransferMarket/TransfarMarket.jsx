@@ -7,7 +7,7 @@ const TransfarMarket = () => {
     return (
         <>
             <div>
-                <div className="bgBanner" style={{ paddingBottom: "36px" }}>
+                <div className="bgBanner" >
                     <Header />
                 </div>
                 <TransferMarketHeader />
