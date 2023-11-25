@@ -15,7 +15,7 @@ import ViewDetails from './components/Dashboard/viewDetails/ViewDetails';
 import Login from './Authentication/Login/Login';
 import SignUp from './Authentication/SignUp/SignUp';
 import PaymentProcess from './pages/pricing/PaymentProcess.jsx';
-import Observed from './components/Dashboard/observed/observed.jsx';
+// import Observed from './components/Dashboard/observed/observed.jsx';
 import Billing from './components/Dashboard/Setting/Billing/Billing.jsx';
 import Notification from './components/Dashboard/Setting/Notification/Notification.jsx';
 import Password from './components/Dashboard/Setting/Password/Password';
@@ -25,6 +25,7 @@ import Coaches from './components/Dashboard/Coaches/Coaches.jsx';
 import AddPlayer from './pages/AddPlayer/AddPlayer.jsx';
 import AddPlayerInfo2 from './pages/AddPlayer/AddPlayerInfo2.jsx';
 import AddPlayerInfo3 from './pages/AddPlayer/AddPlayerInfo3.jsx';
+import ObservedClone from './components/Dashboard/ObservedClone/ObservedClone.jsx';
 
 
 const router = createBrowserRouter([
@@ -96,7 +97,8 @@ const router = createBrowserRouter([
       ,
       {
         path: '/dashboard/observed',
-        element: <Observed />
+        // element: <Observed />
+        element: <ObservedClone />
       }
       ,
       {

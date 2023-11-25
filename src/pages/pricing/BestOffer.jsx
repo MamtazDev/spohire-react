@@ -2,6 +2,7 @@ import bronze from '../../assets/bronze.png'
 import silver from '../../assets/silver.png'
 import gold from '../../assets/gold.png'
 import dot from '../../assets/bluedot.png'
+import { Link } from 'react-router-dom';
 
 const BestOffer = () => {
     return (
@@ -11,7 +12,7 @@ const BestOffer = () => {
                     <div className="bestOffer_title">
                         <h1 className="f_sfPro">Choose the <span>best offer</span> for you</h1>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col-lg-4">
                             <div>
@@ -23,7 +24,7 @@ const BestOffer = () => {
                                     <span className=''>An ideal starting point....</span>
                                     <h2 className='mt_30 mb_10'>$50</h2>
                                     <p className='mb_30'>Per month</p>
-                                    <button className='f_sfPro'>Save and Continue</button>
+                                    <button className='f_sfPro'><Link to="/paymentProcess">Save and Continue</Link></button>
                                 </div>
 
                                 <div className="white_part">
