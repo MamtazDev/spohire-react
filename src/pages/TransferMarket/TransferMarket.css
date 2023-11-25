@@ -170,6 +170,17 @@
     margin-bottom: 9px;
 }
 
+.progress {
+    height: 12px;
+}
+
+.progress,
+.progress-stacked {
+
+    --bs-progress-bar-bg: #0177FB !important;
+
+    border-radius: 0 !important;
+}
 
 /* gallary end */
 
@@ -189,8 +200,79 @@
     .compact_wrapper {
         padding: 16px;
     }
+
     .div_design {
         width: 100%;
         gap: 20px;
     }
+}
+
+
+
+/* detailed page design */
+.dcol1 {
+    width: 15%;
+    display: flex;
+    justify-content: start;
+}
+
+.dcol2 {
+    width: 8%;
+    display: flex;
+    justify-content: start;
+}
+
+.dcol3 {
+    width: 20%;
+    display: flex;
+    justify-content: start;
+}
+
+.detailed_wrapper {
+    width: 100%;
+    display: flex;
+    background-color: #F4F7FB;
+    padding: 23px 34px;
+    align-items: center;
+    margin-bottom: 28px;
+    justify-content: start;
+}
+
+.detailed_wrapper2 {
+    width: 100%;
+    display: flex;
+    background-color: #E0E8F1;
+    padding: 23px 34px;
+    align-items: center;
+    margin-bottom: 28px;
+    justify-content: start;
+}
+
+.detailed_header {
+    width: 100%;
+    display: flex;
+    background: #E1EFFF;
+    padding: 23px 34px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.detailed_header p {
+    color: #000;
+    text-align: center;
+    font-family: 'Gilroy' sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.d_col_wrapper h4 {
+    font-size: 20px !important;
+    margin-bottom: 9px;
+}
+
+.profile_image11 {
+    width: 60px;
+    height: 60px;
 }
