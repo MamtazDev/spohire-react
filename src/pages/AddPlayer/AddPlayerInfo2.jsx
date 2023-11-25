@@ -95,7 +95,7 @@ const AddPlayer2 = () => {
     };
     return (
         <>
-               <div className="container-fluid">
+            <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="col-lg-5 p-0  d-none d-lg-block">
                         <div className="addplayer_left_banner text-center ">
@@ -251,7 +251,7 @@ const AddPlayer2 = () => {
                                     </div>
                                     {/* country select */}
                                     {/* email input */}
-                                        <label htmlFor="">Phone number</label>
+                                    <label htmlFor="">Phone number</label>
                                     <div className="row email_input">
                                         <div className="col-4 mb-3">
                                             <Select
@@ -329,7 +329,7 @@ const AddPlayer2 = () => {
                                             </div>
                                         </div>
                                     </div>
-                                
+
 
                                     {/*  */}
                                     <div className="club_info">
@@ -347,9 +347,7 @@ const AddPlayer2 = () => {
                                                     No
                                                 </span>
                                             </div>
-
                                         </div>
-
                                     </div>
 
                                     <div className="social_media_links">
@@ -360,9 +358,9 @@ const AddPlayer2 = () => {
                                             <Link to="/"> <img src={facebook} alt="facebook" /></Link>
                                             <Link to="/"> <img src={youtube} alt="youtube" /></Link>
                                             <Link to="/"> <img src={plus} alt="plus" /></Link>
-
                                         </div>
                                     </div>
+                                    
                                     <div className="next_skip_btns">
                                         <button className="next_btn"><Link to="/addplayer3" className="text-light">Next</Link></button>
                                         <button className="prev_btn"><Link to="/addplayer3" className="text-dark">Skip</Link></button>
