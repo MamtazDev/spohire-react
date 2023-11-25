@@ -103,7 +103,7 @@ const PaymentForm = () => {
                                 placeholder="Expiration"
                             />
                         </div>
-                        <div className="col-lg-6 ">
+                        <div className="col-lg-6 mt-lg-0 mt-4">
                             <div className="payment_card">
                                 <input
                                     type="text"
@@ -178,7 +178,7 @@ const PaymentForm = () => {
                             </div>
 
                         </div>
-                        <div className="col-lg-6 ">
+                        <div className="col-lg-6 mt-lg-0 mt-4">
                             <div className="payment_card">
                                 <input
                                     type="text"

@@ -313,6 +313,13 @@
 
 /*  */
 @media (max-width:768px) {
+    .all_payments_system {
+        gap: 0;
+    }
+    .mb_20{
+        margin-bottom: 20px;
+    }
+
     .bestOffer_title h1 {
         font-size: 40px;
         line-height: 40px;

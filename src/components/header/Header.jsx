@@ -118,10 +118,10 @@ const Header = () => {
               <Nav.Link href="/jobOffer">
                 <Link to="/jobOffer" className="nav-link">
                   Job Offers
-                </Link>{" "}
+                </Link>
               </Nav.Link>
               <Nav.Link href="/announcements">
-                {" "}
+                
                 <Link to="/announcements" className="nav-link">
                   Announcements
                 </Link>
@@ -138,7 +138,7 @@ const Header = () => {
                 <Link
                   to="/dashboard/jobOffers"
                   type="submit"
-                  className="text-decoration-none ms-3 profilename nav-link"
+                  className="text-decoration-none ms-3 profilename"
                 >
                   {user.firstName ? user.firstName : "Tonni"}
                 </Link>
