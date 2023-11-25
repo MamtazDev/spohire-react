@@ -11,7 +11,6 @@ const JobOffer = () => {
       </div>
       <JobOfferHeader />
       <MatchesJob />
-
       <Footer />
     </div>
   )

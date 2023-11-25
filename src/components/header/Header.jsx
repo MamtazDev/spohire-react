@@ -138,7 +138,7 @@ const Header = () => {
                 <Link
                   to="/dashboard/jobOffers"
                   type="submit"
-                  className="text-decoration-none ms-3 profilename"
+                  className="text-decoration-none ms-3 profilename nav-link"
                 >
                   {user.firstName ? user.firstName : "Tonni"}
                 </Link>
