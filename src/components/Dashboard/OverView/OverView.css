@@ -2,7 +2,7 @@
     border-radius: 7px;
     border: 1px solid #DFE5F1;
     background: #FFFDFD;
-    margin: 21px 46px;
+
     padding: 31px 17px 24px 30px;
 }
 
@@ -22,6 +22,7 @@
 .overview table {
     border-collapse: initial;
     border-spacing: 0 20px;
+    margin-bottom: 0 !important;
 }
 
 .overview .table>:not(caption)>*>* {
@@ -57,11 +58,108 @@
     box-shadow: none !important;
 }
 
-
 .overview tr:hover td:first-child {
     border-left-style: solid;
 }
 
 .overview tr:hover td:last-child {
     border-right-style: solid;
+}
+
+.overview_wrapper h1 {
+    color: var(--dark-1-dark, #202020);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SF Pro Display;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    margin-bottom: 21px;
+}
+
+.overview_wrapper {
+    margin: 41px 46px !important;
+    padding-top: 20px;
+
+}
+
+.date p {
+    color: #202020;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 125% */
+}
+
+.date h3 {
+    color: #202020;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 133.333% */
+}
+
+/* job_offer_overrview_wrapper */
+.job_offer_overrview_wrapper {
+    border-radius: 7px;
+    border: 1px solid #DFE5F1;
+    background: #FFFDFD;
+    padding: 32px 30px 23px;
+}
+
+.job_offer_overrview_wrapper img {
+    height: 47px;
+    width: 47px;
+}
+
+.job_offer_overrview_wrapper h5 {
+    font-size: 14px !important;
+}
+
+.job_offer_overrview_wrapper p {
+    font-size: 12px !important;
+}
+
+.joboffer_ov_wrapper {
+    border-radius: 11px;
+    border: 1px solid #EDF1F8;
+    padding: 7px 0px 7px 10px;
+    margin-top: 10px;
+}
+
+
+.announcelist_wrapper1 {
+    border-radius: 11px;
+    border: 1px solid #DFE5F1;
+    background: transparent;
+    padding: 7px 0px 7px 10px;
+    margin-bottom: 0;
+}
+
+.recruiment1 img {
+    width: 14px;
+    height: 14px;
+}
+.recruiment1 span {
+    color: #546580;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.recruiment1 p {
+    color: #141736;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 7px;
 }

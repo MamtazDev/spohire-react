@@ -36,7 +36,6 @@ const AnnouncementList = () => {
                                                 <span>USD 5000</span>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
 
