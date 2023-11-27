@@ -7,18 +7,15 @@ import location from '../../../assets/location.png';
 const AnnouncementOverview = () => {
     return (
         <>
-
             <div className="job_offer_overrview_wrapper" style={{backgroundColor:"#FDFEFF"}}>
                 <div className="d-flex justify-content-between">
                     <h4>Announcements</h4>
                     <a href="/dashboard/announcements">View More</a>
                 </div>
-
                 {/* list */}
                 {[0, 1, 2].map(item => (
                     <>
                         <div className="announcelist_wrapper1" style={{marginTop:"10px"}}>
-                            {/* parent flex with edit delete  */}
                             <div className='d-flex justify-content-between align-items-start'>
                                 <div className="d-flex align-items-center" style={{ gap: "20px" }}>
                                     <div className='announcement_pic'>

@@ -147,6 +147,7 @@
     width: 14px;
     height: 14px;
 }
+
 .recruiment1 span {
     color: #546580;
     font-size: 12px;
@@ -162,4 +163,35 @@
     font-weight: 500;
     line-height: normal;
     margin-bottom: 7px;
+}
+
+.job_offer_item_content {
+    display: flex;
+    justify-content: space-between !important;
+    width: 100%;
+    padding-right: 15px;
+    align-items: center;
+}
+
+.overview_wrapper a {
+    color: #0177FB;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.overview_wrapper h4 {
+    color: #141736;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.message_overview_hr {
+    background-color: #E8ECF5 !important;
+    margin: 14px 0 !important;
 }
