@@ -139,12 +139,13 @@
     line-height: normal;
 
 }
-
+/* 
 .filter_blue_btn {
     padding: 11px 0 12px 0;
     border-radius: 5px;
-    background: #0177FB;
-    color: #FFF;
+    border: 1px solid #F5F5F5;
+    background: #FAFAFA;
+    color: #9CA3A9;
     font-family: 'SF Pro Display' sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -153,6 +154,10 @@
     max-width: 132px;
     width: 100%;
 
+} */
+
+.filter_wrapper{
+    transition:ease-in-out 0.5s;
 }
 
 .filter_btn1 {
@@ -170,11 +175,13 @@
     width: 100%;
 
 }
-
+.filter_btn1:hover{
+    background-color: #0177FB !important;
+    color: #FFF;
+}
 .buttons1 {
     margin-bottom: 20px;
 }
-
 .filter_wrapper h2 {
     color: #141736;
     font-family: 'SF Pro Display',sans-serif;

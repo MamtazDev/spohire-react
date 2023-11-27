@@ -22,51 +22,52 @@
     box-shadow: none !important;
 }
 
-table {
+.players table {
     border-collapse: initial;
     border-spacing: 0 20px;
 }
 
-.table>:not(caption)>*>* {
+.players .table>:not(caption)>*>* {
     padding: 0.5rem 1.5rem;
 }
 
-td {
+.players td {
     border: solid 1px transparent;
     border-style: solid none;
     padding: 10px;
 }
 
-td:first-child {
+.players td:first-child {
     border-left-style: solid;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-td:last-child {
+.players td:last-child {
     border-right-style: solid;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-tr:hover {
+.players tr:hover {
     box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
 }
 
-tr:hover td {
+.players tr:hover td {
     border: 1px solid #0177FB;
     border-style: solid none;
     box-shadow: none !important;
 }
 
 
-tr:hover td:first-child {
+.players tr:hover td:first-child {
     border-left-style: solid;
 }
 
-tr:hover td:last-child {
+.players tr:hover td:last-child {
     border-right-style: solid;
 }
+
 
 @media(max-width:1024px) {
     .players_desk {

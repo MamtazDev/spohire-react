@@ -238,3 +238,13 @@
     font-weight: 500;
     line-height: normal;
 }
+
+.type_message {
+    position: relative;
+}
+
+.send_img {
+    position: absolute;
+    top: 14px;
+    right: 15px;
+}

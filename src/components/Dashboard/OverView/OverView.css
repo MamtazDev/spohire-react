@@ -1,0 +1,67 @@
+.player_overview {
+    border-radius: 7px;
+    border: 1px solid #DFE5F1;
+    background: #FFFDFD;
+    margin: 21px 46px;
+    padding: 31px 17px 24px 30px;
+}
+
+.overview table .overview_table1 tr {
+    --bs-table-bg: red !important;
+}
+
+.player_overview h4 {
+    color: #141736;
+    font-family: ' SF Pro Display' sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.overview table {
+    border-collapse: initial;
+    border-spacing: 0 20px;
+}
+
+.overview .table>:not(caption)>*>* {
+    /* padding: 0.5rem 1.5rem; */
+    background-color: transparent;
+}
+
+.overview td {
+    border: solid 1px transparent;
+    border-style: solid none;
+    padding: 10px;
+}
+
+.overview td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.overview td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.overview tr:hover {
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
+.overview tr:hover td {
+    border: 1px solid #0177FB;
+    border-style: solid none;
+    box-shadow: none !important;
+}
+
+
+.overview tr:hover td:first-child {
+    border-left-style: solid;
+}
+
+.overview tr:hover td:last-child {
+    border-right-style: solid;
+}

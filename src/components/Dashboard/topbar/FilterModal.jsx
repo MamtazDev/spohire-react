@@ -15,7 +15,7 @@ const FilterModal = () => {
                 <div className="buttons1">
                     <h2>Job Offer Filter</h2>
                     <div className="d-flex" style={{ gap: "10px" }}>
-                        <button className="btn filter_blue_btn" >On site</button>
+                        <button className="btn filter_btn1" >On site</button>
                         <button className="btn filter_btn1">Hybrid</button>
                         <button className="btn filter_btn1"
                         >Remote</button>
@@ -27,7 +27,7 @@ const FilterModal = () => {
                         <button className="btn filter_btn1">Any time</button>
                         <button className="btn filter_btn1"
                         >Past 24 hours</button>
-                        <button className="btn filter_blue_btn">Past week</button>
+                        <button className="btn filter_btn1">Past week</button>
                     </div>
                 </div>
                 <div className="buttons1">

@@ -26,6 +26,7 @@ import AddPlayerInfo2 from './pages/AddPlayer/AddPlayerInfo2.jsx';
 import AddPlayerInfo3 from './pages/AddPlayer/AddPlayerInfo3.jsx';
 import ObservedClone from './components/Dashboard/ObservedClone/ObservedClone.jsx';
 import Messages from './components/Dashboard/Messages/Messages.jsx';
+import OverView from './components/Dashboard/OverView/OverView.jsx';
 
 
 const router = createBrowserRouter([
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
 
     children: [
+      {
+        path: '/dashboard',
+        element: <OverView />
+      },
       {
         path: '/dashboard/jobOffers',
         element: <JobOffers />

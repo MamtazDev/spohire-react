@@ -5,15 +5,38 @@ import addIcon from "../../../assets/add-icon.svg";
 import logo from "../../../assets/dashbord-logo.png";
 import { useState } from "react";
 import FilterModal from "./FilterModal";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const Topbar = () => {
 
   let location = useLocation();
 
   const [filter, setFilter] = useState(false);
+  const filterRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        // Clicked outside the filter modal, close it
+        setFilter(false);
+      }
+    };
+
+    // Attach the event listener when the component mounts
+    document.addEventListener('click', handleOutsideClick);
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []); // The empty dependency array ensures this effect runs only once, similar to componentDidMount
+
   const handleFilterModal = () => {
-    setFilter(!filter)
-  }
+    console.log("kljadhkljh")
+    setFilter(!filter);
+  };
+
 
 
   return (
@@ -34,20 +57,14 @@ const Topbar = () => {
             </h2>
           </div>
           <div>
-
             <div className="dashbord_topbar_button d-flex gap-4">
-
-
               <button
                 onClick={handleFilterModal}
                 className="filter_btn d-flex gap-2 text-decoration-none"
-
               >
                 <img src={filterIcon} alt="icon" />
                 <span className="text_color_cb">Filter</span>
               </button>
-
-
 
               <Link
                 to={`${location.pathname === "/dashboard/jobOffers"
@@ -68,7 +85,13 @@ const Topbar = () => {
                 </span>
               </Link>
             </div>
-            {filter && <FilterModal />}
+            {/* filter modal */}
+            {filter && (
+              <div>
+                <FilterModal />
+              </div>
+            )}
+            {/* filter modal */}
           </div>
         </div>
       </div>

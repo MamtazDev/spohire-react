@@ -26,7 +26,6 @@ const Messages = () => {
                             </div>
                         </div>
 
-
                         {/* div 6 */}
                         <div className="col-lg-6">
                             <Messaging />

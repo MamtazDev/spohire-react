@@ -25,7 +25,6 @@ const Players = () => {
                 <p>Name</p>
               </div>
             </th>
-
             <th className="fs_14 text_color_36 fw-normal">Nation</th>
 
             <th className="fs_14 text_color_36 fw-normal">Date of Birth</th>
@@ -42,13 +41,8 @@ const Players = () => {
         </thead>
 
         <tbody>
-          {/* blank tr for taking space */}
           {[0, 1, 2, 3, 4.5, 6, 7, 8, 9, 10].map(() => (
             <>
-              {/* <tr>
-                <td className="border-bottom-0"></td>
-              </tr> */}
-
               <tr className="table_hover">
                 <td>
                   <div className="player_info d-flex align-items-center gap-2">
