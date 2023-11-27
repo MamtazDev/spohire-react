@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import "./Players.css";
 import playerImgOne from "../../../assets/playerImg.svg";
 import startIcon from "../../../assets/starIcon.svg";

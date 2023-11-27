@@ -205,7 +205,7 @@
 /* responsive */
 @media (max-width:768px) {
     .overview_wrapper {
-        margin: 0px !important;
+        margin: 20px !important;
     }
 
     .player_overview {

@@ -27,7 +27,7 @@ const RecentlyObserved = () => {
                                 Korner Kick
                             </p>
                         </div>
-                        <div>
+                        <div className="align-self-lg-center align-self-end">
                             <a href="">Job Offers</a>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ const RecentlyObserved = () => {
                                 Korner Kick
                             </p>
                         </div>
-                        <div>
+                        <div className="align-self-lg-center align-self-end">
                             <a href="">Job Offers</a>
                         </div>
                     </div>

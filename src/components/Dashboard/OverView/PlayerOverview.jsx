@@ -1,4 +1,3 @@
-import MobileButtons from "../players/MobileButtons";
 import MobilePlayers from "../players/MobilePlayers";
 import playerImgOne from "../../../assets/playerImg.svg";
 import startIcon from "../../../assets/starIcon.svg";
@@ -69,8 +68,7 @@ const PlayerOverview = () => {
                         ))}
                     </tbody>
                 </Table>
-                <MobilePlayers></MobilePlayers>
-                <MobileButtons />
+                <MobilePlayers className="m-lg-0 ms-4 me-4"></MobilePlayers>
             </div>
 
         </>
