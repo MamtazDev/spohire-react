@@ -2,10 +2,10 @@ import a1 from '../../assets/a11.png';
 import flag from '../../assets/flag.png';
 import dollar from '../../assets/coin-dollar.png';
 import location from '../../assets/location.png';
-import plus2 from '../../assets/plus2.png';
 import bookmark from '../../assets/bookmark.png';
 import edit2 from '../../assets/edit2.png';
 import delet from '../../assets/delete.png';
+import JobCategory from './JobCategory';
 
 const AnnouncementList = () => {
     return (
@@ -317,73 +317,9 @@ const AnnouncementList = () => {
 
                     </div>
                     <div className="col-lg-3">
-                        <div className="category_wrapper">
-                            <div className="blue_cat">
-                                <p>Job by category</p>
-                            </div>
-                            <div className='white_category_part'>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Football</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Basketball</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Handball</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Volleyball</span>
-                                </div>
+                        <JobCategory />
 
-                                <div className='cat_list1'>
-                                    <div className='blue_plus'>
-                                        <img src={plus2} alt="plus" />
-                                    </div>
-                                    <p>Show more</p>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div className="category_wrapper">
-                            <div className="blue_cat">
-                                <p>Job by location</p>
-                            </div>
-                            <div className='white_category_part'>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Paris</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>London</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Finland</span>
-                                </div>
-                                <div className="cat_list">
-                                    <div className='blue_square'></div>
-                                    <span>Canada</span>
-                                </div>
-
-                                <div className='cat_list1'>
-                                    <div className='blue_plus'>
-                                        <img src={plus2} alt="plus" />
-                                    </div>
-                                    <p>Show more</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className='best_matched'>
-                            <h3>Get Best Matched Jobs On your Email</h3>
-                            <button className='apply_now_btn'>Apply Now</button>
-                        </div>
                     </div>
                 </div>
             </div>

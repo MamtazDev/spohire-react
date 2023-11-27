@@ -7,7 +7,7 @@ const Gallary = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container mb_150">
                 <div className='gallary_header'>
                     <p>Josh Martin</p>
                     <div>

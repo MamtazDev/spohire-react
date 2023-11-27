@@ -14,7 +14,6 @@ const OverView = () => {
                     <div className="date">
                         <h3>Friday</h3>
                         <p>27 November 2023</p>
-
                     </div>
                 </div>
                 <PlayerOverview />
@@ -36,8 +35,6 @@ const OverView = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </>
     );

@@ -8,7 +8,7 @@ import flag5 from '../../assets/flag5.png';
 const Compact = () => {
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid mb_150">
                 <div className="compact_wrapper">
                     <div className="div-responsive">
                         <div className="div compact_div">

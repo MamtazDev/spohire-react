@@ -14,7 +14,7 @@ const Messaging = () => {
                         </div>
                         <div className='message2'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2">
+                            <div className="d-flex justify-content-between mt-2 align-items-center">
                                 <span>1 min ago</span>
                                 <img src={senticon} alt="sent" />
                             </div>
@@ -25,7 +25,7 @@ const Messaging = () => {
                         </div>
                         <div className='message2'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2">
+                            <div className="d-flex justify-content-between mt-2 align-items-center">
                                 <span>1 min ago</span>
                                 <img src={senticon} alt="sent" />
                             </div>
@@ -35,7 +35,7 @@ const Messaging = () => {
                     <div className='type_message'>
                         <input type="text" placeholder='Type Something...' />
                       <div className="send_img">
-                      <img src={send} alt="" />
+                          <img src={send} alt="" />
                       </div>
                     </div>
                 </div>
