@@ -22,15 +22,15 @@ const OverView = () => {
 
                 <div className="container">
                     <div className="row mt-4">
-                        <div className="col-lg-6 ps-0">
+                        <div className="col-lg-6">
                             <JobOfferOverview />
                         </div>
-                        <div className="col-lg-6 mt-lg-0 mt-4 ">
+                        <div className="col-lg-6 mt-lg-0 mt-4  ">
                             <AnnouncementOverview />
                         </div>
                     </div>
                     <div className="row mt-4">
-                        <div className="col-lg-6 ps-0">
+                        <div className="col-lg-6">
                             <RecentlyObserved />
                         </div>
                         <div className="col-lg-6 mt-lg-0 mt-4 ">

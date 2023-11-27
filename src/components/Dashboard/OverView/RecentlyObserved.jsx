@@ -8,7 +8,7 @@ const RecentlyObserved = () => {
     return (
         <>
             <div className="job_offer_overrview_wrapper">
-                <div className="d-flex justify-content-between" style={{marginBottom:"65px"}}>
+                <div className="d-flex justify-content-between" style={{ marginBottom: "65px" }}>
                     <h4>Recently Observed</h4>
                     <a href="/dashboard/jobOffers">View More</a>
                 </div>
@@ -34,7 +34,7 @@ const RecentlyObserved = () => {
                 </div>
                 {/* announcement */}
                 <div className="announcelist_wrapper1" style={{ marginTop: "20px" }}>
-                    <div className='d-flex justify-content-between align-items-center'>
+                    <div className='announcement_details_wrapper'>
                         <div className="d-flex align-items-center gap-2">
                             <div className='announcement_pic'>
                                 <img src={a1} alt="" />
@@ -58,14 +58,14 @@ const RecentlyObserved = () => {
 
                             </div>
                         </div>
-                        <div style={{ paddingRight: "15px" }}>
+                        <div style={{ paddingRight: "15px" }} className="align-self-lg-center align-self-end">
                             <a href="" >Announcement</a>
                         </div>
                     </div>
                 </div>
 
 
-                <div className="d-flex align-items-center gap-2 joboffer_ov_wrapper"style={{ marginTop: "20px" }}>
+                <div className="d-flex align-items-center gap-2 joboffer_ov_wrapper" style={{ marginTop: "20px" }}>
                     <div className="job_offer_item_img">
                         <img src={footBallCoachImg} alt="img" />
                     </div>
@@ -84,10 +84,11 @@ const RecentlyObserved = () => {
                         </div>
                     </div>
                 </div>
+
                 {/* announcement */}
                 <div className="announcelist_wrapper1" style={{ marginTop: "20px" }}>
-                    <div className='d-flex justify-content-between align-items-center'>
-                        <div className="d-flex align-items-center gap-2" >
+                    <div className='announcement_details_wrapper'>
+                        <div className="d-flex align-items-center gap-2">
                             <div className='announcement_pic'>
                                 <img src={a1} alt="" />
                             </div>
@@ -110,14 +111,11 @@ const RecentlyObserved = () => {
 
                             </div>
                         </div>
-                        <div style={{ paddingRight: "15px" }}>
+                        <div className="align-self-lg-center align-self-end" style={{ paddingRight: "15px" }}>
                             <a href="" >Announcement</a>
                         </div>
                     </div>
                 </div>
-
-
-
 
 
             </div>

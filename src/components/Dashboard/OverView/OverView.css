@@ -195,3 +195,52 @@
     background-color: #E8ECF5 !important;
     margin: 14px 0 !important;
 }
+
+.announcement_details_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* responsive */
+@media (max-width:768px) {
+    .overview_wrapper {
+        margin: 0px !important;
+    }
+
+    .player_overview {
+        padding: 0;
+        border: none;
+    }
+
+    .overview_wrapper h1 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .date h3 {
+        font-size: 16px;
+    }
+
+    .date p {
+        font-size: 12px;
+    }
+
+    .overview_wrapper h4 {
+        font-size: 16px;
+    }
+
+    .overview_wrapper a {
+        font-size: 14px;
+    }
+
+    .job_offer_overrview_wrapper {
+        padding: 15px;
+    }
+
+
+    .announcement_details_wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}

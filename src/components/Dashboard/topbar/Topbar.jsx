@@ -9,9 +9,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 
 const Topbar = () => {
-
   let location = useLocation();
-
   const [filter, setFilter] = useState(false);
   const filterRef = useRef(null);
 
@@ -22,10 +20,8 @@ const Topbar = () => {
         setFilter(false);
       }
     };
-
     // Attach the event listener when the component mounts
     document.addEventListener('click', handleOutsideClick);
-
     // Detach the event listener when the component unmounts
     return () => {
       document.removeEventListener('click', handleOutsideClick);
@@ -36,8 +32,6 @@ const Topbar = () => {
     console.log("kljadhkljh")
     setFilter(!filter);
   };
-
-
 
   return (
     <div className="dashbord_topbar">
@@ -57,34 +51,40 @@ const Topbar = () => {
             </h2>
           </div>
           <div>
-            <div className="dashbord_topbar_button d-flex gap-4">
-              <button
-                onClick={handleFilterModal}
-                className="filter_btn d-flex gap-2 text-decoration-none"
-              >
-                <img src={filterIcon} alt="icon" />
-                <span className="text_color_cb">Filter</span>
-              </button>
+            {location.pathname === "/dashboard" ?
+              <div className="me-auto">
+                <button className="btn btn-outline-primary fs_10">Back</button>
 
-              <Link
-                to={`${location.pathname === "/dashboard/jobOffers"
-                  ? "/dashboard/jobOffers"
-                  : "/dashboard/viewDetails"
-                  }`}
-                className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
-              >
-                {location.pathname === "/dashboard/jobOffers" ? (
-                  <img src={addIcon} alt="icon" />
-                ) : (
-                  ""
-                )}
-                <span className="text-white">
-                  {location.pathname === "/dashboard/jobOffers"
-                    ? "Add Job Offer"
-                    : "View Details"}
-                </span>
-              </Link>
-            </div>
+              </div> :
+              <div className="dashbord_topbar_button d-flex gap-4">
+                <button
+                  onClick={handleFilterModal}
+                  className="filter_btn d-flex gap-2 text-decoration-none"
+                >
+                  <img src={filterIcon} alt="icon" />
+                  <span className="text_color_cb">Filter</span>
+                </button>
+                <Link
+                  to={`${location.pathname === "/dashboard/jobOffers"
+                    ? "/dashboard/jobOffers"
+                    : "/dashboard/viewDetails"
+                    }`}
+                  className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+                >
+                  {location.pathname === "/dashboard/jobOffers" ? (
+                    <img src={addIcon} alt="icon" />
+                  ) : (
+                    ""
+                  )}
+                  <span className="text-white">
+                    {location.pathname === "/dashboard/jobOffers"
+                      ? "Add Job Offer"
+                      : "View Details"}
+                  </span>
+                </Link>
+              </div>
+            }
+
             {/* filter modal */}
             {filter && (
               <div>
