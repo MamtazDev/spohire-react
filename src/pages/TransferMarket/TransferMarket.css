@@ -200,6 +200,9 @@
         width: 100%;
         gap: 20px;
     }
+
+
+
 }
 
 /* detailed page design */
@@ -230,8 +233,9 @@
     margin-bottom: 28px;
     justify-content: start;
 
-    overflow-x: auto; /* Add horizontal scroll if needed */
-    box-sizing: border-box; 
+    overflow-x: auto;
+    /* Add horizontal scroll if needed */
+    box-sizing: border-box;
 }
 
 .detailed_wrapper2 {
@@ -272,6 +276,32 @@
     width: 60px;
     height: 60px;
 }
-@media(max-width:1024px){
 
+@media(max-width:1024px) {
+
+    /* detailed */
+    .detailed_header p {
+        font-size: 16px !important;
+    }
+
+    .d_col_wrapper h4 {
+        font-size: 14px !important;
+    }
+
+    .col1_wrapper p {
+        font-size: 12px !important;
+    }
+
+    .postmouth_text, .age_text{
+
+        font-size: 14px !important;
+    }
+    .detailed_wrapper{
+        overflow: scroll !important;
+        width: 100%;
+    }
+
+}
+.table>thead{
+    background-color: red !important;
 }

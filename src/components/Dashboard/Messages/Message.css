@@ -4,8 +4,7 @@
 
 .chat_list_wrapper {
     border-right: 2px solid #E8ECF5;
-    /* height: 100vh; */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .chat_list_wrapper h3 {
@@ -107,7 +106,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    border-right: 2px solid #E8ECF5;
 }
 
 .message {
@@ -115,9 +114,7 @@
     padding: 12px 32px 7px 12px;
     background: linear-gradient(180deg, #0177FB 0%, #2D5BFF 100%);
     font-family: 'SF Pro Display' sans-serif;
-    /* max-width: 484px; */
     width: 100%;
-    /* margin: auto; */
 }
 
 .message2 {
@@ -133,26 +130,39 @@
 }
 
 .messages_blue_wrapper {
-    border-right: 2px solid #E8ECF5;
-    /* height: 100vh; */
+    height: 100vh;
 
 }
 
-.message_content{
+.message_content {
     max-height: calc(100vh - 230px);
-    /* background: red; */
     overflow-y: scroll;
     overflow-x: hidden;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
 }
 
 .message_content::-webkit-scrollbar {
     display: none;
 }
 
+.messaging:after {
+    position: absolute;
+    content: '';
+    background: #E8ECF5;
+    right: 0;
+    width: 2px;
+    height: 107%;
+}
+
 .message_content {
-    -ms-overflow-style: none !important;  /* IE and Edge */
-    scrollbar-width: none !important;  /* Firefox */
-  }
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+}
 
 .message::before {
     content: url('/src/assets/bluesub1.png');
@@ -173,7 +183,7 @@
 
 
 .message p {
-    color: var(--White, #FFF);
+    color: var(--White, #dddcdc);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -223,7 +233,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 /*  */
@@ -260,11 +270,10 @@
 }
 
 .type_message {
-    /* position: relative; */
-    position: absolute;
-    bottom: -50px;
-    width: 93%;
-    left: 50%;
+    position: fixed;
+    bottom: 22px;
+    width: 37%;
+    left: 58%;
     transform: translateX(-50%);
 
 }

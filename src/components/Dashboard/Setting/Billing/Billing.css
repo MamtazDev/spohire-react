@@ -75,6 +75,10 @@
     padding-left: 0 !important;
    
 }
+.dashbord_content{
+    position: relative;
+    height: 100%;
+}
 @media(max-width:768px) {
     .billing_table p {
         font-size: 8px;

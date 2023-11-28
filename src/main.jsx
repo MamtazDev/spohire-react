@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import 'mdbreact/dist/css/mdb.css';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
@@ -27,7 +30,7 @@ import AddPlayerInfo3 from './pages/AddPlayer/AddPlayerInfo3.jsx';
 import ObservedClone from './components/Dashboard/ObservedClone/ObservedClone.jsx';
 import Messages from './components/Dashboard/Messages/Messages.jsx';
 import OverView from './components/Dashboard/OverView/OverView.jsx';
-
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 const router = createBrowserRouter([
   {
