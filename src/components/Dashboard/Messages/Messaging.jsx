@@ -5,8 +5,8 @@ const Messaging = () => {
     return (
         <>
             <div className='messages_blue_wrapper'>
-                <div className="messaging">
-                    <div className=''>
+                <div className="messaging position-relative">
+                    <div className='message_content'>
                         <h2>Albert Elham</h2>
                         <div className='message'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
@@ -30,6 +30,7 @@ const Messaging = () => {
                                 <img src={senticon} alt="sent" />
                             </div>
                         </div>
+                     
                     </div>
                     {/* message type */}
                     <div className='type_message'>

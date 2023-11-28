@@ -4,7 +4,7 @@
 
 .chat_list_wrapper {
     border-right: 2px solid #E8ECF5;
-    height: 100vh;
+    /* height: 100vh; */
     overflow: hidden;
 }
 
@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 80%;
+    height: 100%;
 }
 
 .message {
@@ -134,8 +134,25 @@
 
 .messages_blue_wrapper {
     border-right: 2px solid #E8ECF5;
-    height: 100vh;
+    /* height: 100vh; */
+
 }
+
+.message_content{
+    max-height: calc(100vh - 230px);
+    /* background: red; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.message_content::-webkit-scrollbar {
+    display: none;
+}
+
+.message_content {
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+  }
 
 .message::before {
     content: url('/src/assets/bluesub1.png');
@@ -243,7 +260,13 @@
 }
 
 .type_message {
-    position: relative;
+    /* position: relative; */
+    position: absolute;
+    bottom: -50px;
+    width: 93%;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 .send_img {

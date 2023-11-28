@@ -62,9 +62,43 @@
 
 .billing_table p {
     color: #141736;
-    font-family: 'SF Pro Display'sans-serif;
+    font-family: 'SF Pro Display' sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+
+.form_mobile {
+
+    padding-left: 0 !important;
+   
+}
+@media(max-width:768px) {
+    .billing_table p {
+        font-size: 8px;
+    }
+.col1{
+    width: 8%;
+}
+    .col2 {
+        width: 30%;
+    }
+
+    .col3 {
+        width: 20%;
+    }
+
+    .billing_header1 {
+        padding: 15px;
+    }
+
+    .form_mobile {
+        min-height: 20px !important;
+        width: 20px;
+        padding-left: 0 !important;
+        margin-right: 15px !important;
+    }
+
 }
