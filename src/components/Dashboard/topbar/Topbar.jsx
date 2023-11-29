@@ -14,19 +14,16 @@ const Topbar = () => {
   const filterRef = useRef(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
+    const handleClickOutside = (event) => {
       if (filterRef.current && !filterRef.current.contains(event.target)) {
-        // Clicked outside the filter modal, close it
         setFilter(false);
       }
     };
-    // Attach the event listener when the component mounts
-    document.addEventListener('click', handleOutsideClick);
-    // Detach the event listener when the component unmounts
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, []); // The empty dependency array ensures this effect runs only once, similar to componentDidMount
+  }, []);
 
   const handleFilterModal = () => {
     console.log("kljadhkljh")

@@ -7,6 +7,7 @@ import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
+import silver from "../../../assets/silver1.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
 
@@ -22,6 +23,7 @@ const ViewDetails = () => {
             </div>
           </div>
           <div className="col-12 col-lg-9">
+          <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
             <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
             <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
               Basketball

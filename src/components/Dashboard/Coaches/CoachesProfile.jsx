@@ -8,6 +8,7 @@ import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
 import ViewDetailsMobile from "../viewDetails/ViewDetailsMobile";
 import Gallary from "../viewDetails/Gallary";
+import bronze from "../../../assets/bronze.png";
 
 const CoachesProfile = () => {
     return (
@@ -21,9 +22,10 @@ const CoachesProfile = () => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-9">
-                        <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
+                        <button className="gold_btn"><img src={bronze} alt="Bronze" /> Bronze</button>
+                        <p className="text_color_36 f_sfPro fs_40 mb-2">Josep Guardiola</p>
                         <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
-                            Basketball
+                        Coach
                         </span>
                         <div className="personalInfo">
                             <p className="f_sfPro text_color_36 fs_18">
