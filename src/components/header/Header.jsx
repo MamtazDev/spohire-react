@@ -136,7 +136,7 @@ const Header = () => {
               <div className=" m-4 d-flex align-items-center justify-content-center">
                 <Link cto="/dashboard/jobOffers">   <img src={profile} alt="" /></Link>
                 <Link
-                  to="/dashboard/jobOffers"
+                  to="/dashboard"
                   type="submit"
                   className="text-decoration-none ms-3 profilename"
                 >
