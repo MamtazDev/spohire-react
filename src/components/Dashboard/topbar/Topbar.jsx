@@ -67,7 +67,6 @@ const Topbar = () => {
                       && "/dashboard/coachesProfile"
 
                     }`}
-                  // className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
                   className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
                 >
                   {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/announcements" | location.pathname == "/dashboard/basicinfo" ? (

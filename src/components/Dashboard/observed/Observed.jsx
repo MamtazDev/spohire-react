@@ -13,6 +13,7 @@ import starIcon from "../../../assets/starIcon.svg";
 import playerprofile from "../../../assets/player_profile.png";
 
 import './Observed.css'
+import { Link } from 'react-router-dom';
 const Observed = () => {
     return (
         <>
@@ -48,9 +49,9 @@ const Observed = () => {
 
                             {/* icon div */}
                             <div className='d-flex gap-3'>
-                                <img src={bookmark} alt="" />
-                                <img src={edit2} alt="" />
-                                <img src={delet} alt="" />
+                                <Link to="#">   <img src={bookmark} alt="" /> </Link>
+                                <Link to="#">   <img src={edit2} alt="" /> </Link>
+                                <Link to="#">  <img src={delet} alt="" /> </Link>
                             </div>
                         </div>
                         <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br /> take it to the next level together.</p>
@@ -84,9 +85,9 @@ const Observed = () => {
 
                             {/* icon div */}
                             <div className='d-flex gap-3'>
-                                <img src={bookmark} alt="" />
-                                <img src={edit2} alt="" />
-                                <img src={delet} alt="" />
+                                <Link to="#">   <img src={bookmark} alt="" /> </Link>
+                                <Link to="#">   <img src={edit2} alt="" /> </Link>
+                                <Link to="#">  <img src={delet} alt="" /> </Link>
                             </div>
                         </div>
                         <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br /> take it to the next level together.</p>
@@ -148,18 +149,21 @@ const Observed = () => {
 
                                             <div className="right d-flex gap-2">
 
-                                                <img
+
+
+                                                <Link to="#">    <img
                                                     className='img-fluid'
                                                     src={bookmark}
                                                     style={{ cursor: "pointer" }}
                                                     alt="icon"
-                                                />
-                                                <img
+                                                /> </Link>
+                                                <Link to="#">   <img
                                                     className='img-fluid'
                                                     src={starIcon}
                                                     style={{ cursor: "pointer" }}
                                                     alt="icon"
-                                                />
+                                                /> </Link>
+
                                             </div>
                                         </div>
                                     </div>
@@ -211,11 +215,13 @@ const Observed = () => {
                                             </div>
 
                                             <div className="right">
-                                                <img
+
+                                                <Link to="#">  <img
                                                     src={bookmark}
                                                     style={{ cursor: "pointer" }}
                                                     alt="icon"
-                                                />
+                                                /> </Link>
+
 
                                             </div>
                                         </div>

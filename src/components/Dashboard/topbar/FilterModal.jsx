@@ -6,11 +6,14 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' }
 ]
 
-
 const FilterModal = () => {
+
+
+
     return (
         <div className="filter_parent">
-            <div className="filter_wrapper">
+            {/* <div className="filter_wrapper"> */}
+            <div className={`${location.pathname == '/dashboard/observed' ? 'filter_wrapper1' : "filter_wrapper"} `}>
                 <div className="buttons1">
                     <h2>Job Offer Filter</h2>
                     <div className="d-flex" style={{ gap: "10px" }}>

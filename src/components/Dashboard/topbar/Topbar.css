@@ -53,16 +53,18 @@
 
 
 }
-.mobileTopbar a{
+
+.mobileTopbar a {
     color: #232627;
 }
+
 .dashbord_content {
     margin-bottom: 70px;
 }
 
 .mobile_topbar p {
     color: #A5B4CB;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 11.378px;
     font-style: normal;
     font-weight: 400;
@@ -132,6 +134,18 @@
     top: 86%;
 }
 
+.filter_wrapper1 {
+    padding: 40px 40px 40px 40px !important;
+    position: absolute;
+    border-radius: 11px;
+    background: #FFF;
+    box-shadow: 5px 10px 50px -2px rgba(0, 0, 0, 0.15);
+    max-width: 496px;
+    width: 100%;
+    right: 2.5% !important;
+    top: 86%;
+}
+
 .css-1jqq78o-placeholder {
     color: #9CA3A9 !important;
     font-family: 'SF Pro Display' sans-serif;
@@ -141,6 +155,7 @@
     line-height: normal;
 
 }
+
 /* 
 .filter_blue_btn {
     padding: 11px 0 12px 0;
@@ -158,8 +173,9 @@
 
 } */
 
-.filter_wrapper{
-    transition:ease-in-out 0.5s;
+.filter_wrapper,
+.filter_wrapper1 {
+    transition: ease-in-out 0.5s;
 }
 
 .filter_btn1 {
@@ -175,18 +191,21 @@
     background: #FAFAFA;
     max-width: 132px;
     width: 100%;
-
 }
-.filter_btn1:hover{
+
+.filter_btn1:hover {
     background-color: #0177FB !important;
     color: #FFF;
 }
+
 .buttons1 {
     margin-bottom: 20px;
 }
-.filter_wrapper h2 {
+
+.filter_wrapper h2, 
+.filter_wrapper1 h2 {
     color: #141736;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -205,19 +224,19 @@
 /* filter_wrapper end */
 
 
-.back_btn{
+.back_btn {
     color: #0177FB;
-/* text-align: right; */
-font-family: SF Pro Display;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-background: #FFF;
-box-shadow: 0px -1px 0px 0px #DFE5F1 inset;
-width: 67px;
-height: 32px;
-border: 1px solid #0177FB;
-border-radius: 7px;
+    /* text-align: right; */
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background: #FFF;
+    box-shadow: 0px -1px 0px 0px #DFE5F1 inset;
+    width: 67px;
+    height: 32px;
+    border: 1px solid #0177FB;
+    border-radius: 7px;
 
 }
