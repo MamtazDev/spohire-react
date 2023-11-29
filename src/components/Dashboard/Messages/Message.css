@@ -75,11 +75,6 @@
     line-height: normal;
 }
 
-.chat_list_wrapper {
-    /* display: flex;
-    flex-direction: column; */
-}
-
 .chat_wrapper span {
     color: #ADACB1;
     font-family: 'SF Pro Display' sans-serif;
@@ -99,11 +94,9 @@
 }
 
 .chat_line {
-    /* max-width: 231px; */
     width: 100%;
     color: #E8ECF5;
 }
-
 
 /* meddaging */
 .messaging {
@@ -112,7 +105,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border-right: 2px solid #E8ECF5; */
 }
 
 .message1 {
@@ -127,9 +119,9 @@
     width: 100%;
     border-top-right-radius: 7px;
     padding: 12px 32px 7px 12px;
-    background: #FFF;
     font-family: 'SF Pro Display' sans-serif;
-    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+    background: #FFF;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.05));
 }
 
 .messages_blue_wrapper {
@@ -139,7 +131,6 @@
 .message_content {
     max-height: calc(100vh - 335px);
     overflow-y: scroll;
-    overflow-x: hidden;
     height: 100%;
 }
 
@@ -147,27 +138,34 @@
     display: none;
 }
 
-/* 
-.messaging:after {
-    position: absolute;
-    content: '';
-    background: #E8ECF5;
-    right: 0;
-    width: 2px;
-    height: 100%;
-} */
+.bg_curve_blue {
+    background: linear-gradient(180deg, #0276FB 0%, #295DFE 100%);
+    height: 90px;
+    width: 33px;
+}
+
+.bg_curve_white {
+    background-color: white;
+    height: 90px;
+    width: 33px;
+    border-bottom-right-radius: 100px;
+}
+.bg_curve_blue1 {
+    background: white;
+    height: 90px;
+    width: 33px;
+}
+
+.bg_curve_white1 {
+    background-color: white;
+    height: 90px;
+    width: 33px;
+    border-bottom-left-radius: 100px;
+}
 
 .message_content {
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
-}
-
-.message1::before {
-    content: url('/src/assets/bluesub1.png');
-    position: absolute;
-    top: 51px;
-    left: -12px;
-    transform: rotate(270deg);
 }
 
 .messaging h2 {
@@ -178,7 +176,6 @@
     line-height: normal;
     margin-bottom: 33px;
 }
-
 
 .message1 p {
     color: var(--White, #dddcdc);
@@ -205,13 +202,6 @@
 .message1 {
     margin-top: 15px;
     position: relative;
-}
-
-.message2::after {
-    content: url('/src/assets/whiteSub.png');
-    position: absolute;
-    top: 61px;
-    right: -15px;
 }
 
 .message2 p {
@@ -270,7 +260,7 @@
 .type_message {
     position: fixed;
     bottom: 62px;
-    width: 37%;
+    width: 35%;
     left: 58%;
     transform: translateX(-50%);
 
