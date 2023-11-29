@@ -23,6 +23,14 @@
     margin-bottom: 24px;
 }
 
+.blue_cat p {
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 
 .announcelist_wrapper p {
@@ -74,7 +82,7 @@
 
 .blue_cat p {
     color: #FFF;
-    font-family: 'SF Pro Display'sans-serif;
+    font-family: 'SF Pro Display' sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -170,6 +178,17 @@
     margin-bottom: 20px;
 }
 
+.cat_list1 a {
+    color: #5EA9FE;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+
+}
+
 @media(max-width:768px) {
     .announcelist_wrapper {
         padding: 18px 10px 16px 16px;
@@ -177,5 +196,14 @@
 
     .apply_now_btn {
         padding: 14px 40px 14px 40px;
+    }
+
+    .blue_cat p {
+        font-size: 16px;
+    }
+
+    .cat_list span,
+    .cat_list1 a {
+        font-size: 14px;
     }
 }

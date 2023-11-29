@@ -14,10 +14,19 @@
 .club_info h6,
 .social_media_links h6 {
     color: #161D24;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 11.3px;
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
+}
+
+.hifen {
+    color: #9CA3A9;
+    font-family: SF Pro Display;
+    font-size: 8.489px;
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
 }
 
@@ -65,7 +74,7 @@
     background: #2D5BFF;
     color: #FFF;
     text-align: center;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 11.3px;
     font-style: normal;
     font-weight: 500;
@@ -81,7 +90,7 @@
     background: #DFDFDF;
     color: #141736;
     text-align: center;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 11.3px;
     font-style: normal;
     font-weight: 500;
@@ -102,7 +111,7 @@
 
 .player_wrapper label {
     color: #161D24;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 11px;
     font-style: normal;
     font-weight: 500;
@@ -120,7 +129,7 @@
     border: 0.707px solid rgba(0, 0, 0, 0.04);
     margin-top: 9px;
     color: #9CA3A9;
-    font-family: 'SF Pro Display',sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 8.489px;
     font-style: normal;
     font-weight: 400;

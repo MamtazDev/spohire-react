@@ -7,9 +7,10 @@
     background-color: #0a0119;
 }
 
-/* .navbar {
-    padding: 47px 0 11px 0;
-} */
+.navbar {
+    /* padding: 47px 0 11px 0; */
+    box-shadow: none;
+}
 
 
 .nav-link {
@@ -63,6 +64,7 @@
     background-image: url("../../assets/signinBtn.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .login_modal_btn {
@@ -218,6 +220,7 @@
     /* 19.2px */
     text-transform: uppercase;
 }
+
 .profilename:hover {
     color: white;
 }

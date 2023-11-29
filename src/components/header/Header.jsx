@@ -11,7 +11,7 @@ const Header = () => {
   const user = JSON.parse(getUser);
 
   return (
-    <header>
+    <header className={`${!user && 'pt-4 pb-4' }`}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
           <Navbar.Brand href="#home">

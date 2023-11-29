@@ -2,72 +2,16 @@
 import loginBanner from "../../assets/addplayer.png";
 import t1 from "../../assets/t1.png";
 import t2 from "../../assets/t2.png";
-import t3 from "../../assets/t3.png";
 import t4 from "../../assets/t4.png";
 import greyplus from "../../assets/greyplus.png";
 import React, { useState } from "react";
-
-import bdIcon from "../../assets/bd.svg";
 
 import './AddPlayer.css'
 import { Link } from "react-router-dom";
 import HandleYear from "./HandleYear";
 
 
-const options1 = [
-    {
-        value: "Bangladesh",
-        label: "Bangladesh",
-        flagImg: bdIcon,
-    },
-    {
-        value: "India",
-        label: "India",
-        flagImg: bdIcon,
-    },
-    {
-        value: "Switzerland",
-        label: "Switzerland",
-        flagImg: bdIcon,
-    },
-    {
-        value: "United Kingdom",
-        label: "United Kingdom",
-        flagImg: bdIcon,
-    },
-    {
-        value: "Ireland",
-        label: "Ireland",
-        flagImg: bdIcon,
-    },
-    {
-        value: "Italy",
-        label: "Italy",
-        flagImg: bdIcon,
-    },
-    {
-        value: "Netherland",
-        label: "Netherland",
-        flagImg: bdIcon,
-    },
-];
-
-const options2 = [
-    {
-        value: "Bangladesh",
-        label: "+880",
-        flagImg: bdIcon,
-    },
-    {
-        value: "India",
-        label: "+880",
-        flagImg: bdIcon,
-    },
-];
-
 const AddPlayerInfo3 = () => {
-    const [select, setSelect] = useState("SE");
-    const onSelect = (code) => setSelect(code);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -94,22 +38,13 @@ const AddPlayerInfo3 = () => {
         localStorage.setItem("register", JSON.stringify(formData));
     };
     const fileInputRef = React.useRef(null);
-
     const handleImageClick = () => {
-        // Trigger the file input click event when the image is clicked
         fileInputRef.current.click();
     };
-
-
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-
-        // Update the selected image state
         setSelectedImage([...selectedImage, URL.createObjectURL(selectedFile)]);
     };
-
-
-
 
     return (
         <>
@@ -129,7 +64,7 @@ const AddPlayerInfo3 = () => {
                                     <div className="d-flex align-items-center gap-3">
                                         <div className="d-flex align-items-center gap-2">
                                             <HandleYear />
-                                            <div>
+                                            <div className="hifen">
                                                 -
                                             </div>
                                             <HandleYear />

@@ -39,9 +39,6 @@ const Messaging = () => {
                         </div>
                     </div>
 
-            
-
-
                     <div className='d-flex align-items-end'>
                         <div className='bg_curve_blue'>
                             <div className='bg_curve_white'>
