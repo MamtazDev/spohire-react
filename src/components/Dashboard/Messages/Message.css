@@ -2,9 +2,10 @@
     padding: 28px 28px 0 46px;
 }
 
-.chat_list_wrapper {
-    border-right: 2px solid #E8ECF5;
-    /* overflow: hidden; */
+.border-right {
+    width: 1px;
+    height: 137%;
+    background-color: #E8ECF5;
 }
 
 .chat_list_wrapper h3 {
@@ -20,11 +21,16 @@
     padding-left: 2.375rem;
 }
 
+.coach_hr {
+    height: 2px;
+    color: #E8ECF5;
+}
+
 .has-search1 input {
 
     border-radius: 7px;
     background: #F6FCFE;
-    max-width: 231px;
+    /* max-width: 231px; */
     width: 100%;
     height: 43px;
     margin-top: 19px;
@@ -55,11 +61,6 @@
     margin-bottom: 31px;
 }
 
-.chat_wrapper {
-    gap: 10px;
-
-}
-
 .chat_wrapper img {
     border-radius: 50%;
 
@@ -72,6 +73,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.chat_list_wrapper {
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .chat_wrapper span {
@@ -93,7 +99,7 @@
 }
 
 .chat_line {
-    max-width: 231px;
+    /* max-width: 231px; */
     width: 100%;
     color: #E8ECF5;
 }
@@ -101,15 +107,15 @@
 
 /* meddaging */
 .messaging {
-    padding: 0 30px 0 4px;
+    padding: 0 30px 0 30px;
     font-family: 'SF Pro Display' sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 2px solid #E8ECF5;
+    /* border-right: 2px solid #E8ECF5; */
 }
 
-.message {
+.message1 {
     border-top-left-radius: 7px;
     padding: 12px 32px 7px 12px;
     background: linear-gradient(180deg, #0177FB 0%, #2D5BFF 100%);
@@ -118,29 +124,22 @@
 }
 
 .message2 {
-    /* max-width: 484px; */
     width: 100%;
-
     border-top-right-radius: 7px;
     padding: 12px 32px 7px 12px;
     background: #FFF;
     font-family: 'SF Pro Display' sans-serif;
     box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
-    /* margin: auto; */
 }
 
 .messages_blue_wrapper {
     height: 100vh;
-
 }
 
 .message_content {
-    max-height: calc(100vh - 230px);
+    max-height: calc(100vh - 335px);
     overflow-y: scroll;
     overflow-x: hidden;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: end;
     height: 100%;
 }
 
@@ -148,23 +147,22 @@
     display: none;
 }
 
+/* 
 .messaging:after {
     position: absolute;
     content: '';
     background: #E8ECF5;
     right: 0;
     width: 2px;
-    height: 107%;
-}
+    height: 100%;
+} */
 
 .message_content {
     -ms-overflow-style: none !important;
-    /* IE and Edge */
     scrollbar-width: none !important;
-    /* Firefox */
 }
 
-.message::before {
+.message1::before {
     content: url('/src/assets/bluesub1.png');
     position: absolute;
     top: 51px;
@@ -182,7 +180,7 @@
 }
 
 
-.message p {
+.message1 p {
     color: var(--White, #dddcdc);
     font-size: 14px;
     font-style: normal;
@@ -190,7 +188,7 @@
     line-height: 20px;
 }
 
-.message span {
+.message1 span {
     display: flex;
     justify-content: end;
     color: rgba(255, 255, 255, 0.64);
@@ -204,7 +202,7 @@
 }
 
 .message2,
-.message {
+.message1 {
     margin-top: 15px;
     position: relative;
 }
@@ -271,7 +269,7 @@
 
 .type_message {
     position: fixed;
-    bottom: 22px;
+    bottom: 62px;
     width: 37%;
     left: 58%;
     transform: translateX(-50%);
@@ -282,4 +280,16 @@
     position: absolute;
     top: 14px;
     right: 15px;
+}
+
+.bg-none {
+    background-color: transparent;
+}
+
+@media(max-width:768px) {
+    .type_message {
+        bottom: 92px;
+        width: 83%;
+        left: 49%;
+    }
 }

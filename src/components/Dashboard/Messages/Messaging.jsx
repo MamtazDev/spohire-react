@@ -8,7 +8,7 @@ const Messaging = () => {
                 <div className="messaging position-relative">
                         <h2>Albert Elham</h2>
                     <div className='message_content'>
-                        <div className='message'>
+                        <div className='message1'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
                             <span>1 day ago</span>
                         </div>
@@ -19,7 +19,7 @@ const Messaging = () => {
                                 <img src={senticon} alt="sent" />
                             </div>
                         </div>
-                        <div className='message'>
+                        <div className='message1'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
                             <span>1 day ago</span>
                         </div>
@@ -30,51 +30,11 @@ const Messaging = () => {
                                 <img src={senticon} alt="sent" />
                             </div>
                         </div>
-                        <div className='message'>
+                        <div className='message1'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
                             <span>1 day ago</span>
                         </div>
-                        <div className='message2'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2 align-items-center">
-                                <span>1 min ago</span>
-                                <img src={senticon} alt="sent" />
-                            </div>
-                        </div>
-                        <div className='message'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <span>1 day ago</span>
-                        </div>
-                        <div className='message2'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2 align-items-center">
-                                <span>1 min ago</span>
-                                <img src={senticon} alt="sent" />
-                            </div>
-                        </div>
-                        <div className='message'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <span>1 day ago</span>
-                        </div>
-                        <div className='message2'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2 align-items-center">
-                                <span>1 min ago</span>
-                                <img src={senticon} alt="sent" />
-                            </div>
-                        </div>
-                        <div className='message'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <span>1 day ago</span>
-                        </div>
-                        <div className='message2'>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
-                            <div className="d-flex justify-content-between mt-2 align-items-center">
-                                <span>1 min ago</span>
-                                <img src={senticon} alt="sent" />
-                            </div>
-                        </div>
-                       
+                
                       
                      
                     </div>

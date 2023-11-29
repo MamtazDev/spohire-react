@@ -10,25 +10,30 @@ const Messages = () => {
         <>
             <div className="container-fluid">
                 <div className="message_wrapper">
-                    <div className="row">
-                        <div className="col-lg-3  d-lg-block d-none">
-                            <div className='chat_list_wrapper'>
-                                <h3>Message details</h3>
+                    <div className="row w-100">
+                        {/* <div className="col-lg-3  d-lg-block d-none d-flex"> */}
+                        <div className="col-lg-3 ">
+                            <div>
+                                <div className='chat_list_wrapper '>
+                                    <h3>Message details</h3>
 
-                                {/* search div*/}
+                                    {/* search div*/}
 
-                                <div className="form-group has-search1">
-                                    <span className="fa fa-search form-control-feedback"></span>
-                                    <input type="text" className="form-control" placeholder="Search" />
+                                    <div className="form-group has-search1">
+                                        <span className="fa fa-search form-control-feedback"></span>
+                                        <input type="text" className="form-control" placeholder="Search" />
+                                    </div>
+                                    {/*  message lsit */}
+                                    <ChatProfiles />
                                 </div>
-                                {/*  message lsit */}
-                                <ChatProfiles />
                             </div>
                         </div>
 
                         {/* div 6 */}
-                        <div className="col-lg-6">
+                        <div className="col-lg-6 message_border d-flex">
+                            <div className='border-right'></div>
                             <Messaging />
+                            <div className='border-right'></div>
                         </div>
 
                         <div className="col-lg-3 d-lg-block d-none">
@@ -37,7 +42,7 @@ const Messages = () => {
                                     <img src={chaticon} alt="" />
                                     <p>Chat Details</p>
                                 </div>
-                                <img src={chatclose} alt="chatclose" />
+                                <button className='bg-none'> <img src={chatclose} alt="chatclose" /></button>
                             </div>
 
                             <div className='text-center profile_right'>
@@ -45,6 +50,7 @@ const Messages = () => {
                                 <p>Abram Korsgaard</p>
                                 <span>Coach</span>
                             </div>
+                            <hr className='coach_hr' />
                         </div>
 
 
