@@ -251,7 +251,7 @@ const AddPlayer = () => {
                                     </div>
                                     {/* country select */}
                                     {/* email input */}
-                                        <label htmlFor="">Phone number</label>
+                                    <label htmlFor="">Phone number</label>
                                     <div className="row email_input">
                                         <div className="col-4 mb-3">
                                             <Select
@@ -329,7 +329,7 @@ const AddPlayer = () => {
                                             </div>
                                         </div>
                                     </div>
-                                
+
 
                                     {/*  */}
                                     <div className="club_info">
@@ -364,8 +364,9 @@ const AddPlayer = () => {
                                         </div>
                                     </div>
                                     <div className="next_skip_btns">
-                                        <button className="next_btn"><Link to="/addplayer2" className="text-light">Next</Link></button>
-                                        <button className="prev_btn"><Link to="/addplayer2" className="text-dark">Skip</Link></button>
+                                        <Link to="/addplayer2">  <button className="next_btn"><Link to="/addplayer2" className="text-light">Next</Link></button></Link>
+                                        <Link to="/addplayer2">  <button className="prev_btn"><Link to="/addplayer2" className="text-dark">Skip</Link></button></Link>
+
                                     </div>
 
 

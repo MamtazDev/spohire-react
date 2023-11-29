@@ -26,7 +26,6 @@ const Topbar = () => {
   }, []);
 
   const handleFilterModal = () => {
-    console.log("kljadhkljh")
     setFilter(!filter);
   };
 
@@ -92,7 +91,6 @@ const Topbar = () => {
                 </Link>
               </div>
             }
-
             {/* filter modal */}
             {filter && (
               <div>

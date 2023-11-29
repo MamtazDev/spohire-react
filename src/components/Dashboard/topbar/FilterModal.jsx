@@ -8,7 +8,6 @@ const options = [
 
 
 const FilterModal = () => {
-
     return (
         <div className="filter_parent">
             <div className="filter_wrapper">

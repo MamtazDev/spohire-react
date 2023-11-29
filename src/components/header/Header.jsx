@@ -3,13 +3,16 @@ import Logo from "../../assets/logo.png";
 import Logosm from "../../assets/responsive-logo.png";
 import profile from "../../assets/PROFILE.png";
 import TransfarMarket from "../../assets/modal-market-img.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
   const getUser = localStorage.getItem('register')
   const user = JSON.parse(getUser);
-
+const navigate =useNavigate()
+  const closeModalAndNavigate = () => {
+    navigate('/signup');
+  };
   return (
     <header className={`${!user && 'pt-4 pb-4' }`}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
@@ -100,20 +103,18 @@ const Header = () => {
                     <div className="modal-body">
                       <h2>Unlock the Gateway to <span>Endless <br /> Excitement</span></h2>
                       <p> Log in and Dive into a World of Sports Thrills and Exclusive Content!</p>
-                      <button className=" login_modal_btn">
+                      <button  onClick={closeModalAndNavigate} className=" login_modal_btn" data-bs-dismiss="modal" aria-label="Close"  type="button">
                         <Link to="/signup" type="submit" className="text-decoration-none text-dark">
                           LOG IN
                         </Link>
                       </button>
                       <div>
-                        <img src={TransfarMarket} alt="" />
+                        <img src={TransfarMarket} alt="TransfarMarket" />
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
-
               {/* modal hbe */}
               <Nav.Link href="/jobOffer">
                 <Link to="/jobOffer" className="nav-link">

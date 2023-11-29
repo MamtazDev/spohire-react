@@ -360,10 +360,10 @@ const AddPlayer2 = () => {
                                             <Link to="/"> <img src={plus} alt="plus" /></Link>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="next_skip_btns">
                                         <button className="next_btn"><Link to="/addplayer3" className="text-light">Next</Link></button>
-                                        <button className="prev_btn"><Link to="/addplayer3" className="text-dark">Skip</Link></button>
+                                        <Link to="/addplayer3">  <button className="prev_btn"><Link to="/addplayer3" className="text-dark">Skip</Link></button></Link>
                                     </div>
 
 
