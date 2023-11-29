@@ -47,7 +47,7 @@ const DashbordSidebar = () => {
 
           <div className="overview">
             <Link
-              to={"#"}
+              to='/dashboard'
               className="text-decoration-none d-flex align-items-center gap-4"
             >
               <img src={overviewIcon} alt="icon" />

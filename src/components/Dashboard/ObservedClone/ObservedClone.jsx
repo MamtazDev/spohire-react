@@ -21,77 +21,94 @@ const ObservedClone = () => {
             <div className="announcement" style={{ margin: "30px" }}>
                 <div>
                     <p className='title'>Announcement</p>
-                    <div className="announcelist_wrapper" >
-                        {/* parent flex with edit delete  */}
-                        <div className='d-flex justify-content-between align-items-start'>
-                            <div className="d-flex" style={{ gap: "20px" }}>
-                                <div className='announcement_pic'>
-                                    <img src={a1} alt="" />
-                                </div>
-                                <div className='recruiment f_sfPro'>
-                                    <p>Player recruitment</p>
-                                    <div className="d-flex gap-3">
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={location} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={flag} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={dollar} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
+                    <div>
+                        <div className="announcelist_wrapper">
+                            {/* parent flex with edit delete  */}
+                            <div className='d-flex justify-content-between align-items-start'>
+                                <div className="d-flex align-items-center" style={{ gap: "20px" }}>
+                                    <div className='announcement_pic'>
+                                        <img src={a1} alt="" />
                                     </div>
+                                    <div className='recruiment f_sfPro'>
+                                        <p>Player recruitment</p>
+                                        <div className="d-flex gap-3 flex-wrap">
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={location} alt="" />
+                                                <span>Vegas Street Circuit</span>
+                                            </div>
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={flag} alt="" />
+                                                <span>Published</span>
+                                            </div>
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={dollar} alt="" />
+                                                <span>USD 5000</span>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                </div>
+
+                                {/* icon div */}
+                                <div className='d-lg-block d-none'>
+                                    <div className='d-flex gap-3 '>
+                                        <img src={bookmark} alt="" />
+                                        <img src={edit2} alt="" />
+                                        <img src={delet} alt="" />
+                                    </div>
                                 </div>
                             </div>
-
-                            {/* icon div */}
-                            <div className='d-flex gap-3'>
+                            <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br className='d-lg-block d-none' /> take it to the next level together.</p>
+                            <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                 <img src={bookmark} alt="" />
                                 <img src={edit2} alt="" />
                                 <img src={delet} alt="" />
                             </div>
                         </div>
-                        <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br /> take it to the next level together.</p>
-                    </div>
-                    <div className="announcelist_wrapper" >
-                        {/* parent flex with edit delete  */}
-                        <div className='d-flex justify-content-between align-items-start'>
-                            <div className="d-flex" style={{ gap: "20px" }}>
-                                <div className='announcement_pic'>
-                                    <img src={a1} alt="" />
-                                </div>
-                                <div className='recruiment f_sfPro'>
-                                    <p>Player recruitment</p>
-                                    <div className="d-flex gap-3">
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={location} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={flag} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
-                                        <div className='d-flex align-items-center' style={{ gap: "6px" }}>
-                                            <img src={dollar} alt="" />
-                                            <span>Vegas Street Circuit</span>
-                                        </div>
+                        <div className="announcelist_wrapper">
+                            {/* parent flex with edit delete  */}
+                            <div className='d-flex justify-content-between align-items-start'>
+                                <div className="d-flex align-items-center" style={{ gap: "20px" }}>
+                                    <div className='announcement_pic'>
+                                        <img src={a1} alt="" />
                                     </div>
+                                    <div className='recruiment f_sfPro'>
+                                        <p>Player recruitment</p>
+                                        <div className="d-flex gap-3 flex-wrap">
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={location} alt="" />
+                                                <span>Vegas Street Circuit</span>
+                                            </div>
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={flag} alt="" />
+                                                <span>Published</span>
+                                            </div>
+                                            <div className='d-flex align-items-center' style={{ gap: "6px" }}>
+                                                <img src={dollar} alt="" />
+                                                <span>USD 5000</span>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                </div>
+
+                                {/* icon div */}
+                                <div className='d-lg-block d-none'>
+                                    <div className='d-flex gap-3 '>
+                                        <img src={bookmark} alt="" />
+                                        <img src={edit2} alt="" />
+                                        <img src={delet} alt="" />
+                                    </div>
                                 </div>
                             </div>
-
-                            {/* icon div */}
-                            <div className='d-flex gap-3'>
+                            <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br className='d-lg-block d-none' /> take it to the next level together.</p>
+                            <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                 <img src={bookmark} alt="" />
                                 <img src={edit2} alt="" />
                                 <img src={delet} alt="" />
                             </div>
                         </div>
-                        <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br /> take it to the next level together.</p>
+
                     </div>
                 </div>
             </div>
@@ -148,7 +165,7 @@ const ObservedClone = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="right d-flex gap-2">
+                                            <div className="right d-flex gap-2 flex-wrap">
 
                                                 <img
                                                     className='img-fluid'

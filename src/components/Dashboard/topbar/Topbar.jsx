@@ -38,7 +38,7 @@ const Topbar = () => {
       <div className="topbar_desk">
         <div className=" dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
           <div className="dashbord_topbar_title">
-            <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
+            {location.pathname == "/dashboard" | location.pathname == "/dashboard/viewDetails" | location.pathname == "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" ? <button className="back_btn fs_10">Back</button> : <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
               {location.pathname === "/dashboard/jobOffers" && "job offer"}
               {location.pathname === "/dashboard/basicinfo" && "job offer"}
               {location.pathname === "/dashboard/players" && "Players List"}
@@ -48,18 +48,16 @@ const Topbar = () => {
               {location.pathname === "/dashboard/billing" && "Billing history"}
               {location.pathname === "/dashboard/observed" && "Observed"}
               {location.pathname === "/dashboard/coaches" && "Coaches List"}
-            </h2>
+            </h2>}
           </div>
           <div>
-            {location.pathname === "/dashboard" ?
-              <div className="me-auto">
-                <button className="btn btn-outline-primary fs_10">Back</button>
-
-              </div> :
+            {location.pathname === "/dashboard" | location.pathname == "/dashboard/viewDetails" ?
+              "" :
               <div className="dashbord_topbar_button d-flex gap-4">
                 <button
                   onClick={handleFilterModal}
-                  className="filter_btn d-flex gap-2 text-decoration-none"
+                  // className="filter_btn d-flex gap-2 text-decoration-none"
+                  className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
                 >
                   <img src={filterIcon} alt="icon" />
                   <span className="text_color_cb">Filter</span>
@@ -67,19 +65,32 @@ const Topbar = () => {
                 <Link
                   to={`${location.pathname === "/dashboard/jobOffers"
                     ? "/dashboard/jobOffers"
-                    : "/dashboard/viewDetails"
+                    : location.pathname === "/dashboard/players"
+                      ? "/dashboard/viewDetails"
+                      : location.pathname === "/dashboard/coaches"
+                      && "/dashboard/coachesProfile"
+
                     }`}
-                  className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+                  // className="add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+                  className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
                 >
-                  {location.pathname === "/dashboard/jobOffers" ? (
+                  {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/announcements" | location.pathname == "/dashboard/basicinfo" ? (
                     <img src={addIcon} alt="icon" />
                   ) : (
                     ""
                   )}
-                  <span className="text-white">
-                    {location.pathname === "/dashboard/jobOffers"
+                  <span className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" ? "bg-light d-none" : "text-white"} `}>
+                    {location.pathname === "/dashboard/jobOffers" | location.pathname == "/dashboard/basicinfo"
                       ? "Add Job Offer"
-                      : "View Details"}
+                      : location.pathname === "/dashboard" | location.pathname === "/dashboard/players" | location.pathname === "/dashboard/coaches"
+                        ? "View Details"
+                        : location.pathname === "/dashboard/coachesProfile"
+                          ? "Click here to upgrade your current package"
+                          : location.pathname == "/dashboard/announcements"
+                            ? "Create Announcement"
+                            : location.pathname == "/dashboard/viewDetails"
+                              ? "Click here to upgrade your current package" : ``
+                    }
                   </span>
                 </Link>
               </div>
@@ -98,7 +109,7 @@ const Topbar = () => {
       {/* mobile */}
       <div className="topbar_mobile">
         <div className="d-flex justify-content-between align-items-center">
-          <button className="btn btn-outline-primary fs_10">Back</button>
+          <button className="back_btn fs_10">Back</button>
           <div style={{ marginRight: "50px" }}>
             <img src={logo} alt="" />
           </div>

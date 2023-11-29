@@ -62,9 +62,6 @@ const WhatPeopleSay = ({color}) => {
 
                 <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayRightbox">
-                    {/* <button>
-                        <img src={SliderButton} alt="Slider" />
-                      </button> */}
                     <div className="d-flex justify-content-start align-items-center gap-3 mb-3">
                       <img
                         className="profoleImg"
@@ -156,9 +153,6 @@ const WhatPeopleSay = ({color}) => {
 
                 <div className="col-12 col-lg-6">
                   <div className="sayInnerBox sayRightbox">
-                    {/* <button>
-                        <img src={SliderButton} alt="Slider" />
-                      </button> */}
                     <div className="d-flex justify-content-start align-items-center gap-3 mb-3">
                       <img
                         className="profoleImg"

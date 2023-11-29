@@ -18,7 +18,7 @@ const RecentlyObserved = () => {
                         <img src={footBallCoachImg} alt="img" />
                     </div>
 
-                    <div className="job_offer_item_content">
+                    <div className="job_offer_item_content d-flex">
                         <div className="job_offer_nameDesignation">
                             <h5 className="fw-medium fs-6 text_color_36 mb-1">
                                 Football Coach
@@ -70,7 +70,7 @@ const RecentlyObserved = () => {
                         <img src={footBallCoachImg} alt="img" />
                     </div>
 
-                    <div className="job_offer_item_content">
+                    <div className="job_offer_item_content d-flex">
                         <div className="job_offer_nameDesignation">
                             <h5 className="fw-medium fs-6 text_color_36 mb-1">
                                 Football Coach

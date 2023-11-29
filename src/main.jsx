@@ -31,6 +31,7 @@ import ObservedClone from './components/Dashboard/ObservedClone/ObservedClone.js
 import Messages from './components/Dashboard/Messages/Messages.jsx';
 import OverView from './components/Dashboard/OverView/OverView.jsx';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import CoachesProfile from './components/Dashboard/Coaches/CoachesProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/coaches',
         element: <Coaches />
+      },
+      {
+        path: '/dashboard/coachesProfile',
+        element: <CoachesProfile />
       },
       {
         path: '/dashboard/viewDetails',

@@ -12,7 +12,7 @@ const Messages = () => {
                 <div className="message_wrapper">
                     <div className="row w-100">
                         {/* <div className="col-lg-3  d-lg-block d-none d-flex"> */}
-                        <div className="col-lg-3 ">
+                        <div className="col-lg-3  d-lg-block d-none">
                             <div>
                                 <div className='chat_list_wrapper '>
                                     <h3>Message details</h3>

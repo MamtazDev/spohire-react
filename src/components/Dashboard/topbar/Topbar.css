@@ -203,3 +203,21 @@
 }
 
 /* filter_wrapper end */
+
+
+.back_btn{
+    color: #0177FB;
+/* text-align: right; */
+font-family: SF Pro Display;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+background: #FFF;
+box-shadow: 0px -1px 0px 0px #DFE5F1 inset;
+width: 67px;
+height: 32px;
+border: 1px solid #0177FB;
+border-radius: 7px;
+
+}
