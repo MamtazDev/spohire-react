@@ -57,8 +57,6 @@ const GallaryTable = () => {
                                 <td>    <p className='age_text'> - </p></td>
                             </tr>
                          
-                         
-
                         </tbody>
                     </table>
                 </div>

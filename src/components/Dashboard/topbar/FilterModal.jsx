@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Select from 'react-select';
 
 const options = [
@@ -6,13 +7,11 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' }
 ]
 
-const FilterModal = () => {
-
-
+const FilterModal = ({myDivRef}) => {
+// const FilterModal = () => {
 
     return (
-        <div className="filter_parent">
-            {/* <div className="filter_wrapper"> */}
+        <div ref={myDivRef} className="filter_parent">
             <div className={`${location.pathname == '/dashboard/observed' ? 'filter_wrapper1' : "filter_wrapper"} `}>
                 <div className="buttons1">
                     <h2>Job Offer Filter</h2>

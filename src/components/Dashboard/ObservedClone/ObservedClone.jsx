@@ -23,7 +23,6 @@ const ObservedClone = () => {
                     <p className='title'>Announcement</p>
                     <div>
                         <div className="announcelist_wrapper">
-                            {/* parent flex with edit delete  */}
                             <div className='d-flex justify-content-between align-items-start'>
                                 <div className="d-flex align-items-center" style={{ gap: "20px" }}>
                                     <div className='announcement_pic'>
@@ -48,8 +47,6 @@ const ObservedClone = () => {
 
                                     </div>
                                 </div>
-
-                                {/* icon div */}
                                 <div className='d-lg-block d-none'>
                                     <div className='d-flex gap-3 '>
                                         <img src={bookmark} alt="" />

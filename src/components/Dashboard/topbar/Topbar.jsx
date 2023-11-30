@@ -3,31 +3,37 @@ import { Link, useLocation } from "react-router-dom";
 import filterIcon from "../../../assets/filter-icon.svg";
 import addIcon from "../../../assets/add-icon.svg";
 import logo from "../../../assets/dashbord-logo.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FilterModal from "./FilterModal";
-import { useRef } from "react";
-import { useEffect } from "react";
+
 
 const Topbar = () => {
+  const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);
-  const filterRef = useRef(null);
+
+  const handleFilterModal = () => {
+    setFilter(!filter);
+  };
+  const handleButtonClick = (event) => {
+    event.stopPropagation();
+    handleFilterModal();
+  };
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (filterRef.current && !filterRef.current.contains(event.target)) {
+      if (myDivRef.current && !myDivRef.current.contains(event.target)) {
         setFilter(false);
+     
+        console.log('nothing')
       }
     };
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
-
-  const handleFilterModal = () => {
-    setFilter(!filter);
-  };
+  }, [filter]);
 
   return (
     <div className="dashbord_topbar">
@@ -51,8 +57,9 @@ const Topbar = () => {
               "" :
               <div className="dashbord_topbar_button d-flex gap-4">
                 <button
-                  onClick={handleFilterModal}
-                  // className="filter_btn d-flex gap-2 text-decoration-none"
+                  // onClick={handleFilterModal}
+                  onClick={(event) => handleButtonClick(event)}
+
                   className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
                 >
                   <img src={filterIcon} alt="icon" />
@@ -64,7 +71,7 @@ const Topbar = () => {
                     : location.pathname === "/dashboard/players"
                       ? "/dashboard/viewDetails"
                       : location.pathname === "/dashboard/coaches"
-                      && "/dashboard/coachesProfile"
+                        ? "/dashboard/coachesProfile" : "/"
 
                     }`}
                   className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
@@ -91,10 +98,11 @@ const Topbar = () => {
               </div>
             }
             {/* filter modal */}
+            {/* <h1>kldfjlkj</h1> */}
             {filter && (
-              <div>
-                <FilterModal />
-              </div>
+              // <div>
+                <FilterModal  myDivRef={myDivRef} />
+              // </div>
             )}
             {/* filter modal */}
           </div>
