@@ -22,9 +22,9 @@ const Detailed = () => {
                                     <th scope="col">Nat.</th>
                                     <th scope="col">Left</th>
                                     <th scope="col">Joined</th>
-                                    <th scope="col">Transfer date <img src={filter1}  className='filter_img' alt="filter1" /></th>
-                                    <th scope="col">Market value <img src={filter1}  className='filter_img' alt="filter1" /></th>
-                                    <th scope="col">Fee<img src={filter1}  className='filter_img' alt="filter1" /></th>
+                                    <th scope="col">Transfer date </th>
+                                    <th scope="col">Market value</th>
+                                    <th scope="col">Fee</th>
                                 </tr>
                             </thead>
                             <tbody>
