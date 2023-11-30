@@ -80,16 +80,13 @@
     padding: 54px;
     background: #FFF;
     box-shadow: 4px 0px 15px 0px rgba(0, 0, 0, 0.05), 0px 8px 20px 0px rgba(0, 0, 0, 0.08);
-    display: flex;
     padding: 54px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    margin-left: 76px;
+    margin-right: 76px;
 }
 
 .col1_wrapper h4 {
     color: #000;
-    /* text-align: center; */
     font-family: 'SF Pro Display', sans-serif;
     font-size: 23px;
     font-style: normal;
@@ -118,8 +115,6 @@
     background-color: #F4F7FB;
     padding: 13px 24px;
     align-items: center;
-    /* flex-wrap: wrap; */
-    /* overflow-x: scroll; */
 }
 
 .div_design2 {
@@ -278,6 +273,15 @@
 }
 
 @media(max-width:1024px) {
+    .compact_wrapper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .detailed {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 
     /* detailed */
     .detailed_header p {
@@ -292,16 +296,105 @@
         font-size: 12px !important;
     }
 
-    .postmouth_text, .age_text{
+    .postmouth_text,
+    .age_text {
 
         font-size: 14px !important;
     }
-    .detailed_wrapper{
+
+    .detailed_wrapper {
         overflow: scroll !important;
         width: 100%;
     }
 
 }
-.table>thead{
-    background-color: red !important;
+
+/* detailed start */
+.detailed table>thead {
+    --bs-table-bg: #E1EFFF !important;
+    padding: 46px 60px 46px 34px !important;
 }
+
+.detailed table.table th {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 34px;
+
+}
+
+.detailed .table td {
+    padding: 22px;
+}
+
+.table>tbody {
+    vertical-align: middle;
+}
+
+.table tr {
+    margin-bottom: 10px;
+}
+
+.detailed table {
+    border-collapse: separate;
+    border-spacing: 0 28px;
+}
+
+.detailed table {
+    --bs-table-border-color: transparent;
+    --bs-table-bg: none;
+
+}
+
+.detailed {
+    padding-left: 76px;
+    padding-right: 76px;
+}
+
+.detailed table tr:nth-child(even) {
+    background-color: #E0E8F1 !important;
+}
+
+.detailed table tr:nth-child(odd) {
+    background-color: #F4F7FB !important;
+}
+
+.detailed table.table th {
+    font-size: 24px;
+    color: #000;
+    text-align: left;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 28px !important;
+}
+
+
+.detailed .table>:not(caption)>*>* {
+    border-bottom-width: 0 !important;
+}
+
+@media(max-width:1440px) {
+
+    .detailed table.table th {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+
+    }
+
+    .detailed .table td {
+        padding: 22px;
+    }
+
+    .detailed table.table th {
+        font-size: 16px;
+    }
+
+    .filter_img {
+        height: 21px;
+    }
+}
+
+/* detailed end */

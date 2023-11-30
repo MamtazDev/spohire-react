@@ -10,344 +10,328 @@ const Compact = () => {
         <>
             <div className="container-fluid mb_150">
                 <div className="compact_wrapper">
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
 
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                    <div className="table-responsive">
+                        <div className="detailed p-0">
+                            <table className="table">
+                                <tbody>
+                                    <tr className='row_1'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
-                                            <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
+                                        </td>
 
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
+                                            <span className='postmouth_text mb-0'>Without Club</span>
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design2'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                                      
+                                    </tr>
+                                    <tr className='row_2'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                              
+                                    </tr>
+                                    <tr className='row_1'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design2'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                                      
+                                    </tr>
+                                    <tr className='row_2'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                              
+                                    </tr>
+                                    <tr className='row_1'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design2'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                                      
+                                    </tr>
+                                    <tr className='row_2'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                              
+                                    </tr>
+                                    <tr className='row_1'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-responsive">
-                        <div className="div compact_div">
-                            <div>
-                                <div className='div_design2'>
-                                    <div className='div_data'>
-                                        <div className='d-flex gap_14'>
-                                            <img src={mbappe} alt="" />
-                                            <div className='col1_wrapper'>
-
-                                                <h4>Kylian Mbappe</h4>
-                                                <p>Left Winger</p>
+                                        </div></td>
+                                      
+                                    </tr>
+                                    <tr className='row_2'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <p className='age_text'>22</p>
-                                    <div className='d-flex flex-column gap_4 al' style={{ gap: '4px' }}>
-                                        <img src={flag1} alt="" />
-                                        <img src={flag2} alt="" />
-                                    </div>
-                                    <div>
-                                        <div className='d-flex gap_11 align-items-center'>
-                                            <img src={flag3} alt="" />
+                                        </td>
+
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
                                             <span className='postmouth_text mb-0'>Without Club</span>
-                                        </div>
-
-                                    </div>
-                                    <div>
-                                        <div className='d-flex align-items-center gap_19'>
-                                            <img src={flag4} alt="" />
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
                                             <div>
                                                 <p className='postmouth_text'>Portsmouth</p>
-                                                <img src={flag5} alt="" />
+                                                <img src={flag5} alt="flag1" />
                                             </div>
+                                        </div></td>
+                              
+                                    </tr>
+                                    <tr className='row_1'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
 
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
+                                            <span className='postmouth_text mb-0'>Without Club</span>
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
+                                            <div>
+                                                <p className='postmouth_text'>Portsmouth</p>
+                                                <img src={flag5} alt="flag1" />
+                                            </div>
+                                        </div></td>
+                                      
+                                    </tr>
+                                    <tr className='row_2'>
+                                        <td >
+                                            <div className='div_data'>
+                                                <div className='d-flex gap_14 align-items-center'>
+                                                    <img className='profile_image11' src={mbappe} alt="" />
+                                                    <div className='col1_wrapper d_col_wrapper'>
+                                                        <h4>Kylian Mbappe</h4>
+                                                        <p>Left Winger</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
 
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                                        <td> <p className='age_text d-flex justify-content-center'>22</p></td>
+                                        <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                            <img src={flag1} alt="flag1" />
+                                            <img src={flag2} alt="flag1" />
+                                        </div></td>
+                                        <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
+                                            <img src={flag3} alt="flag1" />
+                                            <span className='postmouth_text mb-0'>Without Club</span>
+                                        </div></td>
+                                        <td> <div className='d-flex align-items-center gap_19'>
+                                            <img src={flag4} alt="flag1" />
+                                            <div>
+                                                <p className='postmouth_text'>Portsmouth</p>
+                                                <img src={flag5} alt="flag1" />
+                                            </div>
+                                        </div></td>
+                              
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
                 </div>
+
             </div>
 
         </>
