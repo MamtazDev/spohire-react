@@ -7,9 +7,7 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' }
 ]
 
-const FilterModal = ({myDivRef}) => {
-// const FilterModal = () => {
-
+const FilterModal = ({ myDivRef }) => {
     return (
         <div ref={myDivRef} className="filter_parent">
             <div className={`${location.pathname == '/dashboard/observed' ? 'filter_wrapper1' : "filter_wrapper"} `}>

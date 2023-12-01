@@ -19,13 +19,10 @@ const Topbar = () => {
     event.stopPropagation();
     handleFilterModal();
   };
-
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (myDivRef.current && !myDivRef.current.contains(event.target)) {
         setFilter(false);
-     
         console.log('nothing')
       }
     };
@@ -57,7 +54,6 @@ const Topbar = () => {
               "" :
               <div className="dashbord_topbar_button d-flex gap-4">
                 <button
-                  // onClick={handleFilterModal}
                   onClick={(event) => handleButtonClick(event)}
 
                   className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
@@ -101,7 +97,7 @@ const Topbar = () => {
             {/* <h1>kldfjlkj</h1> */}
             {filter && (
               // <div>
-                <FilterModal  myDivRef={myDivRef} />
+              <FilterModal myDivRef={myDivRef} />
               // </div>
             )}
             {/* filter modal */}
