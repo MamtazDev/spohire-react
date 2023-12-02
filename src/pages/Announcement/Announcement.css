@@ -226,19 +226,6 @@
     margin-bottom: 56px;
 }
 
-.status_buttons button {
-    display: flex;
-    padding: 20px 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    flex: 1 0 0;
-    font-family: 'SF Pro Display', sans-serif;
-
-    transition: 0.3s;
-    border-radius: 5px;
-
-}
 
 .status_buttons {
     display: flex;
@@ -246,7 +233,8 @@
     align-items: center;
 }
 
-.editAnnouncement_wrapper input,textarea {
+.editAnnouncement_wrapper input,
+textarea {
     padding: 20px;
     height: 59px;
 
@@ -300,4 +288,73 @@
     margin-bottom: 88px;
     max-width: 585px;
     width: 100%;
+}
+
+.status_buttons button {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex: 1 0 0;
+    font-family: 'SF Pro Display', sans-serif;
+    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+
+@media(max-width:768px) {
+
+    .status_buttons button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+}
+
+
+.delete_modal {
+    max-width: 379px;
+    width: 100%;
+    margin: auto;
+    background: #FFF;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.modal-dialog .modal-content {
+
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.no_btn,
+.yes_btn {
+    display: flex;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 5px;
+    background: #DADADA;
+    color: #939393;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 140px !important;
+}
+
+.yes_btn {
+    background: #0177FB !important;
+    color: white !important;
+}
+.delete_body_btns{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 36px;
 }

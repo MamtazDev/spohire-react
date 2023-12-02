@@ -7,6 +7,7 @@ import edit2 from '../../assets/edit2.png';
 import delet from '../../assets/delete.png';
 import JobCategory from './JobCategory';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 
 const AnnouncementList = () => {
     return (
@@ -46,15 +47,8 @@ const AnnouncementList = () => {
                                             <div className='d-lg-block d-none'>
                                                 <div className='d-flex gap-3 '>
                                                     <button className='bg-none' style={{ color: '#929292' }}> <i className="fa-regular fa-bookmark"></i></button>
-
-
-                                                    {/* edit */}
                                                     <Link to="/editAnnouncements"> <img src={edit2} alt="edit" /> </Link>
-
-                                                    {/* edit modal */}
-
-
-                                                    <button className='bg-none'> <img src={delet} alt="delete" /></button>
+                                                    <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <img src={delet} alt="delete" /></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +56,18 @@ const AnnouncementList = () => {
                                         <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                             <button className='bg-none' style={{ color: '#929292' }}> <i className="fa-regular fa-bookmark"></i></button>
                                             <button className='bg-none'>     <img src={edit2} alt="" /> </button>
-                                            <button className='bg-none'>   <img src={delet} alt="" /></button>
+
+                                            <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                                <img src={delet} alt="" />
+                                            </button>
+
+
+
+
+
+
+
+
                                         </div>
                                     </div>
                                 </>
@@ -73,11 +78,27 @@ const AnnouncementList = () => {
                     </div>
                     <div className="col-lg-3">
                         <JobCategory />
-
-
                     </div>
                 </div>
             </div>
+            {/* delete modal */}
+            <div className="modal fade" id="exampleModalToggle2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content delete_modal">
+
+                        <div className="modal-body">
+                            Are you sure want to delete Player Recruitment?
+                        </div>
+                        <div className=" mx-auto delete_body_btns">
+                            <button type="button" className="no_btn">No</button>
+                            <button type="button" className="yes_btn" data-bs-dismiss="modal">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </>
     );
 };

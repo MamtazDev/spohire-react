@@ -4,7 +4,7 @@ import AnnouncementHeader from "./AnnouncementHeader";
 
 const EditAnnouncements = () => {
     return (
-        <div>
+        <>
             <AnnouncementHeader />
             <div className="container">
                 <div className="editAnnouncement_wrapper">
@@ -43,12 +43,9 @@ const EditAnnouncements = () => {
                                         <span class="input-group-text input_budget" id="basic-addon1">$</span>
                                         <input type="text" class="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" />
                                     </div>
-
-
                                 </div>
                             </div>
                             <div className="col-lg-6">
-
                                 <label hytmlFor="exampleFormControlInput1" className="form-label">Status</label>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control " placeholder="Browse file" id="inputGroupFile02" />
@@ -74,7 +71,7 @@ const EditAnnouncements = () => {
 
             </div>
 
-        </div >
+        </>
     );
 };
 

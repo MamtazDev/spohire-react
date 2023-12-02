@@ -142,24 +142,15 @@ const Header = () => {
             </Nav>
             {user ?
               <div>
-
-                {/* <Link
-                  to="/dashboard"
-                  type="submit"
-                  className="text-decoration-none ms-3 profilename"
-                >
-                  {user.firstName ? user.firstName : "Tonni"}
-                </Link> */}
-                {/* <div onClick={active} className={`dropdown profile_dropdown ${isDropdownActive ? 'active' : ''}`}> */}
                 <div type="button" onClick={active} className="d-flex p-2">
                   <Link to="/dashboard/jobOffers">
-                       <img src={profile} alt=""  />
+                    <img src={profile} alt="" />
                   </Link>
                   <div className="profile_dropdown">
                     <div className="position-relative">
                       <div className="profile_name">
                         <h5>SMITH JOHN </h5>
-                        <img src={dropdown} className={`${isDropdownActive ? "" :"rotate_arrow"}`} alt="dropdown" />
+                        <img src={dropdown} className={`${isDropdownActive ? "" : "rotate_arrow"}`} alt="dropdown" />
                       </div>
                       {isDropdownActive &&
                         <>
