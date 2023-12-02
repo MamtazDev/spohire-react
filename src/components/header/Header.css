@@ -224,3 +224,63 @@
 .profilename:hover {
     color: white;
 }
+
+
+.profile_dropdown {
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(7.5px);
+    /* width: 160px; */
+    padding: 12px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-left: 16px;
+}
+
+.profile_dropdown {
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(7.5px);
+    border: none;
+    border-radius: 5px;
+
+    /* position: absolute; */
+
+}
+
+.profile_name {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile_name h5 {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 19.2px */
+    text-transform: uppercase;
+}
+
+.profile_dropdown p {
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 16.8px */
+    text-transform: uppercase;
+    padding: 8px;
+    text-align: center;
+    margin-top: 7px;
+}
+.profile_dropdown hr{
+    border-bottom: 0.5px solid #D2D2D2;
+}
+.rotate_arrow{
+    transform: rotate(180deg);
+}

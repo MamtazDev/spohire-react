@@ -16,10 +16,10 @@ const Home = () => {
   return (
     <>
       <main>
-        <div className="bgBanner">
+        {/* <div className="bgBanner">
           <Header />
+        </div> */}
           <Banner />
-        </div>
         <MarqueeSlider />
         <MobileMarqueeSlider />
         <Feature />
@@ -29,7 +29,7 @@ const Home = () => {
         <WhyWe />
         <FaqAccordion />
       </main>
-      <Footer />
+      {/* <Footer /> */}
       <MobileFooter />
     </>
   );

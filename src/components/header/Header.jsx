@@ -3,18 +3,25 @@ import Logo from "../../assets/logo.png";
 import Logosm from "../../assets/responsive-logo.png";
 import profile from "../../assets/PROFILE.png";
 import TransfarMarket from "../../assets/modal-market-img.png";
+import dropdown from "../../assets/dropdownicon.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useState } from "react";
 
 const Header = () => {
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const active = () => {
+    setIsDropdownActive(!isDropdownActive)
+  }
+
   const getUser = localStorage.getItem('register')
   const user = JSON.parse(getUser);
-const navigate =useNavigate()
+  const navigate = useNavigate()
   const closeModalAndNavigate = () => {
     navigate('/signup');
   };
   return (
-    <header className={`${!user && 'pt-4 pb-4' }`}>
+    <header className={`${!user && 'pt-4 pb-4'}`}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
           <Navbar.Brand href="#home">
@@ -103,7 +110,7 @@ const navigate =useNavigate()
                     <div className="modal-body">
                       <h2>Unlock the Gateway to <span>Endless <br /> Excitement</span></h2>
                       <p> Log in and Dive into a World of Sports Thrills and Exclusive Content!</p>
-                      <button  onClick={closeModalAndNavigate} className=" login_modal_btn" data-bs-dismiss="modal" aria-label="Close"  type="button">
+                      <button onClick={closeModalAndNavigate} className=" login_modal_btn" data-bs-dismiss="modal" aria-label="Close" type="button">
                         <Link to="/signup" type="submit" className="text-decoration-none text-dark">
                           LOG IN
                         </Link>
@@ -122,7 +129,7 @@ const navigate =useNavigate()
                 </Link>
               </Nav.Link>
               <Nav.Link href="/announcements">
-                
+
                 <Link to="/announcements" className="nav-link">
                   Announcements
                 </Link>
@@ -134,15 +141,39 @@ const navigate =useNavigate()
               </Nav.Link>
             </Nav>
             {user ?
-              <div className=" m-4 d-flex align-items-center justify-content-center">
-                <Link cto="/dashboard/jobOffers">   <img src={profile} alt="" /></Link>
-                <Link
+              <div>
+
+                {/* <Link
                   to="/dashboard"
                   type="submit"
                   className="text-decoration-none ms-3 profilename"
                 >
                   {user.firstName ? user.firstName : "Tonni"}
-                </Link>
+                </Link> */}
+                {/* <div onClick={active} className={`dropdown profile_dropdown ${isDropdownActive ? 'active' : ''}`}> */}
+                <div type="button" onClick={active} className="d-flex p-2">
+                  <Link to="/dashboard/jobOffers">
+                       <img src={profile} alt=""  />
+                  </Link>
+                  <div className="profile_dropdown">
+                    <div className="position-relative">
+                      <div className="profile_name">
+                        <h5>SMITH JOHN </h5>
+                        <img src={dropdown} className={`${isDropdownActive ? "" :"rotate_arrow"}`} alt="dropdown" />
+                      </div>
+                      {isDropdownActive &&
+                        <>
+                          <p>Log out</p>
+                          <hr />
+                          <p>Admin</p>
+
+                        </>
+
+                      }
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               : <form className="d-flex flex-column flex-lg-row align-items-center gap-2 nav_form_small d-none d-md-block">

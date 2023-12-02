@@ -207,3 +207,97 @@
         font-size: 14px;
     }
 }
+
+/* edit announcements */
+.editAnnouncement_wrapper h3 {
+    margin-top: 80px;
+    color: #161D24;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+
+}
+
+.mb_56 {
+    margin-bottom: 56px;
+}
+
+.status_buttons button {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex: 1 0 0;
+    font-family: 'SF Pro Display', sans-serif;
+
+    transition: 0.3s;
+    border-radius: 5px;
+
+}
+
+.status_buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.editAnnouncement_wrapper input,textarea {
+    padding: 20px;
+    height: 59px;
+
+}
+
+.editAnnouncement_wrapper label {
+    color: #000 !important;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.editAnnouncement_wrapper input::placeholder {
+    color: #B1B1B1;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.status_buttons button:hover {
+    background: #0177FB;
+    color: white;
+}
+
+.input_budget {
+    border-radius: 5px 0px 0px 5px;
+    background: #0177FB;
+    width: 102px;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+}
+
+.update_btn1 {
+    padding: 20px 24px;
+    border-radius: 5px;
+    background: #0177FB;
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 88px;
+    max-width: 585px;
+    width: 100%;
+}

@@ -32,11 +32,43 @@ import Messages from './components/Dashboard/Messages/Messages.jsx';
 import OverView from './components/Dashboard/OverView/OverView.jsx';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import CoachesProfile from './components/Dashboard/Coaches/CoachesProfile.jsx';
+import EditAnnouncements from './pages/Announcement/EditAnnouncements.jsx';
+import Layout from './Layout/Layout.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      }, {
+        path: '/transfarMarket',
+        element: <TransfarMarket />
+      },
+      {
+        path: '/paymentProcess',
+        element: <PaymentProcess />
+      },
+      {
+        path: '/jobOffer',
+        element: <JobOffer />
+      },
+      {
+        path: '/announcements',
+        element: <Announcements />
+      },
+      {
+        path: '/editAnnouncements',
+        element: <EditAnnouncements />
+      },
+      {
+        path: '/pricing',
+        element: <Pricing />
+      },
+
+    ]
   },
   {
     path: '/login',
@@ -58,26 +90,7 @@ const router = createBrowserRouter([
     path: '/addplayer3',
     element: <AddPlayerInfo3 />
   },
-  {
-    path: '/transfarMarket',
-    element: <TransfarMarket />
-  },
-  {
-    path: '/paymentProcess',
-    element: <PaymentProcess />
-  },
-  {
-    path: '/jobOffer',
-    element: <JobOffer />
-  },
-  {
-    path: '/announcements',
-    element: <Announcements />
-  },
-  {
-    path: '/pricing',
-    element: <Pricing />
-  },
+
   {
     path: '/dashboard',
     element: <DashboardLayout />,

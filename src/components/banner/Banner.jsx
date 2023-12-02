@@ -1,4 +1,3 @@
-import React from "react";
 import "./Banner.css";
 import readyToget from "../../assets/readytoget.png";
 import readyTogetsm from "../../assets/readytogetsm.png";
@@ -6,7 +5,7 @@ import bannerImg from "../../assets/bannerImg.png";
 import { Link } from "react-router-dom";
 const Banner = () => {
   return (
-    <div className="banner mb_40">
+    <div className="banner mb_40 bgBanner">
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6">

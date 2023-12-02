@@ -49,7 +49,6 @@ const FilterModal = ({ myDivRef }) => {
                         placeholder="Information Technology"
                     />
                 </div>
-
             </div>
         </div>
     );

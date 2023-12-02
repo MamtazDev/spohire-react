@@ -1,5 +1,4 @@
-import Footer from '../../components/footer/Footer'
-import Header from '../../components/header/Header'
+
 import WhatPeopleSay from '../../components/whatPeopleSay/WhatPeopleSay'
 import BestOffer from './BestOffer'
 import GetStarted from './GetStarted'
@@ -8,9 +7,6 @@ import './Pricing.css'
 const Pricing = () => {
   return (
     <div>
-      <div className="bgBanner">
-        <Header />
-      </div>
       <PageHeader />
       <BestOffer />
       <div className="slider_bg">
@@ -19,7 +15,6 @@ const Pricing = () => {
         </div>
       </div>
       <GetStarted />
-      <Footer />
     </div>
   )
 }
