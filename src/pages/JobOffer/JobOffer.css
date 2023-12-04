@@ -28,7 +28,7 @@
 
 .search_jobs input::placeholder {
     color: #747474;
-    font-family: 'SF Pro Display'sans-serif;
+    font-family: 'SF Pro Display' sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -47,7 +47,7 @@
     border: 0.7px solid rgba(0, 0, 0, 0.02);
     background: #3378FF;
     color: #FFF;
-    font-family: 'SF Pro Display'sans-serif;
+    font-family: 'SF Pro Display' sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -65,7 +65,7 @@
 .tennis_desc p {
     color: #141736;
     font-family: 'SF Pro Display', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -74,8 +74,17 @@
 
 .tennis_desc small {
     color: #546580;
-    font-family: 'SF Pro Display'sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.jobs_details span {
+    color: #546580;
+    font-family: SF Pro Display;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -162,4 +171,20 @@
         margin: auto;
         width: 100%;
     }
+}
+
+.pagination .page-item.active .page-link {
+    border-radius: 4px;
+    background: #0177FB;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+}
+
+.pagination {
+    margin-top: 10px;
+    margin-bottom: 36px;
 }

@@ -277,6 +277,17 @@
     color: #686782;
 }
 
+.sign_up_btn1 {
+    padding: 13px 24px;
+    border-radius: 5px;
+    background: #0177FB;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.6px;
+}
 
 /* custom radio button end */
 
