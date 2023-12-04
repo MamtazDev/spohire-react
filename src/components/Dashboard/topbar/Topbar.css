@@ -19,7 +19,7 @@
     position: fixed;
     width: inherit;
     background-color: white;
-    z-index: 100000;
+    z-index: 99;
 }
 
 
@@ -52,6 +52,11 @@
     right: 0;
 
 
+}
+
+.position_static {
+    position: static !important;
+    width: 100% !important;
 }
 
 .mobileTopbar a {
@@ -202,7 +207,7 @@
     margin-bottom: 20px;
 }
 
-.filter_wrapper h2, 
+.filter_wrapper h2,
 .filter_wrapper1 h2 {
     color: #141736;
     font-family: 'SF Pro Display', sans-serif;
@@ -239,4 +244,14 @@
     border: 1px solid #0177FB;
     border-radius: 7px;
 
+}
+
+
+ .addJob_wrapper .modal-dialog{
+     
+}
+
+.dialog_modal{
+    width: 648px;
+    
 }

@@ -5,6 +5,7 @@ import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
 import starIcon from "../../../assets/starIcon.svg";
 import MobileButtons from "../players/MobileButtons";
+import AddJobOffer from "../AddJobOffer/AddJobOffer";
 
 const JobOffers = () => {
   return (
@@ -82,6 +83,8 @@ const JobOffers = () => {
         ))}
       </div>
       <MobileButtons />
+
+      <AddJobOffer />
     </div>
   );
 };

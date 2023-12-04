@@ -1,0 +1,29 @@
+.jobOffer_btn {
+    display: flex;
+    padding: 12px 16px !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 5px;
+    color: #B1B1B1;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.addJob_wrapper .modal-dialog .modal-content{
+margin: auto !important;
+}
+
+.jobOfferModal{
+    max-width:648px !important;
+    width: 100% !important;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+}
+.addJob_wrapper{
+    justify-content: center !important;
+}

@@ -93,10 +93,8 @@ const EditPlayerDetails = () => {
                 </div>
             </div>
             <ViewDetailsMobile />
-
-            {/* experience and social media update */}
             <UpdateexperienceAndMedia />
-
+            
             <div className=" mb_60 experience_wrapper">
                 <div className="row justify-content-start about_part">
                     <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
@@ -128,15 +126,15 @@ const EditPlayerDetails = () => {
                 </div>
             </div>
             {/* <!-- Slider Start --> */}
-          <div className="d-flex align-items-center gap-3 mb_28">
-          <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
-            <button className="add_image_btn bg-none">
-                <span>Add Image</span>
-                <img src={plus4} alt="" />
-            </button>
-          </div>
+            <div className="d-flex align-items-center gap-3 mb_28">
+                <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
+                <button className="add_image_btn bg-none">
+                    <span>Add Image</span>
+                    <img src={plus4} alt="" />
+                </button>
+            </div>
             <EditGallary />
-            {/* <!-- Slider End --> */}
+            <button className="experience_wrapper playerDetailsUpdate_btn">Update</button>
         </div >
     );
 };

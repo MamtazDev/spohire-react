@@ -9,12 +9,11 @@ import language from '../../assets/alanguage.png';
 
 const ApplyJobs = () => {
     return (
-        <div>
-
+        <>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content" style={{
-                        maxWidth: '1240px',width:"100%", margin: "auto"
+                        maxWidth: '1240px', width: "100%", margin: "auto"
                     }}>
                         <div className="modal-header p-0">
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -105,12 +104,12 @@ const ApplyJobs = () => {
                             </div>
                         </div>
                         <div className="modal-footer border-0 justify-content-center">
-                            <button type="button" className="btn btn-primary apply_now_btn" style={{maxWidth:"568px",width:"100%"}}>Apply Now</button>
+                            <button type="button" className="btn btn-primary apply_now_btn" style={{ maxWidth: "568px", width: "100%" }}>Apply Now</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

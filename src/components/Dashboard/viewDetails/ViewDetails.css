@@ -335,6 +335,22 @@
     font-weight: 400;
     /* line-height: normal; */
 }
-.mb_28{
+
+.mb_28 {
     margin-bottom: 28px;
+}
+
+.playerDetailsUpdate_btn {
+    padding: 18px 0px;
+    border-radius: 5px;
+    background: #0177FB;
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    max-width: 339px;
+    width: 100%;
+
 }
