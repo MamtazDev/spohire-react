@@ -171,6 +171,14 @@
         margin: auto;
         width: 100%;
     }
+
+    .modal-dialog .modal-content {
+        padding: 10px !important;
+    }
+
+    .modal-dialog {
+        margin: 20px !important;
+    }
 }
 
 .pagination .page-item.active .page-link {
@@ -187,4 +195,13 @@
 .pagination {
     margin-top: 10px;
     margin-bottom: 36px;
+}
+
+
+/* apply jobs modal */
+.form_icons {
+    position: absolute;
+    left: 15px;
+    top: 37px;
+
 }

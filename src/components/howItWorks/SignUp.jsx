@@ -12,7 +12,7 @@ const SignUp = () => {
 
       <form>
         <div className="d-flex flex-column justify-content-start gap-3">
-          <div className="txtInput flex-wrap    d-flex  flex-md-row  justify-content-between align-items-center">
+          <div className="txtInput flex-wrap d-flex  flex-md-row  justify-content-between align-items-center">
             <div>
               <label htmlFor="fName">First Name</label>
               <input type="text" name="firstName" id="fName" />

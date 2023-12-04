@@ -2,6 +2,7 @@ import tennis from '../../assets/tennis.png'
 import flag from '../../assets/flag.png';
 import dollar from '../../assets/coin-dollar.png';
 import location from '../../assets/location.png';
+import ApplyJobs from './ApplyJobs';
 
 const MatchesJob = () => {
 
@@ -24,7 +25,6 @@ const MatchesJob = () => {
                                                     <p>Tennis Trades</p>
                                                     <small>Bet 365</small>
                                                 </div>
-
                                             </div>
                                             <div className="jobs_details">
 
@@ -41,10 +41,9 @@ const MatchesJob = () => {
                                                     <span>Undisclosed Salary</span>
                                                 </div>
                                             </div>
-                                            <button className='apply_btn'>Apply</button>
+                                            <button className='apply_btn'  data-bs-toggle="modal" data-bs-target="#exampleModal">Apply</button>
                                         </div>
                                     </div>
-
                                 ))
                             }
                         </div>
@@ -75,6 +74,7 @@ const MatchesJob = () => {
                     </ul>
                 </nav>
             </div>
+            <ApplyJobs />
         </>
     );
 };

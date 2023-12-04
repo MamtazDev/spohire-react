@@ -51,13 +51,12 @@ const PaymentForm = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container mb-2 pb-5">
                 <h2 className="payment_title">Payment <span>Process</span></h2>
 
 
                 <div className="payment_process_wrapper">
                     <p>Select payment option</p>
-
                     <div className="all_payments_system">
                         <div className="card_wrapper">
                             <div className="form-check">
@@ -69,13 +68,13 @@ const PaymentForm = () => {
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                             </div>
-                            <button className="card_btn" htmlFor ="flexRadioDefault2"> <img src={klarna} alt="" /> <span>Klarna</span></button>
+                            <button className="card_btn" htmlFor="flexRadioDefault2"> <img src={klarna} alt="" /> <span>Klarna</span></button>
                         </div>
                         <div className="card_wrapper">
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
                             </div>
-                            <button className="card_btn" htmlFor ="flexRadioDefault3">  <img src={afterpay} alt="" /> <span>Afterpay</span></button>
+                            <button className="card_btn" htmlFor="flexRadioDefault3">  <img src={afterpay} alt="" /> <span>Afterpay</span></button>
                         </div>
                     </div>
 
