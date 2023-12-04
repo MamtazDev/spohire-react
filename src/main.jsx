@@ -34,6 +34,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import CoachesProfile from './components/Dashboard/Coaches/CoachesProfile.jsx';
 import EditAnnouncements from './pages/Announcement/EditAnnouncements.jsx';
 import Layout from './Layout/Layout.jsx';
+import EditPlayerDetails from './components/Dashboard/viewDetails/EditPlayerDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/viewDetails',
         element: <ViewDetails />
+      },
+      {
+        path: '/dashboard/editPlayerDetals',
+        element: <EditPlayerDetails />
       }
       ,
       {

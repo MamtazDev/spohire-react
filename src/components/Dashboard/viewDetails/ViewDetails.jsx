@@ -10,6 +10,7 @@ import youtubeIcon from "../../../assets/youtube.png";
 import silver from "../../../assets/silver1.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
+import { Link } from "react-router-dom";
 
 const ViewDetails = () => {
   return (
@@ -25,9 +26,10 @@ const ViewDetails = () => {
           <div className="col-12 col-lg-9">
           <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
             <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
-            <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
+            <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
               Basketball
             </span>
+            <button className="edit_player_profile"><Link to="/dashboard/editPlayerDetals">Edit Profile</Link></button>
             <div className="personalInfo">
               <p className="f_sfPro text_color_36 fs_18">
                 Personal Information
@@ -95,7 +97,7 @@ const ViewDetails = () => {
 
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">
-                        Dominant Hand{" "}
+                        Dominant Hand
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">Left</p>
                     </div>

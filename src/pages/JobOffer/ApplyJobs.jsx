@@ -19,12 +19,12 @@ const ApplyJobs = () => {
                         <div className="modal-header p-0">
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <h1 className="modal-title fs-5 text-center" id="exampleModalLabel">Apply for the job</h1>
+                        <h1 className="modal-title fs-5 text-center apply_jobs_title" id="exampleModalLabel">Apply for the job</h1>
                         <div className="modal-body text-start">
                             <div className="container">
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Your Name</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={auser} alt="user" />
@@ -33,7 +33,7 @@ const ApplyJobs = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Region</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={region} alt="user" />
@@ -44,7 +44,7 @@ const ApplyJobs = () => {
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Birth Date</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={dob} alt="user" />
@@ -53,7 +53,7 @@ const ApplyJobs = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Playing Position</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={position} alt="user" />
@@ -64,7 +64,7 @@ const ApplyJobs = () => {
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Your Weight</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={weight} alt="user" />
@@ -73,7 +73,7 @@ const ApplyJobs = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Your Height</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={height} alt="user" />
@@ -84,7 +84,7 @@ const ApplyJobs = () => {
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Expected Salary</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={salary} alt="user" />
@@ -93,7 +93,7 @@ const ApplyJobs = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mb-3 position-relative">
+                                        <div className="mb-4 position-relative">
                                             <label htmlFor="exampleFormControlInput1" className="form-label">Language</label>
                                             <div className='form_icons'>
                                                 <img className='mt-0' src={language} alt="user" />
@@ -105,7 +105,7 @@ const ApplyJobs = () => {
                             </div>
                         </div>
                         <div className="modal-footer border-0 justify-content-center">
-                            <button type="button" className="btn btn-primary apply_now_btn">Apply Now</button>
+                            <button type="button" className="btn btn-primary apply_now_btn" style={{maxWidth:"568px",width:"100%"}}>Apply Now</button>
                         </div>
                     </div>
                 </div>

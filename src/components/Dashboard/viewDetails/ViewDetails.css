@@ -62,7 +62,7 @@
     padding-left: 34px;
 }
 
-.edit_Btn{
+.edit_Btn {
     background: transparent;
     border: none;
 }
@@ -157,7 +157,7 @@
 
     .col_padding a {
         color: #0177FB;
-        font-family: 'SF Pro Display',sans-serif;
+        font-family: 'SF Pro Display', sans-serif;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -175,4 +175,166 @@
     .personalInfo {
         margin-top: 39px !important;
     }
+
+    .experience_wrapper {
+        margin-bottom: 30px;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* edit_player_profile */
+.edit_player_profile {
+    border-radius: 100px;
+    background: #141736;
+    display: inline-flex;
+    padding: 8px 24px;
+    align-items: center;
+    gap: 6px;
+    color: #FFF !important;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 31px;
+}
+
+.edit_player_profile a {
+    color: #FFF;
+}
+
+.edit_profile_input input {
+    padding: 18px 16px;
+    border-radius: 5px;
+    background: #FFF;
+    border: none;
+
+}
+
+.edit_player_details_wrapper input::placeholder,
+.personal_info_edit_wrapper input ::placeholder {
+    color: #A5B4CB;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.edit_player_details_wrapper label {
+    font-family: 'SF Pro Display', sans-serif;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.editpersonal_info {
+    padding: 40px !important;
+    border-radius: 12px;
+    background: #FFF;
+    border: none;
+    box-shadow: 3px 16px 50px -2px rgba(121, 120, 130, 0.15);
+}
+
+.personal_info_edit_wrapper input {
+    padding: 12px 16px;
+    border: 1px solid #F0F0F0;
+}
+
+.personal_info_edit_wrapper label {
+    margin-bottom: 12px;
+}
+
+.experience_update_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.experience_update_wrapper1 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.experience_update_wrapper label,
+.experience_update_wrapper1 label {
+    color: #141736;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.experience_update_wrapper input::placeholder,
+.experience_update_wrapper1 input::placeholder {
+    color: #A5B4CB;
+    font-family: 'SF Pro Display', sans-serif;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.add_more_btn {
+    padding: 12px 16px;
+    border-radius: 5px;
+    background: #0177FB;
+    margin-top: 41px;
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* style={{marginBottom:"30px",marginLeft:"75px"}} */
+.experience_wrapper {
+    margin-bottom: 30px;
+    margin-right: 40px;
+    margin-left: 75px;
+}
+
+.about_me_editField {
+    padding: 18px 16px;
+    color: #A5B4CB;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    height: 205px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+}
+
+.add_image_btn {
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid #0177FB;
+    background-color: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    gap: 4px;
+    color: #0177FB;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: normal; */
+}
+.mb_28{
+    margin-bottom: 28px;
 }

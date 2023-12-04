@@ -202,6 +202,37 @@
 .form_icons {
     position: absolute;
     left: 15px;
-    top: 37px;
+    top: 34px;
 
+}
+
+.apply_jobs_title {
+    color: #161D24 !important;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 32px !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: normal;
+}
+
+.modal label {
+    color: #161D24;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 110%;
+    /* 17.6px */
+    letter-spacing: -0.16px;
+}
+
+.modal input ::placeholder {
+    color: #B1B1B1;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    /* 13.2px */
+    letter-spacing: -0.12px;
 }
