@@ -71,7 +71,6 @@ const EditPlayerDetails = () => {
 
                         </div>
                         <div className="personalInfo editpersonal_info">
-
                             <div className="row mb_40">
                                 {inputFieldData.map((field, index) => (
                                     <div key={index} className="col-12 col-md-4">

@@ -16,25 +16,26 @@ const AddJobOffer = ({ onHide, isModalOpen }) => {
     }
 
     return (
-        <div className={`${styles.modal_width} addJob_wrapper`}>
-
-            <Modal show={isModalOpen} onHide={onHide} className={`${styles.modal_width}`}>
+        <div className={` ${styles.addJob_wrapper}`}>
+            <Modal
+                centered
+                show={isModalOpen} onHide={onHide} className="modal_width">
                 <Modal.Header closeButton>
                     <Modal.Title>Add Job Offer</Modal.Title>
                 </Modal.Header>
-                <Modal.Body  style={{ overflow: 'hidden' }}>
+                <Modal.Body className='p-0'>
                     <div className="">
                         <div className="row">
                             <div className="col-12">
                                 <div className="">
 
                                     <div className="d-flex">
-                                        <button className={`jobOffer_btn ${selectBtn === 'Coach' ? 'active' : ''}`}
+                                        <button className={`jobOffer_btn ${selectBtn === 'Coach' ? 'active_position' : ''}`}
                                             onClick={() => handeSelectBtn('Coach')}>
                                             Coach
                                         </button>
 
-                                        <button className={`jobOffer_btn ${selectBtn === 'Player' ? 'active' : ''}`}
+                                        <button className={`jobOffer_btn ${selectBtn === 'Player' ? 'active_position' : ''}`}
                                             onClick={() => handeSelectBtn('Player')}>
                                             Player
                                         </button>
@@ -52,9 +53,9 @@ const AddJobOffer = ({ onHide, isModalOpen }) => {
                     }
 
                 </Modal.Body>
-                <Modal.Footer className='border-0'>
-                    <Button variant="secondary" onClick={onHide}>
-                        Close
+                <Modal.Footer className='border-0 p-0'>
+                    <Button className='submit_now_btn w-100 m-0' onClick={onHide}>
+                        Submit Now
                     </Button>
                 </Modal.Footer>
             </Modal>

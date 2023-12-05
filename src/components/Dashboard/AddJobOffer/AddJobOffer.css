@@ -13,17 +13,49 @@
     font-weight: 400;
     line-height: normal;
 }
-.addJob_wrapper .modal-dialog .modal-content{
-margin: auto !important;
+
+.addJob_wrapper .modal-dialog .modal-content {
+    margin: auto !important;
 }
 
-.jobOfferModal{
-    max-width:648px !important;
+.jobOfferModal {
+    max-width: 648px !important;
     width: 100% !important;
     overflow-y: hidden;
     display: flex;
     justify-content: center;
 }
-.addJob_wrapper{
-    justify-content: center !important;
+
+.modal_width .modal-dialog {
+    max-width: 648px !important;
+    overflow-y: hidden;
+}
+
+.modal_width .modal-dialog {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    height: unset !important;
+    margin-top: 0 !important;
+}
+
+.active_position {
+    background: #0177FB;
+    color: #FFF;
+
+
+}
+
+.player_job_form_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.submit_now_btn {
+    padding: 12px 24px;
+    background: #0177FB;
+
+
 }

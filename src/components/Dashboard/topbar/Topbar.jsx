@@ -81,7 +81,8 @@ const Topbar = () => {
                           ? "/dashboard/coachesProfile" : "/"
                       }`}
                     className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
-                    onClick={handleAddJobOfferClick}
+                    onClick={() => location.pathname === '/dashboard/jobOffers' && handleAddJobOfferClick()}
+
                   >
                     {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/announcements" | location.pathname == "/dashboard/basicinfo" ? (
                       <img src={addIcon} alt="icon" />
@@ -137,7 +138,7 @@ const Topbar = () => {
 
       </div>
 
-      <AddJobOffer show={isModalOpen} onHide={closeModal} isModalOpen={isModalOpen} style={{width:"648px"}} />
+      <AddJobOffer show={isModalOpen} onHide={closeModal} isModalOpen={isModalOpen} style={{ width: "648px" }} />
 
 
 
