@@ -473,20 +473,27 @@ const SignUp = () => {
                   </div>
                   {/* email input end */}
                   {/* Function */}
-                  <label className="label_text" >Function</label> <br />
-                  <div>
-                    <button className=" function_btn" onClick={() => setSports("Player")}>Player</button>
-                    <button className=" function_btn" onClick={() => setSports("Coach")}>Coach</button>
-                    <button className=" function_btn" onClick={() => setSports("Manager")} >Manager</button>
-                    <button className=" function_btn" onClick={() => setSports("Other")}>Other</button>
-                  </div>
+                  <label className="label_text">Function</label> <br />
+                  <>
+                    {
+                      ["Player", "Coach", "Manager", "Other"].map((data) => (
+
+                        <>
+                          <button className=" function_btn" onClick={() => setSports({ data })}>{data}</button>
+                        </>
+                      ))
+                    }
+                  </>
+                  <br />
                   <label className="label_text mt-3">Sports</label> <br />
-                  <div>
-                    <button className="function_btn" onClick={() => setSports("Football")}>Football</button>
-                    <button className="function_btn" onClick={() => setSports("Basketball")}>Busketball</button>
-                    <button className="function_btn" onClick={() => setSports("Volleyball")} >Volleyball</button>
-                    <button className="function_btn" onClick={() => setSports("Handball")}>Handball</button>
-                  </div>
+                  {
+                    ["Football", "Basketball", "Volleyball", "Handball"].map((data) => (
+
+                      <>
+                        <button className=" function_btn" onClick={() => setSports({ data })}>{data}</button>
+                      </>
+                    ))
+                  }
                   <div className="d-flex justify-content-center mt-4">
                     <button type="submit" className="login-btn">
                       Create account

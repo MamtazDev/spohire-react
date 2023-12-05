@@ -19,7 +19,7 @@ const Home = () => {
         {/* <div className="bgBanner">
           <Header />
         </div> */}
-          <Banner />
+        <Banner />
         <MarqueeSlider />
         <MobileMarqueeSlider />
         <Feature />
@@ -36,3 +36,4 @@ const Home = () => {
 };
 
 export default Home;
+

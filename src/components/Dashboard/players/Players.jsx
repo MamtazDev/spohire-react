@@ -5,8 +5,24 @@ import startIcon from "../../../assets/starIcon.svg";
 import messageIcon from "../../../assets/messageIcon.svg";
 import MobileButtons from "./MobileButtons";
 import MobilePlayers from "./MobilePlayers";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Players = () => {
+  const navigate = useNavigate();
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+  const handlePath = () => {
+    if (isChecked) {
+      navigate('/dashboard/viewDetails')
+    }
+  };
+
   return (
     <div className="players">
       <Table responsive className="players_desk content">
@@ -39,19 +55,19 @@ const Players = () => {
 
           </tr>
         </thead>
-
         <tbody>
-          {[0, 1, 2, 3, 4.5, 6, 7, 8, 9, 10].map(() => (
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
             <>
-              <tr className="table_hover">
+              <tr onClick={handlePath} className="table_hover pointer">
                 <td>
-                  <div className="player_info d-flex align-items-center gap-2">
-                    <div className="form-check">
+                  <div  className="player_info d-flex align-items-center gap-2">
+                    <div  className="form-check">
                       <input
                         className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckDefault"
+                        onChange={handleCheckboxChange}
                       />
                     </div>
 
@@ -86,16 +102,16 @@ const Players = () => {
                 <td>
                   <p className="text_color_55 fw-normal fs_14">Gold</p>
                 </td>
-
+ 
                 <td>
                   <div className="d-flex align-items-center">
                     <p className="text_color_55 fw-normal fs_14">
                       <img src={startIcon} alt="star-icon" className="" />
                     </p>
 
-                    <p className="text_color_55 fw-normal fs_14">
+                    <Link to="/dashboard/messages" className="text_color_55 fw-normal fs_14">
                       <img src={messageIcon} alt="message-icon" className="ms-2" />
-                    </p>
+                    </Link>
                   </div>
                 </td>
 
@@ -105,7 +121,7 @@ const Players = () => {
           {/* blank tr for taking space */}
         </tbody>
       </Table>
-      <MobilePlayers></MobilePlayers>
+      <MobilePlayers />
       <MobileButtons />
     </div>
   );

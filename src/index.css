@@ -14,9 +14,11 @@
 body {
   font-family: 'SF Pro Display', sans-serif !important;
 }
-.btn{
+
+.btn {
   box-shadow: none;
 }
+
 h1,
 h2,
 h3,
@@ -25,6 +27,14 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.tr {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 ul {
@@ -53,7 +63,7 @@ a {
 
 .container {
   max-width: 1720px;
-} 
+}
 
 .Work_container {
   max-width: 1472px;

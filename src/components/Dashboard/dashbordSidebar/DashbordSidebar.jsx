@@ -186,21 +186,7 @@ const DashbordSidebar = () => {
                       className="list-unstyled"
                       style={{ paddingLeft: "30px" }}
                     >
-                      <li className="nav_item">
-                        <Link
-                          to={"/dashboard/basicinfo"}
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
-                          <img src={basketBallIcon} alt="icon" />
-                          <span
-
-                            className="text_color_36 text-capitalize fs-6"
-                          >
-                            Basic Information
-                          </span>
-                        </Link>
-                      </li>
-
+                     
                       <li className="nav_item">
                         <Link
                           to='/dashboard/password'

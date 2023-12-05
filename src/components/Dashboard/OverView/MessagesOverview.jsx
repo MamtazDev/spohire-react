@@ -7,7 +7,7 @@ const MessagesOverview = () => {
             <div className="job_offer_overrview_wrapper">
                 <div className="d-flex justify-content-between">
                     <h4>Messages</h4>
-                    <a href="/dashboard/jobOffers">View More</a>
+                    <a href="/dashboard/messages">View More</a>
                 </div>
 
 

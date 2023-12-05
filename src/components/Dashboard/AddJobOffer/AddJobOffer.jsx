@@ -7,9 +7,11 @@ import CoachJobForm from './CoachJobForm';
 import PlayerJobForm from './PlayerJobForm';
 import styles from './Modal.module.css'
 import './AddJobOffer.css'
+
 const AddJobOffer = ({ onHide, isModalOpen }) => {
 
     const [selectBtn, setSelectBtn] = useState("Player");
+
     const handeSelectBtn = (btnType) => {
         setSelectBtn(btnType)
     }
@@ -44,13 +46,8 @@ const AddJobOffer = ({ onHide, isModalOpen }) => {
                         </div>
                     </div>
                     {
-                        selectBtn === 'Coach' && <CoachJobForm />
+                        selectBtn === 'Coach' ? <CoachJobForm /> : <PlayerJobForm />
                     }
-
-                    {
-                        selectBtn === 'Player' && <PlayerJobForm />
-                    }
-
                 </Modal.Body>
                 <Modal.Footer className='border-0 p-0'>
                     <button className='submit_now_btn w-100 m-0' onClick={onHide}>

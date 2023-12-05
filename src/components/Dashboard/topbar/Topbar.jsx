@@ -54,12 +54,11 @@ const Topbar = () => {
   };
   return (
     <>
-      {/* ` ${isModalOpen ? "z_index_set " : "z-index_unset "} */}
       <div className={`${isModalOpen | isAnnouncementModalOpen ? "position_static" : "position-fixed"} dashbord_topbar`}>
         <div className="topbar_desk">
           <div className=" dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
             <div className="dashbord_topbar_title">
-              {location.pathname == "/dashboard" | location.pathname == "/dashboard/viewDetails" | location.pathname == "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages"  | location.pathname == "/dashboard/editAnnouncements"? <button className="back_btn fs_10">Back</button> : <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
+              {location.pathname == "/dashboard" | location.pathname == "/dashboard/viewDetails" | location.pathname == "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/editAnnouncements" | location.pathname == "/dashboard/editPlayerDetals" ? <button className="back_btn fs_10">Back</button> : <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
                 {location.pathname === "/dashboard/jobOffers" && "job offer"}
                 {location.pathname === "/dashboard/basicinfo" && "job offer"}
                 {location.pathname === "/dashboard/players" && "Players List"}
@@ -78,7 +77,7 @@ const Topbar = () => {
                   <button
                     onClick={(event) => handleButtonClick(event)}
 
-                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/editAnnouncements" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
+                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/editAnnouncements" | location.pathname == "/dashboard/editPlayerDetals" | location.pathname === "/dashboard/coaches" | location.pathname === "/dashboard/players"? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
                   >
                     <img src={filterIcon} alt="icon" />
                     <span className="text_color_cb">Filter</span>
@@ -91,7 +90,18 @@ const Topbar = () => {
                         : location.pathname === "/dashboard/coaches"
                           ? "/dashboard/coachesProfile" : "#"
                       }`}
-                    className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" | location.pathname == "/dashboard/editAnnouncements" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
+                    className={`${location.pathname == "/dashboard/observed" |
+                      location.pathname == "/dashboard/messages"
+                      | location.pathname == "/dashboard/password"
+                      | location.pathname == "/dashboard/notification"
+                      | location.pathname == "/dashboard/billing"
+                      | location.pathname == "/dashboard/editAnnouncements"
+                      | location.pathname === "/dashboard/coaches"
+                      | location.pathname === "/dashboard/players"
+                      ? "d-none"
+                      : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+                      } `}
+                    //  onclick
                     onClick={() =>
                       location.pathname === '/dashboard/jobOffers'
                         ? handleAddJobOfferClick()
@@ -106,17 +116,23 @@ const Topbar = () => {
                       ""
                     )}
                     <span className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages"
-                      | location.pathname == "/dashboard/editAnnouncements" ? " d-none" : "text-white"} `}>
-                      {location.pathname === "/dashboard/jobOffers" | location.pathname == "/dashboard/basicinfo"
+                      | location.pathname === "/dashboard/editAnnouncements"  | location.pathname === "/dashboard/players" ? " d-none" : "text-white"} `}>
+                      {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/basicinfo"
                         ? "Add Job Offer"
-                        : location.pathname === "/dashboard" | location.pathname === "/dashboard/players" | location.pathname === "/dashboard/coaches"
+                        : location.pathname === "/dashboard"
+                          // |location.pathname === "/dashboard/players" 
+                          // | location.pathname === "/dashboard/coaches"
                           ? "View Details"
                           : location.pathname === "/dashboard/coachesProfile"
                             ? "Click here to upgrade your current package"
-                            : location.pathname == "/dashboard/announcements"
+                            : location.pathname === "/dashboard/announcements"
                               ? "Create Announcement"
-                              : location.pathname == "/dashboard/viewDetails"
-                                ? "Click here to upgrade your current package" : ``
+                              : location.pathname === "/dashboard/viewDetails"
+                                ? "Click here to upgrade your current package"
+                                : location.pathname === "/dashboard/editPlayerDetals"
+                                  ? "Click here to upgrade your current package"
+                                  : ""
+
                       }
                     </span>
                   </Link>

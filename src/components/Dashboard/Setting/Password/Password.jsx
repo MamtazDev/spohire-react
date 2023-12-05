@@ -22,10 +22,7 @@ const Password = () => {
                     <input type="text" className="form-control" placeholder="Confirm new password" />
                     <p>Minimum 8 characters</p>
                 </div>
-                <button className='save_btn'>Save Changes</button>
-
-
-
+                <button type='submit' className='save_btn'>Save Changes</button>
 
             </div>
         </form>
