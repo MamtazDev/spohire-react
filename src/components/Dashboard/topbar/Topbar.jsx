@@ -6,11 +6,13 @@ import logo from "../../../assets/dashbord-logo.png";
 import { useEffect, useRef, useState } from "react";
 import FilterModal from "./FilterModal";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
+import AddAnnouncement from "../Announcements/AddAnnouncement";
 
 const Topbar = () => {
   const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);
+
 
   const handleFilterModal = () => {
     setFilter(!filter);
@@ -32,8 +34,10 @@ const Topbar = () => {
     };
   }, [filter]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleAddJobOfferClick = () => {
     setIsModalOpen(true);
   };
@@ -41,10 +45,17 @@ const Topbar = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const [isAnnouncementModalOpen, setAnnouncementIsModalOpen] = useState(false);
+  const handleAddAnnouncementClick = () => {
+    setAnnouncementIsModalOpen(true);
+  };
+  const closeAnnouncementModal = () => {
+    setAnnouncementIsModalOpen(false);
+  };
   return (
     <>
       {/* ` ${isModalOpen ? "z_index_set " : "z-index_unset "} */}
-      <div className={`${isModalOpen ? "position_static" : "position-fixed"} dashbord_topbar`}>
+      <div className={`${isModalOpen | isAnnouncementModalOpen ? "position_static" : "position-fixed"} dashbord_topbar`}>
         <div className="topbar_desk">
           <div className=" dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
             <div className="dashbord_topbar_title">
@@ -78,11 +89,18 @@ const Topbar = () => {
                       : location.pathname === "/dashboard/players"
                         ? "/dashboard/viewDetails"
                         : location.pathname === "/dashboard/coaches"
-                          ? "/dashboard/coachesProfile" : "/"
+                          ? "/dashboard/coachesProfile" : "#"
                       }`}
                     className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
-                    onClick={() => location.pathname === '/dashboard/jobOffers' && handleAddJobOfferClick()}
-
+                    // onClick={() => location.pathname === '/dashboard/jobOffers' ? handleAddJobOfferClick() : () =>
+                    //   location.pathname === '/dashboard/announcements' && handleAddJobOfferClick()}
+                    onClick={() =>
+                      location.pathname === '/dashboard/jobOffers'
+                        ? handleAddJobOfferClick()
+                        : location.pathname === '/dashboard/announcements'
+                          ? handleAddAnnouncementClick() // Replace with the actual function for announcements
+                          : undefined // Handle other paths or do nothing if no match
+                    }
                   >
                     {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/announcements" | location.pathname == "/dashboard/basicinfo" ? (
                       <img src={addIcon} alt="icon" />
@@ -139,6 +157,8 @@ const Topbar = () => {
       </div>
 
       <AddJobOffer show={isModalOpen} onHide={closeModal} isModalOpen={isModalOpen} style={{ width: "648px" }} />
+
+      <AddAnnouncement show={isAnnouncementModalOpen} onHide={closeAnnouncementModal} isModalOpen={isAnnouncementModalOpen} style={{ width: "648px" }} />
 
 
 

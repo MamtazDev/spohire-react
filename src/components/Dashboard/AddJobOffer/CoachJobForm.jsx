@@ -27,7 +27,6 @@ const CoachJobForm = () => {
                             </div>
                             <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Select your region" />
                         </div>
-                       
                     </div>
                 </div>
             </div>

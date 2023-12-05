@@ -7,10 +7,9 @@ import CoachJobForm from './CoachJobForm';
 import PlayerJobForm from './PlayerJobForm';
 import styles from './Modal.module.css'
 import './AddJobOffer.css'
-import { Io } from 'react-flags-select';
 const AddJobOffer = ({ onHide, isModalOpen }) => {
 
-    const [selectBtn, setSelectBtn] = useState("Coach");
+    const [selectBtn, setSelectBtn] = useState("Player");
     const handeSelectBtn = (btnType) => {
         setSelectBtn(btnType)
     }
@@ -54,9 +53,9 @@ const AddJobOffer = ({ onHide, isModalOpen }) => {
 
                 </Modal.Body>
                 <Modal.Footer className='border-0 p-0'>
-                    <Button className='submit_now_btn w-100 m-0' onClick={onHide}>
+                    <button className='submit_now_btn w-100 m-0' onClick={onHide}>
                         Submit Now
-                    </Button>
+                    </button>
                 </Modal.Footer>
             </Modal>
         </div>
