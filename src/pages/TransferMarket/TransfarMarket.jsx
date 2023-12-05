@@ -6,7 +6,6 @@ const TransfarMarket = () => {
     return (
         <>
             <div>
-        
                 <TransferMarketHeader />
                 <MarketList />
             </div>

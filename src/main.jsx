@@ -35,6 +35,7 @@ import CoachesProfile from './components/Dashboard/Coaches/CoachesProfile.jsx';
 import EditAnnouncements from './pages/Announcement/EditAnnouncements.jsx';
 import Layout from './Layout/Layout.jsx';
 import EditPlayerDetails from './components/Dashboard/viewDetails/EditPlayerDetails.jsx';
+import Gallary from './pages/TransferMarket/Gallary.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       }, {
         path: '/transfarMarket',
         element: <TransfarMarket />
+      },
+      {
+        path: '/gallary',
+        element: <Gallary />
       },
       {
         path: '/paymentProcess',

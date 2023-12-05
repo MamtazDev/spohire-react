@@ -7,12 +7,16 @@ import dropdown from "../../assets/dropdownicon.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useState } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const Header = () => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
-  const active = () => {
-    setIsDropdownActive(!isDropdownActive)
-  }
+  const myDivRef = useRef(null);
+
+  // const active = () => {
+  //   setIsDropdownActive(!isDropdownActive)
+  // }
 
   const getUser = localStorage.getItem('register')
   const user = JSON.parse(getUser);
@@ -20,6 +24,27 @@ const Header = () => {
   const closeModalAndNavigate = () => {
     navigate('/signup');
   };
+
+  const handleFilterModal = () => {
+    setIsDropdownActive(!isDropdownActive);
+  };
+  const handleButtonClick = (event) => {
+    event.stopPropagation();
+    handleFilterModal();
+  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (myDivRef.current && !myDivRef.current.contains(event.target)) {
+        setIsDropdownActive(false);
+        console.log('nothing')
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isDropdownActive]);
+
   return (
     <header className={`${!user && 'pt-4 pb-4'}`}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
@@ -68,7 +93,7 @@ const Header = () => {
             </Navbar.Toggle>
             {
               user ? <div>
-                <img className="d-none" src={profile} alt="" />
+                <img className="d-none " src={profile} alt="" />
                 <Link
                   to="/dashboard/jobOffers"
                   type="submit"
@@ -142,11 +167,11 @@ const Header = () => {
             </Nav>
             {user ?
               <div>
-                <div type="button" onClick={active} className="d-flex p-2">
+                <div type="button" onClick={(event) => handleButtonClick(event)} className="d-flex  flex-lg-row flex-column align-items-center  p-2">
                   <Link to="/dashboard/jobOffers">
-                    <img src={profile} alt="" />
+                    <img className="profile_picture d-lg-block " src={profile} alt="" />
                   </Link>
-                  <div className="profile_dropdown">
+                  <div className="profile_dropdown" ref={myDivRef}>
                     <div className="position-relative">
                       <div className="profile_name">
                         <h5>SMITH JOHN </h5>

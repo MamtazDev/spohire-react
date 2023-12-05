@@ -130,7 +130,7 @@
 
     .navbar {
         padding-top: 28px;
-        padding-bottom: 28px;
+        padding-bottom: 90px;
     }
 
     .navbar-nav {
@@ -243,14 +243,15 @@
     border: none;
     border-radius: 5px;
 
-    /* position: absolute; */
-
+    position: absolute;
+    right: 100px;
 }
 
 .profile_name {
     display: flex;
     align-items: center;
     gap: 16px;
+    /* position: absolute; */
 }
 
 .profile_name h5 {
@@ -278,9 +279,25 @@
     text-align: center;
     margin-top: 7px;
 }
-.profile_dropdown hr{
+
+.profile_dropdown hr {
     border-bottom: 0.5px solid #D2D2D2;
 }
-.rotate_arrow{
+
+.rotate_arrow {
     transform: rotate(180deg);
+}
+
+.profile_picture {
+    margin-right: 170px;
+}
+
+@media(max-width:768px) {
+    .profile_dropdown {
+        margin-top: 90px;
+    }
+    .profile_picture{
+        margin-right: 0;
+        margin-top: 20px;
+    }
 }

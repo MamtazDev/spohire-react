@@ -1,61 +1,35 @@
-import { useState } from "react";
 import Compact from "./Compact";
-import Gallary from "./Gallary";
-import Detailed from './Detailed';
+import Select from 'react-select'
 
+const options = [
+    { value: 'Country1', label: 'Country1' },
+    { value: 'Country2', label: 'Country2' },
+    { value: 'Country1', label: 'Country1' },
+    { value: 'Country2', label: 'Country2' },
+    { value: 'Country1', label: 'Country1' },
+    { value: 'Country2', label: 'Country2' },
+
+]
 const MarketList = () => {
-
-
-
-    const [worksTab, setWorksTab] = useState("player");
-    const handleTabClick = (tab) => {
-        setWorksTab(tab);
-    };
 
     return (
         <div>
             <section className="mt_150">
-                <section id="signUp">
-                    <div className="container">
-                        <div className="tabOutter1 d-flex flex flex-lg-row justify-content-center gap-2 align-items-center mx-auto">
-                            <button
-                                className={worksTab === "player" ? "btnActive" : ""}
-                                onClick={() => handleTabClick("player")}
-                            >
-                                Compact
-                            </button>
-                            <button
-                                className={worksTab === "coach" ? "btnActive" : ""}
-                                onClick={() => handleTabClick("coach")}
-                            >
-                                Detailed
-                            </button>
-                            <button
-                                className={worksTab === "manager" ? "btnActive" : ""}
-                                onClick={() => handleTabClick("manager")}
-                            >
-                                Gallery
-                            </button>
+                <div className="container ps-0 pe-0">
+                    <div className="row align-items-center justify-content-center mb-5 ">
+                        <div className="col-lg-3">
+                            <Select options={options} />
                         </div>
-
-                        {worksTab === "player" && (
-                            <Compact />
-                        )}
-
-                        {worksTab === "coach" && (
-                            <>
-                                <Detailed />
-                            </>
-                        )}
-                        {worksTab === "manager" && (
-                            <>
-                                <Gallary />
-                            </>
-                        )}
+                        <div className="col-lg-3">
+                            <Select options={options} />
+                        </div>
+                        <div className="col-lg-3">
+                            <button className=" btn w-100 btn-primary ">Filter</button>
+                        </div>
                     </div>
-                </section>
+                    <Compact />
+                </div>
             </section>
-
         </div>
     );
 };

@@ -344,3 +344,28 @@
 }
 
 /* detailed end */
+
+.transfer_link {
+    background-color: #F3F3F3;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.details_wrapper {
+    margin-top: 43px;
+    margin-bottom: 72px;
+}
+
+.details_wrapper h3 {
+    color: #0A0119;
+    font-family: Plus Jakarta Sans;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px;
+    /* 137.5% */
+}
