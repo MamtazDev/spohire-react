@@ -1,28 +1,25 @@
 
-
 import a1 from '../../../assets/a1.png';
 import flag from '../../../assets/flag.png';
 import dollar from '../../../assets/coin-dollar.png';
 import location from '../../../assets/location.png';
 import bookmark from '../../../assets/bookmark.png';
-import edit2 from '../../../assets/edit2.png';
-import delet from '../../../assets/delete.png';
 import footBallCoachImg from "../../../assets/footballCoach.png";
 import locationIcon from "../../../assets/location-icon.svg";
 import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
-import starIcon from "../../../assets/starIcon.svg";
 import playerprofile from "../../../assets/player_profile.png";
-
 import './ObservedClone.css'
+
 const ObservedClone = () => {
+
     return (
         <>
             <div className="announcement" style={{ margin: "30px" }}>
                 <div>
                     <p className='title'>Announcement</p>
                     <div>
-                        <div className="announcelist_wrapper">
+                        <div className="announcelist_wrapper pe-3">
                             <div className='d-flex justify-content-between align-items-start'>
                                 <div className="d-flex align-items-center" style={{ gap: "20px" }}>
                                     <div className='announcement_pic'>
@@ -50,19 +47,17 @@ const ObservedClone = () => {
                                 <div className='d-lg-block d-none'>
                                     <div className='d-flex gap-3 '>
                                         <img src={bookmark} alt="" />
-                                        <img src={edit2} alt="" />
-                                        <img src={delet} alt="" />
+
                                     </div>
                                 </div>
                             </div>
                             <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br className='d-lg-block d-none' /> take it to the next level together.</p>
                             <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                 <img src={bookmark} alt="" />
-                                <img src={edit2} alt="" />
-                                <img src={delet} alt="" />
+
                             </div>
                         </div>
-                        <div className="announcelist_wrapper">
+                        <div className="announcelist_wrapper pe-3">
                             {/* parent flex with edit delete  */}
                             <div className='d-flex justify-content-between align-items-start'>
                                 <div className="d-flex align-items-center" style={{ gap: "20px" }}>
@@ -93,16 +88,16 @@ const ObservedClone = () => {
                                 <div className='d-lg-block d-none'>
                                     <div className='d-flex gap-3 '>
                                         <img src={bookmark} alt="" />
-                                        <img src={edit2} alt="" />
-                                        <img src={delet} alt="" />
+                                        {/* <img src={edit2} alt="" />
+                                        <img src={delet} alt="" /> */}
                                     </div>
                                 </div>
                             </div>
                             <p className='announcement_details f_sfPro'>We cant wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and were thrilled to <br className='d-lg-block d-none' /> take it to the next level together.</p>
                             <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                 <img src={bookmark} alt="" />
-                                <img src={edit2} alt="" />
-                                <img src={delet} alt="" />
+                                {/* <img src={edit2} alt="" />
+                                <img src={delet} alt="" /> */}
                             </div>
                         </div>
 
@@ -170,12 +165,12 @@ const ObservedClone = () => {
                                                     style={{ cursor: "pointer" }}
                                                     alt="icon"
                                                 />
-                                                <img
+                                                {/* <img
                                                     className='img-fluid'
                                                     src={starIcon}
                                                     style={{ cursor: "pointer" }}
                                                     alt="icon"
-                                                />
+                                                /> */}
                                             </div>
                                         </div>
                                     </div>

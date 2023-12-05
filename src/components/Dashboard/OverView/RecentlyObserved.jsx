@@ -12,7 +12,6 @@ const RecentlyObserved = () => {
                     <h4>Recently Observed</h4>
                     <a href="/dashboard/observed">View More</a>
                 </div>
-
                 {
                     [0, 1].map((data) => (
                         <>

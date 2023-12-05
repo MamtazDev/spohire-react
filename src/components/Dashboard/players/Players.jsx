@@ -6,21 +6,15 @@ import messageIcon from "../../../assets/messageIcon.svg";
 import MobileButtons from "./MobileButtons";
 import MobilePlayers from "./MobilePlayers";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const Players = () => {
   const navigate = useNavigate();
 
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
 
   const handlePath = () => {
-    if (isChecked) {
-      navigate('/dashboard/viewDetails')
-    }
+   navigate('/dashboard/viewDetails')
+    
   };
 
   return (
@@ -30,14 +24,7 @@ const Players = () => {
           <tr>
             <th className="fs_14 text_color_36 fw-normal">
               <div className="d-flex align-items-center">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                </div>
+                
                 <p>Name</p>
               </div>
             </th>
@@ -58,24 +45,16 @@ const Players = () => {
         <tbody>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
             <>
-              <tr onClick={handlePath} className="table_hover pointer">
+              <tr  className="table_hover pointer">
                 <td>
                   <div  className="player_info d-flex align-items-center gap-2">
-                    <div  className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                        onChange={handleCheckboxChange}
-                      />
-                    </div>
+                  
 
                     <div className="player_info_wrapper d-flex gap-2">
                       <div className="player_img">
                         <img src={playerImgOne} alt="player-img" />
                       </div>
-                      <div className="player_name">
+                      <div className="player_name" onClick={handlePath}>
                         <p className="text_color_36 fw-medium fs_14">
                           Jacob <br /> Bennett
                         </p>

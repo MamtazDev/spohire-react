@@ -77,7 +77,7 @@ const Topbar = () => {
                   <button
                     onClick={(event) => handleButtonClick(event)}
 
-                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/editAnnouncements" | location.pathname == "/dashboard/editPlayerDetals" | location.pathname === "/dashboard/coaches" | location.pathname === "/dashboard/players"? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
+                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/editAnnouncements" | location.pathname == "/dashboard/editPlayerDetals" | location.pathname === "/dashboard/coaches" | location.pathname === "/dashboard/players" | location.pathname === "/dashboard/observed"  ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
                   >
                     <img src={filterIcon} alt="icon" />
                     <span className="text_color_cb">Filter</span>
