@@ -369,3 +369,23 @@
     line-height: 44px;
     /* 137.5% */
 }
+
+.market_filter_wrapper {
+    background-color: #b8c5d5 !important;
+    width: 60%;
+    margin: auto;
+    padding: 20px 40px;
+    margin-bottom: 80px;
+}
+
+.market_filter_wrapper .css-13cymwt-control {
+    height: 50px !important;
+    border-radius: 5px;
+    border: 0.7px solid rgba(0, 0, 0, 0.02);
+    background: #FFF;
+}
+.market_filter_wrapper button{
+    height: 50px !important;
+    width: 100% !important;
+    
+}

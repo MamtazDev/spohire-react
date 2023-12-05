@@ -13,11 +13,6 @@ import { useEffect } from "react";
 const Header = () => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const myDivRef = useRef(null);
-
-  // const active = () => {
-  //   setIsDropdownActive(!isDropdownActive)
-  // }
-
   const getUser = localStorage.getItem('register')
   const user = JSON.parse(getUser);
   const navigate = useNavigate()
@@ -167,7 +162,7 @@ const Header = () => {
             </Nav>
             {user ?
               <div>
-                <div type="button" onClick={(event) => handleButtonClick(event)} className="d-flex  flex-lg-row flex-column align-items-center  p-2">
+                <div type="button" onClick={(event) => handleButtonClick(event)} className="d-flex  flex-lg-row flex-column align-items-center  p-2 profile_drop_mobilepadding">
                   <Link to="/dashboard/jobOffers">
                     <img className="profile_picture d-lg-block " src={profile} alt="" />
                   </Link>
@@ -180,11 +175,9 @@ const Header = () => {
                       {isDropdownActive &&
                         <>
                           <p>Log out</p>
-                          <hr />
+                          <hr className="m-0" />
                           <p>Admin</p>
-
                         </>
-
                       }
                     </div>
                   </div>

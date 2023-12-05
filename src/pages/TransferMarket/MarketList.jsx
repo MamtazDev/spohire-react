@@ -16,17 +16,26 @@ const MarketList = () => {
         <div>
             <section className="mt_150">
                 <div className="container ps-0 pe-0">
-                    <div className="row align-items-center justify-content-center mb-5 ">
-                        <div className="col-lg-3">
-                            <Select options={options} />
+                    <div className="market_filter_wrapper">
+
+                        <div className="row align-items-center justify-content-center  ">
+                            <div className="col-lg-4">
+                                <Select options={options} />
+                            </div>
+                            <div className="col-lg-4">
+                                <Select options={options} />
+                            </div>
+                            <div className="col-lg-2 mb-lg-0 mb-4">
+                                <button className="  jobsearchbtn" style={{height:"39px"}} >Filter</button>
+                            </div>
+                            <div className="col-lg-2">
+                                <button className="  jobsearchbtn" style={{height:"39px"}} >Clear All</button>
+                            </div>
                         </div>
-                        <div className="col-lg-3">
-                            <Select options={options} />
-                        </div>
-                        <div className="col-lg-3">
-                            <button className=" btn w-100 btn-primary ">Filter</button>
-                        </div>
+
                     </div>
+
+
                     <Compact />
                 </div>
             </section>
