@@ -7,6 +7,7 @@ import bookmark from '../../../assets/bookmark.png';
 import edit2 from '../../../assets/edit2.png';
 import delet from '../../../assets/delete.png';
 import { Link } from 'react-router-dom';
+import DeleteModal from '../../../pages/Announcement/DeleteModal';
 
 const DashboardAnnouncements = () => {
     return (
@@ -47,8 +48,11 @@ const DashboardAnnouncements = () => {
                                         <div className='d-lg-block d-none'>
                                             <div className='d-flex gap-3 '>
                                                 <Link to="#">   <img src={bookmark} alt="" /> </Link>
-                                                <Link to="#">   <img src={edit2} alt="" /> </Link>
-                                                <Link to="#">  <img src={delet} alt="" /> </Link>
+                                                <Link to="/dashboard/editAnnouncements"> <img src={edit2} alt="edit" /> </Link>
+
+                                                <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                                    <img src={delet} alt="" />
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +60,9 @@ const DashboardAnnouncements = () => {
                                     <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                         <img src={bookmark} alt="" />
                                         <img src={edit2} alt="" />
-                                        <img src={delet} alt="" />
+                                        <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                            <img src={delet} alt="" />
+                                        </button>
                                     </div>
                                 </div>
                             </>
@@ -65,6 +71,7 @@ const DashboardAnnouncements = () => {
 
                 </div>
             </div>
+            <DeleteModal />
         </>
     );
 };

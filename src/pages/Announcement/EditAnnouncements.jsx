@@ -1,11 +1,8 @@
 /* eslint-disable react/no-unknown-property */
-import AnnouncementHeader from "./AnnouncementHeader";
-
 
 const EditAnnouncements = () => {
     return (
         <>
-            <AnnouncementHeader />
             <div className="container">
                 <div className="editAnnouncement_wrapper">
                     <div>

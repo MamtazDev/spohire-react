@@ -59,7 +59,7 @@ const Topbar = () => {
         <div className="topbar_desk">
           <div className=" dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
             <div className="dashbord_topbar_title">
-              {location.pathname == "/dashboard" | location.pathname == "/dashboard/viewDetails" | location.pathname == "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" ? <button className="back_btn fs_10">Back</button> : <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
+              {location.pathname == "/dashboard" | location.pathname == "/dashboard/viewDetails" | location.pathname == "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages"  | location.pathname == "/dashboard/editAnnouncements"? <button className="back_btn fs_10">Back</button> : <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
                 {location.pathname === "/dashboard/jobOffers" && "job offer"}
                 {location.pathname === "/dashboard/basicinfo" && "job offer"}
                 {location.pathname === "/dashboard/players" && "Players List"}
@@ -78,7 +78,7 @@ const Topbar = () => {
                   <button
                     onClick={(event) => handleButtonClick(event)}
 
-                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
+                    className={`${location.pathname === "/dashboard/coachesProfile" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/editAnnouncements" ? "d-none" : "filter_btn d-flex gap-2 text-decoration-none"} `}
                   >
                     <img src={filterIcon} alt="icon" />
                     <span className="text_color_cb">Filter</span>
@@ -91,15 +91,13 @@ const Topbar = () => {
                         : location.pathname === "/dashboard/coaches"
                           ? "/dashboard/coachesProfile" : "#"
                       }`}
-                    className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
-                    // onClick={() => location.pathname === '/dashboard/jobOffers' ? handleAddJobOfferClick() : () =>
-                    //   location.pathname === '/dashboard/announcements' && handleAddJobOfferClick()}
+                    className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" | location.pathname == "/dashboard/password" | location.pathname == "/dashboard/notification" | location.pathname == "/dashboard/billing" | location.pathname == "/dashboard/editAnnouncements" ? "d-none" : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"} `}
                     onClick={() =>
                       location.pathname === '/dashboard/jobOffers'
                         ? handleAddJobOfferClick()
                         : location.pathname === '/dashboard/announcements'
-                          ? handleAddAnnouncementClick() // Replace with the actual function for announcements
-                          : undefined // Handle other paths or do nothing if no match
+                          ? handleAddAnnouncementClick()
+                          : undefined
                     }
                   >
                     {location.pathname === "/dashboard/jobOffers" | location.pathname === "/dashboard/announcements" | location.pathname == "/dashboard/basicinfo" ? (
@@ -107,7 +105,8 @@ const Topbar = () => {
                     ) : (
                       ""
                     )}
-                    <span className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages" ? "bg-light d-none" : "text-white"} `}>
+                    <span className={`${location.pathname == "/dashboard/observed" | location.pathname == "/dashboard/messages"
+                      | location.pathname == "/dashboard/editAnnouncements" ? " d-none" : "text-white"} `}>
                       {location.pathname === "/dashboard/jobOffers" | location.pathname == "/dashboard/basicinfo"
                         ? "Add Job Offer"
                         : location.pathname === "/dashboard" | location.pathname === "/dashboard/players" | location.pathname === "/dashboard/coaches"

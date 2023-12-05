@@ -65,10 +65,7 @@ const router = createBrowserRouter([
         path: '/announcements',
         element: <Announcements />
       },
-      {
-        path: '/editAnnouncements',
-        element: <EditAnnouncements />
-      },
+
       {
         path: '/pricing',
         element: <Pricing />
@@ -159,6 +156,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/announcements',
         element: <DashboardAnnouncements />
+      },
+      {
+        path: '/dashboard/editAnnouncements',
+        element: <EditAnnouncements />
       },
       {
         path: '/dashboard/basicinfo',

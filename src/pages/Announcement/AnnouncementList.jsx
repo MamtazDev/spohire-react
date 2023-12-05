@@ -47,8 +47,8 @@ const AnnouncementList = () => {
                                             <div className='d-lg-block d-none'>
                                                 <div className='d-flex gap-3 '>
                                                     <button className='bg-none' style={{ color: '#929292' }}> <i className="fa-regular fa-bookmark"></i></button>
-                                                    <Link to="/editAnnouncements"> <img src={edit2} alt="edit" /> </Link>
-                                                    <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <img src={delet} alt="delete" /></button>
+                                                    {/* <Link to="/editAnnouncements"> <img src={edit2} alt="edit" /> </Link>
+                                                    <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <img src={delet} alt="delete" /></button> */}
                                                 </div>
                                             </div>
                                         </div>
@@ -56,7 +56,6 @@ const AnnouncementList = () => {
                                         <div className='d-flex gap-3 d-lg-none d-block justify-content-end'>
                                             <button className='bg-none' style={{ color: '#929292' }}> <i className="fa-regular fa-bookmark"></i></button>
                                             <button className='bg-none'>     <img src={edit2} alt="" /> </button>
-
                                             <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
                                                 <img src={delet} alt="" />
                                             </button>
@@ -74,11 +73,11 @@ const AnnouncementList = () => {
                 </div>
             </div>
             {/* delete modal */}
-            <div className="modal fade" id="exampleModalToggle2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {/* <div className="modal fade" id="exampleModalToggle2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    <div className="modal-content delete_modal" style={{padding:"40px",wordWrap:"unset"}}>
+                    <div className="modal-content delete_modal" style={{ padding: "40px", wordWrap: "unset" }}>
 
-                        <div className="modal-body" style={{padding:"10px",marginBottom:"14px"}}>
+                        <div className="modal-body" style={{ padding: "10px", marginBottom: "14px" }}>
                             Are you sure want to delete Player Recruitment?
                         </div>
                         <div className="mx-auto delete_body_btns">
@@ -87,8 +86,8 @@ const AnnouncementList = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> */}
+            <DeleteModal />
 
 
         </>

@@ -35,8 +35,6 @@ const AddAnnouncement = ({ onHide, isModalOpen }) => {
                                 </div>
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Status</label>
-
-
                                     <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Status" />
                                 </div>
                                 <div className="position-relative text-start">
@@ -55,8 +53,8 @@ const AddAnnouncement = ({ onHide, isModalOpen }) => {
                                         <div class="input-group mb-3">
                                             <textarea type="text" class="form-control" placeholder="Description...." aria-label="Username" aria-describedby="basic-addon1" />
                                         </div>
-                                    </div> </div>
-
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

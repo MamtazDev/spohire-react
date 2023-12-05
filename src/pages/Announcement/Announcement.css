@@ -22,7 +22,10 @@
     padding: 18px 48px 16px 16px;
     margin-bottom: 24px;
 }
+.editAnnouncement_wrapper{
+    margin: 0 100px;
 
+}
 .blue_cat p {
     color: #FFF;
     font-family: SF Pro Display;
@@ -205,6 +208,10 @@
     .cat_list span,
     .cat_list1 a {
         font-size: 14px;
+    }
+    .editAnnouncement_wrapper{
+        margin: 10px;
+    
     }
 }
 
