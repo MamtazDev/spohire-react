@@ -1,13 +1,14 @@
-import profileImage from "../../../../assets/basicinfo.png";
-import messageImage from "../../../../assets/message.png";
-import twitterIcon from "../../../../assets/tw_jobOffer.png";
-import instagramIcon from "../../../../assets/ig_jobOffer.png";
-import facebookIcon from "../../../../assets/fb_JobOffer.png";
-import youtubeIcon from "../../../../assets/youtube.png";
-import gold from "../../../../assets/gold.png";
+import profileImage from "../../../../Linkssets/basicinfo.png";
+import messageImage from "../../../../Linkssets/message.png";
+import twitterIcon from "../../../../Linkssets/tw_jobOffer.png";
+import instagramIcon from "../../../../Linkssets/ig_jobOffer.png";
+import facebookIcon from "../../../../Linkssets/fb_JobOffer.png";
+import youtubeIcon from "../../../../Linkssets/youtube.png";
+import gold from "../../../../Linkssets/gold.png";
 import Gallary from "../../viewDetails/Gallary";
 import ViewDetailsMobile from "../../viewDetails/ViewDetailsMobile";
 import './BasicInfo.css';
+import { Link } from "react-router-dom";
 
 const BasicInformation = () => {
 
@@ -127,18 +128,18 @@ const BasicInformation = () => {
                                             </p>
                                         </div>
                                         <div className="d-flex gap-2">
-                                            <a href="#">
+                                            <Link to="#">
                                                 <img src={twitterIcon} alt="Twitter" />
-                                            </a>
-                                            <a href="#">
+                                            </Link>
+                                            <Link to="#">
                                                 <img src={instagramIcon} alt="Instagram" />
-                                            </a>
-                                            <a href="#">
+                                            </Link>
+                                            <Link to="#">
                                                 <img src={facebookIcon} alt="FaceBook" />
-                                            </a>
-                                            <a href="#">
+                                            </Link>
+                                            <Link to="#">
                                                 <img src={youtubeIcon} alt="Youtube" />
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -160,13 +161,13 @@ const BasicInformation = () => {
                                 blessed with a tall stature and a remarkable wingspan, which give
                                 me a significant advantage in both offense and defense. My height
                                 allows me to effectively contest shots,
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="f_sfPro fs_16"
                                     style={{ color: "#0177FB" }}
                                 >
                                     See More
-                                </a>
+                                </Link>
                             </p>
                         </div>
                         <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
@@ -178,14 +179,14 @@ const BasicInformation = () => {
                                 day, when I was 11-years old, I decided to go outside to the
                                 family basketball hoop and take a shot. The basket was originally
                                 for my sister.
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="f_sfPro fs_16"
                                     style={{ color: "#0177FB" }}
                                 >
                                     {" "}
                                     See More
-                                </a>
+                                </Link>
                             </p>
                         </div>
 
@@ -196,17 +197,17 @@ const BasicInformation = () => {
                             <p className="f_sfPro text_color_cb fs_16">
                                 Hope to find a supportive and cohesive team environment where
                                 their skills can thrive and be appreciated. I eagerly look forward
-                                to the opportunity to contribute to the club's success, aiming to
+                                to the opportunity to contribute to the clubs success, aiming to
                                 make a positive impact both on and off the court. Additionally, I
                                 expect to receive the necessary resources.
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="f_sfPro fs_16"
                                     style={{ color: "#0177FB" }}
                                 >
                                     {" "}
                                     See More
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>

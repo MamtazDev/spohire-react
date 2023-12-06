@@ -3,10 +3,7 @@ import './Pricing.css'
 const PaymentProcess = () => {
     return (
         <>
-          
-
             <PaymentForm />
-
         </>
     );
 };

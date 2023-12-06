@@ -31,7 +31,6 @@ const Header = () => {
     const handleClickOutside = (event) => {
       if (myDivRef.current && !myDivRef.current.contains(event.target)) {
         setIsDropdownActive(false);
-        console.log('nothing')
       }
     };
     document.addEventListener("click", handleClickOutside);

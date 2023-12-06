@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import sliderOne from "../../../assets/slader1.png";
-import sliderTwo from "../../../assets/slider2.png";
-const EditGallary = () => {
+
+const EditGallary = ({ images }) => {
+  console.log(images)
   return (
     <div className="ps-0 container experience_wrapper  mb-5">
       <Swiper
@@ -27,42 +29,15 @@ const EditGallary = () => {
         loop={true}
         className="mySwiper padding_left"
       >
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderTwo} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderTwo} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderTwo} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            {image ? (
+              <img className="slide_gallary_image" src={image} alt={`Slide ${index + 1}`} />
+            ) : (
+              <img className="slide_gallary_image" src={sliderOne} alt="" />
+            )}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

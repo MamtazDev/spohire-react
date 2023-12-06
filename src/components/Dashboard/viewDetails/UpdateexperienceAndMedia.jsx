@@ -2,9 +2,34 @@ import insta from '../../../assets/insta1.png'
 import fb from '../../../assets/fb1.png'
 import Twitter from '../../../assets/twiter1.png'
 import plus from '../../../assets/plus3.png'
+import { useState } from 'react';
 
 
 const UpdateexperienceAndMedia = () => {
+    const [formData, setFormData] = useState({
+        experiences: [
+            { startYear: '', endYear: '' },
+        ],
+    });
+    const handleChange = (e, index) => {
+        const { name, value } = e.target;
+        const updatedExperiences = [...formData.experiences];
+        updatedExperiences[index] = {
+            ...updatedExperiences[index],
+            [name]: value,
+        };
+        setFormData((prevData) => ({
+            ...prevData,
+            experiences: updatedExperiences,
+        }));
+    };
+
+    const handleAddMore = () => {
+        setFormData((prevData) => ({
+            ...prevData,
+            experiences: [...prevData.experiences, { startYear: '', endYear: '' }],
+        }));
+    };
     return (
         <>
             <div className="container" >
@@ -19,32 +44,50 @@ const UpdateexperienceAndMedia = () => {
                                     </label>
                                     <input type="text" className="form-control" id='exampleFormControlInput1' placeholder='Cleveland Cavaliers' />
                                 </div>
+                                {formData.experiences.map((experience, index) => (
+                                    <div className="row" key={index}>
+                                        <div className="col-lg-6">
+                                            <div className="w-100">
+                                                <label htmlFor={`startYear${index}`} className="form-label">
+                                                    Start Year
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id={`startYear${index}`}
+                                                    name="startYear"
+                                                    placeholder="2003"
+                                                    value={experience.startYear}
+                                                    onChange={(e) => handleChange(e, index)}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="w-100">
+                                                <label htmlFor={`endYear${index}`} className="form-label">
+                                                    End Year
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id={`endYear${index}`}
+                                                    name="endYear"
+                                                    placeholder="2008"
+                                                    value={experience.endYear}
+                                                    onChange={(e) => handleChange(e, index)}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                                 <div className="row">
-
-                                    <div className="col-lg-6">
-                                        <div className="w-100">
-                                            <label htmlFor='exampleFormControlInput1' className="form-label">
-                                                Start Year
-                                            </label>
-                                            <input type="text" className="form-control" id='exampleFormControlInput1' placeholder='2003' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="w-100">
-                                            <label htmlFor='exampleFormControlInput1' className="form-label">
-                                                End Year
-                                            </label>
-                                            <input type="text" className="form-control" id='exampleFormControlInput1' placeholder='2008' />
-                                        </div>
-                                    </div>
                                     <div className="col-lg-12">
-
-                                        <button className='add_more_btn'> <span>Add more</span>
+                                        <button className='add_more_btn' onClick={handleAddMore}>
+                                            <span>Add more</span>
                                             <img src={plus} alt="" />
                                         </button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -76,29 +119,8 @@ const UpdateexperienceAndMedia = () => {
                             </div>
                         </div>
                     </div>
-
-
-                    {/* abput me edit  */}
-                    {/* <div>
-                        <div className="row">
-                            <div className="col-lg-4">
-                                <div className="mb-3">
-                                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-                                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div> */}
-
                 </div>
-
             </div>
-
-
-
         </>
     );
 };

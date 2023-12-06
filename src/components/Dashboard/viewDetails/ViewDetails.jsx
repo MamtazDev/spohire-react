@@ -24,7 +24,7 @@ const ViewDetails = () => {
             </div>
           </div>
           <div className="col-12 col-lg-9">
-          <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
+            <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
             <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
             <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
               Basketball
@@ -130,18 +130,18 @@ const ViewDetails = () => {
                     </p>
                   </div>
                   <div className="d-flex gap-2">
-                    <a href="#">
+                    <Link to="#">
                       <img src={twitterIcon} alt="Twitter" />
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                       <img src={instagramIcon} alt="Instagram" />
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                       <img src={facebookIcon} alt="FaceBook" />
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                       <img src={youtubeIcon} alt="Youtube" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -216,7 +216,7 @@ const ViewDetails = () => {
       </div>
       {/* <!-- Strengths, About Me part End --> */}
       {/* <!-- Slider Start --> */}
-      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-lg-4" style={{paddingLeft:"24px"}}>Gallery</p>
+      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-lg-4" style={{ paddingLeft: "24px" }}>Gallery</p>
       <Gallary />
       {/* <!-- Slider End --> */}
     </div>

@@ -29,17 +29,11 @@ const Players = () => {
               </div>
             </th>
             <th className="fs_14 text_color_36 fw-normal">Nation</th>
-
             <th className="fs_14 text_color_36 fw-normal">Date of Birth</th>
-
             <th className="fs_14 text_color_36 fw-normal">Position</th>
-
             <th className="fs_14 text_color_36 fw-normal">Club</th>
-
             <th className="fs_14 text_color_36 fw-normal">Status</th>
-
             <th className="fs_14 text_color_36 fw-normal">Action</th>
-
           </tr>
         </thead>
         <tbody>
@@ -48,8 +42,6 @@ const Players = () => {
               <tr  className="table_hover pointer">
                 <td>
                   <div  className="player_info d-flex align-items-center gap-2">
-                  
-
                     <div className="player_info_wrapper d-flex gap-2">
                       <div className="player_img">
                         <img src={playerImgOne} alt="player-img" />
@@ -93,7 +85,6 @@ const Players = () => {
                     </Link>
                   </div>
                 </td>
-
               </tr>
             </>
           ))}

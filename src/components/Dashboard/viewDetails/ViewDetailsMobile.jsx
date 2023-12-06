@@ -7,6 +7,7 @@ import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
 import edit from "../../../assets/edit.png";
+import { Link } from "react-router-dom";
 
 const ViewDetailsMobile = () => {
   return (
@@ -134,18 +135,19 @@ const ViewDetailsMobile = () => {
                 </p>
               </div>
               <div className="d-flex gap-2">
-                <a href="#">
+
+                <Link to="#">
                   <img src={twitterIcon} className="social_icon" alt="Twitter" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <img src={instagramIcon} className="social_icon" alt="Instagram" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <img src={facebookIcon} className="social_icon" alt="FaceBook" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <img src={youtubeIcon} className="social_icon" alt="Youtube" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
