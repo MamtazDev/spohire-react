@@ -36,6 +36,8 @@ import Layout from './Layout/Layout.jsx';
 import EditPlayerDetails from './components/Dashboard/viewDetails/EditPlayerDetails.jsx';
 import Gallary from './pages/TransferMarket/Gallary.jsx';
 
+
+
 const router = createBrowserRouter([
   {
     path: '/',
