@@ -761,3 +761,25 @@ a {
 .sayInnerBox {
   background-color: #fff;
 }
+
+.gold_btn {
+  border-radius: 100px;
+  border: 1px solid #141736;
+  display: inline-flex;
+  padding: 8px 24px;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  height: 32px;
+  color: #141736;
+  font-family: 'SF Pro Display' sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.gold_btn img {
+  width: 14px;
+  height: 16px;
+}

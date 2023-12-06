@@ -374,7 +374,7 @@
     background-color: #b8c5d5 !important;
     width: 60%;
     margin: auto;
-    padding: 20px 40px;
+    padding: 20px 30px;
     margin-bottom: 80px;
 }
 
@@ -384,8 +384,37 @@
     border: 0.7px solid rgba(0, 0, 0, 0.02);
     background: #FFF;
 }
-.market_filter_wrapper button{
+
+.market_filter_wrapper button {
     height: 50px !important;
     width: 100% !important;
-    
+
+}
+
+.player_details_bg {
+    background-image: url('/src/assets/playerdetailsbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 945px;
+    position: relative;
+}
+
+.player_details_bg img {
+    position: absolute;
+    right: 68%;
+    top: 16%;
+    border-radius: 12px;
+    border: 5px solid #FFF;
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    width: 322px;
+    height: 322px;
+}
+
+@media(max-width:768px) {
+    .market_filter_wrapper {
+        width: 100% !important;
+        padding: 30px;
+    }
+
+
 }

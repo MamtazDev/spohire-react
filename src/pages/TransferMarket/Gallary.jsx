@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import g1 from '../../assets/g1.png'
 import g2 from '../../assets/g2.png'
-import gallary from '../../assets/gallary.png'
+import player from '../../assets/player1.png'
 import arrow from '../../assets/t-leftarrow.png'
 import GallaryTable from './GallaryTable';
 import TransferMarketHeader from './TransferMarketHeader';
@@ -29,9 +29,9 @@ const Gallary = () => {
                                         <img src={g2} alt="red plus sign" />
                                     </div>
                                 </div>
-                                
-                                <div className='mt-3 mb-4'>
-                                    <img className='img-fluid' src={gallary} alt="" />
+
+                                <div className='mt-3 mb-4 player_details_bg'>
+                                    <img className='img-fluid' src={player} alt="" />
                                 </div>
 
                                 <GallaryTable />

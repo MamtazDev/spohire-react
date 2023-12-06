@@ -1,6 +1,26 @@
 /* eslint-disable react/no-unknown-property */
-
+import { useRef } from 'react';
+import brows from '../../assets/brows.png'
+import { useState } from 'react';
 const EditAnnouncements = () => {
+
+    const fileInputRef = useRef(null);
+    const [imageTitle, setImageTitle] = useState("")
+
+    const handleFileInputChange = (e) => {
+        // You can access the selected file using e.target.files[0]
+        const selectedFile = e.target.files[0];
+        console.log('Selected File:', selectedFile.name);
+        setImageTitle(selectedFile.name)
+    };
+
+    const handleUploadButtonClick = () => {
+        // Trigger click on the hidden file input
+        fileInputRef.current.click();
+    };
+
+
+
     return (
         <>
             <div className="container">
@@ -44,10 +64,21 @@ const EditAnnouncements = () => {
                             </div>
                             <div className="col-lg-6">
                                 <label hytmlFor="exampleFormControlInput1" className="form-label">Status</label>
+
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control " placeholder="Browse file" id="inputGroupFile02" />
-                                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                    <input onClick={handleUploadButtonClick} type="text" class="form-control ps-5" value={imageTitle ? imageTitle : ""} placeholder="Browse file" id="inputGroupFile02" />
+                                    <div className="form_icons">
+                                        <img style={{ top: "16px", left: "16px" }} src={brows} alt="" />
+                                    </div>
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
+                                        style={{ display: 'none' }}
+                                        onChange={handleFileInputChange}
+                                    />
+                                    <label class="input-group-text" for="" >Upload</label>
                                 </div>
+
                             </div>
                             <div className="col-lg-6">
                                 <div className="mb-3">

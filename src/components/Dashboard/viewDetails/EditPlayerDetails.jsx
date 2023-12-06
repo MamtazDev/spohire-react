@@ -49,7 +49,7 @@ const inputFieldData = [
 ]
 
 const EditPlayerDetails = () => {
-    
+
     // image upload
     const [selectedImages, setSelectedImages] = useState([]);
     const handleImageChange = (e) => {
@@ -71,8 +71,7 @@ const EditPlayerDetails = () => {
         }
     };
     // image upload
-
-
+    
     return (
         <div className="View_details container p-0 overflow-hidden">
             {/* <!-- Personal Info Start --> */}

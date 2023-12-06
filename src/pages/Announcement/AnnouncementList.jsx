@@ -4,12 +4,21 @@ import flag from '../../assets/flag.png';
 import dollar from '../../assets/coin-dollar.png';
 import location from '../../assets/location.png';
 import edit2 from '../../assets/edit2.png';
+import b1 from '../../assets/bookmark.png';
+
+import bookmarkfill from '../../assets/bookmark-fill.png';
 import delet from '../../assets/delete.png';
 import JobCategory from './JobCategory';
-import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
+import { useState } from 'react';
 
 const AnnouncementList = () => {
+    const [bookmark, setBookmark] = useState(false)
+
+    const handleBookmark = () => {
+        setBookmark(!bookmark)
+    }
+
     return (
         <>
             <div className="container" style={{ marginTop: "104px", marginBottom: "150px" }}>
@@ -45,10 +54,17 @@ const AnnouncementList = () => {
                                             </div>
                                             {/* icon div */}
                                             <div className='d-lg-block d-none'>
-                                                <div className='d-flex gap-3 '>
-                                                    <button className='bg-none' style={{ color: '#929292' }}> <i className="fa-regular fa-bookmark"></i></button>
-                                                    {/* <Link to="/editAnnouncements"> <img src={edit2} alt="edit" /> </Link>
-                                                    <button className='bg-none' data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <img src={delet} alt="delete" /></button> */}
+                                                <div >
+                                                    <button className='bg-none' onClick={handleBookmark}>
+                                                        {
+                                                            bookmark ?
+                                                                <img src={bookmarkfill} alt="" />
+                                                                :
+                                                                <img src={b1} alt="" />
+                                                        }
+
+                                                    </button>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -72,21 +88,7 @@ const AnnouncementList = () => {
                     </div>
                 </div>
             </div>
-            {/* delete modal */}
-            {/* <div className="modal fade" id="exampleModalToggle2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content delete_modal" style={{ padding: "40px", wordWrap: "unset" }}>
 
-                        <div className="modal-body" style={{ padding: "10px", marginBottom: "14px" }}>
-                            Are you sure want to delete Player Recruitment?
-                        </div>
-                        <div className="mx-auto delete_body_btns">
-                            <button type="button" className="no_btn">No</button>
-                            <button type="button" className="yes_btn" data-bs-dismiss="modal">Yes</button>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <DeleteModal />
 
 

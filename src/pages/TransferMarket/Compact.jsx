@@ -7,11 +7,11 @@ import flag5 from '../../assets/flag5.png';
 import { useNavigate } from 'react-router-dom';
 
 const Compact = () => {
-const navigate =useNavigate()
+    const navigate = useNavigate()
 
-const handlePath=()=>{
-    navigate('/gallary') 
-}
+    const handlePath = () => {
+        navigate('/gallary')
+    }
 
     return (
         <>
@@ -24,7 +24,7 @@ const handlePath=()=>{
                                     {
                                         [0, 1, 2, 3].map((data) => (
                                             <>
-                                                <tr onClick={handlePath} style={{cursor:"pointer"}} className='row_1' key={data}>
+                                                <tr onClick={handlePath} style={{ cursor: "pointer" }} className='row_1' key={data}>
                                                     <td >
                                                         <div className='div_data'>
                                                             <div className='d-flex gap_14 align-items-center'>
@@ -37,17 +37,26 @@ const handlePath=()=>{
                                                         </div>
                                                     </td>
 
-                                                    <td> <p className='age_text d-flex justify-content-center'>22</p></td>
-                                                    <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                         
+
+                                                    <td></td>
+                                                    <td> <p className='age_text d-flex justify-content-start'>22</p></td>
+                                                    <td></td>
+                                                    <td> <div className='d-flex flex-column gap_4 align-items-start' style={{ gap: '4px' }}>
                                                         <img src={flag1} alt="flag1" />
                                                         <img src={flag2} alt="flag1" />
                                                     </div></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
                                                         <img src={flag3} alt="flag1" />
                                                         <span className='postmouth_text mb-0'>Without Club</span>
                                                     </div></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td> <div className='d-flex align-items-center gap_19'>
                                                         <img src={flag4} alt="flag1" />
+
                                                         <div>
                                                             <p className='postmouth_text'>Portsmouth</p>
                                                             <img src={flag5} alt="flag1" />
@@ -55,8 +64,8 @@ const handlePath=()=>{
                                                     </div></td>
 
                                                 </tr>
-                                                <tr onClick={handlePath} style={{cursor:"pointer"}} className='row_2'>
-                                                    <td >
+                                                <tr onClick={handlePath} style={{ cursor: "pointer" }} className='row_2'>
+                                                <td >
                                                         <div className='div_data'>
                                                             <div className='d-flex gap_14 align-items-center'>
                                                                 <img className='profile_image11' src={mbappe} alt="" />
@@ -68,17 +77,25 @@ const handlePath=()=>{
                                                         </div>
                                                     </td>
 
-                                                    <td> <p className='age_text d-flex justify-content-center'>22</p></td>
-                                                    <td> <div className='d-flex flex-column gap_4 align-items-center' style={{ gap: '4px' }}>
+                                                    <td></td>
+
+                                                    <td> <p className='age_text d-flex justify-content-start'>22</p></td>
+                                                    <td></td>
+                                                    <td> <div className='d-flex flex-column gap_4 align-items-start' style={{ gap: '4px' }}>
                                                         <img src={flag1} alt="flag1" />
                                                         <img src={flag2} alt="flag1" />
                                                     </div></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td> <div className='d-flex gap_11 align-items-center justify-content-start'>
                                                         <img src={flag3} alt="flag1" />
                                                         <span className='postmouth_text mb-0'>Without Club</span>
                                                     </div></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td> <div className='d-flex align-items-center gap_19'>
                                                         <img src={flag4} alt="flag1" />
+
                                                         <div>
                                                             <p className='postmouth_text'>Portsmouth</p>
                                                             <img src={flag5} alt="flag1" />
