@@ -1,15 +1,15 @@
 import MobilePlayers from "../players/MobilePlayers";
 import playerImgOne from "../../../assets/playerImg.svg";
-import startIcon from "../../../assets/starIcon.svg";
 import messageIcon from "../../../assets/messageIcon.svg";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const PlayerOverview = () => {
     return (
         <>
             <div className="overview player_overview">
                 <div className="d-flex justify-content-between mt-lg-0 mt-4 mb-lg-0 mb-3">
-                    <h4>Trending Players</h4>
-                    <a href="">View More</a>
+                    <h4>Players</h4>
+                    <Link to="/dashboard/players">View More</Link>
                 </div>
                 <Table responsive className="players_desk content overview_table1" style={{
                     background: "#FFFDFD"
@@ -54,12 +54,10 @@ const PlayerOverview = () => {
 
                                     <td>
                                         <div className="d-flex align-items-center">
-                                            <p className="text_color_55 fw-normal fs_14">
-                                                <img src={startIcon} alt="star-icon" className="" />
-                                            </p>
+
 
                                             <p className="text_color_55 fw-normal fs_14">
-                                                <img src={messageIcon} alt="message-icon" className="ms-2" />
+                                                <Link to="/dashboard/messages"> <img src={messageIcon} alt="message-icon" className="ms-2" /></Link>
                                             </p>
                                         </div>
                                     </td>

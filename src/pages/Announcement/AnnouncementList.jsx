@@ -44,8 +44,6 @@ export default AnnouncementList;
 
 
 
-
-
 const SingleAnnouncement = () => {
     const [bookmark, setBookmark] = useState(false)
 

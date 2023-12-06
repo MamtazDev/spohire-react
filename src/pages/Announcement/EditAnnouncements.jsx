@@ -8,14 +8,12 @@ const EditAnnouncements = () => {
     const [imageTitle, setImageTitle] = useState("")
 
     const handleFileInputChange = (e) => {
-        // You can access the selected file using e.target.files[0]
         const selectedFile = e.target.files[0];
         console.log('Selected File:', selectedFile.name);
         setImageTitle(selectedFile.name)
     };
 
     const handleUploadButtonClick = () => {
-        // Trigger click on the hidden file input
         fileInputRef.current.click();
     };
 
