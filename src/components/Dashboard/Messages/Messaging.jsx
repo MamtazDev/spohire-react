@@ -1,28 +1,26 @@
 import senticon from '../../../assets/sentIcon.png'
 import send from '../../../assets/send.png'
 
-const Messaging = () => {
+const Messaging = ({ myParam, setShowChatDetails }) => {
+
+    const close = () => {
+        setShowChatDetails(true)
+    }
     return (
         <>
             <div className="messaging">
-                <h2>Albert Elham</h2>
+                <h2 onClick={close} className='pointer'>{myParam ? "Albert Elham" : "Dihan Abir"}</h2>
                 <div className='message_content'>
 
                     <div className='d-flex align-items-end'>
                         <div className='bg_curve_blue'>
-                            <div className='bg_curve_white'>
-
-                            </div>
+                            <div className='bg_curve_white'></div>
                         </div>
                         <div className='message1'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
                             <span>1 day ago</span>
                         </div>
                     </div>
-
-
-
-
 
                     <div className='d-flex align-items-end'>
                         <div className='message2'>
@@ -33,17 +31,13 @@ const Messaging = () => {
                             </div>
                         </div>
                         <div className='bg_curve_blue1'>
-                            <div className='bg_curve_white1'>
-
-                            </div>
+                            <div className='bg_curve_white1'></div>
                         </div>
                     </div>
 
                     <div className='d-flex align-items-end'>
                         <div className='bg_curve_blue'>
-                            <div className='bg_curve_white'>
-
-                            </div>
+                            <div className='bg_curve_white'></div>
                         </div>
                         <div className='message1'>
                             <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
@@ -59,14 +53,9 @@ const Messaging = () => {
                             </div>
                         </div>
                         <div className='bg_curve_blue1'>
-                            <div className='bg_curve_white1'>
-
-                            </div>
+                            <div className='bg_curve_white1'></div>
                         </div>
                     </div>
-
-            
-
 
                     <div className='d-flex align-items-end'>
                         <div className='bg_curve_blue'>
@@ -83,7 +72,9 @@ const Messaging = () => {
                 <div className='type_message'>
                     <input type="text" placeholder='Type Something...' />
                     <div className="send_img">
-                        <img src={send} alt="" />
+                        <button className='bg-none'>
+                            <img src={send} alt="" />
+                        </button>
                     </div>
                 </div>
             </div>

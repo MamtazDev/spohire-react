@@ -3,7 +3,6 @@
 import "./ViewDetails.css";
 import profileImage from "../../../assets/profile_jobOffer.png";
 import plus4 from "../../../assets/plus4.png";
-import ViewDetailsMobile from "./ViewDetailsMobile";
 import UpdateexperienceAndMedia from "./UpdateexperienceAndMedia";
 import EditGallary from "./EditGallary";
 import { useState } from "react";
@@ -55,10 +54,9 @@ const EditPlayerDetails = () => {
     const handleImageChange = (e) => {
         const files = e.target.files;
         const newImages = [];
-    
         for (let i = 0; i < files.length; i++) {
             const reader = new FileReader();
-    
+
             reader.onload = (e) => {
                 newImages.push(e.target.result);
                 if (newImages.length === files.length) {
@@ -66,15 +64,14 @@ const EditPlayerDetails = () => {
                     setSelectedImages(prevImages => [...prevImages, ...newImages]);
                 }
             };
-    
+
             reader.readAsDataURL(files[i]);
         }
     };
     // image upload
-    
+
     return (
         <div className="View_details container p-0 overflow-hidden">
-            {/* <!-- Personal Info Start --> */}
             <div className="job_offer desktop_vd edit_player_details_wrapper  ps-lg-0 pe-lg-0">
                 <div className="row" style={{ margin: "0 40px" }}>
                     <div className="col-12 col-lg-3 ">
@@ -84,13 +81,13 @@ const EditPlayerDetails = () => {
                     </div>
                     <div className="col-12 col-lg-9">
                         <div className="edit_profile_input">
-                            <div className="mb-4 position-relative z">
+                            <div className="mb-4 position-relative">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Player Name</label>
                                 {/*  */}
                                 <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="your name" />
 
                             </div>
-                            <div className="mb-4 position-relative z">
+                            <div className="mb-4 position-relative">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Sports Type</label>
                                 {/*  */}
                                 <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="Basketball" />
@@ -105,7 +102,7 @@ const EditPlayerDetails = () => {
                                             <div className="d-flex flex-column align-items-start gap-3" style={{ marginBottom: index < inputFieldData.length - 3 ? "40px" : "0" }}>
                                                 <div className="w-100">
                                                     <label htmlFor={`exampleFormControlInput${index + 1}`} className="form-label">{field.lable}</label>
-                                                    {/*  */}
+
                                                     <input type="text" className="form-control" id={`exampleFormControlInput${index + 1}`} placeholder={field.placeholderText} />
                                                 </div>
                                             </div>
@@ -158,11 +155,8 @@ const EditPlayerDetails = () => {
             {/* <!-- Slider Start --> */}
             <div className="d-flex align-items-center gap-3 mb_28">
                 <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
-                {/* <button className="add_image_btn bg-none">
-                    <span>Add Image</span>
-                    <img src={plus4} alt="" />
-                </button> */}
-                <label className="add_image_btn bg-none">
+            
+                <label style={{ cursor: "pointer" }} className="add_image_btn bg-none">
                     <span>Add Image</span>
                     <img src={plus4} alt="" />
                     <input type="file" multiple onChange={handleImageChange} style={{ display: 'none' }} />

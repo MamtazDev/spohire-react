@@ -65,10 +65,10 @@ const EditAnnouncements = () => {
                             <div className="col-lg-6">
                                 <label hytmlFor="exampleFormControlInput1" className="form-label">Status</label>
 
-                                <div class="input-group mb-3">
-                                    <input onClick={handleUploadButtonClick} type="text" class="form-control ps-5" value={imageTitle ? imageTitle : ""} placeholder="Browse file" id="inputGroupFile02" />
+                                <div class="input-group mb-3 ">
+                                    <input onClick={handleUploadButtonClick} type="text" class="form-control position-relative ps-5" value={imageTitle ? imageTitle : ""} placeholder="Browse file" id="inputGroupFile02" />
                                     <div className="form_icons">
-                                        <img style={{ top: "16px", left: "16px" }} src={brows} alt="" />
+                                        <img style={{position:"absolute", bottom: "-2px", left: "0" }} src={brows} alt="" />
                                     </div>
                                     <input
                                         type="file"
@@ -76,7 +76,7 @@ const EditAnnouncements = () => {
                                         style={{ display: 'none' }}
                                         onChange={handleFileInputChange}
                                     />
-                                    <label class="input-group-text" for="" >Upload</label>
+                                    <label class="input-group-text" for="" onClick={handleUploadButtonClick}>Upload</label>
                                 </div>
 
                             </div>
@@ -90,7 +90,7 @@ const EditAnnouncements = () => {
                             </div>
                         </div>
                         <div className="text-center">
-                            <button className="update_btn1" type="submit">Update</button>
+                            <button  className="update_btn1" type="submit">Update</button>
                         </div>
 
                     </form>
