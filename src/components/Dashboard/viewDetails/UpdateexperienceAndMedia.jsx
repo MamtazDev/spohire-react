@@ -5,34 +5,8 @@ import Twitter from '../../../assets/twiter1.png'
 import plus from '../../../assets/plus3.png'
 import { useState } from 'react';
 
-
 const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) => {
-    // const [experienceFormData, setExperienceFormData] = useState({
-    //     experiences: [
-    //         { startYear: '', endYear: '' },
-    //     ],
-    //     clubName:""
-    // });
-    // const handleChange = (e, index) => {
-    //     const { name, value } = e.target;
-    //     const updatedExperiences = [...experienceFormData.experiences];
-    //     updatedExperiences[index] = {
-    //         ...updatedExperiences[index],
-    //         [name]: value,
-    //     };
-    //     setFormData((prevData) => ({
-    //         ...prevData,
-    //         experiences: updatedExperiences,
-    //         clubName:experienceFormData.clubName
-    //     }));
-    // };
 
-    // const handleAddMore = () => {
-    //     setExperienceFormData((prevData) => ({
-    //         ...prevData,
-    //         experiences: [...prevData.experiences, { startYear: '', endYear: '' }],
-    //     }));
-    // };
     const [experienceFormData, setExperienceFormData] = useState({
         experiences: [{ startYear: '', endYear: '' }],
         clubName: "",
@@ -42,7 +16,6 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
             twitter: ""
         }
     });
-
 
     const handleChange = (e, index) => {
         const { name, value } = e.target;
@@ -77,7 +50,6 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
             }
         }
 
-        // Combine experiences, clubName, socialMedia, and other fields from formData
         const updatedFormData = {
             ...formData,
             experiences: experienceFormData.experiences,
@@ -93,9 +65,6 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
         setFormData(updatedFormData);
     };
 
-
-
-
     const handleAddMore = () => {
         setExperienceFormData((prevData) => ({
             ...prevData,
@@ -105,7 +74,7 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
 
     return (
         <>
-            <div className="container" >
+            <div className="container">
                 <div className="experience_wrapper">
                     <div className="row personal_info_edit_wrapper">
                         <div className="col-lg-6 mb-lg-0 mb-4">
@@ -119,7 +88,7 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                         onChange={(e) => handleChange(e)}
                                         type="text"
                                         className="form-control"
-                                        name="clubName"  // This is where the 'name' comes from
+                                        name="clubName"
                                         id="exampleFormControlInput1"
                                         placeholder="Cleveland Cavaliers"
                                     />
@@ -132,7 +101,7 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                                     Start Year
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     className="form-control"
                                                     id={`startYear${index}`}
                                                     name="startYear"
@@ -148,7 +117,7 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                                     End Year
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     className="form-control"
                                                     id={`endYear${index}`}
                                                     name="endYear"
@@ -179,9 +148,6 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                         <img className='mt-0' src={insta} alt="user" />
                                     </div>
 
-
-
-
                                     <input
                                         onChange={(e) => handleChange(e)}
                                         type="text"
@@ -192,16 +158,13 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
 
                                     />
 
-
                                 </div>
                                 <div className="position-relative">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Facebook</label>
                                     <div className='form_icons ' style={{ top: "46px" }}>
                                         <img className='mt-0' src={fb} alt="user" />
                                     </div>
-
                                     <input
-                                        //  onChange={(e) => handleChange(e)}
                                         onChange={(e) => handleChange(e)}
                                         type="text"
                                         className="form-control ps-5"
@@ -217,8 +180,6 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                         <img className='mt-0' src={Twitter} alt="user" />
                                     </div>
 
-
-
                                     <input
                                         onChange={(e) => handleChange(e)}
                                         type="text"
@@ -226,15 +187,8 @@ const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) 
                                         name="socialMedia.twitter"
                                         id="exampleFormControlInput1"
                                         placeholder="johnkawalski05"
-
-
                                     />
-
-
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

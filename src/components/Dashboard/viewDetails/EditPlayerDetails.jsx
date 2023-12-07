@@ -63,6 +63,10 @@ const EditPlayerDetails = () => {
                     console.log('Selected Images:', newImages);
                     setSelectedImages(prevImages => [...prevImages, ...newImages]);
                 }
+                setFormData((prevData) => ({
+                    ...prevData,
+                    gallary: newImages,
+                }))
             };
             reader.readAsDataURL(files[i]);
         }
@@ -193,7 +197,9 @@ const EditPlayerDetails = () => {
                             </p>
                             <div className="">
                                 {/*  */}
-                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                <textarea
+                                    onChange={(e) => handleInputChange('strengthsAdvantages', e.target.value)}
+                                    className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
                                     defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
                             </div>
                         </div>
@@ -201,7 +207,9 @@ const EditPlayerDetails = () => {
                             <p className="f_sfPro text_color_36 fs_18 mb-2">About Me</p>
                             <div className="">
                                 {/*  */}
-                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                <textarea
+                                    onChange={(e) => handleInputChange('aboutMe', e.target.value)}
+                                    className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
                                     defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
                             </div>
                         </div>
@@ -212,7 +220,9 @@ const EditPlayerDetails = () => {
                             </p>
                             <div className="">
                                 {/*  */}
-                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                <textarea
+                                    onChange={(e) => handleInputChange('expectationsFromClub', e.target.value)}
+                                    className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
                                     defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
                             </div>
                         </div>
