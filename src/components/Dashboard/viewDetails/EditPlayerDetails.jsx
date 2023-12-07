@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import "./ViewDetails.css";
-import profileImage from "../../../assets/profile_jobOffer.png";
+import profileImage from "../../../assets/profile_upload.png";
+import upload from "../../../assets/upload.png";
 import plus4 from "../../../assets/plus4.png";
 import UpdateexperienceAndMedia from "./UpdateexperienceAndMedia";
 import EditGallary from "./EditGallary";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 // data
 const inputFieldData = [
@@ -48,10 +49,9 @@ const inputFieldData = [
 ]
 
 const EditPlayerDetails = () => {
-
-    // image upload
     const [selectedImages, setSelectedImages] = useState([]);
-    const handleImageChange = (e) => {
+
+    const handleGallaryImageChange = (e) => {
         const files = e.target.files;
         const newImages = [];
         for (let i = 0; i < files.length; i++) {
@@ -64,32 +64,65 @@ const EditPlayerDetails = () => {
                     setSelectedImages(prevImages => [...prevImages, ...newImages]);
                 }
             };
-
             reader.readAsDataURL(files[i]);
         }
     };
     // image upload
+    const [selectedImage, setSelectedImage] = useState(null);
+    const fileInputRef = useRef(null);
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setSelectedImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleButtonClick = () => {
+        // Trigger the file input using React Ref
+        fileInputRef.current.click();
+    };
     return (
         <div className="View_details container p-0 overflow-hidden">
             <div className="job_offer desktop_vd edit_player_details_wrapper  ps-lg-0 pe-lg-0">
                 <div className="row" style={{ margin: "0 40px" }}>
-                    <div className="col-12 col-lg-3 ">
-                        <div className="">
-                            <img className="img-fluid" src={profileImage} alt="Profile" />
+                    <div className="col-12 col-lg-3 ps-lg-5">
+                        <div className="upload_profile_image" onClick={handleButtonClick}>
+                            {/* <img className="img-fluid" src={profileImage} alt="Profile" /> */}
+                            <img className="img-fluid profiles" src={selectedImage || profileImage} alt="Profile" />
+
+                            <div>
+                                {!selectedImage && <button className="profile_upload_btn" onClick={handleButtonClick}>
+                                    <img src={upload} alt="" />
+                                    <span>Upload</span>
+                                </button>}
+                                {/* Hidden file input with React Ref */}
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    accept="image/*"
+                                    style={{ display: 'none' }}
+                                    onChange={handleImageChange}
+                                />
+                            </div>
+
                         </div>
                     </div>
                     <div className="col-12 col-lg-9">
                         <div className="edit_profile_input">
                             <div className="mb-4 position-relative">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Player Name</label>
-                                {/*  */}
+
                                 <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="your name" />
 
                             </div>
                             <div className="mb-4 position-relative">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Sports Type</label>
-                                {/*  */}
                                 <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="Basketball" />
                             </div>
 
@@ -155,11 +188,11 @@ const EditPlayerDetails = () => {
             {/* <!-- Slider Start --> */}
             <div className="d-flex align-items-center gap-3 mb_28">
                 <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
-            
+
                 <label style={{ cursor: "pointer" }} className="add_image_btn bg-none">
                     <span>Add Image</span>
                     <img src={plus4} alt="" />
-                    <input type="file" multiple onChange={handleImageChange} style={{ display: 'none' }} />
+                    <input type="file" multiple onChange={handleGallaryImageChange} style={{ display: 'none' }} />
                 </label>
             </div>
 

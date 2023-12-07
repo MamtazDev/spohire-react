@@ -19,11 +19,9 @@ const Players = () => {
 
   };
   const [bookmark, setBookmark] = useState(false)
-
   const handleBookmark = () => {
     setBookmark(!bookmark)
   }
-
   return (
     <div className="players">
       <Table responsive className="players_desk content">
@@ -31,7 +29,6 @@ const Players = () => {
           <tr>
             <th className="fs_14 text_color_36 fw-normal">
               <div className="d-flex align-items-center">
-
                 <p>Name</p>
               </div>
             </th>
@@ -91,7 +88,6 @@ const Players = () => {
                           <img src={b1} alt="" />
                       }
                     </button>
-
                     <Link to="/dashboard/messages" className="text_color_55 fw-normal fs_14">
                       <img src={messageIcon} alt="message-icon" className="ms-2" />
                     </Link>
