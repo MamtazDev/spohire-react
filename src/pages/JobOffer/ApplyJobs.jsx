@@ -13,14 +13,13 @@ const formFields = [
     { label: 'Region', type: 'text', key: 'region', icon: region, placeholder: 'Enter your region' },
     { label: 'Birth Date', type: 'date', key: 'birthDate', icon: dob, placeholder: 'Enter your birth date' },
     { label: 'Playing Position', type: 'text', key: 'playingPosition', icon: position, placeholder: 'Enter your playing position' },
-    { label: 'Your Weight', type: 'text', key: 'weight', icon: weight, placeholder: 'Enter your weight' },
-    { label: 'Your Height', type: 'text', key: 'height', icon: height, placeholder: 'Enter your height' },
-    { label: 'Expected Salary', type: 'text', key: 'expectedSalary', icon: salary, placeholder: 'Numerical digit only' },
+    { label: 'Your Weight', type: 'number', key: 'weight', icon: weight, placeholder: 'Enter your weight' },
+    { label: 'Your Height', type: 'number', key: 'height', icon: height, placeholder: 'Enter your height' },
+    { label: 'Expected Salary', type: 'number', key: 'expectedSalary', icon: salary, placeholder: 'Numerical digit only' },
     { label: 'Language', type: 'text', key: 'language', icon: language, placeholder: 'Enter your language' },
 ];
 
 const ApplyJobs = () => {
-
     const [formData, setFormData] = useState({
         name: '',
         region: '',

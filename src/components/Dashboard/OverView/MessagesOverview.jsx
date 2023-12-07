@@ -1,6 +1,39 @@
 
 import profile from '../../../assets/chatprofile.png'
 
+
+const chatData = [
+    {
+        name: 'Abram Korsgaard',
+        message: 'Yeah, I’m done with it...',
+        time: '12:34',
+        profile:profile
+    },
+    {
+        name: 'John Doe',
+        message: 'Hello there!',
+        time: '13:45',
+        profile:profile
+    },
+    {
+        name: 'Abram Korsgaard',
+        message: 'Yeah, I’m done with it...',
+        time: '12:34',
+        profile:profile
+    },
+    {
+        name: 'John Doe',
+        message: 'Hello there!',
+        time: '13:45',
+        profile:profile
+    },
+    {
+        name: 'John Doe',
+        message: 'Hello there!',
+        time: '13:45',
+        profile:profile
+    },
+];
 const MessagesOverview = () => {
     return (
         <div>
@@ -10,88 +43,25 @@ const MessagesOverview = () => {
                     <a href="/dashboard/messages">View More</a>
                 </div>
 
-
-                <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3'>
-                    <div className='d-flex align-items-center gap-2'>
-                        <div>
-                            <img src={profile} alt="profile" />
+                {chatData.map((data, index) => (
+                   <>
+                    <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3' key={index}>
+                        <div className='d-flex align-items-center gap-2'>
+                            <div>
+                                <img src={data.profile} alt="profile" />
+                            </div>
+                            <div>
+                                <h5>{data.name}</h5>
+                                <span>{data.message}</span>
+                            </div>
                         </div>
                         <div>
-                            <h5>Abram Korsgaard</h5>
-                            <span>Yeah, I’m done with it...</span>
+                            <p>{data.time}</p>
                         </div>
                     </div>
-                    <div>
-                        <p>12:34</p>
-                    </div>
-                </div>
-                <hr className='message_overview_hr' />
-
-                <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3'>
-                    <div className='d-flex align-items-center gap-2'>
-                        <div>
-                            <img src={profile} alt="profile" />
-                        </div>
-                        <div>
-                            <h5>Abram Korsgaard</h5>
-                            <span>Yeah, I’m done with it...</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p>12:34</p>
-                    </div>
-                </div>
-                <hr className='message_overview_hr' />
-
-                <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3'>
-                    <div className='d-flex align-items-center gap-2'>
-                        <div>
-                            <img src={profile} alt="profile" />
-                        </div>
-                        <div>
-                            <h5>Abram Korsgaard</h5>
-                            <span>Yeah, I’m done with it...</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p>12:34</p>
-                    </div>
-                </div>
-                <hr className='message_overview_hr' />
-
-                <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3'>
-                    <div className='d-flex align-items-center gap-2'>
-                        <div>
-                            <img src={profile} alt="profile" />
-                        </div>
-                        <div>
-                            <h5>Abram Korsgaard</h5>
-                            <span>Yeah, I’m done with it...</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p>12:34</p>
-                    </div>
-                </div>
-                <hr className='message_overview_hr' />
-                <div className='d-flex align-items-start justify-content-between chat_wrapper mt-3'>
-                    <div className='d-flex align-items-center gap-2'>
-                        <div>
-                            <img src={profile} alt="profile" />
-                        </div>
-                        <div>
-                            <h5>Abram Korsgaard</h5>
-                            <span>Yeah, I’m done with it...</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p>12:34</p>
-                    </div>
-                </div>
-
-
-
-
+                        {index !== chatData.length - 1 && <hr className='message_overview_hr' />}
+                   </>
+                ))}
             </div>
         </div>
     );

@@ -30,13 +30,13 @@ const ViewDetails = () => {
               Basketball
             </span>
             <button className="edit_player_profile"><Link to="/dashboard/editPlayerDetals">Edit Profile</Link></button>
-            <div className="personalInfo">
+            <div className="personalInfo" style={{marginRight:"48px"}}>
               <p className="f_sfPro text_color_36 fs_18">
                 Personal Information
               </p>
-              <button className="message">
+              {/* <button className="message">
                 <img className="img-fluid" src={messageImage} alt="Message" />
-              </button>
+              </button> */}
               <div className="row mb_40">
                 <div className="col-12 col-md-4">
                   <div className="d-flex flex-column align-items-start gap-3">

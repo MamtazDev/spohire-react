@@ -9,10 +9,10 @@ import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import AddAnnouncement from "../Announcements/AddAnnouncement";
 
 const Topbar = () => {
+  
   const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);
-
 
   const handleFilterModal = () => {
     setFilter(!filter);
@@ -33,9 +33,6 @@ const Topbar = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [filter]);
-
-
-
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleAddJobOfferClick = () => {

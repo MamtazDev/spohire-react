@@ -131,7 +131,7 @@
 
     .navbar {
         padding-top: 28px;
-        padding-bottom:28px;
+        padding-bottom: 28px;
     }
 
     .navbar-nav {
@@ -152,10 +152,11 @@
     .authBtn {
         background-image: url('../../assets/signupbgsm.png');
     }
-.profile_dropdown{
-    top:60%!important;
-    right: 140px !important;
-}
+
+    .profile_dropdown {
+        top: 60% !important;
+        right: 140px !important;
+    }
 
 }
 
@@ -241,7 +242,7 @@
     border-radius: 5px;
     position: absolute;
     right: 100px;
-    top:30px;
+    top: 30px;
     padding: 12px;
 }
 
@@ -289,6 +290,21 @@
 .profile_picture {
     margin-right: 170px;
 }
+.nav_toggle{
+    
+}
+
+@media(min-width:1024px) {
+    .profile_dropdown {
+        /* display: none; */
+    }
+}
+
+@media(min-width:1440px) {
+    .profile_dropdown {
+        /* right: 0; */
+    }
+}
 
 @media(max-width:768px) {
     .profile_dropdown {
@@ -299,12 +315,14 @@
         margin-right: 0;
         margin-top: 20px;
     }
-    .profile_drop_mobilepadding{
+
+    .profile_drop_mobilepadding {
         padding-bottom: 50px !important;
     }
-    .market_filter_wrapper{
+
+    .market_filter_wrapper {
         width: 100%;
         padding: 20px;
     }
-    
+
 }

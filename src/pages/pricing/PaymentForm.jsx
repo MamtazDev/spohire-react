@@ -49,32 +49,60 @@ const options1 = [
 const PaymentForm = () => {
     const [nationality, setNationality] = useState("");
 
+
+    const [selectedOption, setSelectedOption] = useState('flexRadioDefault1');
+
+    const handleButtonClick = (id) => {
+        setSelectedOption(id);
+    };
     return (
         <>
             <div className="container mb-2 pb-5">
                 <h2 className="payment_title">Payment <span>Process</span></h2>
-
-
                 <div className="payment_process_wrapper">
                     <p>Select payment option</p>
                     <div className="all_payments_system">
                         <div className="card_wrapper">
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked />
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1"
+                                    checked={selectedOption === 'flexRadioDefault1'}
+                                />
                             </div>
-                            <button className="card_btn"> <img src={credit} alt="credit card" /> <span>Card</span></button>
+                            <button className="card_btn" onClick={() => handleButtonClick('flexRadioDefault1')}> <img src={credit} alt="credit card" /> <span>Card</span></button>
                         </div>
                         <div className="card_wrapper">
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault2"
+                                    checked={selectedOption === 'flexRadioDefault2'}
+                                />
                             </div>
-                            <button className="card_btn" htmlFor="flexRadioDefault2"> <img src={klarna} alt="" /> <span>Klarna</span></button>
+                            <button className="card_btn" onClick={() => handleButtonClick('flexRadioDefault2')}>
+                                <img src={klarna} alt="" />
+                                <span>Klarna</span>
+                            </button>
                         </div>
                         <div className="card_wrapper">
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault3"
+                                    checked={selectedOption === 'flexRadioDefault3'}
+                                />
                             </div>
-                            <button className="card_btn" htmlFor="flexRadioDefault3">  <img src={afterpay} alt="" /> <span>Afterpay</span></button>
+                            <button className="card_btn" onClick={() => handleButtonClick('flexRadioDefault3')}>
+                                <img src={afterpay} alt="" />
+                                <span>Afterpay</span>
+                            </button>
                         </div>
                     </div>
 
@@ -86,10 +114,10 @@ const PaymentForm = () => {
                             placeholder="Card name"
                         />
                         <div className='card_img'>
-                            <img src={v1} alt="" />
-                            <img src={v2} alt="" />
-                            <img src={v3} alt="" />
-                            <img src={v4} alt="" />
+                            <img src={v1} alt="card" />
+                            <img src={v2} alt="card" />
+                            <img src={v3} alt="card" />
+                            <img src={v4} alt="card" />
                         </div>
                     </div>
                     {/* Expiration */}

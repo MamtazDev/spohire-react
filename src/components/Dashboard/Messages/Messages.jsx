@@ -5,7 +5,8 @@ import Messaging from './Messaging';
 import chaticon from '../../../assets/chaticon.png'
 import chatclose from '../../../assets/chatclose.png'
 import profile from '../../../assets/chat_info-profile.png'
-
+import senticon from '../../../assets/sentIcon.png'
+import send from '../../../assets/send.png'
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -14,19 +15,35 @@ const Messages = () => {
 
     const myParam = searchParams.get('profile');
 
-    console.log("|myParam|", myParam)
-
-    // Remove a query parameter
-    //  setSearchParams((params) => {
-    //     params.delete('myParam');
-    //     return params;
-    //   });
+    // console.log("|myParam|", myParam)
 
     const [showChatDetails, setShowChatDetails] = useState(true);
 
     const handleChatCloseClick = () => {
         setShowChatDetails(false);
     };
+    const close = () => {
+        setShowChatDetails(true)
+    }
+    // messaging ----------function
+    const [inputValue, setInputValue] = useState('');
+    // State to store the array of data
+    const [sendMessageArray, setSendMessageArray] = useState([]);
+
+    // Function to handle input change
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+    // Function to handle send button click
+    const handleSendClick = () => {
+        setSendMessageArray((prevData) => [...prevData, inputValue]);
+        setInputValue('');
+    };
+    console.log(sendMessageArray)
+
+
+
+
     return (
         <>
             <div className="container-fluid">
@@ -46,7 +63,55 @@ const Messages = () => {
                         </div>
                         <div className={`col-lg-${showChatDetails ? '6' : '9'} message_border d-flex`}>
                             <div className='border-right'></div>
-                            <Messaging setShowChatDetails={setShowChatDetails}  myParam={myParam} />
+                            {/* <Messaging setShowChatDetails={setShowChatDetails}  myParam={myParam} /> */}
+                            <div className="messaging">
+                                <h2 onClick={close} className='pointer'>{myParam ? "Albert Elham" : "Dihan Abir"}</h2>
+                                <div className='message_content'>
+                                    <div className='d-flex align-items-end'>
+                                        <div className='bg_curve_blue'>
+                                            <div className='bg_curve_white'></div>
+                                        </div>
+                                        <div className='message1'>
+                                            <p>Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis.</p>
+                                            <span>1 day ago</span>
+                                        </div>
+
+
+                                    </div>
+                                    {
+                                        sendMessageArray.map((data) => (
+                                            <>
+                                                <div className='d-flex align-items-end'>
+                                                    <div className='message2'>
+                                                        <p>{data ? data : "Lorem ipsum dolor sit amet consectetur. Nullam risus sem euismod nullam. Eu lectus morbi faucibus morbi sociis."}</p>
+                                                        <div className="d-flex justify-content-between mt-2 align-items-center">
+                                                            <span>1 min ago</span>
+                                                            <img src={senticon} alt="sent" />
+                                                        </div>
+                                                    </div>
+                                                    <div className='bg_curve_blue1'>
+                                                        <div className='bg_curve_white1'></div>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        ))
+                                    }
+                                </div >
+
+
+                                {/* message type */}
+                                <div className='type_message'>
+                                    <input type="text" placeholder='Type Something...'
+                                        className="form-control"
+                                        value={inputValue}
+                                        onChange={handleInputChange} />
+                                    <div className="send_img">
+                                        <button onClick={handleSendClick} className='bg-none'>
+                                            <img src={send} alt="" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             {showChatDetails && <div className='border-right'></div>}
                         </div>
 

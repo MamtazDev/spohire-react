@@ -49,7 +49,7 @@ const Header = () => {
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
             </Nav.Link>
           </Navbar.Brand>
-          <div className="d-block d-md-none">
+          <div className=" nav_toggle">
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

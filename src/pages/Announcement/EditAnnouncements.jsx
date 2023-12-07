@@ -4,20 +4,56 @@ import brows from '../../assets/brows.png'
 import { useState } from 'react';
 const EditAnnouncements = () => {
 
+    // const fileInputRef = useRef(null);
+    // const [imageTitle, setImageTitle] = useState("")
+
+    // const handleFileInputChange = (e) => {
+    //     const selectedFile = e.target.files[0];
+    //     console.log('Selected File:', selectedFile.name);
+    //     setImageTitle(selectedFile.name)
+    // };
+
+    // const handleUploadButtonClick = () => {
+    //     fileInputRef.current.click();
+    // };
     const fileInputRef = useRef(null);
-    const [imageTitle, setImageTitle] = useState("")
+    const [formValues, setFormValues] = useState({
+        title: '',
+        status: '',
+        location: '',
+        budget: '',
+        file: null,
+        description: '',
+    });
+
+    const [imageTitle, setImageTitle] = useState('');
 
     const handleFileInputChange = (e) => {
         const selectedFile = e.target.files[0];
         console.log('Selected File:', selectedFile.name);
-        setImageTitle(selectedFile.name)
+        setImageTitle(selectedFile.name);
+
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            file: selectedFile,
+        }));
+    };
+
+    const handleInputChange = (name, value) => {
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            [name]: value,
+        }));
     };
 
     const handleUploadButtonClick = () => {
         fileInputRef.current.click();
     };
 
-
+    const handleUpdateClick = (e) => {
+        e.preventDefault();
+        console.log('Form Data:', formValues);
+    };
 
     return (
         <>
@@ -26,21 +62,44 @@ const EditAnnouncements = () => {
                     <div>
                         <h3>Edit Announcement</h3>
                     </div>
-                    <form action="">
+                    <form action="" onSubmit={handleUpdateClick}>
                         <div className="row mt_30 mb_56">
                             <div className="col-lg-6">
                                 <div className="mb-3">
                                     <label hytmlFor="exampleFormControlInput1" className="form-label">Title</label>
-                                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Announcement Title" />
+                                    {/* <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Announcement Title" /> */}
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="exampleFormControlInput1"
+                                        placeholder="Announcement Title"
+                                        value={formValues.title}
+                                        onChange={(e) => handleInputChange('title', e.target.value)}
+                                    />
                                 </div>
                             </div>
                             <div className="col-lg-6">
                                 <div className="mb-3">
                                     <label hytmlFor="exampleFormControlInput1" className="form-label">Status</label>
                                     <div className="status_buttons">
-                                        <button>In progress</button>
-                                        <button>Completed</button>
-                                        <button>Denied</button>
+                                        <button
+                                            onClick={() => handleInputChange('status', 'In Progress')}
+                                            className={formValues.status === 'In Progress' ? 'active_status' : ''}
+                                        >
+                                            In Progress
+                                        </button>
+                                        <button
+                                            onClick={() => handleInputChange('status', 'Completed')}
+                                            className={formValues.status === 'Completed' ? 'active_status' : ''}
+                                        >
+                                            Completed
+                                        </button>
+                                        <button
+                                            onClick={() => handleInputChange('status', 'Denied')}
+                                            className={formValues.status === 'Denied' ? 'active_status' : ''}
+                                        >
+                                            Denied
+                                        </button>
                                     </div>
 
                                 </div>
@@ -48,15 +107,32 @@ const EditAnnouncements = () => {
                             <div className="col-lg-6">
                                 <div className="mb-3">
                                     <label hytmlFor="exampleFormControlInput1" className="form-label">Location</label>
-                                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Vegas street circuit" />
+                                    {/* <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Vegas street circuit" /> */}
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="exampleFormControlInput1"
+                                        placeholder="Vegas street circuit"
+                                        value={formValues.location}
+                                        onChange={(e) => handleInputChange('location', e.target.value)}
+                                    />
                                 </div>
                             </div>
                             <div className="col-lg-6">
                                 <div className="mb-3">
-                                    <label hytmlFor="exampleFormControlInput1" className="form-label">Status</label>
+                                    <label hytmlFor="exampleFormControlInput1" className="form-label">Budget</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text input_budget" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" />
+                                        {/* <input type="text" class="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" /> */}
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            placeholder="500"
+                                            aria-label="Budget"
+                                            aria-describedby="basic-addon1"
+                                            value={formValues.budget}
+                                            onChange={(e) => handleInputChange('budget', e.target.value)}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +142,7 @@ const EditAnnouncements = () => {
                                 <div class="input-group mb-3 ">
                                     <input onClick={handleUploadButtonClick} type="text" class="form-control position-relative ps-5" value={imageTitle ? imageTitle : ""} placeholder="Browse file" id="inputGroupFile02" />
                                     <div className="form_icons">
-                                        <img style={{position:"absolute", bottom: "-2px", left: "0" }} src={brows} alt="" />
+                                        <img style={{ position: "absolute", bottom: "-2px", left: "0" }} src={brows} alt="" />
                                     </div>
                                     <input
                                         type="file"
@@ -88,7 +164,7 @@ const EditAnnouncements = () => {
                             </div>
                         </div>
                         <div className="text-center">
-                            <button  className="update_btn1" type="submit">Update</button>
+                            <button className="update_btn1" type="submit">Update</button>
                         </div>
 
                     </form>

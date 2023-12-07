@@ -10,15 +10,15 @@ import { useRef, useState } from "react";
 
 // data
 const inputFieldData = [
-    { label: 'Name', placeholderText: 'Your name' },
-    { label: 'Date of Birth', placeholderText: 'DD-MM-YYYY' },
-    { label: 'Age', placeholderText: 'Your Age' },
-    { label: 'Nationality', placeholderText: 'Your Nationality' },
-    { label: 'Position', placeholderText: 'Your Position' },
-    { label: 'Dominant Hand', placeholderText: 'Your Dominant Hand' },
-    { label: 'Height', placeholderText: 'You Height' },
-    { label: 'Weight', placeholderText: 'Your Weight' },
-    { label: 'Race', placeholderText: 'Your Race' },
+    { label: 'Name', placeholderText: 'Your name', type: "text" },
+    { label: 'Date of Birth', placeholderText: 'DD-MM-YYYY', type: "date" },
+    { label: 'Age', placeholderText: 'Your Age', type: "number" },
+    { label: 'Nationality', placeholderText: 'Your Nationality', type: "text" },
+    { label: 'Position', placeholderText: 'Your Position', type: "text" },
+    { label: 'Dominant Hand', placeholderText: 'Your Dominant Hand', type: "text" },
+    { label: 'Height', placeholderText: 'You Height', type: "number" },
+    { label: 'Weight', placeholderText: 'Your Weight', type: "number" },
+    { label: 'Race', placeholderText: 'Your Race', type: "text" },
 ];
 
 
@@ -100,7 +100,7 @@ const EditPlayerDetails = () => {
             [fieldName]: value,
         }));
     };
-    // console.log(formData)
+
     // form submit data
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -146,7 +146,6 @@ const EditPlayerDetails = () => {
                                 </div>
                                 <div className="mb-4 position-relative">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Sports Type</label>
-
                                     <input
                                         type="text"
                                         className="form-control"
@@ -160,7 +159,6 @@ const EditPlayerDetails = () => {
                             </div>
                             <div className="personalInfo editpersonal_info">
                                 <div className="row mb_40">
-
                                     {inputFieldData.map((field, index) => (
                                         <div key={index} className="col-12 col-md-4">
                                             <div className="personal_info_edit_wrapper">
@@ -168,7 +166,7 @@ const EditPlayerDetails = () => {
                                                     <div className="w-100">
                                                         <label htmlFor={`exampleFormControlInput${index + 1}`} className="form-label">{field.label}</label>
                                                         <input
-                                                            type="text"
+                                                            type={field.type}
                                                             className="form-control"
                                                             id={`exampleFormControlInput${index + 1}`}
                                                             placeholder={field.placeholderText}
