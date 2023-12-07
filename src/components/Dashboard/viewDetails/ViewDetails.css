@@ -397,3 +397,54 @@ height: 584px;
 
 
 }
+
+
+/* 
+
+ const [formData, setFormData] = useState({
+        experiences: [{ startYear: '', endYear: '' }],
+        socialMedia: {
+            instagram: '',
+            facebook: '',
+            twitter: '',
+        },
+    });
+
+    const handleChange = (e, index) => {
+        const { name, value } = e.target;
+        const updatedExperiences = [...formData.experiences];
+        updatedExperiences[index] = {
+            ...updatedExperiences[index],
+            [name]: value,
+        };
+        setFormData((prevData) => ({
+            ...prevData,
+            experiences: updatedExperiences,
+        }));
+
+        // Pass the input values to the parent component
+        handleInputChange({ ...formData, experiences: updatedExperiences });
+    };
+
+    const handleSocialMediaChange = (platform, value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            socialMedia: {
+                ...prevData.socialMedia,
+                [platform]: value,
+            },
+        }));
+
+        // Pass the input values to the parent component
+        handleInputChange({ ...formData, socialMedia: { ...formData.socialMedia, [platform]: value } });
+    };
+
+    const handleAddMore = () => {
+        setFormData((prevData) => ({
+            ...prevData,
+            experiences: [...prevData.experiences, { startYear: '', endYear: '' }],
+        }));
+    };
+
+
+*/

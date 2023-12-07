@@ -5,7 +5,6 @@ import "swiper/css/pagination";
 import sliderOne from "../../../assets/slader1.png";
 
 const EditGallary = ({ images }) => {
-  console.log(images)
   return (
     <div className="ps-0 container experience_wrapper  mb-5">
       <Swiper

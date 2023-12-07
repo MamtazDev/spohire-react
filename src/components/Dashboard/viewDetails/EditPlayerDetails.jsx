@@ -10,46 +10,46 @@ import { useRef, useState } from "react";
 
 // data
 const inputFieldData = [
-    {
-        lable: "Name",
-        placeholderText: "Your name"
-    },
-    {
-        lable: "Date of Birth",
-        placeholderText: "DD-MM-YYYY"
-    },
-    {
-        lable: "Age",
-        placeholderText: "Your Age"
-    },
-    {
-        lable: "Nationality",
-        placeholderText: "Your Nationality"
-    },
-    {
-        lable: "Position",
-        placeholderText: "Your Position"
-    },
-    {
-        lable: "Dominant Hand",
-        placeholderText: "Your Dominant Hand"
-    },
-    {
-        lable: "Height",
-        placeholderText: "You Height"
-    },
-    {
-        lable: "Weight",
-        placeholderText: "Your Weight"
-    },
-    {
-        lable: "Race",
-        placeholderText: "Your Race"
-    },
-]
+    { label: 'Name', placeholderText: 'Your name' },
+    { label: 'Date of Birth', placeholderText: 'DD-MM-YYYY' },
+    { label: 'Age', placeholderText: 'Your Age' },
+    { label: 'Nationality', placeholderText: 'Your Nationality' },
+    { label: 'Position', placeholderText: 'Your Position' },
+    { label: 'Dominant Hand', placeholderText: 'Your Dominant Hand' },
+    { label: 'Height', placeholderText: 'You Height' },
+    { label: 'Weight', placeholderText: 'Your Weight' },
+    { label: 'Race', placeholderText: 'Your Race' },
+];
+
 
 const EditPlayerDetails = () => {
+    // gallary
     const [selectedImages, setSelectedImages] = useState([]);
+    // profile
+    const [selectedImage, setSelectedImage] = useState(null);
+    const fileInputRef = useRef(null);
+    // onchange value
+    const initialFormData = inputFieldData.reduce((acc, field) => {
+        acc[field.label.toLowerCase()] = '';
+        return acc;
+    }, {
+        playerName: '',
+        sportsType: '',
+        selectedImage: null,
+        experiences: [{ startYear: "", endYear: "" }],
+        clubName: "",
+        socialMedia: {
+            facebook: "",
+            instagram: "",
+            twitter: ""
+        },
+        strengthsAdvantages: "",
+        aboutMe: "",
+        expectationsFromClub: "",
+        gallary: []
+    });
+
+    const [formData, setFormData] = useState(initialFormData);
 
     const handleGallaryImageChange = (e) => {
         const files = e.target.files;
@@ -67,16 +67,18 @@ const EditPlayerDetails = () => {
             reader.readAsDataURL(files[i]);
         }
     };
-    // image upload
-    const [selectedImage, setSelectedImage] = useState(null);
-    const fileInputRef = useRef(null);
 
+    // handle profile image upload
     const handleImageChange = (event) => {
         const file = event.target.files[0];
 
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
+                setFormData((prevData) => ({
+                    ...prevData,
+                    selectedImage: reader.result,
+                }))
                 setSelectedImage(reader.result);
             };
             reader.readAsDataURL(file);
@@ -84,123 +86,178 @@ const EditPlayerDetails = () => {
     };
 
     const handleButtonClick = () => {
-        // Trigger the file input using React Ref
         fileInputRef.current.click();
     };
+
+    // get all data
+    const handleInputChange = (fieldName, value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [fieldName]: value,
+        }));
+    };
+    // console.log(formData)
+    // form submit data
+    const handleUpdate = (e) => {
+        e.preventDefault()
+        console.log('Form Data:', formData);
+    };
+
     return (
-        <div className="View_details container p-0 overflow-hidden">
-            <div className="job_offer desktop_vd edit_player_details_wrapper  ps-lg-0 pe-lg-0">
-                <div className="row" style={{ margin: "0 40px" }}>
-                    <div className="col-12 col-lg-3 ps-lg-5">
-                        <div className="upload_profile_image" onClick={handleButtonClick}>
-                            {/* <img className="img-fluid" src={profileImage} alt="Profile" /> */}
-                            <img className="img-fluid profiles" src={selectedImage || profileImage} alt="Profile" />
+        <form className="" onSubmit={handleUpdate}>
 
-                            <div>
-                                {!selectedImage && <button className="profile_upload_btn" onClick={handleButtonClick}>
-                                    <img src={upload} alt="" />
-                                    <span>Upload</span>
-                                </button>}
-                                {/* Hidden file input with React Ref */}
-                                <input
-                                    type="file"
-                                    ref={fileInputRef}
-                                    accept="image/*"
-                                    style={{ display: 'none' }}
-                                    onChange={handleImageChange}
-                                />
+            <div className="View_details container p-0 overflow-hidden">
+                <div className="job_offer desktop_vd edit_player_details_wrapper  ps-lg-0 pe-lg-0">
+                    <div className="row" style={{ margin: "0 40px" }}>
+                        <div className="col-12 col-lg-3 ps-lg-5">
+                            <div className="upload_profile_image" onClick={handleButtonClick}>
+                                <img className="img-fluid profiles" src={selectedImage || profileImage} alt="Profile" />
+                                <div>
+                                    {!selectedImage && <button className="profile_upload_btn" onClick={handleButtonClick}>
+                                        <img src={upload} alt="" />
+                                        <span>Upload</span>
+                                    </button>}
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
+                                        accept="image/*"
+                                        style={{ display: 'none' }}
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
                             </div>
-
                         </div>
-                    </div>
-                    <div className="col-12 col-lg-9">
-                        <div className="edit_profile_input">
-                            <div className="mb-4 position-relative">
-                                <label htmlFor="exampleFormControlInput1" className="form-label">Player Name</label>
+                        <div className="col-12 col-lg-9">
+                            <div className="edit_profile_input">
+                                <div className="mb-4 position-relative">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Player Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="playerNameInput"
+                                        placeholder="Your name"
+                                        value={formData.playerName}
+                                        onChange={(e) => handleInputChange('playerName', e.target.value)}
+                                    />
+                                </div>
+                                <div className="mb-4 position-relative">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Sports Type</label>
 
-                                <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="your name" />
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="sportsTypeInput"
+                                        placeholder="Basketball"
+                                        value={formData.sportsType}
+                                        onChange={(e) => handleInputChange('sportsType', e.target.value)}
+                                    />
+                                </div>
 
                             </div>
-                            <div className="mb-4 position-relative">
-                                <label htmlFor="exampleFormControlInput1" className="form-label">Sports Type</label>
-                                <input type="email" className="form-control " id="exampleFormControlInput1" placeholder="Basketball" />
-                            </div>
+                            <div className="personalInfo editpersonal_info">
+                                <div className="row mb_40">
 
-                        </div>
-                        <div className="personalInfo editpersonal_info">
-                            <div className="row mb_40">
-                                {inputFieldData.map((field, index) => (
-                                    <div key={index} className="col-12 col-md-4">
-                                        <div className="personal_info_edit_wrapper">
-                                            <div className="d-flex flex-column align-items-start gap-3" style={{ marginBottom: index < inputFieldData.length - 3 ? "40px" : "0" }}>
-                                                <div className="w-100">
-                                                    <label htmlFor={`exampleFormControlInput${index + 1}`} className="form-label">{field.lable}</label>
-
-                                                    <input type="text" className="form-control" id={`exampleFormControlInput${index + 1}`} placeholder={field.placeholderText} />
+                                    {inputFieldData.map((field, index) => (
+                                        <div key={index} className="col-12 col-md-4">
+                                            <div className="personal_info_edit_wrapper">
+                                                <div className="d-flex flex-column align-items-start gap-3" style={{ marginBottom: index < inputFieldData.length - 3 ? '40px' : '0' }}>
+                                                    <div className="w-100">
+                                                        <label htmlFor={`exampleFormControlInput${index + 1}`} className="form-label">{field.label}</label>
+                                                        <input
+                                                            type="text"
+                                                            className="form-control"
+                                                            id={`exampleFormControlInput${index + 1}`}
+                                                            placeholder={field.placeholderText}
+                                                            value={formData[field.label.toLowerCase()] || ''}
+                                                            onChange={(e) => handleInputChange(field.label.toLowerCase(), e.target.value)}
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* <ViewDetailsMobile /> */}
 
-            <UpdateexperienceAndMedia />
+                <UpdateexperienceAndMedia formData={formData} handleInputChange={handleInputChange} setFormData={setFormData} />
 
-            <div className=" mb_60 experience_wrapper">
-                <div className="row justify-content-start about_part">
-                    <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
-                        <p className="f_sfPro text_color_36 fs_18 mb-2">
-                            Strengths Advantages
-                        </p>
-                        <div className="">
-                            {/*  */}
-                            <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
-                                defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                <div className=" mb_60 experience_wrapper">
+                    <div className="row justify-content-start about_part">
+                        <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
+                            <p className="f_sfPro text_color_36 fs_18 mb-2">
+                                Strengths Advantages
+                            </p>
+                            <div className="">
+                                {/*  */}
+                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                    defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
-                        <p className="f_sfPro text_color_36 fs_18 mb-2">About Me</p>
-                        <div className="">
-                            {/*  */}
-                            <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
-                                defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                        <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
+                            <p className="f_sfPro text_color_36 fs_18 mb-2">About Me</p>
+                            <div className="">
+                                {/*  */}
+                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                    defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
-                        <p className="f_sfPro text_color_36 fs_18 mb-2">
-                            Expectations From a New Club
-                        </p>
-                        <div className="">
-                            {/*  */}
-                            <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
-                                defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                        <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 ">
+                            <p className="f_sfPro text_color_36 fs_18 mb-2">
+                                Expectations From a New Club
+                            </p>
+                            <div className="">
+                                {/*  */}
+                                <textarea className="form-control about_me_editField" id="exampleFormControlTextarea1" rows="3"
+                                    defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {/* <!-- Slider Start --> */}
+                <div className="d-flex align-items-center gap-3 mb_28">
+                    <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
+
+                    <label style={{ cursor: "pointer" }} className="add_image_btn bg-none">
+                        <span>Add Image</span>
+                        <img src={plus4} alt="" />
+                        <input type="file" multiple onChange={handleGallaryImageChange} style={{ display: 'none' }} />
+                    </label>
+                </div>
+
+                <EditGallary images={selectedImages} />
+
+                <button type="submit" className="experience_wrapper playerDetailsUpdate_btn">Update</button>
             </div>
-            {/* <!-- Slider Start --> */}
-            <div className="d-flex align-items-center gap-3 mb_28">
-                <p className="f_sfPro text_color_36 fs_18" style={{ paddingLeft: "75px" }}>Gallery</p>
 
-                <label style={{ cursor: "pointer" }} className="add_image_btn bg-none">
-                    <span>Add Image</span>
-                    <img src={plus4} alt="" />
-                    <input type="file" multiple onChange={handleGallaryImageChange} style={{ display: 'none' }} />
-                </label>
-            </div>
-
-            <EditGallary images={selectedImages} />
-
-            <button className="experience_wrapper playerDetailsUpdate_btn">Update</button>
-        </div >
+        </form>
     );
 };
 
 export default EditPlayerDetails;
+
+
+// {
+//     "playerName": "sdfsdf",
+//     "sportsType": "dsfds",
+//     "selectedImage": null,
+//     "name": "sdfsd",
+//     "date of birth": "",
+//     "age": "",
+//     "nationality": "",
+//     "position": "",
+//     "dominant hand": "",
+//     "height": "",
+//     "weight": "",
+//     "race": "",
+//     experiences:[{startYear:"",endYear:""}],
+//     clubName:"",
+//     strengthsAbout:"",
+//     aboutme:"",
+//     expectationFromClub:"",
+//     gallary:[]
+// }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import insta from '../../../assets/insta1.png'
 import fb from '../../../assets/fb1.png'
 import Twitter from '../../../assets/twiter1.png'
@@ -5,31 +6,103 @@ import plus from '../../../assets/plus3.png'
 import { useState } from 'react';
 
 
-const UpdateexperienceAndMedia = () => {
-    const [formData, setFormData] = useState({
-        experiences: [
-            { startYear: '', endYear: '' },
-        ],
+const UpdateexperienceAndMedia = ({ formData, handleInputChange, setFormData }) => {
+    // const [experienceFormData, setExperienceFormData] = useState({
+    //     experiences: [
+    //         { startYear: '', endYear: '' },
+    //     ],
+    //     clubName:""
+    // });
+    // const handleChange = (e, index) => {
+    //     const { name, value } = e.target;
+    //     const updatedExperiences = [...experienceFormData.experiences];
+    //     updatedExperiences[index] = {
+    //         ...updatedExperiences[index],
+    //         [name]: value,
+    //     };
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         experiences: updatedExperiences,
+    //         clubName:experienceFormData.clubName
+    //     }));
+    // };
+
+    // const handleAddMore = () => {
+    //     setExperienceFormData((prevData) => ({
+    //         ...prevData,
+    //         experiences: [...prevData.experiences, { startYear: '', endYear: '' }],
+    //     }));
+    // };
+    const [experienceFormData, setExperienceFormData] = useState({
+        experiences: [{ startYear: '', endYear: '' }],
+        clubName: "",
+        socialMedia: {
+            facebook: "",
+            instagram: "",
+            twitter: ""
+        }
     });
+
+
     const handleChange = (e, index) => {
         const { name, value } = e.target;
-        const updatedExperiences = [...formData.experiences];
-        updatedExperiences[index] = {
-            ...updatedExperiences[index],
-            [name]: value,
+        let updatedExperiences = [...experienceFormData.experiences];
+
+        if (name.startsWith('socialMedia')) {
+            // Handle social media changes
+            const platform = name.split('.')[1];
+            setExperienceFormData((prevData) => ({
+                ...prevData,
+                socialMedia: {
+                    ...prevData.socialMedia,
+                    [platform]: value,
+                },
+            }));
+        } else {
+            if (name === 'clubName') {
+                setExperienceFormData((prevData) => ({
+                    ...prevData,
+                    clubName: value,
+                }));
+            } else {
+                updatedExperiences[index] = {
+                    ...updatedExperiences[index],
+                    [name]: value,
+                };
+
+                setExperienceFormData((prevData) => ({
+                    ...prevData,
+                    experiences: updatedExperiences,
+                }));
+            }
+        }
+
+        // Combine experiences, clubName, socialMedia, and other fields from formData
+        const updatedFormData = {
+            ...formData,
+            experiences: experienceFormData.experiences,
+            clubName: experienceFormData.clubName,
+            socialMedia: experienceFormData.socialMedia,
+            // Add other fields based on your structure
         };
-        setFormData((prevData) => ({
-            ...prevData,
-            experiences: updatedExperiences,
-        }));
+
+        // Call the parent's onChange function with the updated data
+        handleInputChange(updatedFormData);
+
+        // Update the parent's state with the updated data
+        setFormData(updatedFormData);
     };
 
+
+
+
     const handleAddMore = () => {
-        setFormData((prevData) => ({
+        setExperienceFormData((prevData) => ({
             ...prevData,
             experiences: [...prevData.experiences, { startYear: '', endYear: '' }],
         }));
     };
+
     return (
         <>
             <div className="container" >
@@ -42,9 +115,16 @@ const UpdateexperienceAndMedia = () => {
                                     <label htmlFor='exampleFormControlInput1' className="form-label">
                                         Club
                                     </label>
-                                    <input type="text" className="form-control" id='exampleFormControlInput1' placeholder='Cleveland Cavaliers' />
+                                    <input
+                                        onChange={(e) => handleChange(e)}
+                                        type="text"
+                                        className="form-control"
+                                        name="clubName"  // This is where the 'name' comes from
+                                        id="exampleFormControlInput1"
+                                        placeholder="Cleveland Cavaliers"
+                                    />
                                 </div>
-                                {formData.experiences.map((experience, index) => (
+                                {experienceFormData.experiences.map((experience, index) => (
                                     <div className="row" key={index}>
                                         <div className="col-lg-6">
                                             <div className="w-100">
@@ -98,21 +178,60 @@ const UpdateexperienceAndMedia = () => {
                                     <div className='form_icons ' style={{ top: "46px" }}>
                                         <img className='mt-0' src={insta} alt="user" />
                                     </div>
-                                    <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="johnkawalski05" />
+
+
+
+
+                                    <input
+                                        onChange={(e) => handleChange(e)}
+                                        type="text"
+                                        className="form-control ps-5"
+                                        name="socialMedia.instagram"
+                                        id="exampleFormControlInput1"
+                                        placeholder="johnkawalski05"
+
+                                    />
+
+
                                 </div>
                                 <div className="position-relative">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Facebook</label>
                                     <div className='form_icons ' style={{ top: "46px" }}>
                                         <img className='mt-0' src={fb} alt="user" />
                                     </div>
-                                    <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="johnkawalski05" />
+
+                                    <input
+                                        //  onChange={(e) => handleChange(e)}
+                                        onChange={(e) => handleChange(e)}
+                                        type="text"
+                                        className="form-control ps-5"
+                                        name="socialMedia.facebook"
+                                        id="exampleFormControlInput1"
+                                        placeholder="johnkawalski05" />
+
+
                                 </div>
                                 <div className="position-relative">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Twitter</label>
                                     <div className='form_icons ' style={{ top: "46px" }}>
                                         <img className='mt-0' src={Twitter} alt="user" />
                                     </div>
-                                    <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="johnkawalski05" />
+
+
+
+                                    <input
+                                        onChange={(e) => handleChange(e)}
+                                        type="text"
+                                        className="form-control ps-5"
+                                        name="socialMedia.twitter"
+                                        id="exampleFormControlInput1"
+                                        placeholder="johnkawalski05"
+
+
+                                    />
+
+
+
                                 </div>
 
 
