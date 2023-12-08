@@ -32,57 +32,7 @@ const Players = () => {
         <tbody>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
             <>
-              {/* <tr className="table_hover pointer">
-                <td>
-                  <div className="player_info d-flex align-items-center gap-2">
-                    <div className="player_info_wrapper d-flex gap-2">
-                      <div className="player_img">
-                        <img src={playerImgOne} alt="player-img" />
-                      </div>
-                      <div className="player_name" onClick={handlePath}>
-                        <p className="text_color_36 fw-medium fs_14">
-                          Jacob <br /> Bennett
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p className="text_color_55 fw-normal fs_14">Italy</p>
-                </td>
-
-                <td>
-                  <p className="text_color_55 fw-normal fs_14">2002</p>
-                </td>
-
-                <td>
-                  <p className="text_color_55 fw-normal fs_14">PG</p>
-                </td>
-
-                <td>
-                  <p className="text_color_55 fw-normal fs_14">Milano</p>
-                </td>
-
-                <td>
-                  <p className="text_color_55 fw-normal fs_14">Gold</p>
-                </td>
-
-                <td>
-                  <div className="d-flex align-items-center">
-                    <button className='bg-none m-2' onClick={handleBookmark}>
-                      {
-                        bookmark ?
-                          <img src={bookmarkfill} alt="" />
-                          :
-                          <img src={b1} alt="" />
-                      }
-                    </button>
-                    <Link to="/dashboard/messages" className="text_color_55 fw-normal fs_14">
-                      <img src={messageIcon} alt="message-icon" className="ms-2" />
-                    </Link>
-                  </div>
-                </td>
-              </tr> */}
+          
               <SinglePlayer />
             </>
           ))}
@@ -110,7 +60,6 @@ const SinglePlayer = () => {
 
   const handlePath = () => {
     navigate('/dashboard/viewDetails')
-
   };
   return (
     <>
