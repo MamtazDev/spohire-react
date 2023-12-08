@@ -4,13 +4,14 @@ import a1 from '../../../assets/a11.png';
 import flag from '../../../assets/flag.png';
 import dollar from '../../../assets/coin-dollar.png';
 import location from '../../../assets/location.png';
+import { Link } from "react-router-dom";
 const RecentlyObserved = () => {
     return (
         <>
             <div className="job_offer_overrview_wrapper">
                 <div className="d-flex justify-content-between" style={{ marginBottom: "65px" }}>
                     <h4>Recently Observed</h4>
-                    <a href="/dashboard/observed">View More</a>
+                    <Link to="/dashboard/observed">View More</Link>
                 </div>
                 {
                     [0, 1].map((data) => (
@@ -30,7 +31,7 @@ const RecentlyObserved = () => {
                                         </p>
                                     </div>
                                     <div className="align-self-lg-center align-self-end">
-                                        <a href="/dashboard/jobOffers">Job Offers</a>
+                                        <Link to="/dashboard/jobOffers">Job Offers</Link>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@ const RecentlyObserved = () => {
                                         </div>
                                     </div>
                                     <div style={{ paddingRight: "15px" }} className="align-self-lg-center align-self-end">
-                                        <a href="/dashboard/announcements" >Announcement</a>
+                                        <Link to="/dashboard/announcements" >Announcement</Link>
                                     </div>
                                 </div>
                             </div>

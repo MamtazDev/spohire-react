@@ -162,13 +162,13 @@ const ViewDetails = () => {
               blessed with a tall stature and a remarkable wingspan, which give
               me a significant advantage in both offense and defense. My height
               allows me to effectively contest shots,
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="f_sfPro fs_16"
                 style={{ color: "#0177FB" }}
               >
                 See More
-              </a>
+              </Link>
             </p>
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
@@ -180,14 +180,13 @@ const ViewDetails = () => {
               day, when I was 11-years old, I decided to go outside to the
               family basketball hoop and take a shot. The basket was originally
               for my sister.
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="f_sfPro fs_16"
                 style={{ color: "#0177FB" }}
               >
-                {" "}
                 See More
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -201,14 +200,13 @@ const ViewDetails = () => {
               to the opportunity to contribute to the club's success, aiming to
               make a positive impact both on and off the court. Additionally, I
               expect to receive the necessary resources.
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="f_sfPro fs_16"
                 style={{ color: "#0177FB" }}
               >
-                {" "}
                 See More
-              </a>
+              </Link>
             </p>
           </div>
         </div>

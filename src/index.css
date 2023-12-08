@@ -388,7 +388,7 @@ a {
 
   .workBg .local p {
     font-size: 16px !important;
-    line-height: 23px;
+    line-height: 23px !important;
   }
 
   .workBg .local button {
@@ -397,7 +397,7 @@ a {
   }
 
   .workBg .innerWhiteBox {
-    padding: 17px 24px !important;
+    padding: 17px 15px !important;
   }
 
   .Work_container {

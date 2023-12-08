@@ -3,6 +3,7 @@ import a1 from '../../../assets/a11.png';
 import flag from '../../../assets/flag.png';
 import dollar from '../../../assets/coin-dollar.png';
 import location from '../../../assets/location.png';
+import { Link } from 'react-router-dom';
 
 const AnnouncementOverview = () => {
     return (
@@ -10,7 +11,7 @@ const AnnouncementOverview = () => {
             <div className="job_offer_overrview_wrapper" style={{ backgroundColor: "#FDFEFF" }}>
                 <div className="d-flex justify-content-between">
                     <h4>Announcements</h4>
-                    <a href="/dashboard/announcements">View More</a>
+                    <Link to="/dashboard/announcements">View More</Link>
                 </div>
                 {/* list */}
                 {[0, 1, 2].map(item => (

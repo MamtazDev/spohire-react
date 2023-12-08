@@ -123,15 +123,8 @@
     box-shadow: none;
 }
 
-
-/* .btn:active {
-    outline: 0;
-    box-shadow: none;
-} */
-
 .details_mob {
     padding: 12px 24px;
-
 }
 
 .socialIcon button {
@@ -156,8 +149,6 @@
     object-fit: contain;
 }
 
-
-
 @media screen and (max-width:400px) {
     .location_div {
         padding: 0px !important;
@@ -167,7 +158,6 @@
         font-size: 8px !important;
     }
 }
-
 .textWrap {
     white-space: nowrap;
 }

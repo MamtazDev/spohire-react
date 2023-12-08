@@ -3,6 +3,7 @@ import flag from '../../assets/flag.png';
 import dollar from '../../assets/coin-dollar.png';
 import location from '../../assets/location.png';
 import ApplyJobs from './ApplyJobs';
+import { Link } from 'react-router-dom';
 
 const MatchesJob = () => {
 
@@ -67,9 +68,9 @@ const MatchesJob = () => {
                         <li className="page-item"><a className="page-link" href="#">3</a></li>
                         <li className="page-item"><a className="page-link" href="#">4</a></li>
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <Link  className="page-link" to="#">
                                 <i className='fa fa-angle-right'></i>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>

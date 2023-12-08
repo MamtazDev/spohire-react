@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import footBallCoachImg from "../../../assets/footballCoach.png";
 
 const JobOfferOverview = () => {
@@ -6,7 +7,7 @@ const JobOfferOverview = () => {
             <div className="job_offer_overrview_wrapper">
                 <div className="d-flex justify-content-between">
                     <h4>Job Offers</h4>
-                    <a href="/dashboard/jobOffers">View More</a>
+                    <Link to="/dashboard/jobOffers">View More</Link>
                 </div>
                 {
                     [1, 2, 3].map(data => (

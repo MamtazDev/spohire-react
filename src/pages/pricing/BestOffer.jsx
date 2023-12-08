@@ -24,9 +24,12 @@ const BestOffer = () => {
                                     <span className=''>An ideal starting point....</span>
                                     <h2 className='mt_30 mb_10'>$50</h2>
                                     <p className='mb_30'>Per month</p>
-                                    <button className='f_sfPro'><Link to="/paymentProcess" className='text-light'>Save and Continue</Link></button>
+                                    <Link to="/paymentProcess" className='text-light'>
+                                        <button className='f_sfPro'>
+                                            Save and Continue
+                                        </button>
+                                    </Link>
                                 </div>
-
                                 <div className="white_part">
                                     <div className='white_wrapper'>
                                         <div className="blue_dot">
@@ -56,7 +59,12 @@ const BestOffer = () => {
                                     <span className=''>An ideal starting point....</span>
                                     <h2 className='mt_30 mb_10'>$100</h2>
                                     <p className='mb_30'>Per month</p>
-                                    <button className='f_sfPro'><Link to="/paymentProcess" className='text-light'>Save and Continue</Link></button>
+                                    <Link to="/paymentProcess" className='text-light'>
+                                        <button className='f_sfPro'>
+                                            Save and Continue
+
+                                        </button>
+                                    </Link>
                                 </div>
 
                                 <div className="white_part">
@@ -88,7 +96,12 @@ const BestOffer = () => {
                                     <span className=''>An ideal starting point....</span>
                                     <h2 className='mt_30 mb_10'>$150</h2>
                                     <p className='mb_30'>Per month</p>
-                                    <button className='f_sfPro'><Link to="/paymentProcess" className='text-light'>Save and Continue</Link></button>
+                                    <Link to="/paymentProcess" className='text-light'>
+                                        <button className='f_sfPro'>
+                                            Save and Continue
+
+                                        </button>
+                                    </Link>
                                 </div>
 
                                 <div className="white_part">

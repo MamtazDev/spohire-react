@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import profile from '../../../assets/chatprofile.png'
 
 
@@ -40,7 +41,7 @@ const MessagesOverview = () => {
             <div className="job_offer_overrview_wrapper">
                 <div className="d-flex justify-content-between">
                     <h4>Messages</h4>
-                    <a href="/dashboard/messages">View More</a>
+                    <Link to="/dashboard/messages">View More</Link>
                 </div>
 
                 {chatData.map((data, index) => (
