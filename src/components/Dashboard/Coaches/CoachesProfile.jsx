@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import profileImage from "../../../assets/coaches-pp.png";
-import messageImage from "../../../assets/message.png";
 import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
@@ -28,13 +27,12 @@ const CoachesProfile = () => {
                         <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
                             Coach
                         </span>
+                        <button className="edit_player_profile"><Link to="/dashboard/editCoacheProfile">Edit Profile</Link></button>
                         <div className="personalInfo">
                             <p className="f_sfPro text_color_36 fs_18">
                                 Personal Information
                             </p>
-                            <button className="message">
-                                <img className="img-fluid" src={messageImage} alt="Message" />
-                            </button>
+                   
                             <div className="row mb_40">
                                 <div className="col-12 col-md-4">
                                     <div className="d-flex flex-column align-items-start gap-3">

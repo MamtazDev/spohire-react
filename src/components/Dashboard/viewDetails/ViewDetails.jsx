@@ -33,10 +33,7 @@ const ViewDetails = () => {
             <div className="personalInfo" style={{marginRight:"48px"}}>
               <p className="f_sfPro text_color_36 fs_18">
                 Personal Information
-              </p>
-              {/* <button className="message">
-                <img className="img-fluid" src={messageImage} alt="Message" />
-              </button> */}
+              </p>   
               <div className="row mb_40">
                 <div className="col-12 col-md-4">
                   <div className="d-flex flex-column align-items-start gap-3">

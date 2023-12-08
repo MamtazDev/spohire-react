@@ -27,6 +27,7 @@ import Layout from "../Layout/Layout.jsx";
 import EditPlayerDetails from "../components/Dashboard/viewDetails/EditPlayerDetails.jsx";
 import Gallary from "../pages/TransferMarket/Gallary.jsx";
 import { createBrowserRouter } from "react-router-dom";
+import EditCoachProfile from './../components/Dashboard/Coaches/EditCoachProfile';
 
 export const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/coachesProfile",
         element: <CoachesProfile />,
+      },
+      {
+        path: "/dashboard/editCoacheProfile",
+        element: <EditCoachProfile />,
       },
       {
         path: "/dashboard/viewDetails",
