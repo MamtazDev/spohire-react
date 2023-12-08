@@ -153,10 +153,7 @@
         background-image: url('../../assets/signupbgsm.png');
     }
 
-    .profile_dropdown {
-        top: 60% !important;
-        right: 140px !important;
-    }
+
 
 }
 
@@ -290,25 +287,42 @@
 .profile_picture {
     margin-right: 170px;
 }
-.nav_toggle{
-    
-}
 
-@media(min-width:1024px) {
+
+@media(min-width:990px) and (max-width:1440px) {
     .profile_dropdown {
         /* display: none; */
+        right: 0;
+    }
+
+    .profile_picture {
+        margin-right: 135px;
     }
 }
 
-@media(min-width:1440px) {
+@media(max-width:375px) {
     .profile_dropdown {
-        /* right: 0; */
+    right: 25% !important;
     }
 }
 
-@media(max-width:768px) {
+@media (min-width:320px) and (max-width:767px) {
+    .profile_picture {
+        margin-right: 0px;
+    }
     .profile_dropdown {
-        margin-top: 90px;
+        top: 83% !important;
+    right: 35%;
+    }
+    .profile_drop_mobilepadding {
+        padding-bottom: 50px !important;
+    }
+
+}
+@media (min-width:768px) and (max-width:1023px) {
+    .profile_dropdown {
+        top: 87%;
+        right: 38%;
     }
 
     .profile_picture {
@@ -325,4 +339,12 @@
         padding: 20px;
     }
 
+}
+
+@media (min-width: 992px) {
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+    }
 }
