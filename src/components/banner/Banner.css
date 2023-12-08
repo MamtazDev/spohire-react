@@ -51,6 +51,28 @@
     opacity: 0.9;
 }
 
+.banner-right-image {
+    padding-top: 74px;
+}
+
+.header_position {
+    position: absolute;
+    width: 100%;
+}
+@media(max-width:768px){
+    .header_position {
+        position:static;
+        width: 100%;
+    }
+    .banner-right-image{
+        padding-top: 10px;
+    }
+    .banner .bannerContent {
+        padding-top: 41px !important;
+    }
+}
+
+
 
 .marque-container {
     display: flex;

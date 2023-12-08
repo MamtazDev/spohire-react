@@ -2,14 +2,52 @@ import Compact from "./Compact";
 import Select from 'react-select'
 
 const options = [
-    { value: 'Country1', label: 'Country1' },
+    { value: 'Bangladesh', label: 'Country1' },
     { value: 'Country2', label: 'Country2' },
-    { value: 'Country1', label: 'Country1' },
-    { value: 'Country2', label: 'Country2' },
-    { value: 'Country1', label: 'Country1' },
-    { value: 'Country2', label: 'Country2' },
+    { value: 'Country3', label: 'Country3' },
+    { value: 'Country4', label: 'Country4' },
+    { value: 'Country5', label: 'Country5' },
+    { value: 'Country6', label: 'Country6' },
 
 ]
+const options1 = [
+    {
+      value: "Bangladesh",
+      label: "Bangladesh",
+   
+    },
+    {
+      value: "India",
+      label: "India",
+   
+    },
+    {
+      value: "Switzerland",
+      label: "Switzerland",
+   
+    },
+    {
+      value: "United Kingdom",
+      label: "United Kingdom",
+   
+    },
+    {
+      value: "Ireland",
+      label: "Ireland",
+   
+    },
+    {
+      value: "Italy",
+      label: "Italy",
+   
+    },
+    {
+      value: "Netherland",
+      label: "Netherland",
+   
+    },
+  ];
+  
 const MarketList = () => {
 
     return (
@@ -20,7 +58,7 @@ const MarketList = () => {
 
                         <div className="row align-items-center justify-content-center  ">
                             <div className="col-lg-4">
-                                <Select options={options} />
+                                <Select options={options1} />
                             </div>
                             <div className="col-lg-4">
                                 <Select options={options} />

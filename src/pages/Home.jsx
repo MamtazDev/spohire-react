@@ -7,7 +7,6 @@ import Feature from "../components/Feature/Feature";
 import HowItWorks from "../components/howItWorks/HowItWorks";
 import WhatPeopleSay from "../components/whatPeopleSay/WhatPeopleSay";
 import Trusted from "../components/trusted/Trusted";
-import Footer from "../components/footer/Footer";
 import WhyWe from "../components/whyWe/WhyWe";
 import FaqAccordion from "../components/faqAccordion/FaqAccordion";
 import MobileFooter from "../components/footer/MobileFooter";
@@ -16,20 +15,17 @@ const Home = () => {
   return (
     <>
       <main>
-        {/* <div className="bgBanner">
-          <Header />
-        </div> */}
+
         <Banner />
         <MarqueeSlider />
         <MobileMarqueeSlider />
         <Feature />
         <HowItWorks />
-        <WhatPeopleSay color="#2D2D2D"/>
+        <WhatPeopleSay color="#2D2D2D" />
         <Trusted />
         <WhyWe />
         <FaqAccordion />
       </main>
-      {/* <Footer /> */}
       <MobileFooter />
     </>
   );

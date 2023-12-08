@@ -339,6 +339,13 @@ a {
   }
 
   /* banner */
+  .header_position .navbar-collapse  {
+    /* background-color: #221355; */
+ }
+ .banner_top_pd{
+  padding-left: 0;
+  padding-right: 0;
+ }
   .banner .bannerContent span {
     font-size: 8.5px !important;
     padding: 6px 19px !important;
@@ -349,7 +356,7 @@ a {
   }
 
   .banner .bannerContent {
-    padding-top: 40px !important;
+    padding-top: 154px !important;
   }
 
   .banner .bannerContent h1 {

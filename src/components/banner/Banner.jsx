@@ -4,10 +4,11 @@ import readyTogetsm from "../../assets/readytogetsm.png";
 import bannerImg from "../../assets/bannerImg.png";
 import { Link } from "react-router-dom";
 const Banner = () => {
+
   return (
     <div className="banner mb_40 bgBanner">
       <div className="container">
-        <div className="row">
+        <div className="row banner_top_pd">
           <div className="col-12 col-md-6">
             <div className="bannerContent">
               <span>Sports + Announcements only for you</span>

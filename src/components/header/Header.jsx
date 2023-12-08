@@ -40,14 +40,14 @@ const Header = () => {
   }, [isDropdownActive]);
 
   return (
-    <header className={`${!user && 'pt-4 pb-4'}`}>
+    <header className={`${!user && 'pt-4 pb-4'} ${location.pathname === "/" ? "header_position" : ""}`}>
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
-          <Navbar.Brand href="#home">
-            <Nav.Link className="navbar-brand" href="/">
+          <Navbar.Brand href="#home" className="d-flex align-items-center">
+            <Link className="navbar-brand" to="/">
               <img className="d-none d-md-block" src={Logo} alt="Logo" />
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
-            </Nav.Link>
+            </Link>
           </Navbar.Brand>
           <div className=" nav_toggle d-flex align-items-center">
             <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -87,7 +87,7 @@ const Header = () => {
             </Navbar.Toggle>
             {
               user ? <div>
-                <img className="d-none " src={profile} alt="" />
+                <Link to="/dashboard/viewProfile">  <img className="d-none " src={profile} alt="" /></Link>
                 <Link
                   to="/dashboard/jobOffers"
                   type="submit"
@@ -142,7 +142,6 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-
               {/* modal hbe */}
               <Nav.Link href="/jobOffer">
                 <Link to="/jobOffer" className="nav-link">
@@ -163,13 +162,13 @@ const Header = () => {
             {user ?
               <div>
                 <div type="button" onClick={(event) => handleButtonClick(event)} className="d-flex  flex-lg-row flex-column align-items-center  p-2 profile_drop_mobilepadding">
-                  <Link to="/dashboard/jobOffers">
+                  <Link to="/dashboard/viewProfile">
                     <img className="profile_picture d-lg-block " src={profile} alt="" />
                   </Link>
                   <div className="profile_dropdown" ref={myDivRef}>
                     <div className="position-relative">
                       <div className="profile_name">
-                        <h5><Link to="/dashboard" className="text-light">SMITH JOHN</Link></h5>
+                        <h5> SMITH JOHN</h5>
                         <img src={dropdown} className={`${isDropdownActive ? "" : "rotate_arrow"}`} alt="dropdown" />
                       </div>
                       {isDropdownActive &&

@@ -379,14 +379,14 @@
 }
 
 .market_filter_wrapper .css-13cymwt-control {
-    height: 50px !important;
+    /* height: 50px !important; */
     border-radius: 5px;
     border: 0.7px solid rgba(0, 0, 0, 0.02);
     background: #FFF;
 }
 
 .market_filter_wrapper button {
-    height: 50px !important;
+    /* height: 50px !important; */
     width: 100% !important;
 
 }

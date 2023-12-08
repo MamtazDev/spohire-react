@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
 import plus2 from '../../assets/plus2.png';
 import { useState } from 'react';
+
+const sports = ['Football', 'Basketball', 'Handball', 'Volleyball','Football', 'Basketball', 'Handball', 'Volleyball'];
+const jobLocations = ['Paris', 'London', 'Finland', 'Canada','Paris', 'London', 'Finland', 'Canada'];
 
 
 const JobCategory = () => {
@@ -17,9 +19,6 @@ const JobCategory = () => {
         volleyball: false,
     });
 
-    const sports = ['Football', 'Basketball', 'Handball', 'Volleyball'];
-    const jobLocations = ['Paris', 'London', 'Finland', 'Canada'];
-
 
     const handleCheckboxClick = (sport) => {
         setCheckboxStates((prevStates) => ({
@@ -34,6 +33,19 @@ const JobCategory = () => {
         }));
     };
 
+    const [showAll, setShowAll] = useState(false);
+    const [showAlljobLocations, setShowAlljobLocations] = useState(false);
+
+    const handleShowMore = () => {
+        setShowAll((prev) => !prev);
+    };
+
+    const displayedSports = showAll ? sports : sports.slice(0, 4);
+    const handleShowjobLocationsMore = () => {
+        setShowAlljobLocations((prev) => !prev);
+    };
+
+    const displayedJobLocations = showAlljobLocations ? jobLocations : jobLocations.slice(0, 4); 
 
     return (
         <div>
@@ -41,9 +53,10 @@ const JobCategory = () => {
                 <div className="blue_cat">
                     <p>Job by category</p>
                 </div>
-                <div className='white_category_part'>
 
-                    {sports.map((sport, index) => (
+
+                <div className="white_category_part">
+                    {displayedSports.map((sport, index) => (
                         <div key={index} className="cat_list">
                             <div className="form-check">
                                 <input
@@ -58,22 +71,26 @@ const JobCategory = () => {
                             <span className='pointer' onClick={() => handleCheckboxClick(sport)}>{sport}</span>
                         </div>
                     ))}
-
-                    <div className='cat_list1'>
-                        <div className='blue_plus'>
-                            <img src={plus2} alt="plus" />
+                    {sports.length > 4 && (
+                        <div className="cat_list1">
+                            <div className="blue_plus" onClick={handleShowMore}>
+                                <img src={plus2} alt="plus" />
+                            </div>
+                            <p>
+                                <span className="pointer" onClick={handleShowMore}>
+                                    {showAll ? 'Show less' : 'Show more'}
+                                </span>
+                            </p>
                         </div>
-                        <p> <Link to="/">Show more</Link> </p>
-
-                    </div>
+                    )}
                 </div>
             </div>
             <div className="category_wrapper">
                 <div className="blue_cat">
                     <p>Job by location</p>
                 </div>
-                <div className='white_category_part'>
-                    {jobLocations.map((sport, index) => (
+                <div className="white_category_part">
+                    {displayedJobLocations.map((sport, index) => (
                         <div key={index} className="cat_list">
                             <div className="form-check">
                                 <input
@@ -88,14 +105,25 @@ const JobCategory = () => {
                             <span className='pointer' onClick={() => handleFunctionClick(sport)}>{sport}</span>
                         </div>
                     ))}
-                    <div className='cat_list1'>
-                        <div className='blue_plus'>
-                            <img src={plus2} alt="plus" />
+                    {jobLocations.length > 4 && (
+                        <div className="cat_list1">
+                            <div className="blue_plus" onClick={handleShowjobLocationsMore}>
+                                <img src={plus2} alt="plus" />
+                            </div>
+                            <p>
+                                <span className="pointer" onClick={handleShowjobLocationsMore}>
+                                    {showAll ? 'Show less' : 'Show more'}
+                                </span>
+                            </p>
                         </div>
-                        <p> <button className='bg-none'>Show more</button> </p>
-                    </div>
+                    )}
                 </div>
+
             </div>
+
+
+
+
             <div className='best_matched'>
                 <h3>Get Best Matched Jobs On your Email</h3>
                 <button className='apply_now_btn'>Apply Now</button>
