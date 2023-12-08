@@ -49,7 +49,7 @@ const Header = () => {
               <img className="d-block d-md-none" src={Logosm} alt="Logo" />
             </Nav.Link>
           </Navbar.Brand>
-          <div className=" nav_toggle">
+          <div className=" nav_toggle d-flex align-items-center">
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,18 +97,19 @@ const Header = () => {
                 </Link>
               </div> :
                 <>
-                  <button className="logIn">Log in</button>
-                  <button className="authBtn btnNone">
-                    <Link to="/signup" type="submit" className="text-decoration-none">
-                      Sign Up
-                    </Link>
-                  </button>
+                  <div className="d-lg-none d-block">
+                    <button className="logIn visibility-lg-hidden visually-visible">Log in</button>
+                    <button className="authBtn btnNone visibility-lg-hidden visually-visible">
+                      <Link to="/signup" type="submit" className="text-decoration-none">
+                        Sign Up
+                      </Link>
+                    </button>
+                  </div>
                 </>
             }
           </div>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
-              {/* modal if the user is not logged in */}
               {user ? <Nav.Link href="#home">
                 <Link to="/transfarMarket" className="nav-link">
                   Transfer Market
@@ -119,7 +120,7 @@ const Header = () => {
                   Transfer Market
                 </button>
               }
-
+              {/* transfer market modal */}
               <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                   <div className="modal-content">
@@ -141,6 +142,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+
               {/* modal hbe */}
               <Nav.Link href="/jobOffer">
                 <Link to="/jobOffer" className="nav-link">
@@ -148,7 +150,6 @@ const Header = () => {
                 </Link>
               </Nav.Link>
               <Nav.Link href="/announcements">
-
                 <Link to="/announcements" className="nav-link">
                   Announcements
                 </Link>
