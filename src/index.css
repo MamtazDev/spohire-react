@@ -37,6 +37,9 @@ p {
   cursor: pointer;
 }
 
+.accordion_items {
+  cursor: pointer;
+}
 ul {
   padding: 0;
 }

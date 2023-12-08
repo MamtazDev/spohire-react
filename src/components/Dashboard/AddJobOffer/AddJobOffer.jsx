@@ -50,9 +50,7 @@ const AddJobOffer = ({ onHide, isModalOpen }) => {
                     }
                 </Modal.Body>
                 <Modal.Footer className='border-0 p-0'>
-                    <button className='submit_now_btn w-100 m-0' onClick={onHide}>
-                        Submit Now
-                    </button>
+
                 </Modal.Footer>
             </Modal>
         </div>

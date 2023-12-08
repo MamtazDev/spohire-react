@@ -49,8 +49,7 @@ const options1 = [
 ];
 const PaymentForm = () => {
     const [nationality, setNationality] = useState("");
-
-
+    
     const [selectedOption, setSelectedOption] = useState('card');
 
     const handleButtonClick = (id) => {
