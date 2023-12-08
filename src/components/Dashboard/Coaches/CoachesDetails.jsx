@@ -1,18 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import "./ViewDetails.css";
-import profileImage from "../../../assets/profile_jobOffer.png";
+import profileImage from "../../../assets/coaches-pp.png";
 import messageImage from "../../../assets/message.png";
 import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
 import silver from "../../../assets/silver1.png";
-import ViewDetailsMobile from "./ViewDetailsMobile";
-import Gallary from "./Gallary";
 import { Link } from "react-router-dom";
+import Gallary from './../viewDetails/Gallary';
 
-const ViewDetails = () => {
+const CoachesDetails = () => {
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
@@ -148,7 +146,6 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
-      <ViewDetailsMobile />
       {/* <!-- Personal Info End --> */}
       {/* <!-- Strengths, About Me part Start --> */}
       <div className="strAbout mb_60 ">
@@ -222,4 +219,4 @@ const ViewDetails = () => {
   );
 };
 
-export default ViewDetails;
+export default CoachesDetails;

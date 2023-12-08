@@ -33,14 +33,14 @@ const DashbordSidebar = () => {
           <div className="dashbord_user pb-4">
             <div className="dashbord_user_info d-flex gap-2">
               <div className="dashboard_user_img">
-              <Link to="/dashboard/viewDetails"><img src={DashbordUser} alt="user-img" /></Link> 
+              <Link to="/dashboard/viewProfile"><img src={DashbordUser} alt="user-img" /></Link> 
               </div>
 
               <div className="user_info">
                 <h6 className="text_color_36 fs-6 fw-semibold mb-1">
-                  <Link to="/dashboard/viewDetails" className="text_color_36"> Emily Sinclair</Link>
+                  <Link to="/dashboard/viewProfile" className="text_color_36"> Emily Sinclair</Link>
                 </h6>
-                <p className="text_color_cb fs_14"><Link to="/dashboard/viewDetails" className="text_color_cb">Basketball / Manager</Link></p>
+                <p className="text_color_cb fs_14"><Link to="/dashboard/viewProfile" className="text_color_cb">Basketball / Manager</Link></p>
               </div>
             </div>
           </div>

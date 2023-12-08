@@ -28,6 +28,8 @@ import EditPlayerDetails from "../components/Dashboard/viewDetails/EditPlayerDet
 import Gallary from "../pages/TransferMarket/Gallary.jsx";
 import { createBrowserRouter } from "react-router-dom";
 import EditCoachProfile from './../components/Dashboard/Coaches/EditCoachProfile';
+import ViewProfile from "../components/Dashboard/viewDetails/ViewProfile.jsx";
+import CoachesDetails from "../components/Dashboard/Coaches/CoachesDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +110,10 @@ export const router = createBrowserRouter([
         element: <Coaches />,
       },
       {
+        path: "/dashboard/coacheDetails",
+        element: <CoachesDetails />,
+      },
+      {
         path: "/dashboard/coachesProfile",
         element: <CoachesProfile />,
       },
@@ -118,6 +124,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/viewDetails",
         element: <ViewDetails />,
+      },
+      {
+        path: "/dashboard/viewProfile",
+        element: <ViewProfile />,
       },
       {
         path: "/dashboard/editPlayerDetals",

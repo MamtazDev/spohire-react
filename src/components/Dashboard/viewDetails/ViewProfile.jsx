@@ -1,17 +1,18 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import profileImage from "../../../assets/coaches-pp.png";
+import "./ViewDetails.css";
+import profileImage from "../../../assets/profile_jobOffer.png";
 import messageImage from "../../../assets/message.png";
 import twitterIcon from "../../../assets/tw_jobOffer.png";
 import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
-import ViewDetailsMobile from "../viewDetails/ViewDetailsMobile";
-import Gallary from "../viewDetails/Gallary";
-import bronze from "../../../assets/bronze.png";
+import silver from "../../../assets/silver1.png";
+import ViewDetailsMobile from "./ViewDetailsMobile";
+import Gallary from "./Gallary";
 import { Link } from "react-router-dom";
 
-const CoachesProfile = () => {
+const ViewProfile = () => {
     return (
         <div className="View_details container p-0 overflow-hidden">
             {/* <!-- Personal Info Start --> */}
@@ -23,17 +24,19 @@ const CoachesProfile = () => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-9">
-                        <button className="gold_btn"><img src={bronze} alt="Bronze" /> Bronze</button>
-                        <p className="text_color_36 f_sfPro fs_40 mb-2">Josep Guardiola</p>
-                        <span className="d-block f_sfPro text_color_cb fs_28 mb-4">
-                            Coach
+                        <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
+                        <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
+                        <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
+                            Basketball
                         </span>
-                        <button className="edit_player_profile"><Link to="/dashboard/editCoacheProfile">Edit Profile</Link></button>
-                        <div className="personalInfo">
+                        <button className="edit_player_profile"><Link to="/dashboard/editPlayerDetals">Edit Profile</Link></button>
+                        <div className="personalInfo" style={{ marginRight: "48px" }}>
                             <p className="f_sfPro text_color_36 fs_18">
                                 Personal Information
                             </p>
-                   
+                            {/* <button className="message">
+                                <img className="img-fluid" src={messageImage} alt="Message" />
+                            </button> */}
                             <div className="row mb_40">
                                 <div className="col-12 col-md-4">
                                     <div className="d-flex flex-column align-items-start gap-3">
@@ -94,7 +97,7 @@ const CoachesProfile = () => {
 
                                         <div>
                                             <span className="f_sfPro text_color_cb fs_15">
-                                                Dominant Hand{" "}
+                                                Dominant Hand
                                             </span>
                                             <p className="f_sfPro text_color_36 fs_17">Left</p>
                                         </div>
@@ -127,16 +130,16 @@ const CoachesProfile = () => {
                                         </p>
                                     </div>
                                     <div className="d-flex gap-2">
-                                        <Link to="/">
+                                        <Link to="#">
                                             <img src={twitterIcon} alt="Twitter" />
                                         </Link>
-                                        <Link to="/">
+                                        <Link to="#">
                                             <img src={instagramIcon} alt="Instagram" />
                                         </Link>
-                                        <Link to="/">
+                                        <Link to="#">
                                             <img src={facebookIcon} alt="FaceBook" />
                                         </Link>
-                                        <Link to="/">
+                                        <Link to="#">
                                             <img src={youtubeIcon} alt="Youtube" />
                                         </Link>
                                     </div>
@@ -160,13 +163,13 @@ const CoachesProfile = () => {
                             blessed with a tall stature and a remarkable wingspan, which give
                             me a significant advantage in both offense and defense. My height
                             allows me to effectively contest shots,
-                            <Link
-                                to="#"
+                            <a
+                                href="#"
                                 className="f_sfPro fs_16"
                                 style={{ color: "#0177FB" }}
                             >
                                 See More
-                            </Link>
+                            </a>
                         </p>
                     </div>
                     <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
@@ -178,14 +181,14 @@ const CoachesProfile = () => {
                             day, when I was 11-years old, I decided to go outside to the
                             family basketball hoop and take a shot. The basket was originally
                             for my sister.
-                            <Link
-                                to="#"
+                            <a
+                                href="#"
                                 className="f_sfPro fs_16"
                                 style={{ color: "#0177FB" }}
                             >
                                 {" "}
                                 See More
-                            </Link>
+                            </a>
                         </p>
                     </div>
 
@@ -199,14 +202,14 @@ const CoachesProfile = () => {
                             to the opportunity to contribute to the club's success, aiming to
                             make a positive impact both on and off the court. Additionally, I
                             expect to receive the necessary resources.
-                            <Link
-                                to="#"
+                            <a
+                                href="#"
                                 className="f_sfPro fs_16"
                                 style={{ color: "#0177FB" }}
                             >
                                 {" "}
                                 See More
-                            </Link>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -220,4 +223,4 @@ const CoachesProfile = () => {
     );
 };
 
-export default CoachesProfile;
+export default ViewProfile;

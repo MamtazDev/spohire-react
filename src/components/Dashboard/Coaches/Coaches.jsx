@@ -1,18 +1,14 @@
 import { Table } from "react-bootstrap";
 import playerImgOne from "../../../assets/playerImg.svg";
-import startIcon from "../../../assets/starIcon.svg";
 import messageIcon from "../../../assets/messageIcon.svg";
 import MobilePlayers from "../players/MobilePlayers";
 import MobileButtons from "../players/MobileButtons";
 import { Link, useNavigate } from "react-router-dom";
-
+import b1 from '../../../assets/bookmark.png';
+import bookmarkfill from '../../../assets/bookmark-fill.png';
+import { useState } from "react";
 const Coaches = () => {
-    const navigate = useNavigate();
 
-    const handlePath = () => {
-        navigate('/dashboard/coachesProfile')
-
-    };
     return (
         <>
             <div className="players">
@@ -35,55 +31,9 @@ const Coaches = () => {
                     <tbody>
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
                             <>
-                                <tr className="table_hover pointer">
-                                    <td>
-                                        <div className="player_info d-flex align-items-center gap-2">
-                                            <div className="player_info_wrapper d-flex gap-2">
-                                                <div className="player_img">
-                                                    <img src={playerImgOne} alt="player-img" />
-                                                </div>
-                                                <div className="player_name" onClick={handlePath}>
-                                                    <p className="text_color_36 fw-medium fs_14">
-                                                        Jacob <br /> Bennett
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p className="text_color_55 fw-normal fs_14">Italy</p>
-                                    </td>
-                                    <td>
-                                        <p className="text_color_55 fw-normal fs_14">2002</p>
-                                    </td>
-
-                                    <td>
-                                        <p className="text_color_55 fw-normal fs_14">PG</p>
-                                    </td>
-
-                                    <td>
-                                        <p className="text_color_55 fw-normal fs_14">Milano</p>
-                                    </td>
-
-                                    <td>
-                                        <p className="text_color_55 fw-normal fs_14">Gold</p>
-                                    </td>
-
-                                    <td>
-                                        <div className="d-flex align-items-center">
-                                            <p className="text_color_55 fw-normal fs_14">
-                                                <img src={startIcon} alt="star-icon" className="" />
-                                            </p>
-
-                                            <Link to="/dashboard/messages" className="text_color_55 fw-normal fs_14">
-                                                <img src={messageIcon} alt="message-icon" className="ms-2" />
-                                            </Link>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <SingleCoach />
                             </>
                         ))}
-                        {/* blank tr for taking space */}
                     </tbody>
                 </Table>
                 <MobilePlayers></MobilePlayers>
@@ -94,3 +44,71 @@ const Coaches = () => {
 };
 
 export default Coaches;
+
+const SingleCoach = () => {
+    const [bookmark, setBookmark] = useState(false)
+
+    const navigate = useNavigate();
+    const handleBookmark = () => {
+        setBookmark(!bookmark)
+    }
+
+    const handlePath = () => {
+        navigate('/dashboard/coacheDetails')
+
+    };
+    return (
+        <>
+            <tr className="table_hover pointer">
+                <td>
+                    <div className="player_info d-flex align-items-center gap-2">
+                        <div className="player_info_wrapper d-flex gap-2">
+                            <div className="player_img">
+                                <img src={playerImgOne} alt="player-img" />
+                            </div>
+                            <div className="player_name" onClick={handlePath}>
+                                <p className="text_color_36 fw-medium fs_14">
+                                    Jacob <br /> Bennett
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p className="text_color_55 fw-normal fs_14">Italy</p>
+                </td>
+                <td>
+                    <p className="text_color_55 fw-normal fs_14">2002</p>
+                </td>
+
+                <td>
+                    <p className="text_color_55 fw-normal fs_14">PG</p>
+                </td>
+
+                <td>
+                    <p className="text_color_55 fw-normal fs_14">Milano</p>
+                </td>
+
+                <td>
+                    <p className="text_color_55 fw-normal fs_14">Gold</p>
+                </td>
+
+                <td>
+                    <div className="d-flex align-items-center">
+                        <button className='bg-none m-2' onClick={handleBookmark}>
+                            {
+                                bookmark ?
+                                    <img src={bookmarkfill} alt="" />
+                                    :
+                                    <img src={b1} alt="" />
+                            }
+                        </button>
+                        <Link to="/dashboard/messages" className="text_color_55 fw-normal fs_14">
+                            <img src={messageIcon} alt="message-icon" className="ms-2" />
+                        </Link>
+                    </div>
+                </td>
+            </tr>
+        </>
+    )
+}
