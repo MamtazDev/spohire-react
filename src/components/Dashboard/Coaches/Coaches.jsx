@@ -95,7 +95,7 @@ const SingleCoach = () => {
 
                 <td>
                     <div className="d-flex align-items-center">
-                        <button className='bg-none m-2' onClick={handleBookmark}>
+                        <button className='bg-none me-3' onClick={handleBookmark} style={{width:"20px"}}>
                             {
                                 bookmark ?
                                     <img src={bookmarkfill} alt="" />

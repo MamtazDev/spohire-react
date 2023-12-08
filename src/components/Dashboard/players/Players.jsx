@@ -32,7 +32,7 @@ const Players = () => {
         <tbody>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
             <>
-          
+
               <SinglePlayer />
             </>
           ))}
@@ -100,7 +100,7 @@ const SinglePlayer = () => {
 
         <td>
           <div className="d-flex align-items-center">
-            <button className='bg-none' onClick={handleBookmark}>
+            <button className='bg-none me-3' onClick={handleBookmark} style={{ width: "20px" }}>
               {
                 bookmark ?
                   <img src={bookmarkfill} alt="" />

@@ -93,7 +93,7 @@ function SingleJob() {
             </div>
           </div>
           <div className="right">
-            <button className='bg-none' onClick={handleBookmark}>
+            <button className='bg-none' onClick={handleBookmark} style={{width:"20px"}}>
               {
                 bookmark ?
                   <img src={bookmarkfill} alt="" />

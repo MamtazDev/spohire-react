@@ -332,6 +332,7 @@ textarea {
     background: #FFF;
     /* display: flex; */
     /* justify-content: center; */
+    margin-top: 300px;
 }
 
 .modal-dialog .modal-content {

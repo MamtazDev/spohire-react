@@ -1,8 +1,8 @@
 import plus2 from '../../assets/plus2.png';
 import { useState } from 'react';
 
-const sports = ['Football', 'Basketball', 'Handball', 'Volleyball','Football', 'Basketball', 'Handball', 'Volleyball'];
-const jobLocations = ['Paris', 'London', 'Finland', 'Canada','Paris', 'London', 'Finland', 'Canada'];
+const sports = ['Football', 'Basketball', 'Handball', 'Volleyball','Football1', 'Basketball1', 'Handball1', 'Volleyball1'];
+const jobLocations = ['Paris', 'London', 'Finland', 'Canada     ','Paris1', 'London1', 'Finland1', 'Canada1'];
 
 
 const JobCategory = () => {
@@ -112,7 +112,7 @@ const JobCategory = () => {
                             </div>
                             <p>
                                 <span className="pointer" onClick={handleShowjobLocationsMore}>
-                                    {showAll ? 'Show less' : 'Show more'}
+                                    {showAlljobLocations ? 'Show less' : 'Show more'}
                                 </span>
                             </p>
                         </div>

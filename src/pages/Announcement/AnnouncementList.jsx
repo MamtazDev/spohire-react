@@ -24,15 +24,12 @@ const AnnouncementList = () => {
                                 <SingleAnnouncement key={index} />
                             ))
                         }
-
-
                     </div>
                     <div className="col-lg-3">
                         <JobCategory />
                     </div>
                 </div>
             </div>
-
             <DeleteModal />
 
 
@@ -80,7 +77,7 @@ const SingleAnnouncement = () => {
                     {/* icon div */}
                     <div className='d-lg-block d-none'>
                         <div >
-                            <button className='bg-none'
+                            <button className='bg-none' style={{width:"20px"}}
                                 onClick={handleBookmark}>
                                 {
                                     bookmark ?
