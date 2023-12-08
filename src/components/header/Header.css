@@ -251,7 +251,6 @@
 }
 
 .profile_name h5 {
-    color: #FFF;
     text-align: center;
     font-family: 'Gilroy-SemiBold', sans-serif;
     font-size: 16px;
@@ -260,6 +259,16 @@
     line-height: 120%;
     /* 19.2px */
     text-transform: uppercase;
+}
+
+.profile_name h5 a {
+    color: #FFF !important;
+
+}
+
+.profile_name h5 a:hover {
+    color: #FFF !important;
+
 }
 
 .profile_dropdown p {
@@ -302,7 +311,7 @@
 
 @media(max-width:375px) {
     .profile_dropdown {
-    right: 25% !important;
+        right: 25% !important;
     }
 }
 
@@ -310,15 +319,18 @@
     .profile_picture {
         margin-right: 0px;
     }
+
     .profile_dropdown {
         top: 83% !important;
-    right: 35%;
+        right: 35%;
     }
+
     .profile_drop_mobilepadding {
         padding-bottom: 50px !important;
     }
 
 }
+
 @media (min-width:768px) and (max-width:1023px) {
     .profile_dropdown {
         top: 87%;

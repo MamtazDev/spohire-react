@@ -168,7 +168,7 @@ const Header = () => {
                   <div className="profile_dropdown" ref={myDivRef}>
                     <div className="position-relative">
                       <div className="profile_name">
-                        <h5>SMITH JOHN </h5>
+                        <h5><Link to="/dashboard" className="text-light">SMITH JOHN</Link></h5>
                         <img src={dropdown} className={`${isDropdownActive ? "" : "rotate_arrow"}`} alt="dropdown" />
                       </div>
                       {isDropdownActive &&

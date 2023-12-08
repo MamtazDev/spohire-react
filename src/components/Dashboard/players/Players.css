@@ -112,9 +112,22 @@
 .filter_mb_btn {
     border-radius: 8px;
     background: rgba(45, 91, 255, 0.08);
-
     padding: 12px 24px;
+    background-color: grey;
+    color: black;
 }
+
+.filter_mb_btn:hover {
+    background-color: #0177FB !important    ;
+    color: white;
+    box-shadow: none;
+}
+
+
+/* .btn:active {
+    outline: 0;
+    box-shadow: none;
+} */
 
 .details_mob {
     padding: 12px 24px;
@@ -132,12 +145,12 @@
     width: 12px;
 }
 
-.smallMsg button{
+.smallMsg button {
     background: transparent;
     border: none;
 }
 
-.smallMsg button img{
+.smallMsg button img {
     height: 41px;
     width: 41px;
     object-fit: contain;
@@ -155,20 +168,21 @@
     }
 }
 
-.textWrap{
+.textWrap {
     white-space: nowrap;
 }
 
-@media screen and (max-width:365px){
-    .textWrap{
+@media screen and (max-width:365px) {
+    .textWrap {
         white-space: wrap !important;
     }
 }
 
-@media screen and (max-width:375px){
+@media screen and (max-width:375px) {
     .players {
         padding: 20px !important;
     }
+
     .players_wrapper {
         padding: 10px !important;
     }

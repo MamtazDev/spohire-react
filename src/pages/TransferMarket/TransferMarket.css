@@ -391,24 +391,21 @@
 
 }
 
-.player_details_bg {
-    background-image: url('/src/assets/playerdetailsbg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 945px;
-    position: relative;
+.player_details_bg img{
+    width: 100% !important;
 }
 
-.player_details_bg img {
+
+ .player_details_bg .player_details_img {
     position: absolute;
     right: 68%;
     top: 16%;
     border-radius: 12px;
     border: 5px solid #FFF;
     background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-    width: 322px;
-    height: 322px;
-}
+    max-width: 322px;
+
+} 
 
 @media(max-width:768px) {
     .market_filter_wrapper {

@@ -151,7 +151,7 @@ const SinglePlayer = () => {
 
         <td>
           <div className="d-flex align-items-center">
-            <button className='bg-none m-2' onClick={handleBookmark}>
+            <button className='bg-none' onClick={handleBookmark}>
               {
                 bookmark ?
                   <img src={bookmarkfill} alt="" />

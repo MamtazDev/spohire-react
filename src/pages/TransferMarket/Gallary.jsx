@@ -3,6 +3,7 @@ import g1 from '../../assets/g1.png'
 import g2 from '../../assets/g2.png'
 import player from '../../assets/player1.png'
 import arrow from '../../assets/t-leftarrow.png'
+import playerbg from '../../assets/playerdetailsbg.png'
 import GallaryTable from './GallaryTable';
 import TransferMarketHeader from './TransferMarketHeader';
 
@@ -30,8 +31,11 @@ const Gallary = () => {
                                     </div>
                                 </div>
 
-                                <div className='mt-3 mb-4 player_details_bg'>
-                                    <img className='img-fluid' src={player} alt="" />
+                                <div className='mt-3 mb-4 player_details_bg position-relative'>
+                                    <img src={playerbg} alt="" />
+                                    <div className='player_details_img'>
+                                        <img className='img-fluid' src={player} alt="" />
+                                    </div>
                                 </div>
 
                                 <GallaryTable />
