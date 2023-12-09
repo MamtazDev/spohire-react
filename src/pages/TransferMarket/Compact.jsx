@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import mbappe from '../../assets/mbappe.png';
 import flag1 from '../../assets/flag1.png';
 import flag2 from '../../assets/flag2.png';
@@ -6,7 +7,7 @@ import flag4 from '../../assets/flag4.png';
 import flag5 from '../../assets/flag5.png';
 import { useNavigate } from 'react-router-dom';
 
-const Compact = () => {
+const Compact = ({ flagurl }) => {
     const navigate = useNavigate()
 
     const handlePath = () => {
@@ -37,7 +38,7 @@ const Compact = () => {
                                                         </div>
                                                     </td>
 
-                                         
+
 
                                                     <td></td>
                                                     <td> <p className='age_text d-flex justify-content-start'>22</p></td>
@@ -59,13 +60,13 @@ const Compact = () => {
 
                                                         <div>
                                                             <p className='postmouth_text'>Portsmouth</p>
-                                                            <img src={flag5} alt="flag1" />
+                                                            <img style={{ height: "29px", width: "46px" }} src={flagurl ? flagurl : flag5} alt="flag1" />
                                                         </div>
                                                     </div></td>
 
                                                 </tr>
                                                 <tr onClick={handlePath} style={{ cursor: "pointer" }} className='row_2'>
-                                                <td >
+                                                    <td >
                                                         <div className='div_data'>
                                                             <div className='d-flex gap_14 align-items-center'>
                                                                 <img className='profile_image11' src={mbappe} alt="" />
@@ -98,7 +99,7 @@ const Compact = () => {
 
                                                         <div>
                                                             <p className='postmouth_text'>Portsmouth</p>
-                                                            <img src={flag5} alt="flag1" />
+                                                            <img style={{ height: "29px", width: "46px" }} src={flagurl ? flagurl : flag5} alt="flag1" />
                                                         </div>
                                                     </div></td>
 
