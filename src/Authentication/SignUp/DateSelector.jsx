@@ -5,9 +5,7 @@ import "./SignUp.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 const DateSelector = ({ value, onChange, isFormSubmitted }) => {
-
   const currentDate = new Date();
   const [myMonth, setMyMonth] = useState(currentDate);
   const [myYear, setMyYear] = useState(currentDate);
@@ -48,10 +46,8 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
   };
 
   return (
-
     <>
       <div className="d-flex align-items-center gap-1">
-
         <div className="day">
           <DatePicker
             dateFormat="dd"

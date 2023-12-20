@@ -27,9 +27,11 @@ import Layout from "../Layout/Layout.jsx";
 import EditPlayerDetails from "../components/Dashboard/viewDetails/EditPlayerDetails.jsx";
 import Gallary from "../pages/TransferMarket/Gallary.jsx";
 import { createBrowserRouter } from "react-router-dom";
-import EditCoachProfile from './../components/Dashboard/Coaches/EditCoachProfile';
+import EditCoachProfile from "./../components/Dashboard/Coaches/EditCoachProfile";
 import ViewProfile from "../components/Dashboard/viewDetails/ViewProfile.jsx";
 import CoachesDetails from "../components/Dashboard/Coaches/CoachesDetails.jsx";
+import AddProfile from "../pages/AddProfile/AddProfile.jsx";
+import SubscribedRoute from "./SubscribedRoute.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +78,10 @@ export const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
+    path: "/addProfile",
+    element: <AddProfile />,
+  },
+  {
     path: "/addplayer",
     element: <AddPlayer />,
   },
@@ -90,7 +96,11 @@ export const router = createBrowserRouter([
 
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <SubscribedRoute>
+        <DashboardLayout />
+      </SubscribedRoute>
+    ),
 
     children: [
       {
@@ -122,7 +132,7 @@ export const router = createBrowserRouter([
         element: <EditCoachProfile />,
       },
       {
-        path: "/dashboard/viewDetails",
+        path: "/dashboard/viewDetails/:id",
         element: <ViewDetails />,
       },
       {

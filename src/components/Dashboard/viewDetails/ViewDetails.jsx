@@ -10,9 +10,14 @@ import youtubeIcon from "../../../assets/youtube.png";
 import silver from "../../../assets/silver1.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetUserByIdQuery } from "../../../features/auth/authApi";
 
 const ViewDetails = () => {
+  const { id } = useParams();
+
+  const { data: user } = useGetUserByIdQuery(id);
+  // console.log(user, "dddUser");
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
@@ -24,10 +29,14 @@ const ViewDetails = () => {
             </div>
           </div>
           <div className="col-12 col-lg-9">
-            <button className="gold_btn"><img src={silver} alt="" /> Silver</button>
-            <p className="text_color_36 f_sfPro fs_40 mb-2">Jhon Kowalski</p>
+            <button className="gold_btn">
+              <img src={silver} alt="" /> Silver
+            </button>
+            <p className="text_color_36 f_sfPro fs_40 mb-2">
+              {user?.first_name} {user?.last_name}
+            </p>
             <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
-              Basketball
+              {user?.sports}
             </span>
             <div className="personalInfo" style={{ marginRight: "48px" }}>
               <p className="f_sfPro text_color_36 fs_18">
@@ -42,7 +51,7 @@ const ViewDetails = () => {
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">Name</span>
                       <p className="f_sfPro text_color_36 fs_17">
-                        Jhon Kawalski
+                        {user?.first_name} {user?.last_name}
                       </p>
                     </div>
 
@@ -50,7 +59,9 @@ const ViewDetails = () => {
                       <span className="f_sfPro text_color_cb fs_15">
                         Nationality-Passport
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">USA</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.nationality}
+                      </p>
                     </div>
 
                     <div>
@@ -213,7 +224,12 @@ const ViewDetails = () => {
       </div>
       {/* <!-- Strengths, About Me part End --> */}
       {/* <!-- Slider Start --> */}
-      <p className="f_sfPro text_color_36 fs_18 mb-4 ps-lg-4" style={{ paddingLeft: "24px" }}>Gallery</p>
+      <p
+        className="f_sfPro text_color_36 fs_18 mb-4 ps-lg-4"
+        style={{ paddingLeft: "24px" }}
+      >
+        Gallery
+      </p>
       <Gallary />
       {/* <!-- Slider End --> */}
     </div>

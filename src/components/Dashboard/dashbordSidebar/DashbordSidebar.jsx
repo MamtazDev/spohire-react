@@ -18,7 +18,8 @@ import billing from "../../../assets/BILLING.png";
 import notification from "../../../assets/notification.png";
 import coach from "../../../assets/coach.png";
 
-const DashbordSidebar = () => {
+const DashbordSidebar = ({ user }) => {
+  console.log(user, "jjj");
   return (
     <div className="dashbord_sidebar">
       <div className="dashbord_logo">
@@ -33,21 +34,39 @@ const DashbordSidebar = () => {
           <div className="dashbord_user pb-4">
             <div className="dashbord_user_info d-flex gap-2">
               <div className="dashboard_user_img">
-              <Link to="/dashboard/viewProfile"><img src={DashbordUser} alt="user-img" /></Link> 
+                <Link to="/dashboard/viewProfile">
+                  <img
+                    src={user?.image ? user?.image : DashbordUser}
+                    alt="user-img"
+                    style={{
+                      height: "34px",
+                      width: "34px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Link>
               </div>
 
               <div className="user_info">
                 <h6 className="text_color_36 fs-6 fw-semibold mb-1">
-                  <Link to="/dashboard/viewProfile" className="text_color_36"> Emily Sinclair</Link>
+                  <Link to="/dashboard/viewProfile" className="text_color_36">
+                    {" "}
+                    {user?.first_name} {user?.last_name}
+                  </Link>
                 </h6>
-                <p className="text_color_cb fs_14"><Link to="/dashboard/viewProfile" className="text_color_cb">Basketball / Manager</Link></p>
+                <p className="text_color_cb fs_14">
+                  <Link to="/dashboard/viewProfile" className="text_color_cb">
+                    {user?.sports} / {user?.role}
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div className="overview">
             <Link
-              to='/dashboard'
+              to="/dashboard"
               className="text-decoration-none d-flex align-items-center gap-4"
             >
               <img src={overviewIcon} alt="icon" />
@@ -100,7 +119,7 @@ const DashbordSidebar = () => {
 
                       <li className="">
                         <Link
-                          to='/dashboard/coaches'
+                          to="/dashboard/coaches"
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={coachesIcon} alt="icon" />
@@ -131,7 +150,7 @@ const DashbordSidebar = () => {
 
               <li className="nav_item">
                 <Link
-                  to='/dashboard/announcements'
+                  to="/dashboard/announcements"
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
                   <img src={announcementOffer} alt="icon" />
@@ -145,7 +164,7 @@ const DashbordSidebar = () => {
             <ul className="menu_wrapper_two list-unstyled m-0">
               <li className="nav_item">
                 <Link
-                  to='/dashboard/observed'
+                  to="/dashboard/observed"
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
                   <img src={observedIcon} alt="icon" />
@@ -157,7 +176,7 @@ const DashbordSidebar = () => {
 
               <li className="nav_item">
                 <Link
-                  to='/dashboard/messages'
+                  to="/dashboard/messages"
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
                   <img src={messageIcon} alt="icon" />
@@ -175,7 +194,10 @@ const DashbordSidebar = () => {
                         className="text-decoration-none d-flex align-items-center gap-4"
                       >
                         <img src={settingsIcon} alt="icon" />
-                        <span to={"#"} className="text_color_36 text-capitalize fs-6">
+                        <span
+                          to={"#"}
+                          className="text_color_36 text-capitalize fs-6"
+                        >
                           Settings
                         </span>
                       </Link>
@@ -186,10 +208,9 @@ const DashbordSidebar = () => {
                       className="list-unstyled"
                       style={{ paddingLeft: "30px" }}
                     >
-
                       <li className="nav_item">
                         <Link
-                          to='/dashboard/password'
+                          to="/dashboard/password"
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={coach} alt="icon" />

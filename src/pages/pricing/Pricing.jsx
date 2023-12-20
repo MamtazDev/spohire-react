@@ -1,9 +1,8 @@
-
-import WhatPeopleSay from '../../components/whatPeopleSay/WhatPeopleSay'
-import BestOffer from './BestOffer'
-import GetStarted from './GetStarted'
-import PageHeader from './PageHeader'
-import './Pricing.css'
+import WhatPeopleSay from "../../components/whatPeopleSay/WhatPeopleSay";
+import BestOffer from "./BestOffer";
+import GetStarted from "./GetStarted";
+import PageHeader from "./PageHeader";
+import "./Pricing.css";
 const Pricing = () => {
   return (
     <div>
@@ -16,7 +15,7 @@ const Pricing = () => {
       </div>
       <GetStarted />
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

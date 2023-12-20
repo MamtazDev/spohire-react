@@ -7,6 +7,9 @@ import Select from "react-select";
 import bdIcon from "../../assets/bd.svg";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
+import { convertDate } from "../../utils/TimeConverter";
+import { useRegisterUserMutation } from "../../features/auth/authApi";
+import Swal from "sweetalert2";
 
 const options = [
   {
@@ -227,7 +230,7 @@ const options2 = [
   },
   {
     value: "India",
-    label: "+880",
+    label: "+91",
     flagImg: bdIcon,
   },
 ];
@@ -238,30 +241,85 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [nationality, setNationality] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
-  const navigate = useNavigate()
+  const [countryCode, setCoutryCode] = useState(null);
 
-  const handleFormSubmit = (e) => {
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
+
+  const button_disability =
+    !firstName ||
+    !lastName ||
+    !email ||
+    !password ||
+    !nationality ||
+    !dateOfBirth ||
+    !phoneNumber ||
+    !functionType ||
+    !countryCode ||
+    !sports ||
+    isLoading;
+
+  // console.log(countryCode, "cc");
+
+  const navigate = useNavigate();
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/;
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = {
-      firstName,
-      lastName,
+      role: functionType,
+      first_name: firstName,
+      last_name: lastName,
       email,
+      password,
       nationality,
-      dateOfBirth,
-      phoneNumber,
-      functionType,
+      date_of_birth: convertDate(dateOfBirth),
+      phone_number: {
+        country_code: countryCode,
+        number: Number(phoneNumber),
+      },
       sports,
     };
-    console.log(formData)
 
-    localStorage.setItem("register", JSON.stringify(formData));
-    navigate('/addPlayer')
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must contain at least one uppercase, one lowercase, one special character, one digit and it should be at least 8 characters long.",
+      });
+      return;
+    }
 
+    try {
+      const response = await registerUser(formData);
+
+      if (response?.data?.status === 200) {
+        navigate("/addProfile");
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
+
+    // localStorage.setItem("register", JSON.stringify(formData));
+    // navigate('/addPlayer')
   };
   return (
     <>
@@ -293,6 +351,7 @@ const SignUp = () => {
                         placeholder="First name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
+                        required
                       />
                     </div>
                     <div className="col-6">
@@ -302,6 +361,7 @@ const SignUp = () => {
                         placeholder="Last name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -310,12 +370,24 @@ const SignUp = () => {
                     <label htmlFor="">Email Address</label>
 
                     <input
-                      type="text"
+                      type="email"
                       className="form-control login_input"
                       placeholder="Enter email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="right-inner-addon input-container">
+                    <label htmlFor="">Password</label>
 
+                    <input
+                      type="password"
+                      className="form-control login_input"
+                      placeholder="Enter password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </div>
                   <div className="row flex-wrap date_wrapper mb-3 align-items-center">
@@ -385,10 +457,12 @@ const SignUp = () => {
 
                     <div className="col-6">
                       <label htmlFor="">Date of birth</label>
-                      <DateSelector value={dateOfBirth}
+                      <DateSelector
+                        value={dateOfBirth}
                         onChange={(selectedDate) =>
                           setDateOfBirth(selectedDate)
-                        } />
+                        }
+                      />
                     </div>
                   </div>
                   {/* country select */}
@@ -403,7 +477,7 @@ const SignUp = () => {
                           (option) => option.label === phoneNumber
                         )}
                         onChange={(selectedOption) =>
-                          setPhoneNumber(selectedOption.label)
+                          setCoutryCode(selectedOption.label)
                         }
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
@@ -475,28 +549,49 @@ const SignUp = () => {
                   {/* Function */}
                   <label className="label_text">Function</label> <br />
                   <>
-                    {
-                      ["Player", "Coach", "Manager", "Other"].map((data) => (
-
-                        <>
-                          <button className=" function_btn" onClick={() => setSports({ data })}>{data}</button>
-                        </>
-                      ))
-                    }
+                    {["Player", "Coach", "Manager"].map((data) => (
+                      <>
+                        <button
+                          className={`${
+                            functionType === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
+                          type="button"
+                          onClick={() => setFunctionType(data)}
+                        >
+                          {data}
+                        </button>
+                      </>
+                    ))}
                   </>
                   <br />
                   <label className="label_text mt-3">Sports</label> <br />
-                  {
-                    ["Football", "Basketball", "Volleyball", "Handball"].map((data) => (
-
+                  {["Football", "Basketball", "Volleyball", "Handball"].map(
+                    (data) => (
                       <>
-                        <button className=" function_btn" onClick={() => setSports({ data })}>{data}</button>
+                        <button
+                          // className={${function===data?"function_btn_active": "function_btn"}}
+                          className={`${
+                            sports === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
+                          type="button"
+                          onClick={() => setSports(data)}
+                        >
+                          {data}
+                        </button>
                       </>
-                    ))
-                  }
+                    )
+                  )}
                   <div className="d-flex justify-content-center mt-4">
-                    <button type="submit" className="login-btn">
-                      Create account
+                    <button
+                      type="submit"
+                      className="login-btn"
+                      disabled={button_disability}
+                    >
+                      {isLoading ? "Creating..." : "Create account"}
                       <img src={arrowRight} alt="img" className="ms-1" />
                     </button>
                   </div>

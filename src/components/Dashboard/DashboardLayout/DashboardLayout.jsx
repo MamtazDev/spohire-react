@@ -4,18 +4,20 @@ import Topbar from "../topbar/Topbar";
 import { Outlet } from "react-router-dom";
 import DashbordSidebar from "../dashbordSidebar/DashbordSidebar";
 import MobileTopbar from "../topbar/MobileTopbar";
+import { useSelector } from "react-redux";
 const DashboardLayout = () => {
+  const { user } = useSelector((state) => state.auth);
   return (
     <>
       <div className="dashobard_layout">
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-2 p-0">
-              <DashbordSidebar />
+              <DashbordSidebar user={user} />
             </div>
             <div className="col-lg-10 p-0">
-              <Topbar className="deskTopbar" />
-              <MobileTopbar/>
+              <Topbar className="deskTopbar" user={user} />
+              <MobileTopbar user={user} />
               <div className="dashbord_content">
                 <Outlet />
               </div>
