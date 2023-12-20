@@ -1,16 +1,26 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import p1 from '../../../assets/p1.png';
-
+import brows from '../../../assets/brows1.png';
+import region from '../../../assets/aregion.png';
+import salary from '../../../assets/asalary.png';
 const AddAnnouncement = ({ onHide, isModalOpen }) => {
+    const [image, setImage] = useState("")
 
     const [selectBtn, setSelectBtn] = useState("Player");
     const handeSelectBtn = (btnType) => {
         setSelectBtn(btnType)
     }
+    const fileInputRef = useRef(null);
+
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        console.log('Selected File:', selectedFile.name);
+        setImage(selectedFile.name)
+    };
+
     return (
         <div >
             <Modal
@@ -25,27 +35,46 @@ const AddAnnouncement = ({ onHide, isModalOpen }) => {
                             <div className="w-100 player_job_form_wrapper">
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
-
-                                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter Announcement Title" />
+                                    <div className="form_icons" style={{ top: "40px" }}>
+                                        <img className="mt-0" src={region} alt="title" />
+                                    </div>
+                                    <input type="text" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Enter Announcement Title" />
                                 </div>
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Location</label>
-
-                                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter location" />
+                                    <div className="form_icons" style={{ top: "40px" }}>
+                                        <img className="mt-0" src={region} alt="title" />
+                                    </div>
+                                    <input type="text" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Enter location" />
                                 </div>
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Status</label>
-                                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Status" />
+                                    <div className="form_icons" style={{ top: "40px" }}>
+                                        <img className="mt-0" src={region} alt="title" />
+                                    </div>
+                                    <input type="text" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Status" />
                                 </div>
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Budget</label>
-
-                                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Numerical digit only" />
+                                    <div className="form_icons" style={{ top: "40px" }}>
+                                        <img className="mt-0" src={salary} alt="title" />
+                                    </div>
+                                    <input type="number" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Numerical digit only" />
                                 </div>
                                 <div className="position-relative text-start">
                                     <label htmlFor="exampleFormControlInput1" className="form-label">Image</label>
-
-                                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Select your region" />
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        id="exampleFormControlInput1"
+                                        ref={fileInputRef}
+                                        onChange={handleFileChange}
+                                        style={{ display: 'none' }} // Hide the default file input
+                                    />
+                                    <div className="form_icons" style={{ top: "40px" }}>
+                                        <img className="mt-0" src={brows} alt="title" />
+                                    </div>
+                                    <input type="email" onClick={() => fileInputRef.current.click()} value={image} className="form-control ps-5" id="exampleFormControlInput1" placeholder="Brows here" />
                                 </div>
                                 <div className="position-relative text-start">
                                     <div className="mb-3">

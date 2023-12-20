@@ -31,7 +31,20 @@
     overflow-y: hidden;
 }
 
+.modal_width1 .modal-dialog {
+    max-width: 90% !important;
+    overflow-y: hidden;
+}
+
 .modal_width .modal-dialog {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    height: unset !important;
+    margin-top: 0 !important;
+}
+
+.modal_width1 .modal-dialog {
     width: 100% !important;
     margin-left: auto;
     margin-right: auto;
@@ -57,11 +70,37 @@
     padding: 12px 24px;
     background: #0177FB;
     color: #FFF;
-font-family: SF Pro Display;
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+    font-family: SF Pro Display;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
 
+.modal label {
+    text-align: left !important;
+    display: flex !important;
+    justify-content: start;
+}
 
+.add_job_offer .css-13cymwt-control {
+    min-height: 40px !important;
+    border: 1px solid #F0F0F0 !important;
+}
+
+.add_job_offer .css-13cymwt-control:focus {
+    border: 1px solid #F0F0F0 !important;
+}
+
+.add_job_offer .form-control {
+    height: 40px;
+}
+
+.add_job_offer .modal_title {
+    color: #161D24;
+    font-family: SF Pro Display;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
