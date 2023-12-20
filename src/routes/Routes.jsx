@@ -32,6 +32,7 @@ import ViewProfile from "../components/Dashboard/viewDetails/ViewProfile.jsx";
 import CoachesDetails from "../components/Dashboard/Coaches/CoachesDetails.jsx";
 import AddProfile from "../pages/AddProfile/AddProfile.jsx";
 import SubscribedRoute from "./SubscribedRoute.jsx";
+import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -170,6 +171,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/editAnnouncements",
         element: <EditAnnouncements />,
+      },
+      {
+        path: "/dashboard/createAnnouncements",
+        element: <CreateAnnouncements />,
       },
     ],
   },

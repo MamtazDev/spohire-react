@@ -1,5 +1,5 @@
 import "./Topbar.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import filterIcon from "../../../assets/filter-icon.svg";
 import addIcon from "../../../assets/add-icon.svg";
 import logo from "../../../assets/dashbord-logo.png";
@@ -12,6 +12,8 @@ const Topbar = () => {
   const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleFilterModal = () => {
     setFilter(!filter);
@@ -43,7 +45,8 @@ const Topbar = () => {
   };
   const [isAnnouncementModalOpen, setAnnouncementIsModalOpen] = useState(false);
   const handleAddAnnouncementClick = () => {
-    setAnnouncementIsModalOpen(true);
+    // setAnnouncementIsModalOpen(true);
+    navigate("/dashboard/createAnnouncements");
   };
   const closeAnnouncementModal = () => {
     setAnnouncementIsModalOpen(false);
