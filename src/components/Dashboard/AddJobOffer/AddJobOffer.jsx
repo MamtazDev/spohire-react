@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Modal } from "react-bootstrap";
 import styles from "./Modal.module.css";
-import auser from '../../../assets/auser.png';
+import brows from '../../../assets/brows1.png';
 import region from '../../../assets/aregion.png';
 import dob from '../../../assets/adob.png';
 import position from '../../../assets/afullname.png';
@@ -32,7 +32,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     expectedSalary: '',
     language: '',
   });
-
+  const [image, setImage] = useState("")
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log()
@@ -46,6 +46,14 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     e.preventDefault()
     console.log('Form data submitted:', formData);
   };
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    console.log('Selected File:', selectedFile.name);
+    setImage(selectedFile.name)
+  };
+
 
   return (
     <div className={` ${styles.addJob_wrapper}`}>
@@ -54,7 +62,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
         show={isModalOpen} onHide={onHide} className="modal_width1">
         <Modal.Header closeButton className='p-0'>
           <Modal.Title className="text-center">
-
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='p-0'>
@@ -69,20 +76,33 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Job Title</label>
-
-                      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter Announcement Title" />
+                      <div className="form_icons" style={{ top: "36px" }}>
+                        <img className="mt-0" src={region} alt="title" />
+                      </div>
+                      <input type="text" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Enter Announcement Title" />
                     </div>
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Company Logo</label>
-
-                      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter location" />
+                      <input
+                        type="file"
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }} // Hide the default file input
+                      />
+                      <div className="form_icons" style={{ top: "36px" }}>
+                        <img className="mt-0" src={brows} alt="user" />
+                      </div>
+                      <input type="text"
+                        onClick={() => fileInputRef.current.click()}
+                        className="form-control ps-5" value={image} style={{ cursor: "pointer" }} id="exampleFormControlInput1" placeholder="Brows Here" />
                     </div>
 
 
                     {/* SELECT */}
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Employer Location</label>
-                      {/* <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Status" /> */}
                       <Select
                         className="basic-single"
                         classNamePrefix="sdfsdsd"
@@ -95,7 +115,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                     {/* SELECT */}
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Job type</label>
-                      {/* <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Status" /> */}
                       <Select
                         className="basic-single"
                         classNamePrefix="sdfsdsd"
@@ -111,12 +130,17 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                   <div className="col-lg-6 ">
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Company</label>
-                      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Numerical digit only" />
+                      <div className="form_icons" style={{ top: "36px" }}>
+                        <img className="mt-0" src={region} alt="user" />
+                      </div>
+                      <input type="text" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Enter your company" />
                     </div>
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Workplace Type</label>
-
-                      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Select your region" />
+                      <div className="form_icons" style={{ top: "36px" }}>
+                        <img className="mt-0" src={region} alt="user" />
+                      </div>
+                      <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Select your region" />
                     </div>
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Category</label>
@@ -132,8 +156,10 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                     </div>
                     <div className="position-relative text-start " style={{ marginBottom: "32px" }}>
                       <label htmlFor="exampleFormControlInput1" className="form-label">Salary</label>
-
-                      <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Select your region" />
+                      <div className="form_icons" style={{ top: "36px" }}>
+                        <img className="mt-0" src={salary} alt="user" />
+                      </div>
+                      <input type="email" className="form-control ps-5" id="exampleFormControlInput1" placeholder="Numerical digit only" />
                     </div>
 
                   </div>
@@ -141,7 +167,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                     <div className="mb-3">
                       <label hytmlFor="exampleFormControlInput1" className="form-label">Description</label>
                       <div class="input-group mb-3">
-                        <textarea type="text" style={{ height: "65px" }} className="form-control" placeholder="Description...." aria-label="Username" aria-describedby="basic-addon1" />
+                        <textarea type="text" style={{ height: "65px" }} className="form-control" placeholder="Enter Your Description...." aria-label="Username" aria-describedby="basic-addon1" />
                       </div>
                     </div>
                   </div>
