@@ -3,13 +3,17 @@ import footBallCoachImg from "../../../assets/footballCoach.png";
 import locationIcon from "../../../assets/location-icon.svg";
 import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
-import b1 from '../../../assets/bookmark.png';
-import bookmarkfill from '../../../assets/bookmark-fill.png'; import MobileButtons from "../players/MobileButtons";
+import b1 from "../../../assets/bookmark.png";
+import bookmarkfill from "../../../assets/bookmark-fill.png";
+import MobileButtons from "../players/MobileButtons";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import { useState } from "react";
+import { useGetAllJobsQuery } from "../../../features/job/jobApi";
 
 const JobOffers = () => {
+  const { data: allJobs } = useGetAllJobsQuery();
 
+  console.log(allJobs, "ddd");
 
   return (
     <div className="job_offers_wrapper">
@@ -28,9 +32,11 @@ const JobOffers = () => {
       </div>
 
       <div className="job_offer_items_wrapper">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-          <SingleJob key={index} />
-        ))}
+        {allJobs?.data &&
+          allJobs?.data?.length > 0 &&
+          allJobs?.data.map((item, index) => (
+            <SingleJob key={index} item={item} />
+          ))}
       </div>
       <MobileButtons />
 
@@ -41,14 +47,12 @@ const JobOffers = () => {
 
 export default JobOffers;
 
-
-function SingleJob() {
-
-  const [bookmark, setBookmark] = useState(false)
+function SingleJob({ item }) {
+  const [bookmark, setBookmark] = useState(false);
 
   const handleBookmark = () => {
-    setBookmark(!bookmark)
-  }
+    setBookmark(!bookmark);
+  };
   return (
     <>
       <div className="job_offers_item p-3">
@@ -61,11 +65,11 @@ function SingleJob() {
             <div className="job_offer_item_content">
               <div className="job_offer_nameDesignation">
                 <h5 className="fw-medium fs-6 text_color_36 mb-1">
-                  Football Coach
+                  {item?.job_title}
                 </h5>
 
                 <p className="fs-14 fw-normal text_color_80 mb-1">
-                  Korner Kick
+                  {item?.company}
                 </p>
               </div>
 
@@ -73,38 +77,40 @@ function SingleJob() {
                 <div className="job_offer_location  d-flex align-items-center gap-1">
                   <img src={locationIcon} alt="icon" />
                   <span className="fs-14 fw-normal text_color_80">
-                    Kieke, Poland
+                    {item?.job_location}
                   </span>
                 </div>
-                <div className="job_offer_flag d-flex align-items-center gap-1">
+                {/* <div className="job_offer_flag d-flex align-items-center gap-1">
                   <img src={flagIcon} alt="icon" />
                   <span className="fs-14 fw-normal text_color_80">
                     Enlish, Pdish
                   </span>
-                </div>
+                </div> */}
 
                 <div className="job_offer_flag d-flex align-items-center gap-1">
                   <img src={dollarIcon} alt="icon" />
                   <span className="fs-14 fw-normal text_color_80">
-                    USD 5000
+                    USD {item?.salary}
                   </span>
                 </div>
               </div>
             </div>
           </div>
           <div className="right">
-            <button className='bg-none' onClick={handleBookmark} style={{width:"20px"}}>
-              {
-                bookmark ?
-                  <img src={bookmarkfill} alt="" />
-                  :
-                  <img src={b1} alt="" />
-              }
+            <button
+              className="bg-none"
+              onClick={handleBookmark}
+              style={{ width: "20px" }}
+            >
+              {bookmark ? (
+                <img src={bookmarkfill} alt="" />
+              ) : (
+                <img src={b1} alt="" />
+              )}
             </button>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
-

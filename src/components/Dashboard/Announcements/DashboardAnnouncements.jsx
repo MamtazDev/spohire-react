@@ -18,7 +18,6 @@ import Swal from "sweetalert2";
 const DashboardAnnouncements = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
 
-  console.log(allAnnouncements, "allll");
   return (
     <>
       <div
