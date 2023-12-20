@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import brows from "../../assets/brows.png";
 import { useAddAnnouncementMutation } from "../../features/announcement/announcementApi";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CreateAnnouncements = () => {
   const fileInputRef = useRef(null);
@@ -78,16 +79,13 @@ const CreateAnnouncements = () => {
   return (
     <>
       <div className="container">
-        <div className="editAnnouncement_wrapper">
-          <div>
-            <h3>Create Announcement</h3>
-          </div>
-          <form action="" onSubmit={handleUpdateClick}>
+        <div className=" editAnnouncement_wrapper pt-5">
+          <form action="" className="mt-5" onSubmit={handleUpdateClick}>
             <div className="row mt_30 mb_56">
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Title
@@ -106,7 +104,7 @@ const CreateAnnouncements = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Status
@@ -141,7 +139,7 @@ const CreateAnnouncements = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Location
@@ -159,14 +157,14 @@ const CreateAnnouncements = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Budget
                   </label>
-                  <div class="input-group mb-3">
+                  <div className="input-group mb-3">
                     <span
-                      class="input-group-text input_budget"
+                      className="input-group-text input_budget"
                       id="basic-addon1"
                     >
                       $
@@ -186,17 +184,17 @@ const CreateAnnouncements = () => {
               </div>
               <div className="col-lg-6">
                 <label
-                  hytmlFor="exampleFormControlInput1"
+                  htmlFor="exampleFormControlInput1"
                   className="form-label"
                 >
                   Image
                 </label>
 
-                <div class="input-group mb-3 ">
+                <div className="input-group mb-3 ">
                   <input
                     onClick={handleUploadButtonClick}
                     type="text"
-                    class="form-control position-relative ps-5"
+                    className="form-control position-relative ps-5"
                     value={imageTitle ? imageTitle : ""}
                     placeholder="Browse file"
                     id="inputGroupFile02"
@@ -221,8 +219,8 @@ const CreateAnnouncements = () => {
                     required
                   />
                   <label
-                    class="input-group-text"
-                    for=""
+                    className="input-group-text"
+                    htmlFor=""
                     onClick={handleUploadButtonClick}
                   >
                     Upload
@@ -232,15 +230,15 @@ const CreateAnnouncements = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Description
                   </label>
-                  <div class="input-group mb-3">
+                  <div className="input-group mb-3">
                     <textarea
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="We can't wait to share this milestone with our incredible sports community."
                       aria-label="Username"
                       aria-describedby="basic-addon1"

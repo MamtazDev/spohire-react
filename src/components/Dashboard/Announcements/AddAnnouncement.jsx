@@ -74,7 +74,7 @@ const AddAnnouncement = ({ onHide, isModalOpen }) => {
                                     <div className="form_icons" style={{ top: "40px" }}>
                                         <img className="mt-0" src={brows} alt="title" />
                                     </div>
-                                    <input type="email" onClick={() => fileInputRef.current.click()} value={image} className="form-control ps-5" id="exampleFormControlInput1" placeholder="Brows here" />
+                                    <input type="email" onClick={() => fileInputRef.current.click()} value={image} className="form-control ps-5" id="exampleFormControlInput1" placeholder="Brows here" style={{cursor:"pointer"}} />
                                 </div>
                                 <div className="position-relative text-start">
                                     <div className="mb-3">
