@@ -9,9 +9,11 @@ export const observationApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["MyObservations"],
     }),
     getMyObservations: builder.query({
       query: () => "/api/v1/observations/my-observations",
+      providesTags: ["MyObservations"],
     }),
     getAllObservations: builder.query({
       query: () => "/api/v1/observations/my-observations",

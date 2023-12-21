@@ -11,7 +11,10 @@ import { Link } from "react-router-dom";
 import DeleteModal from "../../../pages/Announcement/DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../../features/announcement/announcementApi";
-import { useToggleObservationMutation } from "../../../features/observation/observationApi";
+import {
+  useGetMyObservationsQuery,
+  useToggleObservationMutation,
+} from "../../../features/observation/observationApi";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
@@ -91,6 +94,12 @@ const SingleAnnouncement = ({ announcement }) => {
   const [bookmark, setBookmark] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
+
+  const { data, isSuccess } = useGetMyObservationsQuery();
+
+  const isBookmarked = data?.data?.find(
+    (i) => i?.target_id?._id === announcement?._id
+  );
 
   const [toggleObservation, { isLoading }] = useToggleObservationMutation();
 
@@ -179,8 +188,9 @@ const SingleAnnouncement = ({ announcement }) => {
                 className="bg-none"
                 style={{ width: "20px" }}
                 onClick={() => handleBookmark(announcement?._id)}
+                disabled={isLoading}
               >
-                {bookmark ? (
+                {isBookmarked ? (
                   <img src={bookmarkfill} alt="" />
                 ) : (
                   <img src={b1} alt="" />

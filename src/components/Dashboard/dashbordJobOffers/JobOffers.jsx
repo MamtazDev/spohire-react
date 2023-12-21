@@ -9,6 +9,12 @@ import MobileButtons from "../players/MobileButtons";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import { useState } from "react";
 import { useGetAllJobsQuery } from "../../../features/job/jobApi";
+import { useSelector } from "react-redux";
+import {
+  useGetMyObservationsQuery,
+  useToggleObservationMutation,
+} from "../../../features/observation/observationApi";
+import Swal from "sweetalert2";
 
 const JobOffers = () => {
   const { data: allJobs } = useGetAllJobsQuery();
@@ -50,8 +56,52 @@ export default JobOffers;
 function SingleJob({ item }) {
   const [bookmark, setBookmark] = useState(false);
 
-  const handleBookmark = () => {
-    setBookmark(!bookmark);
+  // const handleBookmark = () => {
+  //   setBookmark(!bookmark);
+  // };
+
+  const { user } = useSelector((state) => state.auth);
+
+  const { data, isSuccess } = useGetMyObservationsQuery();
+
+  const isBookmarked = data?.data?.find((i) => i?.target_id?._id === item?._id);
+
+  const [toggleObservation, { isLoading }] = useToggleObservationMutation();
+
+  const handleBookmark = async (id) => {
+    const data = {
+      user_id: user?._id,
+      target_id: id,
+      target_type: "Job",
+    };
+
+    // console.log(data, "jjjDD");
+
+    try {
+      const response = await toggleObservation(data);
+      if (response?.data?.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Successsful!",
+          text: "Job bookmarked successfully!",
+        });
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+
+      console.log(response, "ress");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
   };
   return (
     <>
@@ -99,10 +149,11 @@ function SingleJob({ item }) {
           <div className="right">
             <button
               className="bg-none"
-              onClick={handleBookmark}
+              onClick={() => handleBookmark(item?._id)}
               style={{ width: "20px" }}
+              disabled={isLoading}
             >
-              {bookmark ? (
+              {isBookmarked ? (
                 <img src={bookmarkfill} alt="" />
               ) : (
                 <img src={b1} alt="" />

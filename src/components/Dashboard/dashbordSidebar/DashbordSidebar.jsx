@@ -19,7 +19,7 @@ import notification from "../../../assets/notification.png";
 import coach from "../../../assets/coach.png";
 
 const DashbordSidebar = ({ user }) => {
-  console.log(user, "jjj");
+  // console.log(user, "jjj");
   return (
     <div className="dashbord_sidebar">
       <div className="dashbord_logo">
@@ -102,35 +102,45 @@ const DashbordSidebar = ({ user }) => {
                       className="list-unstyled"
                       style={{ paddingLeft: "30px" }}
                     >
-                      <li className="nav_item">
-                        <Link
-                          to={"/dashboard/players"}
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
-                          <img src={basketBallIcon} alt="icon" />
-                          <span
-                            to={"#"}
-                            className="text_color_36 text-capitalize fs-6"
-                          >
-                            Players
-                          </span>
-                        </Link>
-                      </li>
+                      {
+                        (user?.role === "Manager",
+                        user?.role === "Coach" && (
+                          <li className="nav_item">
+                            <Link
+                              to={"/dashboard/players"}
+                              className="text-decoration-none d-flex align-items-center gap-3"
+                            >
+                              <img src={basketBallIcon} alt="icon" />
+                              <span
+                                to={"#"}
+                                className="text_color_36 text-capitalize fs-6"
+                              >
+                                Players
+                              </span>
+                            </Link>
+                          </li>
+                        ))
+                      }
 
-                      <li className="">
-                        <Link
-                          to="/dashboard/coaches"
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
-                          <img src={coachesIcon} alt="icon" />
-                          <span
-                            to={"#"}
-                            className="text_color_36 text-capitalize fs-6"
-                          >
-                            Coaches
-                          </span>
-                        </Link>
-                      </li>
+                      {
+                        (user?.role === "Manager",
+                        user?.role === "Player" && (
+                          <li className="">
+                            <Link
+                              to="/dashboard/coaches"
+                              className="text-decoration-none d-flex align-items-center gap-3"
+                            >
+                              <img src={coachesIcon} alt="icon" />
+                              <span
+                                to={"#"}
+                                className="text_color_36 text-capitalize fs-6"
+                              >
+                                Coaches
+                              </span>
+                            </Link>
+                          </li>
+                        ))
+                      }
                     </ul>
                   </Accordion.Body>
                 </Accordion.Item>

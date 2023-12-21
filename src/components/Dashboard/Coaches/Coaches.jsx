@@ -8,6 +8,12 @@ import b1 from "../../../assets/bookmark.png";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
 import { useState } from "react";
 import { useGetFilteredUsersQuery } from "../../../features/auth/authApi";
+import { useSelector } from "react-redux";
+import {
+  useGetMyObservationsQuery,
+  useToggleObservationMutation,
+} from "../../../features/observation/observationApi";
+import Swal from "sweetalert2";
 const Coaches = () => {
   const { data: coachs, isLoading } = useGetFilteredUsersQuery("role=Coach");
   return (
@@ -52,10 +58,52 @@ const SingleCoach = ({ coach }) => {
   const [bookmark, setBookmark] = useState(false);
 
   const navigate = useNavigate();
-  const handleBookmark = () => {
-    setBookmark(!bookmark);
-  };
 
+  const { user } = useSelector((state) => state.auth);
+
+  const { data, isSuccess } = useGetMyObservationsQuery();
+
+  const isBookmarked = data?.data?.find(
+    (i) => i?.target_id?._id === coach?._id
+  );
+
+  const [toggleObservation, { isLoading }] = useToggleObservationMutation();
+
+  const handleBookmark = async (id) => {
+    const data = {
+      user_id: user?._id,
+      target_id: id,
+      target_type: "User",
+    };
+
+    // console.log(data, "jjjDD");
+
+    try {
+      const response = await toggleObservation(data);
+      if (response?.data?.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Successsful!",
+          // text: "Job bookmarked successfully!",
+        });
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+
+      // console.log(response, "ress");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
+  };
   const handlePath = () => {
     navigate("/dashboard/coacheDetails");
   };
@@ -107,10 +155,11 @@ const SingleCoach = ({ coach }) => {
           <div className="d-flex align-items-center">
             <button
               className="bg-none me-3"
-              onClick={handleBookmark}
+              onClick={() => handleBookmark(coach?._id)}
               style={{ width: "20px" }}
+              disabled={isLoading}
             >
-              {bookmark ? (
+              {isBookmarked ? (
                 <img src={bookmarkfill} alt="" />
               ) : (
                 <img src={b1} alt="" />

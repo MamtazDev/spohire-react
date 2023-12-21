@@ -18,7 +18,7 @@ const OverView = () => {
   }, []);
   // Extract individual components
   const dayOfMonth = currentDate.getDate();
-  const month = currentDate.toLocaleDateString("en-US", { month: "long" }); // Full month name
+  const month = currentDate.toLocaleDateString("en-US", { month: "long" });
   const year = currentDate.getFullYear();
   const dayOfWeek = currentDate.toLocaleDateString("en-US", {
     weekday: "long",
@@ -39,7 +39,7 @@ const OverView = () => {
             </p>
           </div>
         </div>
-        <PlayerOverview />
+        <PlayerOverview user={user} />
         <div className="container">
           <div className="row mt-4 ps-0">
             <div className="col-lg-6 ps-0 pe-lg-3 pe-0">
