@@ -59,8 +59,6 @@ export default Players;
 const SinglePlayer = ({ player }) => {
   const [bookmark, setBookmark] = useState(false);
 
-
-
   const navigate = useNavigate();
 
   // const handleBookmark = () => {
@@ -182,7 +180,7 @@ const SinglePlayer = ({ player }) => {
               )}
             </button>
             <Link
-              to="/dashboard/messages"
+              to={`/dashboard/messages/${player?._id}`}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />

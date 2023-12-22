@@ -1,7 +1,7 @@
 import DashbordLogo from "../../../assets/dashbord-logo.png";
 import DashbordUser from "../../../assets/dashbord-user.png";
 import "./DashbordSidebar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import overviewIcon from "../../../assets/overview-icon.svg";
 import transfarIcon from "../../../assets/transfar-icon.svg";
 import jobOfferIcon from "../../../assets/joboffer-icon.svg";
@@ -17,9 +17,19 @@ import coachesIcon from "../../../assets/coaches-icon.svg";
 import billing from "../../../assets/BILLING.png";
 import notification from "../../../assets/notification.png";
 import coach from "../../../assets/coach.png";
+import { useDispatch } from "react-redux";
+import { userLoggedOut } from "../../../features/auth/authSlice";
 
 const DashbordSidebar = ({ user }) => {
   // console.log(user, "jjj");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLoggout = () => {
+    dispatch(userLoggedOut());
+    localStorage.removeItem("spohireAuth");
+    navigate("/login");
+  };
   return (
     <div className="dashbord_sidebar">
       <div className="dashbord_logo">
@@ -282,15 +292,16 @@ const DashbordSidebar = ({ user }) => {
 
         <div className="bottom">
           <div className="logout">
-            <Link
-              to={"#"}
-              className="text-decoration-none d-flex align-items-center gap-4"
+            <button
+              type="button"
+              className="text-decoration-none d-flex align-items-center gap-4 bg-none"
+              onClick={handleLoggout}
             >
               <img src={logoutIcon} alt="icon" />
               <span to={"#"} className="text_color_36 text-capitalize fs-6">
                 logout
               </span>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

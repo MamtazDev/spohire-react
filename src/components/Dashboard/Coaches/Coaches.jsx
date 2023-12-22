@@ -166,7 +166,7 @@ const SingleCoach = ({ coach }) => {
               )}
             </button>
             <Link
-              to="/dashboard/messages"
+              to={`/dashboard/messages/${coach?._id}`}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />

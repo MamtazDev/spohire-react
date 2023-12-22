@@ -145,6 +145,10 @@ export const router = createBrowserRouter([
         element: <EditPlayerDetails />,
       },
       {
+        path: "/dashboard/messages/:id",
+        element: <Messages />,
+      },
+      {
         path: "/dashboard/messages",
         element: <Messages />,
       },
