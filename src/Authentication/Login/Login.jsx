@@ -104,14 +104,14 @@ const Login = () => {
                       )}
                     </button>
                   </div>
-                  <div className="d-flex align-items-center gap-1 my-4">
+                  {/* <div className="d-flex align-items-center gap-1 my-4">
                     <div className="line"></div>
                     <p className="mb-0">or</p>
                     <div className="line"></div>
-                  </div>
+                  </div> */}
                 </form>
               </div>
-
+              {/* 
               <div className="login_with_social">
                 <AiOutlineTwitter />
                 <span>Continue with Twitter</span>
@@ -123,7 +123,7 @@ const Login = () => {
               <div className="login_with_social">
                 <AiOutlineApple />
                 <span>Continue with Apple</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

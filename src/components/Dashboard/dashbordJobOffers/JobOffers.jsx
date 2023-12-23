@@ -23,7 +23,7 @@ const JobOffers = () => {
 
   return (
     <div className="job_offers_wrapper">
-      <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
+      {/* <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
         <div className="job_offers_topBtn_left d-flex gap-4">
           <button className="fs-6 fw-medium text_color_80">Player</button>
 
@@ -35,7 +35,7 @@ const JobOffers = () => {
             Clear All
           </button>
         </div>
-      </div>
+      </div> */}
 
       <div className="job_offer_items_wrapper">
         {allJobs?.data &&

@@ -40,11 +40,13 @@ const Players = () => {
         <tbody>
           {players &&
             players.length > 0 &&
-            players.map((player, idx) => (
-              <>
-                <SinglePlayer key={idx} player={player} />
-              </>
-            ))}
+            players
+              .filter((player) => player?.subscriptionName)
+              .map((player, idx) => (
+                <>
+                  <SinglePlayer key={idx} player={player} />
+                </>
+              ))}
           {/* blank tr for taking space */}
         </tbody>
       </Table>
@@ -111,8 +113,29 @@ const SinglePlayer = ({ player }) => {
     }
   };
 
-  const handlePath = (id) => {
-    navigate(`/dashboard/viewDetails/${id}`);
+  // const handlePath = (id) => {
+  //   navigate(`/dashboard/viewDetails/${id}`);
+  // };
+
+  const handlePath = (player) => {
+    const allowedPlans =
+      user?.subscriptionName === "Gold"
+        ? ["Gold", "Silver", "Bronze"]
+        : user?.subscriptionName === "Silver"
+        ? ["Silver", "Bronze"]
+        : user?.subscriptionName === "Bronze"
+        ? ["Bronze"]
+        : [];
+
+    if (allowedPlans.includes(player?.subscriptionName)) {
+      navigate(`/dashboard/viewDetails/${player?._id}`);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You are not allowed to view his profile!",
+      });
+    }
   };
   return (
     <>
@@ -126,10 +149,7 @@ const SinglePlayer = ({ player }) => {
                   alt="player-img"
                 />
               </div>
-              <div
-                className="player_name"
-                onClick={() => handlePath(player?._id)}
-              >
+              <div className="player_name" onClick={() => handlePath(player)}>
                 <p className="text_color_36 fw-medium fs_14">
                   {player?.first_name} <br /> {player?.last_name}
                 </p>

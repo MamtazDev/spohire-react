@@ -17,7 +17,15 @@ import { useSelector } from "react-redux";
 
 const ViewProfile = () => {
   const { user } = useSelector((state) => state.auth);
-  console.log(user, "usr");
+  // console.log(user, "usr");
+
+  const convertAge = (dateString) => {
+    const dob = new Date(dateString);
+    const currentDate = new Date();
+    const timeDiff = currentDate - dob;
+    const age = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
+    return age;
+  };
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
@@ -29,19 +37,23 @@ const ViewProfile = () => {
             </div>
           </div>
           <div className="col-12 col-lg-9">
-            <button className="gold_btn">
-              <img
-                src={
-                  user?.subscriptionName === "Gold"
-                    ? gold
-                    : user?.subscriptionName === "Silver"
-                    ? silver
-                    : bronze
-                }
-                alt=""
-              />{" "}
-              {user?.subscriptionName}
-            </button>
+            {user?.subscriptionName ? (
+              <button className="gold_btn">
+                <img
+                  src={
+                    user?.subscriptionName === "Gold"
+                      ? gold
+                      : user?.subscriptionName === "Silver"
+                      ? silver
+                      : bronze
+                  }
+                  alt=""
+                />{" "}
+                {user?.subscriptionName}
+              </button>
+            ) : (
+              <button className="gold_btn">No Plan</button>
+            )}
             <p className="text_color_36 f_sfPro fs_40 mb-2">
               {user?.first_name} {user?.last_name}
             </p>
@@ -123,7 +135,9 @@ const ViewProfile = () => {
                   <div className="d-flex flex-column align-items-start gap-3">
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">Age</span>
-                      <p className="f_sfPro text_color_36 fs_17">21</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {convertAge(user?.date_of_birth)}
+                      </p>
                     </div>
 
                     <div>

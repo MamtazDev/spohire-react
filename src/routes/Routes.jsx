@@ -122,7 +122,7 @@ export const router = createBrowserRouter([
         element: <Coaches />,
       },
       {
-        path: "/dashboard/coacheDetails",
+        path: "/dashboard/coacheDetails/:id",
         element: <CoachesDetails />,
       },
       {

@@ -132,7 +132,7 @@ const Topbar = () => {
                           (location.pathname ==
                             "/dashboard/editCoacheProfile") |
                           (location.pathname == "/dashboard/editPlayerDetals")
-                        ? "/paymentProcess"
+                        ? "/pricing"
                         : location.pathname === "/dashboard/coaches"
                         ? "/dashboard/coachesProfile"
                         : "#"

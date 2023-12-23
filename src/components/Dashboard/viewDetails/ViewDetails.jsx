@@ -8,9 +8,11 @@ import instagramIcon from "../../../assets/ig_jobOffer.png";
 import facebookIcon from "../../../assets/fb_JobOffer.png";
 import youtubeIcon from "../../../assets/youtube.png";
 import silver from "../../../assets/silver1.png";
+import bronze from "../../../assets/bronze.png";
+import gold from "../../../assets/gold.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetUserByIdQuery } from "../../../features/auth/authApi";
 
 const ViewDetails = () => {
@@ -18,6 +20,20 @@ const ViewDetails = () => {
 
   const { data: user } = useGetUserByIdQuery(id);
   // console.log(user, "dddUser");
+
+  const convertAge = (dateString) => {
+    const dob = new Date(dateString);
+    const currentDate = new Date();
+    const timeDiff = currentDate - dob;
+    const age = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
+    return age;
+  };
+
+  const navigate = useNavigate();
+
+  const handleMessageLink = (id) => {
+    navigate(`/dashboard/messages/${id}`);
+  };
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
@@ -29,9 +45,23 @@ const ViewDetails = () => {
             </div>
           </div>
           <div className="col-12 col-lg-9">
-            <button className="gold_btn">
-              <img src={silver} alt="" /> Silver
-            </button>
+            {user?.subscriptionName ? (
+              <button className="gold_btn">
+                <img
+                  src={
+                    user?.subscriptionName === "Gold"
+                      ? gold
+                      : user?.subscriptionName === "Silver"
+                      ? silver
+                      : bronze
+                  }
+                  alt=""
+                />{" "}
+                {user?.subscriptionName}
+              </button>
+            ) : (
+              <button className="gold_btn">No Plan</button>
+            )}
             <p className="text_color_36 f_sfPro fs_40 mb-2">
               {user?.first_name} {user?.last_name}
             </p>
@@ -42,7 +72,10 @@ const ViewDetails = () => {
               <p className="f_sfPro text_color_36 fs_18">
                 Personal Information
               </p>
-              <button className="message">
+              <button
+                className="message"
+                onClick={() => handleMessageLink(user?._id)}
+              >
                 <img className="img-fluid" src={messageImage} alt="Message" />
               </button>
               <div className="row mb_40">
@@ -68,7 +101,9 @@ const ViewDetails = () => {
                       <span className="f_sfPro text_color_cb fs_15">
                         Height
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">2.03m</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.height ? user?.height : "N/A"}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -79,21 +114,27 @@ const ViewDetails = () => {
                       <span className="f_sfPro text_color_cb fs_15">
                         Date of Birth
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">03/03/2002</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.date_of_birth}
+                      </p>
                     </div>
 
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">
                         Position
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">PG</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.position ? user?.position : "N/A"}
+                      </p>
                     </div>
 
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">
                         Weight
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">99kg</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.weight ? user?.weight : "N/A"}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -102,14 +143,18 @@ const ViewDetails = () => {
                   <div className="d-flex flex-column align-items-start gap-3">
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">Age</span>
-                      <p className="f_sfPro text_color_36 fs_17">21</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {convertAge(user?.date_of_birth)}
+                      </p>
                     </div>
 
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">
                         Dominant Hand
                       </span>
-                      <p className="f_sfPro text_color_36 fs_17">Left</p>
+                      <p className="f_sfPro text_color_36 fs_17">
+                        {user?.dominant_hand ? user?.dominant_hand : "N/A"}
+                      </p>
                     </div>
 
                     <div>
@@ -140,18 +185,23 @@ const ViewDetails = () => {
                     </p>
                   </div>
                   <div className="d-flex gap-2">
-                    <Link to="#">
-                      <img src={twitterIcon} alt="Twitter" />
-                    </Link>
-                    <Link to="#">
-                      <img src={instagramIcon} alt="Instagram" />
-                    </Link>
-                    <Link to="#">
-                      <img src={facebookIcon} alt="FaceBook" />
-                    </Link>
-                    <Link to="#">
-                      <img src={youtubeIcon} alt="Youtube" />
-                    </Link>
+                    {user?.social_media.length > 0 &&
+                      user?.social_media.map((item, idx) => (
+                        <Link to={item} key={idx}>
+                          <img
+                            src={
+                              item?.includes("twitter.com")
+                                ? twitterIcon
+                                : item?.includes("instagram.com")
+                                ? instagramIcon
+                                : item?.includes("facebook.com")
+                                ? facebookIcon
+                                : youtubeIcon
+                            }
+                            alt=""
+                          />
+                        </Link>
+                      ))}
                   </div>
                 </div>
               </div>
@@ -169,35 +219,13 @@ const ViewDetails = () => {
               Strengths Advantages
             </p>
             <p className="f_sfPro text_color_cb fs_16">
-              Here are some of my notable strengths: Height and Wingspan: I am
-              blessed with a tall stature and a remarkable wingspan, which give
-              me a significant advantage in both offense and defense. My height
-              allows me to effectively contest shots,
-              <Link
-                to="#"
-                className="f_sfPro fs_16"
-                style={{ color: "#0177FB" }}
-              >
-                See More
-              </Link>
+              {user?.strengths_advantage ? user?.strengths_advantage : "N/A"}
             </p>
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 col_padding">
             <p className="f_sfPro text_color_36 fs_18 mb-2">About Me</p>
             <p className="f_sfPro text_color_cb fs_16">
-              I started playing basketball because of my original favorite
-              player, Shaquille O’Neal. He was a huge, unstoppable guy. One who
-              was able to do the things that the smaller players did. So one
-              day, when I was 11-years old, I decided to go outside to the
-              family basketball hoop and take a shot. The basket was originally
-              for my sister.
-              <Link
-                to="#"
-                className="f_sfPro fs_16"
-                style={{ color: "#0177FB" }}
-              >
-                See More
-              </Link>
+              {user?.about_me ? user?.about_me : "N/A"}
             </p>
           </div>
 
@@ -206,18 +234,9 @@ const ViewDetails = () => {
               Expectations From a New Club
             </p>
             <p className="f_sfPro text_color_cb fs_16">
-              Hope to find a supportive and cohesive team environment where
-              their skills can thrive and be appreciated. I eagerly look forward
-              to the opportunity to contribute to the club's success, aiming to
-              make a positive impact both on and off the court. Additionally, I
-              expect to receive the necessary resources.
-              <Link
-                to="#"
-                className="f_sfPro fs_16"
-                style={{ color: "#0177FB" }}
-              >
-                See More
-              </Link>
+              {user?.expectations_from_new_club
+                ? user?.expectations_from_new_club
+                : "N/A"}
             </p>
           </div>
         </div>

@@ -5,10 +5,11 @@ import location from "../../assets/location.png";
 import ApplyJobs from "./ApplyJobs";
 import { Link } from "react-router-dom";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
+import { useState } from "react";
 
 const MatchesJob = () => {
   const { data: allJobs } = useGetAllJobsQuery();
-
+  const [selectedJob, setSelectedJob] = useState(null);
   return (
     <>
       <div className="container">
@@ -59,6 +60,7 @@ const MatchesJob = () => {
                         className="apply_btn"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
+                        onClick={() => setSelectedJob(item?._id)}
                       >
                         Apply
                       </button>
@@ -104,7 +106,7 @@ const MatchesJob = () => {
           </ul>
         </nav> */}
       </div>
-      <ApplyJobs />
+      <ApplyJobs selectedJob={selectedJob} />
     </>
   );
 };
