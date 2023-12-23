@@ -24,7 +24,21 @@ export const paymentApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    createPayment: builder.mutation({
+      query: (data) => ({
+        url: "/api/v1/payments/create",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    getUserPayments: builder.query({
+      query: (userId) => `/api/v1/payments/${userId}`,
+    }),
   }),
 });
 
-export const { useUpdatePaymentStatusMutation } = paymentApi;
+export const {
+  useUpdatePaymentStatusMutation,
+  useCreatePaymentMutation,
+  useGetUserPaymentsQuery,
+} = paymentApi;

@@ -21,7 +21,10 @@ import { STRIPE_SK } from "../../config/config";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useUpdatePaymentStatusMutation } from "../../features/payment/paymentApi";
+import {
+  useCreatePaymentMutation,
+  useUpdatePaymentStatusMutation,
+} from "../../features/payment/paymentApi";
 
 const options1 = [
   {
@@ -90,6 +93,9 @@ const PaymentForm = () => {
   const [updatePaymentStatus, { isLoading: updating }] =
     useUpdatePaymentStatusMutation();
 
+  const [createPayment, { isLoading: paymentCreating }] =
+    useCreatePaymentMutation();
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -157,10 +163,24 @@ const PaymentForm = () => {
         });
       } else if (paymentIntent.status === "succeeded") {
         setIsLoading(false);
+
+        console.log(paymentIntent, "payyyy");
+        // updating user payment status
         const paymentRes = await updatePaymentStatus({
           userId: user?._id,
           data: { isSubsCribed: true, subscriptionName: packageInfo?.name },
         });
+        // createing payment
+        const createPaymentData = {
+          transactionId: paymentIntent?.id,
+          userId: user?._id,
+          planName: packageInfo?.name,
+          amount: packageInfo?.price,
+        };
+        const createPaymentRes = await createPayment(createPaymentData);
+        console.log(createPaymentRes, "kfjalkfred");
+
+        // navigation
         navigate("/dashboard");
       }
     } catch (error) {
@@ -382,7 +402,7 @@ const PaymentForm = () => {
             <button
               onClick={handlePayment}
               className="pay_nowbtn"
-              disabled={isLoading || updating || !stripe}
+              disabled={isLoading || updating || paymentCreating || !stripe}
             >
               {isLoading ? "Loading..." : "Pay Now"}
             </button>
