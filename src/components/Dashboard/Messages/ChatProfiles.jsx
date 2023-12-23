@@ -4,12 +4,23 @@ import { useGetUserAllConversationsQuery } from "../../../features/chat/chatApi"
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedMessageUser } from "../../../features/chat/chatSlice";
 
-const ChatProfiles = ({ user }) => {
+const ChatProfiles = ({ user, searchText }) => {
   const { data } = useGetUserAllConversationsQuery(user?._id);
   const { selectedMsgUser } = useSelector((state) => state.chat);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const handleFilter = (data) => {
+    if (searchText) {
+      const searchName = `${data?.first_name + " " + data?.last_name}`;
+      return searchName
+        .toLocaleLowerCase()
+        .includes(searchText.toLocaleLowerCase());
+    } else {
+      return true;
+    }
+  };
 
   const handleClick = (userData) => {
     dispatch(setSelectedMessageUser(userData));
@@ -22,7 +33,7 @@ const ChatProfiles = ({ user }) => {
 
         {data &&
           data?.length > 0 &&
-          data.map((item, idx) => (
+          data.filter(handleFilter).map((item, idx) => (
             <div
               key={idx}
               onClick={() => handleClick(item)}

@@ -31,7 +31,7 @@ const Login = () => {
       if (response?.data?.user?.isSubsCribed) {
         navigate("/dashboard");
       }
-      if (!response?.data?.user?.isSubsCribed) {
+      if (response?.data && !response?.data?.user?.isSubsCribed) {
         navigate("/pricing");
       }
       if (response?.error?.data?.message) {

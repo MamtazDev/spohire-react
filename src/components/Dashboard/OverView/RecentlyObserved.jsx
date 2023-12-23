@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import { useGetMyObservationsQuery } from "../../../features/observation/observationApi";
 const RecentlyObserved = () => {
   const { data, isLoading, isSuccess } = useGetMyObservationsQuery();
-  console.log(data?.data, "ddd");
+  console.log(data?.data, "dddobserve");
+  // target_type
   return (
     <>
       <div className="job_offer_overrview_wrapper">
@@ -18,78 +19,141 @@ const RecentlyObserved = () => {
           <h4>Recently Observed</h4>
           <Link to="/dashboard/observed">View More</Link>
         </div>
-        {[0, 1].map((data) => (
-          <>
-            <div
-              key={data}
-              className="d-flex align-items-center gap-2 joboffer_ov_wrapper"
-              style={{ marginTop: "20px" }}
-            >
-              <div className="job_offer_item_img">
-                <img src={footBallCoachImg} alt="img" />
-              </div>
-
-              <div className="job_offer_item_content d-flex">
-                <div className="job_offer_nameDesignation">
-                  <h5 className="fw-medium fs-6 text_color_36 mb-1">
-                    Football Coach
-                  </h5>
-                  <p className="fs-14 fw-normal text_color_80 mb-1">
-                    Korner Kick
-                  </p>
-                </div>
-                <div className="align-self-lg-center align-self-end">
-                  <Link to="/dashboard/jobOffers">Job Offers</Link>
-                </div>
-              </div>
-            </div>
-            {/* announcement */}
-            <div
-              className="announcelist_wrapper1"
-              style={{ marginTop: "20px" }}
-            >
-              <div className="announcement_details_wrapper">
-                <div className="d-flex align-items-center gap-2">
-                  <div className="announcement_pic">
-                    <img src={a1} alt="" />
+        {data?.data &&
+          data?.data?.length > 0 &&
+          data?.data.slice(0, 5).map((item, idx) => (
+            <div key={idx}>
+              {item?.target_type === "Job" && (
+                <div
+                  className="d-flex align-items-center gap-2 joboffer_ov_wrapper"
+                  style={{ marginTop: "20px" }}
+                >
+                  <div className="job_offer_item_img">
+                    <img src={footBallCoachImg} alt="img" />
                   </div>
-                  <div className="recruiment1 f_sfPro">
-                    <p>Player recruitment</p>
-                    <div className="d-flex gap-3 flex-wrap">
-                      <div
-                        className="d-flex align-items-center"
-                        style={{ gap: "6px" }}
-                      >
-                        <img src={location} alt="" />
-                        <span>Vegas Street Circuit</span>
-                      </div>
-                      <div
-                        className="d-flex align-items-center"
-                        style={{ gap: "6px" }}
-                      >
-                        <img src={flag} alt="" />
-                        <span>Published</span>
-                      </div>
-                      <div
-                        className="d-flex align-items-center"
-                        style={{ gap: "6px" }}
-                      >
-                        <img src={dollar} alt="" />
-                        <span>USD 5000</span>
-                      </div>
+
+                  <div className="job_offer_item_content d-flex">
+                    <div className="job_offer_nameDesignation">
+                      <h5 className="fw-medium fs-6 text_color_36 mb-1">
+                        {item?.target_id?.job_title}
+                      </h5>
+                      <p className="fs-14 fw-normal text_color_80 mb-1">
+                        {item?.target_id?.company}
+                      </p>
+                    </div>
+                    <div className="align-self-lg-center align-self-end">
+                      <Link to="/dashboard/jobOffers">Job Offers</Link>
                     </div>
                   </div>
                 </div>
+              )}
+              {/* announcement */}
+              {item?.target_type === "Announcement" && (
                 <div
-                  style={{ paddingRight: "15px" }}
-                  className="align-self-lg-center align-self-end"
+                  className="announcelist_wrapper1"
+                  style={{ marginTop: "20px" }}
                 >
-                  <Link to="/dashboard/announcements">Announcement</Link>
+                  <div className="announcement_details_wrapper">
+                    <div className="d-flex align-items-center gap-2">
+                      <div className="announcement_pic">
+                        <img src={a1} alt="" />
+                      </div>
+                      <div className="recruiment1 f_sfPro">
+                        <p>{item?.target_id?.title}</p>
+                        <div className="d-flex gap-3 flex-wrap">
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={location} alt="" />
+                            <span>{item?.target_id?.location}</span>
+                          </div>
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={flag} alt="" />
+                            <span>{item?.target_id?.status}</span>
+                          </div>
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={dollar} alt="" />
+                            <span>USD {item?.target_id?.budget}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{ paddingRight: "15px" }}
+                      className="align-self-lg-center align-self-end"
+                    >
+                      <Link to="/dashboard/announcements">Announcement</Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
+              {item?.target_type === "User" && (
+                <div
+                  className="announcelist_wrapper1"
+                  style={{ marginTop: "20px" }}
+                >
+                  <div className="announcement_details_wrapper">
+                    <div className="d-flex align-items-center gap-2">
+                      <div className="announcement_pic">
+                        <img src={a1} alt="" />
+                      </div>
+                      <div className="recruiment1 f_sfPro">
+                        <p>
+                          {item?.target_id?.first_name}{" "}
+                          {item?.target_id?.last_name}
+                        </p>
+                        <div className="d-flex gap-3 flex-wrap">
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={location} alt="" />
+                            <span>{item?.target_id?.nationality}</span>
+                          </div>
+                          {/* <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={flag} alt="" />
+                            <span>{item?.target_id?.status}</span>
+                          </div> */}
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "6px" }}
+                          >
+                            <img src={dollar} alt="" />
+                            <span>USD {item?.target_id?.budget}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{ paddingRight: "15px" }}
+                      className="align-self-lg-center align-self-end"
+                    >
+                      <Link
+                        to={`${
+                          item?.target_id?.role === "Coach"
+                            ? "/dashboard/coaches"
+                            : "/dashboard/players"
+                        }`}
+                      >
+                        {item?.target_id?.role}
+                        {item?.target_id?.role === "Coach" ? "es" : "s"}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          </>
-        ))}
+          ))}
       </div>
     </>
   );

@@ -90,7 +90,7 @@ const PlayerOverview = ({ user }) => {
                   <td>
                     <div className="d-flex align-items-center">
                       <p className="text_color_55 fw-normal fs_14">
-                        <Link to="/dashboard/messages">
+                        <Link to={`/dashboard/messages/${item?._id}`}>
                           {" "}
                           <img
                             src={messageIcon}

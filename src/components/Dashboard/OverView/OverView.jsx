@@ -23,7 +23,6 @@ const OverView = () => {
   const dayOfWeek = currentDate.toLocaleDateString("en-US", {
     weekday: "long",
   });
-  console.log(year);
 
   return (
     <>

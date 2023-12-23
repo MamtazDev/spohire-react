@@ -33,6 +33,7 @@ import CoachesDetails from "../components/Dashboard/Coaches/CoachesDetails.jsx";
 import AddProfile from "../pages/AddProfile/AddProfile.jsx";
 import SubscribedRoute from "./SubscribedRoute.jsx";
 import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
+import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -150,7 +151,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/messages",
-        element: <Messages />,
+        element: <BlankMessages />,
       },
       {
         path: "/dashboard/observed",

@@ -9,7 +9,7 @@ import youtubeIcon from "../../../assets/youtube.png";
 import edit from "../../../assets/edit.png";
 import { Link } from "react-router-dom";
 
-const ViewDetailsMobile = () => {
+const ViewDetailsMobile = ({ user }) => {
   return (
     <>
       <div className="job_offer mobile_design_vd">
@@ -117,7 +117,7 @@ const ViewDetailsMobile = () => {
             </div>
           </div>
 
-          <div style={{ marginTop: '20px' }}>
+          <div style={{ marginTop: "20px" }}>
             <p className="f_sfPro text_color_cb fs_15 mb-2">Experience</p>
             <div className="d-flex  flex-lg-row align-items-start gap-5">
               <div>
@@ -135,18 +135,33 @@ const ViewDetailsMobile = () => {
                 </p>
               </div>
               <div className="d-flex gap-2">
-
                 <Link to="#">
-                  <img src={twitterIcon} className="social_icon" alt="Twitter" />
+                  <img
+                    src={twitterIcon}
+                    className="social_icon"
+                    alt="Twitter"
+                  />
                 </Link>
                 <Link to="#">
-                  <img src={instagramIcon} className="social_icon" alt="Instagram" />
+                  <img
+                    src={instagramIcon}
+                    className="social_icon"
+                    alt="Instagram"
+                  />
                 </Link>
                 <Link to="#">
-                  <img src={facebookIcon} className="social_icon" alt="FaceBook" />
+                  <img
+                    src={facebookIcon}
+                    className="social_icon"
+                    alt="FaceBook"
+                  />
                 </Link>
                 <Link to="#">
-                  <img src={youtubeIcon} className="social_icon" alt="Youtube" />
+                  <img
+                    src={youtubeIcon}
+                    className="social_icon"
+                    alt="Youtube"
+                  />
                 </Link>
               </div>
             </div>

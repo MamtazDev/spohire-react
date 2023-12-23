@@ -18,15 +18,16 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setConversationId,
   setMessages,
+  setSelectedMessageUser,
 } from "../../../features/chat/chatSlice";
 import { formatMessageTime } from "../../../utils/formateChatTIme";
+import { useGetUserByIdQuery } from "../../../features/auth/authApi";
 
 const Messages = () => {
   const { user } = useSelector((state) => state.auth);
   const { messages, conversationId, selectedMsgUser } = useSelector(
     (state) => state.chat
   );
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const { id } = useParams();
 
@@ -35,6 +36,8 @@ const Messages = () => {
 
   const [createConversation] = useCreateConversationMutation();
   const [addMessages, { isLoading }] = useAddMessagesMutation();
+  const { data: messageUser } = useGetUserByIdQuery(id);
+  const [searchText, setSearchText] = useState("");
 
   const [messageText, setMessageText] = useState("");
 
@@ -86,13 +89,13 @@ const Messages = () => {
     }
   };
 
-  console.log(messages, "dd");
-
   useEffect(() => {
     checkConversationId();
   }, [id]);
 
-  const myParam = searchParams.get("profile");
+  useEffect(() => {
+    dispatch(setSelectedMessageUser(messageUser));
+  }, [messageUser]);
 
   // console.log("|myParam|", myParam)
 
@@ -136,9 +139,10 @@ const Messages = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search"
+                      onChange={(e) => setSearchText(e.target.value)}
                     />
                   </div>
-                  <ChatProfiles user={user} />
+                  <ChatProfiles user={user} searchText={searchText} />
                 </div>
               </div>
             </div>
