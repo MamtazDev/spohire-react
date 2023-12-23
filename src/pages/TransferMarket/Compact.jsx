@@ -22,8 +22,9 @@ const Compact = ({ flagurl }) => {
     const age = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
     return age;
   };
-  const handlePath = () => {
-    navigate("/gallary");
+  console.log(data, "ddd");
+  const handlePath = (id) => {
+    navigate(`/gallary/${id}`);
   };
 
   return (
@@ -38,7 +39,7 @@ const Compact = ({ flagurl }) => {
                     data?.length > 0 &&
                     data.map((item, idx) => (
                       <tr
-                        onClick={handlePath}
+                        onClick={() => handlePath(item?._id)}
                         style={{ cursor: "pointer" }}
                         className="row_1"
                         key={idx}
@@ -55,7 +56,7 @@ const Compact = ({ flagurl }) => {
                                 <h4>
                                   {item?.first_name} {item?.last_name}
                                 </h4>
-                                <p>Left Winger</p>
+                                <p>{item?.role}</p>
                               </div>
                             </div>
                           </div>

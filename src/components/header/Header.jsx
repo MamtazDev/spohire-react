@@ -249,8 +249,8 @@ const Header = () => {
                       {isDropdownActive && (
                         <>
                           <p onClick={handleLoggout}>Log out</p>
-                          <hr className="m-0" />
-                          <p>Admin</p>
+                          {/* <hr className="m-0" /> */}
+                          {/* <p>Admin</p> */}
                         </>
                       )}
                     </div>

@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
         element: <TransfarMarket />,
       },
       {
-        path: "/gallary",
+        path: "/gallary/:id",
         element: <Gallary />,
       },
       {

@@ -242,7 +242,7 @@ const DashbordSidebar = ({ user }) => {
                           </span>
                         </Link>
                       </li>
-                      <li className="nav_item">
+                      {/* <li className="nav_item">
                         <Link
                           to="/dashboard/notification"
                           className="text-decoration-none d-flex align-items-center gap-3"
@@ -255,7 +255,7 @@ const DashbordSidebar = ({ user }) => {
                             Notification
                           </span>
                         </Link>
-                      </li>
+                      </li> */}
                       <li className="nav_item">
                         <Link
                           to="/dashboard/billing"

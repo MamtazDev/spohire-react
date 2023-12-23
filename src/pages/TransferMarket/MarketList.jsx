@@ -1,57 +1,49 @@
 import { useState } from "react";
 import Compact from "./Compact";
-import Select from 'react-select'
+import Select from "react-select";
 
 const options = [
-  { value: 'Bangladesh', label: 'Country1' },
-  { value: 'Country2', label: 'Country2' },
-  { value: 'Country3', label: 'Country3' },
-  { value: 'Country4', label: 'Country4' },
-  { value: 'Country5', label: 'Country5' },
-  { value: 'Country6', label: 'Country6' },
-
-]
+  { value: "Bangladesh", label: "Country1" },
+  { value: "Country2", label: "Country2" },
+  { value: "Country3", label: "Country3" },
+  { value: "Country4", label: "Country4" },
+  { value: "Country5", label: "Country5" },
+  { value: "Country6", label: "Country6" },
+];
 const options1 = [
   {
     value: "Bangladesh",
     label: "Bangladesh",
-
   },
   {
     value: "India",
     label: "India",
-
   },
   {
     value: "Switzerland",
     label: "Switzerland",
-
   },
   {
     value: "United Kingdom",
     label: "United Kingdom",
-
   },
   {
     value: "Ireland",
     label: "Ireland",
-
   },
   {
     value: "Italy",
     label: "Italy",
-
   },
   {
     value: "Netherland",
     label: "Netherland",
-
   },
 ];
 
 const MarketList = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [flagurl, setFlagUrl] = useState("")
+  const [flagurl, setFlagUrl] = useState("");
   const handleFilterClick = async () => {
     if (selectedCountry) {
       try {
@@ -62,7 +54,7 @@ const MarketList = () => {
 
         if (countryData) {
           const flagUrl = countryData.flags.svg;
-          setFlagUrl(flagUrl)
+          setFlagUrl(flagUrl);
           console.log("Flag URL:", flagUrl);
         } else {
           console.log("Country data not found");
@@ -75,7 +67,9 @@ const MarketList = () => {
     }
   };
   const getAllCountriesData = async () => {
-    const response = await fetch("https://restcountries.com/v3.1/all?fields=name,flags");
+    const response = await fetch(
+      "https://restcountries.com/v3.1/all?fields=name,flags"
+    );
     const data = await response.json();
     return data;
   };
@@ -87,7 +81,7 @@ const MarketList = () => {
     <div>
       <section className="mt_150">
         <div className="container ps-0 pe-0">
-          <div className="market_filter_wrapper">
+          {/* <div className="market_filter_wrapper">
 
             <div className="row align-items-center justify-content-center  ">
               <div className="col-lg-4">
@@ -117,7 +111,7 @@ const MarketList = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <Compact flagurl={flagurl} />
         </div>
       </section>
