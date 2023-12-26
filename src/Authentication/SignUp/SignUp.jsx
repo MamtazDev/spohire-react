@@ -482,10 +482,10 @@ const SignUp = () => {
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
-                            <img
+                            {/* <img
                               src={countryFlag.flagImg}
                               alt="country-image"
-                            />
+                            /> */}
                           </div>
                         )}
                         styles={{

@@ -41,7 +41,7 @@ const PlayerOverview = ({ user }) => {
           <tbody>
             {data &&
               data?.length > 0 &&
-              data.map((item, idx) => (
+              data.slice(0, 6).map((item, idx) => (
                 <tr className="table_hover" key={idx}>
                   <td>
                     <div className="player_info d-flex align-items-center gap-2">
