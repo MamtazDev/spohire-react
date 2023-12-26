@@ -7,21 +7,52 @@ import { Link } from "react-router-dom";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
 
-const MatchesJob = () => {
+const MatchesJob = ({ searchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
+
+  console.log(searchParams, "dddparams");
+
+  const filteredJobs = allJobs?.data?.filter((value) => {
+    if (
+      searchParams?.jobTitle ||
+      searchParams?.jobLocation ||
+      searchParams?.jobType
+    ) {
+      return (
+        (searchParams.jobTitle &&
+          value?.job_title
+            .toLowerCase()
+            .includes(searchParams.jobTitle.toLowerCase())) ||
+        (searchParams.jobLocation &&
+          value?.job_location
+            .toLowerCase()
+            .includes(searchParams.jobLocation.toLowerCase())) ||
+        (searchParams.jobType &&
+          value?.jobType
+            .toLowerCase()
+            .includes(searchParams.jobType.toLowerCase()))
+      );
+    } else {
+      return true;
+    }
+  });
+
+  // const handleFilter = (value) => {};
+
+  console.log(allJobs, "jooobbbb");
   return (
     <>
       <div className="container">
         <h3 className="job_matches_title">
-          We found <span>300</span> Matches for you
+          We found <span>{filteredJobs?.length}</span> Matches for you
         </h3>
         <div className="row">
           <div className="col-lg-12">
             <div className="row">
               {allJobs?.data &&
                 allJobs?.data?.length > 0 &&
-                allJobs?.data?.map((item, idx) => (
+                filteredJobs.map((item, idx) => (
                   <div className="col-lg-4" key={idx}>
                     <div className="matchedJobs_wrapper">
                       <div className="d-flex gap-4 align-items-center">
