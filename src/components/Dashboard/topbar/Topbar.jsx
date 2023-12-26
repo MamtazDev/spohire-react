@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 
 const Topbar = () => {
   const { user } = useSelector((state) => state.auth);
+  console.log(user.role)
   const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);
@@ -56,22 +57,21 @@ const Topbar = () => {
   return (
     <>
       <div
-        className={`${
-          isModalOpen | isAnnouncementModalOpen
-            ? "position_static"
-            : "position-fixed"
-        } dashbord_topbar`}
+        className={`${isModalOpen | isAnnouncementModalOpen
+          ? "position_static"
+          : "position-fixed"
+          } dashbord_topbar`}
       >
         <div className="topbar_desk">
           <div className=" dashbord_topbar_wrapper d-flex justify-content-between align-items-center">
             <div className="dashbord_topbar_title">
               {(location.pathname == "/dashboard/viewProfile") |
-              (location.pathname === "/dashboard/viewDetails") |
-              (location.pathname === "/dashboard/coacheDetails") |
-              (location.pathname == "/dashboard/coachesProfile") |
-              (location.pathname == "/dashboard/messages") |
-              (location.pathname === "/dashboard/editAnnouncements") |
-              (location.pathname == "/dashboard/editPlayerDetals") ? (
+                (location.pathname === "/dashboard/viewDetails") |
+                (location.pathname === "/dashboard/coacheDetails") |
+                (location.pathname == "/dashboard/coachesProfile") |
+                (location.pathname == "/dashboard/messages") |
+                (location.pathname === "/dashboard/editAnnouncements") |
+                (location.pathname == "/dashboard/editPlayerDetals") ? (
                 <button className="back_btn fs_10">Back</button>
               ) : (
                 <h2 className="text_color_36 fs-4 fw-medium text-capitalize">
@@ -100,8 +100,7 @@ const Topbar = () => {
                 <div className="dashbord_topbar_button d-flex gap-4">
                   <button
                     onClick={(event) => handleButtonClick(event)}
-                    className={`${
-                      (location.pathname === "/dashboard/coachesProfile") |
+                    className={`${(location.pathname === "/dashboard/coachesProfile") |
                       (location.pathname == "/dashboard/messages") |
                       (location.pathname == "/dashboard/password") |
                       (location.pathname == "/dashboard/notification") |
@@ -116,29 +115,27 @@ const Topbar = () => {
                       (location.pathname === "/dashboard/coacheDetails") |
                       (location.pathname === "/dashboard/createAnnouncements") |
                       (location.pathname === "/dashboard/billing")
-                        ? "d-none"
-                        : "filter_btn d-flex gap-2 text-decoration-none"
-                    } `}
+                      ? "d-none"
+                      : "filter_btn d-flex gap-2 text-decoration-none"
+                      } `}
                   >
                     <img src={filterIcon} alt="icon" />
                     <span className="text_color_cb">Filter</span>
                   </button>
                   <Link
-                    to={`${
-                      location.pathname === "/dashboard/jobOffers"
-                        ? "/dashboard/jobOffers"
-                        : (location.pathname === "/dashboard/coachesProfile") |
-                          (location.pathname == "/dashboard/viewProfile") |
-                          (location.pathname ==
-                            "/dashboard/editCoacheProfile") |
-                          (location.pathname == "/dashboard/editPlayerDetals")
+                    to={`${location.pathname === "/dashboard/jobOffers"
+                      ? "/dashboard/jobOffers"
+                      : (location.pathname === "/dashboard/coachesProfile") |
+                        (location.pathname == "/dashboard/viewProfile") |
+                        (location.pathname ==
+                          "/dashboard/editCoacheProfile") |
+                        (location.pathname == "/dashboard/editPlayerDetals")
                         ? "/pricing"
                         : location.pathname === "/dashboard/coaches"
-                        ? "/dashboard/coachesProfile"
-                        : "#"
-                    }`}
-                    className={`${
-                      (location.pathname == "/dashboard/observed") |
+                          ? "/dashboard/coachesProfile"
+                          : "#"
+                      }`}
+                    className={`${(location.pathname == "/dashboard/observed") |
                       (location.pathname == "/dashboard/messages") |
                       (location.pathname == "/dashboard/password") |
                       (location.pathname == "/dashboard/notification") |
@@ -148,51 +145,52 @@ const Topbar = () => {
                       (location.pathname === "/dashboard/players") |
                       (location.pathname === "/dashboard/viewDetails") |
                       (location.pathname === "/dashboard/coacheDetails") |
-                      (location.pathname === "/dashboard/createAnnouncements")
-                        ? "d-none"
-                        : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"
-                    } `}
+                      (location.pathname === "/dashboard/createAnnouncements") |
+                      (location.pathname === "/dashboard/announcements") && user.role == "Player" ||
+                      (location.pathname === "/dashboard/jobOffers") && user.role == "Player"
+                      ? "d-none"
+                      : "add_btn d-flex gap-2 text-decoration-none bg_color_fb"
+                      } `}
                     //  onclick
                     onClick={() =>
                       location.pathname === "/dashboard/jobOffers"
                         ? handleAddJobOfferClick()
                         : location.pathname === "/dashboard/announcements"
-                        ? handleAddAnnouncementClick()
-                        : undefined
+                          ? handleAddAnnouncementClick()
+                          : undefined
                     }
                   >
                     {(location.pathname === "/dashboard/jobOffers") |
-                    (location.pathname === "/dashboard/announcements") |
-                    (location.pathname == "/dashboard/basicinfo") ? (
+                      (location.pathname === "/dashboard/announcements") |
+                      (location.pathname == "/dashboard/basicinfo") ? (
                       <img src={addIcon} alt="icon" />
                     ) : (
                       ""
                     )}
                     <span
-                      className={`${
-                        (location.pathname == "/dashboard/observed") |
+                      className={`${(location.pathname == "/dashboard/observed") |
                         (location.pathname == "/dashboard/messages") |
                         (location.pathname === "/dashboard/editAnnouncements") |
                         (location.pathname === "/dashboard/players")
-                          ? " d-none"
-                          : "text-white"
-                      } `}
+                        ? " d-none"
+                        : "text-white"
+                        } `}
                     >
                       {(location.pathname === "/dashboard/jobOffers") |
-                      (location.pathname === "/dashboard/basicinfo")
+                        (location.pathname === "/dashboard/basicinfo")
                         ? "Add Job Offer"
                         : location.pathname === "/dashboard"
-                        ? "View Details"
-                        : (location.pathname === "/dashboard/coachesProfile") |
-                          (location.pathname === "/dashboard/editCoacheProfile")
-                        ? "Click here to upgrade your current package"
-                        : location.pathname === "/dashboard/announcements"
-                        ? "Create Announcement"
-                        : location.pathname === "/dashboard/viewProfile"
-                        ? "Click here to upgrade your current package"
-                        : location.pathname === "/dashboard/editPlayerDetals"
-                        ? "Click here to upgrade your current package"
-                        : ""}
+                          ? "View Details"
+                          : (location.pathname === "/dashboard/coachesProfile") |
+                            (location.pathname === "/dashboard/editCoacheProfile")
+                            ? "Click here to upgrade your current package"
+                            : location.pathname === "/dashboard/announcements"
+                              ? "Create Announcement"
+                              : location.pathname === "/dashboard/viewProfile"
+                                ? "Click here to upgrade your current package"
+                                : location.pathname === "/dashboard/editPlayerDetals"
+                                  ? "Click here to upgrade your current package"
+                                  : ""}
                     </span>
                   </Link>
                 </div>
