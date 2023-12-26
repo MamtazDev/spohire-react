@@ -13,6 +13,7 @@ import { useGetAllAnnouncementQuery } from "../../features/announcement/announce
 
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
+  const [sortedItems, setSortedItems] = useState([]);
 
   console.log(allAnnouncements?.data, "announcement");
 
@@ -31,7 +32,10 @@ const AnnouncementList = () => {
               ))}
           </div>
           <div className="col-lg-3">
-            <JobCategory />
+            <JobCategory
+              setSortedItems={setSortedItems}
+              sortedItems={sortedItems}
+            />
           </div>
         </div>
       </div>

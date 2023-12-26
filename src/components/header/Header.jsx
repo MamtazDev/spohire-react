@@ -50,8 +50,9 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
-        }`}
+      className={`${!user && "pt-4 pb-4"} ${
+        location.pathname === "/" ? "header_position" : ""
+      }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
@@ -234,14 +235,13 @@ const Header = () => {
                   <div className="profile_dropdown" ref={myDivRef}>
                     <div className="position-relative">
                       <div className="profile_name">
-                        <h5>
-                          {user?.first_name} {user?.last_name}
-                        </h5>
-                        
+                        <h5>{user?.first_name}</h5>
+
                         <img
                           src={dropdown}
-                          className={`${isDropdownActive ? "" : "rotate_arrow"
-                            }`}
+                          className={`${
+                            isDropdownActive ? "" : "rotate_arrow"
+                          }`}
                           alt="dropdown"
                         />
                       </div>
