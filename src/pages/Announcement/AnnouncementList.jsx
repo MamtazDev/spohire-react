@@ -15,7 +15,15 @@ const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
 
-  console.log(allAnnouncements?.data, "announcement");
+  console.log(sortedItems, "sortedItems");
+
+  const handleFilter = (value) => {
+    if (sortedItems.length > 0) {
+      return sortedItems.includes(value?.status);
+    } else {
+      return true;
+    }
+  };
 
   return (
     <>
@@ -27,9 +35,11 @@ const AnnouncementList = () => {
           <div className="col-lg-9">
             {allAnnouncements?.data &&
               allAnnouncements?.data?.length > 0 &&
-              allAnnouncements?.data?.map((item, index) => (
-                <SingleAnnouncement key={index} item={item} />
-              ))}
+              allAnnouncements?.data
+                ?.filter(handleFilter)
+                .map((item, index) => (
+                  <SingleAnnouncement key={index} item={item} />
+                ))}
           </div>
           <div className="col-lg-3">
             <JobCategory
