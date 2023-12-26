@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 const Topbar = () => {
   const { user } = useSelector((state) => state.auth);
-  console.log(user.role)
   const myDivRef = useRef(null);
   let location = useLocation();
   const [filter, setFilter] = useState(false);

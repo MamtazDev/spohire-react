@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useSelector } from 'react-redux';
 import Select from 'react-select';
 
 const options = [
@@ -8,9 +9,12 @@ const options = [
 ]
 
 const FilterModal = ({ myDivRef }) => {
+    const { user } = useSelector((state) => state.auth);
+    console.log(user.role)
     return (
         <div ref={myDivRef} className="filter_parent">
-            <div className={`${location.pathname == '/dashboard/observed' ? 'filter_wrapper1' : "filter_wrapper"} `}>
+            <div className={`${location.pathname === '/dashboard/observed' || user.role === 'Player' ? 'filter_wrapper1' : 'filter_wrapper'}`}>
+
                 <div className="buttons1">
                     <h2>Job Offer Filter</h2>
                     <div className="d-flex" style={{ gap: "10px" }}>
