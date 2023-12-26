@@ -8,12 +8,14 @@ import flag5 from "../../assets/flag5.png";
 import { useNavigate } from "react-router-dom";
 import { useGetFilteredUsersQuery } from "../../features/auth/authApi";
 
-const Compact = ({ flagurl }) => {
+const Compact = ({ flagurl, searchParams }) => {
   const navigate = useNavigate();
 
   const { data, isLoading } = useGetFilteredUsersQuery(
-    "role=Coach&&role=Player"
+    searchParams ? searchParams : "role=Coach&&role=Player"
   );
+
+  console.log(data, "dddd");
 
   const convertAge = (dateString) => {
     const dob = new Date(dateString);
