@@ -15,6 +15,7 @@ import language from "../../../assets/alanguage.png";
 import "./AddJobOffer.css";
 import Select from "react-select";
 import { useAddJobMutation } from "../../../features/job/jobApi";
+import Swal from "sweetalert2";
 
 const options = [
   { value: "Full-time", label: "Full-time" },

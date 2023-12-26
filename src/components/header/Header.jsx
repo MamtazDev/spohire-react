@@ -50,9 +50,8 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${
-        location.pathname === "/" ? "header_position" : ""
-      }`}
+      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
+        }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
@@ -223,11 +222,11 @@ const Header = () => {
                 <div
                   type="button"
                   onClick={(event) => handleButtonClick(event)}
-                  className="d-flex  flex-lg-row flex-column align-items-center  p-2 profile_drop_mobilepadding"
+                  className="d-flex  flex-lg-row flex-column align-items-center  p-2 profile_drop_mobilepadding position-relative"
                 >
                   <Link to="/dashboard/viewProfile">
                     <img
-                      className="profile_picture d-lg-block "
+                      className="profile_picture d-lg-block d-none"
                       src={profile}
                       alt=""
                     />
@@ -238,11 +237,11 @@ const Header = () => {
                         <h5>
                           {user?.first_name} {user?.last_name}
                         </h5>
+                        
                         <img
                           src={dropdown}
-                          className={`${
-                            isDropdownActive ? "" : "rotate_arrow"
-                          }`}
+                          className={`${isDropdownActive ? "" : "rotate_arrow"
+                            }`}
                           alt="dropdown"
                         />
                       </div>

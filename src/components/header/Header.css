@@ -13,9 +13,11 @@
     box-shadow: none;
 }
 
-.authBtn a, .logIn:hover{
+.authBtn a,
+.logIn:hover {
     color: #FFF;
 }
+
 .nav-link {
     padding: 0;
     font-size: 20px;
@@ -240,16 +242,21 @@
     border: none;
     border-radius: 5px;
     position: absolute;
-    right: 100px;
-    top: 30px;
-    padding: 12px;
+    /* right: 100px;
+    top: 30px; */
+    top: 13px;
+    right: 0;
+    padding: 10px 10px;
+    width: 170px;
 }
 
 .profile_name {
     display: flex;
     align-items: center;
     gap: 16px;
+    justify-content: space-around;
     /* position: absolute; */
+    /* border-bottom: 1px solid #9D99A3; */
 }
 
 .profile_name h5 {
@@ -258,9 +265,9 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 150%;
     /* 19.2px */
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #FFF !important;
 }
 
@@ -292,7 +299,7 @@
 }
 
 .profile_picture {
-    margin-right: 170px;
+    margin-right: 186px;
 }
 
 
