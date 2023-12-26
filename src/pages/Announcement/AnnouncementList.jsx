@@ -15,8 +15,6 @@ const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
 
-  
-
   console.log(allAnnouncements?.data, "announcement");
 
   return (
@@ -34,7 +32,10 @@ const AnnouncementList = () => {
               ))}
           </div>
           <div className="col-lg-3">
-            <JobCategory />
+            <JobCategory
+              setSortedItems={setSortedItems}
+              sortedItems={sortedItems}
+            />
           </div>
         </div>
       </div>

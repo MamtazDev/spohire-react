@@ -22,7 +22,7 @@ const jobLocations = [
   "Canada1",
 ];
 
-const JobCategory = () => {
+const JobCategory = ({ sortedItems, setSortedItems }) => {
   //   const [checkboxStates, setCheckboxStates] = useState({
   //     football: false,
   //     basketball: false,
