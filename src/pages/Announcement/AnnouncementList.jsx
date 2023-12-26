@@ -13,6 +13,9 @@ import { useGetAllAnnouncementQuery } from "../../features/announcement/announce
 
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
+  const [sortedItems, setSortedItems] = useState([]);
+
+  
 
   console.log(allAnnouncements?.data, "announcement");
 
