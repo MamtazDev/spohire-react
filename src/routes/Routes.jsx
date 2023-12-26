@@ -34,6 +34,7 @@ import AddProfile from "../pages/AddProfile/AddProfile.jsx";
 import SubscribedRoute from "./SubscribedRoute.jsx";
 import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
 import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
+import PaymentRoute from "./PaymentRoute.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/paymentProcess",
-        element: <PaymentProcess />,
+        element: (
+          <PaymentRoute>
+            <PaymentProcess />
+          </PaymentRoute>
+        ),
       },
       {
         path: "/jobOffer",
