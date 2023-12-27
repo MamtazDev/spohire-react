@@ -8,26 +8,60 @@ import UpdateexperienceAndMedia from "./UpdateexperienceAndMedia";
 import EditGallary from "./EditGallary";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useUpdateUserMutation } from "../../../features/auth/authApi";
 
 // data
 const inputFieldData = [
-  { label: "Name", placeholderText: "Your name", type: "text" },
-  { label: "Date of Birth", placeholderText: "DD-MM-YYYY", type: "date" },
-  { label: "Age", placeholderText: "Your Age", type: "number" },
-  { label: "Nationality", placeholderText: "Your Nationality", type: "text" },
-  { label: "Position", placeholderText: "Your Position", type: "text" },
+  {
+    label: "Name",
+    placeholderText: "Your name",
+    type: "text",
+    name: "first_name",
+  },
+  {
+    label: "Date of Birth",
+    placeholderText: "DD-MM-YYYY",
+    type: "date",
+    name: "date_of_birth",
+  },
+  // { label: "Age", placeholderText: "Your Age", type: "number" },
+  {
+    label: "Nationality",
+    placeholderText: "Your Nationality",
+    type: "text",
+    name: "nationality",
+  },
+  {
+    label: "Position",
+    placeholderText: "Your Position",
+    type: "text",
+    name: "club_position",
+  },
   {
     label: "Dominant Hand",
     placeholderText: "Your Dominant Hand",
     type: "text",
+    name: "dominant_hand",
   },
-  { label: "Height", placeholderText: "You Height", type: "number" },
-  { label: "Weight", placeholderText: "Your Weight", type: "number" },
-  { label: "Race", placeholderText: "Your Race", type: "text" },
+  {
+    label: "Height",
+    placeholderText: "You Height",
+    type: "number",
+    name: "height",
+  },
+  {
+    label: "Weight",
+    placeholderText: "Your Weight",
+    type: "number",
+    name: "weight",
+  },
+  // { label: "Race", placeholderText: "Your Race", type: "text" },
 ];
 
 const EditPlayerDetails = () => {
   const { user } = useSelector((state) => state.auth);
+
+  const [updateUser, { isLoading }] = useUpdateUserMutation();
   // gallary
   const [selectedImages, setSelectedImages] = useState([]);
   // profile
@@ -59,6 +93,25 @@ const EditPlayerDetails = () => {
 
   const [formData, setFormData] = useState(initialFormData);
 
+  const [userInfo, setUserInfo] = useState({
+    first_name: "",
+    date_of_birth: "",
+    nationality: "",
+    club_position: "",
+    dominant_hand: "",
+    height: "",
+    weight: "",
+    image: "",
+    social_media: [],
+    experience: [],
+    social_media: [],
+    strengths_advantage: "",
+    about_me: "",
+    expectations_from_new_club: "",
+    sports: "",
+  });
+  const [editedInfo, setEditedInfo] = useState({});
+
   const handleGallaryImageChange = (e) => {
     const files = e.target.files;
     const newImages = [];
@@ -85,16 +138,22 @@ const EditPlayerDetails = () => {
     const file = event.target.files[0];
 
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData((prevData) => ({
-          ...prevData,
-          selectedImage: reader.result,
-        }));
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setUserInfo({ ...userInfo, ["image"]: file });
+      setSelectedImage(file);
+      setEditedInfo({ ...editedInfo, ["image"]: file });
     }
+
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onloadend = () => {
+    //     setFormData((prevData) => ({
+    //       ...prevData,
+    //       selectedImage: reader.result,
+    //     }));
+    //     setSelectedImage(reader.result);
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   };
 
   const handleButtonClick = () => {
@@ -103,62 +162,51 @@ const EditPlayerDetails = () => {
 
   // get all data
   const handleInputChange = (fieldName, value) => {
-    setFormData((prevData) => ({
+    setUserInfo((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+    setEditedInfo((prevData) => ({
       ...prevData,
       [fieldName]: value,
     }));
   };
 
   // form submit data
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
+
+    // console.log(editedInfo, "edited");
   };
 
+  useEffect(() => {
+    const newData = {
+      first_name: user?.first_name,
+      date_of_birth: user?.date_of_birth,
+      nationality: user?.nationality,
+      club_position: user?.club_position,
+      dominant_hand: user?.dominant_hand,
+      height: user?.height,
+      weight: user?.weight,
+      image: user?.image,
+      social_media: user?.social_media,
+      experience: user?.experience,
+      social_media: user?.social_media,
+      strengths_advantage: user?.strengths_advantage,
+      about_me: user?.about_me,
+      expectations_from_new_club: user?.expectations_from_new_club,
+      sports: user?.sports,
+    };
+
+    setUserInfo(newData);
+  }, [user]);
+
+
+
+  console.log("usr", user);
+  console.log("userInfo", userInfo);
   console.log("Form Data:", formData);
-
-  //   useEffect(() => {
-  // const data = {
-
-  //     aboutMe:user?.about_me,
-
-  //     age:user?.date_of_birth
-  // }
-
-  // clubName
-
-  // date of birth
-
-  // dominant hand
-
-  // expectationsFromClub
-
-  // experiences
-
-  // gallary
-
-  // height
-
-  // name
-
-  // nationality
-
-  // playerName
-
-  // position
-
-  // race
-
-  // selectedImage
-
-  // socialMedia
-
-  // sportsType
-
-  // strengthsAdvantages
-
-  // weight
-
-  //   }, [user]);
+  console.log("editedInfo:", editedInfo);
 
   return (
     <form className="" onSubmit={handleUpdate}>
@@ -169,7 +217,13 @@ const EditPlayerDetails = () => {
               <div className="upload_profile_image" onClick={handleButtonClick}>
                 <img
                   className="img-fluid profiles"
-                  src={selectedImage || profileImage}
+                  src={
+                    selectedImage
+                      ? URL.createObjectURL(selectedImage)
+                      : userInfo?.image
+                      ? userInfo?.image
+                      : profileImage
+                  }
                   alt="Profile"
                 />
                 <div>
@@ -194,7 +248,7 @@ const EditPlayerDetails = () => {
             </div>
             <div className="col-12 col-lg-9">
               <div className="edit_profile_input">
-                <div className="mb-4 position-relative">
+                {/* <div className="mb-4 position-relative">
                   <label
                     htmlFor="exampleFormControlInput1"
                     className="form-label"
@@ -211,7 +265,7 @@ const EditPlayerDetails = () => {
                       handleInputChange("playerName", e.target.value)
                     }
                   />
-                </div>
+                </div> */}
                 <div className="mb-4 position-relative">
                   <label
                     htmlFor="exampleFormControlInput1"
@@ -224,9 +278,9 @@ const EditPlayerDetails = () => {
                     className="form-control"
                     id="sportsTypeInput"
                     placeholder="Basketball"
-                    value={formData.sportsType}
+                    value={userInfo?.sports}
                     onChange={(e) =>
-                      handleInputChange("sportsType", e.target.value)
+                      handleInputChange("sports", e.target.value)
                     }
                   />
                 </div>
@@ -255,12 +309,10 @@ const EditPlayerDetails = () => {
                               className="form-control"
                               id={`exampleFormControlInput${index + 1}`}
                               placeholder={field.placeholderText}
-                              value={formData[field.label.toLowerCase()] || ""}
+                              value={userInfo[field.name] || ""}
+                              min="1"
                               onChange={(e) =>
-                                handleInputChange(
-                                  field.label.toLowerCase(),
-                                  e.target.value
-                                )
+                                handleInputChange(field.name, e.target.value)
                               }
                             />
                           </div>
@@ -290,12 +342,12 @@ const EditPlayerDetails = () => {
                 {/*  */}
                 <textarea
                   onChange={(e) =>
-                    handleInputChange("strengthsAdvantages", e.target.value)
+                    handleInputChange("strengths_advantage", e.target.value)
                   }
                   className="form-control about_me_editField"
                   id="exampleFormControlTextarea1"
                   rows="3"
-                  defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"
+                  value={userInfo?.strengths_advantage}
                 ></textarea>
               </div>
             </div>
@@ -304,11 +356,13 @@ const EditPlayerDetails = () => {
               <div className="">
                 {/*  */}
                 <textarea
-                  onChange={(e) => handleInputChange("aboutMe", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("about_me", e.target.value)
+                  }
                   className="form-control about_me_editField"
                   id="exampleFormControlTextarea1"
                   rows="3"
-                  defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"
+                  value={userInfo?.about_me}
                 ></textarea>
               </div>
             </div>
@@ -321,12 +375,15 @@ const EditPlayerDetails = () => {
                 {/*  */}
                 <textarea
                   onChange={(e) =>
-                    handleInputChange("expectationsFromClub", e.target.value)
+                    handleInputChange(
+                      "expectations_from_new_club",
+                      e.target.value
+                    )
                   }
                   className="form-control about_me_editField"
                   id="exampleFormControlTextarea1"
                   rows="3"
-                  defaultValue=" Here are some of my notable strengths: Height and Wingspan: I am blessed with a tall stature and a remarkable wingspan, which give me a significant advantage in both offense and defense. My height allows me to effectively contest shots,"
+                  value={userInfo?.expectations_from_new_club}
                 ></textarea>
               </div>
             </div>
