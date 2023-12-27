@@ -50,7 +50,7 @@ const MatchesJob = ({ searchParams }) => {
           We found <span>{filteredJobs?.length}</span> Matches for you
         </h3>
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-9">
             <div className="row">
               {allJobs?.data &&
                 allJobs?.data?.length > 0 &&
@@ -102,7 +102,7 @@ const MatchesJob = ({ searchParams }) => {
                 ))}
             </div>
           </div>
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <JobCategory/>
           </div>
         </div>
