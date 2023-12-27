@@ -43,9 +43,9 @@
 .right-inner-addon i {
     position: absolute;
     right: 0px;
-    padding: 38px 13px;
+    padding: 48px 13px;
     pointer-events: none;
-    font-size: 11.319px;
+    /* font-size: 11.319px; */
 }
 
 .left-and-right-inner-addon {
@@ -92,13 +92,13 @@
 
     margin: 0em !important;
     box-sizing: border-box;
-    height: 31px !important;
+    height: 50px !important;
 }
 
 
 .login_input::placeholder {
     color: #9CA3A9;
-    font-size: 8.489px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -176,14 +176,14 @@
     color: #FFF;
     text-align: center;
     font-family: 'SF Pro Display', sans-serif;
-    font-size: 11.3px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     display: flex;
     width: 218px;
     height: 36px;
-    padding: 11px 0px;
+    padding: 18px 0px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -193,7 +193,7 @@
 .login_wrapper h3 {
     color: #141736;
     text-align: center;
-    font-size: 19.8px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 500;
     margin-bottom: 8px;
@@ -202,7 +202,7 @@
 .login_wrapper p {
     color: #A5B4CB !important;
     text-align: center !important;
-    font-size: 11.3px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -212,7 +212,8 @@
 .login_wrapper label {
     margin-bottom: 9px;
     color: #161D24;
-    font-size: 11.3px;
+    /* font-size: 11.3px; */
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

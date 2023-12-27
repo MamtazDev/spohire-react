@@ -63,7 +63,7 @@ const Login = () => {
           <div className="col-lg-7 p-0">
             <div className="login_wrapper">
               <div>
-                <h3>Log in</h3>
+                <h3>Log in</h3> 
                 <p>Fill all input to Login on your account</p>
                 <form onSubmit={handleSubmit}>
                   <div className="right-inner-addon input-container">
