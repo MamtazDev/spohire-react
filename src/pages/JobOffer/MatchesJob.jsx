@@ -6,6 +6,7 @@ import location from "../../assets/location.png";
 import ApplyJobs from "./ApplyJobs";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
+import JobCategory from "../Announcement/JobCategory";
 
 const MatchesJob = ({ searchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
@@ -49,12 +50,12 @@ const MatchesJob = ({ searchParams }) => {
           We found <span>{filteredJobs?.length}</span> Matches for you
         </h3>
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-8">
             <div className="row">
               {allJobs?.data &&
                 allJobs?.data?.length > 0 &&
                 filteredJobs.map((item, idx) => (
-                  <div className="col-lg-4" key={idx}>
+                  <div className="col-lg-6" key={idx}>
                     <div className="matchedJobs_wrapper">
                       <div className="d-flex gap-4 align-items-center">
                         <div className="tennis_logo">
@@ -100,6 +101,9 @@ const MatchesJob = ({ searchParams }) => {
                   </div>
                 ))}
             </div>
+          </div>
+          <div className="col-lg-4">
+            <JobCategory/>
           </div>
         </div>
         {/* pagination */}
