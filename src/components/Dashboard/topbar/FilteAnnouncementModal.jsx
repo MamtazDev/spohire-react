@@ -37,7 +37,6 @@ const FilteAnnouncementModal = ({ myDivRef1 }) => {
                     <h2>Location</h2>
                     <Select
                         className="basic-single"
-                        classNamePrefix="sdfsdsd"
                         name="color"
                         options={options}
                         placeholder="Country List"
@@ -47,7 +46,6 @@ const FilteAnnouncementModal = ({ myDivRef1 }) => {
                     <h2>Category </h2>
                     <Select
                         className="basic-single"
-                        classNamePrefix="sdfsdsd"
                         name="color"
                         options={options}
                         placeholder="Information Technology"

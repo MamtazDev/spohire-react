@@ -84,7 +84,7 @@
 }
 
 .add_job_offer .css-13cymwt-control {
-    min-height: 40px !important;
+    min-height: 44px !important;
     border: 1px solid #F0F0F0 !important;
 }
 
@@ -111,5 +111,18 @@
 }
 
 .job_location_select .css-1ltuaou-control {
+    min-height: 44px !important;
+}
+
+.add_job_offer_admin input {
     height: 44px !important;
+}
+
+.job_location_select .css-5tv4gf-control {
+    min-height: 44px !important;
+    border: 1px solid #F0F0F0 !important;
+}
+
+.css-1g13apa-container {
+    background-color: #FFFF !important;
 }

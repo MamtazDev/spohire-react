@@ -147,31 +147,7 @@ const Topbar = () => {
                       <span className="text_color_cb">Filter</span>
                     </button>
                   }
-                  {/* <button
-                    onClick={(event) => handleButtonClick(event)}
-                    className={`${
-                      (location.pathname === "/dashboard/coachesProfile") |
-                      (location.pathname == "/dashboard/messages") |
-                      (location.pathname == "/dashboard/password") |
-                      (location.pathname == "/dashboard/notification") |
-                      (location.pathname == "/dashboard/editAnnouncements") |
-                      (location.pathname == "/dashboard/editPlayerDetals") |
-                      (location.pathname === "/dashboard/coaches") |
-                      (location.pathname === "/dashboard/players") |
-                      (location.pathname === "/dashboard/observed") |
-                      (location.pathname === "/dashboard/editCoacheProfile") |
-                      (location.pathname == "/dashboard/viewProfile") |
-                      (location.pathname === "/dashboard/viewDetails") |
-                      (location.pathname === "/dashboard/coacheDetails") |
-                      (location.pathname === "/dashboard/createAnnouncements") |
-                      (location.pathname === "/dashboard/billing")
-                      ? "d-none"
-                      : "filter_btn d-flex gap-2 text-decoration-none"
-                      } `}
-                  >
-                    <img src={filterIcon} alt="icon" />
-                    <span className="text_color_cb">Filter</span>
-                  </button> */}
+
                   <Link
                     to={`${location.pathname === "/dashboard/jobOffers"
                       ? "/dashboard/jobOffers"
@@ -185,17 +161,17 @@ const Topbar = () => {
                           ? "/dashboard/coachesProfile"
                           : "#"
                       }`}
-                    className={`${(location.pathname == "/dashboard/observed") |
-                      (location.pathname == "/dashboard/messages") |
-                      (location.pathname == "/dashboard/password") |
-                      (location.pathname == "/dashboard/notification") |
-                      (location.pathname == "/dashboard/billing") |
-                      (location.pathname == "/dashboard/editAnnouncements") |
-                      (location.pathname === "/dashboard/coaches") |
-                      (location.pathname === "/dashboard/players") |
-                      (location.pathname === "/dashboard/viewDetails") |
-                      (location.pathname === "/dashboard/coacheDetails") |
-                      (location.pathname === "/dashboard/createAnnouncements") |
+                    className={`${(location.pathname == "/dashboard/observed") ||
+                      (location.pathname == "/dashboard/messages") ||
+                      (location.pathname == "/dashboard/password") ||
+                      (location.pathname == "/dashboard/notification") ||
+                      (location.pathname == "/dashboard/billing") ||
+                      (location.pathname == "/dashboard/editAnnouncements") ||
+                      (location.pathname === "/dashboard/coaches") ||
+                      (location.pathname === "/dashboard/players") ||
+                      (location.pathname === "/dashboard/viewDetails") ||
+                      (location.pathname === "/dashboard/coacheDetails") ||
+                      (location.pathname === "/dashboard/createAnnouncements") ||
                       (location.pathname === "/dashboard/announcements") && user.role == "Player" ||
                       (location.pathname === "/dashboard/jobOffers") && user.role == "Player"
                       ? "d-none"
