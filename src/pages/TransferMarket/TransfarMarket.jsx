@@ -7,7 +7,7 @@ const TransfarMarket = () => {
         <>
             <div>
                 <TransferMarketHeader />
-                <MarketList />
+                {/* <MarketList /> */}
             </div>
 
         </>

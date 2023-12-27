@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 import tennis from "../../assets/tennis.png";
 import flag from "../../assets/flag.png";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
 import ApplyJobs from "./ApplyJobs";
-import { Link } from "react-router-dom";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ const MatchesJob = ({ searchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
 
-  console.log(searchParams, "dddparams");
+  console.log(searchParams, "paramsssss");
 
   const filteredJobs = allJobs?.data?.filter((value) => {
     if (
@@ -41,6 +41,7 @@ const MatchesJob = ({ searchParams }) => {
   // const handleFilter = (value) => {};
 
   console.log(allJobs, "jooobbbb");
+  
   return (
     <>
       <div className="container">
