@@ -12,7 +12,7 @@
 .search_jobs form {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .search_jobs input {
@@ -21,8 +21,9 @@
     background: #FFF;
     display: inline-flex;
     height: 50px;
-    padding: 17px 0px 16px 20px;
-    width: 26%;
+    padding: 17px 10px 16px 20px;
+    /* width: 26%; */
+    width: 310px;
     align-items: center;
 }
 
@@ -235,4 +236,19 @@
     line-height: 110%;
     /* 13.2px */
     letter-spacing: -0.12px;
+}
+
+.apply_jobs_modal input {
+    height: 44px;
+}
+
+.css-1ltuaou-control {
+
+    height: 50px !important;
+}
+
+.css-w9q2zk-Input2 {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }

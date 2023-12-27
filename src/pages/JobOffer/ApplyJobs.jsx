@@ -2,10 +2,10 @@ import auser from "../../assets/auser.png";
 import region from "../../assets/aregion.png";
 import dob from "../../assets/adob.png";
 import position from "../../assets/afullname.png";
-import weight from "../../assets/aweight.png";
-import height from "../../assets/aheight.png";
+import email from "../../assets/aemail.png";
+import phone from "../../assets/aphone.png";
 import salary from "../../assets/asalary.png";
-import language from "../../assets/alanguage.png";
+import upload from "../../assets/aupload.png";
 import { useRef, useState } from "react";
 import { useApplyForTheJobMutation } from "../../features/job/jobApi";
 import Swal from "sweetalert2";
@@ -20,11 +20,11 @@ const formFields = [
     placeholder: "Enter your name",
   },
   {
-    label: "Region",
+    label: "Country",
     type: "text",
-    key: "region",
+    key: "country",
     icon: region,
-    placeholder: "Enter your region",
+    placeholder: "Enter your Country",
   },
   {
     label: "Birth Date",
@@ -41,32 +41,32 @@ const formFields = [
     placeholder: "Enter your playing position",
   },
   {
-    label: "Your Weight",
-    type: "number",
-    key: "weight",
-    icon: weight,
-    placeholder: "Enter your weight",
-  },
-  {
-    label: "Your Height",
-    type: "number",
-    key: "height",
-    icon: height,
-    placeholder: "Enter your height",
-  },
-  {
     label: "Expected Salary",
     type: "number",
-    key: "expectedSalary",
+    key: "salary",
     icon: salary,
-    placeholder: "Numerical digit only",
+    placeholder: "Enter your Expected Salary",
   },
   {
-    label: "Language",
-    type: "text",
+    label: "Email",
+    type: "email",
+    key: "email",
+    icon: email,
+    placeholder: "Enter your Email",
+  },
+  {
+    label: "Upload CV",
+    type: "file",
+    key: "cv",
+    icon: upload,
+    placeholder: "",
+  },
+  {
+    label: "Phone",
+    type: "number",
     key: "language",
-    icon: language,
-    placeholder: "Enter your language",
+    icon: phone,
+    placeholder: "Enter your phone number",
   },
 ];
 
@@ -164,9 +164,23 @@ const ApplyJobs = ({ selectedJob }) => {
       setLoading(false);
     }
   };
+  const fileInputRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
+  const handleFileChange = () => {
+    const file = fileInputRef.current.files[0];
+
+    if (file && file.type === 'application/pdf') {
+      setSelectedFile(file);
+      // Add additional logic if needed
+    } else {
+      // Handle invalid file type
+      alert('Please select a PDF file.');
+      fileInputRef.current.value = ''; // Clear the file input
+    }
+  };
   return (
-    <>
+    <div className="apply_jobs_modal">
       <form onSubmit={handleSubmit}>
         <div
           className="modal fade"
@@ -211,17 +225,41 @@ const ApplyJobs = ({ selectedJob }) => {
                           <div className="form_icons">
                             <img className="mt-0" src={field.icon} alt="user" />
                           </div>
-                          <input
-                            type={field.type}
-                            className="form-control ps-5"
-                            id={field.key}
-                            name={field.key}
-                            placeholder={field.placeholder}
-                            // value={formData[field.key]}
-                            // onChange={handleChange}
-                            required
-                            min="1"
-                          />
+
+                          {
+                            field.type === "file" ?
+                              <div>
+                                <input
+                                  type="file"
+                                  ref={fileInputRef}
+                                  onChange={handleFileChange}
+                                  style={{ display: 'none' }}
+                                  accept=".pdf" // Specify accepted file types (PDF in this case)
+                                  id="fileInput"
+                                />
+                                <input
+                                  type="text"
+                                  className="form-control ps-5"
+                                  id="customFileInput"
+                                  name="customFileInput"
+                                  placeholder="Select a PDF file"
+                                  onClick={() => fileInputRef.current.click()}
+                                  value={selectedFile ? selectedFile.name : ''}
+                                  readOnly
+                                  style={{background:"transparent"}}
+                                />
+                              </div> :
+                              <input
+                                type={field.type}
+                                className="form-control ps-5"
+                                id={field.key}
+                                name={field.key}
+                                placeholder={field.placeholder}
+                                required
+                                min="1"
+                              />
+                          }
+
                         </div>
                       </div>
                     ))}
@@ -242,7 +280,7 @@ const ApplyJobs = ({ selectedJob }) => {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import loginBanner from "../../assets/sign-up.png";
 import arrowRight from "../../assets/ArrowRight.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateSelector from "./DateSelector";
 import Select from "react-select";
 import bdIcon from "../../assets/bd.svg";
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { convertDate } from "../../utils/TimeConverter";
 import { useRegisterUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const options = [
   {
@@ -243,13 +244,15 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nationality, setNationality] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
   const [countryCode, setCoutryCode] = useState(null);
 
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [registerUser, { isLoading }] = useRegisterUserMutation();
+
+  const [dateOfBirth, setDateOfBirth] = useState("");
+
 
   const button_disability =
     !firstName ||
@@ -263,6 +266,21 @@ const SignUp = () => {
     !countryCode ||
     !sports ||
     isLoading;
+
+
+  const data = {
+    firstName,
+    lastName,
+    email,
+    password,
+    nationality,
+    dateOfBirth,
+    phoneNumber,
+    functionType,
+    countryCode,
+    sports,
+  }
+  console.log(data)
 
   // console.log(countryCode, "cc");
 
@@ -320,6 +338,32 @@ const SignUp = () => {
 
     // localStorage.setItem("register", JSON.stringify(formData));
     // navigate('/addPlayer')
+  };
+  const [countryNames, setCountryNames] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedCountryCode, setSelectedCountryCode] = useState(null);
+
+  useEffect(() => {
+    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+      .then(function (response) {
+        // Assuming response.data is an array of objects with a 'name' property
+        // console.log(response);
+        setCountryNames(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  const handleChange = (selectedOption) => {
+    console.log(selectedOption,'selected')
+    setSelectedCountry(selectedOption);
+    setNationality(selectedOption?.value)
+  };
+  const handleDialCodeChange = (selectedOption) => {
+    setSelectedCountryCode(selectedOption);
+    console.log(selectedOption,"cotrr ")
+    setCoutryCode(selectedOption.value)
   };
   return (
     <>
@@ -394,13 +438,10 @@ const SignUp = () => {
                     <div className="col-6">
                       <label htmlFor="">Nationality</label>
                       <Select
-                        options={options1}
-                        value={options1.find(
-                          (option) => option.value === nationality
-                        )}
-                        onChange={(selectedOption) =>
-                          setNationality(selectedOption.value)
-                        }
+
+                        options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                        value={selectedCountry}
+                        onChange={handleChange}
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
@@ -437,7 +478,7 @@ const SignUp = () => {
                           }),
                           singleValue: (baseStyles) => ({
                             ...baseStyles,
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           indicatorsContainer: (baseStyles) => ({
                             ...baseStyles,
@@ -456,7 +497,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="col-6">
-                      <label htmlFor="">Date of birth</label>
+                      <label htmlFor="" className="mb-3">Date of birth</label>
                       <DateSelector
                         value={dateOfBirth}
                         onChange={(selectedDate) =>
@@ -471,14 +512,10 @@ const SignUp = () => {
                     <label htmlFor="">Phone number</label>
                     <div className="col-4 mb-3">
                       <Select
-                        placeholder="+880"
-                        options={options2}
-                        value={options2.find(
-                          (option) => option.label === phoneNumber
-                        )}
-                        onChange={(selectedOption) =>
-                          setCoutryCode(selectedOption.label)
-                        }
+                        options={countryNames.map((country) => ({ value: country.dial_code, label: country.dial_code }))}
+                        value={selectedCountryCode}
+                        onChange={handleDialCodeChange}
+
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
@@ -552,11 +589,10 @@ const SignUp = () => {
                     {["Player", "Coach", "Manager"].map((data) => (
                       <>
                         <button
-                          className={`${
-                            functionType === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
+                          className={`${functionType === data
+                            ? "function_btn_active"
+                            : "function_btn"
+                            } `}
                           type="button"
                           onClick={() => setFunctionType(data)}
                         >
@@ -572,11 +608,10 @@ const SignUp = () => {
                       <>
                         <button
                           // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${
-                            sports === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
+                          className={`${sports === data
+                            ? "function_btn_active"
+                            : "function_btn"
+                            } `}
                           type="button"
                           onClick={() => setSports(data)}
                         >
