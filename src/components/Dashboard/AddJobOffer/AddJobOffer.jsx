@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Modal } from "react-bootstrap";
 import styles from "./Modal.module.css";
 import brows from "../../../assets/brows1.png";
@@ -16,6 +16,7 @@ import "./AddJobOffer.css";
 import Select from "react-select";
 import { useAddJobMutation } from "../../../features/job/jobApi";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const options = [
   { value: "Full-time", label: "Full-time" },
@@ -108,7 +109,24 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     setImage(selectedFile.name);
     setImageFIle(selectedFile);
   };
+  const [countryNames, setCountryNames] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
+  useEffect(() => {
+    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+      .then(function (response) {
+        // Assuming response.data is an array of objects with a 'name' property
+        // console.log(response);
+        setCountryNames(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  const handleChange = (selectedOption) => {
+    setSelectedCountry(selectedOption);
+  };
   return (
     <div className={` ${styles.addJob_wrapper}`}>
       <Modal
@@ -198,25 +216,80 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                       >
                         Employer Location
                       </label>
-                      {/* <Select
-                        className="basic-single"
-                        classNamePrefix="sdfsdsd"
-                        name="color"
-                        options={options}
-                        placeholder="Information Technology"
-                        style={{ padding: "12px 14px", height: "40px" }}
-                      /> */}
-                      <div className="form_icons" style={{ top: "36px" }}>
-                        <img className="mt-0" src={region} alt="user" />
+                    
+                      <div className="row">
+                        <div className="col-lg-6 job_location_select">
+                          <Select
+                            style={{ minHeight: "50px", width: "100%" }}
+                            options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                            value={selectedCountry}
+                            onChange={handleChange}
+
+                            styles={{
+                              control: (baseStyles) => ({
+                                ...baseStyles,
+                                minHeight: "50px",
+                                backgroundColor: "#FAFAFA",
+                              }),
+
+                              container: (baseStyles) => ({
+                                ...baseStyles,
+                                width: "268px",
+
+                              }),
+
+                              valueContainer: (baseStyles) => ({
+                                ...baseStyles,
+                                padding: "0 5px",
+                              }),
+                              placeholder: (baseStyles) => ({
+                                ...baseStyles,
+                                color: "#9CA3A9",
+                                fontSize: "10px",
+                              }),
+                              menuList: (baseStyles) => ({
+                                ...baseStyles,
+                                fontSize: "16px",
+                              }),
+                              singleValue: (baseStyles) => ({
+                                ...baseStyles,
+                                fontSize: "14px",
+                              }),
+                              indicatorsContainer: (baseStyles) => ({
+                                ...baseStyles,
+                                padding: "0px !important",
+                              }),
+                              indicatorSeparator: (baseStyles) => ({
+                                ...baseStyles,
+                                display: "none",
+                                margin: "0",
+                                width: "0",
+                              }),
+
+                            }}
+                          />
+                        </div>
+                        <div className="col-lg-6">
+
+                          <div
+                            className="position-relative text-start "
+                            style={{ marginBottom: "32px" }}
+                          >
+                            
+                            <div className="form_icons" style={{ top: "36px" }}>
+                              <img className="mt-0" src={region} alt="title" />
+                            </div>
+                            <input
+                              type="text"
+                              className="form-control ps-5"
+                              id="exampleFormControlInput1"
+                              placeholder="Enter Announcement Title"
+                              name="title"
+                              required
+                            />
+                          </div>
+                        </div>
                       </div>
-                      <input
-                        type="text"
-                        className="form-control ps-5"
-                        id="exampleFormControlInput1"
-                        placeholder="Enter Employer location"
-                        name="jobLocation"
-                        required
-                      />
                     </div>
                     {/* SELECT */}
                     <div
@@ -275,24 +348,14 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                       >
                         Workplace Type
                       </label>
-                      {/* <div className="form_icons" style={{ top: "36px" }}>
-                        <img className="mt-0" src={region} alt="user" />
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control ps-5"
-                        id="exampleFormControlInput1"
-                        placeholder="Select your region"
-                        name="workplaceType"
-                        required
-                      /> */}
+
                       <Select
-                        className="basic-single"
+                        className="basic-single w-100"
                         classNamePrefix="sdfsdsd"
                         name="color"
                         options={WorkplaceOptions}
                         placeholder="Select Workplace type"
-                        style={{ padding: "12px 14px", height: "40px" }}
+                        style={{ padding: "12px 14px", height: "40px", width: "100%" }}
                         onChange={(selectedOption) =>
                           setWorkplaceType(selectedOption.value)
                         }

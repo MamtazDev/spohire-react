@@ -104,3 +104,12 @@
     font-weight: 500;
     line-height: normal;
 }
+
+.job_location_select .css-1g13apa-container {
+    width: 100%;
+    background-color: #FFFF !important;
+}
+
+.job_location_select .css-1ltuaou-control {
+    height: 44px !important;
+}
