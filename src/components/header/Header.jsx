@@ -187,7 +187,7 @@ const Header = () => {
                         type="button"
                       >
                         <Link
-                          to="/signup"
+                          to="/login"
                           type="submit"
                           className="text-decoration-none text-dark"
                         >

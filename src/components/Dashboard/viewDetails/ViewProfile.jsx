@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 
 const ViewProfile = () => {
   const { user } = useSelector((state) => state.auth);
-  // console.log(user, "usr");
+  console.log(user, "usr");
 
   const convertAge = (dateString) => {
     const dob = new Date(dateString);
@@ -149,12 +149,12 @@ const ViewProfile = () => {
                       </p>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <span className="f_sfPro text_color_cb fs_15">
                         Weight
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">99kg</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -176,10 +176,13 @@ const ViewProfile = () => {
                 <p className="f_sfPro text_color_cb fs_15 mb-2">Experience</p>
                 <div className="d-flex flex-column flex-lg-row align-items-start gap-5">
                   <div>
-                    <p className="f_sfPro text_color_36 fs_18">
-                      2003-2010 Cleveland Cavaliers
-                    </p>
-                    <p className="f_sfPro text_color_36 fs_18">
+                    {user?.experience?.length > 0 &&
+                      user?.experience.map((item, idx) => (
+                        <p className="f_sfPro text_color_36 fs_18">
+                          {item?.start_year}-{item?.end_year} {item?.club_name}
+                        </p>
+                      ))}
+                    {/* <p className="f_sfPro text_color_36 fs_18">
                       2010–2014 Miami Heat{" "}
                     </p>
                     <p className="f_sfPro text_color_36 fs_18">
@@ -187,7 +190,7 @@ const ViewProfile = () => {
                     </p>
                     <p className="f_sfPro text_color_36 fs_18">
                       2018–present Los Angeles Lakers
-                    </p>
+                    </p> */}
                   </div>
                   <div className="d-flex gap-2">
                     {user?.social_media.length > 0 &&

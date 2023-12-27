@@ -6,21 +6,20 @@ import arrow from "../../assets/CaretDown.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const HandleYear = ({ value, onChange, isFormSubmitted }) => {
+const HandleYear = ({ setInitialYear, value, onChange, isFormSubmitted }) => {
   const currentDate = new Date();
 
   const [myMonth, setMyMonth] = useState(currentDate);
   const [myYear, setMyYear] = useState(currentDate);
   const [myDay, setMyDay] = useState(currentDate);
 
- 
   useEffect(() => {
     setMyDay(new Date(myYear.getFullYear(), myMonth.getMonth(), 1));
   }, [myMonth, myYear, setMyDay]);
 
-
   const handleYearChange = (date) => {
     setMyYear(date);
+    setInitialYear(date);
     // Only update the day if the form is not submitted
     if (!isFormSubmitted) {
       setMyDay(date);
@@ -39,8 +38,6 @@ const HandleYear = ({ value, onChange, isFormSubmitted }) => {
             value={value}
           />
         </div>
-
-        
       </div>
     </>
   );
