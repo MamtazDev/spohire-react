@@ -247,17 +247,15 @@ const SignUp = () => {
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
   const [countryCode, setCoutryCode] = useState(null);
-  
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const [registerUser, { isLoading }] = useRegisterUserMutation();
-  
+
   const [dateOfBirth, setDateOfBirth] = useState("");
-  const [dateOfBirth1, setDateOfBirth1] = useState("");
-  const [dateOfBirth2, setDateOfBirth2] = useState("");
 
 
   const button_disability =
-  !firstName ||
+    !firstName ||
     !lastName ||
     !email ||
     !password ||
@@ -268,6 +266,21 @@ const SignUp = () => {
     !countryCode ||
     !sports ||
     isLoading;
+
+
+  const data = {
+    firstName,
+    lastName,
+    email,
+    password,
+    nationality,
+    dateOfBirth,
+    phoneNumber,
+    functionType,
+    countryCode,
+    sports,
+  }
+  console.log(data)
 
   // console.log(countryCode, "cc");
 
@@ -343,10 +356,14 @@ const SignUp = () => {
   }, []);
 
   const handleChange = (selectedOption) => {
+    console.log(selectedOption,'selected')
     setSelectedCountry(selectedOption);
+    setNationality(selectedOption?.value)
   };
   const handleDialCodeChange = (selectedOption) => {
     setSelectedCountryCode(selectedOption);
+    console.log(selectedOption,"cotrr ")
+    setCoutryCode(selectedOption.value)
   };
   return (
     <>
@@ -421,7 +438,7 @@ const SignUp = () => {
                     <div className="col-6">
                       <label htmlFor="">Nationality</label>
                       <Select
-  
+
                         options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
                         value={selectedCountry}
                         onChange={handleChange}
@@ -481,12 +498,12 @@ const SignUp = () => {
 
                     <div className="col-6">
                       <label htmlFor="" className="mb-3">Date of birth</label>
-                        <DateSelector
-                          value={dateOfBirth}
-                          onChange={(selectedDate) =>
-                            setDateOfBirth(selectedDate)
-                          }
-                        />
+                      <DateSelector
+                        value={dateOfBirth}
+                        onChange={(selectedDate) =>
+                          setDateOfBirth(selectedDate)
+                        }
+                      />
                     </div>
                   </div>
                   {/* country select */}

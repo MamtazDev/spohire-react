@@ -54,7 +54,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                 }
               />
             </div>
-       
+
             <Select
               style={{ minHeight: "50px" }}
               options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
@@ -108,7 +108,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
               style={{ minHeight: "50px" }}
               options={options}
               value={options.label}
-
+              placeholder="Select job type"
               styles={{
                 control: (baseStyles) => ({
                   ...baseStyles,
