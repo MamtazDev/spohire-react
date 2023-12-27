@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Select from 'react-select'
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Select from "react-select";
 
 const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
   const handleSearch = () => {
@@ -10,15 +9,24 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
   };
 
   const options = [
-    { value: 'Player', label: 'Player' },
-    { value: 'Manager', label: 'Manager' },
-    { value: 'Coatch', label: 'Coatch' }
-  ]
+    { value: "Coach administration", label: "Coach administration" },
+    { value: "Marketing", label: "Marketing" },
+    { value: "Betting", label: "Betting" },
+    { value: "Customer service", label: "Customer service" },
+    { value: "Manager", label: "Manager" },
+    { value: "Agent", label: "Agent" },
+    { value: "Journalist", label: "Journalist" },
+    { value: "Scout", label: "Scout" },
+    { value: "Referee", label: "Referee" },
+  ];
   const [countryNames, setCountryNames] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
-    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
       .then(function (response) {
         // Assuming response.data is an array of objects with a 'name' property
         // console.log(response);
@@ -47,7 +55,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                 type="text"
                 name=""
                 id=""
-                className='w-100'
+                className="w-100"
                 placeholder="Keywords e.g ( job Title, description)"
                 onChange={(e) =>
                   setFilterItems({ ...filterItems, jobTitle: e.target.value })
@@ -57,10 +65,12 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
 
             <Select
               style={{ minHeight: "50px" }}
-              options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+              options={countryNames.map((country) => ({
+                value: country.name,
+                label: country.name,
+              }))}
               value={selectedCountry}
               onChange={handleChange}
-
               styles={{
                 control: (baseStyles) => ({
                   ...baseStyles,
@@ -71,7 +81,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                 container: (baseStyles) => ({
                   ...baseStyles,
                   width: "268px",
-
                 }),
 
                 valueContainer: (baseStyles) => ({
@@ -101,7 +110,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   margin: "0",
                   width: "0",
                 }),
-
               }}
             />
             <Select
@@ -119,7 +127,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                 container: (baseStyles) => ({
                   ...baseStyles,
                   width: "268px",
-
                 }),
 
                 valueContainer: (baseStyles) => ({
@@ -149,7 +156,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   margin: "0",
                   width: "0",
                 }),
-
               }}
             />
 

@@ -26,8 +26,15 @@ const options = [
 ];
 
 const categoryOptions = [
-  { value: "Player", label: "Player" },
-  { value: "Coach", label: "Coach" },
+  { value: "Coach administration", label: "Coach administration" },
+  { value: "Marketing", label: "Marketing" },
+  { value: "Betting", label: "Betting" },
+  { value: "Customer service", label: "Customer service" },
+  { value: "Manager", label: "Manager" },
+  { value: "Agent", label: "Agent" },
+  { value: "Journalist", label: "Journalist" },
+  { value: "Scout", label: "Scout" },
+  { value: "Referee", label: "Referee" },
 ];
 
 const WorkplaceOptions = [
@@ -113,7 +120,10 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
-    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
       .then(function (response) {
         // Assuming response.data is an array of objects with a 'name' property
         // console.log(response);
@@ -216,15 +226,17 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                       >
                         Employer Location
                       </label>
-                    
+
                       <div className="row">
                         <div className="col-lg-6 job_location_select">
                           <Select
                             style={{ minHeight: "50px", width: "100%" }}
-                            options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                            options={countryNames.map((country) => ({
+                              value: country.name,
+                              label: country.name,
+                            }))}
                             value={selectedCountry}
                             onChange={handleChange}
-
                             styles={{
                               control: (baseStyles) => ({
                                 ...baseStyles,
@@ -235,7 +247,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               container: (baseStyles) => ({
                                 ...baseStyles,
                                 width: "268px",
-
                               }),
 
                               valueContainer: (baseStyles) => ({
@@ -265,17 +276,14 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                                 margin: "0",
                                 width: "0",
                               }),
-
                             }}
                           />
                         </div>
                         <div className="col-lg-6">
-
                           <div
                             className="position-relative text-start "
                             style={{ marginBottom: "32px" }}
                           >
-                            
                             <div className="form_icons" style={{ top: "36px" }}>
                               <img className="mt-0" src={region} alt="title" />
                             </div>
@@ -355,7 +363,11 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                         name="color"
                         options={WorkplaceOptions}
                         placeholder="Select Workplace type"
-                        style={{ padding: "12px 14px", height: "40px", width: "100%" }}
+                        style={{
+                          padding: "12px 14px",
+                          height: "40px",
+                          width: "100%",
+                        }}
                         onChange={(selectedOption) =>
                           setWorkplaceType(selectedOption.value)
                         }

@@ -7,8 +7,11 @@ import plus4 from "../../../assets/plus4.png";
 import UpdateexperienceAndMedia from "./UpdateexperienceAndMedia";
 import EditGallary from "./EditGallary";
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useUpdateUserMutation } from "../../../features/auth/authApi";
+import { userLoggedIn } from "../../../features/auth/authSlice";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 // data
 const inputFieldData = [
@@ -91,7 +94,15 @@ const EditPlayerDetails = () => {
     }
   );
 
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState(initialFormData);
+  const [socialMedia, setSocialMedia] = useState({
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    youtube: "",
+  });
 
   const [userInfo, setUserInfo] = useState({
     first_name: "",
@@ -102,15 +113,15 @@ const EditPlayerDetails = () => {
     height: "",
     weight: "",
     image: "",
-    social_media: [],
     experience: [],
-    social_media: [],
     strengths_advantage: "",
     about_me: "",
     expectations_from_new_club: "",
     sports: "",
   });
   const [editedInfo, setEditedInfo] = useState({});
+
+  const navigate = useNavigate();
 
   const handleGallaryImageChange = (e) => {
     const files = e.target.files;
@@ -176,7 +187,46 @@ const EditPlayerDetails = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    // console.log(editedInfo, "edited");
+    try {
+      const response = await updateUser({
+        userId: user?._id,
+        data: editedInfo,
+      });
+      if (response?.data?.status) {
+        Swal.fire({
+          icon: "success",
+          title: "Profile Update successfully!",
+          text: `${response?.data?.message}`,
+        });
+
+        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
+        localStorage.setItem(
+          "spohireAuth",
+          JSON.stringify({ ...infoUser, user: response?.data?.data })
+        );
+
+        dispatch(
+          userLoggedIn({
+            ...infoUser,
+            user: response?.data?.data,
+          })
+        );
+        navigate("/dashboard/viewProfile");
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
   };
 
   useEffect(() => {
@@ -199,9 +249,44 @@ const EditPlayerDetails = () => {
     };
 
     setUserInfo(newData);
+
+    let values = {};
+
+    for (let i = 0; i < user?.social_media?.length; i++) {
+      const element = user?.social_media[i];
+      if (element.includes("twitter.com")) {
+        values.twitter = element;
+      } else if (element?.includes("instagram.com")) {
+        values.instagram = element;
+      } else if (element?.includes("facebook.com")) {
+        values.facebook = element;
+      } else if (element?.includes("youtube.com")) {
+        values.youtube = element;
+      } else {
+        values.others = element;
+      }
+    }
+
+    setSocialMedia(values);
+
+    // const newSocials = user?.social_media?.map((i) => {
+    //   const values = {};
+    //   if (i?.includes("twitter.com")) {
+    //     values.twitter = i;
+    //   } else if (i?.includes("instagram.com")) {
+    //     values.instagram = i;
+    //   } else if (i?.includes("facebook.com")) {
+    //     values.facebook = i;
+    //   } else if (i?.includes("youtube.com")) {
+    //     values.youtube = i;
+    //   } else {
+    //     values.others = i;
+    //   }
+    //   return values;
+    // });
+
+    console.log(values, "nnoso");
   }, [user]);
-
-
 
   console.log("usr", user);
   console.log("userInfo", userInfo);
@@ -327,9 +412,13 @@ const EditPlayerDetails = () => {
         </div>
 
         <UpdateexperienceAndMedia
-          formData={formData}
-          handleInputChange={handleInputChange}
-          setFormData={setFormData}
+          socialMedia={socialMedia}
+          setSocialMedia={setSocialMedia}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+          editedInfo={editedInfo}
+          setEditedInfo={setEditedInfo}
+          exp={userInfo["experience"]}
         />
 
         <div className=" mb_60 experience_wrapper">

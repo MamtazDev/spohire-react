@@ -7,74 +7,63 @@ import plus from "../../../assets/plus3.png";
 import { useState } from "react";
 
 const UpdateexperienceAndMedia = ({
-  formData,
-  handleInputChange,
-  setFormData,
+  socialMedia,
+  setSocialMedia,
+  userInfo,
+  setUserInfo,
+  editedInfo,
+  setEditedInfo,
+  exp,
 }) => {
-  const [experienceFormData, setExperienceFormData] = useState({
-    experiences: [{ startYear: "", endYear: "" }],
-    clubName: "",
-    socialMedia: {
-      facebook: "",
-      instagram: "",
-      twitter: "",
-    },
-  });
+  const [experienceFormData, setExperienceFormData] = useState({});
+  const [userExperience, setUserExperience] = useState([...exp]);
 
-  const handleChange = (e, index) => {
+  const handleSocialLinkChange = (e) => {
     const { name, value } = e.target;
-    let updatedExperiences = [...experienceFormData.experiences];
-
-    if (name.startsWith("socialMedia")) {
-      // Handle social media changes
-      const platform = name.split(".")[1];
-      setExperienceFormData((prevData) => ({
-        ...prevData,
-        socialMedia: {
-          ...prevData.socialMedia,
-          [platform]: value,
-        },
-      }));
-    } else {
-      if (name === "clubName") {
-        setExperienceFormData((prevData) => ({
-          ...prevData,
-          clubName: value,
-        }));
-      } else {
-        updatedExperiences[index] = {
-          ...updatedExperiences[index],
-          [name]: value,
-        };
-
-        setExperienceFormData((prevData) => ({
-          ...prevData,
-          experiences: updatedExperiences,
-        }));
-      }
-    }
-
-    const updatedFormData = {
-      ...formData,
-      experiences: experienceFormData.experiences,
-      clubName: experienceFormData.clubName,
-      socialMedia: experienceFormData.socialMedia,
-      // Add other fields based on your structure
-    };
-
-    // Call the parent's onChange function with the updated data
-    handleInputChange(updatedFormData);
-
-    // Update the parent's state with the updated data
-    setFormData(updatedFormData);
+    setSocialMedia({ ...socialMedia, [name]: value });
   };
+  const handleExperienceChange = (e) => {
+    const { name, value } = e.target;
+    setExperienceFormData({ ...experienceFormData, [name]: value });
+  };
+
+  console.log(experienceFormData, "ess");
+
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+
+  //     console.log("dff");
+
+  //     const form = e.target;
+  //     const club_name = form.club_name.value;
+  //     const start_year = Number(form.start_year.value);
+  //     const end_year = Number(form.end_year.value);
+
+  //     const data = {
+  //       club_name,
+  //       start_year,
+  //       end_year,
+  //     };
+
+  //     const newData = {
+  //       ...userInfo,
+  //       experience: [...userInfo[experience], experienceFormData],
+  //     };
+  //     console.log(newData, "jkjk");
+
+  //     // setUserInfo({ ...userInfo, experience: [...userInfo[experience], data] });
+  //   };
 
   const handleAddMore = () => {
-    setExperienceFormData((prevData) => ({
-      ...prevData,
-      experiences: [...prevData.experiences, { startYear: "", endYear: "" }],
-    }));
+    const newData = [...userExperience, experienceFormData];
+
+    setEditedInfo({ ...editedInfo, ["experience"]: newData });
+    setUserExperience(newData);
+    
   };
+
+  console.log(userExperience, "eeee");
+  console.log(editedInfo, "eeddeee");
 
   return (
     <>
@@ -84,72 +73,73 @@ const UpdateexperienceAndMedia = ({
             <div className="col-lg-6 mb-lg-0 mb-4">
               <div className="editpersonal_info experience_update_wrapper">
                 <p>Experience</p>
-                <div className="w-100">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label"
-                  >
-                    Club
-                  </label>
-                  <input
-                    onChange={(e) => handleChange(e)}
-                    type="text"
-                    className="form-control"
-                    name="clubName"
-                    id="exampleFormControlInput1"
-                    placeholder="Cleveland Cavaliers"
-                  />
-                </div>
-                {experienceFormData.experiences.map((experience, index) => (
-                  <div className="row" key={index}>
+                {userExperience.map((item, index) => (
+                  <p className="f_sfPro text_color_36 fs_18" key={index}>
+                    {item?.start_year}-{item?.end_year} {item?.club_name}
+                  </p>
+                ))}
+                <>
+                  <div className="w-100">
+                    <label
+                      htmlFor="exampleFormControlInput1"
+                      className="form-label"
+                    >
+                      Club
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="club_name"
+                      id="exampleFormControlInput1"
+                      placeholder="Cleveland Cavaliers"
+                      onChange={handleExperienceChange}
+                    />
+                  </div>
+                  <div className="row">
                     <div className="col-lg-6">
                       <div className="w-100">
-                        <label
-                          htmlFor={`startYear${index}`}
-                          className="form-label"
-                        >
+                        <label htmlFor={`startYear`} className="form-label">
                           Start Year
                         </label>
                         <input
                           type="number"
                           className="form-control"
-                          id={`startYear${index}`}
-                          name="startYear"
+                          id={`startYear`}
+                          name="start_year"
                           placeholder="2003"
-                          value={experience.startYear}
-                          onChange={(e) => handleChange(e, index)}
+                          onChange={handleExperienceChange}
                         />
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="w-100">
-                        <label
-                          htmlFor={`endYear${index}`}
-                          className="form-label"
-                        >
+                        <label htmlFor={`endYear`} className="form-label">
                           End Year
                         </label>
                         <input
                           type="number"
                           className="form-control"
-                          id={`endYear${index}`}
-                          name="endYear"
+                          id={`endYear`}
+                          name="end_year"
                           placeholder="2008"
-                          value={experience.endYear}
-                          onChange={(e) => handleChange(e, index)}
+                          onChange={handleExperienceChange}
                         />
                       </div>
                     </div>
                   </div>
-                ))}
-                <div className="row">
-                  <div className="col-lg-12">
-                    <button className="add_more_btn" onClick={handleAddMore}>
-                      <span>Add more</span>
-                      <img src={plus} alt="" />
-                    </button>
+                  <div className="row mt-3">
+                    <div className="col-lg-12">
+                      <button
+                        className="add_more_btn"
+                        type="button"
+                        onClick={handleAddMore}
+                      >
+                        <span>Add more</span>
+                        <img src={plus} alt="" />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </>
               </div>
             </div>
             <div className="col-lg-6">
@@ -167,12 +157,13 @@ const UpdateexperienceAndMedia = ({
                   </div>
 
                   <input
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleSocialLinkChange(e)}
                     type="text"
                     className="form-control ps-5"
-                    name="socialMedia.instagram"
+                    name="instagram"
                     id="exampleFormControlInput1"
                     placeholder="johnkawalski05"
+                    value={socialMedia?.instagram}
                   />
                 </div>
                 <div className="position-relative">
@@ -186,12 +177,13 @@ const UpdateexperienceAndMedia = ({
                     <img className="mt-0" src={fb} alt="user" />
                   </div>
                   <input
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleSocialLinkChange(e)}
                     type="text"
                     className="form-control ps-5"
-                    name="socialMedia.facebook"
+                    name="facebook"
                     id="exampleFormControlInput1"
                     placeholder="johnkawalski05"
+                    value={socialMedia?.facebook}
                   />
                 </div>
                 <div className="position-relative">
@@ -206,12 +198,13 @@ const UpdateexperienceAndMedia = ({
                   </div>
 
                   <input
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleSocialLinkChange(e)}
                     type="text"
                     className="form-control ps-5"
-                    name="socialMedia.twitter"
+                    name="twitter"
                     id="exampleFormControlInput1"
                     placeholder="johnkawalski05"
+                    value={socialMedia?.twitter}
                   />
                 </div>
                 <div className="position-relative">
@@ -226,12 +219,13 @@ const UpdateexperienceAndMedia = ({
                   </div>
 
                   <input
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleSocialLinkChange(e)}
                     type="text"
                     className="form-control ps-5"
-                    name="socialMedia.twitter"
+                    name="youtube"
                     id="exampleFormControlInput1"
                     placeholder="johnkawalski05"
+                    value={socialMedia?.youtube}
                   />
                 </div>
               </div>
