@@ -134,7 +134,7 @@ const Header = () => {
             <Nav className="m-auto">
               {user ? (
                 <Nav.Link href="#home">
-                  <Link to="/transfarMarket" className="nav-link">
+                  <Link to="/dashboard" className="nav-link">
                     Transfer Market
                   </Link>
                 </Nav.Link>

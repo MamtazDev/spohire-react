@@ -40,6 +40,7 @@ p {
 .accordion_items {
   cursor: pointer;
 }
+
 ul {
   padding: 0;
 }
@@ -52,7 +53,8 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
@@ -65,6 +67,15 @@ button{
   --color_fb: #0177FB;
   --color_80: #546580;
   --color_55: #2B2E55;
+}
+
+.css-1ltuaou-control {
+  background-color: #FFF !important;
+}
+
+.job_location_select .css-1ltuaou-control {
+  min-height: 44px !important;
+  border: 1px solid #F0F0F0 !important;
 }
 
 .container {
@@ -339,13 +350,15 @@ a {
   }
 
   /* banner */
-  .header_position .navbar-collapse  {
+  .header_position .navbar-collapse {
     /* background-color: #221355; */
- }
- .banner_top_pd{
-  padding-left: 0;
-  padding-right: 0;
- }
+  }
+
+  .banner_top_pd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .banner .bannerContent span {
     font-size: 8.5px !important;
     padding: 6px 19px !important;

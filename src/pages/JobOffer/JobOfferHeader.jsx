@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Select from "react-select";
 
 const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
+  console.log(filterItems, "filteritems")
   const handleSearch = () => {
     setSearchParams(filterItems);
   };
@@ -21,6 +23,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
   ];
   const [countryNames, setCountryNames] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedJobType, setSelectedJobType] = useState(null);
 
   useEffect(() => {
     axios
@@ -39,6 +42,17 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
 
   const handleChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
+    setFilterItems({
+      ...filterItems,
+      'jobLocation': selectedOption.value
+    })
+  };
+  const handleChangeJobType = (selectedOption) => {
+    setSelectedJobType(selectedOption);
+    setFilterItems({
+      ...filterItems,
+      'jobType': selectedOption.value
+    })
   };
   return (
     <>
@@ -49,7 +63,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
         <p>Find Jobs, Employment & Career Opportunities</p>
         <div className="search_jobs">
           <form onSubmit={(e) => e.preventDefault()}>
-            {/* <div className=""> */}
             <div style={{ width: "308px" }}>
               <input
                 type="text"
@@ -113,6 +126,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
               }}
             />
             <Select
+              onChange={handleChangeJobType}
               style={{ minHeight: "50px" }}
               options={options}
               value={options.label}
@@ -157,6 +171,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   width: "0",
                 }),
               }}
+
             />
 
             <button

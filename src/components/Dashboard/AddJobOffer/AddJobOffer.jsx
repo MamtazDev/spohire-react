@@ -49,6 +49,8 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
   const [loading, setLoading] = useState(false);
 
   const [workplaceType, setWorkplaceType] = useState("");
+  const [countryNames, setCountryNames] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [role, setRole] = useState("");
   const [jobType, setJobType] = useState("");
 
@@ -56,32 +58,34 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
 
     const form = e.target;
 
     const title = form.title.value;
-    const jobLocation = form.jobLocation.value;
     const company = form.company.value;
+    const club_logo = imageFile;
+    // const country = form.country.value;
+    const city = form.city.value;
     const salary = form.salary.value;
     const description = form.description.value;
-    const club_logo = imageFile;
 
     const fromData = new FormData();
 
     fromData.append("job_title", title);
-    fromData.append("club_logo", club_logo);
     fromData.append("company", company);
-    fromData.append("job_location", jobLocation);
+    fromData.append("club_logo", club_logo);
     fromData.append("workplaceType", workplaceType);
+    fromData.append("country", countryNames);
+    fromData.append("city", city);
     fromData.append("role", role);
     fromData.append("jobType", jobType);
     fromData.append("salary", salary);
     fromData.append("description", description);
+    console.log(fromData)
 
     try {
       const response = await addJob(fromData);
-
       if (response?.data?.success) {
         form.reset();
 
@@ -116,8 +120,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     setImage(selectedFile.name);
     setImageFIle(selectedFile);
   };
-  const [countryNames, setCountryNames] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
     axios
@@ -148,7 +150,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
         <Modal.Header closeButton className="p-0">
           <Modal.Title className="text-center"></Modal.Title>
         </Modal.Header>
-        <Modal.Body className="p-0">
+        <Modal.Body className="p-0 add_job_offer_admin">
           <div className="personal_info_edit_wrapper add_job_offer">
             <div
               className="d-flex flex-column align-items-start gap-3"
@@ -217,6 +219,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
                     {/* SELECT */}
                     <div
+<<<<<<< HEAD
                       className="position-relative text-start "
                       style={{ marginBottom: "32px" }}
                     >
@@ -227,28 +230,45 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                         Employer Location
                       </label>
 
+=======
+                      className="position-relative text-start ">
+>>>>>>> b985509306450f694b5dab753890a344ef2708e0
                       <div className="row">
                         <div className="col-lg-6 job_location_select">
+                          <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                          >
+                            Country
+                          </label>
                           <Select
+<<<<<<< HEAD
                             style={{ minHeight: "50px", width: "100%" }}
                             options={countryNames.map((country) => ({
                               value: country.name,
                               label: country.name,
                             }))}
+=======
+                            style={{ minHeight: "44px", width: "100%", backgroundColor: "#FFFFF" }}
+                            options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+>>>>>>> b985509306450f694b5dab753890a344ef2708e0
                             value={selectedCountry}
                             onChange={handleChange}
                             styles={{
                               control: (baseStyles) => ({
                                 ...baseStyles,
-                                minHeight: "50px",
-                                backgroundColor: "#FAFAFA",
+                                minHeight: "44px",
+                                backgroundColor: "#FFF",
                               }),
+<<<<<<< HEAD
 
                               container: (baseStyles) => ({
                                 ...baseStyles,
                                 width: "268px",
                               }),
 
+=======
+>>>>>>> b985509306450f694b5dab753890a344ef2708e0
                               valueContainer: (baseStyles) => ({
                                 ...baseStyles,
                                 padding: "0 5px",
@@ -256,7 +276,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               placeholder: (baseStyles) => ({
                                 ...baseStyles,
                                 color: "#9CA3A9",
-                                fontSize: "10px",
+                                fontSize: "14px",
                               }),
                               menuList: (baseStyles) => ({
                                 ...baseStyles,
@@ -284,6 +304,16 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             className="position-relative text-start "
                             style={{ marginBottom: "32px" }}
                           >
+<<<<<<< HEAD
+=======
+                            <label
+                              htmlFor="exampleFormControlInput1"
+                              className="form-label"
+                            >
+                              City
+                            </label>
+                         
+>>>>>>> b985509306450f694b5dab753890a344ef2708e0
                             <div className="form_icons" style={{ top: "36px" }}>
                               <img className="mt-0" src={region} alt="title" />
                             </div>
@@ -291,8 +321,8 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               type="text"
                               className="form-control ps-5"
                               id="exampleFormControlInput1"
-                              placeholder="Enter Announcement Title"
-                              name="title"
+                              placeholder="Your city"
+                              name="city"
                               required
                             />
                           </div>
@@ -449,7 +479,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                   type="submit"
                   disabled={loading || isLoading}
                 >
-                  {loading ? "Creating..." : "Create"}
+                  {loading ? "Adding..." : "Add Job"}
                 </button>
               </form>
             </div>

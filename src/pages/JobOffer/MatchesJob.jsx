@@ -1,17 +1,18 @@
+/* eslint-disable react/prop-types */
 import tennis from "../../assets/tennis.png";
 import flag from "../../assets/flag.png";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
 import ApplyJobs from "./ApplyJobs";
-import { Link } from "react-router-dom";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
+import JobCategory from "../Announcement/JobCategory";
 
 const MatchesJob = ({ searchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
 
-  console.log(searchParams, "dddparams");
+  console.log(searchParams, "paramsssss");
 
   const filteredJobs = allJobs?.data?.filter((value) => {
     if (
@@ -41,6 +42,7 @@ const MatchesJob = ({ searchParams }) => {
   // const handleFilter = (value) => {};
 
   console.log(allJobs, "jooobbbb");
+  
   return (
     <>
       <div className="container">
@@ -48,12 +50,12 @@ const MatchesJob = ({ searchParams }) => {
           We found <span>{filteredJobs?.length}</span> Matches for you
         </h3>
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-9">
             <div className="row">
               {allJobs?.data &&
                 allJobs?.data?.length > 0 &&
                 filteredJobs.map((item, idx) => (
-                  <div className="col-lg-4" key={idx}>
+                  <div className="col-lg-6" key={idx}>
                     <div className="matchedJobs_wrapper">
                       <div className="d-flex gap-4 align-items-center">
                         <div className="tennis_logo">
@@ -99,6 +101,9 @@ const MatchesJob = ({ searchParams }) => {
                   </div>
                 ))}
             </div>
+          </div>
+          <div className="col-lg-3">
+            <JobCategory/>
           </div>
         </div>
         {/* pagination */}

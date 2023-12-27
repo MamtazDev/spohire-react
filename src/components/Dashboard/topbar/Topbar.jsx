@@ -8,51 +8,80 @@ import FilterModal from "./FilterModal";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import AddAnnouncement from "../Announcements/AddAnnouncement";
 import { useSelector } from "react-redux";
+import FilteAnnouncementModal from "./FilteAnnouncementModal";
 
 const Topbar = () => {
   const { user } = useSelector((state) => state.auth);
-  const myDivRef = useRef(null);
   let location = useLocation();
-  const [filter, setFilter] = useState(false);
-
   const navigate = useNavigate();
+
+  // announcement state
+  const myDivRef1 = useRef(null);
+  const [filterAnnouncement, setFilterAnnouncement] = useState(false);
+
+  const handleFilterAnnouncementModal = () => {
+    setFilterAnnouncement(!filterAnnouncement);
+  };
+  const handleButtonClick1 = (event) => {
+    event.stopPropagation();
+    handleFilterAnnouncementModal();
+  };
+  // announcemnet modal fn end--------
+
+  // joboffer modal--------------
+  const myDivRef = useRef(null);
+
+  const [filter, setFilter] = useState(false);
 
   const handleFilterModal = () => {
     setFilter(!filter);
   };
+
   const handleButtonClick = (event) => {
     event.stopPropagation();
     handleFilterModal();
   };
+  // joboffer modal-------------
+
+  // outside close ------------------
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (myDivRef.current && !myDivRef.current.contains(event.target)) {
+      if (myDivRef.current && !myDivRef.current.contains(event.target) || myDivRef1.current && !myDivRef1.current.contains(event.target)) {
         setFilter(false);
-        console.log("nothing");
+        setFilterAnnouncement(false)
       }
     };
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [filter]);
+  }, [filter, filterAnnouncement]);
 
+
+  // add job offer modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleAddJobOfferClick = () => {
     setIsModalOpen(true);
   };
-
+  // close modalo
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  // announcement modal start 
   const [isAnnouncementModalOpen, setAnnouncementIsModalOpen] = useState(false);
+
   const handleAddAnnouncementClick = () => {
-    // setAnnouncementIsModalOpen(true);
     navigate("/dashboard/createAnnouncements");
   };
   const closeAnnouncementModal = () => {
     setAnnouncementIsModalOpen(false);
   };
+
+
+
   return (
     <>
       <div
@@ -97,30 +126,28 @@ const Topbar = () => {
                 ""
               ) : (
                 <div className="dashbord_topbar_button d-flex gap-4">
-                  <button
-                    onClick={(event) => handleButtonClick(event)}
-                    className={`${(location.pathname === "/dashboard/coachesProfile") |
-                      (location.pathname == "/dashboard/messages") |
-                      (location.pathname == "/dashboard/password") |
-                      (location.pathname == "/dashboard/notification") |
-                      (location.pathname == "/dashboard/editAnnouncements") |
-                      (location.pathname == "/dashboard/editPlayerDetals") |
-                      (location.pathname === "/dashboard/coaches") |
-                      (location.pathname === "/dashboard/players") |
-                      (location.pathname === "/dashboard/observed") |
-                      (location.pathname === "/dashboard/editCoacheProfile") |
-                      (location.pathname == "/dashboard/viewProfile") |
-                      (location.pathname === "/dashboard/viewDetails") |
-                      (location.pathname === "/dashboard/coacheDetails") |
-                      (location.pathname === "/dashboard/createAnnouncements") |
-                      (location.pathname === "/dashboard/billing")
-                      ? "d-none"
-                      : "filter_btn d-flex gap-2 text-decoration-none"
-                      } `}
-                  >
-                    <img src={filterIcon} alt="icon" />
-                    <span className="text_color_cb">Filter</span>
-                  </button>
+
+                  {
+                    (location.pathname === "/dashboard/jobOffers") && <button
+                      onClick={(event) => handleButtonClick(event)}
+                      className={`${"filter_btn d-flex gap-2 text-decoration-none"
+                        } `}
+                    >
+                      <img src={filterIcon} alt="icon" />
+                      <span className="text_color_cb">Filter</span>
+                    </button>
+                  }
+                  {
+                    (location.pathname === "/dashboard/announcements") && <button
+                      onClick={(event) => handleButtonClick1(event)}
+                      className={`${"filter_btn d-flex gap-2 text-decoration-none"
+                        } `}
+                    >
+                      <img src={filterIcon} alt="icon" />
+                      <span className="text_color_cb">Filter</span>
+                    </button>
+                  }
+
                   <Link
                     to={`${location.pathname === "/dashboard/jobOffers"
                       ? "/dashboard/jobOffers"
@@ -134,17 +161,17 @@ const Topbar = () => {
                           ? "/dashboard/coachesProfile"
                           : "#"
                       }`}
-                    className={`${(location.pathname == "/dashboard/observed") |
-                      (location.pathname == "/dashboard/messages") |
-                      (location.pathname == "/dashboard/password") |
-                      (location.pathname == "/dashboard/notification") |
-                      (location.pathname == "/dashboard/billing") |
-                      (location.pathname == "/dashboard/editAnnouncements") |
-                      (location.pathname === "/dashboard/coaches") |
-                      (location.pathname === "/dashboard/players") |
-                      (location.pathname === "/dashboard/viewDetails") |
-                      (location.pathname === "/dashboard/coacheDetails") |
-                      (location.pathname === "/dashboard/createAnnouncements") |
+                    className={`${(location.pathname == "/dashboard/observed") ||
+                      (location.pathname == "/dashboard/messages") ||
+                      (location.pathname == "/dashboard/password") ||
+                      (location.pathname == "/dashboard/notification") ||
+                      (location.pathname == "/dashboard/billing") ||
+                      (location.pathname == "/dashboard/editAnnouncements") ||
+                      (location.pathname === "/dashboard/coaches") ||
+                      (location.pathname === "/dashboard/players") ||
+                      (location.pathname === "/dashboard/viewDetails") ||
+                      (location.pathname === "/dashboard/coacheDetails") ||
+                      (location.pathname === "/dashboard/createAnnouncements") ||
                       (location.pathname === "/dashboard/announcements") && user.role == "Player" ||
                       (location.pathname === "/dashboard/jobOffers") && user.role == "Player"
                       ? "d-none"
@@ -196,6 +223,8 @@ const Topbar = () => {
               )}
               {/* filter modal */}
               {filter && <FilterModal myDivRef={myDivRef} />}
+              {filterAnnouncement && <FilteAnnouncementModal myDivRef1={myDivRef1} />}
+
               {/* filter modal */}
             </div>
           </div>

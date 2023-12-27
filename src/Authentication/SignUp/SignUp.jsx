@@ -237,8 +237,6 @@ const options2 = [
 ];
 
 const SignUp = () => {
-  const [select, setSelect] = useState("SE");
-  const onSelect = (code) => setSelect(code);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -266,23 +264,6 @@ const SignUp = () => {
     !countryCode ||
     !sports ||
     isLoading;
-
-
-  const data = {
-    firstName,
-    lastName,
-    email,
-    password,
-    nationality,
-    dateOfBirth,
-    phoneNumber,
-    functionType,
-    countryCode,
-    sports,
-  }
-  console.log(data)
-
-  // console.log(countryCode, "cc");
 
   const navigate = useNavigate();
 
@@ -314,7 +295,6 @@ const SignUp = () => {
       });
       return;
     }
-
     try {
       const response = await registerUser(formData);
 
@@ -335,7 +315,6 @@ const SignUp = () => {
         text: `${error?.message}`,
       });
     }
-
     // localStorage.setItem("register", JSON.stringify(formData));
     // navigate('/addPlayer')
   };
@@ -346,7 +325,6 @@ const SignUp = () => {
   useEffect(() => {
     axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
       .then(function (response) {
-        // Assuming response.data is an array of objects with a 'name' property
         // console.log(response);
         setCountryNames(response.data);
       })
@@ -356,13 +334,11 @@ const SignUp = () => {
   }, []);
 
   const handleChange = (selectedOption) => {
-    console.log(selectedOption,'selected')
     setSelectedCountry(selectedOption);
     setNationality(selectedOption?.value)
   };
   const handleDialCodeChange = (selectedOption) => {
     setSelectedCountryCode(selectedOption);
-    console.log(selectedOption,"cotrr ")
     setCoutryCode(selectedOption.value)
   };
   return (
