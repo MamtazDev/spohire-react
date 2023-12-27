@@ -219,20 +219,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
                     {/* SELECT */}
                     <div
-<<<<<<< HEAD
-                      className="position-relative text-start "
-                      style={{ marginBottom: "32px" }}
-                    >
-                      <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
-                      >
-                        Employer Location
-                      </label>
-
-=======
                       className="position-relative text-start ">
->>>>>>> b985509306450f694b5dab753890a344ef2708e0
                       <div className="row">
                         <div className="col-lg-6 job_location_select">
                           <label
@@ -242,16 +229,8 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             Country
                           </label>
                           <Select
-<<<<<<< HEAD
-                            style={{ minHeight: "50px", width: "100%" }}
-                            options={countryNames.map((country) => ({
-                              value: country.name,
-                              label: country.name,
-                            }))}
-=======
                             style={{ minHeight: "44px", width: "100%", backgroundColor: "#FFFFF" }}
                             options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
->>>>>>> b985509306450f694b5dab753890a344ef2708e0
                             value={selectedCountry}
                             onChange={handleChange}
                             styles={{
@@ -260,15 +239,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                                 minHeight: "44px",
                                 backgroundColor: "#FFF",
                               }),
-<<<<<<< HEAD
-
-                              container: (baseStyles) => ({
-                                ...baseStyles,
-                                width: "268px",
-                              }),
-
-=======
->>>>>>> b985509306450f694b5dab753890a344ef2708e0
                               valueContainer: (baseStyles) => ({
                                 ...baseStyles,
                                 padding: "0 5px",
@@ -304,8 +274,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             className="position-relative text-start "
                             style={{ marginBottom: "32px" }}
                           >
-<<<<<<< HEAD
-=======
                             <label
                               htmlFor="exampleFormControlInput1"
                               className="form-label"
@@ -313,7 +281,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               City
                             </label>
                          
->>>>>>> b985509306450f694b5dab753890a344ef2708e0
                             <div className="form_icons" style={{ top: "36px" }}>
                               <img className="mt-0" src={region} alt="title" />
                             </div>
