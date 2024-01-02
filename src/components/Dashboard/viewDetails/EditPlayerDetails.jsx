@@ -187,10 +187,12 @@ const EditPlayerDetails = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
+    const socialMediaArray = Object.values(socialMedia);
+
     try {
       const response = await updateUser({
         userId: user?._id,
-        data: editedInfo,
+        data: { ...editedInfo, social_media: socialMediaArray },
       });
       if (response?.data?.status) {
         Swal.fire({
@@ -288,10 +290,12 @@ const EditPlayerDetails = () => {
     console.log(values, "nnoso");
   }, [user]);
 
-  console.log("usr", user);
-  console.log("userInfo", userInfo);
-  console.log("Form Data:", formData);
-  console.log("editedInfo:", editedInfo);
+  // console.log("usr", user);
+  // console.log("userInfo", userInfo);
+  // console.log("Form Data:", formData);
+  // console.log("editedInfo:", editedInfo);
+
+  console.log(socialMedia, "socialMedia");
 
   return (
     <form className="" onSubmit={handleUpdate}>

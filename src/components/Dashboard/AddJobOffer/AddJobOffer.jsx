@@ -58,7 +58,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setLoading(true);
+    setLoading(true);
 
     const form = e.target;
 
@@ -66,7 +66,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     const company = form.company.value;
     const club_logo = imageFile;
     // const country = form.country.value;
-    const city = form.city.value;
+    const job_location = form.job_location.value;
     const salary = form.salary.value;
     const description = form.description.value;
 
@@ -76,13 +76,13 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     fromData.append("company", company);
     fromData.append("club_logo", club_logo);
     fromData.append("workplaceType", workplaceType);
-    fromData.append("country", countryNames);
-    fromData.append("city", city);
+    fromData.append("country", selectedCountry?.value);
+    fromData.append("job_location", job_location);
     fromData.append("role", role);
     fromData.append("jobType", jobType);
     fromData.append("salary", salary);
     fromData.append("description", description);
-    console.log(fromData)
+    console.log(fromData);
 
     try {
       const response = await addJob(fromData);
@@ -218,8 +218,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                     </div>
 
                     {/* SELECT */}
-                    <div
-                      className="position-relative text-start ">
+                    <div className="position-relative text-start ">
                       <div className="row">
                         <div className="col-lg-6 job_location_select">
                           <label
@@ -229,8 +228,15 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             Country
                           </label>
                           <Select
-                            style={{ minHeight: "44px", width: "100%", backgroundColor: "#FFFFF" }}
-                            options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                            style={{
+                              minHeight: "44px",
+                              width: "100%",
+                              backgroundColor: "#FFFFF",
+                            }}
+                            options={countryNames.map((country) => ({
+                              value: country.name,
+                              label: country.name,
+                            }))}
                             value={selectedCountry}
                             onChange={handleChange}
                             styles={{
@@ -280,7 +286,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             >
                               City
                             </label>
-                         
+
                             <div className="form_icons" style={{ top: "36px" }}>
                               <img className="mt-0" src={region} alt="title" />
                             </div>
@@ -289,7 +295,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               className="form-control ps-5"
                               id="exampleFormControlInput1"
                               placeholder="Your city"
-                              name="city"
+                              name="job_location"
                               required
                             />
                           </div>
