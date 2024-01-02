@@ -127,8 +127,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
         "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
       )
       .then(function (response) {
-        // Assuming response.data is an array of objects with a 'name' property
-        // console.log(response);
         setCountryNames(response.data);
       })
       .catch(function (error) {

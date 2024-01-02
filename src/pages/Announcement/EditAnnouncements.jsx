@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unknown-property */
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import brows from '../../assets/brows.png'
 import { useState } from 'react';
+import Select from 'react-select';
+import axios from 'axios';
 const EditAnnouncements = () => {
 
     // const fileInputRef = useRef(null);
@@ -49,12 +51,28 @@ const EditAnnouncements = () => {
     const handleUploadButtonClick = () => {
         fileInputRef.current.click();
     };
-
+    const [countryNames, setCountryNames] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null);
     const handleUpdateClick = (e) => {
         e.preventDefault();
         console.log('Form Data:', formValues);
     };
+    useEffect(() => {
+        axios
+            .get(
+                "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+            )
+            .then(function (response) {
+                setCountryNames(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
 
+    const handleChange = (selectedOption) => {
+        setSelectedCountry(selectedOption);
+    };
     return (
         <>
             <div className="container">
@@ -67,7 +85,6 @@ const EditAnnouncements = () => {
                             <div className="col-lg-6">
                                 <div className="mb-3">
                                     <label hytmlFor="exampleFormControlInput1" className="form-label">Title</label>
-                                    {/* <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Announcement Title" /> */}
                                     <input
                                         type="text"
                                         className="form-control"
@@ -104,18 +121,96 @@ const EditAnnouncements = () => {
 
                                 </div>
                             </div>
+                            {/* <div className="col-lg-6">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <div className="mb-3">
+                                            <label hytmlFor="exampleFormControlInput1" className="form-label">Location</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Vegas street circuit"
+                                                value={formValues.location}
+                                                onChange={(e) => handleInputChange('location', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
                             <div className="col-lg-6">
-                                <div className="mb-3">
-                                    <label hytmlFor="exampleFormControlInput1" className="form-label">Location</label>
-                                    {/* <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Vegas street circuit" /> */}
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleFormControlInput1"
-                                        placeholder="Vegas street circuit"
-                                        value={formValues.location}
-                                        onChange={(e) => handleInputChange('location', e.target.value)}
-                                    />
+                                <div className="row">
+                                    <div className="col-lg-6 job_location_select">
+                                        <label
+                                            htmlFor="exampleFormControlInput1"
+                                            className="form-label"
+                                        >
+                                            Country
+                                        </label>
+                                        <Select
+                                            style={{ minHeight: "44px", width: "100%", backgroundColor: "#FFFFF" }}
+                                            className=''
+                                            options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                                            value={selectedCountry}
+                                            onChange={handleChange}
+                                            styles={{
+                                                control: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    minHeight: "44px",
+                                                    backgroundColor: "#FFF",
+                                                }),
+                                                valueContainer: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    padding: "0 5px",
+                                                }),
+                                                placeholder: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    color: "#9CA3A9",
+                                                    fontSize: "14px",
+                                                }),
+                                                menuList: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    fontSize: "16px",
+                                                }),
+                                                singleValue: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    fontSize: "14px",
+                                                }),
+                                                indicatorsContainer: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    padding: "0px !important",
+                                                }),
+                                                indicatorSeparator: (baseStyles) => ({
+                                                    ...baseStyles,
+                                                    display: "none",
+                                                    margin: "0",
+                                                    width: "0",
+                                                }),
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div
+                                            className="position-relative text-start "
+                                            style={{ marginBottom: "32px" }}
+                                        >
+                                            <label
+                                                htmlFor="exampleFormControlInput1"
+                                                className="form-label"
+                                            >
+                                                City
+                                            </label>
+
+                                            <input
+                                                type="text"
+                                                className="form-control ps-3"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Your city"
+                                                name="city"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-lg-6">
