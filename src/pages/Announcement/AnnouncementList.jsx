@@ -42,7 +42,6 @@ const AnnouncementList = () => {
 
   const filteredAnnouncements = allAnnouncements?.data?.filter(handleFilter);
 
-
   return (
     <>
       <div
@@ -77,7 +76,6 @@ const AnnouncementList = () => {
               sports={sports}
               country={country}
               jobcategory={jobcategory}
-
             />
           </div>
         </div>
@@ -91,7 +89,6 @@ export default AnnouncementList;
 
 const SingleAnnouncement = ({ item }) => {
   const [bookmark, setBookmark] = useState(false);
-
   const handleBookmark = () => {
     setBookmark(!bookmark);
   };
