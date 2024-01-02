@@ -18,7 +18,7 @@ const sports = [
   "agent",
   "journalist",
   "scout",
-  "referee"
+  "referee",
 ];
 const country = [
   "Paris",
@@ -45,7 +45,6 @@ const country = [
   "London",
   "Finland",
   "Canada ",
-
 ];
 const jobcategory = [
   "Full-time",
@@ -55,7 +54,7 @@ const jobcategory = [
   "Other",
 ];
 
-const MatchesJob = ({ searchParams }) => {
+const MatchesJob = ({ searchParams, setSearchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
 
@@ -64,26 +63,26 @@ const MatchesJob = ({ searchParams }) => {
   const filteredJobs = allJobs?.data?.filter((value) => {
     if (
       searchParams?.jobTitle ||
-      searchParams?.jobLocation ||
-      searchParams?.jobType
+      searchParams?.jobLocation?.length > 0 ||
+      searchParams?.jobType?.length > 0 ||
+      searchParams?.jobTypeCate?.length > 0
     ) {
       return (
         (searchParams.jobTitle &&
           value?.job_title
             .toLowerCase()
             .includes(searchParams.jobTitle.toLowerCase())) ||
-        (searchParams.jobLocation &&
-          value?.job_location
-            .toLowerCase()
-            .includes(searchParams.jobLocation.toLowerCase())) ||
-        (searchParams.jobType &&
-          value?.jobType
-            .toLowerCase()
-            .includes(searchParams.jobType.toLowerCase()))
+        (searchParams.jobLocation?.length > 0 &&
+          searchParams.jobLocation?.includes(value?.country)) ||
+        (searchParams.jobType?.length > 0 &&
+          searchParams.jobType.includes(value?.role)) ||
+        (searchParams?.jobTypeCate?.length > 0 &&
+          searchParams?.jobTypeCate.includes(value?.jobType))
       );
     } else {
       return true;
     }
+    // return true;
   });
 
   // const handleFilter = (value) => {};
@@ -188,7 +187,10 @@ const MatchesJob = ({ searchParams }) => {
             <JobCategory
               sports={sports}
               country={country}
-              jobcategory={jobcategory} />
+              jobcategory={jobcategory}
+              setSearchParams={setSearchParams}
+              searchParams={searchParams}
+            />
           </div>
         </div>
 
