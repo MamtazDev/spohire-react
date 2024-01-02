@@ -247,11 +247,21 @@
 }
 
 
- .addJob_wrapper .modal-dialog{
-     
+.addJob_wrapper .modal-dialog {}
+
+.dialog_modal {
+    width: 648px;
+
 }
 
-.dialog_modal{
-    width: 648px;
-    
+/* select_design */
+.select_design {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #F5F5F5;
+    background: #FAFAFA;
+    display: inline-flex;
+    padding: 10px 20px 10px 15px;
+    align-items: flex-start;
+    gap: 288px;
 }
