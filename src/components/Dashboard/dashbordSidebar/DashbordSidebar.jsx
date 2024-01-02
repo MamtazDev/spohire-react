@@ -21,7 +21,7 @@ import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
 
 const DashbordSidebar = ({ user }) => {
-  // console.log(user, "jjj");
+  console.log(user, "jjj");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

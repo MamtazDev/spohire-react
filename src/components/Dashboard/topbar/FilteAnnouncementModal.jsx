@@ -2,11 +2,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Select from 'react-select';
-
-const options = [
-    "Alphabetical"
-]
 
 const FilteAnnouncementModal = ({ myDivRef1 }) => {
     const { user } = useSelector((state) => state.auth);
@@ -25,6 +20,7 @@ const FilteAnnouncementModal = ({ myDivRef1 }) => {
                 console.log(error);
             });
     }, []);
+
     return (
         <div ref={myDivRef1} className="filter_parent">
             <div className={`${location.pathname === '/dashboard/observed' || user.role === 'Player' ? 'filter_wrapper1' : 'filter_wrapper'}`}>

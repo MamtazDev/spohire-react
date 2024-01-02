@@ -68,7 +68,6 @@ const FilterModal = ({ myDivRef }) => {
                         ))}
                     </select>
                 </div>
-
             </div>
         </div>
     );
