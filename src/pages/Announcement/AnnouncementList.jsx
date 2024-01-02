@@ -3,9 +3,6 @@ import a1 from "../../assets/a11.png";
 import flag from "../../assets/flag.png";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
-import b1 from "../../assets/bookmark.png";
-
-import bookmarkfill from "../../assets/bookmark-fill.png";
 import JobCategory from "./JobCategory";
 import DeleteModal from "./DeleteModal";
 import { useState } from "react";
@@ -25,21 +22,35 @@ const AnnouncementList = () => {
     }
   };
 
+  const filteredAnnouncements = allAnnouncements?.data?.filter(handleFilter);
+
+
   return (
     <>
       <div
         className="container"
-        style={{ marginTop: "104px", marginBottom: "150px" }}
-      >
+        style={{ marginTop: "104px", marginBottom: "150px" }}>
         <div className="row">
           <div className="col-lg-9">
-            {allAnnouncements?.data &&
+            {/* {allAnnouncements?.data &&
               allAnnouncements?.data?.length > 0 &&
               allAnnouncements?.data
                 ?.filter(handleFilter)
-                .map((item, index) => (
+                .map((item, index) => {
                   <SingleAnnouncement key={index} item={item} />
-                ))}
+                })}
+            {(!allAnnouncements?.data || allAnnouncements?.data?.length === 0) && (
+              <p>No data found</p>
+            )} */}
+            {filteredAnnouncements?.length > 0 ? (
+              filteredAnnouncements.map((item, index) => (
+                <SingleAnnouncement key={index} item={item} />
+              ))
+            ) : (
+              allAnnouncements?.data?.length > 0 && (
+                <p>No data found</p>
+              )
+            )}
           </div>
           <div className="col-lg-3">
             <JobCategory

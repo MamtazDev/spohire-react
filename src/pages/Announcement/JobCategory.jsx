@@ -90,7 +90,7 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
                   value=""
                   id={`flexCheck${sport}`}
                   checked={sortedItems?.includes(sport)}
-                  //   onChange={() => handleCheckboxClick(sport)}
+                    onChange={() => handleCheckboxClick(sport)}
                   onClick={() => handleSoritng(sport)}
                 />
               </div>
