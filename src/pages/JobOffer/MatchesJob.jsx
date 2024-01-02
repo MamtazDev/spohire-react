@@ -17,7 +17,7 @@ const sports = [
   "agent",
   "journalist",
   "scout",
-  "referee"
+  "referee",
 ];
 const country = [
   "Paris",
@@ -44,7 +44,6 @@ const country = [
   "London",
   "Finland",
   "Canada ",
-
 ];
 const jobcategory = [
   "Full-time",
@@ -152,7 +151,8 @@ const MatchesJob = ({ searchParams }) => {
             <JobCategory
               sports={sports}
               country={country}
-              jobcategory={jobcategory} />
+              jobcategory={jobcategory}
+            />
           </div>
         </div>
         {/* pagination */}

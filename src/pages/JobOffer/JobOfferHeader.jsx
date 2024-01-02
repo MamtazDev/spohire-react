@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 
 const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
-  console.log(filterItems, "filteritems")
+  console.log(filterItems, "filteritems");
   const handleSearch = () => {
     setSearchParams(filterItems);
   };
@@ -44,15 +44,15 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
     setSelectedCountry(selectedOption);
     setFilterItems({
       ...filterItems,
-      'jobLocation': selectedOption.value
-    })
+      jobLocation: selectedOption.value,
+    });
   };
   const handleChangeJobType = (selectedOption) => {
     setSelectedJobType(selectedOption);
     setFilterItems({
       ...filterItems,
-      'jobType': selectedOption.value
-    })
+      jobType: selectedOption.value,
+    });
   };
   return (
     <>
@@ -171,7 +171,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   width: "0",
                 }),
               }}
-
             />
 
             <button

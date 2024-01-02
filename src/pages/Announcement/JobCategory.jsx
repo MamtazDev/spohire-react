@@ -2,8 +2,8 @@
 /* eslint-disable react/prop-types */
 import plus2 from "../../assets/plus2.png";
 import { useState } from "react";
-import { useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from "react";
+import axios from "axios";
 
 // const sports = [
 //   "Football",
@@ -23,7 +23,13 @@ import axios from 'axios';
 //   "Championship",
 // ];
 
-const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory }) => {
+const JobCategory = ({
+  sortedItems,
+  setSortedItems,
+  sports,
+  country,
+  jobcategory,
+}) => {
   const [checkboxStates, setCheckboxStates] = useState({
     football: false,
     basketball: false,
@@ -58,14 +64,52 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
   };
   const displayedSports = showAll ? sports : sports.slice(0, 4);
 
-
-  // job location  show more setting start // 
-  const [countryNames, setCountryNames] = useState([])
+  // job location  show more setting start //
+  const [countryNames, setCountryNames] = useState([]);
   const [showAlljobLocations, setShowAlljobLocations] = useState(false);
   const handleShowjobLocationsMore = () => {
     setShowAlljobLocations((prev) => !prev);
   };
-  const displayedJobLocations = showAlljobLocations ? countryNames : countryNames.slice(0, 4);
+  const displayedJobLocations = showAlljobLocations
+    ? countryNames
+    : countryNames.slice(0, 4);
+
+  // filltering
+
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const handleSelectedCategory = (value) => {
+    if (selectedCategories?.includes(value)) {
+      const newSelectedCategories = selectedCategories.filter(
+        (i) => i !== value
+      );
+      setSelectedCategories(newSelectedCategories);
+    } else {
+      setSelectedCategories((current) => [...current, value]);
+    }
+  };
+
+  const [selectedCountries, setSelectedCountries] = useState([]);
+
+  const handleSelectedCountries = (value) => {
+    if (selectedCountries?.includes(value)) {
+      const newSelectedCountries = selectedCountries.filter((i) => i !== value);
+      setSelectedCountries(newSelectedCountries);
+    } else {
+      setSelectedCountries((current) => [...current, value]);
+    }
+  };
+
+  const [selectecJobTypes, setSelectedJobTypes] = useState([]);
+
+  const handleJobType = (value) => {
+    if (selectecJobTypes?.includes(value)) {
+      const newSelectedJobTypes = selectecJobTypes.filter((i) => i !== value);
+      setSelectedJobTypes(newSelectedJobTypes);
+    } else {
+      setSelectedJobTypes((current) => [...current, value]);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -79,9 +123,7 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
         console.log(error);
       });
   }, []);
-  // job location  show more setting end // 
-
-
+  // job location  show more setting end //
 
   // sorting functions
 
@@ -94,7 +136,7 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
     }
   };
 
-
+  console.log(checkboxStates, "checkboxStates");
 
   return (
     <div>
@@ -103,8 +145,10 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
           <p>Category</p>
         </div>
 
-        <div className="white_category_part"
-         style={{ height: "287px", overflowY: "scroll" }}>
+        <div
+          className="white_category_part"
+          style={{ height: "287px", overflowY: "scroll" }}
+        >
           {displayedSports.map((sport, index) => (
             <div key={index} className="cat_list">
               <div className="form-check">
@@ -113,12 +157,15 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
                   type="checkbox"
                   value=""
                   id={`flexCheck${sport}`}
-                  checked={sortedItems?.includes(sport)}
-                  onChange={() => handleCheckboxClick(sport)}
-                  onClick={() => handleSoritng(sport)}
+                  // checked={sortedItems?.includes(sport)}
+                  checked={selectedCategories.includes(sport)}
+                  onClick={() => handleSelectedCategory(sport)}
                 />
               </div>
-              <span className="pointer" onClick={() => handleSoritng(sport)}>
+              <span
+                className="pointer"
+                onClick={() => handleSelectedCategory(sport)}
+              >
                 {sport}
               </span>
             </div>
@@ -141,8 +188,11 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
         <div className="blue_cat">
           <p>Location</p>
         </div>
-        <div className="white_category_part" style={{ height: "287px", overflowY: "scroll" }}>
-          {displayedJobLocations.map((country, index) => (
+        <div
+          className="white_category_part"
+          style={{ height: "287px", overflowY: "scroll" }}
+        >
+          {displayedJobLocations?.map((country, index) => (
             <div key={index} className="cat_list">
               <div className="form-check">
                 <input
@@ -150,11 +200,16 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
                   type="checkbox"
                   value=""
                   id={`flexCheck${country.name}`}
-                  checked={checkboxStates[country.name.toLowerCase()]}
-                  onChange={() => handleCheckboxClick(country.name)}
+                  checked={selectedCountries.includes(country.name)}
+                  onClick={() => handleSelectedCountries(country?.name)}
                 />
               </div>
-              <span className='pointer' onClick={() => handleCheckboxClick(country.name)}>{country.name}</span>
+              <span
+                className="pointer"
+                onClick={() => handleSelectedCountries(country?.name)}
+              >
+                {country.name}
+              </span>
             </div>
           ))}
           {country.length > 4 && (
@@ -164,7 +219,7 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
               </div>
               <p>
                 <span className="pointer" onClick={handleShowjobLocationsMore}>
-                  {showAlljobLocations ? 'Show less' : 'Show more'}
+                  {showAlljobLocations ? "Show less" : "Show more"}
                 </span>
               </p>
             </div>
@@ -184,21 +239,19 @@ const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory
                   type="checkbox"
                   value=""
                   id={`flexCheck${sport}`}
-                  checked={functionStates[sport.toLowerCase()]}
-                  onChange={() => handleFunctionClick(sport)}
+                  // checked={functionStates[sport.toLowerCase()]}
+                  // onChange={() => handleFunctionClick(sport)}
+                  checked={selectecJobTypes.includes(sport)}
+                  onClick={() => handleJobType(sport)}
                 />
               </div>
-              <span
-                className="pointer"
-                onClick={() => handleFunctionClick(sport)}
-              >
+              <span className="pointer" onClick={() => handleJobType(sport)}>
                 {sport}
               </span>
             </div>
           ))}
         </div>
       </div>
-
     </div>
   );
 };
