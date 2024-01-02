@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import loginBanner from "../../assets/sign-up.png";
 import arrowRight from "../../assets/ArrowRight.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DateSelector from "./DateSelector";
 import Select from "react-select";
 import bdIcon from "../../assets/bd.svg";
@@ -341,6 +341,19 @@ const SignUp = () => {
     setSelectedCountryCode(selectedOption);
     setCoutryCode(selectedOption.value)
   };
+
+  // phone number ref
+  const phoneNumberRef = useRef(null);
+
+  const handlePhoneNumberChange = (e) => {
+    const inputValue = e.target.value;
+
+    // Check if the entered number is not increasing
+    if (inputValue >= phoneNumberRef.current.value) {
+      phoneNumberRef.current.value = inputValue;
+    }
+    // You can add additional validation or formatting logic if needed
+  };
   return (
     <>
       <div className="container-fluid">
@@ -386,8 +399,8 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope" style={{color:"#9CA3A9"}}></i>
-                    
+                    <i className="fa-regular fa-envelope" style={{ color: "#9CA3A9" }}></i>
+
                     <label htmlFor="">Email Address</label>
 
                     <input
@@ -414,64 +427,21 @@ const SignUp = () => {
                   <div className="row flex-wrap date_wrapper mb-3 align-items-center">
                     <div className="col-lg-4">
                       <label htmlFor="">Nationality</label>
-                      <Select
-                        options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
-                        value={selectedCountry}
-                        onChange={handleChange}
-                        formatOptionLabel={(countryFlag) => (
-                          <div className="d-flex align-items-center justify-content-between">
-                            <span>{countryFlag.label}</span>
-                            {/* <img
-                              src={countryFlag.flagImg}
-                              alt="country-image"
-                            /> */}
-                          </div>
-                        )}
-                        styles={{
-                          control: (baseStyles) => ({
-                            ...baseStyles,
-                            minHeight: "0px",
-                            backgroundColor: "#FAFAFA",
-                          }),
 
-                          container: (baseStyles) => ({
-                            ...baseStyles,
-                            width: "100%",
-                          }),
+                      <select className="form-select" aria-label="Default select example" style={{
+                        height: "46px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: " 0.707px solid rgba(0, 0, 0, 0.02)"
 
-                          valueContainer: (baseStyles) => ({
-                            ...baseStyles,
-                            padding: "0 5px",
-                          }),
-                          placeholder: (baseStyles) => ({
-                            ...baseStyles,
-                            color: "#9CA3A9",
-                            fontSize: "14px",
-                          }),
-                          menuList: (baseStyles) => ({
-                            ...baseStyles,
-                            fontSize: "14px",
-                          }),
-                          singleValue: (baseStyles) => ({
-                            ...baseStyles,
-                            fontSize: "14px",
-                          }),
-                          indicatorsContainer: (baseStyles) => ({
-                            ...baseStyles,
-                            padding: "0px !important",
-                          }),
-                          indicatorSeparator: (baseStyles) => ({
-                            ...baseStyles,
-                            display: "none",
-                            margin: "0",
-                            width: "0",
-                          }),
-                        }}
-                      />
+                      }}>
+                        {countryNames.map((name, index) => (
+                          <>
+                            <option value="3" key={index}>{name.name}</option>
+                          </>
+                        ))}
+                      </select>
                     </div>
 
                     <div className="col-8">
-                      <label htmlFor="" className="" style={{marginBottom:"10px"}}>Date of birth</label>
+                      <label htmlFor="" className="" style={{ marginBottom: "10px" }}>Date of birth</label>
                       <DateSelector
                         value={dateOfBirth}
                         onChange={(selectedDate) =>
@@ -485,74 +455,35 @@ const SignUp = () => {
                   <div className="row email_input">
                     <label htmlFor="">Phone number</label>
                     <div className="col-4 mb-3">
-                      <Select
-                        options={countryNames.map((country) => ({ value: country.dial_code, label: country.dial_code }))}
-                        value={selectedCountryCode}
-                        onChange={handleDialCodeChange}
-
-                        formatOptionLabel={(countryFlag) => (
-                          <div className="d-flex align-items-center justify-content-between">
-                            <span>{countryFlag.label}</span>
-                            {/* <img
-                              src={countryFlag.flagImg}
-                              alt="country-image"
-                            /> */}
-                          </div>
-                        )}
-                        styles={{
-                          control: (baseStyles) => ({
-                            ...baseStyles,
-                            minHeight: "0px",
-                            backgroundColor: "#FAFAFA",
-                          }),
-
-                          container: (baseStyles) => ({
-                            ...baseStyles,
-                            width: "100%",
-                          }),
-
-                          valueContainer: (baseStyles) => ({
-                            ...baseStyles,
-                            padding: "0 5px",
-                          }),
-                          placeholder: (baseStyles) => ({
-                            ...baseStyles,
-                            color: "#9CA3A9",
-                            fontSize: "14px",
-                          }),
-                          menuList: (baseStyles) => ({
-                            ...baseStyles,
-                            fontSize: "14px",
-                          }),
-                          singleValue: (baseStyles) => ({
-                            ...baseStyles,
-                            fontSize: "14px",
-                          }),
-                          indicatorsContainer: (baseStyles) => ({
-                            ...baseStyles,
-                            padding: "0px !important",
-                          }),
-                          indicatorSeparator: (baseStyles) => ({
-                            ...baseStyles,
-                            display: "none",
-                            margin: "0",
-                            width: "0",
-                          }),
-
-                          // indicatorsContainer: (baseStyles) =>
-                        }}
-                      />
+                      <select className="form-select" aria-label="Default select example" style={{
+                        height: "46px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: " 0.707px solid rgba(0, 0, 0, 0.02)"
+                      }}>
+                        {countryNames.map((name, index) => (
+                          <>
+                            <option value="3" key={index}>{name.dial_code}</option>
+                          </>
+                        ))}
+                      </select>
                     </div>
                     <div className="col-8">
                       <div className="phone_number">
                         <div></div>
-                        <input
+                        {/* <input
                           type="number"
                           className="ph_number"
-                          placeholder="0123 456 7890 "
+                          placeholder="0123 456 7890"
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
-                        />
+                        /> */}
+                        <input type="text" id="phone" name="phone" value={phoneNumber} style={{color:"#212529"}}
+                          onChange={(e) => setPhoneNumber(e.target.value)} placeholder="012 345 6789" />
+                        {/* <input
+                          type="number"
+                          id="phone"
+                          name="phone"
+                          ref={phoneNumberRef}
+                          onChange={handlePhoneNumberChange}
+                        /> */}
                       </div>
                     </div>
                   </div>

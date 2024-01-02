@@ -307,6 +307,7 @@
   .all_payments_system {
     gap: 0;
   }
+
   .mb_20 {
     margin-bottom: 20px;
   }
@@ -393,4 +394,34 @@
   font-weight: 400;
   line-height: normal;
   padding-left: 20px;
+}
+
+
+.payment_country_select select {
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.02);
+  display: inline-flex;
+  height: 50px;
+  padding: 17px 20px 11px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 197px;
+  color: #9CA3A9;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.payment_input::placeholder {
+  color: #9CA3A9;
+  font-size: 14px;
+}
+
+
+.ElementsApp .InputElement {
+  color: #9CA3A9;
+  font-size: 14px !important;
 }

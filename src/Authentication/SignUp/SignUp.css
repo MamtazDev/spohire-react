@@ -62,11 +62,9 @@ input {
   background-image: url(../../assets/CaretDown.png);
   background-repeat: no-repeat;
   background-position: right 5px center;
+  color: #212529 !important;
 }
 
-.month_input .react-datepicker-wrapper .react-datepicker__input-container input {
-  /* width: 60px; */
-}
 
 .react-datepicker-wrapper .react-datepicker__input-container input {
   border-radius: 5.659px;
@@ -81,6 +79,7 @@ input {
 .react-datepicker-wrapper .react-datepicker__input-container input::placeholder {
   font-size: 10px;
 }
+
 
 .email_input .phone_number input {
   width: 100%;

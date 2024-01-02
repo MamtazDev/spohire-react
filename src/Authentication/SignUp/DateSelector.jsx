@@ -57,6 +57,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
             onChange={handleDayChange}
             value={value}
             placeholderText="Date"
+            style={{color:"#212529"}}
           />
         </div>
         <div className="month_input">
@@ -68,6 +69,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
             onChange={handleMonthChange}
             value={value}
             placeholderText="Month"
+            style={{color:"#212529"}}
           />
         </div>
 
@@ -80,6 +82,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
             dateFormat="yyyy"
             value={value}
             placeholderText="Year"
+            style={{color:"#212529"}}
           />
         </div>
       </div>
