@@ -89,10 +89,10 @@ export const router = createBrowserRouter([
     path: "/addProfile",
     element: <AddProfile />,
   },
-  {
-    path: "/addplayer",
-    element: <AddPlayer />,
-  },
+  // {
+  //   path: "/addplayer",
+  //   element: <AddPlayer />,
+  // },
   {
     path: "/addplayer2",
     element: <AddPlayerInfo2 />,
