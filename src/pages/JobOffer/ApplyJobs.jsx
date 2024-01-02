@@ -34,13 +34,6 @@ const formFields = [
     placeholder: "Enter your birth date",
   },
   {
-    label: "Playing Position",
-    type: "text",
-    key: "playingPosition",
-    icon: position,
-    placeholder: "Enter your playing position",
-  },
-  {
     label: "Expected Salary",
     type: "number",
     key: "salary",
@@ -217,7 +210,7 @@ const ApplyJobs = ({ selectedJob }) => {
                 <div className="container">
                   <div className="row">
                     {formFields.map((field) => (
-                      <div className="col-lg-6" key={field.key}>
+                      <div className={`${field.key == 'name' ? 'col-lg-12' : 'col-lg-6'}`} key={field.key}>
                         <div className="mb-4 position-relative">
                           <label htmlFor={field.key} className="form-label">
                             {field.label}

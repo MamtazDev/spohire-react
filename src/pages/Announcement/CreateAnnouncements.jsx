@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import brows from "../../assets/brows.png";
 import { useAddAnnouncementMutation } from "../../features/announcement/announcementApi";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const CreateAnnouncements = () => {
   const fileInputRef = useRef(null);
@@ -76,6 +77,21 @@ const CreateAnnouncements = () => {
       setLoading(false);
     }
   };
+  const [countryNames, setCountryNames] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
+      .then(function (response) {
+        setCountryNames(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -137,7 +153,7 @@ const CreateAnnouncements = () => {
                 </div>
               </div>
               <div className="col-lg-6">
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlInput1"
                     className="form-label"
@@ -152,7 +168,23 @@ const CreateAnnouncements = () => {
                     name="location"
                     required
                   />
+                </div> */}
+                <div className="buttons1">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Country
+                  </label>
+                  <select className="form-select" aria-label="Default select example" style={{height:"59px"}}>
+                    {countryNames.map((name, index) => (
+                      <>
+                        <option value="3" key={index}>{name.name}</option>
+                      </>
+                    ))}
+                  </select>
                 </div>
+
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">

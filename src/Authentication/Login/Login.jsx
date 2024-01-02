@@ -1,7 +1,5 @@
+/* eslint-disable no-unused-vars */
 import arrowRight from "../../assets/ArrowRight.png";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { RiGoogleLine } from "react-icons/ri";
-import { AiOutlineApple } from "react-icons/ai";
 import "./Login.css";
 import LoginSlider from "./LoginSlider";
 import { useLoginUserMutation } from "../../features/auth/authApi";
@@ -53,21 +51,21 @@ const Login = () => {
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
-          <div className="col-lg-5 p-0">
+          <div className="col-lg-6 p-0">
             <div className="login-left_bg_img d-none d-lg-block">
               <div className="login_slider">
                 <LoginSlider />
               </div>
             </div>
           </div>
-          <div className="col-lg-7 p-0">
+          <div className="col-lg-6 p-0">
             <div className="login_wrapper">
               <div>
-                <h3>Log in</h3> 
+                <h3>Log in</h3>
                 <p>Fill all input to Login on your account</p>
                 <form onSubmit={handleSubmit}>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope"></i>
+                    <i className="fa-regular fa-envelope" style={{ color: "#9CA3A9" }}></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="email"
@@ -78,7 +76,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-solid fa-lock"></i>
+                    <i className="fa-solid fa-lock" style={{ color: "#9CA3A9" }}></i>
                     <label htmlFor="">Password</label>
                     <input
                       type="password"
