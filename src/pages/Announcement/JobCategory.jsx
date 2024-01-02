@@ -29,6 +29,8 @@ const JobCategory = ({
   sports,
   country,
   jobcategory,
+  setSearchParams,
+  searchParams,
 }) => {
   const [checkboxStates, setCheckboxStates] = useState({
     football: false,
@@ -79,37 +81,61 @@ const JobCategory = ({
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleSelectedCategory = (value) => {
-    if (selectedCategories?.includes(value)) {
-      const newSelectedCategories = selectedCategories.filter(
+    if (searchParams?.jobType?.includes(value)) {
+      const newSelectedCategories = searchParams?.jobType?.filter(
         (i) => i !== value
       );
-      setSelectedCategories(newSelectedCategories);
+      setSearchParams({ ...searchParams, jobType: newSelectedCategories });
     } else {
-      setSelectedCategories((current) => [...current, value]);
+      const previousJobTypes = searchParams?.jobType || [];
+      setSearchParams({
+        ...searchParams,
+        jobType: [...previousJobTypes, value],
+      });
     }
   };
 
   const [selectedCountries, setSelectedCountries] = useState([]);
 
   const handleSelectedCountries = (value) => {
-    if (selectedCountries?.includes(value)) {
-      const newSelectedCountries = selectedCountries.filter((i) => i !== value);
-      setSelectedCountries(newSelectedCountries);
+    if (searchParams?.jobLocation?.includes(value)) {
+      const newSelectedCountries = searchParams?.jobLocation?.filter(
+        (i) => i !== value
+      );
+      setSearchParams({ ...searchParams, jobLocation: newSelectedCountries });
     } else {
-      setSelectedCountries((current) => [...current, value]);
+      const previousjobLocation = searchParams?.jobLocation || [];
+      setSearchParams({
+        ...searchParams,
+        jobLocation: [...previousjobLocation, value],
+      });
     }
   };
+
+  console.log(searchParams, "seafff");
 
   const [selectecJobTypes, setSelectedJobTypes] = useState([]);
 
   const handleJobType = (value) => {
-    if (selectecJobTypes?.includes(value)) {
-      const newSelectedJobTypes = selectecJobTypes.filter((i) => i !== value);
-      setSelectedJobTypes(newSelectedJobTypes);
+    if (searchParams?.jobTypeCate?.includes(value)) {
+      const newSelectedJobTypesCate = searchParams?.jobTypeCate?.filter(
+        (i) => i !== value
+      );
+      setSearchParams({
+        ...searchParams,
+        jobTypeCate: newSelectedJobTypesCate,
+      });
     } else {
-      setSelectedJobTypes((current) => [...current, value]);
+      const previousjobTypesCate = searchParams?.jobTypeCate || [];
+      setSearchParams({
+        ...searchParams,
+        jobTypeCate: [...previousjobTypesCate, value],
+      });
+      // setSelectedJobTypes((current) => [...current, value]);
     }
   };
+
+  console.log(searchParams, "searchParamsfkkk");
 
   useEffect(() => {
     axios
@@ -157,7 +183,7 @@ const JobCategory = ({
                   value=""
                   id={`flexCheck${sport}`}
                   // checked={sortedItems?.includes(sport)}
-                  checked={selectedCategories.includes(sport)}
+                  checked={searchParams?.jobType?.includes(sport)}
                   onClick={() => handleSelectedCategory(sport)}
                 />
               </div>
@@ -199,7 +225,7 @@ const JobCategory = ({
                   type="checkbox"
                   value=""
                   id={`flexCheck${country.name}`}
-                  checked={selectedCountries.includes(country.name)}
+                  checked={searchParams?.jobLocation?.includes(country.name)}
                   onClick={() => handleSelectedCountries(country?.name)}
                 />
               </div>
@@ -240,7 +266,7 @@ const JobCategory = ({
                   id={`flexCheck${sport}`}
                   // checked={functionStates[sport.toLowerCase()]}
                   // onChange={() => handleFunctionClick(sport)}
-                  checked={selectecJobTypes.includes(sport)}
+                  checked={searchParams?.jobTypeCate?.includes(sport)}
                   onClick={() => handleJobType(sport)}
                 />
               </div>

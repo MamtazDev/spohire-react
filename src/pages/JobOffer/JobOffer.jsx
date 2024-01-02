@@ -12,7 +12,10 @@ const JobOffer = () => {
         filterItems={filterItems}
         setSearchParams={setSearchParams}
       />
-      <MatchesJob searchParams={searchParams} />
+      <MatchesJob
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
     </div>
   );
 };

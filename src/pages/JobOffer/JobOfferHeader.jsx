@@ -44,14 +44,14 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
     setSelectedCountry(selectedOption);
     setFilterItems({
       ...filterItems,
-      jobLocation: selectedOption.value,
+      jobLocation: [selectedOption.value],
     });
   };
   const handleChangeJobType = (selectedOption) => {
     setSelectedJobType(selectedOption);
     setFilterItems({
       ...filterItems,
-      jobType: selectedOption.value,
+      jobType: [selectedOption.value],
     });
   };
   return (
