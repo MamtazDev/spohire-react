@@ -378,7 +378,7 @@ const FirstStep = ({ setStep }) => {
               </div>
             </div>
           </div>
-          {isBelongToClub && (
+          {/* {isBelongToClub && ( */}
             <>
               <div className="mb-2">
                 <label htmlFor="">Club Name</label>
@@ -401,7 +401,7 @@ const FirstStep = ({ setStep }) => {
                 />
               </div>
             </>
-          )}
+          {/* )} */}
 
           <div className="social_media_links">
             <h6>Social media profiles</h6>

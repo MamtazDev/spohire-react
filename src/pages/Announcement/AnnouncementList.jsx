@@ -14,13 +14,20 @@ const sports = [
   "Basketball",
   "Handball",
   "Volleyball",
+  "Volleyball",
+  "Volleyball",
+  "Volleyball",
+  "Volleyball",
+  "Volleyball",
 ];
 const country = [
   "Paris",
   "London",
   "Finland",
-  "Canada     ",
-
+  "Canada",
+  "Canada",
+  "Canada",
+  "Canada",
 ];
 const jobcategory = [
   "Tournament",

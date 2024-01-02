@@ -360,16 +360,12 @@ const AddPlayer = () => {
                                             <Link to="/"> <img src={facebook} alt="facebook" /></Link>
                                             <Link to="/"> <img src={youtube} alt="youtube" /></Link>
                                             <Link to="/"> <img src={plus} alt="plus" /></Link>
-
                                         </div>
                                     </div>
                                     <div className="next_skip_btns">
                                         <Link to="/addplayer2">  <button className="next_btn"><Link to="/addplayer2" className="text-light">Next</Link></button></Link>
                                         <Link to="/addplayer2">  <button className="prev_btn"><Link to="/addplayer2" className="text-dark">Skip</Link></button></Link>
-
                                     </div>
-
-
                                 </form>
                             </div>
                         </div>

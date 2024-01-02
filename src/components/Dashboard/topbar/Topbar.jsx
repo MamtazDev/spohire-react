@@ -56,7 +56,7 @@ const Topbar = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [filter, filterAnnouncement]);
+  }, []);
 
 
   // add job offer modal

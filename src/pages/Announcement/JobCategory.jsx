@@ -144,10 +144,9 @@ const JobCategory = ({
         <div className="blue_cat">
           <p>Category</p>
         </div>
-
         <div
           className="white_category_part"
-          style={{ height: "287px", overflowY: "scroll" }}
+          style={{ height: "232px", overflowY: "scroll" }}
         >
           {displayedSports.map((sport, index) => (
             <div key={index} className="cat_list">
@@ -257,16 +256,3 @@ const JobCategory = ({
 };
 
 export default JobCategory;
-
-// {jobLocations.length > 4 && (
-//   <div className="cat_list1">
-//     <div className="blue_plus" onClick={handleShowjobLocationsMore}>
-//       <img src={plus2} alt="plus" />
-//     </div>
-//     <p>
-//       <span className="pointer" onClick={handleShowjobLocationsMore}>
-//         {showAlljobLocations ? "Show less" : "Show more"}
-//       </span>
-//     </p>
-//   </div>
-// )}

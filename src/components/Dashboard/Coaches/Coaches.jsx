@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Table } from "react-bootstrap";
 import playerImgOne from "../../../assets/playerImg.svg";
 import messageIcon from "../../../assets/messageIcon.svg";
@@ -29,7 +30,7 @@ const Coaches = () => {
               </th>
               <th className="fs_14 text_color_36 fw-normal">Nation</th>
               <th className="fs_14 text_color_36 fw-normal">Date of Birth</th>
-              <th className="fs_14 text_color_36 fw-normal">Position</th>
+              <th className="fs_14 text_color_36 fw-normal">Age</th>
               <th className="fs_14 text_color_36 fw-normal">Club</th>
               <th className="fs_14 text_color_36 fw-normal">Status</th>
               <th className="fs_14 text_color_36 fw-normal">Action</th>
@@ -153,7 +154,6 @@ const SingleCoach = ({ coach }) => {
             {coach?.date_of_birth}
           </p>
         </td>
-
         <td>
           <p className="text_color_55 fw-normal fs_14">
             {coach?.club_position ? coach?.club_position : "N/A"}

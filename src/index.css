@@ -29,6 +29,14 @@ p {
   margin: 0;
 }
 
+.category_wrapper ::-webkit-scrollbar-track {
+  background-color: ;
+}
+
+.category_wrapper ::-webkit-scrollbar {
+  width:2px;
+}
+
 .tr {
   cursor: pointer;
 }
