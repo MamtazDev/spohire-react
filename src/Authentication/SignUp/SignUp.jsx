@@ -345,7 +345,7 @@ const SignUp = () => {
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
-          <div className="col-lg-5 p-0  d-none d-lg-block">
+          <div className="col-lg-6 p-0  d-none d-lg-block">
             <div className="login-left_bg text-center ">
               <div className="d-flex flex-column justify-content-center align-items-center pt-5 mt-5">
                 <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
@@ -356,7 +356,7 @@ const SignUp = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-7 p-0">
+          <div className="col-lg-6 p-0">
             <div className="login_wrapper">
               <div>
                 <h3>Create new account</h3>
@@ -386,7 +386,8 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope"></i>
+                    <i className="fa-regular fa-envelope" style={{color:"#9CA3A9"}}></i>
+                    
                     <label htmlFor="">Email Address</label>
 
                     <input
@@ -411,10 +412,9 @@ const SignUp = () => {
                     />
                   </div>
                   <div className="row flex-wrap date_wrapper mb-3 align-items-center">
-                    <div className="col-6">
+                    <div className="col-lg-4">
                       <label htmlFor="">Nationality</label>
                       <Select
-
                         options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
                         value={selectedCountry}
                         onChange={handleChange}
@@ -446,11 +446,11 @@ const SignUp = () => {
                           placeholder: (baseStyles) => ({
                             ...baseStyles,
                             color: "#9CA3A9",
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           menuList: (baseStyles) => ({
                             ...baseStyles,
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           singleValue: (baseStyles) => ({
                             ...baseStyles,
@@ -466,14 +466,12 @@ const SignUp = () => {
                             margin: "0",
                             width: "0",
                           }),
-
-                          // indicatorsContainer: (baseStyles) =>
                         }}
                       />
                     </div>
 
-                    <div className="col-6">
-                      <label htmlFor="" className="mb-3">Date of birth</label>
+                    <div className="col-8">
+                      <label htmlFor="" className="" style={{marginBottom:"10px"}}>Date of birth</label>
                       <DateSelector
                         value={dateOfBirth}
                         onChange={(selectedDate) =>
@@ -520,15 +518,15 @@ const SignUp = () => {
                           placeholder: (baseStyles) => ({
                             ...baseStyles,
                             color: "#9CA3A9",
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           menuList: (baseStyles) => ({
                             ...baseStyles,
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           singleValue: (baseStyles) => ({
                             ...baseStyles,
-                            fontSize: "10px",
+                            fontSize: "14px",
                           }),
                           indicatorsContainer: (baseStyles) => ({
                             ...baseStyles,
@@ -596,7 +594,7 @@ const SignUp = () => {
                       </>
                     )
                   )}
-                  <div className="d-flex justify-content-center mt-4">
+                  <div className="d-flex justify-content-center">
                     <button
                       type="submit"
                       className="login-btn"

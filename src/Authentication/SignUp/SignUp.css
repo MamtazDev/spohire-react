@@ -29,10 +29,12 @@
 .login_input::placeholder {
   font-size: 14px !important;
 }
-.css-14i3obi-placeholder{
+
+.css-14i3obi-placeholder {
   font-size: 14px !important;
 
 }
+
 input {
   box-shadow: none;
 }
@@ -41,12 +43,12 @@ input {
   background: #2d5bff !important;
   color: #fff;
   margin-left: 0 !important;
-
-  padding: 7.074px 10.682px 6.926px 11.318px;
+  height: 46px;
+  width: 107px;
   border-radius: 5px;
   border: 0.707px solid rgba(0, 0, 0, 0.02);
   border: 0;
-  font-size: 8.489px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -63,7 +65,7 @@ input {
 }
 
 .month_input .react-datepicker-wrapper .react-datepicker__input-container input {
-  width: 60px;
+  /* width: 60px; */
 }
 
 .react-datepicker-wrapper .react-datepicker__input-container input {
@@ -92,7 +94,7 @@ input {
   border-radius: 5px;
   border: 0.707px solid rgba(0, 0, 0, 0.02);
   background: rgba(0, 0, 0, 0.02);
-  height: 45px ;
+  height: 45px;
 }
 
 input {
@@ -123,4 +125,19 @@ input {
   border-radius: 5px;
   background: #fafafa;
   border: none !important;
+}
+
+.date_input::placeholder {
+  /* color: red !important; */
+  font-size: 14px !important;
+  /* padding: 14px 16.25px 15px 20px; */
+}
+
+.react-datepicker-wrapper .react-datepicker__input-container input {
+  font-size: 14px;
+  height: 46px;
+  border-radius: 5px;
+  border: 0.707px solid rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.02);
+  width: 91px;
 }

@@ -312,7 +312,6 @@ const AddPlayer = () => {
                                                         width: "0",
                                                     }),
 
-                                                    // indicatorsContainer: (baseStyles) =>
                                                 }}
                                             />
                                         </div>
@@ -329,7 +328,6 @@ const AddPlayer = () => {
                                             </div>
                                         </div>
                                     </div>
-
 
                                     {/*  */}
                                     <div className="club_info">

@@ -14,7 +14,7 @@
 }
 
 .input-container {
-    padding-bottom: 1em;
+    padding-bottom: 20px;
 }
 
 .left-inner-addon {
@@ -89,10 +89,12 @@
 .login_input {
     width: 100%;
     padding: 9.903px 10.597px 9.778px 11.318px;
-
     margin: 0em !important;
     box-sizing: border-box;
     height: 50px !important;
+    border-radius: 5px;
+    border: 0.707px solid rgba(0, 0, 0, 0.02);
+    background: rgba(0, 0, 0, 0.02);
 }
 
 
@@ -105,9 +107,9 @@
 }
 
 .login_wrapper {
-    padding: 50px;
+    padding: 38px;
     margin: auto;
-    max-width: 450px;
+    max-width: 564px;
     border-radius: 16px;
     border: 1px solid rgba(0, 0, 0, 0.04);
     background: #FFF;
@@ -181,13 +183,14 @@
     font-weight: 500;
     line-height: normal;
     display: flex;
-    width: 218px;
-    height: 36px;
-    padding: 18px 0px;
+    /* width: 218px; */
+    /* height: 36px; */
+    padding: 16px 90px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     border: none;
+    margin-top: 30px;
 }
 
 .login_wrapper h3 {
@@ -210,7 +213,7 @@
 }
 
 .login_wrapper label {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
     color: #161D24;
     /* font-size: 11.3px; */
     font-size: 16px;
@@ -263,19 +266,23 @@
 .ReactFlagsSelect-module_selectBtn__19wW7 {
     width: auto !important;
 }
+
 .function_btn:hover {
     background: #2D5BFF !important;
     color: #fff;
     margin-left: 0 !important;
 }
+
 .function_btn {
-    padding: 7.074px 10.682px 6.926px 11.318px;
+    /* padding: 14px 20px 15px 20px; */
+    width: 107px;
+    height: 46px;
     border-radius: 5px;
     border: 0.707px solid rgba(0, 0, 0, 0.02);
     background: rgba(0, 0, 0, 0.02);
     border: 0;
     color: #9CA3A9;
-    font-size: 8.489px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

@@ -50,6 +50,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
       <div className="d-flex align-items-center gap-1">
         <div className="day">
           <DatePicker
+            className="date_input"
             dateFormat="dd"
             selected={myDay}
             renderDayContents={renderDayContents}
@@ -60,6 +61,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
         </div>
         <div className="month_input">
           <DatePicker
+            className="date_input"
             showMonthYearPicker
             dateFormat="MMMM"
             selected={myMonth}
@@ -71,6 +73,7 @@ const DateSelector = ({ value, onChange, isFormSubmitted }) => {
 
         <div className="year_input">
           <DatePicker
+            className="date_input"
             selected={myYear}
             onChange={handleYearChange}
             showYearPicker
