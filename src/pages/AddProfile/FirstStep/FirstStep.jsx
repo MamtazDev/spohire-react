@@ -9,9 +9,13 @@ import Select from "react-select";
 import bdIcon from "../../../assets/bd.svg";
 import DateSelector from "../../../Authentication/SignUp/DateSelector";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { useUpdateUserMutation } from "../../../features/auth/authApi";
+import {
+  useUpdateProfileCreationStatusMutation,
+  useUpdateUserMutation,
+} from "../../../features/auth/authApi";
+import { userLoggedIn } from "../../../features/auth/authSlice";
 
 const options1 = [
   {
@@ -72,6 +76,10 @@ const FirstStep = ({ setStep }) => {
   const [socials, setSocials] = useState([]);
 
   const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const [updateProfileCreationStatus] =
+    useUpdateProfileCreationStatusMutation();
+
+  const dispatch = useDispatch();
 
   const handleAddSocialLink = async () => {
     const { value: url } = await Swal.fire({
@@ -103,6 +111,25 @@ const FirstStep = ({ setStep }) => {
       const response = await updateUser({ userId: user?._id, data: formData });
       console.log(response, "ddd");
       if (response?.data?.status) {
+        await updateProfileCreationStatus(user?._id);
+
+        const updatedData = {
+          ...response?.data?.data,
+          isCreatedProfile: true,
+        };
+
+        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
+        localStorage.setItem(
+          "spohireAuth",
+          JSON.stringify({ ...infoUser, user: updatedData })
+        );
+
+        dispatch(
+          userLoggedIn({
+            ...infoUser,
+            user: updatedData,
+          })
+        );
         setStep((prev) => prev + 1);
       }
       if (response?.error?.data?.message) {
@@ -378,7 +405,7 @@ const FirstStep = ({ setStep }) => {
               </div>
             </div>
           </div>
-          {/* {isBelongToClub && ( */}
+          {isBelongToClub && (
             <>
               <div className="mb-2">
                 <label htmlFor="">Club Name</label>
@@ -401,7 +428,7 @@ const FirstStep = ({ setStep }) => {
                 />
               </div>
             </>
-          {/* )} */}
+          )}
 
           <div className="social_media_links">
             <h6>Social media profiles</h6>

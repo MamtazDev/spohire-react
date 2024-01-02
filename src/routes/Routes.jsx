@@ -104,44 +104,72 @@ export const router = createBrowserRouter([
 
   {
     path: "/dashboard",
-    element: (
-      <SubscribedRoute>
-        <DashboardLayout />
-      </SubscribedRoute>
-    ),
+    element: <DashboardLayout />,
 
     children: [
       {
         path: "/dashboard",
-        element: <OverView />,
+        element: (
+          <SubscribedRoute>
+            <OverView />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/jobOffers",
-        element: <JobOffers />,
+        element: (
+          <SubscribedRoute>
+            <JobOffers />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/players",
-        element: <Players />,
+        element: (
+          <SubscribedRoute>
+            <Players />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/coaches",
-        element: <Coaches />,
+        element: (
+          <SubscribedRoute>
+            <Coaches />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/coacheDetails/:id",
-        element: <CoachesDetails />,
+        element: (
+          <SubscribedRoute>
+            <CoachesDetails />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/coachesProfile",
-        element: <CoachesProfile />,
+        element: (
+          <SubscribedRoute>
+            <CoachesProfile />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/editCoacheProfile",
-        element: <EditCoachProfile />,
+        element: (
+          <SubscribedRoute>
+            <EditCoachProfile />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/viewDetails/:id",
-        element: <ViewDetails />,
+        element: (
+          <SubscribedRoute>
+            <ViewDetails />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/viewProfile",
@@ -149,43 +177,83 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/editPlayerDetals",
-        element: <EditPlayerDetails />,
+        element: (
+          <SubscribedRoute>
+            <EditPlayerDetails />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/messages/:id",
-        element: <Messages />,
+        element: (
+          <SubscribedRoute>
+            <Messages />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/messages",
-        element: <BlankMessages />,
+        element: (
+          <SubscribedRoute>
+            <BlankMessages />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/observed",
-        element: <ObservedClone />,
+        element: (
+          <SubscribedRoute>
+            <ObservedClone />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/billing",
-        element: <Billing />,
+        element: (
+          <SubscribedRoute>
+            <Billing />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/notification",
-        element: <Notification />,
+        element: (
+          <SubscribedRoute>
+            <Notification />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/password",
-        element: <Password />,
+        element: (
+          <SubscribedRoute>
+            <Password />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/announcements",
-        element: <DashboardAnnouncements />,
+        element: (
+          <SubscribedRoute>
+            <DashboardAnnouncements />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/editAnnouncements",
-        element: <EditAnnouncements />,
+        element: (
+          <SubscribedRoute>
+            <EditAnnouncements />
+          </SubscribedRoute>
+        ),
       },
       {
         path: "/dashboard/createAnnouncements",
-        element: <CreateAnnouncements />,
+        element: (
+          <SubscribedRoute>
+            <CreateAnnouncements />
+          </SubscribedRoute>
+        ),
       },
     ],
   },

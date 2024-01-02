@@ -251,7 +251,6 @@ const SignUp = () => {
 
   const [dateOfBirth, setDateOfBirth] = useState("");
 
-
   const button_disability =
     !firstName ||
     !lastName ||
@@ -299,7 +298,7 @@ const SignUp = () => {
       const response = await registerUser(formData);
 
       if (response?.data?.status === 200) {
-        navigate("/addProfile");
+        navigate("/dashboard/viewProfile");
       }
       if (response?.error?.data?.message) {
         Swal.fire({
@@ -323,7 +322,10 @@ const SignUp = () => {
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
 
   useEffect(() => {
-    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
       .then(function (response) {
         // console.log(response);
         setCountryNames(response.data);
@@ -335,11 +337,11 @@ const SignUp = () => {
 
   const handleChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
-    setNationality(selectedOption?.value)
+    setNationality(selectedOption?.value);
   };
   const handleDialCodeChange = (selectedOption) => {
     setSelectedCountryCode(selectedOption);
-    setCoutryCode(selectedOption.value)
+    setCoutryCode(selectedOption.value);
   };
   return (
     <>
@@ -386,8 +388,11 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope" style={{color:"#9CA3A9"}}></i>
-                    
+                    <i
+                      className="fa-regular fa-envelope"
+                      style={{ color: "#9CA3A9" }}
+                    ></i>
+
                     <label htmlFor="">Email Address</label>
 
                     <input
@@ -415,7 +420,10 @@ const SignUp = () => {
                     <div className="col-lg-4">
                       <label htmlFor="">Nationality</label>
                       <Select
-                        options={countryNames.map((country) => ({ value: country.name, label: country.name }))}
+                        options={countryNames.map((country) => ({
+                          value: country.name,
+                          label: country.name,
+                        }))}
                         value={selectedCountry}
                         onChange={handleChange}
                         formatOptionLabel={(countryFlag) => (
@@ -471,7 +479,13 @@ const SignUp = () => {
                     </div>
 
                     <div className="col-8">
-                      <label htmlFor="" className="" style={{marginBottom:"10px"}}>Date of birth</label>
+                      <label
+                        htmlFor=""
+                        className=""
+                        style={{ marginBottom: "10px" }}
+                      >
+                        Date of birth
+                      </label>
                       <DateSelector
                         value={dateOfBirth}
                         onChange={(selectedDate) =>
@@ -486,10 +500,12 @@ const SignUp = () => {
                     <label htmlFor="">Phone number</label>
                     <div className="col-4 mb-3">
                       <Select
-                        options={countryNames.map((country) => ({ value: country.dial_code, label: country.dial_code }))}
+                        options={countryNames.map((country) => ({
+                          value: country.dial_code,
+                          label: country.dial_code,
+                        }))}
                         value={selectedCountryCode}
                         onChange={handleDialCodeChange}
-
                         formatOptionLabel={(countryFlag) => (
                           <div className="d-flex align-items-center justify-content-between">
                             <span>{countryFlag.label}</span>
@@ -563,10 +579,11 @@ const SignUp = () => {
                     {["Player", "Coach", "Manager"].map((data) => (
                       <>
                         <button
-                          className={`${functionType === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            functionType === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setFunctionType(data)}
                         >
@@ -582,10 +599,11 @@ const SignUp = () => {
                       <>
                         <button
                           // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${sports === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            sports === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setSports(data)}
                         >

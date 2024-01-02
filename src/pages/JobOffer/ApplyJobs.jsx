@@ -170,13 +170,13 @@ const ApplyJobs = ({ selectedJob }) => {
   const handleFileChange = () => {
     const file = fileInputRef.current.files[0];
 
-    if (file && file.type === 'application/pdf') {
+    if (file && file.type === "application/pdf") {
       setSelectedFile(file);
       // Add additional logic if needed
     } else {
       // Handle invalid file type
-      alert('Please select a PDF file.');
-      fileInputRef.current.value = ''; // Clear the file input
+      alert("Please select a PDF file.");
+      fileInputRef.current.value = ""; // Clear the file input
     }
   };
   return (
@@ -226,40 +226,39 @@ const ApplyJobs = ({ selectedJob }) => {
                             <img className="mt-0" src={field.icon} alt="user" />
                           </div>
 
-                          {
-                            field.type === "file" ?
-                              <div>
-                                <input
-                                  type="file"
-                                  ref={fileInputRef}
-                                  onChange={handleFileChange}
-                                  style={{ display: 'none' }}
-                                  accept=".pdf" // Specify accepted file types (PDF in this case)
-                                  id="fileInput"
-                                />
-                                <input
-                                  type="text"
-                                  className="form-control ps-5"
-                                  id="customFileInput"
-                                  name="customFileInput"
-                                  placeholder="Select a PDF file"
-                                  onClick={() => fileInputRef.current.click()}
-                                  value={selectedFile ? selectedFile.name : ''}
-                                  readOnly
-                                  style={{background:"transparent"}}
-                                />
-                              </div> :
+                          {field.type === "file" ? (
+                            <div>
                               <input
-                                type={field.type}
-                                className="form-control ps-5"
-                                id={field.key}
-                                name={field.key}
-                                placeholder={field.placeholder}
-                                required
-                                min="1"
+                                type="file"
+                                ref={fileInputRef}
+                                onChange={handleFileChange}
+                                style={{ display: "none" }}
+                                accept=".pdf" // Specify accepted file types (PDF in this case)
+                                id="fileInput"
                               />
-                          }
-
+                              <input
+                                type="text"
+                                className="form-control ps-5"
+                                id="customFileInput"
+                                name="customFileInput"
+                                placeholder="Select a PDF file"
+                                onClick={() => fileInputRef.current.click()}
+                                value={selectedFile ? selectedFile.name : ""}
+                                readOnly
+                                style={{ background: "transparent" }}
+                              />
+                            </div>
+                          ) : (
+                            <input
+                              type={field.type}
+                              className="form-control ps-5"
+                              id={field.key}
+                              name={field.key}
+                              placeholder={field.placeholder}
+                              required
+                              min="1"
+                            />
+                          )}
                         </div>
                       </div>
                     ))}
