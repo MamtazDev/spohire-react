@@ -7,6 +7,26 @@ import ApplyJobs from "./ApplyJobs";
 import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
 import JobCategory from "../Announcement/JobCategory";
+const sports = [
+  "Coach",
+  "Administration",
+  "Marketing",
+  "Customer",
+];
+const country = [
+  "Paris",
+  "London",
+  "Finland",
+  "Canada ",
+
+];
+const jobcategory = [
+  "Full-time",
+  "Part-time",
+  "Contract",
+  "Temporary",
+  "Other",
+];
 
 const MatchesJob = ({ searchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
@@ -42,7 +62,7 @@ const MatchesJob = ({ searchParams }) => {
   // const handleFilter = (value) => {};
 
   console.log(allJobs, "jooobbbb");
-  
+
   return (
     <>
       <div className="container">
@@ -103,7 +123,10 @@ const MatchesJob = ({ searchParams }) => {
             </div>
           </div>
           <div className="col-lg-3">
-            <JobCategory/>
+            <JobCategory
+              sports={sports}
+              country={country}
+              jobcategory={jobcategory} />
           </div>
         </div>
         {/* pagination */}

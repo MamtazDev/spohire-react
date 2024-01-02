@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import a1 from "../../assets/a11.png";
 import flag from "../../assets/flag.png";
@@ -8,6 +9,23 @@ import DeleteModal from "./DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
 
+const sports = [
+  "Football",
+  "Basketball",
+  "Handball",
+  "Volleyball",
+];
+const country = [
+  "Paris",
+  "London",
+  "Finland",
+  "Canada     ",
+
+];
+const jobcategory = [
+  "Tournament",
+  "Championship",
+];
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
@@ -56,6 +74,10 @@ const AnnouncementList = () => {
             <JobCategory
               setSortedItems={setSortedItems}
               sortedItems={sortedItems}
+              sports={sports}
+              country={country}
+              jobcategory={jobcategory}
+
             />
           </div>
         </div>

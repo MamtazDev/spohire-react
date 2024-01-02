@@ -3,25 +3,25 @@
 import plus2 from "../../assets/plus2.png";
 import { useState } from "react";
 
-const sports = [
-  "Football",
-  "Basketball",
-  "Handball",
-  "Volleyball",
-];
-const jobLocations = [
-  "Paris",
-  "London",
-  "Finland",
-  "Canada     ",
+// const sports = [
+//   "Football",
+//   "Basketball",
+//   "Handball",
+//   "Volleyball",
+// ];
+// const jobLocations = [
+//   "Paris",
+//   "London",
+//   "Finland",
+//   "Canada     ",
 
-];
-const jobcategory= [
-  "Tournament",
-  "Championship",
-];
+// ];
+// const jobcategory = [
+//   "Tournament",
+//   "Championship",
+// ];
 
-const JobCategory = ({ sortedItems, setSortedItems }) => {
+const JobCategory = ({ sortedItems, setSortedItems, sports, country, jobcategory }) => {
   const [checkboxStates, setCheckboxStates] = useState({
     football: false,
     basketball: false,
@@ -61,8 +61,8 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
   };
 
   const displayedJobLocations = showAlljobLocations
-    ? jobLocations
-    : jobLocations.slice(0, 4);
+    ? country
+    : country.slice(0, 4);
 
   const handleSoritng = (value) => {
     if (sortedItems.includes(value)) {
@@ -77,7 +77,7 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
     <div>
       <div className="category_wrapper">
         <div className="blue_cat">
-          <p>Job by Sports</p>
+          <p>Category</p>
         </div>
 
         <div className="white_category_part">
@@ -90,7 +90,7 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
                   value=""
                   id={`flexCheck${sport}`}
                   checked={sortedItems?.includes(sport)}
-                    onChange={() => handleCheckboxClick(sport)}
+                  onChange={() => handleCheckboxClick(sport)}
                   onClick={() => handleSoritng(sport)}
                 />
               </div>
@@ -115,10 +115,10 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
       </div>
       <div className="category_wrapper">
         <div className="blue_cat">
-          <p>Job by Country</p>
+          <p>Location</p>
         </div>
         <div className="white_category_part">
-          {jobLocations.map((sport, index) => (
+          {country.map((sport, index) => (
             <div key={index} className="cat_list">
               <div className="form-check">
                 <input
@@ -142,7 +142,7 @@ const JobCategory = ({ sortedItems, setSortedItems }) => {
       </div>
       <div className="category_wrapper">
         <div className="blue_cat">
-          <p>Job by Categories</p>
+          <p>Job type</p>
         </div>
         <div className="white_category_part">
           {jobcategory.map((sport, index) => (
