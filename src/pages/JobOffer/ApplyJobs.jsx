@@ -6,10 +6,11 @@ import email from "../../assets/aemail.png";
 import phone from "../../assets/aphone.png";
 import salary from "../../assets/asalary.png";
 import upload from "../../assets/aupload.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useApplyForTheJobMutation } from "../../features/job/jobApi";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const formFields = [
   {
@@ -172,6 +173,21 @@ const ApplyJobs = ({ selectedJob }) => {
       fileInputRef.current.value = ""; // Clear the file input
     }
   };
+
+  const [countryNames, setCountryNames] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
+      .then(function (response) {
+        setCountryNames(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
     <div className="apply_jobs_modal">
       <form onSubmit={handleSubmit}>
@@ -210,7 +226,7 @@ const ApplyJobs = ({ selectedJob }) => {
                 <div className="container">
                   <div className="row">
                     {formFields.map((field) => (
-                      <div className={`${field.key == 'name' ? 'col-lg-12' : 'col-lg-6'}`} key={field.key}>
+                      <div className={`${field.key == 'name' ? 'col-lg-12' : 'col-lg-6 border_color'}`} key={field.key}>
                         <div className="mb-4 position-relative">
                           <label htmlFor={field.key} className="form-label">
                             {field.label}
@@ -218,40 +234,55 @@ const ApplyJobs = ({ selectedJob }) => {
                           <div className="form_icons">
                             <img className="mt-0" src={field.icon} alt="user" />
                           </div>
+                          {
+                            field.key === "country" ? <>
+                              <select className="form-select ps-5" aria-label="Default select example" style={{
+                                height: "46px", backgroundColor: "", border: "1px solid #F0F0F0"
 
-                          {field.type === "file" ? (
-                            <div>
-                              <input
-                                type="file"
-                                ref={fileInputRef}
-                                onChange={handleFileChange}
-                                style={{ display: "none" }}
-                                accept=".pdf" // Specify accepted file types (PDF in this case)
-                                id="fileInput"
-                              />
-                              <input
-                                type="text"
-                                className="form-control ps-5"
-                                id="customFileInput"
-                                name="customFileInput"
-                                placeholder="Select a PDF file"
-                                onClick={() => fileInputRef.current.click()}
-                                value={selectedFile ? selectedFile.name : ""}
-                                readOnly
-                                style={{ background: "transparent" }}
-                              />
-                            </div>
-                          ) : (
-                            <input
-                              type={field.type}
-                              className="form-control ps-5"
-                              id={field.key}
-                              name={field.key}
-                              placeholder={field.placeholder}
-                              required
-                              min="1"
-                            />
-                          )}
+                              }}>
+                                {countryNames.map((name, index) => (
+                                  <>
+                                    <option value="3" className="" key={index}>{name.name}</option>
+                                  </>
+                                ))}
+                              </select>
+                            </>
+                              : <>
+                                {field.type === "file" ? (
+                                  <div>
+                                    <input
+                                      type="file"
+                                      ref={fileInputRef}
+                                      onChange={handleFileChange}
+                                      style={{ display: "none" }}
+                                      accept=".pdf"
+                                      id="fileInput"
+                                    />
+                                    <input
+                                      type="text"
+                                      className="form-control ps-5"
+                                      id="customFileInput"
+                                      name="customFileInput"
+                                      placeholder="Select a PDF file"
+                                      onClick={() => fileInputRef.current.click()}
+                                      value={selectedFile ? selectedFile.name : ""}
+                                      readOnly
+                                      style={{ background: "transparent" }}
+                                    />
+                                  </div>
+                                ) : (
+                                  <input
+                                    type={field.type}
+                                    className="form-control ps-5"
+                                    id={field.key}
+                                    name={field.key}
+                                    placeholder={field.placeholder}
+                                    required
+                                    min="1"
+                                  />
+                                )}
+                              </>}
+
                         </div>
                       </div>
                     ))}

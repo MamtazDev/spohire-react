@@ -227,6 +227,10 @@
     letter-spacing: -0.16px;
 }
 
+.border_color input {
+    border: 1px solid #F0F0F0;
+}
+
 .modal input ::placeholder {
     color: #B1B1B1;
     font-family: 'SF Pro Display', sans-serif;
@@ -234,12 +238,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: 110%;
-    /* 13.2px */
     letter-spacing: -0.12px;
 }
 
 .apply_jobs_modal input {
     height: 44px;
+    border: 1px solid #F0F0F0;
 }
 
 .css-1ltuaou-control {

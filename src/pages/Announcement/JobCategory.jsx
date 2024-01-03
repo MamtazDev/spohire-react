@@ -95,7 +95,6 @@ const JobCategory = ({
     }
   };
 
-  const [selectedCountries, setSelectedCountries] = useState([]);
 
   const handleSelectedCountries = (value) => {
     if (searchParams?.jobLocation?.includes(value)) {
@@ -114,7 +113,6 @@ const JobCategory = ({
 
   console.log(searchParams, "seafff");
 
-  const [selectecJobTypes, setSelectedJobTypes] = useState([]);
 
   const handleJobType = (value) => {
     if (searchParams?.jobTypeCate?.includes(value)) {
