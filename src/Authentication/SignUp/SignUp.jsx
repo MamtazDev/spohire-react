@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 import arrowRight from "../../assets/ArrowRight.png";
 import { useEffect, useRef, useState } from "react";
@@ -24,7 +25,6 @@ const SignUp = () => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();
 
   const [dateOfBirth, setDateOfBirth] = useState("");
-
 
   const button_disability =
     !firstName ||
@@ -73,7 +73,7 @@ const SignUp = () => {
       const response = await registerUser(formData);
 
       if (response?.data?.status === 200) {
-        navigate("/addProfile");
+        navigate("/dashboard/viewProfile");
       }
       if (response?.error?.data?.message) {
         Swal.fire({
@@ -95,7 +95,10 @@ const SignUp = () => {
   const [countryNames, setCountryNames] = useState([]);
 
   useEffect(() => {
-    axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
       .then(function (response) {
         // console.log(response);
         setCountryNames(response.data);
@@ -242,10 +245,11 @@ const SignUp = () => {
                     {["Player", "Coach", "Manager"].map((data) => (
                       <>
                         <button
-                          className={`${functionType === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            functionType === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setFunctionType(data)}
                         >
@@ -261,10 +265,11 @@ const SignUp = () => {
                       <>
                         <button
                           // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${sports === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            sports === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setSports(data)}
                         >

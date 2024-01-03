@@ -74,6 +74,12 @@ export const authApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    updateProfileCreationStatus: builder.mutation({
+      query: (userId) => ({
+        url: `/api/v1/users/updateAddProfile/${userId}`,
+        method: "PATCH",
+      }),
+    }),
     getFilteredUsers: builder.query({
       query: (queryString) => `/api/v1/users/filteredUsers?${queryString}`,
     }),
@@ -87,4 +93,5 @@ export const {
   useGetUserByIdQuery,
   useUpdateUserMutation,
   useGetFilteredUsersQuery,
+  useUpdateProfileCreationStatusMutation,
 } = authApi;

@@ -4,14 +4,20 @@ import HandleYear from "../../AddPlayer/HandleYear";
 import t4 from "../../../assets/t4.png";
 import greyplus from "../../../assets/greyplus.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useUpdateUserMutation } from "../../../features/auth/authApi";
+import {
+  useUpdateProfileCreationStatusMutation,
+  useUpdateUserMutation,
+} from "../../../features/auth/authApi";
 import Swal from "sweetalert2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ExperienceTab from "./ExperienceTab";
+import { userLoggedIn } from "../../../features/auth/authSlice";
 
 const SecondStep = ({ setStep }) => {
   const [firstName, setFirstName] = useState("");
   const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const [updateProfileCreationStatus] =
+    useUpdateProfileCreationStatusMutation();
   const { user } = useSelector((state) => state.auth);
   // const [myYear, setMyYear] = useState(currentDate);
 
@@ -20,6 +26,7 @@ const SecondStep = ({ setStep }) => {
   const [clubDetails, setClubDetails] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [experience, setExperience] = useState([]);
 
@@ -57,7 +64,26 @@ const SecondStep = ({ setStep }) => {
       const response = await updateUser({ userId: user?._id, data: formData });
       console.log(response, "ddd");
       if (response?.data?.status) {
-        navigate("/pricing");
+        await updateProfileCreationStatus(user?._id);
+
+        const updatedData = {
+          ...response?.data?.data,
+          isCreatedProfile: true,
+        };
+
+        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
+        localStorage.setItem(
+          "spohireAuth",
+          JSON.stringify({ ...infoUser, user: updatedData })
+        );
+
+        dispatch(
+          userLoggedIn({
+            ...infoUser,
+            user: updatedData,
+          })
+        );
+        navigate("/dashboard/viewProfile");
       }
       if (response?.error?.data?.message) {
         Swal.fire({
