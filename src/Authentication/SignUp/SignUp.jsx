@@ -1,240 +1,15 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
-import loginBanner from "../../assets/sign-up.png";
 import arrowRight from "../../assets/ArrowRight.png";
 import { useEffect, useRef, useState } from "react";
 import DateSelector from "./DateSelector";
-import Select from "react-select";
-import bdIcon from "../../assets/bd.svg";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { convertDate } from "../../utils/TimeConverter";
 import { useRegisterUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
 import axios from "axios";
-
-const options = [
-  {
-    value: "1",
-    label: "1",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "2",
-    label: "2",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "3",
-    label: "3",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "4",
-    label: "4",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "5",
-    label: "5",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "6",
-    label: "6",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "7",
-    label: "7",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "8",
-    label: "8",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "9",
-    label: "9",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    value: "10",
-    label: "10",
-    flagImg: `
-  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_274_437)">
-<path d="M0.9375 0.666046H19.3302V14.4605H0.9375V0.666046Z" fill="#006A4E"/>
-<path d="M10.1341 11.985C12.4783 11.985 14.3786 10.0847 14.3786 7.74059C14.3786 5.39643 12.4783 3.49612 10.1341 3.49612C7.78996 3.49612 5.88965 5.39643 5.88965 7.74059C5.88965 10.0847 7.78996 11.985 10.1341 11.985Z" fill="#F42A41"/>
-</g>
-<defs>
-<clipPath id="clip0_274_437">
-<rect x="0.9375" y="0.666046" width="18.3927" height="13.7945" rx="2.82964" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-];
-
-const options1 = [
-  {
-    value: "Bangladesh",
-    label: "Bangladesh",
-    flagImg: bdIcon,
-  },
-  {
-    value: "India",
-    label: "India",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Switzerland",
-    label: "Switzerland",
-    flagImg: bdIcon,
-  },
-  {
-    value: "United Kingdom",
-    label: "United Kingdom",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Ireland",
-    label: "Ireland",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Italy",
-    label: "Italy",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Netherland",
-    label: "Netherland",
-    flagImg: bdIcon,
-  },
-];
-
-const options2 = [
-  {
-    value: "Bangladesh",
-    label: "+880",
-    flagImg: bdIcon,
-  },
-  {
-    value: "India",
-    label: "+91",
-    flagImg: bdIcon,
-  },
-];
+import signupImg from '../../assets/signup--.svg'
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -318,8 +93,6 @@ const SignUp = () => {
     // navigate('/addPlayer')
   };
   const [countryNames, setCountryNames] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
-  const [selectedCountryCode, setSelectedCountryCode] = useState(null);
 
   useEffect(() => {
     axios
@@ -335,51 +108,33 @@ const SignUp = () => {
       });
   }, []);
 
-  const handleChange = (selectedOption) => {
-    setSelectedCountry(selectedOption);
-    setNationality(selectedOption?.value);
-  };
-  const handleDialCodeChange = (selectedOption) => {
-    setSelectedCountryCode(selectedOption);
-    setCoutryCode(selectedOption.value);
-  };
-
-  // phone number ref
-  const phoneNumberRef = useRef(null);
-
-  const handlePhoneNumberChange = (e) => {
-    const inputValue = e.target.value;
-
-    // Check if the entered number is not increasing
-    if (inputValue >= phoneNumberRef.current.value) {
-      phoneNumberRef.current.value = inputValue;
-    }
-    // You can add additional validation or formatting logic if needed
-  };
   return (
     <>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-6 p-0  d-none d-lg-block">
-            <div className="login-left_bg text-center ">
-              <div className="d-flex flex-column justify-content-center align-items-center pt-5 mt-5">
+            <div className="signup-left_bg">
+              {/* <div className="d-flex flex-column justify-content-center align-items-center pt-5 mt-5">
                 <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
                 <p>
                   Fostering a sense of camaraderie and unity <br /> among
                   athletes and fans alike.
                 </p>
-              </div>
+
+              </div> */}
+              <img className=""  src={signupImg} alt="" />
             </div>
           </div>
-          <div className="col-lg-6 p-0">
+          <div className="col-lg-6">
             <div className="login_wrapper">
               <div>
                 <h3>Create new account</h3>
                 <p>Fill all input to create a account</p>
                 <form onSubmit={handleFormSubmit}>
                   <div className="row right-inner-addon input-container">
-                    <label htmlFor="">Full name</label>
+                    
                     <div className="col-6">
+                    <label htmlFor="">Full name</label>
                       <input
                         type="text"
                         className="mt-2 form-control login_input"
@@ -390,6 +145,7 @@ const SignUp = () => {
                       />
                     </div>
                     <div className="col-6">
+                    <label htmlFor="">Last Name</label>
                       <input
                         type="text"
                         className="form-control login_input"
@@ -469,24 +225,17 @@ const SignUp = () => {
                     </div>
                     <div className="col-8">
                       <div className="phone_number">
-                        <div></div>
-                        {/* <input
-                          type="number"
-                          className="ph_number"
-                          placeholder="0123 456 7890"
-                          value={phoneNumber}
-                          onChange={(e) => setPhoneNumber(e.target.value)}
-                        /> */}
-                        <input type="text" id="phone" name="phone" value={phoneNumber} style={{color:"#212529"}}
-                          onChange={(e) => setPhoneNumber(e.target.value)} placeholder="012 345 6789" />
-                        {/* <input
-                          type="number"
-                          id="phone"
-                          name="phone"
-                          ref={phoneNumberRef}
-                          onChange={handlePhoneNumberChange}
-                        /> */}
+                        <input type="tel" id="phone" name="phone" value={phoneNumber} style={{ color: "#212529" }}
+
+                          //  onChange={(e) => setPhoneNumber(e.target.value)} 
+                          onChange={(e) => {
+                            const inputVal = e.target.value;
+                            const validatedInput = inputVal.replace(/[^0-9+\-]/g, '');
+                            setPhoneNumber(validatedInput);
+                          }}
+                          placeholder="012 345 6789" />
                       </div>
+
                     </div>
                   </div>
                   {/* email input end */}

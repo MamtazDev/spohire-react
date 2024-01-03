@@ -29,10 +29,9 @@ p {
   margin: 0;
 }
 
-.category_wrapper ::-webkit-scrollbar-track {
-  background-color: ;
+.form-select:focus{
+  box-shadow:none ;
 }
-
 .category_wrapper ::-webkit-scrollbar {
   width:2px;
 }
