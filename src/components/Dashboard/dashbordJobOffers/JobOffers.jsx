@@ -18,8 +18,22 @@ import Swal from "sweetalert2";
 
 const JobOffers = () => {
   const { data: allJobs } = useGetAllJobsQuery();
+  const { jobType, JobLocation, jobCategory } = useSelector(
+    (state) => state.job
+  );
 
-  console.log(allJobs, "ddd");
+  const filteredJobs = allJobs?.data.filter((value) => {
+    if (jobType || JobLocation || jobCategory) {
+      return (
+        (jobType && jobType == value.workplaceType) ||
+        (JobLocation && JobLocation == value.job_location) ||
+        (jobCategory && jobCategory == value.role)
+      );
+    } else {
+      return true;
+    }
+    // return true;
+  });
 
   return (
     <div className="job_offers_wrapper">
@@ -40,7 +54,7 @@ const JobOffers = () => {
       <div className="job_offer_items_wrapper">
         {allJobs?.data &&
           allJobs?.data?.length > 0 &&
-          allJobs?.data.map((item, index) => (
+          filteredJobs.map((item, index) => (
             <SingleJob key={index} item={item} />
           ))}
       </div>

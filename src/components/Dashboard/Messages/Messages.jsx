@@ -68,6 +68,8 @@ const Messages = () => {
       if (res?.data?.success) {
         // console.log(res, "noo res");
         // if conversation id is not exists it will create conversation id
+        dispatch(setConversationId(res?.data?.data?._id));
+        dispatch(setMessages([]));
       }
     } catch (error) {
       console.log(error.message);
@@ -91,7 +93,7 @@ const Messages = () => {
 
   useEffect(() => {
     checkConversationId();
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     dispatch(setSelectedMessageUser(messageUser));

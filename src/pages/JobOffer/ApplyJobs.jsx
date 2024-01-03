@@ -58,7 +58,7 @@ const formFields = [
   {
     label: "Phone",
     type: "number",
-    key: "language",
+    key: "phone",
     icon: phone,
     placeholder: "Enter your phone number",
   },
@@ -90,6 +90,13 @@ const ApplyJobs = ({ selectedJob }) => {
   const [applyForTheJob, { isLoading }] = useApplyForTheJobMutation();
   const [loading, setLoading] = useState(false);
 
+  console.log(user, "user");
+
+  const [countryNames, setCountryNames] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  console.log(selectedFile, "selectedFile");
+
   const closeButtonRef = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -103,30 +110,46 @@ const ApplyJobs = ({ selectedJob }) => {
 
     const form = e.target;
 
+    if (selectedFile?.size > 5 * 1024 * 1024) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "File size exceeds the 15 MB limit. Please choose a smaller file.",
+      });
+      setLoading(false);
+      return;
+    }
+
     const name = form.name.value;
-    const region = form.region.value;
+    const region = form.country.value;
     const birth_date = form.birthDate.value;
-    const playing_position = form.playingPosition.value;
-    const weight = Number(form.weight.value);
-    const height = Number(form.height.value);
-    const expected_salary = form.expectedSalary.value;
-    const language = form.language.value;
+    const expected_salary = form.salary.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
     const job = selectedJob;
+    const userInfo = user?._id;
+    const cv = selectedFile;
 
     const data = {
       name,
       region,
       birth_date,
-      playing_position,
-      weight,
-      height,
       expected_salary,
-      language,
+      phone,
+      email,
       job,
+      userInfo,
+      cv,
     };
 
+    const formData = new FormData();
+
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
     try {
-      const response = await applyForTheJob(data);
+      const response = await applyForTheJob(formData);
       if (response?.data?.success) {
         form.reset();
         closeButtonRef?.current?.click();
@@ -159,7 +182,6 @@ const ApplyJobs = ({ selectedJob }) => {
     }
   };
   const fileInputRef = useRef(null);
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = () => {
     const file = fileInputRef.current.files[0];
@@ -173,8 +195,6 @@ const ApplyJobs = ({ selectedJob }) => {
       fileInputRef.current.value = ""; // Clear the file input
     }
   };
-
-  const [countryNames, setCountryNames] = useState([])
 
   useEffect(() => {
     axios
@@ -226,7 +246,14 @@ const ApplyJobs = ({ selectedJob }) => {
                 <div className="container">
                   <div className="row">
                     {formFields.map((field) => (
-                      <div className={`${field.key == 'name' ? 'col-lg-12' : 'col-lg-6 border_color'}`} key={field.key}>
+                      <div
+                        className={`${
+                          field.key == "name"
+                            ? "col-lg-12"
+                            : "col-lg-6 border_color"
+                        }`}
+                        key={field.key}
+                      >
                         <div className="mb-4 position-relative">
                           <label htmlFor={field.key} className="form-label">
                             {field.label}
@@ -234,55 +261,68 @@ const ApplyJobs = ({ selectedJob }) => {
                           <div className="form_icons">
                             <img className="mt-0" src={field.icon} alt="user" />
                           </div>
-                          {
-                            field.key === "country" ? <>
-                              <select className="form-select ps-5" aria-label="Default select example" style={{
-                                height: "46px", backgroundColor: "", border: "1px solid #F0F0F0"
-
-                              }}>
+                          {field.key === "country" ? (
+                            <>
+                              <select
+                                className="form-select ps-5"
+                                aria-label="Default select example"
+                                style={{
+                                  height: "46px",
+                                  backgroundColor: "",
+                                  border: "1px solid #F0F0F0",
+                                }}
+                                name="country"
+                              >
                                 {countryNames.map((name, index) => (
-                                  <>
-                                    <option value="3" className="" key={index}>{name.name}</option>
-                                  </>
+                                  <option
+                                    value={name?.name}
+                                    className=""
+                                    key={index}
+                                  >
+                                    {name.name}
+                                  </option>
                                 ))}
                               </select>
                             </>
-                              : <>
-                                {field.type === "file" ? (
-                                  <div>
-                                    <input
-                                      type="file"
-                                      ref={fileInputRef}
-                                      onChange={handleFileChange}
-                                      style={{ display: "none" }}
-                                      accept=".pdf"
-                                      id="fileInput"
-                                    />
-                                    <input
-                                      type="text"
-                                      className="form-control ps-5"
-                                      id="customFileInput"
-                                      name="customFileInput"
-                                      placeholder="Select a PDF file"
-                                      onClick={() => fileInputRef.current.click()}
-                                      value={selectedFile ? selectedFile.name : ""}
-                                      readOnly
-                                      style={{ background: "transparent" }}
-                                    />
-                                  </div>
-                                ) : (
+                          ) : (
+                            <>
+                              {field.type === "file" ? (
+                                <div>
                                   <input
-                                    type={field.type}
-                                    className="form-control ps-5"
-                                    id={field.key}
-                                    name={field.key}
-                                    placeholder={field.placeholder}
-                                    required
-                                    min="1"
+                                    type="file"
+                                    ref={fileInputRef}
+                                    onChange={handleFileChange}
+                                    style={{ display: "none" }}
+                                    accept=".pdf"
+                                    id="fileInput"
                                   />
-                                )}
-                              </>}
-
+                                  <input
+                                    type="text"
+                                    className="form-control ps-5"
+                                    id="customFileInput"
+                                    name="customFileInput"
+                                    placeholder="Select a PDF file"
+                                    onClick={() => fileInputRef.current.click()}
+                                    value={
+                                      selectedFile ? selectedFile.name : ""
+                                    }
+                                    readOnly
+                                    style={{ background: "transparent" }}
+                                  />
+                                </div>
+                              ) : (
+                                <input
+                                  type={field.type}
+                                  className="form-control ps-5"
+                                  id={field.key}
+                                  name={field.key}
+                                  placeholder={field.placeholder}
+                                  required
+                                  min="1"
+                                />
+                              )}
+                            </>
+                          )}
                         </div>
                       </div>
                     ))}

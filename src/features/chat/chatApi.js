@@ -9,9 +9,11 @@ export const chatApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Conversations", "Messages"],
     }),
     getMessagesByConversationId: builder.query({
       query: (coversationId) => `/api/v1/messages/${coversationId}`,
+      providesTags: ["Messages"],
     }),
     addMessages: builder.mutation({
       query: (data) => ({
@@ -22,6 +24,7 @@ export const chatApi = apiSlice.injectEndpoints({
     }),
     getUserAllConversations: builder.query({
       query: (userId) => `/api/v1/chats/${userId}`,
+      providesTags: ["Conversations"],
     }),
   }),
 });
