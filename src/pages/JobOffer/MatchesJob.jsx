@@ -59,7 +59,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
 
-  console.log(searchParams, "paramsssss");
+  // console.log(searchParams, "paramsssss");
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
