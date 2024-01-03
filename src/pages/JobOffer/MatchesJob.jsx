@@ -8,6 +8,7 @@ import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
 import JobCategory from "../Announcement/JobCategory";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/Pagination/Pagination";
 const sports = [
   "Coach",
   "Administration",
@@ -60,7 +61,16 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
 
   console.log(searchParams, "paramsssss");
 
-  const filteredJobs = allJobs?.data?.filter((value) => {
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(allJobs?.data?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const filteredJobs = allJobs?.data.filter((value) => {
     if (
       searchParams?.jobTitle ||
       searchParams?.jobLocation?.length > 0 ||
@@ -100,7 +110,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
             <div className="row">
               {allJobs?.data &&
                 allJobs?.data?.length > 0 &&
-                filteredJobs.map((item, idx) => (
+                filteredJobs?.slice(startIndex, endIndex).map((item, idx) => (
                   <div className="col-lg-6" key={idx}>
                     <div className="matchedJobs_wrapper">
                       <div className="d-flex gap-4 align-items-center">
@@ -147,41 +157,15 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                   </div>
                 ))}
             </div>
+
             {/* pagination */}
-            <nav aria-label="">
-              <ul className="pagination d-flex justify-content-center gap-3">
-                <li className="page-item disabled">
-                  <span className="page-link">
-                    <i className="fa fa-angle-left"></i>
-                  </span>
-                </li>
-                <li className="page-item active">
-                  <a className="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li className="page-item ">
-                  <span className="page-link">
-                    2<span className="sr-only">(current)</span>
-                  </span>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    3
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    4
-                  </a>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" to="#">
-                    <i className="fa fa-angle-right"></i>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            {allJobs?.data && allJobs?.data?.length > itemsPerPage && (
+              <Pagination
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+                totalPages={totalPages}
+              />
+            )}
           </div>
           <div className="col-lg-3">
             <JobCategory
@@ -193,7 +177,6 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
             />
           </div>
         </div>
-
       </div>
       <ApplyJobs selectedJob={selectedJob} />
     </>
