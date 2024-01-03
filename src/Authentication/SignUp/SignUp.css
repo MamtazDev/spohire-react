@@ -96,17 +96,33 @@ input {
   height: 45px;
 }
 
+.login_wrapper {
+  /* height: 825px; */
+  /* margin-top: 77px; */
+  /* margin-bottom: 77px; */
+  padding-bottom: 49px;
+}
+
 input {
   box-shadow: none !important;
   outline: none !important;
 }
 
-.login-left_bg {
-  background-image: url(../../assets/sign-up.png);
+.signup-left_bg img {
+  /* width: 634px; */
+  object-fit: cover;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* .login-left_bg {
+  background-image: url(../../assets/signup.svg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-}
+} */
 
 .login-left_bg h2 {
   color: #141736;
