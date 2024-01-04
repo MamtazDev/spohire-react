@@ -40,17 +40,24 @@ const CreateAnnouncements = () => {
     const location = form.location.value;
     const budget = Number(form.budget.value);
     const description = form.description.value;
+    const country = form.country.value;
+    const category = form.category.value;
+    const sports = form.sports.value;
 
     const fromData = new FormData();
     fromData.append("image", imageFile);
     fromData.append("title", title);
     fromData.append("location", location);
     fromData.append("budget", budget);
+    fromData.append("country", country);
     fromData.append("description", description);
     fromData.append("status", status);
+    fromData.append("category", category);
+    fromData.append("sports", sports);
 
     try {
       const response = await addAnnouncement(fromData);
+      // console.log(response, "reeessfaskldfj");
 
       if (response?.data?.success) {
         form.reset();
@@ -77,7 +84,7 @@ const CreateAnnouncements = () => {
       setLoading(false);
     }
   };
-  const [countryNames, setCountryNames] = useState([])
+  const [countryNames, setCountryNames] = useState([]);
 
   useEffect(() => {
     axios
@@ -136,8 +143,8 @@ const CreateAnnouncements = () => {
                       In Progress
                     </button>
                     <button
-                      onClick={() => setStatus("Completed")}
-                      className={status === "Completed" ? "active_status" : ""}
+                      onClick={() => setStatus("Published")}
+                      className={status === "Published" ? "active_status" : ""}
                       type="button"
                     >
                       Completed
@@ -152,39 +159,98 @@ const CreateAnnouncements = () => {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-6">
-                {/* <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label"
-                  >
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Vegas street circuit"
-                    name="location"
-                    required
-                  />
-                </div> */}
                 <div className="buttons1">
                   <label
                     htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
-                    Country
+                    Category
                   </label>
-                  <select className="form-select" aria-label="Default select example" style={{height:"59px"}}>
-                    {countryNames.map((name, index) => (
-                      <>
-                        <option value="3" key={index}>{name.name}</option>
-                      </>
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    style={{ height: "59px" }}
+                    name="category"
+                  >
+                    {["Tournament", "Championship"].map((name, index) => (
+                      <option value={name} key={index}>
+                        {name}
+                      </option>
                     ))}
                   </select>
                 </div>
-
+              </div>
+              <div className="col-lg-6">
+                <div className="buttons1">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Sports
+                  </label>
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    style={{ height: "59px" }}
+                    name="sports"
+                  >
+                    {["Football", "Basketball", "Volleyball", "Handball"].map(
+                      (name, index) => (
+                        <option value={name} key={index}>
+                          {name}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <div className="buttons1">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                      >
+                        Country
+                      </label>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{ height: "59px" }}
+                        name="country"
+                      >
+                        {countryNames.map((name, index) => (
+                          <>
+                            <option value={name.name} key={index}>
+                              {name.name}
+                            </option>
+                          </>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                      >
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Announcement Title"
+                        name="location"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">
@@ -226,7 +292,7 @@ const CreateAnnouncements = () => {
                   <input
                     onClick={handleUploadButtonClick}
                     type="text"
-                    className="form-control position-relative ps-5"
+                    className="form-control position-relative ps-5 pointer"
                     value={imageTitle ? imageTitle : ""}
                     placeholder="Browse file"
                     id="inputGroupFile02"
@@ -250,13 +316,14 @@ const CreateAnnouncements = () => {
                     accept=".jpg, .jpeg, .png, image/jpg, image/jpeg, image/png"
                     required
                   />
-                  <label
-                    className="input-group-text"
+                  <p
+                    className="input-group-text upload_btn pointer text-light"
                     htmlFor=""
                     onClick={handleUploadButtonClick}
+                    style={{ color: "#FFF" }}
                   >
                     Upload
-                  </label>
+                  </p>
                 </div>
               </div>
               <div className="col-lg-6">
