@@ -153,7 +153,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                         </div>
                         <div className="job_details"> {item.description}
 
-                          <button onClick={() => handleDetails(item._id)} > Learn More</button></div>
+                          <button onClick={() => handleDetails(item._id)} className="ps-1">....Learn More</button></div>
 
                         <button
                           className="apply_btn"

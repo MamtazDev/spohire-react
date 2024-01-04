@@ -152,39 +152,84 @@ const CreateAnnouncements = () => {
                   </div>
                 </div>
               </div>
+
+
               <div className="col-lg-6">
-                {/* <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label"
-                  >
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Vegas street circuit"
-                    name="location"
-                    required
-                  />
-                </div> */}
+
                 <div className="buttons1">
                   <label
                     htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
-                    Country
+                    Category
                   </label>
-                  <select className="form-select" aria-label="Default select example" style={{height:"59px"}}>
-                    {countryNames.map((name, index) => (
+                  <select className="form-select" aria-label="Default select example" style={{ height: "59px" }}>
+                    {['Tournament', 'Championship'].map((name, index) => (
                       <>
-                        <option value="3" key={index}>{name.name}</option>
+                        <option value="3" key={index}>{name}</option>
                       </>
                     ))}
                   </select>
                 </div>
 
+              </div>
+              <div className="col-lg-6">
+
+                <div className="buttons1">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Sports
+                  </label>
+                  <select className="form-select" aria-label="Default select example" style={{ height: "59px" }}>
+                    {["Football", "Basketball", "Volleyball", "Handball"].map((name, index) => (
+                      <>
+                        <option value="3" key={index}>{name}</option>
+                      </>
+                    ))}
+                  </select>
+                </div>
+
+              </div>
+              <div className="col-lg-6">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <div className="buttons1">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                      >
+                        Country
+                      </label>
+                      <select className="form-select" aria-label="Default select example" style={{ height: "59px" }}>
+                        {countryNames.map((name, index) => (
+                          <>
+                            <option value="3" key={index}>{name.name}</option>
+                          </>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="mb-3">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                      >
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Announcement Title"
+                        name="city"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">
@@ -226,7 +271,7 @@ const CreateAnnouncements = () => {
                   <input
                     onClick={handleUploadButtonClick}
                     type="text"
-                    className="form-control position-relative ps-5"
+                    className="form-control position-relative ps-5 pointer"
                     value={imageTitle ? imageTitle : ""}
                     placeholder="Browse file"
                     id="inputGroupFile02"

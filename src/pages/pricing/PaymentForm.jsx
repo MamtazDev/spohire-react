@@ -190,7 +190,7 @@ const PaymentForm = () => {
                 <img src={credit} alt="credit card" /> <span>Card</span>
               </button>
             </div>
-            <div className="card_wrapper">
+            {/* <div className="card_wrapper">
               <div className="form-check">
                 <input
                   className="form-check-input"
@@ -224,8 +224,7 @@ const PaymentForm = () => {
                 </svg>
                 <span>Paypal</span>
               </button>
-            </div>
-
+            </div> */}
           </div>
 
           <div className="payment_card">
