@@ -3,6 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   filter: "date",
   announcementLocation: null,
+  filterParams: {
+    sports: [],
+    country: [],
+    categories: [],
+  },
 };
 
 const announcementSlice = createSlice({
@@ -15,6 +20,9 @@ const announcementSlice = createSlice({
     setannouncementLocation: (state, action) => {
       state.announcementLocation = action.payload;
     },
+    // setFilterParams: (state, action) => {
+
+    // },
   },
 });
 
