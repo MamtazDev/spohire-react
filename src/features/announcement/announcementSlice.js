@@ -28,7 +28,7 @@ const announcementSlice = createSlice({
         case "sports":
           if (sports.includes(data)) {
             const newSports = sports.filter((i) => i !== data);
-            sports = newSports;
+            state.filterParams.sports = newSports;
           } else {
             sports.push(data);
           }
@@ -36,7 +36,7 @@ const announcementSlice = createSlice({
         case "country":
           if (country.includes(data)) {
             const newCountries = country.filter((i) => i !== data);
-            country = newCountries;
+            state.filterParams.country = newCountries;
           } else {
             country.push(data);
           }
@@ -44,7 +44,7 @@ const announcementSlice = createSlice({
         case "categories":
           if (categories.includes(data)) {
             const newCategories = categories.filter((i) => i !== data);
-            categories = newCategories;
+            state.filterParams.categories = newCategories;
           } else {
             categories.push(data);
           }

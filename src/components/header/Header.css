@@ -83,6 +83,8 @@
 .authBtn.btnNone {
     background-color: transparent;
     border: none;
+    padding: 15px 35px;
+    margin-left: 30px;
 }
 
 .login_modal_btn {
@@ -94,7 +96,7 @@
 .logIn {
     background: transparent;
     border: none;
-    padding: 15px 35px;
+    /* padding: 15px 35px; */
     color: #FFF;
     font-family: 'SF Pro Display', sans-serif;
     text-align: center;

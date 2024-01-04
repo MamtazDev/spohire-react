@@ -8,8 +8,9 @@ import JobCategory from "./JobCategory";
 import DeleteModal from "./DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { setFilterParams } from "../../features/announcement/announcementSlice";
+import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
 
 const sports = [
   "Football",
@@ -36,13 +37,22 @@ const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
 
-  const dispatch = useDispatch();
-
-  console.log(sortedItems, "sortedItems");
+  const { filterParams } = useSelector((state) => state.announcement);
 
   const handleFilter = (value) => {
-    if (sortedItems.length > 0) {
-      return sortedItems.includes(value?.status);
+    if (
+      filterParams?.sports?.length > 0 ||
+      filterParams?.country?.length > 0 ||
+      filterParams?.categories?.length > 0
+    ) {
+      return (
+        (filterParams?.sports?.length > 0 &&
+          filterParams?.sports?.includes(value?.sports)) ||
+        (filterParams?.country?.length > 0 &&
+          filterParams?.country?.includes(value?.country)) ||
+        (filterParams?.categories?.length > 0 &&
+          filterParams?.categories?.includes(value?.category))
+      );
     } else {
       return true;
     }
@@ -75,7 +85,7 @@ const AnnouncementList = () => {
               : allAnnouncements?.data?.length > 0 && <p>No data found</p>}
           </div>
           <div className="col-lg-3">
-            <JobCategory
+            <AnnouncementFilterCategory
               setSortedItems={setSortedItems}
               sortedItems={sortedItems}
               sports={sports}

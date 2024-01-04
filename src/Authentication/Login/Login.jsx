@@ -25,7 +25,6 @@ const Login = () => {
 
     try {
       const response = await loginUser(data);
-      console.log(response, "ddd");
       if (response?.data?.user?.isSubsCribed) {
         navigate("/dashboard");
       }

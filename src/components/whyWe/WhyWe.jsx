@@ -14,16 +14,12 @@ const WhyWe = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="right_content_wrapper">
-                            <div className="right_content">
-
-                            </div>
                             <div className="top_content mb-5">
                                 <h1 className='fs_82 fw-bold text-white mb-4'>
                                     Why we made Spohire
                                 </h1>
-
-                                <p className='fs_32 fw-semibold' style={{ color: '#746f7c' }}>
-                                    We aimed to simplify the process of  finding <br className='d-block d-md-none'/> a club for the player and coach.
+                                <p className='fs_32 fw-semibold' style={{ color: '#FFF' }}>
+                                    We aimed to simplify the process of  finding <br className='d-block d-md-none' /> a club for the player and coach.
                                 </p>
                             </div>
                             <ul className='mb-2 md-mb-5 p-3 WhyWeList'>
