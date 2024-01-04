@@ -370,3 +370,8 @@ textarea {
     align-items: center;
     gap: 36px;
 }
+
+.upload_btn{
+    background-color: #0177FB;
+    color: #FFF !important;
+}

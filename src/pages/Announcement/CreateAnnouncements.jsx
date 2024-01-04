@@ -295,13 +295,14 @@ const CreateAnnouncements = () => {
                     accept=".jpg, .jpeg, .png, image/jpg, image/jpeg, image/png"
                     required
                   />
-                  <label
-                    className="input-group-text"
+                  <p
+                    className="input-group-text upload_btn pointer text-light"
                     htmlFor=""
                     onClick={handleUploadButtonClick}
+                    style={{color:"#FFF"}}
                   >
                     Upload
-                  </label>
+                  </p>
                 </div>
               </div>
               <div className="col-lg-6">
