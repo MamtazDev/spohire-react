@@ -102,6 +102,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
   const handleDetails = (jobId) => {
     navigate(`/jobOffer/jobDetails/${jobId}`);
     console.log('details page for job ID:', jobId);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
   return (
