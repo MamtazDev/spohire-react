@@ -45,18 +45,18 @@ const JobCategory = ({
     volleyball: false,
   });
 
-  const handleCheckboxClick = (sport) => {
-    setCheckboxStates((prevStates) => ({
-      ...prevStates,
-      [sport.toLowerCase()]: !prevStates[sport.toLowerCase()],
-    }));
-  };
-  const handleFunctionClick = (sport) => {
-    setFunctionStates((prevStates) => ({
-      ...prevStates,
-      [sport.toLowerCase()]: !prevStates[sport.toLowerCase()],
-    }));
-  };
+  // const handleCheckboxClick = (sport) => {
+  //   setCheckboxStates((prevStates) => ({
+  //     ...prevStates,
+  //     [sport.toLowerCase()]: !prevStates[sport.toLowerCase()],
+  //   }));
+  // };
+  // const handleFunctionClick = (sport) => {
+  //   setFunctionStates((prevStates) => ({
+  //     ...prevStates,
+  //     [sport.toLowerCase()]: !prevStates[sport.toLowerCase()],
+  //   }));
+  // };
 
   // display sports
   const [showAll, setShowAll] = useState(false);
@@ -93,7 +93,6 @@ const JobCategory = ({
     }
   };
 
-
   const handleSelectedCountries = (value) => {
     if (searchParams?.jobLocation?.includes(value)) {
       const newSelectedCountries = searchParams?.jobLocation?.filter(
@@ -110,7 +109,6 @@ const JobCategory = ({
   };
 
   // console.log(searchParams, "seafff");
-
 
   const handleJobType = (value) => {
     if (searchParams?.jobTypeCate?.includes(value)) {

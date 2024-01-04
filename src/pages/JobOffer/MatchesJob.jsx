@@ -9,6 +9,8 @@ import { useState } from "react";
 import JobCategory from "../Announcement/JobCategory";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../../components/Pagination/Pagination";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 const sports = [
   "Coach",
   "Administration",
@@ -56,9 +58,10 @@ const jobcategory = [
 ];
 
 const MatchesJob = ({ searchParams, setSearchParams }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { data: allJobs } = useGetAllJobsQuery();
   const [selectedJob, setSelectedJob] = useState(null);
+  const { user } = useSelector((state) => state.auth);
 
   // console.log(searchParams, "paramsssss");
 
@@ -96,13 +99,21 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
     // return true;
   });
 
-
   console.log(allJobs, "jooobbbb");
 
   const handleDetails = (jobId) => {
     navigate(`/jobOffer/jobDetails/${jobId}`);
-    console.log('details page for job ID:', jobId);
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    console.log("details page for job ID:", jobId);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const handleClick = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `You are a ${user?.role}. You are not permitted to apply for the job!`,
+    });
+    console.log("details page for job ID:", jobId);
   };
 
   return (
@@ -152,18 +163,32 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                             <span>{item?.salary}</span>
                           </div>
                         </div>
-                        <div className="job_details"> {item.description}
+                        <div className="job_details">
+                          {" "}
+                          {item.description}
+                          <button onClick={() => handleDetails(item._id)}>
+                            {" "}
+                            Learn More
+                          </button>
+                        </div>
 
-                          <button onClick={() => handleDetails(item._id)} className="ps-1">....Learn More</button></div>
-
-                        <button
-                          className="apply_btn"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                          onClick={() => setSelectedJob(item?._id)}
-                        >
-                          Apply
-                        </button>
+                        {user &&
+                        (user?.role === "Player" ||
+                          user?.role === "Manager" ||
+                          user?.role === "Coach") ? (
+                          <button className="apply_btn" onClick={handleClick}>
+                            Apply
+                          </button>
+                        ) : (
+                          <button
+                            className="apply_btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            onClick={() => setSelectedJob(item?._id)}
+                          >
+                            Apply
+                          </button>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -189,8 +214,8 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
             />
           </div>
         </div>
-      </div >
-      <ApplyJobs selectedJob={selectedJob} />
+      </div>
+      <ApplyJobs selectedJob={selectedJob} user={user} />
     </>
   );
 };

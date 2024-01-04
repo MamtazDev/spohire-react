@@ -64,7 +64,7 @@ const formFields = [
   },
 ];
 
-const ApplyJobs = ({ selectedJob }) => {
+const ApplyJobs = ({ selectedJob, user }) => {
   //   const [formData, setFormData] = useState({
   //     name: "",
   //     region: "",
@@ -85,7 +85,7 @@ const ApplyJobs = ({ selectedJob }) => {
   //     }));
   //   };
 
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   const [applyForTheJob, { isLoading }] = useApplyForTheJobMutation();
   const [loading, setLoading] = useState(false);

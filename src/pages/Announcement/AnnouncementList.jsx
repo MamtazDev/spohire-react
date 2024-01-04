@@ -29,10 +29,7 @@ const country = [
   "Canada",
   "Canada",
 ];
-const jobcategory = [
-  "Tournament",
-  "Championship",
-];
+const jobcategory = ["Tournament", "Championship"];
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
@@ -53,7 +50,8 @@ const AnnouncementList = () => {
     <>
       <div
         className="container"
-        style={{ marginTop: "104px", marginBottom: "150px" }}>
+        style={{ marginTop: "104px", marginBottom: "150px" }}
+      >
         <div className="row">
           <div className="col-lg-9">
             {/* {allAnnouncements?.data &&
@@ -66,15 +64,11 @@ const AnnouncementList = () => {
             {(!allAnnouncements?.data || allAnnouncements?.data?.length === 0) && (
               <p>No data found</p>
             )} */}
-            {filteredAnnouncements?.length > 0 ? (
-              filteredAnnouncements.map((item, index) => (
-                <SingleAnnouncement key={index} item={item} />
-              ))
-            ) : (
-              allAnnouncements?.data?.length > 0 && (
-                <p>No data found</p>
-              )
-            )}
+            {filteredAnnouncements?.length > 0
+              ? filteredAnnouncements.map((item, index) => (
+                  <SingleAnnouncement key={index} item={item} />
+                ))
+              : allAnnouncements?.data?.length > 0 && <p>No data found</p>}
           </div>
           <div className="col-lg-3">
             <JobCategory
