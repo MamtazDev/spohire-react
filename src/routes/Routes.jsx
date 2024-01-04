@@ -15,7 +15,6 @@ import Notification from "../components/Dashboard/Setting/Notification/Notificat
 import Password from "../components/Dashboard/Setting/Password/Password";
 import DashboardAnnouncements from "../components/Dashboard/Announcements/DashboardAnnouncements.jsx";
 import Coaches from "../components/Dashboard/Coaches/Coaches.jsx";
-import AddPlayer from "../pages/AddPlayer/AddPlayer.jsx";
 import AddPlayerInfo2 from "../pages/AddPlayer/AddPlayerInfo2.jsx";
 import AddPlayerInfo3 from "../pages/AddPlayer/AddPlayerInfo3.jsx";
 import ObservedClone from "../components/Dashboard/ObservedClone/ObservedClone.jsx";
@@ -35,6 +34,7 @@ import SubscribedRoute from "./SubscribedRoute.jsx";
 import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
 import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
 import PaymentRoute from "./PaymentRoute.jsx";
+import JobDetails from "../pages/JobOffer/JobDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/jobOffer",
         element: <JobOffer />,
+      },
+      {
+        path: "/jobOffer/jobDetails/:id",
+        element: <JobDetails />,
       },
       {
         path: "/announcements",

@@ -92,11 +92,16 @@
 }
 
 .matchedJobs_wrapper {
-    padding: 40px 40px 24px 40px;
+    padding: 32px;
     border-radius: 7px;
     border: 1px solid #D9D9D9;
     background: #FFF;
     margin-bottom: 30px;
+}
+
+.tennis_logo img {
+    height: 80px;
+    width: 80px;
 }
 
 .job_matches_title {
@@ -255,4 +260,47 @@
     margin: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+}
+
+.job_details {
+    color: #546580;
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    margin-top: 16px;
+}
+
+.job_details button {
+    background-color: transparent;
+    color: #0177FB;
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.job_details_desc h4 {
+    color: #141736;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.job_details_desc p {
+    color: #546580;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
 }

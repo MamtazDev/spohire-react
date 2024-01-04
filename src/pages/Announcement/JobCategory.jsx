@@ -78,8 +78,6 @@ const JobCategory = ({
 
   // filltering
 
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
   const handleSelectedCategory = (value) => {
     if (searchParams?.jobType?.includes(value)) {
       const newSelectedCategories = searchParams?.jobType?.filter(
@@ -111,7 +109,7 @@ const JobCategory = ({
     }
   };
 
-  console.log(searchParams, "seafff");
+  // console.log(searchParams, "seafff");
 
 
   const handleJobType = (value) => {
@@ -133,7 +131,7 @@ const JobCategory = ({
     }
   };
 
-  console.log(searchParams, "searchParamsfkkk");
+  // console.log(searchParams, "searchParamsfkkk");
 
   useEffect(() => {
     axios
@@ -160,7 +158,7 @@ const JobCategory = ({
     }
   };
 
-  console.log(checkboxStates, "checkboxStates");
+  // console.log(checkboxStates, "checkboxStates");
 
   return (
     <div>
