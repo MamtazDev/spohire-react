@@ -13,7 +13,7 @@
     box-shadow: none;
 }
 
-.authBtn a,
+.authBtn span,
 .logIn:hover {
     color: #FFF;
 }
@@ -92,7 +92,7 @@
     border: none;
 }
 
-.authBtn a,
+.authBtn span,
 .logIn {
     background: transparent;
     border: none;

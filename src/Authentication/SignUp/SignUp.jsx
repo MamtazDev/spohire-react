@@ -113,14 +113,6 @@ const SignUp = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 p-0  d-none d-lg-block">
             <div className="signup-left_bg">
-              {/* <div className="d-flex flex-column justify-content-center align-items-center pt-5 mt-5">
-                <h2 className="fs-3 mb-2 fw-medium">Sign up</h2>
-                <p>
-                  Fostering a sense of camaraderie and unity <br /> among
-                  athletes and fans alike.
-                </p>
-
-              </div> */}
               <img className=""  src={signupImg} alt="" />
             </div>
           </div>

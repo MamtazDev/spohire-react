@@ -1,7 +1,6 @@
 import auser from "../../assets/auser.png";
 import region from "../../assets/aregion.png";
 import dob from "../../assets/adob.png";
-import position from "../../assets/afullname.png";
 import email from "../../assets/aemail.png";
 import phone from "../../assets/aphone.png";
 import salary from "../../assets/asalary.png";
@@ -205,6 +204,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
         console.log(error);
       });
   }, []);
+
   return (
     <div className="apply_jobs_modal">
       <form onSubmit={handleSubmit}>

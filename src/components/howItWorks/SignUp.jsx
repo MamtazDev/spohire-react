@@ -19,7 +19,7 @@ const SignUp = () => {
                 <input type="text" name="firstName" id="fName" />
               </div>
 
-              <div className="mt-4">
+              <div className="mt-lg-4 mt-0">
                 <label htmlFor="email">Email Address</label>
                 <input type="email" name="email" id="email" />
               </div>
@@ -28,7 +28,7 @@ const SignUp = () => {
           <div className="col-lg-6">
             <div className="txtInput d-flex  flex-wrap  flex-md-row justify-content-between align-items-center">
               <div>
-                <label htmlFor="lName">Last Name</label>
+                <label htmlFor="lName" className="mt-lg-0 mt-4">Last Name</label>
                 <input type="text" name="lastName" id="lName" />
               </div>
               <div className="mt-4">
