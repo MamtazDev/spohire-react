@@ -8,6 +8,7 @@ import JobCategory from "./JobCategory";
 import DeleteModal from "./DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
+import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
 
 const sports = [
   "Football",
@@ -66,12 +67,12 @@ const AnnouncementList = () => {
             )} */}
             {filteredAnnouncements?.length > 0
               ? filteredAnnouncements.map((item, index) => (
-                  <SingleAnnouncement key={index} item={item} />
-                ))
+                <SingleAnnouncement key={index} item={item} />
+              ))
               : allAnnouncements?.data?.length > 0 && <p>No data found</p>}
           </div>
           <div className="col-lg-3">
-            <JobCategory
+            <AnnouncementFilterCategory
               setSortedItems={setSortedItems}
               sortedItems={sortedItems}
               sports={sports}

@@ -17,7 +17,6 @@ const AddAnnouncement = ({ onHide, isModalOpen }) => {
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-        console.log('Selected File:', selectedFile.name);
         setImage(selectedFile.name)
     };
 

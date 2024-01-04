@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import "./Announcements.css";
 import a1 from "../../../assets/a11.png";
 import flag from "../../../assets/flag.png";
@@ -7,7 +9,6 @@ import b1 from "../../../assets/bookmark.png";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
 import edit2 from "../../../assets/edit2.png";
 import delet from "../../../assets/delete.png";
-import { Link } from "react-router-dom";
 import DeleteModal from "../../../pages/Announcement/DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../../features/announcement/announcementApi";
@@ -89,7 +90,6 @@ const SingleAnnouncement = ({ announcement }) => {
         });
       }
 
-      console.log(response, "ress");
     } catch (error) {
       Swal.fire({
         icon: "error",

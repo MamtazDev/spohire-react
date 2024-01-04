@@ -78,7 +78,6 @@ const ApplyJobs = ({ selectedJob, user }) => {
 
   //   const handleChange = (e) => {
   //     const { name, value } = e.target;
-  //     console.log();
   //     setFormData((prevData) => ({
   //       ...prevData,
   //       [name]: value,
@@ -90,12 +89,10 @@ const ApplyJobs = ({ selectedJob, user }) => {
   const [applyForTheJob, { isLoading }] = useApplyForTheJobMutation();
   const [loading, setLoading] = useState(false);
 
-  console.log(user, "user");
 
   const [countryNames, setCountryNames] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  console.log(selectedFile, "selectedFile");
 
   const closeButtonRef = useRef(null);
 
