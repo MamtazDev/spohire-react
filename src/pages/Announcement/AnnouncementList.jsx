@@ -8,6 +8,8 @@ import JobCategory from "./JobCategory";
 import DeleteModal from "./DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
+import { useDispatch } from "react-redux";
+import { setFilterParams } from "../../features/announcement/announcementSlice";
 
 const sports = [
   "Football",
@@ -33,6 +35,8 @@ const jobcategory = ["Tournament", "Championship"];
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);
+
+  const dispatch = useDispatch();
 
   console.log(sortedItems, "sortedItems");
 
