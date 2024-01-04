@@ -50,9 +50,8 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${
-        location.pathname === "/" ? "header_position" : ""
-      }`}
+      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
+        }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
@@ -117,15 +116,15 @@ const Header = () => {
                   <button className="logIn visibility-lg-hidden visually-visible">
                     Log in
                   </button>
-                  <button className="authBtn btnNone visibility-lg-hidden visually-visible">
                     <Link
                       to="/signup"
                       type="submit"
                       className="text-decoration-none"
                     >
+                  <button className="authBtn btnNone visibility-lg-hidden visually-visible">
                       Sign Up
-                    </Link>
                   </button>
+                    </Link>
                 </div>
               </>
             )}
@@ -136,6 +135,7 @@ const Header = () => {
                 <Nav.Link href="#home">
                   <Link to="/dashboard" className="nav-link">
                     Transfer Market
+
                   </Link>
                 </Nav.Link>
               ) : (
@@ -239,9 +239,8 @@ const Header = () => {
 
                         <img
                           src={dropdown}
-                          className={`${
-                            isDropdownActive ? "" : "rotate_arrow"
-                          }`}
+                          className={`${isDropdownActive ? "" : "rotate_arrow"
+                            }`}
                           alt="dropdown"
                         />
                       </div>
@@ -261,15 +260,15 @@ const Header = () => {
                 <Link to="/login" className="logIn">
                   Log in
                 </Link>
-                <button className="authBtn btnNone">
                   <Link
                     to="/signup"
                     type="submit"
                     className="text-decoration-none"
                   >
-                    Sign Up
-                  </Link>
+                <button className="authBtn btnNone">
+               <span>     Sign Up</span>
                 </button>
+                  </Link>
               </form>
             )}
           </Navbar.Collapse>
