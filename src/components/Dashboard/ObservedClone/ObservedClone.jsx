@@ -1,12 +1,11 @@
+/* eslint-disable no-unused-vars */
 import a1 from "../../../assets/a1.png";
 import flag from "../../../assets/flag.png";
 import dollar from "../../../assets/coin-dollar.png";
 import location from "../../../assets/location.png";
-import bookmark from "../../../assets/bookmark.png";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
 import footBallCoachImg from "../../../assets/footballCoach.png";
 import locationIcon from "../../../assets/location-icon.svg";
-import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
 import playerprofile from "../../../assets/player_profile.png";
 import "./ObservedClone.css";
@@ -63,98 +62,99 @@ const ObservedClone = () => {
   }
 
   if (data?.data?.length === 0) {
-    return <div>No Bookmarks</div>;
+    return <div className="text-center pt-5" style={{ fontSize: "32px", color: "#595F69" }}>No Bookmarks</div>;
   }
+
   return (
     <>
       <div className="announcement" style={{ margin: "30px" }}>
         {data?.data.filter((i) => i?.target_type === "Announcement").length >
           0 && (
-          <div>
-            <p className="title">Announcement</p>
             <div>
-              {data?.data &&
-                data?.data?.length > 0 &&
-                data?.data
-                  .filter((i) => i?.target_type === "Announcement")
-                  .map((item, idx) => (
-                    <div className="announcelist_wrapper pe-3" key={idx}>
-                      <div className="d-flex justify-content-between align-items-start">
-                        <div
-                          className="d-flex align-items-center"
-                          style={{ gap: "20px" }}
-                        >
-                          <div className="announcement_pic">
-                            <img src={a1} alt="" />
-                          </div>
-                          <div className="recruiment f_sfPro">
-                            <p>{item?.target_id?.title}</p>
-                            <div className="d-flex gap-3 flex-wrap">
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={location} alt="" />
-                                <span>{item?.target_id?.location}</span>
-                              </div>
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={flag} alt="" />
-                                <span>{item?.target_id?.status}</span>
-                              </div>
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={dollar} alt="" />
-                                <span>USD {item?.target_id?.budget}</span>
+              <p className="title">Announcement</p>
+              <div>
+                {data?.data &&
+                  data?.data?.length > 0 &&
+                  data?.data
+                    .filter((i) => i?.target_type === "Announcement")
+                    .map((item, idx) => (
+                      <div className="announcelist_wrapper pe-3" key={idx}>
+                        <div className="d-flex justify-content-between align-items-start">
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "20px" }}
+                          >
+                            <div className="announcement_pic">
+                              <img src={a1} alt="" />
+                            </div>
+                            <div className="recruiment f_sfPro">
+                              <p>{item?.target_id?.title}</p>
+                              <div className="d-flex gap-3 flex-wrap">
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={location} alt="" />
+                                  <span>{item?.target_id?.location}</span>
+                                </div>
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={flag} alt="" />
+                                  <span>{item?.target_id?.status}</span>
+                                </div>
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={dollar} alt="" />
+                                  <span>USD {item?.target_id?.budget}</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="d-lg-block d-none">
-                          <div
-                            className="d-flex gap-3 "
-                            style={{ cursor: "pointer" }}
-                            onClick={() =>
-                              handleBookmark(
-                                item?.target_id?._id,
-                                "Announcement"
-                              )
-                            }
-                          >
-                            <img src={bookmarkfill} alt="" />
+                          <div className="d-lg-block d-none">
+                            <div
+                              className="d-flex gap-3 "
+                              style={{ cursor: "pointer" }}
+                              onClick={() =>
+                                handleBookmark(
+                                  item?.target_id?._id,
+                                  "Announcement"
+                                )
+                              }
+                            >
+                              <img src={bookmarkfill} alt="" />
+                            </div>
                           </div>
                         </div>
+                        <p
+                          className="announcement_details f_sfPro"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            WebkitLineClamp: 1,
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {item?.target_id?.description}
+                        </p>
+                        <div
+                          className="d-flex gap-3 d-lg-none d-block justify-content-end"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            handleBookmark(item?.target_id?._id, "Announcement")
+                          }
+                        >
+                          <img src={bookmarkfill} alt="" />
+                        </div>
                       </div>
-                      <p
-                        className="announcement_details f_sfPro"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          WebkitLineClamp: 1,
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {item?.target_id?.description}
-                      </p>
-                      <div
-                        className="d-flex gap-3 d-lg-none d-block justify-content-end"
-                        style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          handleBookmark(item?.target_id?._id, "Announcement")
-                        }
-                      >
-                        <img src={bookmarkfill} alt="" />
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
 
       {/* job */}
