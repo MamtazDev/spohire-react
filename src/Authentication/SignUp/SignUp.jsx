@@ -9,7 +9,7 @@ import { convertDate } from "../../utils/TimeConverter";
 import { useRegisterUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
 import axios from "axios";
-import signupImg from '../../assets/signup--.svg'
+import signupImg from "../../assets/signup--.svg";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -113,7 +113,7 @@ const SignUp = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 p-0  d-none d-lg-block">
             <div className="signup-left_bg">
-              <img className=""  src={signupImg} alt="" />
+              <img className="" src={signupImg} alt="" />
             </div>
           </div>
           <div className="col-lg-6">
@@ -123,9 +123,8 @@ const SignUp = () => {
                 <p>Fill all input to create a account</p>
                 <form onSubmit={handleFormSubmit}>
                   <div className="row right-inner-addon input-container">
-                    
                     <div className="col-6">
-                    <label htmlFor="">Full name</label>
+                      <label htmlFor="">Full name</label>
                       <input
                         type="text"
                         className="mt-2 form-control login_input"
@@ -136,7 +135,7 @@ const SignUp = () => {
                       />
                     </div>
                     <div className="col-6">
-                    <label htmlFor="">Last Name</label>
+                      <label htmlFor="">Last Name</label>
                       <input
                         type="text"
                         className="form-control login_input"
@@ -148,7 +147,10 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope" style={{ color: "#9CA3A9" }}></i>
+                    <i
+                      className="fa-regular fa-envelope"
+                      style={{ color: "#9CA3A9" }}
+                    ></i>
 
                     <label htmlFor="">Email Address</label>
 
@@ -177,20 +179,32 @@ const SignUp = () => {
                     <div className="col-lg-4">
                       <label htmlFor="">Nationality</label>
 
-                      <select className="form-select" aria-label="Default select example" style={{
-                        height: "46px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: " 0.707px solid rgba(0, 0, 0, 0.02)"
-
-                      }}>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{
+                          height: "46px",
+                          backgroundColor: "rgba(0, 0, 0, 0.02)",
+                          border: " 0.707px solid rgba(0, 0, 0, 0.02)",
+                        }}
+                        onChange={(e) => setNationality(e.target.value)}
+                      >
                         {countryNames.map((name, index) => (
-                          <>
-                            <option value="3" key={index}>{name.name}</option>
-                          </>
+                          <option value={name.name} key={index}>
+                            {name.name}
+                          </option>
                         ))}
                       </select>
                     </div>
 
                     <div className="col-8">
-                      <label htmlFor="" className="" style={{ marginBottom: "10px" }}>Date of birth</label>
+                      <label
+                        htmlFor=""
+                        className=""
+                        style={{ marginBottom: "10px" }}
+                      >
+                        Date of birth
+                      </label>
                       <DateSelector
                         value={dateOfBirth}
                         onChange={(selectedDate) =>
@@ -204,29 +218,43 @@ const SignUp = () => {
                   <div className="row email_input">
                     <label htmlFor="">Phone number</label>
                     <div className="col-4 mb-3">
-                      <select className="form-select" aria-label="Default select example" style={{
-                        height: "46px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: " 0.707px solid rgba(0, 0, 0, 0.02)"
-                      }}>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{
+                          height: "46px",
+                          backgroundColor: "rgba(0, 0, 0, 0.02)",
+                          border: " 0.707px solid rgba(0, 0, 0, 0.02)",
+                        }}
+                        onChange={(e) => setCoutryCode(e.target.value)}
+                      >
                         {countryNames.map((name, index) => (
-                          <>
-                            <option value="3" key={index}>{name.dial_code}</option>
-                          </>
+                          <option value={name.dial_code} key={index}>
+                            {name.dial_code}
+                          </option>
                         ))}
                       </select>
                     </div>
                     <div className="col-8">
                       <div className="phone_number">
-                        <input type="tel" id="phone" name="phone" value={phoneNumber} style={{ color: "#212529" }}
-
-                          //  onChange={(e) => setPhoneNumber(e.target.value)} 
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={phoneNumber}
+                          style={{ color: "#212529" }}
+                          //  onChange={(e) => setPhoneNumber(e.target.value)}
                           onChange={(e) => {
                             const inputVal = e.target.value;
-                            const validatedInput = inputVal.replace(/[^0-9+\-]/g, '');
+                            const validatedInput = inputVal.replace(
+                              /[^0-9+\-]/g,
+                              ""
+                            );
                             setPhoneNumber(validatedInput);
                           }}
-                          placeholder="012 345 6789" />
+                          placeholder="012 345 6789"
+                        />
                       </div>
-
                     </div>
                   </div>
                   {/* email input end */}

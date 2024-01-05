@@ -3,15 +3,25 @@ import silver from "../../assets/silver.png";
 import gold from "../../assets/gold.png";
 import dot from "../../assets/bluedot.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPaymentInfo } from "../../features/payment/paymentSlice";
+import Swal from "sweetalert2";
 
 const BestOffer = () => {
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSave = (data) => {
-    dispatch(setPaymentInfo(data));
-    navigate("/paymentProcess");
+    if (user?.subscriptionName === data?.name) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You have already subscribed this offer!",
+      });
+    } else {
+      dispatch(setPaymentInfo(data));
+      navigate("/paymentProcess");
+    }
   };
   return (
     <>
