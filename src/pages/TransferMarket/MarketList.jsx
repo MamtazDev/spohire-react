@@ -1,45 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Compact from "./Compact";
-import Select from "react-select";
-
-const options = [
-  { value: "Bangladesh", label: "Country1" },
-  { value: "Country2", label: "Country2" },
-  { value: "Country3", label: "Country3" },
-  { value: "Country4", label: "Country4" },
-  { value: "Country5", label: "Country5" },
-  { value: "Country6", label: "Country6" },
-];
-const options1 = [
-  {
-    value: "Bangladesh",
-    label: "Bangladesh",
-  },
-  {
-    value: "India",
-    label: "India",
-  },
-  {
-    value: "Switzerland",
-    label: "Switzerland",
-  },
-  {
-    value: "United Kingdom",
-    label: "United Kingdom",
-  },
-  {
-    value: "Ireland",
-    label: "Ireland",
-  },
-  {
-    value: "Italy",
-    label: "Italy",
-  },
-  {
-    value: "Netherland",
-    label: "Netherland",
-  },
-];
 
 const MarketList = () => {
   // const [selectedCountry, setSelectedCountry] = useState(null);
@@ -104,13 +65,7 @@ const MarketList = () => {
           <div className="market_filter_wrapper">
             <div className="row align-items-center justify-content-center  ">
               <div className="col-lg-4">
-                {/* <Select
-                  options={options1}
-                  value={selectedCountry}
-                  onChange={(selectedOption) =>
-                    setSelectedCountry(selectedOption)
-                  }
-                /> */}
+           
                 <input
                   type="text"
                   placeholder="Enter role"
@@ -131,7 +86,6 @@ const MarketList = () => {
                 />
               </div>
               <div className="col-lg-4">
-                {/* <Select options={options} /> */}
                 <input
                   type="text"
                   placeholder="Enter sport"
