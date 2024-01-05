@@ -273,7 +273,7 @@ const DashbordSidebar = ({ user }) => {
                 </Accordion.Item>
               </Accordion>
 
-              <li className="nav_item">
+              {/* <li className="nav_item">
                 <Link
                   to={"#"}
                   className="text-decoration-none d-flex align-items-center gap-4"
@@ -283,7 +283,7 @@ const DashbordSidebar = ({ user }) => {
                     Help
                   </span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

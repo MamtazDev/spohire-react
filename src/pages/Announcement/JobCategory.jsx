@@ -166,7 +166,7 @@ const JobCategory = ({
         </div>
         <div
           className="white_category_part"
-          style={{ height: "232px", overflowY: "scroll" }}
+          style={{ height: "232px", overflowY: "auto" }}
         >
           {displayedSports.map((sport, index) => (
             <div key={index} className="cat_list">
@@ -209,7 +209,7 @@ const JobCategory = ({
         </div>
         <div
           className="white_category_part"
-          style={{ height: "232px", overflowY: "scroll" }}
+          style={{ height: "232px", overflowY: "auto" }}
         >
           {displayedJobLocations?.map((country, index) => (
             <div key={index} className="cat_list">
