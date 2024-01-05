@@ -6,6 +6,8 @@ import location from "../../assets/location.png";
 import JobCategory from './../Announcement/JobCategory';
 import { useGetJobByIdQuery } from "../../features/job/jobApi";
 import { useParams } from "react-router-dom";
+import ApplyJobs from './ApplyJobs';
+import { useSelector } from "react-redux";
 
 const sports = [
     "Coach",
@@ -60,6 +62,7 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
 
     console.log("detailspage", jobDetails?.data)
     const data = jobDetails?.data
+    const { user } = useSelector((state) => state.auth);
 
     return (
         <div className="container">
@@ -105,9 +108,27 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
                         <div className="job_details_desc">
                             <h4> Description</h4>
                             <p>{data?.description}.</p>
-                            {/* <p>Eros auctor vulputate ornare mauris faucibus fames morbi cursus sed. Aliquet suscipit elementum tincidunt adipiscing diam ac tellus interdum. Sagittis velit vel mattis id commodo dui gravida sit. In elementum odio blandit pretium elit aliquam pellentesque at. Arcu commodo in rhoncus a aliquam augue. Amet imperdiet ultricies eros auctor placerat. Sem sit dictum ultricies habitasse elementum nibh. Consequat odio et a venenatis quam. Quam etiam sit in ac aliquam ac varius pellentesque. Ipsum auctor non est aliquam et tincidunt neque tellus purus. Ullamcorper dictumst cras vel in venenatis morbi. Parturient amet consectetur nisl tristique ultrices turpis. Aenean at ac montes commodo fames nunc dui. Ut placerat cursus vel nulla purus. Quis sagittis ipsum pulvinar quisque a cursus ut ultricies volutpat.</p> */}
 
                         </div>
+                        {user &&
+                            (user?.role === "Player" ||
+                                user?.role === "Manager" ||
+                                user?.role === "Coach") ? (
+                            <button className="apply_btn"
+                            //  onClick={handleClick}
+                             >
+                                Apply
+                            </button>
+                        ) : (
+                            <button
+                                className="apply_btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                // onClick={() => setSelectedJob(item?._id)}
+                            >
+                                Apply
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -121,6 +142,7 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
                     />
                 </div>
             </div>
+            <ApplyJobs  user={user} />
         </div>
     );
 };
