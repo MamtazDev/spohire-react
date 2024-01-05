@@ -62,7 +62,14 @@ const ObservedClone = () => {
   }
 
   if (data?.data?.length === 0) {
-    return <div className="text-center pt-5" style={{ fontSize: "32px", color: "#595F69" }}>No Bookmarks</div>;
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center "
+        style={{ height: "70vh", fontWeight: "bold" }}
+      >
+        No Bookmarks
+      </div>
+    );
   }
 
   return (
