@@ -36,11 +36,11 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
       });
   }, []);
 
-  const handleChange = (selectedOption) => {
-    setSelectedCountry(selectedOption);
+  const handleChange = (e) => {
+    // setSelectedCountry(selectedOption);
     setFilterItems({
       ...filterItems,
-      jobLocation: [selectedOption.value],
+      jobLocation: e.target.value,
     });
   };
   const handleChangeJobType = (selectedOption) => {
@@ -128,16 +128,14 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
               style={{
                 height: "50px",
                 backgroundColor: "",
-                border: "1px solid #F0F0F0", width: "268px",
+                border: "1px solid #F0F0F0",
+                width: "268px",
               }}
               name="country"
+              onChange={handleChange}
             >
               {countryNames.map((name, index) => (
-                <option
-                  value={name?.name}
-                  className=""
-                  key={index}
-                >
+                <option value={name?.name} className="" key={index}>
                   {name.name}
                 </option>
               ))}
@@ -148,17 +146,14 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
               style={{
                 height: "50px",
                 backgroundColor: "",
-                border: "1px solid #F0F0F0", width: "268px",
+                border: "1px solid #F0F0F0",
+                width: "268px",
               }}
               name="country"
-
-              onChange={handleChangeJobType}>
+              onChange={handleChangeJobType}
+            >
               {options.map((name, index) => (
-                <option
-                  value={name?.value}
-                  className=""
-                  key={index}
-                >
+                <option value={name?.value} className="" key={index}>
                   {name.value}
                 </option>
               ))}

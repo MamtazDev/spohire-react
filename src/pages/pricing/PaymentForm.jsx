@@ -275,6 +275,7 @@ const PaymentForm = () => {
                     onChange={handleInputChange}
                     name="nationality"
                   >
+                    <option disabled> Select country</option>
                     {countryNames.map((name, index) => (
                       <option value={name.code} key={index}>
                         {name.name}

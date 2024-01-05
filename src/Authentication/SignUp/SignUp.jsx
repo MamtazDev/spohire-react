@@ -93,6 +93,30 @@ const SignUp = () => {
     // navigate('/addPlayer')
   };
   const [countryNames, setCountryNames] = useState([]);
+  const [buttonErrorMessages, setButtonErrorMessages] = useState(false);
+  const [errorss, setErrors] = useState([]);
+
+  const handleButtonError = () => {
+    console.log("djfksljfklsd");
+    let errors = [];
+    if (!button_disability) {
+      setButtonErrorMessages(false);
+      setErrors([]);
+    } else {
+      if (!firstName) errors.push("firstName");
+      if (!lastName) errors.push("lastName");
+      if (!email) errors.push("email");
+      if (!password) errors.push("password");
+      if (!nationality) errors.push("nationality");
+      if (!dateOfBirth) errors.push("dateOfBirth");
+      if (!phoneNumber) errors.push("phoneNumber");
+      if (!functionType) errors.push("functionType");
+      if (!countryCode) errors.push("countryCode");
+      if (!sports) errors.push("sports");
+      setButtonErrorMessages(true);
+      setErrors(errors);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -189,6 +213,10 @@ const SignUp = () => {
                         }}
                         onChange={(e) => setNationality(e.target.value)}
                       >
+                        <option disabled selected>
+                          {" "}
+                          Select country
+                        </option>
                         {countryNames.map((name, index) => (
                           <option value={name.name} key={index}>
                             {name.name}
@@ -228,6 +256,10 @@ const SignUp = () => {
                         }}
                         onChange={(e) => setCoutryCode(e.target.value)}
                       >
+                        <option disabled selected>
+                          {" "}
+                          Select country code
+                        </option>
                         {countryNames.map((name, index) => (
                           <option value={name.dial_code} key={index}>
                             {name.dial_code}
@@ -297,7 +329,10 @@ const SignUp = () => {
                       </>
                     )
                   )}
-                  <div className="d-flex justify-content-center">
+                  <div
+                    className="d-flex justify-content-center"
+                    onClick={handleButtonError}
+                  >
                     <button
                       type="submit"
                       className="login-btn"
@@ -307,6 +342,11 @@ const SignUp = () => {
                       <img src={arrowRight} alt="img" className="ms-1" />
                     </button>
                   </div>
+                  {errorss?.length > 0 && (
+                    <div className="text-errors text-center mt-2">
+                      {errorss?.join(", ")} fields required!
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

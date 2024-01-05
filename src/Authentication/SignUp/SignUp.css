@@ -10,6 +10,8 @@
   gap: 3px;
 }
 
+
+
 .css-zbgb7f-singleValue {
   font-size: 16px !important;
 }
@@ -32,7 +34,6 @@
 
 .css-14i3obi-placeholder {
   font-size: 14px !important;
-
 }
 
 input {
@@ -65,7 +66,6 @@ input {
   color: #212529 !important;
 }
 
-
 .react-datepicker-wrapper .react-datepicker__input-container input {
   border-radius: 5.659px;
   border: 0.707px solid rgba(0, 0, 0, 0.04);
@@ -76,10 +76,11 @@ input {
   cursor: pointer;
 }
 
-.react-datepicker-wrapper .react-datepicker__input-container input::placeholder {
+.react-datepicker-wrapper
+  .react-datepicker__input-container
+  input::placeholder {
   font-size: 10px;
 }
-
 
 .email_input .phone_number input {
   width: 100%;
