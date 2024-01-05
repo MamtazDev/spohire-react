@@ -38,19 +38,20 @@ const ChatProfiles = ({ user, searchText }) => {
               key={idx}
               onClick={() => handleClick(item)}
               style={{ cursor: "pointer" }}
-              className={`${selectedMsgUser?._id === item?._id && "bg-light"} `}
+              className={`${
+                selectedMsgUser?._id === item?._id && "bg-light rounded"
+              } px-2 py-1`}
             >
               <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
-                <div className="d-flex align-items-start gap-3">
+                <div className="d-flex align-items-center gap-3 w-100 h-100">
                   <div>
                     <img src={profile} alt="profile" />
                   </div>
-                  <div>
-                    <h5>
-                      {item?.first_name} {item?.last_name}
-                    </h5>
-                    {/* <span>Yeah, I’m done with it...</span> */}
-                  </div>
+
+                  <h5>
+                    {item?.first_name} {item?.last_name}
+                  </h5>
+                  {/* <span>Yeah, I’m done with it...</span> */}
                 </div>
 
                 <div>{/* <p>12:34</p> */}</div>
