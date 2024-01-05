@@ -148,7 +148,7 @@ const PaymentForm = () => {
       });
     }
   };
-  const [countryNames, setCountryNames] = useState([])
+  const [countryNames, setCountryNames] = useState([]);
 
   useEffect(() => {
     axios
@@ -254,7 +254,6 @@ const PaymentForm = () => {
             </div>
             <div className="col-lg-6 mt-lg-0 mt-4">
               <div className="payment_card">
-
                 <CardCvcElement
                   options={CARD_OPTIONS}
                   className="payment_input"
@@ -270,11 +269,16 @@ const PaymentForm = () => {
             <div className="col-lg-6">
               <div className="">
                 <div className="payment_country_select">
-                  <select className="form-select" aria-label="Default select example">
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    onChange={handleInputChange}
+                    name="nationality"
+                  >
                     {countryNames.map((name, index) => (
-                      <>
-                        <option value="3" key={index}>{name.name}</option>
-                      </>
+                      <option value={name.code} key={index}>
+                        {name.name}
+                      </option>
                     ))}
                   </select>
                 </div>
