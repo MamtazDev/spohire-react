@@ -73,7 +73,7 @@ const SignUp = () => {
       const response = await registerUser(formData);
 
       if (response?.data?.status === 200) {
-        navigate("/dashboard/viewProfile");
+        navigate("/dashboard");
       }
       if (response?.error?.data?.message) {
         Swal.fire({

@@ -63,7 +63,14 @@ const ObservedClone = () => {
   }
 
   if (data?.data?.length === 0) {
-    return <div>No Bookmarks</div>;
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center "
+        style={{ height: "70vh", fontWeight: "bold" }}
+      >
+        No Bookmarks
+      </div>
+    );
   }
   return (
     <>
