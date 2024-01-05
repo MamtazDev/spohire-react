@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import brows from "../../assets/brows.png";
 import { useState } from "react";
-import Select from "react-select";
 import axios from "axios";
 const EditAnnouncements = () => {
   // const fileInputRef = useRef(null);
@@ -163,7 +162,7 @@ const EditAnnouncements = () => {
                     >
                       Country
                     </label>
-                    <Select
+                    {/* <Select
                       style={{
                         minHeight: "44px",
                         width: "100%",
@@ -210,7 +209,27 @@ const EditAnnouncements = () => {
                           width: "0",
                         }),
                       }}
-                    />
+                    /> */}
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                      style={{
+                        height: "59px",
+                        backgroundColor: "",
+                        border: "1px solid #F0F0F0",
+                      }}
+                      name="country"
+                    >
+                      {countryNames.map((name, index) => (
+                        <option
+                          value={name?.name}
+                          className=""
+                          key={index}
+                        >
+                          {name.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div className="col-lg-6">
                     <div

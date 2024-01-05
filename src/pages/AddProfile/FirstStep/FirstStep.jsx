@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import arrowRight from "../../../assets/ArrowRight.png";
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import  { useEffect, useState } from "react";
 import twitter from "../../../assets/twiter1.png";
 import facebook from "../../../assets/fb1.png";
 import youtube from "../../../assets/yt1.png";
 import instagram from "../../../assets/insta1.png";
 import plus from "../../../assets/blackplus1.png";
-import Select from "react-select";
-import bdIcon from "../../../assets/bd.svg";
-import DateSelector from "../../../Authentication/SignUp/DateSelector";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
@@ -16,57 +15,7 @@ import {
   useUpdateUserMutation,
 } from "../../../features/auth/authApi";
 import { userLoggedIn } from "../../../features/auth/authSlice";
-
-const options1 = [
-  {
-    value: "Bangladesh",
-    label: "Bangladesh",
-    flagImg: bdIcon,
-  },
-  {
-    value: "India",
-    label: "India",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Switzerland",
-    label: "Switzerland",
-    flagImg: bdIcon,
-  },
-  {
-    value: "United Kingdom",
-    label: "United Kingdom",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Ireland",
-    label: "Ireland",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Italy",
-    label: "Italy",
-    flagImg: bdIcon,
-  },
-  {
-    value: "Netherland",
-    label: "Netherland",
-    flagImg: bdIcon,
-  },
-];
-
-const options2 = [
-  {
-    value: "Bangladesh",
-    label: "+880",
-    flagImg: bdIcon,
-  },
-  {
-    value: "India",
-    label: "+880",
-    flagImg: bdIcon,
-  },
-];
+import axios from "axios";
 
 const FirstStep = ({ setStep }) => {
   const { user } = useSelector((state) => state.auth);
@@ -151,6 +100,23 @@ const FirstStep = ({ setStep }) => {
 
     // setStep((prev) => prev + 1);
   };
+  const [countryNames, setCountryNames] = useState([]);
+
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
+      .then(function (response) {
+        setCountryNames(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+
   return (
     <div className="login_wrapper player_wrapper">
       <div>
@@ -185,7 +151,7 @@ const FirstStep = ({ setStep }) => {
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
             <div className="col-6">
               <label htmlFor="">Additional passport</label>
-              <Select
+              {/* <Select
                 options={options1}
                 value={options1.find(
                   (option) => option.value === additionalNationality
@@ -235,7 +201,27 @@ const FirstStep = ({ setStep }) => {
 
                   // indicatorsContainer: (baseStyles) =>
                 }}
-              />
+              /> */}
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="country"
+              >
+                {countryNames.map((name, index) => (
+                  <option
+                    value={name?.name}
+                    className=""
+                    key={index}
+                  >
+                    {name.name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="col-6">
@@ -259,7 +245,7 @@ const FirstStep = ({ setStep }) => {
                     className="w-100 p-2"
                     type="text"
                     value={user?.date_of_birth?.split(" ")[1]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
+                    style={{ fontSize: "10px", color: "#9c9c9c", }}
                     readOnly
                   />
                 </div>
@@ -341,7 +327,7 @@ const FirstStep = ({ setStep }) => {
                 type="text"
                 className="w-100 p-2"
                 value={user?.phone_number?.country_code}
-                style={{ fontSize: "10px", color: "#9c9c9c" }}
+                style={{ fontSize: "10px", color: "#9c9c9c",height:"46px" }}
                 readOnly
               />
             </div>

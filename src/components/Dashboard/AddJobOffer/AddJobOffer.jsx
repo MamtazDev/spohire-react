@@ -13,7 +13,6 @@ import height from "../../../assets/aheight.png";
 import salary from "../../../assets/asalary.png";
 import language from "../../../assets/alanguage.png";
 import "./AddJobOffer.css";
-import Select from "react-select";
 import { useAddJobMutation } from "../../../features/job/jobApi";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -152,7 +151,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
           <div className="personal_info_edit_wrapper add_job_offer">
             <div
               className="d-flex flex-column align-items-start gap-3"
-              style={{ marginBottom: "40px" }}
+              style={{ marginBottom: "44px" }}
             >
               <form
                 onSubmit={handleSubmit}
@@ -225,53 +224,27 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                           >
                             Country
                           </label>
-                          <Select
+                          <select
+                            className="form-select"
+                            aria-label="Default select example"
                             style={{
-                              minHeight: "44px",
-                              width: "100%",
-                              backgroundColor: "#FFFFF",
+                              height: "46px",
+                              backgroundColor: "",
+                              border: "1px solid #F0F0F0",
                             }}
-                            options={countryNames.map((country) => ({
-                              value: country.name,
-                              label: country.name,
-                            }))}
-                            value={selectedCountry}
-                            onChange={handleChange}
-                            styles={{
-                              control: (baseStyles) => ({
-                                ...baseStyles,
-                                minHeight: "44px",
-                                backgroundColor: "#FFF",
-                              }),
-                              valueContainer: (baseStyles) => ({
-                                ...baseStyles,
-                                padding: "0 5px",
-                              }),
-                              placeholder: (baseStyles) => ({
-                                ...baseStyles,
-                                color: "#9CA3A9",
-                                fontSize: "14px",
-                              }),
-                              menuList: (baseStyles) => ({
-                                ...baseStyles,
-                                fontSize: "16px",
-                              }),
-                              singleValue: (baseStyles) => ({
-                                ...baseStyles,
-                                fontSize: "14px",
-                              }),
-                              indicatorsContainer: (baseStyles) => ({
-                                ...baseStyles,
-                                padding: "0px !important",
-                              }),
-                              indicatorSeparator: (baseStyles) => ({
-                                ...baseStyles,
-                                display: "none",
-                                margin: "0",
-                                width: "0",
-                              }),
-                            }}
-                          />
+                            name="country"
+                          >
+                            {countryNames.map((name, index) => (
+                              <option
+                                value={name?.name}
+                                className=""
+                                key={index}
+                              >
+                                {name.name}
+                              </option>
+                            ))}
+                          </select>
+
                         </div>
                         <div className="col-lg-6">
                           <div
@@ -285,12 +258,10 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               City
                             </label>
 
-                            <div className="form_icons" style={{ top: "36px" }}>
-                              <img className="mt-0" src={region} alt="title" />
-                            </div>
+                           
                             <input
                               type="text"
-                              className="form-control ps-5"
+                              className="form-control"
                               id="exampleFormControlInput1"
                               placeholder="Your city"
                               name="job_location"
@@ -311,17 +282,24 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                       >
                         Job type
                       </label>
-                      <Select
-                        className="basic-single"
-                        classNamePrefix="sdfsdsd"
-                        name="color"
-                        options={options}
-                        placeholder="Information Technology"
-                        style={{ padding: "12px 14px", height: "40px" }}
-                        onChange={(selectedOption) =>
-                          setJobType(selectedOption.value)
-                        }
-                      />
+                     
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{ padding: "0 14px", height: "44px" }}
+                        name="country"
+                      >
+                        {options.map((name, index) => (
+                          <option
+                            value={name?.value}
+                            className=""
+                            key={index}
+                          >
+                            {name.value}
+                          </option>
+                        ))}
+                      </select>
+
                     </div>
                   </div>
                   <div className="col-lg-6 ">
@@ -358,49 +336,74 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                         Workplace Type
                       </label>
 
-                      <Select
-                        className="basic-single w-100"
-                        classNamePrefix="sdfsdsd"
-                        name="color"
-                        options={WorkplaceOptions}
-                        placeholder="Select Workplace type"
-                        style={{
-                          padding: "12px 14px",
-                          height: "40px",
-                          width: "100%",
-                        }}
-                        onChange={(selectedOption) =>
-                          setWorkplaceType(selectedOption.value)
-                        }
-                      />
-                    </div>
-                    <div
-                      className="position-relative text-start "
-                      style={{ marginBottom: "32px" }}
-                    >
-                      <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{ padding: "0 14px", height: "44px" }}
+                        name="country"
                       >
-                        Category
-                      </label>
-                      <Select
-                        className="basic-single"
-                        classNamePrefix="sdfsdsd"
-                        name="color"
-                        options={categoryOptions}
-                        placeholder="Information Technology"
-                        style={{ padding: "12px 14px", height: "40px" }}
-                        onChange={(selectedOption) =>
-                          setRole(selectedOption.value)
-                        }
-                      />
-                      {/* <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Select your region" /> */}
+                        {WorkplaceOptions.map((name, index) => (
+                          <option
+                            value={name?.value}
+                            className=""
+                            key={index}
+                          >
+                            {name.value}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     <div
                       className="position-relative text-start "
                       style={{ marginBottom: "32px" }}
                     >
+                      <div className="row">
+                        <div className="col-lg-6">
+                          <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                          >
+                            Category
+                          </label>
+                          <select
+                            className="form-select  "
+                            aria-label="Default select example"
+                            style={{ padding: "0 14px", height: "44px" }}
+                            name="country"
+                          >
+                            {categoryOptions.map((name, index) => (
+                              <option
+                                value={name?.value}
+                                className=""
+                                key={index}
+                              >
+                                {name.value}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="col-lg-6">
+                          <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                          >
+                            Language
+                          </label>
+                          <input
+                        type="text"
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter your Language"
+                        name="company"
+                        required
+                      />
+                        </div>
+                      </div>
+
+                    </div>
+                    <div
+                      className="position-relative text-start "
+                      style={{ marginBottom: "32px" }}>
                       <label
                         htmlFor="exampleFormControlInput1"
                         className="form-label"

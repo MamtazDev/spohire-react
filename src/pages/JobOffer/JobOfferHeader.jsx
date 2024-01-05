@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Select from "react-select";
 
 const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
   const handleSearch = () => {
@@ -73,7 +72,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
               />
             </div>
 
-            <Select
+            {/* <Select
               style={{ minHeight: "50px" }}
               options={countryNames.map((country) => ({
                 value: country.name,
@@ -121,8 +120,50 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   width: "0",
                 }),
               }}
-            />
-            <Select
+            /> */}
+
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              style={{
+                height: "50px",
+                backgroundColor: "",
+                border: "1px solid #F0F0F0", width: "268px",
+              }}
+              name="country"
+            >
+              {countryNames.map((name, index) => (
+                <option
+                  value={name?.name}
+                  className=""
+                  key={index}
+                >
+                  {name.name}
+                </option>
+              ))}
+            </select>
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              style={{
+                height: "50px",
+                backgroundColor: "",
+                border: "1px solid #F0F0F0", width: "268px",
+              }}
+              name="country"
+
+              onChange={handleChangeJobType}>
+              {options.map((name, index) => (
+                <option
+                  value={name?.value}
+                  className=""
+                  key={index}
+                >
+                  {name.value}
+                </option>
+              ))}
+            </select>
+            {/* <Select
               onChange={handleChangeJobType}
               style={{ minHeight: "50px" }}
               options={options}
@@ -168,7 +209,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                   width: "0",
                 }),
               }}
-            />
+            /> */}
 
             <button
               type="button"
