@@ -32,9 +32,9 @@ p {
 .form-select:focus{
   box-shadow:none ;
 }
-.category_wrapper ::-webkit-scrollbar {
+/* .category_wrapper ::-webkit-scrollbar {
   width:2px;
-}
+} */
 
 .tr {
   cursor: pointer;

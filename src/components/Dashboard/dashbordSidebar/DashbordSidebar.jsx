@@ -15,13 +15,11 @@ import { Accordion } from "react-bootstrap";
 import basketBallIcon from "../../../assets/basketBall-icon.svg";
 import coachesIcon from "../../../assets/coaches-icon.svg";
 import billing from "../../../assets/BILLING.png";
-import notification from "../../../assets/notification.png";
 import coach from "../../../assets/coach.png";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
 
 const DashbordSidebar = ({ user }) => {
-  console.log(user, "jjj");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -275,7 +273,7 @@ const DashbordSidebar = ({ user }) => {
                 </Accordion.Item>
               </Accordion>
 
-              <li className="nav_item">
+              {/* <li className="nav_item">
                 <Link
                   to={"#"}
                   className="text-decoration-none d-flex align-items-center gap-4"
@@ -285,7 +283,7 @@ const DashbordSidebar = ({ user }) => {
                     Help
                   </span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
