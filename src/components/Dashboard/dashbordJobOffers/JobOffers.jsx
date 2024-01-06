@@ -53,10 +53,10 @@ const JobOffers = () => {
 
       <div className="job_offer_items_wrapper">
         {allJobs?.data &&
-          allJobs?.data?.length > 0 &&
+          allJobs?.data?.length > 0 ?
           filteredJobs.map((item, index) => (
             <SingleJob key={index} item={item} />
-          ))}
+          )) : <div className="d-flex justify-content-center align-items-center fs-4" style={{ height: "70vh" }}>No job offer</div>}
       </div>
       <MobileButtons />
 

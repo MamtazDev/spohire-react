@@ -35,6 +35,7 @@ import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
 import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
 import PaymentRoute from "./PaymentRoute.jsx";
 import JobDetails from "../pages/JobOffer/JobDetails.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -115,7 +116,8 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           // <SubscribedRoute>
-          <OverView />
+          <PrivateRoute><OverView /></PrivateRoute>
+
           // </SubscribedRoute>
         ),
       },
@@ -177,7 +179,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/viewProfile",
-        element: <ViewProfile />,
+        element: <PrivateRoute><ViewProfile /></PrivateRoute>,
       },
       {
         path: "/dashboard/editPlayerDetals",

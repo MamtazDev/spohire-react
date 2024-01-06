@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useGetMyObservationsQuery } from "../../../features/observation/observationApi";
 const RecentlyObserved = () => {
   const { data, isLoading, isSuccess } = useGetMyObservationsQuery();
-  console.log(data?.data, "dddobserve");
+  // console.log(data?.data, "dddobserve");
   // target_type
   return (
     <>
@@ -17,10 +17,10 @@ const RecentlyObserved = () => {
           style={{ marginBottom: "65px" }}
         >
           <h4>Recently Observed</h4>
-          <Link to="/dashboard/observed">View More</Link>
+          {data?.data?.length > 0 && <Link to="/dashboard/observed">View More</Link>}
         </div>
         {data?.data &&
-          data?.data?.length > 0 &&
+          data?.data?.length > 0 ?
           data?.data.slice(0, 5).map((item, idx) => (
             <div key={idx}>
               {item?.target_type === "Job" && (
@@ -139,11 +139,10 @@ const RecentlyObserved = () => {
                       className="align-self-lg-center align-self-end"
                     >
                       <Link
-                        to={`${
-                          item?.target_id?.role === "Coach"
-                            ? "/dashboard/coaches"
-                            : "/dashboard/players"
-                        }`}
+                        to={`${item?.target_id?.role === "Coach"
+                          ? "/dashboard/coaches"
+                          : "/dashboard/players"
+                          }`}
                       >
                         {item?.target_id?.role}
                         {item?.target_id?.role === "Coach" ? "es" : "s"}
@@ -153,7 +152,7 @@ const RecentlyObserved = () => {
                 </div>
               )}
             </div>
-          ))}
+          )) : <div className="d-flex justify-content-center pb-5 ">No observed items found</div>}
       </div>
     </>
   );

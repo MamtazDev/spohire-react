@@ -15,13 +15,13 @@ const sports = [
   "Coach",
   "Administration",
   "Marketing",
-  "betting",
+  "Betting",
   "Customer service",
-  "manager",
-  "agent",
-  "journalist",
-  "scout",
-  "referee",
+  "Manager",
+  "Agent",
+  "Journalist",
+  "Scout",
+  "Referee",
 ];
 const country = [
   "Paris",
@@ -99,7 +99,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
     // return true;
   });
 
-  console.log(allJobs, "jooobbbb");
+  // console.log(allJobs, "jooobbbb");
 
   const handleDetails = (jobId) => {
     navigate(`/jobOffer/jobDetails/${jobId}`);
@@ -107,14 +107,14 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  const handleClick = () => {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: `You are a ${user?.role}. You are not permitted to apply for the job!`,
-    });
-    console.log("details page for job ID:", jobId);
-  };
+  // const handleClick = () => {
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: "Oops...",
+  //     text: `You are a ${user?.role}. You are not permitted to apply for the job!`,
+  //   });
+  //   console.log("details page for job ID:", jobId);
+  // };
 
   return (
     <>
@@ -195,7 +195,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
               </div>
 
               {/* pagination */}
-              {allJobs?.data && allJobs?.data?.length > itemsPerPage && (
+              {filteredJobs?.length > itemsPerPage && (
                 <Pagination
                   setCurrentPage={setCurrentPage}
                   currentPage={currentPage}

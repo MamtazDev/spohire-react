@@ -17,11 +17,7 @@ const sports = [
   "Basketball",
   "Handball",
   "Volleyball",
-  "Volleyball",
-  "Volleyball",
-  "Volleyball",
-  "Volleyball",
-  "Volleyball",
+
 ];
 const country = [
   "Paris",
@@ -80,9 +76,9 @@ const AnnouncementList = () => {
             )} */}
             {filteredAnnouncements?.length > 0
               ? filteredAnnouncements.map((item, index) => (
-                  <SingleAnnouncement key={index} item={item} />
-                ))
-              : allAnnouncements?.data?.length > 0 && <p>No data found</p>}
+                <SingleAnnouncement key={index} item={item} />
+              ))
+              : allAnnouncements?.data?.length > 0 && <p className="d-flex justify-content-center align-items-center  fs-3">No data found</p>}
           </div>
           <div className="col-lg-3">
             <AnnouncementFilterCategory

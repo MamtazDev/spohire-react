@@ -20,11 +20,11 @@ const BlankMessages = () => {
       navigate(`/dashboard/messages/${data[0]?._id}`);
     }
     setIsDataChecked(true);
-  }, [data]);
+  }, [data, dispatch, navigate]);
 
   return isDataChecked ? (
     <div className="container-fluid">
-      <div className="message_wrapper"></div>
+      <div className="message_wrapper d-flex justify-content-center align-items-center fs-4" style={{ height: "70vh" }} >No Messages</div>
     </div>
   ) : (
     <div></div>

@@ -39,17 +39,17 @@ const MessagesOverview = () => {
   const { user } = useSelector((state) => state.auth);
   const { data } = useGetUserAllConversationsQuery(user?._id);
 
-  console.log(data, "dfdff");
+  // console.log(data, "dfdff");
   return (
     <div>
       <div className="job_offer_overrview_wrapper">
         <div className="d-flex justify-content-between">
           <h4>Messages</h4>
-          <Link to="/dashboard/messages">View More</Link>
+          {data?.length > 0 && <Link to="/dashboard/messages">View More</Link>}
         </div>
 
         {data &&
-          data?.length > 0 &&
+          data?.length > 0 ?
           data.slice(0, 5).map((item, index) => (
             <>
               <div
@@ -73,7 +73,7 @@ const MessagesOverview = () => {
                 <hr className="message_overview_hr" />
               )}
             </>
-          ))}
+          )) : <div className="d-flex justify-content-center py-5">No messages found</div>}
       </div>
     </div>
   );

@@ -38,10 +38,10 @@ const DashboardAnnouncements = () => {
       >
         <div>
           {allAnnouncements?.data &&
-            allAnnouncements?.data?.length > 0 &&
+            allAnnouncements?.data?.length > 0 ?
             allAnnouncements?.data?.map((announcement, idx) => (
               <SingleAnnouncement key={idx} announcement={announcement} />
-            ))}
+            )) : <div className="d-flex justify-content-center align-items-center fs-4" style={{ height: "70vh" }}>No Announcements</div>}
         </div>
       </div>
       <DeleteModal />

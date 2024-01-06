@@ -64,8 +64,8 @@ const ObservedClone = () => {
   if (data?.data?.length === 0) {
     return (
       <div
-        className="d-flex justify-content-center align-items-center "
-        style={{ height: "70vh", fontWeight: "bold" }}
+        className="d-flex justify-content-center align-items-center fs-4"
+        style={{ height: "70vh", }}
       >
         No Bookmarks
       </div>

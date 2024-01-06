@@ -3,13 +3,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
+const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams, searchParams }) => {
   const handleSearch = () => {
     setSearchParams(filterItems);
   };
 
   const options = [
-    { value: "Coach administration", label: "Coach administration" },
+    { value: "Coach", label: "Coach" },
+    { value: "Administration", label: "Administration" },
     { value: "Marketing", label: "Marketing" },
     { value: "Betting", label: "Betting" },
     { value: "Customer service", label: "Customer service" },
@@ -40,14 +41,14 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
     // setSelectedCountry(selectedOption);
     setFilterItems({
       ...filterItems,
-      jobLocation: e.target.value,
+      jobLocation: [e.target.value],
     });
   };
-  const handleChangeJobType = (selectedOption) => {
-    setSelectedJobType(selectedOption);
+  const handleChangeJobType = (e) => {
+
     setFilterItems({
       ...filterItems,
-      jobType: [selectedOption.value],
+      jobType: [e.target.value],
     });
   };
   return (
@@ -136,7 +137,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
             >
               {countryNames.map((name, index) => (
                 <option value={name?.name} className="" key={index}>
-                  {name.name}
+                  {searchParams?.jobLocation?.includes(name?.name) && <>&#x2713;</>} {name.name}
                 </option>
 
               ))}

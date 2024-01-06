@@ -9,8 +9,8 @@ const PlayerOverview = ({ user }) => {
     user?.role === "Manager"
       ? ""
       : user?.role === "Player"
-      ? "role=Coach"
-      : "role=Player"
+        ? "role=Coach"
+        : "role=Player"
   );
   console.log(data, "duser");
   return (
@@ -21,15 +21,14 @@ const PlayerOverview = ({ user }) => {
             <h4> Players</h4>
           )}
           {user?.role === "Player" && <h4> Coachs</h4>}
-          <Link
-            to={`${
-              user?.role === "Manager" || user?.role === "Coach"
+          {data?.length > 0 && <Link
+            to={`${user?.role === "Manager" || user?.role === "Coach"
                 ? "/dashboard/players"
                 : "/dashboard/coaches"
-            }`}
+              }`}
           >
             View More
-          </Link>
+          </Link>}
         </div>
         <Table
           responsive
