@@ -16,6 +16,7 @@ const ChatProfiles = ({ user, searchText }) => {
       const searchName = `${data?.first_name + " " + data?.last_name}`;
       return searchName
         .toLocaleLowerCase()
+        // eslint-disable-next-line react/prop-types
         .includes(searchText.toLocaleLowerCase());
     } else {
       return true;
@@ -38,9 +39,8 @@ const ChatProfiles = ({ user, searchText }) => {
               key={idx}
               onClick={() => handleClick(item)}
               style={{ cursor: "pointer" }}
-              className={`${
-                selectedMsgUser?._id === item?._id && "bg-light rounded"
-              } px-2 py-1`}
+              className={`${selectedMsgUser?._id === item?._id && "bg-light rounded"
+                } px-2 py-2 my-2`}
             >
               <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
                 <div className="d-flex align-items-center gap-3 w-100 h-100">
@@ -56,7 +56,7 @@ const ChatProfiles = ({ user, searchText }) => {
 
                 <div>{/* <p>12:34</p> */}</div>
               </div>
-              <hr className="chat_line" />
+              <hr className="chat_line mt-2" />
             </div>
           ))}
         {/* <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
