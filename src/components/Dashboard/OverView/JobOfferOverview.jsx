@@ -10,7 +10,7 @@ const JobOfferOverview = () => {
       <div className="job_offer_overrview_wrapper">
         <div className="d-flex justify-content-between">
           <h4>Job Offers</h4>
-          {allJobs?.length > 0 && <Link to="/dashboard/jobOffers">View More</Link>}
+          {allJobs.data?.length > 0 && <Link to="/dashboard/jobOffers">View More</Link>}
         </div>
         {allJobs?.data &&
           allJobs?.data?.length > 0 ?
