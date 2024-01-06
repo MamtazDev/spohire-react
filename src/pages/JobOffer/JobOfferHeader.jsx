@@ -138,6 +138,7 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams }) => {
                 <option value={name?.name} className="" key={index}>
                   {name.name}
                 </option>
+
               ))}
             </select>
             <select

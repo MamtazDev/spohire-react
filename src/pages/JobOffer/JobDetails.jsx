@@ -66,9 +66,9 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
 
     return (
         <div className="container">
-            <h3 className="job_matches_title">
+            {/* <h3 className="job_matches_title">
                 We found <span>300</span> Matches for you
-            </h3>
+            </h3> */}
             <div className="row">
                 <div className="col-lg-9">
                     <div className="matchedJobs_wrapper">
@@ -116,7 +116,7 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
                                 user?.role === "Coach") ? (
                             <button className="apply_btn"
                             //  onClick={handleClick}
-                             >
+                            >
                                 Apply
                             </button>
                         ) : (
@@ -124,7 +124,7 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
                                 className="apply_btn"
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
-                                // onClick={() => setSelectedJob(item?._id)}
+                            // onClick={() => setSelectedJob(item?._id)}
                             >
                                 Apply
                             </button>
@@ -142,7 +142,7 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
                     />
                 </div>
             </div>
-            <ApplyJobs  user={user} />
+            <ApplyJobs user={user} />
         </div>
     );
 };
