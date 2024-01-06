@@ -132,7 +132,7 @@ const PaymentForm = () => {
           amount: packageInfo?.price,
         };
         const createPaymentRes = await createPayment(createPaymentData);
-        console.log(createPaymentRes, "kfjalkfred");
+        // console.log(createPaymentRes, "kfjalkfred");
 
         // navigation
         navigate("/dashboard");
@@ -305,7 +305,10 @@ const PaymentForm = () => {
               className="pay_nowbtn"
               disabled={isLoading || updating || paymentCreating || !stripe}
             >
-              {isLoading ? "Loading..." : "Pay Now"}
+              {isLoading ? <>
+                <div className="spinner-border spinner-border-sm me-2" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div> Loading...</> : "Pay Now"}
             </button>
           </div>
         </div>

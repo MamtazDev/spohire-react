@@ -123,7 +123,6 @@ const ApplyJobs = ({ selectedJob, user }) => {
     const phone = form.phone.value;
     const email = form.email.value;
     const job = selectedJob;
-    const userInfo = user?._id;
     const cv = selectedFile;
 
     const data = {
@@ -134,7 +133,6 @@ const ApplyJobs = ({ selectedJob, user }) => {
       phone,
       email,
       job,
-      userInfo,
       cv,
     };
 
@@ -244,11 +242,10 @@ const ApplyJobs = ({ selectedJob, user }) => {
                   <div className="row">
                     {formFields.map((field) => (
                       <div
-                        className={`${
-                          field.key == "name"
-                            ? "col-lg-12"
-                            : "col-lg-6 border_color"
-                        }`}
+                        className={`${field.key == "name"
+                          ? "col-lg-12"
+                          : "col-lg-6 border_color"
+                          }`}
                         key={field.key}
                       >
                         <div className="mb-4 position-relative">
@@ -333,7 +330,10 @@ const ApplyJobs = ({ selectedJob, user }) => {
                   style={{ maxWidth: "568px", width: "100%" }}
                   disabled={loading || isLoading}
                 >
-                  {loading ? "Appling..." : "Apply Now"}
+                  {loading ? <>
+                    <div className="spinner-border spinner-border-sm me-2" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div> Loading...</> : "Apply Now"}
                 </button>
               </div>
             </div>

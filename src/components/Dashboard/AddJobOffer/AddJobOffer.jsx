@@ -484,7 +484,7 @@
 //                       >
 //                         Description
 //                       </label>
-//                       <div class="input-group mb-3">
+//                       <div className="input-group mb-3">
 //                         <textarea
 //                           type="text"
 //                           style={{ height: "65px" }}
@@ -1000,7 +1000,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                       >
                         Description
                       </label>
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
                         <textarea
                           type="text"
                           style={{ height: "65px" }}

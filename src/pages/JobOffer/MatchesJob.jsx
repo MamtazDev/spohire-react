@@ -172,23 +172,23 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                           </button>
                         </div>
 
-                        {user &&
+                        {/* {user &&
                         (user?.role === "Player" ||
                           user?.role === "Manager" ||
                           user?.role === "Coach") ? (
                           <button className="apply_btn" onClick={handleClick}>
                             Apply
                           </button>
-                        ) : (
-                          <button
-                            className="apply_btn"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                            onClick={() => setSelectedJob(item?._id)}
-                          >
-                            Apply
-                          </button>
-                        )}
+                        ) : ( */}
+                        <button
+                          className="apply_btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                          onClick={() => setSelectedJob(item?._id)}
+                        >
+                          Apply
+                        </button>
+                        {/* // )} */}
                       </div>
                     </div>
                   ))}

@@ -263,14 +263,14 @@ const EditAnnouncements = () => {
                   >
                     Budget
                   </label>
-                  <div class="input-group mb-3">
+                  <div className="input-group mb-3">
                     <span
-                      class="input-group-text input_budget"
+                      className="input-group-text input_budget"
                       id="basic-addon1"
                     >
                       $
                     </span>
-                    {/* <input type="text" class="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" /> */}
+                    {/* <input type="text" className="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" /> */}
                     <input
                       type="number"
                       className="form-control"
@@ -293,11 +293,11 @@ const EditAnnouncements = () => {
                   Status
                 </label>
 
-                <div class="input-group mb-3 ">
+                <div className="input-group mb-3 ">
                   <input
                     onClick={handleUploadButtonClick}
                     type="text"
-                    class="form-control position-relative ps-5"
+                    className="form-control position-relative ps-5"
                     value={imageTitle ? imageTitle : ""}
                     placeholder="Browse file"
                     id="inputGroupFile02"
@@ -320,7 +320,7 @@ const EditAnnouncements = () => {
                     onChange={handleFileInputChange}
                   />
                   <label
-                    class="input-group-text"
+                    className="input-group-text"
                     for=""
                     onClick={handleUploadButtonClick}
                   >
@@ -336,10 +336,10 @@ const EditAnnouncements = () => {
                   >
                     Description
                   </label>
-                  <div class="input-group mb-3">
+                  <div className="input-group mb-3">
                     <textarea
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="We can't wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and we're thrilled to take"
                       aria-label="Username"
                       aria-describedby="basic-addon1"

@@ -97,7 +97,7 @@ const SignUp = () => {
   const [errorss, setErrors] = useState([]);
 
   const handleButtonError = () => {
-    console.log("djfksljfklsd");
+
     let errors = [];
     if (!button_disability) {
       setButtonErrorMessages(false);
@@ -296,11 +296,10 @@ const SignUp = () => {
                     {["Player", "Coach", "Manager"].map((data) => (
                       <>
                         <button
-                          className={`${
-                            functionType === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
+                          className={`${functionType === data
+                            ? "function_btn_active"
+                            : "function_btn"
+                            } `}
                           type="button"
                           onClick={() => setFunctionType(data)}
                         >
@@ -316,11 +315,10 @@ const SignUp = () => {
                       <>
                         <button
                           // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${
-                            sports === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
+                          className={`${sports === data
+                            ? "function_btn_active"
+                            : "function_btn"
+                            } `}
                           type="button"
                           onClick={() => setSports(data)}
                         >
@@ -338,8 +336,13 @@ const SignUp = () => {
                       className="login-btn"
                       disabled={button_disability}
                     >
-                      {isLoading ? "Creating..." : "Create account"}
-                      <img src={arrowRight} alt="img" className="ms-1" />
+                      {isLoading ? <>
+                        <div className="spinner-border spinner-border-sm me-2" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </div> Loading...</> : <>
+                        Create account <img src={arrowRight} alt="img" className="ms-1" />
+                      </>}
+
                     </button>
                   </div>
                   {errorss?.length > 0 && (

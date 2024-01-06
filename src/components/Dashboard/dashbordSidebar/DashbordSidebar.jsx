@@ -19,6 +19,7 @@ import coach from "../../../assets/coach.png";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
 
+// eslint-disable-next-line react/prop-types
 const DashbordSidebar = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -111,43 +112,43 @@ const DashbordSidebar = ({ user }) => {
                       style={{ paddingLeft: "30px" }}
                     >
                       {
-                        (user?.role === "Manager",
-                        user?.role === "Coach" && (
-                          <li className="nav_item">
-                            <Link
-                              to={"/dashboard/players"}
-                              className="text-decoration-none d-flex align-items-center gap-3"
-                            >
-                              <img src={basketBallIcon} alt="icon" />
-                              <span
-                                to={"#"}
-                                className="text_color_36 text-capitalize fs-6"
+                        ((user?.role === "Manager" ||
+                          user?.role === "Coach") && (
+                            <li className="nav_item">
+                              <Link
+                                to={"/dashboard/players"}
+                                className="text-decoration-none d-flex align-items-center gap-3"
                               >
-                                Players
-                              </span>
-                            </Link>
-                          </li>
-                        ))
+                                <img src={basketBallIcon} alt="icon" />
+                                <span
+                                  to={"#"}
+                                  className="text_color_36 text-capitalize fs-6"
+                                >
+                                  Players
+                                </span>
+                              </Link>
+                            </li>
+                          ))
                       }
 
                       {
-                        (user?.role === "Manager",
-                        user?.role === "Player" && (
-                          <li className="">
-                            <Link
-                              to="/dashboard/coaches"
-                              className="text-decoration-none d-flex align-items-center gap-3"
-                            >
-                              <img src={coachesIcon} alt="icon" />
-                              <span
-                                to={"#"}
-                                className="text_color_36 text-capitalize fs-6"
+                        ((user?.role === "Manager" ||
+                          user?.role === "Player") && (
+                            <li className="">
+                              <Link
+                                to="/dashboard/coaches"
+                                className="text-decoration-none d-flex align-items-center gap-3"
                               >
-                                Coaches
-                              </span>
-                            </Link>
-                          </li>
-                        ))
+                                <img src={coachesIcon} alt="icon" />
+                                <span
+                                  to={"#"}
+                                  className="text_color_36 text-capitalize fs-6"
+                                >
+                                  Coaches
+                                </span>
+                              </Link>
+                            </li>
+                          ))
                       }
                     </ul>
                   </Accordion.Body>

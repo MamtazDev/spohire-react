@@ -92,7 +92,10 @@ const Login = () => {
                       disabled={isLoading}
                     >
                       {isLoading ? (
-                        "Logging..."
+                        <>
+                          <div className="spinner-border spinner-border-sm me-2" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div> Loading...</>
                       ) : (
                         <>
                           Log in{" "}

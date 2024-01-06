@@ -20,7 +20,7 @@ const Header = () => {
 
   const navigate = useNavigate();
   const closeModalAndNavigate = () => {
-    navigate("/signup");
+    navigate("/login");
   };
 
   const handleFilterModal = () => {
@@ -116,15 +116,15 @@ const Header = () => {
                   <button className="logIn visibility-lg-hidden visually-visible">
                     Log in
                   </button>
-                    <Link
-                      to="/signup"
-                      type="submit"
-                      className="text-decoration-none"
-                    >
-                  <button className="authBtn btnNone visibility-lg-hidden visually-visible">
+                  <Link
+                    to="/signup"
+                    type="submit"
+                    className="text-decoration-none"
+                  >
+                    <button className="authBtn btnNone visibility-lg-hidden visually-visible">
                       Sign Up
-                  </button>
-                    </Link>
+                    </button>
+                  </Link>
                 </div>
               </>
             )}
@@ -188,7 +188,6 @@ const Header = () => {
                       >
                         <Link
                           to="/login"
-                          type="submit"
                           className="text-decoration-none text-dark"
                         >
                           LOG IN
@@ -260,15 +259,15 @@ const Header = () => {
                 <Link to="/login" className="logIn">
                   Log in
                 </Link>
-                  <Link
-                    to="/signup"
-                    type="submit"
-                    className="text-decoration-none"
-                  >
-                <button className="authBtn btnNone">
-               <span>     Sign Up</span>
-                </button>
-                  </Link>
+                <Link
+                  to="/signup"
+                  type="submit"
+                  className="text-decoration-none"
+                >
+                  <button className="authBtn btnNone">
+                    <span>     Sign Up</span>
+                  </button>
+                </Link>
               </form>
             )}
           </Navbar.Collapse>
