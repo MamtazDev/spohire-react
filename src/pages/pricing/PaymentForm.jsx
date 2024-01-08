@@ -275,7 +275,10 @@ const PaymentForm = () => {
                     onChange={handleInputChange}
                     name="nationality"
                   >
-                    <option disabled> Select country</option>
+                    <option disabled selected>
+                      {" "}
+                      Select country
+                    </option>
                     {countryNames.map((name, index) => (
                       <option value={name.code} key={index}>
                         {name.name}
@@ -305,10 +308,19 @@ const PaymentForm = () => {
               className="pay_nowbtn"
               disabled={isLoading || updating || paymentCreating || !stripe}
             >
-              {isLoading ? <>
-                <div className="spinner-border spinner-border-sm me-2" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div> Loading...</> : "Pay Now"}
+              {isLoading ? (
+                <>
+                  <div
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>{" "}
+                  Loading...
+                </>
+              ) : (
+                "Pay Now"
+              )}
             </button>
           </div>
         </div>

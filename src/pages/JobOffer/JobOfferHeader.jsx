@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams, searchParams }) => {
+const JobOfferHeader = ({
+  filterItems,
+  setFilterItems,
+  setSearchParams,
+  searchParams,
+}) => {
   const handleSearch = () => {
     setSearchParams(filterItems);
   };
@@ -23,6 +28,40 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams, searchPa
   const [countryNames, setCountryNames] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedJobType, setSelectedJobType] = useState(null);
+
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleCheckboxChange = (event, name) => {
+    event.preventDefault(); // Prevent the default behavior to keep the dropdown open
+
+    if (searchParams?.jobLocation?.includes(name)) {
+      const newSelectedCountries = searchParams?.jobLocation?.filter(
+        (i) => i !== name
+      );
+      setSearchParams({ ...searchParams, jobLocation: newSelectedCountries });
+    } else {
+      const previousjobLocation = searchParams?.jobLocation || [];
+      setSearchParams({
+        ...searchParams,
+        jobLocation: [...previousjobLocation, name],
+      });
+    }
+  };
+
+  const handleDocumentClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentClick);
+    };
+  }, []);
 
   useEffect(() => {
     axios
@@ -45,7 +84,6 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams, searchPa
     });
   };
   const handleChangeJobType = (e) => {
-
     setFilterItems({
       ...filterItems,
       jobType: [e.target.value],
@@ -123,25 +161,55 @@ const JobOfferHeader = ({ filterItems, setFilterItems, setSearchParams, searchPa
               }}
             /> */}
 
-            <select
-              className="form-select"
-              aria-label="Default select example"
-              style={{
-                height: "50px",
-                backgroundColor: "",
-                border: "1px solid #F0F0F0",
-                width: "268px",
-              }}
-              name="country"
-              onChange={handleChange}
-            >
-              {countryNames.map((name, index) => (
-                <option value={name?.name} className="" key={index}>
-                  {searchParams?.jobLocation?.includes(name?.name) && <>&#x2713;</>} {name.name}
-                </option>
-
-              ))}
-            </select>
+            <div className="dropdown" ref={dropdownRef}>
+              <button
+                className="btn dropdown-toggle country-dropdown"
+                type="button"
+                id="dropdownMenuButton"
+                aria-haspopup="true"
+                aria-expanded={showDropdown}
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                Select Countries
+              </button>
+              {showDropdown && (
+                <div
+                  className="dropdown-menu show"
+                  aria-labelledby="dropdownMenuButton"
+                  style={{
+                    maxHeight: "500px",
+                    overflowY: "auto",
+                    width: "300px",
+                  }}
+                  onMouseDown={(event) => event.stopPropagation()} // Prevent event propagation
+                >
+                  {countryNames.map((name, index) => (
+                    <div key={index} className="form-check">
+                      <div
+                        className="d-flex align-items-center"
+                        style={{ cursor: "pointer" }}
+                        onClick={(event) =>
+                          handleCheckboxChange(event, name.name)
+                        }
+                      >
+                        <div style={{ width: "20px", marginRight: "5px" }}>
+                          {searchParams?.jobLocation?.includes(name.name) && (
+                            <>&#10003;</>
+                          )}
+                        </div>
+                        <label
+                          className="form-check-label"
+                          htmlFor={`flexCheck${name.name}`}
+                          style={{ cursor: "pointer" }}
+                        >
+                          {name.name}
+                        </label>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
             <select
               className="form-select"
               aria-label="Default select example"
