@@ -9,8 +9,8 @@ const PlayerOverview = ({ user }) => {
     user?.role === "Manager"
       ? ""
       : user?.role === "Player"
-        ? "role=Coach"
-        : "role=Player"
+      ? "role=Coach"
+      : "role=Player"
   );
   console.log(data, "duser");
   return (
@@ -21,14 +21,17 @@ const PlayerOverview = ({ user }) => {
             <h4> Players</h4>
           )}
           {user?.role === "Player" && <h4> Coachs</h4>}
-          {data?.length > 0 && <Link
-            to={`${user?.role === "Manager" || user?.role === "Coach"
-                ? "/dashboard/players"
-                : "/dashboard/coaches"
+          {data && data?.length > 0 && (
+            <Link
+              to={`${
+                user?.role === "Manager" || user?.role === "Coach"
+                  ? "/dashboard/players"
+                  : "/dashboard/coaches"
               }`}
-          >
-            View More
-          </Link>}
+            >
+              View More
+            </Link>
+          )}
         </div>
         <Table
           responsive
@@ -40,7 +43,7 @@ const PlayerOverview = ({ user }) => {
           <tbody>
             {data &&
               data?.length > 0 &&
-              data.slice(0, 6).map((item, idx) => (
+              data?.slice(0, 6).map((item, idx) => (
                 <tr className="table_hover" key={idx}>
                   <td>
                     <div className="player_info d-flex align-items-center gap-2">

@@ -10,10 +10,11 @@ const JobOfferOverview = () => {
       <div className="job_offer_overrview_wrapper">
         <div className="d-flex justify-content-between">
           <h4>Job Offers</h4>
-          {allJobs.data?.length > 0 && <Link to="/dashboard/jobOffers">View More</Link>}
+          {allJobs?.data && allJobs.data?.length > 0 && (
+            <Link to="/dashboard/jobOffers">View More</Link>
+          )}
         </div>
-        {allJobs?.data &&
-          allJobs?.data?.length > 0 ?
+        {allJobs?.data && allJobs?.data?.length > 0 ? (
           allJobs?.data.slice(0, 3).map((item, idx) => (
             <>
               <div
@@ -36,7 +37,12 @@ const JobOfferOverview = () => {
                 </div>
               </div>
             </>
-          )) : <div className="d-flex justify-content-center py-5">No job offers found</div>}
+          ))
+        ) : (
+          <div className="d-flex justify-content-center py-5">
+            No job offers found
+          </div>
+        )}
       </div>
     </>
   );

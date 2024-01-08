@@ -18,11 +18,12 @@ const AnnouncementOverview = () => {
       >
         <div className="d-flex justify-content-between">
           <h4>Announcements</h4>
-          {allAnnouncements?.data?.length > 0 && <Link to="/dashboard/announcements">View More</Link>}
+          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 && (
+            <Link to="/dashboard/announcements">View More</Link>
+          )}
         </div>
         {/* list */}
-        {allAnnouncements?.data &&
-          allAnnouncements?.data.length > 0 ?
+        {allAnnouncements?.data && allAnnouncements?.data.length > 0 ? (
           allAnnouncements?.data.slice(0, 3).map((item, idx) => (
             <div
               className="announcelist_wrapper1"
@@ -66,7 +67,12 @@ const AnnouncementOverview = () => {
                 </div>
               </div>
             </div>
-          )) : <div className="d-flex justify-content-center py-5">No announcement found</div>}
+          ))
+        ) : (
+          <div className="d-flex justify-content-center py-5">
+            No announcement found
+          </div>
+        )}
       </div>
     </>
   );

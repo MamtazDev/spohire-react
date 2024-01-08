@@ -116,7 +116,7 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           // <SubscribedRoute>
-          <PrivateRoute><OverView /></PrivateRoute>
+          <OverView />
 
           // </SubscribedRoute>
         ),
@@ -179,7 +179,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/viewProfile",
-        element: <PrivateRoute><ViewProfile /></PrivateRoute>,
+        element: (
+          // <PrivateRoute>
+          <ViewProfile />
+          // </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/editPlayerDetals",

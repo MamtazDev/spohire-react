@@ -25,12 +25,15 @@ const Login = () => {
 
     try {
       const response = await loginUser(data);
-      if (response?.data?.user?.isSubsCribed) {
+      if (response?.data?.user) {
         navigate("/dashboard");
       }
-      if (response?.data && !response?.data?.user?.isSubsCribed) {
-        navigate("/pricing");
-      }
+      // if (response?.data?.user?.isSubsCribed) {
+      //   navigate("/dashboard");
+      // }
+      // if (response?.data && !response?.data?.user?.isSubsCribed) {
+      //   navigate("/pricing");
+      // }
       if (response?.error?.data?.message) {
         Swal.fire({
           icon: "error",
@@ -64,7 +67,10 @@ const Login = () => {
                 <p>Fill all input to Login on your account</p>
                 <form onSubmit={handleSubmit}>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-regular fa-envelope" style={{ color: "#9CA3A9" }}></i>
+                    <i
+                      className="fa-regular fa-envelope"
+                      style={{ color: "#9CA3A9" }}
+                    ></i>
                     <label htmlFor="">Email Address</label>
                     <input
                       type="email"
@@ -75,7 +81,10 @@ const Login = () => {
                     />
                   </div>
                   <div className="right-inner-addon input-container">
-                    <i className="fa-solid fa-lock" style={{ color: "#9CA3A9" }}></i>
+                    <i
+                      className="fa-solid fa-lock"
+                      style={{ color: "#9CA3A9" }}
+                    ></i>
                     <label htmlFor="">Password</label>
                     <input
                       type="password"
@@ -93,9 +102,14 @@ const Login = () => {
                     >
                       {isLoading ? (
                         <>
-                          <div className="spinner-border spinner-border-sm me-2" role="status">
+                          <div
+                            className="spinner-border spinner-border-sm me-2"
+                            role="status"
+                          >
                             <span className="visually-hidden">Loading...</span>
-                          </div> Loading...</>
+                          </div>{" "}
+                          Loading...
+                        </>
                       ) : (
                         <>
                           Log in{" "}
