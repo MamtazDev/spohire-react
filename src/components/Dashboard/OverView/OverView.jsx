@@ -6,6 +6,7 @@ import "./OverView.css";
 import PlayerOverview from "./PlayerOverview";
 import RecentlyObserved from "./RecentlyObserved";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const OverView = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const { user } = useSelector((state) => state.auth);
@@ -26,12 +27,30 @@ const OverView = () => {
 
   return (
     <>
-    
       <div className="overview_wrapper">
         <div className="d-flex align-items-center justify-content-between">
-          <h1>
-            Hello {user?.first_name} {user?.last_name}!
-          </h1>
+          <div className="d-flex">
+            <h1>
+              Hello {user?.first_name} {user?.last_name}!
+            </h1>
+            {!user?.isCreatedProfile && (
+              <button className="ms-4 edit_player_profile  ">
+                {" "}
+                <Link
+                  className="text-white"
+                  style={{
+                    fontSize: "12px",
+                    textTransform: "capitalize",
+                    letterSpacing: "2px",
+                    fontWeight: "400",
+                  }}
+                  to="/addProfile"
+                >
+                  Create Profile
+                </Link>
+              </button>
+            )}
+          </div>
           <div className="date">
             <h3>{dayOfWeek}</h3>
             <p>

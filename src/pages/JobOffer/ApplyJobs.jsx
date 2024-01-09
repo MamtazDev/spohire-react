@@ -123,8 +123,6 @@ const ApplyJobs = ({ selectedJob, user }) => {
     const job = selectedJob?._id;
     const creator = selectedJob?.creator;
     const cv = selectedFile;
-    // const creator =
-
     const data = {
       name,
       region,
