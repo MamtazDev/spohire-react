@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import twitter from "../../../assets/twiter1.png";
 import facebook from "../../../assets/fb1.png";
 import youtube from "../../../assets/yt1.png";
@@ -102,7 +102,6 @@ const FirstStep = ({ setStep }) => {
   };
   const [countryNames, setCountryNames] = useState([]);
 
-
   useEffect(() => {
     axios
       .get(
@@ -115,7 +114,6 @@ const FirstStep = ({ setStep }) => {
         console.log(error);
       });
   }, []);
-
 
   return (
     <div className="login_wrapper player_wrapper">
@@ -211,13 +209,13 @@ const FirstStep = ({ setStep }) => {
                   border: "1px solid #F0F0F0",
                 }}
                 name="country"
+                onChange={(e) => setAdditionalNationality(e.target.value)}
               >
+                <option selected disabled>
+                  Select country
+                </option>
                 {countryNames.map((name, index) => (
-                  <option
-                    value={name?.name}
-                    className=""
-                    key={index}
-                  >
+                  <option value={name?.name} key={index}>
                     {name.name}
                   </option>
                 ))}
@@ -245,7 +243,7 @@ const FirstStep = ({ setStep }) => {
                     className="w-100 p-2"
                     type="text"
                     value={user?.date_of_birth?.split(" ")[1]}
-                    style={{ fontSize: "10px", color: "#9c9c9c", }}
+                    style={{ fontSize: "10px", color: "#9c9c9c" }}
                     readOnly
                   />
                 </div>
@@ -327,7 +325,7 @@ const FirstStep = ({ setStep }) => {
                 type="text"
                 className="w-100 p-2"
                 value={user?.phone_number?.country_code}
-                style={{ fontSize: "10px", color: "#9c9c9c",height:"46px" }}
+                style={{ fontSize: "10px", color: "#9c9c9c", height: "46px" }}
                 readOnly
               />
             </div>
@@ -465,7 +463,19 @@ const FirstStep = ({ setStep }) => {
                 !additionalNationality || socials?.length === 0 || isLoading
               }
             >
-              {isLoading ? "Updating.." : "Next"}
+              {isLoading ? (
+                <>
+                  <div
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>{" "}
+                  Loading...
+                </>
+              ) : (
+                "Next"
+              )}
             </button>
             {/* </Link> */}
 

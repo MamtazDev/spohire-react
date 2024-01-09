@@ -233,7 +233,19 @@ const SecondStep = ({ setStep }) => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "Updating..." : "Next"}
+              {isLoading ? (
+                <>
+                  <div
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>{" "}
+                  Loading...
+                </>
+              ) : (
+                "Next"
+              )}
             </button>
             <button className="prev_btn">
               <Link to="/pricing" className="text-dark">

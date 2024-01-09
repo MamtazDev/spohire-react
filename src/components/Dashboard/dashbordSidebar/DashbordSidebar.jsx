@@ -10,6 +10,7 @@ import observedIcon from "../../../assets/observed-icon.svg";
 import messageIcon from "../../../assets/messages-icon.svg";
 import settingsIcon from "../../../assets/settings-icon.svg";
 import helpIcon from "../../../assets/help-icon.svg";
+import appliedJobsIcon from "../../../assets/appliedJobsIcon.svg";
 import logoutIcon from "../../../assets/logout-icon.svg";
 import { Accordion } from "react-bootstrap";
 import basketBallIcon from "../../../assets/basketBall-icon.svg";
@@ -111,45 +112,40 @@ const DashbordSidebar = ({ user }) => {
                       className="list-unstyled"
                       style={{ paddingLeft: "30px" }}
                     >
-                      {
-                        ((user?.role === "Manager" ||
-                          user?.role === "Coach") && (
-                            <li className="nav_item">
-                              <Link
-                                to={"/dashboard/players"}
-                                className="text-decoration-none d-flex align-items-center gap-3"
-                              >
-                                <img src={basketBallIcon} alt="icon" />
-                                <span
-                                  to={"#"}
-                                  className="text_color_36 text-capitalize fs-6"
-                                >
-                                  Players
-                                </span>
-                              </Link>
-                            </li>
-                          ))
-                      }
+                      {(user?.role === "Manager" || user?.role === "Coach") && (
+                        <li className="nav_item">
+                          <Link
+                            to={"/dashboard/players"}
+                            className="text-decoration-none d-flex align-items-center gap-3"
+                          >
+                            <img src={basketBallIcon} alt="icon" />
+                            <span
+                              to={"#"}
+                              className="text_color_36 text-capitalize fs-6"
+                            >
+                              Players
+                            </span>
+                          </Link>
+                        </li>
+                      )}
 
-                      {
-                        ((user?.role === "Manager" ||
-                          user?.role === "Player") && (
-                            <li className="">
-                              <Link
-                                to="/dashboard/coaches"
-                                className="text-decoration-none d-flex align-items-center gap-3"
-                              >
-                                <img src={coachesIcon} alt="icon" />
-                                <span
-                                  to={"#"}
-                                  className="text_color_36 text-capitalize fs-6"
-                                >
-                                  Coaches
-                                </span>
-                              </Link>
-                            </li>
-                          ))
-                      }
+                      {(user?.role === "Manager" ||
+                        user?.role === "Player") && (
+                        <li className="">
+                          <Link
+                            to="/dashboard/coaches"
+                            className="text-decoration-none d-flex align-items-center gap-3"
+                          >
+                            <img src={coachesIcon} alt="icon" />
+                            <span
+                              to={"#"}
+                              className="text_color_36 text-capitalize fs-6"
+                            >
+                              Coaches
+                            </span>
+                          </Link>
+                        </li>
+                      )}
                     </ul>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -163,6 +159,17 @@ const DashbordSidebar = ({ user }) => {
                   <img src={jobOfferIcon} alt="icon" />
                   <span className="text_color_36 text-capitalize fs-6">
                     Job Offers
+                  </span>
+                </Link>
+              </li>
+              <li className="nav_item">
+                <Link
+                  to={"/dashboard/appliedJobs"}
+                  className="text-decoration-none d-flex align-items-center gap-4"
+                >
+                  <img src={appliedJobsIcon} alt="icon" />
+                  <span className="text_color_36 text-capitalize fs-6">
+                    Applied job
                   </span>
                 </Link>
               </li>

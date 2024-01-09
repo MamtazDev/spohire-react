@@ -36,6 +36,7 @@ import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
 import PaymentRoute from "./PaymentRoute.jsx";
 import JobDetails from "../pages/JobOffer/JobDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import AppliedJobs from "../components/Dashboard/dashbordJobOffers/AppliedJobs.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -124,9 +125,17 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/jobOffers",
         element: (
-          <SubscribedRoute>
-            <JobOffers />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <JobOffers />
+          // </SubscribedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/appliedJobs",
+        element: (
+          // <SubscribedRoute>
+          <AppliedJobs />
+          // </SubscribedRoute>
         ),
       },
       {
@@ -164,105 +173,108 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/editCoacheProfile",
         element: (
-          <SubscribedRoute>
-            <EditCoachProfile />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <EditCoachProfile />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/viewDetails/:id",
         element: (
-          <SubscribedRoute>
-            <ViewDetails />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <ViewDetails />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/viewProfile",
         element: (
-          // <PrivateRoute>
-          <ViewProfile />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <ViewProfile />
+          </PrivateRoute>
         ),
       },
       {
         path: "/dashboard/editPlayerDetals",
         element: (
-          <SubscribedRoute>
+          // <SubscribedRoute>
+          <PrivateRoute>
             <EditPlayerDetails />
-          </SubscribedRoute>
+          </PrivateRoute>
+
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/messages/:id",
         element: (
-          <SubscribedRoute>
-            <Messages />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <Messages />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/messages",
         element: (
-          <SubscribedRoute>
-            <BlankMessages />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <BlankMessages />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/observed",
         element: (
-          <SubscribedRoute>
-            <ObservedClone />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <ObservedClone />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/billing",
         element: (
-          <SubscribedRoute>
-            <Billing />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <Billing />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/notification",
         element: (
-          <SubscribedRoute>
-            <Notification />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <Notification />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/password",
         element: (
-          <SubscribedRoute>
-            <Password />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <Password />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/announcements",
         element: (
-          <SubscribedRoute>
-            <DashboardAnnouncements />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <DashboardAnnouncements />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/editAnnouncements",
         element: (
-          <SubscribedRoute>
-            <EditAnnouncements />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <EditAnnouncements />
+          // </SubscribedRoute>
         ),
       },
       {
         path: "/dashboard/createAnnouncements",
         element: (
-          <SubscribedRoute>
-            <CreateAnnouncements />
-          </SubscribedRoute>
+          // <SubscribedRoute>
+          <CreateAnnouncements />
+          // </SubscribedRoute>
         ),
       },
     ],

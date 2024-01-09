@@ -310,7 +310,6 @@
 //                               City
 //                             </label>
 
-
 //                             <input
 //                               type="text"
 //                               className="form-control"
@@ -518,7 +517,6 @@
 
 // export default AddJobOffer;
 
-
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
@@ -532,6 +530,7 @@ import "./AddJobOffer.css";
 import { useAddJobMutation } from "../../../features/job/jobApi";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const options = [
   { value: "Full-time", label: "Full-time" },
@@ -541,7 +540,8 @@ const options = [
 ];
 
 const categoryOptions = [
-  { value: "Coach administration", label: "Coach administration" },
+  { value: "Coach", label: "Coach" },
+  { value: "Administration", label: "Administration" },
   { value: "Marketing", label: "Marketing" },
   { value: "Betting", label: "Betting" },
   { value: "Customer service", label: "Customer service" },
@@ -559,13 +559,13 @@ const WorkplaceOptions = [
 ];
 
 const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
+  const { user } = useSelector((state) => state.auth);
   const [image, setImage] = useState("");
   const [imageFile, setImageFIle] = useState(null);
   const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   const [workplaceType, setWorkplaceType] = useState("");
-
 
   const [countryNames, setCountryNames] = useState([]);
   const [role, setRole] = useState("");
@@ -578,7 +578,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     setLoading(true);
 
     const form = e.target;
-
+    const creator = user?._id;
     const title = form.title.value;
     const language = form.language.value;
     const company = form.company.value;
@@ -601,6 +601,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
     fromData.append("jobType", jobType);
     fromData.append("salary", salary);
     fromData.append("description", description);
+    fromData.append("creator", creator);
 
     try {
       const response = await addJob(fromData);
@@ -764,8 +765,13 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                             }}
                             name="country"
                             value={selectedCountry}
-                            onChange={(event) => handleChange(event.target.value)}
+                            onChange={(event) =>
+                              handleChange(event.target.value)
+                            }
                           >
+                            <option selected disabled>
+                              Select country
+                            </option>
                             {countryNames.map((country, index) => (
                               <option
                                 value={country.name}
@@ -776,8 +782,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               </option>
                             ))}
                           </select>
-
-
                         </div>
                         <div className="col-lg-6">
                           <div
@@ -828,9 +832,12 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                           padding: "0 14px",
                         }}
                         name="jobType"
-                        value={jobType}
+                        // value={jobType}
                         onChange={(event) => handleJobType(event.target.value)}
                       >
+                        <option selected disabled>
+                          Select Type
+                        </option>
                         {options.map((country, index) => (
                           <option
                             value={country.value}
@@ -841,7 +848,6 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                           </option>
                         ))}
                       </select>
-
                     </div>
                   </div>
                   <div className="col-lg-6 ">
@@ -888,15 +894,15 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                           padding: "0 14px",
                         }}
                         name="workplaceType"
-                        value={workplaceType}
-                        onChange={(event) => handleWorkPlaceType(event.target.value)}
+                        onChange={(event) =>
+                          handleWorkPlaceType(event.target.value)
+                        }
                       >
+                        <option selected disabled>
+                          Select Type
+                        </option>
                         {WorkplaceOptions.map((country, index) => (
-                          <option
-                            value={country.value}
-                            className=""
-                            key={index}
-                          >
+                          <option value={country.value} key={index}>
                             {country.value}
                           </option>
                         ))}
@@ -935,9 +941,14 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                               padding: "0 14px",
                             }}
                             name="workplaceType"
-                            value={role}
-                            onChange={(event) => handleCategory(event.target.value)}
+                            // value={role}
+                            onChange={(event) =>
+                              handleCategory(event.target.value)
+                            }
                           >
+                            <option selected disabled>
+                              Select Type
+                            </option>
                             {categoryOptions.map((category, index) => (
                               <option
                                 value={category.value}

@@ -88,10 +88,8 @@ const ApplyJobs = ({ selectedJob, user }) => {
   const [applyForTheJob, { isLoading }] = useApplyForTheJobMutation();
   const [loading, setLoading] = useState(false);
 
-
   const [countryNames, setCountryNames] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-
 
   const closeButtonRef = useRef(null);
 
@@ -122,8 +120,10 @@ const ApplyJobs = ({ selectedJob, user }) => {
     const expected_salary = form.salary.value;
     const phone = form.phone.value;
     const email = form.email.value;
-    const job = selectedJob;
+    const job = selectedJob?._id;
+    const creator = selectedJob?.creator;
     const cv = selectedFile;
+    // const creator =
 
     const data = {
       name,
@@ -134,6 +134,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
       email,
       job,
       cv,
+      creator,
     };
 
     const formData = new FormData();
@@ -242,10 +243,11 @@ const ApplyJobs = ({ selectedJob, user }) => {
                   <div className="row">
                     {formFields.map((field) => (
                       <div
-                        className={`${field.key == "name"
-                          ? "col-lg-12"
-                          : "col-lg-6 border_color"
-                          }`}
+                        className={`${
+                          field.key == "name"
+                            ? "col-lg-12"
+                            : "col-lg-6 border_color"
+                        }`}
                         key={field.key}
                       >
                         <div className="mb-4 position-relative">
@@ -272,6 +274,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
                                     value={name?.name}
                                     className=""
                                     key={index}
+                                    selected={index === 0}
                                   >
                                     {name.name}
                                   </option>
@@ -330,10 +333,19 @@ const ApplyJobs = ({ selectedJob, user }) => {
                   style={{ maxWidth: "568px", width: "100%" }}
                   disabled={loading || isLoading}
                 >
-                  {loading ? <>
-                    <div className="spinner-border spinner-border-sm me-2" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div> Loading...</> : "Apply Now"}
+                  {loading ? (
+                    <>
+                      <div
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                      >
+                        <span className="visually-hidden">Loading...</span>
+                      </div>{" "}
+                      Loading...
+                    </>
+                  ) : (
+                    "Apply Now"
+                  )}
                 </button>
               </div>
             </div>

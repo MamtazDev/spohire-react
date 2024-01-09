@@ -166,7 +166,10 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                         <div className="job_details">
                           {" "}
                           {item.description}
-                          <button className="ps-2" onClick={() => handleDetails(item._id)}>
+                          <button
+                            className="ps-2"
+                            onClick={() => handleDetails(item._id)}
+                          >
                             {" "}
                             Learn More
                           </button>
@@ -184,7 +187,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                           className="apply_btn"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
-                          onClick={() => setSelectedJob(item?._id)}
+                          onClick={() => setSelectedJob(item)}
                         >
                           Apply
                         </button>
