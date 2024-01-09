@@ -162,17 +162,19 @@ const DashbordSidebar = ({ user }) => {
                   </span>
                 </Link>
               </li>
-              <li className="nav_item">
-                <Link
-                  to={"/dashboard/appliedJobs"}
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
-                  <img src={appliedJobsIcon} alt="icon" />
-                  <span className="text_color_36 text-capitalize fs-6">
-                    Applied job
-                  </span>
-                </Link>
-              </li>
+              {user?.role !== "Player" && (
+                <li className="nav_item">
+                  <Link
+                    to={"/dashboard/appliedJobs"}
+                    className="text-decoration-none d-flex align-items-center gap-4"
+                  >
+                    <img src={appliedJobsIcon} alt="icon" />
+                    <span className="text_color_36 text-capitalize fs-6">
+                      Applied job
+                    </span>
+                  </Link>
+                </li>
+              )}
 
               <li className="nav_item">
                 <Link
