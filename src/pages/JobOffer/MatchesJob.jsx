@@ -99,7 +99,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
     // return true;
   });
 
-  // console.log(allJobs, "jooobbbb");
+  console.log(allJobs, "jooobbbb");
 
   const handleDetails = (jobId) => {
     navigate(`/jobOffer/jobDetails/${jobId}`);
@@ -133,7 +133,15 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                       <div className="matchedJobs_wrapper">
                         <div className="d-flex gap-4 align-items-center">
                           <div className="tennis_logo">
-                            <img src={tennis} alt="" />
+                            <img
+                              src={`${
+                                process.env.NODE_ENV !== "production"
+                                  ? import.meta.env.VITE_LOCAL_API_URL
+                                  : import.meta.env.VITE_LIVE_API_URL
+                              }/api/v1/uploads/${item?.club_logo}`}
+                              alt=""
+                              style={{ objectFit: "cover" }}
+                            />
                           </div>
                           <div className="tennis_desc">
                             <p>{item?.job_title}</p>

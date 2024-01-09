@@ -75,11 +75,13 @@ function SingleJob({ item }) {
   // const handleBookmark = () => {
   //   setBookmark(!bookmark);
   // };
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   const handleViewPdf = async () => {
     // const blob = new Blob([item.cv]);
     // const url = URL.createObjectURL(blob);
     // window.open(url, "_blank");
+    setPdfLoading(true);
     try {
       const response = await axios.get(
         `${
@@ -91,16 +93,21 @@ function SingleJob({ item }) {
           responseType: "arraybuffer",
         }
       ); // Replace 'your-pdf-id' with the actual PDF ID
-
       const blob = new Blob([response.data], {
         type: response.headers["content-type"],
       });
       const url = URL.createObjectURL(blob);
       window.open(url, "_blank");
+      setPdfLoading(false);
     } catch (error) {
-      alert("fff");
+      setPdfLoading(false);
       console.error("Error fetching PDF:", error.message);
     }
+    // const blob = new Blob([item.cv], {
+    //   type: "application/pdf",
+    // });
+    // const url = URL.createObjectURL(blob);
+    // window.open(url, "_blank");
   };
 
   return (
@@ -195,14 +202,22 @@ function SingleJob({ item }) {
             </div>
           </div>
           <div className="right">
-            <button
-              className="bg-none d-flex flex-column align-items-center gap-2"
-              onClick={handleViewPdf}
-              //   disabled={isLoading}
-            >
-              <img src={pdfIcon} alt="" />
-              <span>Download CV</span>
-            </button>
+            {pdfLoading ? (
+              <div class="text-center me-5">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : (
+              <button
+                className="bg-none d-flex flex-column align-items-center gap-2"
+                onClick={handleViewPdf}
+                //   disabled={isLoading}
+              >
+                <img src={pdfIcon} alt="" />
+                <span>Download CV</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

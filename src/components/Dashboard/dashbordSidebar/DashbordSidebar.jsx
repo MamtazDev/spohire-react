@@ -10,7 +10,7 @@ import observedIcon from "../../../assets/observed-icon.svg";
 import messageIcon from "../../../assets/messages-icon.svg";
 import settingsIcon from "../../../assets/settings-icon.svg";
 import helpIcon from "../../../assets/help-icon.svg";
-import appliedJobsIcon from "../../../assets/appliedJobsIcon.svg";
+import appliedJobsIcon from "../../../assets/AppliedIcon.svg";
 import logoutIcon from "../../../assets/logout-icon.svg";
 import { Accordion } from "react-bootstrap";
 import basketBallIcon from "../../../assets/basketBall-icon.svg";
