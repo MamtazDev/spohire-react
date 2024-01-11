@@ -4,6 +4,7 @@ import { useGetAllJobsQuery } from "../../../features/job/jobApi";
 
 const JobOfferOverview = () => {
   const { data: allJobs } = useGetAllJobsQuery();
+  console.log(allJobs?.data, "dfskfj");
 
   return (
     <>
@@ -22,7 +23,24 @@ const JobOfferOverview = () => {
                 className="d-flex align-items-center gap-2 joboffer_ov_wrapper"
               >
                 <div className="job_offer_item_img">
-                  <img src={footBallCoachImg} alt="img" />
+                  <img
+                    src={
+                      item?.club_logo
+                        ? `${
+                            process.env.NODE_ENV !== "production"
+                              ? import.meta.env.VITE_LOCAL_API_URL
+                              : import.meta.env.VITE_LIVE_API_URL
+                          }/api/v1/uploads/${item?.club_logo}`
+                        : footBallCoachImg
+                    }
+                    alt="img"
+                    style={{
+                      height: "47px",
+                      width: "47px",
+                      borderRadius: "8px",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
 
                 <div className="job_offer_item_content">

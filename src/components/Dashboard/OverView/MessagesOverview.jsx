@@ -48,8 +48,7 @@ const MessagesOverview = () => {
           {data?.length > 0 && <Link to="/dashboard/messages">View More</Link>}
         </div>
 
-        {data &&
-          data?.length > 0 ?
+        {data && data?.length > 0 ? (
           data.slice(0, 5).map((item, index) => (
             <>
               <div
@@ -58,7 +57,24 @@ const MessagesOverview = () => {
               >
                 <div className="d-flex align-items-center gap-2">
                   <div>
-                    <img src={profile} alt="profile" />
+                    <img
+                      src={
+                        item?.image
+                          ? `${
+                              process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                            }/api/v1/uploads/${item?.image}`
+                          : profile
+                      }
+                      alt="profile"
+                      style={{
+                        height: "46px",
+                        width: "46px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
                   </div>
                   <div>
                     <h5>
@@ -73,7 +89,12 @@ const MessagesOverview = () => {
                 <hr className="message_overview_hr" />
               )}
             </>
-          )) : <div className="d-flex justify-content-center py-5">No messages found</div>}
+          ))
+        ) : (
+          <div className="d-flex justify-content-center py-5">
+            No messages found
+          </div>
+        )}
       </div>
     </div>
   );

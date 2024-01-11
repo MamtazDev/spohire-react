@@ -32,8 +32,21 @@ const ViewProfile = () => {
       <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
           <div className="col-12 col-lg-3 ">
-            <div className="">
-              <img className="img-fluid" src={profileImage} alt="Profile" />
+            <div className="upload_profile_image ms-5">
+              <img
+                className="img-fluid img-fluid profiles"
+                src={
+                  user?.image
+                    ? `${
+                        process.env.NODE_ENV !== "production"
+                          ? import.meta.env.VITE_LOCAL_API_URL
+                          : import.meta.env.VITE_LIVE_API_URL
+                      }/api/v1/uploads/${user?.image}`
+                    : profileImage
+                }
+                style={{ objectFit: "cover" }}
+                alt="Profile"
+              />
             </div>
           </div>
           <div className="col-12 col-lg-9">

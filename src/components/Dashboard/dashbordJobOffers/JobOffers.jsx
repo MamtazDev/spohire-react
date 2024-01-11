@@ -80,7 +80,7 @@ function SingleJob({ item }) {
   // const handleBookmark = () => {
   //   setBookmark(!bookmark);
   // };
-
+  console.log(item, "jkj");
   const { user } = useSelector((state) => state.auth);
 
   const { data, isSuccess } = useGetMyObservationsQuery();
@@ -130,7 +130,24 @@ function SingleJob({ item }) {
         <div className="job_offers_item_content d-flex justify-content-between align-items-center">
           <div className="left d-flex align-items-center gap-3">
             <div className="job_offer_item_img">
-              <img src={footBallCoachImg} alt="img" />
+              <img
+                src={
+                  item?.club_logo
+                    ? `${
+                        process.env.NODE_ENV !== "production"
+                          ? import.meta.env.VITE_LOCAL_API_URL
+                          : import.meta.env.VITE_LIVE_API_URL
+                      }/api/v1/uploads/${item?.club_logo}`
+                    : footBallCoachImg
+                }
+                alt="img"
+                style={{
+                  height: "81px",
+                  width: "81px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
+              />
             </div>
 
             <div className="job_offer_item_content">

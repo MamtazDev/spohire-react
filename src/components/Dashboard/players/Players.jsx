@@ -145,8 +145,22 @@ const SinglePlayer = ({ player }) => {
             <div className="player_info_wrapper d-flex gap-2">
               <div className="player_img">
                 <img
-                  src={player?.image ? player?.image : playerImgOne}
+                  src={
+                    player?.image
+                      ? `${
+                          process.env.NODE_ENV !== "production"
+                            ? import.meta.env.VITE_LOCAL_API_URL
+                            : import.meta.env.VITE_LIVE_API_URL
+                        }/api/v1/uploads/${player?.image}`
+                      : playerImgOne
+                  }
                   alt="player-img"
+                  style={{
+                    height: "35px",
+                    width: "35px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                  }}
                 />
               </div>
               <div className="player_name" onClick={() => handlePath(player)}>

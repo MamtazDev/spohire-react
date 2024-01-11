@@ -36,7 +36,24 @@ const AnnouncementOverview = () => {
                   style={{ gap: "20px" }}
                 >
                   <div className="announcement_pic">
-                    <img src={a1} alt="" />
+                    <img
+                      src={
+                        item?.image
+                          ? `${
+                              process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                            }/api/v1/uploads/${item?.image}`
+                          : a1
+                      }
+                      alt=""
+                      style={{
+                        height: "46px",
+                        width: "46px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                      }}
+                    />
                   </div>
                   <div className="recruiment1 f_sfPro">
                     <p>{item?.title}</p>

@@ -140,7 +140,10 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                                   : import.meta.env.VITE_LIVE_API_URL
                               }/api/v1/uploads/${item?.club_logo}`}
                               alt=""
-                              style={{ objectFit: "cover" }}
+                              style={{
+                                objectFit: "cover",
+                                borderRadius: "8px",
+                              }}
                             />
                           </div>
                           <div className="tennis_desc">

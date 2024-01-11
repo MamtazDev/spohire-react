@@ -65,7 +65,7 @@ const ObservedClone = () => {
     return (
       <div
         className="d-flex justify-content-center align-items-center fs-4"
-        style={{ height: "70vh", }}
+        style={{ height: "70vh" }}
       >
         No Bookmarks
       </div>
@@ -77,91 +77,108 @@ const ObservedClone = () => {
       <div className="announcement" style={{ margin: "30px" }}>
         {data?.data.filter((i) => i?.target_type === "Announcement").length >
           0 && (
+          <div>
+            <p className="title">Announcement</p>
             <div>
-              <p className="title">Announcement</p>
-              <div>
-                {data?.data &&
-                  data?.data?.length > 0 &&
-                  data?.data
-                    .filter((i) => i?.target_type === "Announcement")
-                    .map((item, idx) => (
-                      <div className="announcelist_wrapper pe-3" key={idx}>
-                        <div className="d-flex justify-content-between align-items-start">
-                          <div
-                            className="d-flex align-items-center"
-                            style={{ gap: "20px" }}
-                          >
-                            <div className="announcement_pic">
-                              <img src={a1} alt="" />
-                            </div>
-                            <div className="recruiment f_sfPro">
-                              <p>{item?.target_id?.title}</p>
-                              <div className="d-flex gap-3 flex-wrap">
-                                <div
-                                  className="d-flex align-items-center"
-                                  style={{ gap: "6px" }}
-                                >
-                                  <img src={location} alt="" />
-                                  <span>{item?.target_id?.location}</span>
-                                </div>
-                                <div
-                                  className="d-flex align-items-center"
-                                  style={{ gap: "6px" }}
-                                >
-                                  <img src={flag} alt="" />
-                                  <span>{item?.target_id?.status}</span>
-                                </div>
-                                <div
-                                  className="d-flex align-items-center"
-                                  style={{ gap: "6px" }}
-                                >
-                                  <img src={dollar} alt="" />
-                                  <span>USD {item?.target_id?.budget}</span>
-                                </div>
+              {data?.data &&
+                data?.data?.length > 0 &&
+                data?.data
+                  .filter((i) => i?.target_type === "Announcement")
+                  .map((item, idx) => (
+                    <div className="announcelist_wrapper pe-3" key={idx}>
+                      <div className="d-flex justify-content-between align-items-start">
+                        <div
+                          className="d-flex align-items-center"
+                          style={{ gap: "20px" }}
+                        >
+                          <div className="announcement_pic">
+                            <img
+                              src={
+                                item?.target_id?.image
+                                  ? `${
+                                      process.env.NODE_ENV !== "production"
+                                        ? import.meta.env.VITE_LOCAL_API_URL
+                                        : import.meta.env.VITE_LIVE_API_URL
+                                    }/api/v1/uploads/${item?.target_id?.image}`
+                                  : a1
+                              }
+                              alt=""
+                              style={{
+                                height: "35px",
+                                width: "35px",
+                                objectFit: "cover",
+                                borderRadius: "8px",
+                              }}
+                            />
+                          </div>
+                          <div className="recruiment f_sfPro">
+                            <p>{item?.target_id?.title}</p>
+                            <div className="d-flex gap-3 flex-wrap">
+                              <div
+                                className="d-flex align-items-center"
+                                style={{ gap: "6px" }}
+                              >
+                                <img src={location} alt="" />
+                                <span>{item?.target_id?.location}</span>
+                              </div>
+                              <div
+                                className="d-flex align-items-center"
+                                style={{ gap: "6px" }}
+                              >
+                                <img src={flag} alt="" />
+                                <span>{item?.target_id?.status}</span>
+                              </div>
+                              <div
+                                className="d-flex align-items-center"
+                                style={{ gap: "6px" }}
+                              >
+                                <img src={dollar} alt="" />
+                                <span>USD {item?.target_id?.budget}</span>
                               </div>
                             </div>
                           </div>
-                          <div className="d-lg-block d-none">
-                            <div
-                              className="d-flex gap-3 "
-                              style={{ cursor: "pointer" }}
-                              onClick={() =>
-                                handleBookmark(
-                                  item?.target_id?._id,
-                                  "Announcement"
-                                )
-                              }
-                            >
-                              <img src={bookmarkfill} alt="" />
-                            </div>
+                        </div>
+                        <div className="d-lg-block d-none">
+                          <div
+                            className="d-flex gap-3 "
+                            style={{ cursor: "pointer" }}
+                            onClick={() =>
+                              handleBookmark(
+                                item?.target_id?._id,
+                                "Announcement"
+                              )
+                            }
+                          >
+                            <img src={bookmarkfill} alt="" />
                           </div>
                         </div>
-                        <p
-                          className="announcement_details f_sfPro"
-                          style={{
-                            display: "-webkit-box",
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                            WebkitLineClamp: 1,
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          {item?.target_id?.description}
-                        </p>
-                        <div
-                          className="d-flex gap-3 d-lg-none d-block justify-content-end"
-                          style={{ cursor: "pointer" }}
-                          onClick={() =>
-                            handleBookmark(item?.target_id?._id, "Announcement")
-                          }
-                        >
-                          <img src={bookmarkfill} alt="" />
-                        </div>
                       </div>
-                    ))}
-              </div>
+                      <p
+                        className="announcement_details f_sfPro"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          WebkitLineClamp: 1,
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {item?.target_id?.description}
+                      </p>
+                      <div
+                        className="d-flex gap-3 d-lg-none d-block justify-content-end"
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          handleBookmark(item?.target_id?._id, "Announcement")
+                        }
+                      >
+                        <img src={bookmarkfill} alt="" />
+                      </div>
+                    </div>
+                  ))}
             </div>
-          )}
+          </div>
+        )}
       </div>
 
       {/* job */}
@@ -181,7 +198,26 @@ const ObservedClone = () => {
                         <div className="job_offers_item_content d-flex justify-content-between align-items-center">
                           <div className="left d-flex align-items-center gap-3">
                             <div className="job_offer_item_img">
-                              <img src={footBallCoachImg} alt="img" />
+                              <img
+                                src={
+                                  item?.target_id?.club_logo
+                                    ? `${
+                                        process.env.NODE_ENV !== "production"
+                                          ? import.meta.env.VITE_LOCAL_API_URL
+                                          : import.meta.env.VITE_LIVE_API_URL
+                                      }/api/v1/uploads/${
+                                        item?.target_id?.club_logo
+                                      }`
+                                    : footBallCoachImg
+                                }
+                                alt="img"
+                                style={{
+                                  height: "81px",
+                                  width: "81px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                }}
+                              />
                             </div>
 
                             <div className="job_offer_item_content">
@@ -265,7 +301,26 @@ const ObservedClone = () => {
                         <div className="job_offers_item_content d-flex justify-content-between align-items-center">
                           <div className="left d-flex align-items-center gap-3">
                             <div className="job_offer_item_img">
-                              <img src={playerprofile} alt="img" />
+                              <img
+                                src={
+                                  item?.target_id?.image
+                                    ? `${
+                                        process.env.NODE_ENV !== "production"
+                                          ? import.meta.env.VITE_LOCAL_API_URL
+                                          : import.meta.env.VITE_LIVE_API_URL
+                                      }/api/v1/uploads/${
+                                        item?.target_id?.image
+                                      }`
+                                    : playerprofile
+                                }
+                                alt="img"
+                                style={{
+                                  height: "81px",
+                                  width: "81px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                }}
+                              />
                             </div>
 
                             <div className="job_offer_item_content">

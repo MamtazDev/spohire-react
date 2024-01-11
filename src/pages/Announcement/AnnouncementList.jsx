@@ -12,13 +12,7 @@ import { useSelector } from "react-redux";
 import { setFilterParams } from "../../features/announcement/announcementSlice";
 import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
 
-const sports = [
-  "Football",
-  "Basketball",
-  "Handball",
-  "Volleyball",
-
-];
+const sports = ["Football", "Basketball", "Handball", "Volleyball"];
 const country = [
   "Paris",
   "London",
@@ -76,9 +70,13 @@ const AnnouncementList = () => {
             )} */}
             {filteredAnnouncements?.length > 0
               ? filteredAnnouncements.map((item, index) => (
-                <SingleAnnouncement key={index} item={item} />
-              ))
-              : allAnnouncements?.data?.length > 0 && <p className="d-flex justify-content-center align-items-center  fs-3">No data found</p>}
+                  <SingleAnnouncement key={index} item={item} />
+                ))
+              : allAnnouncements?.data?.length > 0 && (
+                  <p className="d-flex justify-content-center align-items-center  fs-3">
+                    No data found
+                  </p>
+                )}
           </div>
           <div className="col-lg-3">
             <AnnouncementFilterCategory
@@ -100,6 +98,8 @@ export default AnnouncementList;
 
 const SingleAnnouncement = ({ item }) => {
   const [bookmark, setBookmark] = useState(false);
+
+  console.log(item, "item");
   const handleBookmark = () => {
     setBookmark(!bookmark);
   };
@@ -109,7 +109,20 @@ const SingleAnnouncement = ({ item }) => {
         <div className="d-flex justify-content-between align-items-start">
           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
             <div className="announcement_pic">
-              <img src={a1} alt="" />
+              <img
+                src={`${
+                  process.env.NODE_ENV !== "production"
+                    ? import.meta.env.VITE_LOCAL_API_URL
+                    : import.meta.env.VITE_LIVE_API_URL
+                }/api/v1/uploads/${item?.image}`}
+                alt=""
+                style={{
+                  height: "56px",
+                  width: "56px",
+                  borderRadius: "8px",
+                  objectFit: "cover",
+                }}
+              />
             </div>
             <div className="recruiment f_sfPro">
               <p>{item?.title}</p>

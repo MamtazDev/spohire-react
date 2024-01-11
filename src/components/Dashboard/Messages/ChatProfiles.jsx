@@ -14,10 +14,12 @@ const ChatProfiles = ({ user, searchText }) => {
   const handleFilter = (data) => {
     if (searchText) {
       const searchName = `${data?.first_name + " " + data?.last_name}`;
-      return searchName
-        .toLocaleLowerCase()
-        // eslint-disable-next-line react/prop-types
-        .includes(searchText.toLocaleLowerCase());
+      return (
+        searchName
+          .toLocaleLowerCase()
+          // eslint-disable-next-line react/prop-types
+          .includes(searchText.toLocaleLowerCase())
+      );
     } else {
       return true;
     }
@@ -39,13 +41,31 @@ const ChatProfiles = ({ user, searchText }) => {
               key={idx}
               onClick={() => handleClick(item)}
               style={{ cursor: "pointer" }}
-              className={`${selectedMsgUser?._id === item?._id && "bg-light rounded"
-                } px-2 py-2 my-2`}
+              className={`${
+                selectedMsgUser?._id === item?._id && "bg-light rounded"
+              } px-2 py-2 my-2`}
             >
               <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
                 <div className="d-flex align-items-center gap-3 w-100 h-100">
                   <div>
-                    <img src={profile} alt="profile" />
+                    <img
+                      src={
+                        item?.image
+                          ? `${
+                              process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                            }/api/v1/uploads/${item?.image}`
+                          : profile
+                      }
+                      alt="profile"
+                      style={{
+                        height: "49px",
+                        width: "49px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
                   </div>
 
                   <h5>

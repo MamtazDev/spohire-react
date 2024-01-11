@@ -17,10 +17,11 @@ const RecentlyObserved = () => {
           style={{ marginBottom: "65px" }}
         >
           <h4>Recently Observed</h4>
-          {data?.data?.length > 0 && <Link to="/dashboard/observed">View More</Link>}
+          {data?.data?.length > 0 && (
+            <Link to="/dashboard/observed">View More</Link>
+          )}
         </div>
-        {data?.data &&
-          data?.data?.length > 0 ?
+        {data?.data && data?.data?.length > 0 ? (
           data?.data.slice(0, 5).map((item, idx) => (
             <div key={idx}>
               {item?.target_type === "Job" && (
@@ -29,7 +30,24 @@ const RecentlyObserved = () => {
                   style={{ marginTop: "20px" }}
                 >
                   <div className="job_offer_item_img">
-                    <img src={footBallCoachImg} alt="img" />
+                    <img
+                      src={
+                        item?.target_id?.club_logo
+                          ? `${
+                              process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                            }/api/v1/uploads/${item?.target_id?.club_logo}`
+                          : footBallCoachImg
+                      }
+                      alt="img"
+                      style={{
+                        height: "46px",
+                        width: "46px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                      }}
+                    />
                   </div>
 
                   <div className="job_offer_item_content d-flex">
@@ -56,7 +74,24 @@ const RecentlyObserved = () => {
                   <div className="announcement_details_wrapper">
                     <div className="d-flex align-items-center gap-2">
                       <div className="announcement_pic">
-                        <img src={a1} alt="" />
+                        <img
+                          src={
+                            item?.target_id?.image
+                              ? `${
+                                  process.env.NODE_ENV !== "production"
+                                    ? import.meta.env.VITE_LOCAL_API_URL
+                                    : import.meta.env.VITE_LIVE_API_URL
+                                }/api/v1/uploads/${item?.target_id?.image}`
+                              : a1
+                          }
+                          alt=""
+                          style={{
+                            height: "46px",
+                            width: "46px",
+                            objectFit: "cover",
+                            borderRadius: "8px",
+                          }}
+                        />
                       </div>
                       <div className="recruiment1 f_sfPro">
                         <p>{item?.target_id?.title}</p>
@@ -102,7 +137,24 @@ const RecentlyObserved = () => {
                   <div className="announcement_details_wrapper">
                     <div className="d-flex align-items-center gap-2">
                       <div className="announcement_pic">
-                        <img src={a1} alt="" />
+                        <img
+                          src={
+                            item?.target_id?.image
+                              ? `${
+                                  process.env.NODE_ENV !== "production"
+                                    ? import.meta.env.VITE_LOCAL_API_URL
+                                    : import.meta.env.VITE_LIVE_API_URL
+                                }/api/v1/uploads/${item?.target_id?.image}`
+                              : a1
+                          }
+                          alt=""
+                          style={{
+                            height: "46px",
+                            width: "46px",
+                            objectFit: "cover",
+                            borderRadius: "8px",
+                          }}
+                        />
                       </div>
                       <div className="recruiment1 f_sfPro">
                         <p>
@@ -139,10 +191,11 @@ const RecentlyObserved = () => {
                       className="align-self-lg-center align-self-end"
                     >
                       <Link
-                        to={`${item?.target_id?.role === "Coach"
-                          ? "/dashboard/coaches"
-                          : "/dashboard/players"
-                          }`}
+                        to={`${
+                          item?.target_id?.role === "Coach"
+                            ? "/dashboard/coaches"
+                            : "/dashboard/players"
+                        }`}
                       >
                         {item?.target_id?.role}
                         {item?.target_id?.role === "Coach" ? "es" : "s"}
@@ -152,7 +205,12 @@ const RecentlyObserved = () => {
                 </div>
               )}
             </div>
-          )) : <div className="d-flex justify-content-center pb-5 ">No observed items found</div>}
+          ))
+        ) : (
+          <div className="d-flex justify-content-center pb-5 ">
+            No observed items found
+          </div>
+        )}
       </div>
     </>
   );

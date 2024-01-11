@@ -50,8 +50,9 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
-        }`}
+      className={`${!user && "pt-4 pb-4"} ${
+        location.pathname === "/" ? "header_position" : ""
+      }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
@@ -100,7 +101,19 @@ const Header = () => {
             {user ? (
               <div>
                 <Link to="/dashboard/viewProfile">
-                  <img className="d-none" src={profile} alt="" />
+                  <img
+                    className="d-none"
+                    src={
+                      user?.image
+                        ? `${
+                            process.env.NODE_ENV !== "production"
+                              ? import.meta.env.VITE_LOCAL_API_URL
+                              : import.meta.env.VITE_LIVE_API_URL
+                          }/api/v1/uploads/${user?.image}`
+                        : profile
+                    }
+                    alt=""
+                  />
                 </Link>
                 <Link
                   to="/dashboard/jobOffers"
@@ -135,7 +148,6 @@ const Header = () => {
                 <Nav.Link href="#home">
                   <Link to="/dashboard" className="nav-link">
                     Transfer Market
-
                   </Link>
                 </Nav.Link>
               ) : (
@@ -227,8 +239,22 @@ const Header = () => {
                   <Link to="/dashboard/viewProfile">
                     <img
                       className="profile_picture d-lg-block d-none"
-                      src={profile}
+                      src={
+                        user?.image
+                          ? `${
+                              process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                            }/api/v1/uploads/${user?.image}`
+                          : profile
+                      }
                       alt=""
+                      style={{
+                        width: "52px",
+                        height: "52px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
                     />
                   </Link>
                   <div className="profile_dropdown" ref={myDivRef}>
@@ -238,8 +264,9 @@ const Header = () => {
 
                         <img
                           src={dropdown}
-                          className={`${isDropdownActive ? "" : "rotate_arrow"
-                            }`}
+                          className={`${
+                            isDropdownActive ? "" : "rotate_arrow"
+                          }`}
                           alt="dropdown"
                         />
                       </div>
@@ -265,7 +292,7 @@ const Header = () => {
                   className="text-decoration-none"
                 >
                   <button className="authBtn btnNone">
-                    <span>     Sign Up</span>
+                    <span> Sign Up</span>
                   </button>
                 </Link>
               </form>

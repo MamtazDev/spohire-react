@@ -189,10 +189,18 @@ const EditPlayerDetails = () => {
 
     const socialMediaArray = Object.values(socialMedia);
 
+    const infoData = { ...editedInfo, social_media: socialMediaArray };
+
+    const formData = new FormData();
+
+    Object.entries(infoData).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
     try {
       const response = await updateUser({
         userId: user?._id,
-        data: { ...editedInfo, social_media: socialMediaArray },
+        data: formData,
       });
       if (response?.data?.status) {
         Swal.fire({
@@ -310,7 +318,11 @@ const EditPlayerDetails = () => {
                     selectedImage
                       ? URL.createObjectURL(selectedImage)
                       : userInfo?.image
-                      ? userInfo?.image
+                      ? `${
+                          process.env.NODE_ENV !== "production"
+                            ? import.meta.env.VITE_LOCAL_API_URL
+                            : import.meta.env.VITE_LIVE_API_URL
+                        }/api/v1/uploads/${userInfo?.image}`
                       : profileImage
                   }
                   alt="Profile"
@@ -318,8 +330,9 @@ const EditPlayerDetails = () => {
                 <div>
                   {!selectedImage && (
                     <button
+                      type="button"
                       className="profile_upload_btn"
-                      onClick={handleButtonClick}
+                      // onClick={handleButtonClick}
                     >
                       <img src={upload} alt="" />
                       <span>Upload</span>

@@ -230,7 +230,24 @@ const Messages = () => {
                 </div>
 
                 <div className="text-center profile_right">
-                  <img src={profile} alt="chatclose" />
+                  <img
+                    src={
+                      selectedMsgUser?.image
+                        ? `${
+                            process.env.NODE_ENV !== "production"
+                              ? import.meta.env.VITE_LOCAL_API_URL
+                              : import.meta.env.VITE_LIVE_API_URL
+                          }/api/v1/uploads/${selectedMsgUser?.image}`
+                        : profile
+                    }
+                    alt="chatclose"
+                    style={{
+                      height: "89px",
+                      width: "89px",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
+                  />
                   {selectedMsgUser?.first_name} {selectedMsgUser?.last_name}
                   <span>{selectedMsgUser?.role}</span>
                 </div>

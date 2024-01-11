@@ -46,7 +46,16 @@ const DashbordSidebar = ({ user }) => {
               <div className="dashboard_user_img">
                 <Link to="/dashboard/viewProfile">
                   <img
-                    src={user?.image ? user?.image : DashbordUser}
+                    // src={user?.image ? user?.image : DashbordUser}
+                    src={
+                      user?.image
+                        ? `${
+                            process.env.NODE_ENV !== "production"
+                              ? import.meta.env.VITE_LOCAL_API_URL
+                              : import.meta.env.VITE_LIVE_API_URL
+                          }/api/v1/uploads/${user?.image}`
+                        : DashbordUser
+                    }
                     alt="user-img"
                     style={{
                       height: "34px",

@@ -136,7 +136,24 @@ const SingleCoach = ({ coach }) => {
           <div className="player_info d-flex align-items-center gap-2">
             <div className="player_info_wrapper d-flex gap-2">
               <div className="player_img">
-                <img src={playerImgOne} alt="player-img" />
+                <img
+                  src={
+                    coach?.image
+                      ? `${
+                          process.env.NODE_ENV !== "production"
+                            ? import.meta.env.VITE_LOCAL_API_URL
+                            : import.meta.env.VITE_LIVE_API_URL
+                        }/api/v1/uploads/${coach?.image}`
+                      : playerImgOne
+                  }
+                  alt="player-img"
+                  style={{
+                    height: "35px",
+                    width: "35px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                  }}
+                />
               </div>
               <div className="player_name" onClick={() => handlePath(coach)}>
                 <p className="text_color_36 fw-medium fs_14">

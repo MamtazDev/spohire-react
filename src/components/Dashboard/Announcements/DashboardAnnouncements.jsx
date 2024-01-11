@@ -37,11 +37,18 @@ const DashboardAnnouncements = () => {
         style={{ margin: "30px", paddingTop: "30px" }}
       >
         <div>
-          {allAnnouncements?.data &&
-            allAnnouncements?.data?.length > 0 ?
+          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 ? (
             allAnnouncements?.data?.map((announcement, idx) => (
               <SingleAnnouncement key={idx} announcement={announcement} />
-            )) : <div className="d-flex justify-content-center align-items-center fs-4" style={{ height: "70vh" }}>No Announcements</div>}
+            ))
+          ) : (
+            <div
+              className="d-flex justify-content-center align-items-center fs-4"
+              style={{ height: "70vh" }}
+            >
+              No Announcements
+            </div>
+          )}
         </div>
       </div>
       <DeleteModal />
@@ -89,7 +96,6 @@ const SingleAnnouncement = ({ announcement }) => {
           text: `${response?.error?.data?.message}`,
         });
       }
-
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -105,13 +111,22 @@ const SingleAnnouncement = ({ announcement }) => {
           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
             <div className="announcement_pic">
               <img
-                src={a1}
-                // src={
-                //   announcement?.image
-                //     ? `http://localhost:8000/${announcement?.image}`
-                //     : a1
-                // }
+                src={
+                  announcement?.image
+                    ? `${
+                        process.env.NODE_ENV !== "production"
+                          ? import.meta.env.VITE_LOCAL_API_URL
+                          : import.meta.env.VITE_LIVE_API_URL
+                      }/api/v1/uploads/${announcement?.image}`
+                    : a1
+                }
                 alt=""
+                style={{
+                  height: "57px",
+                  width: "57px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
               />
             </div>
             <div className="recruiment f_sfPro">
