@@ -3,9 +3,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import sliderOne from "../../../assets/slader1.png";
 import sliderTwo from "../../../assets/slider2.png";
-const Gallary = () => {
+const Gallary = ({ gallary }) => {
   return (
-    <div className="container ps-lg-4  mb-5" style={{paddingLeft:"24px"}}>
+    <div className="container ps-lg-4  mb-5" style={{ paddingLeft: "24px" }}>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -27,10 +27,21 @@ const Gallary = () => {
         loop={true}
         className="mySwiper padding_left"
       >
-        <SwiperSlide>
-          <img src={sliderOne} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
+        {gallary &&
+          gallary.length > 0 &&
+          gallary?.map((item, idx) => (
+            <SwiperSlide key={idx}>
+              <img
+                src={`${
+                  process.env.NODE_ENV !== "production"
+                    ? import.meta.env.VITE_LOCAL_API_URL
+                    : import.meta.env.VITE_LIVE_API_URL
+                }/api/v1/uploads/${item}`}
+                alt=""
+              />
+            </SwiperSlide>
+          ))}
+        {/* <SwiperSlide>
           <img src={sliderOne} alt="" />
         </SwiperSlide>
         <SwiperSlide>
@@ -62,7 +73,7 @@ const Gallary = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img src={sliderOne} alt="" />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );

@@ -295,7 +295,7 @@ const ViewProfile = () => {
       >
         Gallery
       </p>
-      <Gallary />
+      <Gallary gallary={user?.gallary} />
       {/* <!-- Slider End --> */}
     </div>
   );

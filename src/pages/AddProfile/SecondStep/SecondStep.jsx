@@ -30,6 +30,8 @@ const SecondStep = ({ setStep }) => {
 
   const [experience, setExperience] = useState([]);
 
+  const [gallaryImage, setGallaryImage] = useState([]);
+
   const handleExperience = () => {
     const newData = {
       start_year: initialYear,
@@ -53,12 +55,22 @@ const SecondStep = ({ setStep }) => {
     const about_me = form.about_me.value;
     const expectations_from_new_club = form.expectations_from_new_club.value;
 
-    const formData = {
+    const userFormData = {
       experience,
       strengths_advantage,
       about_me,
       expectations_from_new_club,
     };
+
+    const formData = new FormData();
+
+    Object.entries(userFormData).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    gallaryImage.forEach((img, index) => {
+      formData.append(`gallery`, img);
+    });
 
     try {
       const response = await updateUser({ userId: user?._id, data: formData });
@@ -106,6 +118,7 @@ const SecondStep = ({ setStep }) => {
   };
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
+    setGallaryImage([...gallaryImage, selectedFile]);
     setSelectedImage([...selectedImage, URL.createObjectURL(selectedFile)]);
   };
   return (
@@ -217,6 +230,7 @@ const SecondStep = ({ setStep }) => {
                 type="file"
                 ref={fileInputRef}
                 style={{ display: "none" }}
+                accept="image/*"
                 onChange={handleFileChange}
               />
               <img

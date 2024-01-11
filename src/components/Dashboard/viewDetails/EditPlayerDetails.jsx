@@ -97,6 +97,7 @@ const EditPlayerDetails = () => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState(initialFormData);
+  const [gallaryImage, setGallaryImage] = useState(null);
   const [socialMedia, setSocialMedia] = useState({
     facebook: "",
     twitter: "",
@@ -125,6 +126,7 @@ const EditPlayerDetails = () => {
 
   const handleGallaryImageChange = (e) => {
     const files = e.target.files;
+    setGallaryImage(Array.from(files));
     const newImages = [];
     for (let i = 0; i < files.length; i++) {
       const reader = new FileReader();
@@ -132,7 +134,6 @@ const EditPlayerDetails = () => {
       reader.onload = (e) => {
         newImages.push(e.target.result);
         if (newImages.length === files.length) {
-          console.log("Selected Images:", newImages);
           setSelectedImages((prevImages) => [...prevImages, ...newImages]);
         }
         setFormData((prevData) => ({
@@ -187,6 +188,14 @@ const EditPlayerDetails = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
+    // if (gallaryImage && gallaryImage?.length > 3) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "oopss!",
+    //     text: `Please choose`,
+    //   });
+    // }
+
     const socialMediaArray = Object.values(socialMedia);
 
     const infoData = { ...editedInfo, social_media: socialMediaArray };
@@ -195,6 +204,9 @@ const EditPlayerDetails = () => {
 
     Object.entries(infoData).forEach(([key, value]) => {
       formData.append(key, value);
+    });
+    gallaryImage.forEach((img, index) => {
+      formData.append(`gallery`, img);
     });
 
     try {
@@ -512,6 +524,7 @@ const EditPlayerDetails = () => {
             <img src={plus4} alt="" />
             <input
               type="file"
+              accept="image/*"
               multiple
               onChange={handleGallaryImageChange}
               style={{ display: "none" }}
