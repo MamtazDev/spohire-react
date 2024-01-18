@@ -127,8 +127,32 @@ const Topbar = () => {
               )}
             </div>
             <div>
-              {location.pathname === "/dashboard" ||
-              location.pathname === "/dashboard/appliedJobs" ? (
+              {location.pathname === "/dashboard" ? (
+                user?.role === "Manager" ? (
+                  <div className="d-flex gap-2">
+                    <button className="px-3 py-2 rounded text-white bg_color_fb">
+                      Add Player
+                    </button>
+                    <button className="px-3 py-2 rounded text-white bg_color_fb">
+                      Add Coach
+                    </button>
+                    <button
+                      className="px-3 py-2 rounded text-white bg_color_fb"
+                      onClick={() => handleAddJobOfferClick()}
+                    >
+                      Add Job Offer
+                    </button>
+                    <button
+                      className="px-3 py-2 rounded text-white bg_color_fb"
+                      onClick={() => handleAddAnnouncementClick()}
+                    >
+                      Add Announcemen
+                    </button>
+                  </div>
+                ) : (
+                  ""
+                )
+              ) : location.pathname === "/dashboard/appliedJobs" ? (
                 ""
               ) : (
                 <div className="dashbord_topbar_button d-flex gap-4">

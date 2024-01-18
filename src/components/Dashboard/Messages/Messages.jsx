@@ -91,6 +91,13 @@ const Messages = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendClick();
+    }
+  };
+
   useEffect(() => {
     checkConversationId();
   }, [id, dispatch]);
@@ -202,6 +209,7 @@ const Messages = () => {
                     className="form-control"
                     value={messageText}
                     onChange={(e) => setMessageText(e.target.value)}
+                    onKeyPress={handleKeyPress}
                   />
                   <div className="send_img">
                     <button

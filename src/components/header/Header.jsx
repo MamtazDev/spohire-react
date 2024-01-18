@@ -22,6 +22,9 @@ const Header = () => {
   const closeModalAndNavigate = () => {
     navigate("/login");
   };
+  const closeModalAndNavigateSignUp = () => {
+    navigate("/signup");
+  };
 
   const handleFilterModal = () => {
     setIsDropdownActive(!isDropdownActive);
@@ -203,6 +206,20 @@ const Header = () => {
                           className="text-decoration-none text-dark"
                         >
                           LOG IN
+                        </Link>
+                      </button>
+                      <button
+                        onClick={closeModalAndNavigateSignUp}
+                        className=" login_modal_btn ms-3"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        type="button"
+                      >
+                        <Link
+                          to="/signup"
+                          className="text-decoration-none text-dark"
+                        >
+                          SIGN UP
                         </Link>
                       </button>
                       <div>

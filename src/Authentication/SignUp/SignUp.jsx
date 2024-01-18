@@ -16,6 +16,7 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [nationality, setNationality] = useState("");
   const [functionType, setFunctionType] = useState("");
   const [sports, setSports] = useState("");
@@ -69,6 +70,15 @@ const SignUp = () => {
       });
       return;
     }
+
+    if (password !== confirmPassword) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password doesn't matched!",
+      });
+      return;
+    }
     try {
       const response = await registerUser(formData);
 
@@ -97,7 +107,6 @@ const SignUp = () => {
   const [errorss, setErrors] = useState([]);
 
   const handleButtonError = () => {
-
     let errors = [];
     if (!button_disability) {
       setButtonErrorMessages(false);
@@ -187,17 +196,31 @@ const SignUp = () => {
                       required
                     />
                   </div>
-                  <div className="right-inner-addon input-container">
-                    <label htmlFor="">Password</label>
+                  <div className="d-flex gap-3">
+                    <div className="right-inner-addon input-container">
+                      <label htmlFor="">Password</label>
 
-                    <input
-                      type="password"
-                      className="form-control login_input"
-                      placeholder="Enter password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
+                      <input
+                        type="password"
+                        className="form-control login_input"
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="right-inner-addon input-container">
+                      <label htmlFor="">Confirm Password</label>
+
+                      <input
+                        type="password"
+                        className="form-control login_input"
+                        placeholder="Enter password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="row flex-wrap date_wrapper mb-3 align-items-center">
                     <div className="col-lg-4">
@@ -296,10 +319,11 @@ const SignUp = () => {
                     {["Player", "Coach", "Manager"].map((data) => (
                       <>
                         <button
-                          className={`${functionType === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            functionType === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setFunctionType(data)}
                         >
@@ -315,10 +339,11 @@ const SignUp = () => {
                       <>
                         <button
                           // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${sports === data
-                            ? "function_btn_active"
-                            : "function_btn"
-                            } `}
+                          className={`${
+                            sports === data
+                              ? "function_btn_active"
+                              : "function_btn"
+                          } `}
                           type="button"
                           onClick={() => setSports(data)}
                         >
@@ -336,13 +361,22 @@ const SignUp = () => {
                       className="login-btn"
                       disabled={button_disability}
                     >
-                      {isLoading ? <>
-                        <div className="spinner-border spinner-border-sm me-2" role="status">
-                          <span className="visually-hidden">Loading...</span>
-                        </div> Loading...</> : <>
-                        Create account <img src={arrowRight} alt="img" className="ms-1" />
-                      </>}
-
+                      {isLoading ? (
+                        <>
+                          <div
+                            className="spinner-border spinner-border-sm me-2"
+                            role="status"
+                          >
+                            <span className="visually-hidden">Loading...</span>
+                          </div>{" "}
+                          Loading...
+                        </>
+                      ) : (
+                        <>
+                          Create account{" "}
+                          <img src={arrowRight} alt="img" className="ms-1" />
+                        </>
+                      )}
                     </button>
                   </div>
                   {errorss?.length > 0 && (

@@ -55,6 +55,10 @@ const JobOfferHeader = ({
     }
   };
 
+  const handleClear = () => {
+    setSearchParams({});
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleDocumentClick);
 
@@ -161,14 +165,15 @@ const JobOfferHeader = ({
               }}
             /> */}
 
-            <div className="dropdown" ref={dropdownRef}>
+            <div className="dropdown " ref={dropdownRef}>
               <button
-                className="btn dropdown-toggle country-dropdown"
+                className="btn dropdown-toggle country-dropdown "
                 type="button"
                 id="dropdownMenuButton"
                 aria-haspopup="true"
                 aria-expanded={showDropdown}
                 onClick={() => setShowDropdown(!showDropdown)}
+                style={{ whiteSpace: "nowrap" }}
               >
                 Select Countries
               </button>
@@ -282,6 +287,14 @@ const JobOfferHeader = ({
               onClick={handleSearch}
             >
               Search
+            </button>
+            <button
+              type="button"
+              className="jobsearchbtn "
+              onClick={handleClear}
+              style={{ backgroundColor: "#8b4eb4" }}
+            >
+              Clear All
             </button>
             {/* </div> */}
           </form>
