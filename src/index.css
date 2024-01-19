@@ -823,3 +823,26 @@ a {
   background-color: white !important;
   color: initial !important;
 }
+
+.createProFIleButton {
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 45px;
+  border: 1px solid #0177fb;
+  height: 30px;
+  color: #0177fb;
+  font-family: "SF Pro Display" !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5px;
+}
+
+.createProFIleButton a {
+  color: #0177fb !important;
+  text-decoration-line: underline;
+}

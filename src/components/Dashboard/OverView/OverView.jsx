@@ -33,8 +33,8 @@ const OverView = () => {
             <h1>
               Hello {user?.first_name} {user?.last_name}!
             </h1>
-            {!user?.isCreatedProfile && (
-              <button className="ms-4 edit_player_profile  ">
+            {user?.isCreatedProfile && (
+              <p className="ms-4 createProFIleButton ">
                 {" "}
                 <Link
                   className="text-white"
@@ -46,9 +46,10 @@ const OverView = () => {
                   }}
                   to="/addProfile"
                 >
-                  Create Profile
+                  Create profile
                 </Link>
-              </button>
+                if you are looking for clubs
+              </p>
             )}
           </div>
           <div className="date">
@@ -58,7 +59,7 @@ const OverView = () => {
             </p>
           </div>
         </div>
-        <PlayerOverview user={user} />
+        {user?.role !== "Player" && <PlayerOverview user={user} />}
         <div className="container">
           <div className="row mt-4 ps-0">
             <div className="col-lg-6 ps-0 pe-lg-3 pe-0">

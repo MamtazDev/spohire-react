@@ -13,6 +13,15 @@ const PlayerOverview = ({ user }) => {
       : "role=Player"
   );
   // console.log(data, "duser");
+
+  const allowedPlans =
+    user?.subscriptionName === "Gold"
+      ? ["Gold", "Silver", "Bronze"]
+      : user?.subscriptionName === "Silver"
+      ? ["Silver", "Bronze"]
+      : user?.subscriptionName === "Bronze"
+      ? ["Bronze"]
+      : [];
   return (
     <>
       <div className="overview player_overview">
@@ -43,85 +52,94 @@ const PlayerOverview = ({ user }) => {
           <tbody>
             {data &&
               data?.length > 0 &&
-              data?.slice(0, 6).map((item, idx) => (
-                <tr className="table_hover" key={idx}>
-                  <td>
-                    <div className="player_info d-flex align-items-center gap-2">
-                      <div className="player_info_wrapper d-flex gap-2">
-                        <div className="player_img">
-                          <img
-                            src={
-                              data?.image
-                                ? `${
-                                    process.env.NODE_ENV !== "production"
-                                      ? import.meta.env.VITE_LOCAL_API_URL
-                                      : import.meta.env.VITE_LIVE_API_URL
-                                  }/api/v1/uploads/${data?.image}`
-                                : playerImgOne
-                            }
-                            alt="player-img"
-                            style={{
-                              width: "35px",
-                              height: "35px",
-                              objectFit: "cover",
-                              borderRadius: "8px",
-                            }}
-                          />
-                        </div>
-                        <div className="player_name">
-                          <p className="text_color_36 fw-medium fs_14">
-                            {item?.first_name} <br /> {item?.last_name}
-                          </p>
+              data
+                ?.filter(
+                  (i) =>
+                    i?.subscriptionName &&
+                    allowedPlans.includes(i?.subscriptionName)
+                )
+                .slice(0, 6)
+                .map((item, idx) => (
+                  <tr className="table_hover" key={idx}>
+                    <td>
+                      <div className="player_info d-flex align-items-center gap-2">
+                        <div className="player_info_wrapper d-flex gap-2">
+                          <div className="player_img">
+                            <img
+                              src={
+                                data?.image
+                                  ? `${
+                                      process.env.NODE_ENV !== "production"
+                                        ? import.meta.env.VITE_LOCAL_API_URL
+                                        : import.meta.env.VITE_LIVE_API_URL
+                                    }/api/v1/uploads/${data?.image}`
+                                  : playerImgOne
+                              }
+                              alt="player-img"
+                              style={{
+                                width: "35px",
+                                height: "35px",
+                                objectFit: "cover",
+                                borderRadius: "8px",
+                              }}
+                            />
+                          </div>
+                          <div className="player_name">
+                            <p className="text_color_36 fw-medium fs_14">
+                              {item?.first_name} <br /> {item?.last_name}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="text_color_55 fw-normal fs_14">
-                      {item?.nationality}
-                    </p>
-                  </td>
-
-                  <td>
-                    <p className="text_color_55 fw-normal fs_14">
-                      {item?.date_of_birth}
-                    </p>
-                  </td>
-
-                  <td>
-                    <p className="text_color_55 fw-normal fs_14">
-                      {item?.position ? item?.position : "N/A"}
-                    </p>
-                  </td>
-
-                  <td>
-                    <p className="text_color_55 fw-normal fs_14">
-                      {item?.club_name ? item?.club_name : "N/A"}
-                    </p>
-                  </td>
-
-                  <td>
-                    <p className="text_color_55 fw-normal fs_14">
-                      {item?.subscriptionName ? item?.subscriptionName : "N/A"}
-                    </p>
-                  </td>
-
-                  <td>
-                    <div className="d-flex align-items-center">
+                    </td>
+                    <td>
                       <p className="text_color_55 fw-normal fs_14">
-                        <Link to={`/dashboard/messages/${item?._id}`}>
-                          {" "}
-                          <img
-                            src={messageIcon}
-                            alt="message-icon"
-                            className="ms-2"
-                          />
-                        </Link>
+                        {item?.nationality}
                       </p>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+
+                    <td>
+                      <p className="text_color_55 fw-normal fs_14">
+                        {item?.date_of_birth}
+                      </p>
+                    </td>
+
+                    <td>
+                      <p className="text_color_55 fw-normal fs_14">
+                        {item?.position ? item?.position : "N/A"}
+                      </p>
+                    </td>
+
+                    <td>
+                      <p className="text_color_55 fw-normal fs_14">
+                        {item?.club_name ? item?.club_name : "N/A"}
+                      </p>
+                    </td>
+
+                    <td>
+                      <p className="text_color_55 fw-normal fs_14">
+                        {item?.subscriptionName
+                          ? item?.subscriptionName
+                          : "N/A"}
+                      </p>
+                    </td>
+
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <p className="text_color_55 fw-normal fs_14">
+                          <Link to={`/dashboard/messages/${item?._id}`}>
+                            {" "}
+                            <img
+                              src={messageIcon}
+                              alt="message-icon"
+                              className="ms-2"
+                            />
+                          </Link>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </Table>
         <MobilePlayers className="m-lg-0 ms-4 me-4"></MobilePlayers>

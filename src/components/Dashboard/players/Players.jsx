@@ -18,6 +18,15 @@ import Swal from "sweetalert2";
 
 const Players = () => {
   const { data: players, isLoading } = useGetFilteredUsersQuery("role=Player");
+  const { user } = useSelector((state) => state.auth);
+  const allowedPlans =
+    user?.subscriptionName === "Gold"
+      ? ["Gold", "Silver", "Bronze"]
+      : user?.subscriptionName === "Silver"
+      ? ["Silver", "Bronze"]
+      : user?.subscriptionName === "Bronze"
+      ? ["Bronze"]
+      : [];
 
   return (
     <div className="players">
@@ -41,7 +50,11 @@ const Players = () => {
           {players &&
             players.length > 0 &&
             players
-              .filter((player) => player?.subscriptionName)
+              .filter(
+                (player) =>
+                  player?.subscriptionName &&
+                  allowedPlans.includes(player?.subscriptionName)
+              )
               .map((player, idx) => (
                 <>
                   <SinglePlayer key={idx} player={player} />

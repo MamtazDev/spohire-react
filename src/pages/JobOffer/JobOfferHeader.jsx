@@ -25,6 +25,19 @@ const JobOfferHeader = ({
     { value: "Scout", label: "Scout" },
     { value: "Referee", label: "Referee" },
   ];
+
+  const allOptions = [
+    "Coach",
+    "Administration",
+    "Marketing",
+    "Betting",
+    "Customer service",
+    "Manager",
+    "Agent",
+    "Journalist",
+    "Scout",
+    "Referee",
+  ];
   const [countryNames, setCountryNames] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedJobType, setSelectedJobType] = useState(null);
@@ -88,10 +101,17 @@ const JobOfferHeader = ({
     });
   };
   const handleChangeJobType = (e) => {
-    setFilterItems({
-      ...filterItems,
-      jobType: [e.target.value],
-    });
+    if (e.target.value === "All") {
+      setFilterItems({
+        ...filterItems,
+        jobType: [...allOptions],
+      });
+    } else {
+      setFilterItems({
+        ...filterItems,
+        jobType: [e.target.value],
+      });
+    }
   };
   return (
     <>
@@ -227,6 +247,9 @@ const JobOfferHeader = ({
               name="country"
               onChange={handleChangeJobType}
             >
+              <option value="All" className="">
+                All
+              </option>
               {options.map((name, index) => (
                 <option value={name?.value} className="" key={index}>
                   {name.value}

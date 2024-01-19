@@ -98,67 +98,70 @@ const DashbordSidebar = ({ user }) => {
 
           <div className="menu_link">
             <ul className="menu_wrapper_one list-unstyled m-0">
-              <Accordion className="nav_item">
-                <Accordion.Item eventKey="0" className="border-0">
-                  <Accordion.Header className="p-0">
-                    <li className="">
-                      <Link
-                        to={"#"}
-                        className="text-decoration-none d-flex align-items-center gap-4"
-                      >
-                        <img src={transfarIcon} alt="icon" />
-                        <span
+              {user?.role !== "Player" && (
+                <Accordion className="nav_item">
+                  <Accordion.Item eventKey="0" className="border-0">
+                    <Accordion.Header className="p-0">
+                      <li className="">
+                        <Link
                           to={"#"}
-                          className="text_color_36 text-capitalize fs-6"
+                          className="text-decoration-none d-flex align-items-center gap-4"
                         >
-                          Transfer Market
-                        </span>
-                      </Link>
-                    </li>
-                  </Accordion.Header>
-                  <Accordion.Body className="pb-0">
-                    <ul
-                      className="list-unstyled"
-                      style={{ paddingLeft: "30px" }}
-                    >
-                      {(user?.role === "Manager" || user?.role === "Coach") && (
-                        <li className="nav_item">
-                          <Link
-                            to={"/dashboard/players"}
-                            className="text-decoration-none d-flex align-items-center gap-3"
+                          <img src={transfarIcon} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
                           >
-                            <img src={basketBallIcon} alt="icon" />
-                            <span
-                              to={"#"}
-                              className="text_color_36 text-capitalize fs-6"
+                            Transfer Market
+                          </span>
+                        </Link>
+                      </li>
+                    </Accordion.Header>
+                    <Accordion.Body className="pb-0">
+                      <ul
+                        className="list-unstyled"
+                        style={{ paddingLeft: "30px" }}
+                      >
+                        {(user?.role === "Manager" ||
+                          user?.role === "Coach") && (
+                          <li className="nav_item">
+                            <Link
+                              to={"/dashboard/players"}
+                              className="text-decoration-none d-flex align-items-center gap-3"
                             >
-                              Players
-                            </span>
-                          </Link>
-                        </li>
-                      )}
+                              <img src={basketBallIcon} alt="icon" />
+                              <span
+                                to={"#"}
+                                className="text_color_36 text-capitalize fs-6"
+                              >
+                                Players
+                              </span>
+                            </Link>
+                          </li>
+                        )}
 
-                      {(user?.role === "Manager" ||
-                        user?.role === "Player") && (
-                        <li className="">
-                          <Link
-                            to="/dashboard/coaches"
-                            className="text-decoration-none d-flex align-items-center gap-3"
-                          >
-                            <img src={coachesIcon} alt="icon" />
-                            <span
-                              to={"#"}
-                              className="text_color_36 text-capitalize fs-6"
+                        {(user?.role === "Manager" ||
+                          user?.role === "Player") && (
+                          <li className="">
+                            <Link
+                              to="/dashboard/coaches"
+                              className="text-decoration-none d-flex align-items-center gap-3"
                             >
-                              Coaches
-                            </span>
-                          </Link>
-                        </li>
-                      )}
-                    </ul>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
+                              <img src={coachesIcon} alt="icon" />
+                              <span
+                                to={"#"}
+                                className="text_color_36 text-capitalize fs-6"
+                              >
+                                Coaches
+                              </span>
+                            </Link>
+                          </li>
+                        )}
+                      </ul>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              )}
 
               <li className="nav_item">
                 <Link

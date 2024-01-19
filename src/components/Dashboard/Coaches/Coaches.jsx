@@ -17,6 +17,16 @@ import {
 import Swal from "sweetalert2";
 const Coaches = () => {
   const { data: coachs, isLoading } = useGetFilteredUsersQuery("role=Coach");
+
+  const { user } = useSelector((state) => state.auth);
+  const allowedPlans =
+    user?.subscriptionName === "Gold"
+      ? ["Gold", "Silver", "Bronze"]
+      : user?.subscriptionName === "Silver"
+      ? ["Silver", "Bronze"]
+      : user?.subscriptionName === "Bronze"
+      ? ["Bronze"]
+      : [];
   return (
     <>
       <div className="players">
@@ -40,7 +50,11 @@ const Coaches = () => {
             {coachs &&
               coachs?.length > 0 &&
               coachs
-                ?.filter((coach) => coach?.subscriptionName)
+                ?.filter(
+                  (coach) =>
+                    coach?.subscriptionName &&
+                    allowedPlans.includes(coach?.subscriptionName)
+                )
                 .map((coach, idx) => (
                   <>
                     <SingleCoach key={idx} coach={coach} />

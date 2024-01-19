@@ -158,6 +158,8 @@ const JobCategory = ({
 
   // console.log(checkboxStates, "checkboxStates");
 
+  //
+
   return (
     <div>
       <div className="category_wrapper">
