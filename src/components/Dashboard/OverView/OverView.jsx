@@ -33,7 +33,7 @@ const OverView = () => {
             <h1>
               Hello {user?.first_name} {user?.last_name}!
             </h1>
-            {user?.isCreatedProfile && (
+            {!user?.isCreatedProfile && (
               <p className="ms-4 createProFIleButton ">
                 {" "}
                 <Link

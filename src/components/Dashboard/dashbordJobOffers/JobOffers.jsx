@@ -5,24 +5,84 @@ import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
 import b1 from "../../../assets/bookmark.png";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
+import deleteIcon from "../../../assets/deleteIcon.png";
+import editIcon from "../../../assets/editIcon.png";
 import MobileButtons from "../players/MobileButtons";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import { useState } from "react";
-import { useGetAllJobsQuery } from "../../../features/job/jobApi";
+import {
+  useDeleteJobMutation,
+  useGetAllJobsQuery,
+} from "../../../features/job/jobApi";
 import { useSelector } from "react-redux";
 import {
   useGetMyObservationsQuery,
   useToggleObservationMutation,
 } from "../../../features/observation/observationApi";
 import Swal from "sweetalert2";
+import EditJobOffer from "../AddJobOffer/EditJobOffer";
+import { useNavigate } from "react-router-dom";
 
 const JobOffers = () => {
   const { data: allJobs } = useGetAllJobsQuery();
+  const { user } = useSelector((state) => state.auth);
   const { jobType, JobLocation, jobCategory } = useSelector(
     (state) => state.job
   );
 
-  const filteredJobs = allJobs?.data.filter((value) => {
+  const [deleteJob, { isLoading }] = useDeleteJobMutation();
+
+  const [jobOffersType, setJobOffersType] = useState("All");
+
+  console.log(allJobs?.data, "dfasfkljfd");
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
+
+  const handleEditJobOfferClick = (item) => {
+    setIsModalOpen(true);
+    setEditingItem(item);
+  };
+  // close modalo
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const offerTypeFilter = (data) => {
+    if (jobOffersType === "My") {
+      return data?.creator === user?._id;
+    } else {
+      return data?.creator !== user?._id;
+    }
+  };
+
+  const handleDelete = async (item) => {
+    console.log(item, "djkf");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteJob(item?._id);
+        console.log(res, "ddd");
+        if (res?.data?.success) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+      }
+    });
+  };
+
+  const filteredJobs = allJobs?.data.filter(offerTypeFilter).filter((value) => {
     if (jobType || JobLocation || jobCategory) {
       return (
         (jobType && jobType == value.workplaceType) ||
@@ -37,24 +97,43 @@ const JobOffers = () => {
 
   return (
     <div className="job_offers_wrapper">
-      {/* <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
+      <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
         <div className="job_offers_topBtn_left d-flex gap-4">
-          <button className="fs-6 fw-medium text_color_80">Player</button>
+          <button
+            className={`fs-6 fw-medium text_color_80 ${
+              jobOffersType === "All" && "border-primary"
+            }`}
+            onClick={() => setJobOffersType("All")}
+          >
+            All
+          </button>
 
-          <button className="fs-6 fw-medium text_color_80">Coach</button>
+          <button
+            className={`fs-6 fw-medium text_color_80 ${
+              jobOffersType === "My" && "border-primary"
+            }`}
+            onClick={() => setJobOffersType("My")}
+          >
+            My Job Offers
+          </button>
         </div>
 
-        <div className="job_offers_topBtn_right">
+        {/* <div className="job_offers_topBtn_right">
           <button className="bg-transparent border-0 text_color_fb">
             Clear All
           </button>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
 
       <div className="job_offer_items_wrapper">
         {allJobs?.data && allJobs?.data?.length > 0 ? (
           filteredJobs.map((item, index) => (
-            <SingleJob key={index} item={item} />
+            <SingleJob
+              key={index}
+              item={item}
+              handleEditJobOfferClick={handleEditJobOfferClick}
+              handleDelete={handleDelete}
+            />
           ))
         ) : (
           <div
@@ -68,20 +147,35 @@ const JobOffers = () => {
       <MobileButtons />
 
       <AddJobOffer />
+      <EditJobOffer
+        show={isModalOpen}
+        onHide={closeModal}
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        style={{ width: "648px" }}
+        editingItem={editingItem}
+      />
     </div>
   );
 };
 
 export default JobOffers;
 
-function SingleJob({ item }) {
+function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
   const [bookmark, setBookmark] = useState(false);
 
   // const handleBookmark = () => {
   //   setBookmark(!bookmark);
   // };
+
   console.log(item, "jkj");
   const { user } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+  const handleCLick = (value) => {
+    if (value.creator !== user?._id)
+      navigate(`/jobOffer/jobDetails/${value?._id}`);
+  };
 
   const { data, isSuccess } = useGetMyObservationsQuery();
 
@@ -152,7 +246,10 @@ function SingleJob({ item }) {
 
             <div className="job_offer_item_content">
               <div className="job_offer_nameDesignation">
-                <h5 className="fw-medium fs-6 text_color_36 mb-1">
+                <h5
+                  className="fw-medium fs-6 text_color_36 mb-1"
+                  onClick={() => handleCLick(item)}
+                >
                   {item?.job_title}
                 </h5>
 
@@ -184,19 +281,34 @@ function SingleJob({ item }) {
               </div>
             </div>
           </div>
-          <div className="right">
-            <button
-              className="bg-none"
-              onClick={() => handleBookmark(item?._id)}
-              style={{ width: "20px" }}
-              disabled={isLoading}
-            >
-              {isBookmarked ? (
-                <img src={bookmarkfill} alt="" />
-              ) : (
-                <img src={b1} alt="" />
-              )}
-            </button>
+          <div className="right d-flex gap-2">
+            {item?.creator !== user?._id && (
+              <button
+                className="bg-none"
+                onClick={() => handleBookmark(item?._id)}
+                style={{ width: "20px" }}
+                disabled={isLoading}
+              >
+                {isBookmarked ? (
+                  <img src={bookmarkfill} alt="" />
+                ) : (
+                  <img src={b1} alt="" />
+                )}
+              </button>
+            )}
+            {item?.creator === user?._id && (
+              <button
+                className="bg-none"
+                onClick={() => handleEditJobOfferClick(item)}
+              >
+                <img src={editIcon} alt="" />
+              </button>
+            )}
+            {item?.creator === user?._id && (
+              <button className="bg-none" onClick={() => handleDelete(item)}>
+                <img src={deleteIcon} alt="" />
+              </button>
+            )}
           </div>
         </div>
       </div>
