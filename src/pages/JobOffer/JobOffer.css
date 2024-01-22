@@ -1,306 +1,315 @@
 /* job header start */
 .search_jobs {
-    padding: 27px 37px;
-    border-radius: 3px;
-    background: #393F4F;
-    max-width: 1140px;
-    width: 100%;
-    margin: auto;
-    margin-top: 30px;
+  padding: 27px 37px;
+  border-radius: 3px;
+  background: #393f4f;
+  max-width: 1140px;
+  width: 100%;
+  margin: auto;
+  margin-top: 30px;
 }
 
 .search_jobs form {
-    display: flex;
-    gap: 20px;
-    /* flex-wrap: wrap; */
+  display: flex;
+  gap: 20px;
+  /* flex-wrap: wrap; */
 }
 
 .search_jobs input {
-    border-radius: 5px;
-    border: 0.7px solid rgba(0, 0, 0, 0.02);
-    background: #FFF;
-    display: inline-flex;
-    height: 50px;
-    padding: 17px 10px 16px 20px;
-    /* width: 26%; */
-    width: 310px;
-    align-items: center;
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: #fff;
+  display: inline-flex;
+  height: 50px;
+  padding: 17px 10px 16px 20px;
+  /* width: 26%; */
+  width: 310px;
+  align-items: center;
 }
 
 .search_jobs input::placeholder {
-    color: #747474;
-    font-family: 'SF Pro Display' sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #747474;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .jobsearchbtn {
-    display: flex;
-    width: 162px;
-    height: 50px;
-    padding: 17px 0px 16px 0px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 5px;
-    border: 0.7px solid rgba(0, 0, 0, 0.02);
-    background: #3378FF;
-    color: #FFF;
-    font-family: 'SF Pro Display' sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  display: flex;
+  width: 162px;
+  height: 50px;
+  padding: 17px 0px 16px 0px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: #3378ff;
+  color: #fff;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .page_header {
-    padding: 107px 0 !important;
+  padding: 107px 0 !important;
 }
 
 /* job header end */
 
-
-
 .tennis_desc p {
-    color: #141736;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-bottom: 8px;
+  color: #141736;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 8px;
 }
 
 .tennis_desc small {
-    color: #546580;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #546580;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .jobs_details span {
-    color: #546580;
-    font-family: SF Pro Display;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #546580;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .matchedJobs_wrapper {
-    padding: 32px;
-    border-radius: 7px;
-    border: 1px solid #D9D9D9;
-    background: #FFF;
-    margin-bottom: 30px;
+  padding: 32px;
+  border-radius: 7px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  margin-bottom: 30px;
 }
 
 .tennis_logo img {
-    height: 80px;
-    width: 80px;
+  height: 80px;
+  width: 80px;
 }
 
 .job_matches_title {
-    color: #0A0119;
-    font-family: 'SF Pro Display-SemiBold' sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
-    letter-spacing: -0.32px;
-    margin-top: 90px;
-    margin-bottom: 40px;
+  color: #0a0119;
+  font-family: "SF Pro Display-SemiBold" sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -0.32px;
+  margin-top: 90px;
+  margin-bottom: 40px;
 }
 
 .job_matches_title span {
-    color: #0177FB;
+  color: #0177fb;
 }
 
 .apply_btn {
-    border-radius: 5px;
-    border: 0.7px solid rgba(0, 0, 0, 0.02);
-    background: #3378FF;
-    padding: 14px 0px;
-    width: 100%;
-    color: #FFF;
-    font-family: 'SF Pro Display' sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-top: 26px;
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: #3378ff;
+  padding: 14px 0px;
+  width: 100%;
+  color: #fff;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 26px;
+}
+.apply_btn:disabled {
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: #6290ec;
+  padding: 14px 0px;
+  width: 100%;
+  color: #fff;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 26px;
+  cursor: not-allowed !important;
 }
 
 .jobs_details {
-    display: flex;
-    gap: 40px;
-    margin-top: 25px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 40px;
+  margin-top: 25px;
+  flex-wrap: wrap;
 }
 
-@media (max-width:768px) {
-    .job_matches_title {
-        text-align: center;
-    }
+@media (max-width: 768px) {
+  .job_matches_title {
+    text-align: center;
+  }
 
-    .tennis_logo img {
-        width: 80px !important;
-        height: 80px !important;
-    }
+  .tennis_logo img {
+    width: 80px !important;
+    height: 80px !important;
+  }
 
-    .matchedJobs_wrapper {
-        padding: 25px;
-    }
+  .matchedJobs_wrapper {
+    padding: 25px;
+  }
 
-    .tennis_desc p {
-        font-size: 24px;
-    }
+  .tennis_desc p {
+    font-size: 24px;
+  }
 
-    .tennis_desc small {
-        font-size: 16px;
-    }
+  .tennis_desc small {
+    font-size: 16px;
+  }
 
-    .jobs_details {
+  .jobs_details {
+    gap: 20px;
+  }
 
-        gap: 20px;
-    }
+  .search_jobs input {
+    width: 100% !important;
+  }
 
-    .search_jobs input {
-        width: 100% !important;
-    }
+  .jobsearchbtn {
+    margin: auto;
+    width: 100%;
+  }
 
-    .jobsearchbtn {
-        margin: auto;
-        width: 100%;
-    }
+  .modal-dialog .modal-content {
+    padding: 10px !important;
+  }
 
-    .modal-dialog .modal-content {
-        padding: 10px !important;
-    }
-
-    .modal-dialog {
-        margin: 20px !important;
-    }
+  .modal-dialog {
+    margin: 20px !important;
+  }
 }
 
 .pagination .page-item.active .page-link {
-    border-radius: 4px;
-    background: #0177FB;
-    display: flex;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    box-shadow: none;
+  border-radius: 4px;
+  background: #0177fb;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
 }
 
 .pagination {
-    margin-top: 10px;
-    margin-bottom: 36px;
+  margin-top: 10px;
+  margin-bottom: 36px;
 }
-
 
 /* apply jobs modal */
 .form_icons {
-    position: absolute;
-    left: 15px;
-    top: 34px;
-
+  position: absolute;
+  left: 15px;
+  top: 34px;
 }
 
 .apply_jobs_title {
-    color: #161D24 !important;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 32px !important;
-    font-style: normal;
-    font-weight: 500 !important;
-    line-height: normal;
+  color: #161d24 !important;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 32px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: normal;
 }
 
 .modal label {
-    color: #161D24;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px !important;
-    font-style: normal;
-    font-weight: 500 !important;
-    line-height: 110%;
-    /* 17.6px */
-    letter-spacing: -0.16px;
+  color: #161d24;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 110%;
+  /* 17.6px */
+  letter-spacing: -0.16px;
 }
 
 .border_color input {
-    border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
 }
 
 .modal input ::placeholder {
-    color: #B1B1B1;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
-    letter-spacing: -0.12px;
+  color: #b1b1b1;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -0.12px;
 }
 
 .apply_jobs_modal input {
-    height: 44px;
-    border: 1px solid #F0F0F0;
+  height: 44px;
+  border: 1px solid #f0f0f0;
 }
 
 .css-1ltuaou-control {
-
-    height: 50px !important;
+  height: 50px !important;
 }
 
 .css-w9q2zk-Input2 {
-    margin: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .job_details {
-    color: #546580;
-    font-family: SF Pro Display;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    /* 150% */
-    margin-top: 16px;
+  color: #546580;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+  margin-top: 16px;
 }
 
 .job_details button {
-    background-color: transparent;
-    color: #0177FB;
-    font-family: SF Pro Display;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
+  background-color: transparent;
+  color: #0177fb;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .job_details_desc h4 {
-    color: #141736;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    text-transform: uppercase;
-    margin-top: 16px;
-    margin-bottom: 12px;
+  color: #141736;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  margin-bottom: 12px;
 }
 
 .job_details_desc p {
-    color: #546580;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    /* 150% */
+  color: #546580;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
 }

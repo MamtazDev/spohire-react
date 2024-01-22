@@ -3,58 +3,90 @@ import { useEffect, useRef } from "react";
 import brows from "../../assets/brows.png";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  useEditAnnoucementMutation,
+  useGetAnnouncementByIdQuery,
+} from "../../features/announcement/announcementApi";
+import Swal from "sweetalert2";
 const EditAnnouncements = () => {
-  // const fileInputRef = useRef(null);
-  // const [imageTitle, setImageTitle] = useState("")
-
-  // const handleFileInputChange = (e) => {
-  //     const selectedFile = e.target.files[0];
-  //     console.log('Selected File:', selectedFile.name);
-  //     setImageTitle(selectedFile.name)
-  // };
-
-  // const handleUploadButtonClick = () => {
-  //     fileInputRef.current.click();
-  // };
   const fileInputRef = useRef(null);
-  const [formValues, setFormValues] = useState({
-    title: "",
-    status: "",
-    location: "",
-    budget: "",
-    file: null,
-    description: "",
-  });
+  const { user } = useSelector((state) => state.auth);
+
+  const { id } = useParams();
+  const { data } = useGetAnnouncementByIdQuery(id);
+
+  const [announcementDatas, setAnnouncementDatas] = useState({});
+  const [editingInfo, setEditingInfo] = useState({});
+
+  const navigate = useNavigate();
+
+  const [editAnnoucement, { isLoading }] = useEditAnnoucementMutation();
+  const [loading, setLoading] = useState(false);
 
   const [imageTitle, setImageTitle] = useState("");
 
+  const [imageFile, setImageFile] = useState(null);
+
   const handleFileInputChange = (e) => {
     const selectedFile = e.target.files[0];
-    console.log("Selected File:", selectedFile.name);
+
     setImageTitle(selectedFile.name);
-
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      file: selectedFile,
-    }));
-  };
-
-  const handleInputChange = (name, value) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+    setImageFile(selectedFile);
+    setEditingInfo({ ...editingInfo, image: selectedFile });
   };
 
   const handleUploadButtonClick = () => {
     fileInputRef.current.click();
   };
-  const [countryNames, setCountryNames] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
-  const handleUpdateClick = (e) => {
-    e.preventDefault();
-    console.log("Form Data:", formValues);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setAnnouncementDatas({ ...announcementDatas, [name]: value });
+    setEditingInfo({ ...editingInfo, [name]: value });
   };
+
+  const handleUpdateClick = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target;
+
+    const fromData = new FormData();
+    Object.entries(editingInfo).forEach(([key, value]) => {
+      fromData.append(key, value || "");
+    });
+    try {
+      const response = await editAnnoucement({ id: id, data: fromData });
+      // console.log(response, "reeessfaskldfj");
+      if (response?.data?.success) {
+        form.reset();
+        navigate("/dashboard/announcements");
+        setLoading(false);
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+        setLoading(false);
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const [countryNames, setCountryNames] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -68,188 +100,232 @@ const EditAnnouncements = () => {
       });
   }, []);
 
-  const handleChange = (selectedOption) => {
-    setSelectedCountry(selectedOption);
-  };
+  useEffect(() => {
+    const info = {
+      budget: data?.data?.budget,
+      category: data?.data?.category,
+      country: data?.data?.country,
+      description: data?.data?.description,
+      image: data?.data?.image,
+      location: data?.data?.location,
+      sports: data?.data?.sports,
+      status: data?.data?.status,
+      title: data?.data?.title,
+    };
+    setAnnouncementDatas(info);
+  }, [data, id]);
+
   return (
     <>
       <div className="container">
-        <div className="editAnnouncement_wrapper">
-          <div>
-            <h3>Edit Announcement</h3>
-          </div>
-          <form action="" onSubmit={handleUpdateClick}>
+        <div className=" editAnnouncement_wrapper pt-5">
+          <form action="" className="mt-5" onSubmit={handleUpdateClick}>
             <div className="row mt_30 mb_56">
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Title
                   </label>
+
                   <input
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
                     placeholder="Announcement Title"
-                    value={formValues.title}
-                    onChange={(e) => handleInputChange("title", e.target.value)}
+                    name="title"
+                    required
+                    value={announcementDatas?.title}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Status
                   </label>
                   <div className="status_buttons">
                     <button
-                      onClick={() => handleInputChange("status", "In Progress")}
+                      onClick={() => {
+                        setAnnouncementDatas({
+                          ...announcementDatas,
+                          status: "In Progress",
+                        });
+                        setEditingInfo({
+                          ...editingInfo,
+                          status: "In Progress",
+                        });
+                      }}
                       className={
-                        formValues.status === "In Progress"
+                        announcementDatas?.status === "In Progress"
                           ? "active_status"
                           : ""
                       }
+                      type="button"
                     >
                       In Progress
                     </button>
                     <button
-                      onClick={() => handleInputChange("status", "Completed")}
+                      onClick={() => {
+                        setAnnouncementDatas({
+                          ...announcementDatas,
+                          status: "Published",
+                        });
+                        setEditingInfo({
+                          ...editingInfo,
+                          status: "Published",
+                        });
+                      }}
                       className={
-                        formValues.status === "Completed" ? "active_status" : ""
+                        announcementDatas?.status === "Published"
+                          ? "active_status"
+                          : ""
                       }
+                      type="button"
                     >
                       Completed
                     </button>
                     <button
-                      onClick={() => handleInputChange("status", "Denied")}
+                      onClick={() => {
+                        setAnnouncementDatas({
+                          ...announcementDatas,
+                          status: "Denied",
+                        });
+                        setEditingInfo({
+                          ...editingInfo,
+                          status: "Denied",
+                        });
+                      }}
                       className={
-                        formValues.status === "Denied" ? "active_status" : ""
+                        announcementDatas?.status === "Denied"
+                          ? "active_status"
+                          : ""
                       }
+                      type="button"
                     >
                       Denied
                     </button>
                   </div>
                 </div>
               </div>
-              {/* <div className="col-lg-6">
-                                <div className="row">
-                                    <div className="col-lg-6">
-                                        <div className="mb-3">
-                                            <label hytmlFor="exampleFormControlInput1" className="form-label">Location</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="exampleFormControlInput1"
-                                                placeholder="Vegas street circuit"
-                                                value={formValues.location}
-                                                onChange={(e) => handleInputChange('location', e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
+
+              <div className="col-lg-6">
+                <div className="buttons1">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Category
+                  </label>
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    style={{ height: "59px" }}
+                    name="category"
+                    onChange={handleInputChange}
+                  >
+                    <option selected disabled>
+                      Select Category
+                    </option>
+                    {["Tournament", "Championship"].map((name, index) => (
+                      <option
+                        value={name}
+                        key={index}
+                        selected={announcementDatas?.category === name}
+                      >
+                        {name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="buttons1">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Sports
+                  </label>
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    style={{ height: "59px" }}
+                    name="sports"
+                    onChange={handleInputChange}
+                  >
+                    <option selected disabled>
+                      Select sports
+                    </option>
+                    {["Football", "Basketball", "Volleyball", "Handball"].map(
+                      (name, index) => (
+                        <option
+                          value={name}
+                          key={index}
+                          selected={announcementDatas?.sports === name}
+                        >
+                          {name}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
+              </div>
               <div className="col-lg-6">
                 <div className="row">
-                  <div className="col-lg-6 job_location_select">
-                    <label
-                      htmlFor="exampleFormControlInput1"
-                      className="form-label"
-                    >
-                      Country
-                    </label>
-                    {/* <Select
-                      style={{
-                        minHeight: "44px",
-                        width: "100%",
-                        backgroundColor: "#FFFFF",
-                      }}
-                      className=""
-                      options={countryNames.map((country) => ({
-                        value: country.name,
-                        label: country.name,
-                      }))}
-                      value={selectedCountry}
-                      onChange={handleChange}
-                      styles={{
-                        control: (baseStyles) => ({
-                          ...baseStyles,
-                          minHeight: "44px",
-                          backgroundColor: "#FFF",
-                        }),
-                        valueContainer: (baseStyles) => ({
-                          ...baseStyles,
-                          padding: "0 5px",
-                        }),
-                        placeholder: (baseStyles) => ({
-                          ...baseStyles,
-                          color: "#9CA3A9",
-                          fontSize: "14px",
-                        }),
-                        menuList: (baseStyles) => ({
-                          ...baseStyles,
-                          fontSize: "16px",
-                        }),
-                        singleValue: (baseStyles) => ({
-                          ...baseStyles,
-                          fontSize: "14px",
-                        }),
-                        indicatorsContainer: (baseStyles) => ({
-                          ...baseStyles,
-                          padding: "0px !important",
-                        }),
-                        indicatorSeparator: (baseStyles) => ({
-                          ...baseStyles,
-                          display: "none",
-                          margin: "0",
-                          width: "0",
-                        }),
-                      }}
-                    /> */}
-                    <select
-                      className="form-select"
-                      aria-label="Default select example"
-                      style={{
-                        height: "59px",
-                        backgroundColor: "",
-                        border: "1px solid #F0F0F0",
-                      }}
-                      name="country"
-                    >
-                      {countryNames.map((name, index) => (
-                        <option
-                          value={name?.name}
-                          className=""
-                          key={index}
-                        >
-                          {name.name}
+                  <div className="col-lg-6">
+                    <div className="buttons1">
+                      <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                      >
+                        Country
+                      </label>
+                      <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        style={{ height: "59px" }}
+                        name="country"
+                        onChange={handleInputChange}
+                      >
+                        <option selected disabled>
+                          Select a country
                         </option>
-                      ))}
-                    </select>
+                        {countryNames.map((name, index) => (
+                          <option
+                            value={name.name}
+                            key={index}
+                            selected={announcementDatas?.country}
+                          >
+                            {name.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                   <div className="col-lg-6">
-                    <div
-                      className="position-relative text-start "
-                      style={{ marginBottom: "32px" }}
-                    >
+                    <div className="mb-3">
                       <label
                         htmlFor="exampleFormControlInput1"
                         className="form-label"
                       >
                         City
                       </label>
-
                       <input
                         type="text"
-                        className="form-control ps-3"
+                        className="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="Your city"
-                        name="city"
+                        placeholder="Announcement Title"
+                        name="location"
                         required
+                        value={announcementDatas?.location}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -258,7 +334,7 @@ const EditAnnouncements = () => {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Budget
@@ -270,34 +346,34 @@ const EditAnnouncements = () => {
                     >
                       $
                     </span>
-                    {/* <input type="text" className="form-control" placeholder="500" aria-label="Username" aria-describedby="basic-addon1" /> */}
                     <input
                       type="number"
                       className="form-control"
                       placeholder="500"
                       aria-label="Budget"
                       aria-describedby="basic-addon1"
-                      value={formValues.budget}
-                      onChange={(e) =>
-                        handleInputChange("budget", e.target.value)
-                      }
+                      required
+                      name="budget"
+                      min="1"
+                      value={announcementDatas?.budget}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
               </div>
               <div className="col-lg-6">
                 <label
-                  hytmlFor="exampleFormControlInput1"
+                  htmlFor="exampleFormControlInput1"
                   className="form-label"
                 >
-                  Status
+                  Image
                 </label>
 
                 <div className="input-group mb-3 ">
                   <input
                     onClick={handleUploadButtonClick}
                     type="text"
-                    className="form-control position-relative ps-5"
+                    className="form-control position-relative ps-5 pointer"
                     value={imageTitle ? imageTitle : ""}
                     placeholder="Browse file"
                     id="inputGroupFile02"
@@ -318,20 +394,22 @@ const EditAnnouncements = () => {
                     ref={fileInputRef}
                     style={{ display: "none" }}
                     onChange={handleFileInputChange}
+                    accept=".jpg, .jpeg, .png, image/jpg, image/jpeg, image/png"
                   />
-                  <label
-                    className="input-group-text"
-                    for=""
+                  <p
+                    className="input-group-text upload_btn pointer text-light"
+                    htmlFor=""
                     onClick={handleUploadButtonClick}
+                    style={{ color: "#FFF" }}
                   >
                     Upload
-                  </label>
+                  </p>
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label
-                    hytmlFor="exampleFormControlInput1"
+                    htmlFor="exampleFormControlInput1"
                     className="form-label"
                   >
                     Description
@@ -340,17 +418,21 @@ const EditAnnouncements = () => {
                     <textarea
                       type="text"
                       className="form-control"
-                      placeholder="We can't wait to share this milestone with our incredible sports community. Your passion and support have fueled our journey, and we're thrilled to take"
+                      placeholder="We can't wait to share this milestone with our incredible sports community."
                       aria-label="Username"
                       aria-describedby="basic-addon1"
+                      required
+                      name="description"
+                      value={announcementDatas?.description}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div className="text-center">
-              <button className="update_btn1" type="submit">
-                Update
+              <button className="update_btn1" type="submit" disabled={loading}>
+                {loading ? "Editing..." : "Edit Annountment"}
               </button>
             </div>
           </form>

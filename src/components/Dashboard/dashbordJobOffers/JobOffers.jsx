@@ -173,8 +173,8 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
 
   const navigate = useNavigate();
   const handleCLick = (value) => {
-    if (value.creator !== user?._id)
-      navigate(`/jobOffer/jobDetails/${value?._id}`);
+    // if (value.creator !== user?._id)
+    navigate(`/jobOffer/jobDetails/${value?._id}`);
   };
 
   const { data, isSuccess } = useGetMyObservationsQuery();
@@ -249,6 +249,7 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
                 <h5
                   className="fw-medium fs-6 text_color_36 mb-1"
                   onClick={() => handleCLick(item)}
+                  style={{ cursor: "pointer" }}
                 >
                   {item?.job_title}
                 </h5>

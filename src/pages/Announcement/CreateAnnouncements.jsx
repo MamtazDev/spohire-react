@@ -4,9 +4,11 @@ import { useAddAnnouncementMutation } from "../../features/announcement/announce
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const CreateAnnouncements = () => {
   const fileInputRef = useRef(null);
+  const { user } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
@@ -54,6 +56,7 @@ const CreateAnnouncements = () => {
     fromData.append("status", status);
     fromData.append("category", category);
     fromData.append("sports", sports);
+    fromData.append("creator", user?._id);
 
     try {
       const response = await addAnnouncement(fromData);
@@ -174,6 +177,9 @@ const CreateAnnouncements = () => {
                     style={{ height: "59px" }}
                     name="category"
                   >
+                    <option selected disabled>
+                      Select category
+                    </option>
                     {["Tournament", "Championship"].map((name, index) => (
                       <option value={name} key={index}>
                         {name}
@@ -196,6 +202,9 @@ const CreateAnnouncements = () => {
                     style={{ height: "59px" }}
                     name="sports"
                   >
+                    <option selected disabled>
+                      Select sports
+                    </option>
                     {["Football", "Basketball", "Volleyball", "Handball"].map(
                       (name, index) => (
                         <option value={name} key={index}>
@@ -222,12 +231,13 @@ const CreateAnnouncements = () => {
                         style={{ height: "59px" }}
                         name="country"
                       >
+                        <option selected disabled>
+                          Select a country
+                        </option>
                         {countryNames.map((name, index) => (
-                          <>
-                            <option value={name.name} key={index}>
-                              {name.name}
-                            </option>
-                          </>
+                          <option value={name.name} key={index}>
+                            {name.name}
+                          </option>
                         ))}
                       </select>
                     </div>

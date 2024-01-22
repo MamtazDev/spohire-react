@@ -7,7 +7,7 @@ import chatclose from "../../../assets/chatclose.png";
 import profile from "../../../assets/chat_info-profile.png";
 import senticon from "../../../assets/sentIcon.png";
 import send from "../../../assets/send.png";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import {
   chatApi,
@@ -30,6 +30,8 @@ const Messages = () => {
   );
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const chatContainerRef = useRef(null);
@@ -126,6 +128,15 @@ const Messages = () => {
       if (lastChatMessage) {
         lastChatMessage.scrollIntoView({ behavior: "smooth" });
       }
+    }
+  };
+
+  const hanldeViewProfile = () => {
+    console.log(selectedMsgUser, "selectedMsgUser");
+    if (selectedMsgUser.role === "Coach") {
+      navigate(`/dashboard/coacheDetails/${selectedMsgUser?._id}`);
+    } else {
+      navigate(`/dashboard/viewDetails/${selectedMsgUser?._id}`);
     }
   };
 
@@ -237,7 +248,11 @@ const Messages = () => {
                   </button>
                 </div>
 
-                <div className="text-center profile_right">
+                <div
+                  className="text-center profile_right"
+                  onClick={hanldeViewProfile}
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src={
                       selectedMsgUser?.image

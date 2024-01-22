@@ -1,0 +1,6 @@
+.job_offers_topBtn_left button {
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--color_f1);
+  background-color: transparent;
+}

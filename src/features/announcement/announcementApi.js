@@ -18,6 +18,21 @@ export const announcementApi = apiSlice.injectEndpoints({
     getAnnouncementById: builder.query({
       query: (id) => `/api/v1/announcements/${id}`,
     }),
+    deleteAnnouncement: builder.mutation({
+      query: (id) => ({
+        url: `/api/v1/announcements/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Announcements"],
+    }),
+    editAnnoucement: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/api/v1/announcements/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Announcements"],
+    }),
   }),
 });
 
@@ -25,4 +40,6 @@ export const {
   useAddAnnouncementMutation,
   useGetAllAnnouncementQuery,
   useGetAnnouncementByIdQuery,
+  useDeleteAnnouncementMutation,
+  useEditAnnoucementMutation,
 } = announcementApi;

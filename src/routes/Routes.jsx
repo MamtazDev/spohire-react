@@ -262,7 +262,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/editAnnouncements",
+        path: "/dashboard/editAnnouncements/:id",
         element: (
           // <SubscribedRoute>
           <EditAnnouncements />

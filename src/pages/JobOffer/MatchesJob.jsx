@@ -199,6 +199,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                           onClick={() => setSelectedJob(item)}
+                          disabled={item?.creator === user?._id}
                         >
                           Apply
                         </button>

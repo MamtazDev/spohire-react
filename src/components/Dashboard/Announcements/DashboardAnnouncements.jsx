@@ -11,13 +11,17 @@ import edit2 from "../../../assets/edit2.png";
 import delet from "../../../assets/delete.png";
 import DeleteModal from "../../../pages/Announcement/DeleteModal";
 import { useState } from "react";
-import { useGetAllAnnouncementQuery } from "../../../features/announcement/announcementApi";
+import {
+  useDeleteAnnouncementMutation,
+  useGetAllAnnouncementQuery,
+} from "../../../features/announcement/announcementApi";
 import {
   useGetMyObservationsQuery,
   useToggleObservationMutation,
 } from "../../../features/observation/observationApi";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const DashboardAnnouncements = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
@@ -25,22 +29,94 @@ const DashboardAnnouncements = () => {
     (state) => state.announcement
   );
 
+  const { user } = useSelector((state) => state.auth);
+  const [announcementType, setAnnouncementType] = useState("All");
+
+  const [deleteAnnouncement, { isLoading: deleting }] =
+    useDeleteAnnouncementMutation();
+
   // const sorting = allAnnouncements?.data?.sort(
   //   (a, b) => a.createdAt - b.createdAt
   // );
 
-  console.log(allAnnouncements, "sss");
+  const handleDelete = async (item) => {
+    console.log(item, "djkf");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteAnnouncement(item?._id);
+        console.log(res, "ddd");
+        if (res?.data?.success) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+      }
+    });
+  };
+
+  // console.log(allAnnouncements, "sss");
+  const announcementTypeFilter = (data) => {
+    if (announcementType === "My") {
+      return data?.creator === user?._id;
+    } else {
+      return data?.creator !== user?._id;
+    }
+  };
   return (
     <>
       <div
         className="announcement"
         style={{ margin: "30px", paddingTop: "30px" }}
       >
+        <div className="job_offers_topBtn d-flex align-items-center justify-content-between mb-3">
+          <div className="job_offers_topBtn_left d-flex gap-4">
+            <button
+              className={`fs-6 fw-medium text_color_80 ${
+                announcementType === "All" && "border-primary"
+              }`}
+              onClick={() => setAnnouncementType("All")}
+            >
+              All
+            </button>
+
+            <button
+              className={`fs-6 fw-medium text_color_80 ${
+                announcementType === "My" && "border-primary"
+              }`}
+              onClick={() => setAnnouncementType("My")}
+            >
+              My Announcement
+            </button>
+          </div>
+
+          {/* <div className="job_offers_topBtn_right">
+          <button className="bg-transparent border-0 text_color_fb">
+            Clear All
+          </button>
+        </div> */}
+        </div>
         <div>
           {allAnnouncements?.data && allAnnouncements?.data?.length > 0 ? (
-            allAnnouncements?.data?.map((announcement, idx) => (
-              <SingleAnnouncement key={idx} announcement={announcement} />
-            ))
+            allAnnouncements?.data
+              ?.filter(announcementTypeFilter)
+              .map((announcement, idx) => (
+                <SingleAnnouncement
+                  key={idx}
+                  announcement={announcement}
+                  handleDelete={handleDelete}
+                />
+              ))
           ) : (
             <div
               className="d-flex justify-content-center align-items-center fs-4"
@@ -58,12 +134,13 @@ const DashboardAnnouncements = () => {
 
 export default DashboardAnnouncements;
 
-const SingleAnnouncement = ({ announcement }) => {
+const SingleAnnouncement = ({ announcement, handleDelete }) => {
   const [bookmark, setBookmark] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
 
   const { data, isSuccess } = useGetMyObservationsQuery();
+  const [seeMore, setSeeMore] = useState(250);
 
   const isBookmarked = data?.data?.find(
     (i) => i?.target_id?._id === announcement?._id
@@ -158,30 +235,37 @@ const SingleAnnouncement = ({ announcement }) => {
           </div>
 
           <div className="d-lg-block d-none">
-            <div className="d-flex gap-3 ">
-              <button
-                className="bg-none"
-                style={{ width: "20px" }}
-                onClick={() => handleBookmark(announcement?._id)}
-                disabled={isLoading}
-              >
-                {isBookmarked ? (
-                  <img src={bookmarkfill} alt="" />
-                ) : (
-                  <img src={b1} alt="" />
-                )}
-              </button>
-              {/* <Link to="/dashboard/editAnnouncements">
-                {" "}
-                <img src={edit2} alt="edit" />{" "}
-              </Link>
-              <button
-                className="bg-none"
-                data-bs-target="#exampleModalToggle2"
-                data-bs-toggle="modal"
-              >
-                <img src={delet} alt="" />
-              </button> */}
+            <div className="d-flex gap-3 align-items-center">
+              {announcement?.creator !== user?._id && (
+                <button
+                  className="bg-none"
+                  style={{ width: "20px" }}
+                  onClick={() => handleBookmark(announcement?._id)}
+                  disabled={isLoading}
+                >
+                  {isBookmarked ? (
+                    <img src={bookmarkfill} alt="" />
+                  ) : (
+                    <img src={b1} alt="" />
+                  )}
+                </button>
+              )}
+              {announcement?.creator === user?._id && (
+                <Link to={`/dashboard/editAnnouncements/${announcement?._id}`}>
+                  {" "}
+                  <img src={edit2} alt="edit" />{" "}
+                </Link>
+              )}
+              {announcement?.creator === user?._id && (
+                <button
+                  className="bg-none"
+                  // data-bs-target="#exampleModalToggle2"
+                  // data-bs-toggle="modal"
+                  onClick={() => handleDelete(announcement)}
+                >
+                  <img src={delet} alt="" />
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -190,7 +274,19 @@ const SingleAnnouncement = ({ announcement }) => {
           community. Your passion and support have fueled our journey, and were
           thrilled to <br className="d-lg-block d-none" /> take it to the next
           level together. */}
-          {announcement?.description}
+          {announcement?.description.slice(0, seeMore)}{" "}
+          {announcement?.description?.length > seeMore && (
+            <>
+              ...
+              <span
+                className="text-primary"
+                onClick={() => setSeeMore(announcement?.description.length)}
+                style={{ cursor: "pointer" }}
+              >
+                See More
+              </span>
+            </>
+          )}
         </p>
         <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
           <button
