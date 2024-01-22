@@ -22,7 +22,15 @@ const country = [
   "Canada",
   "Canada",
 ];
-const jobcategory = ["Tournament", "Championship"];
+const jobcategory = [
+  "Tournament",
+  "Championship",
+  "Friendly matches",
+  "Camps",
+  "Tournaments",
+  "Player recruitment",
+  "Others",
+];
 const AnnouncementList = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
   const [sortedItems, setSortedItems] = useState([]);

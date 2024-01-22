@@ -233,7 +233,15 @@ const EditAnnouncements = () => {
                     <option selected disabled>
                       Select Category
                     </option>
-                    {["Tournament", "Championship"].map((name, index) => (
+                    {[
+                      "Tournament",
+                      "Championship",
+                      "Friendly matches",
+                      "Camps",
+                      "Tournaments",
+                      "Player recruitment",
+                      "Others",
+                    ].map((name, index) => (
                       <option
                         value={name}
                         key={index}

@@ -180,7 +180,15 @@ const CreateAnnouncements = () => {
                     <option selected disabled>
                       Select category
                     </option>
-                    {["Tournament", "Championship"].map((name, index) => (
+                    {[
+                      "Tournament",
+                      "Championship",
+                      "Friendly matches",
+                      "Camps",
+                      "Tournaments",
+                      "Player recruitment",
+                      "Others",
+                    ].map((name, index) => (
                       <option value={name} key={index}>
                         {name}
                       </option>
