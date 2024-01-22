@@ -27,6 +27,8 @@ const SignUp = () => {
 
   const [dateOfBirth, setDateOfBirth] = useState("");
 
+  console.log(dateOfBirth, "dfsdfkk");
+
   const button_disability =
     !firstName ||
     !lastName ||
