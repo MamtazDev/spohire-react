@@ -95,7 +95,8 @@ const SecondStep = ({ setStep }) => {
             user: updatedData,
           })
         );
-        navigate("/dashboard/viewProfile");
+        // navigate("/dashboard/viewProfile");
+        navigate("/pricing");
       }
       if (response?.error?.data?.message) {
         Swal.fire({

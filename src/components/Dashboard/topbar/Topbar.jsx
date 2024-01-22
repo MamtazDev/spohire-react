@@ -184,10 +184,12 @@ const Topbar = () => {
                       location.pathname === "/dashboard/jobOffers"
                         ? "/dashboard/jobOffers"
                         : (location.pathname === "/dashboard/coachesProfile") |
-                          (location.pathname == "/dashboard/viewProfile") |
-                          (location.pathname ==
-                            "/dashboard/editCoacheProfile") |
-                          (location.pathname == "/dashboard/editPlayerDetals")
+                            (location.pathname == "/dashboard/viewProfile") |
+                            (location.pathname ==
+                              "/dashboard/editCoacheProfile") |
+                            (location.pathname ==
+                              "/dashboard/editPlayerDetals") &&
+                          !user?.subscriptionName
                         ? "/pricing"
                         : location.pathname === "/dashboard/coaches"
                         ? "/dashboard/coachesProfile"
@@ -244,13 +246,17 @@ const Topbar = () => {
                         : location.pathname === "/dashboard"
                         ? "View Details"
                         : (location.pathname === "/dashboard/coachesProfile") |
-                          (location.pathname === "/dashboard/editCoacheProfile")
+                          (location.pathname ===
+                            "/dashboard/editCoacheProfile" &&
+                            !user?.subscriptionName)
                         ? "Click here to upgrade your current package"
                         : location.pathname === "/dashboard/announcements"
                         ? "Create Announcement"
-                        : location.pathname === "/dashboard/viewProfile"
+                        : location.pathname === "/dashboard/viewProfile" &&
+                          !user?.subscriptionName
                         ? "Click here to upgrade your current package"
-                        : location.pathname === "/dashboard/editPlayerDetals"
+                        : location.pathname === "/dashboard/editPlayerDetals" &&
+                          !user?.subscriptionName
                         ? "Click here to upgrade your current package"
                         : ""}
                     </span>

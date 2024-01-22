@@ -74,12 +74,15 @@ const ViewProfile = () => {
               {user?.sports}
             </span>
             <button className="edit_player_profile">
+              <Link to="/dashboard/editPlayerDetals">Edit Profile</Link>
+            </button>
+            {/* <button className="edit_player_profile">
               {user?.isCreatedProfile ? (
                 <Link to="/dashboard/editPlayerDetals">Edit Profile</Link>
               ) : (
                 <Link to="/addProfile">Create Profile</Link>
               )}
-            </button>
+            </button> */}
             <div className="personalInfo" style={{ marginRight: "48px" }}>
               <p className="f_sfPro text_color_36 fs_18">
                 Personal Information

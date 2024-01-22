@@ -12,16 +12,16 @@ const BestOffer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSave = (data) => {
-    if (user?.subscriptionName === data?.name) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "You have already subscribed this offer!",
-      });
-    } else {
-      dispatch(setPaymentInfo(data));
-      navigate("/paymentProcess");
-    }
+    // if (user?.subscriptionName === data?.name) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Oops...",
+    //     text: "You have already subscribed this offer!",
+    //   });
+    // } else {
+    dispatch(setPaymentInfo(data));
+    navigate("/paymentProcess");
+    // }
   };
   return (
     <>
@@ -49,13 +49,14 @@ const BestOffer = () => {
                   <p className="mb_30">Per month</p>
 
                   <button
-                    className="f_sfPro text-light"
+                    className="f_sfPro text-light "
                     onClick={() =>
                       handleSave({
                         name: "Bronze",
                         price: 50,
                       })
                     }
+                    disabled={user?.subscriptionName}
                   >
                     Save and Continue
                   </button>
@@ -102,6 +103,7 @@ const BestOffer = () => {
                         price: 100,
                       })
                     }
+                    disabled={user?.subscriptionName}
                   >
                     Save and Continue
                   </button>
@@ -149,6 +151,7 @@ const BestOffer = () => {
                         price: 150,
                       })
                     }
+                    disabled={user?.subscriptionName}
                   >
                     Save and Continue
                   </button>

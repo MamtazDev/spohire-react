@@ -33,24 +33,24 @@ const OverView = () => {
             <h1>
               Hello {user?.first_name} {user?.last_name}!
             </h1>
-            {!user?.isCreatedProfile && (
-              <p className="ms-4 createProFIleButton ">
-                {" "}
-                <Link
-                  className="text-white"
-                  style={{
-                    fontSize: "12px",
-                    textTransform: "capitalize",
-                    letterSpacing: "2px",
-                    fontWeight: "400",
-                  }}
-                  to="/addProfile"
-                >
-                  Create profile
-                </Link>
-                if you are looking for clubs
-              </p>
-            )}
+            {/* {!user?.isCreatedProfile && ( */}
+            <p className="ms-4 createProFIleButton ">
+              {" "}
+              <Link
+                className="text-white"
+                style={{
+                  fontSize: "12px",
+                  textTransform: "capitalize",
+                  letterSpacing: "2px",
+                  fontWeight: "400",
+                }}
+                to="/dashboard/editPlayerDetals"
+              >
+                Update profile
+              </Link>
+              {/* if you are looking for clubs */}
+            </p>
+            {/* )} */}
           </div>
           <div className="date">
             <h3>{dayOfWeek}</h3>
