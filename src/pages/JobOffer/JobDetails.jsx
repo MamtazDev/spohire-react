@@ -5,7 +5,7 @@ import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
 import JobCategory from "./../Announcement/JobCategory";
 import { useGetJobByIdQuery } from "../../features/job/jobApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ApplyJobs from "./ApplyJobs";
 import { useSelector } from "react-redux";
 
@@ -110,12 +110,12 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
               <h4> Description</h4>
               <p>{data?.description}.</p>
             </div>
-            {user &&
-            (user?.role === "Player" ||
-              user?.role === "Manager" ||
-              user?.role === "Coach" ||
-              user?._id === data?.creator) ? (
-              <></>
+            {user && user?._id === data?.creator ? (
+              // (user?.role === "Player" ||
+              //   user?.role === "Manager" ||
+              //   user?.role === "Coach" ||
+              //   user?._id === data?.creator) ? (
+              <Link to={"/dashboard/appliedJobs"}>See Applicant</Link>
             ) : (
               <button
                 className="apply_btn"

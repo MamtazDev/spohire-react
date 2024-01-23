@@ -98,7 +98,7 @@ const DashbordSidebar = ({ user }) => {
 
           <div className="menu_link">
             <ul className="menu_wrapper_one list-unstyled m-0">
-              {user?.role !== "Player" && (
+              {(user?.role !== "Player" || user?.role !== "Other") && (
                 <Accordion className="nav_item">
                   <Accordion.Item eventKey="0" className="border-0">
                     <Accordion.Header className="p-0">
@@ -174,7 +174,7 @@ const DashbordSidebar = ({ user }) => {
                   </span>
                 </Link>
               </li>
-              {user?.role !== "Player" && (
+              {/* {user?.role !== "Player" && (
                 <li className="nav_item">
                   <Link
                     to={"/dashboard/appliedJobs"}
@@ -186,7 +186,7 @@ const DashbordSidebar = ({ user }) => {
                     </span>
                   </Link>
                 </li>
-              )}
+              )} */}
 
               <li className="nav_item">
                 <Link
@@ -202,26 +202,112 @@ const DashbordSidebar = ({ user }) => {
             </ul>
 
             <ul className="menu_wrapper_two list-unstyled m-0">
-              <li className="nav_item">
-                <Link
-                  to="/dashboard/observed"
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
-                  <img src={observedIcon} alt="icon" />
-                  <span to={"#"} className="text_color_36 text-capitalize fs-6">
-                    Observed
-                  </span>
-                </Link>
-              </li>
+              <Accordion className="nav_item">
+                <Accordion.Item eventKey="0" className="border-0">
+                  <Accordion.Header className="p-0">
+                    <li className="">
+                      <Link
+                        to={"#"}
+                        className="text-decoration-none d-flex align-items-center gap-4"
+                      >
+                        <img src={settingsIcon} alt="icon" />
+                        <span
+                          to={"#"}
+                          className="text_color_36 text-capitalize fs-6"
+                        >
+                          My Activity
+                        </span>
+                      </Link>
+                    </li>
+                  </Accordion.Header>
+                  <Accordion.Body className="pb-0">
+                    <ul
+                      className="list-unstyled"
+                      style={{ paddingLeft: "30px" }}
+                    >
+                      <li className="nav_item">
+                        <Link
+                          to="/dashboard/addedItems"
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={coach} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Added
+                          </span>
+                        </Link>
+                      </li>
 
+                      <li className="nav_item">
+                        <Link
+                          to={"/dashboard/myAppliedJobs"}
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={appliedJobsIcon} alt="icon" />
+                          <span className="text_color_36 text-capitalize fs-6">
+                            Applied job
+                          </span>
+                        </Link>
+                      </li>
+                      {/* <li className="nav_item">
+                        <Link
+                          to="/dashboard/billing"
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={billing} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Billing
+                          </span>
+                        </Link>
+                      </li> */}
+                      <li className="nav_item">
+                        <Link
+                          to="/dashboard/observed"
+                          className="text-decoration-none d-flex align-items-center gap-3"
+                        >
+                          <img src={observedIcon} alt="icon" />
+                          <span
+                            to={"#"}
+                            className="text_color_36 text-capitalize fs-6"
+                          >
+                            Observed
+                          </span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+
+              {user?.role !== "Other" && (
+                <li className="nav_item">
+                  <Link
+                    to="/dashboard/messages"
+                    className="text-decoration-none d-flex align-items-center gap-4"
+                  >
+                    <img src={messageIcon} alt="icon" />
+                    <span
+                      to={"#"}
+                      className="text_color_36 text-capitalize fs-6"
+                    >
+                      Messages
+                    </span>
+                  </Link>
+                </li>
+              )}
               <li className="nav_item">
                 <Link
-                  to="/dashboard/messages"
+                  to="/dashboard/notification"
                   className="text-decoration-none d-flex align-items-center gap-4"
                 >
-                  <img src={messageIcon} alt="icon" />
+                  <img src={coach} alt="icon" />
                   <span to={"#"} className="text_color_36 text-capitalize fs-6">
-                    Messages
+                    Notifications
                   </span>
                 </Link>
               </li>

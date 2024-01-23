@@ -10,6 +10,7 @@ import { useApplyForTheJobMutation } from "../../features/job/jobApi";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useCreateNotificationMutation } from "../../features/notification/notificationApi";
 
 const formFields = [
   {
@@ -86,6 +87,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
   // const { user } = useSelector((state) => state.auth);
 
   const [applyForTheJob, { isLoading }] = useApplyForTheJobMutation();
+  const [createNotification] = useCreateNotificationMutation();
   const [loading, setLoading] = useState(false);
 
   const [countryNames, setCountryNames] = useState([]);
@@ -123,6 +125,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
     const job = selectedJob?._id;
     const creator = selectedJob?.creator;
     const cv = selectedFile;
+    const userInfo = user?._id;
     const data = {
       name,
       region,
@@ -133,6 +136,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
       job,
       cv,
       creator,
+      userInfo,
     };
 
     const formData = new FormData();
@@ -141,10 +145,18 @@ const ApplyJobs = ({ selectedJob, user }) => {
       formData.append(key, value);
     });
 
+    const notificationInfo = {
+      user: creator,
+      type: "Job Applied",
+      message: `${user?.first_name} ${user?.last_name} has been applied for the ${selectedJob?.job_title}.`,
+      senderId: user?._id,
+    };
+
     try {
       const response = await applyForTheJob(formData);
       if (response?.data?.success) {
         form.reset();
+        await createNotification(notificationInfo);
         closeButtonRef?.current?.click();
         Swal.fire({
           icon: "success",

@@ -1,57 +1,209 @@
-import './Notification.css'
+import { useNavigate } from "react-router-dom";
+import {
+  useDeleteNotificationMutation,
+  useGetMyNotificationsQuery,
+} from "../../../../features/notification/notificationApi";
+import "./Notification.css";
+import deleteIcon from "../../../../assets/deleteIcon.png";
+import { useState } from "react";
+import Swal from "sweetalert2";
 const Notification = () => {
-    return (
-        <div style={{paddingTop:"76px"}}>
-            <div className="notification_wrapper">
-                <div className='notification_items'>
-                    <h3>Emails</h3>
-                    <div className='d-flex justify-content-between align-items-center w-100 gap-5'>
-                        <p>New notifications</p>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" defaultChecked={true} />
+  const { data } = useGetMyNotificationsQuery();
+  const [deleteNotification] = useDeleteNotificationMutation();
+  console.log(data, "ddd");
 
-                        </div>
-                    </div>
-                    <div className='d-flex justify-content-between align-items-center w-100 gap-5'>
-                        <p>Update Notifications</p>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" defaultChecked={true} />
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteNotification(item?._id);
+        console.log(res, "ddd");
+        if (res?.data?.success) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+      }
+    });
+  };
 
-                        </div>
-                    </div>
-                    <div className='d-flex justify-content-between align-items-center w-100 gap-5'>
-                        <p>Chat Notifications</p>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" defaultChecked={true} />
+  return (
+    // <div style={{ paddingTop: "76px" }}>
+    //   <div className="notification_wrapper">
+    //     <div className="notification_items">
+    //       <h3>Emails</h3>
+    //       <div className="d-flex justify-content-between align-items-center w-100 gap-5">
+    //         <p>New notifications</p>
+    //         <div className="form-check">
+    //           <input
+    //             className="form-check-input"
+    //             type="checkbox"
+    //             value=""
+    //             id="flexCheckChecked"
+    //             defaultChecked={true}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="d-flex justify-content-between align-items-center w-100 gap-5">
+    //         <p>Update Notifications</p>
+    //         <div className="form-check">
+    //           <input
+    //             className="form-check-input"
+    //             type="checkbox"
+    //             value=""
+    //             id="flexCheckChecked"
+    //             defaultChecked={true}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="d-flex justify-content-between align-items-center w-100 gap-5">
+    //         <p>Chat Notifications</p>
+    //         <div className="form-check">
+    //           <input
+    //             className="form-check-input"
+    //             type="checkbox"
+    //             value=""
+    //             id="flexCheckChecked"
+    //             defaultChecked={true}
+    //           />
+    //         </div>
+    //       </div>
+    //       <hr />
+    //     </div>
 
-                        </div>
-                    </div>
-                    <hr />
+    //     {/* form items */}
+    //     <div className="notification_items1">
+    //       <h3>From team</h3>
+    //       <div className="d-flex justify-content-between align-items-center w-100">
+    //         <p>New notifications</p>
+    //         <div className="form-check">
+    //           <input
+    //             className="form-check-input"
+    //             type="checkbox"
+    //             value=""
+    //             id="flexCheckChecked"
+    //             defaultChecked={false}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="d-flex justify-content-between align-items-center w-100 mb-5">
+    //         <p>Other Notifications</p>
+    //         <div className="form-check">
+    //           <input
+    //             className="form-check-input"
+    //             type="checkbox"
+    //             value=""
+    //             id="flexCheckChecked"
+    //             defaultChecked={false}
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <button className="save_btn">Save Changes</button>
+    //   </div>
+    // </div>
 
-                </div>
+    <div className="job_offers_wrapper">
+      <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
+        {/* <div className="job_offers_topBtn_left d-flex gap-4">
+          <button
+            className={`fs-6 fw-medium text_color_80 ${
+              jobOffersType === "All" && "border-primary"
+            }`}
+            onClick={() => setJobOffersType("All")}
+          >
+            All
+          </button>
 
-                {/* form items */}
-                <div className='notification_items1'>
-                    <h3>From team</h3>
-                    <div className='d-flex justify-content-between align-items-center w-100'>
-                        <p>New notifications</p>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" defaultChecked={false} />
+          <button
+            className={`fs-6 fw-medium text_color_80 ${
+              jobOffersType === "My" && "border-primary"
+            }`}
+            onClick={() => setJobOffersType("My")}
+          >
+            My Job Offers
+          </button>
+        </div> */}
 
-                        </div>
-                    </div>
-                    <div className='d-flex justify-content-between align-items-center w-100 mb-5'>
-                        <p>Other Notifications</p>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" defaultChecked={false} />
+        {/* <div className="job_offers_topBtn_right">
+          <button className="bg-transparent border-0 text_color_fb">
+            Clear All
+          </button>
+        </div> */}
+      </div>
 
-                        </div>
-                    </div>
-                </div>
-                <button className='save_btn'>Save Changes</button>
-            </div>
-        </div>
-    );
+      <div className="job_offer_items_wrapper">
+        {data && data.length > 0 ? (
+          data.map((item, index) => (
+            <SingleNotification
+              key={index}
+              item={item}
+              handleDelete={handleDelete}
+            />
+          ))
+        ) : (
+          <div
+            className="d-flex justify-content-center align-items-center fs-4"
+            style={{ height: "70vh" }}
+          >
+            No job offer
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Notification;
+
+function SingleNotification({ item, handleDelete }) {
+  const navigate = useNavigate();
+  const handleCLick = (value) => {
+    // if (value.creator !== user?._id)
+    if (value?.type === "Job Applied") {
+      navigate(`/dashboard/appliedJobs`);
+    } else {
+      navigate(`/dashboard/messages/${value?.senderId}`);
+    }
+  };
+
+  return (
+    <>
+      <div className="job_offers_item p-3">
+        <div className="job_offers_item_content d-flex justify-content-between align-items-center">
+          <div className="left d-flex align-items-center gap-3">
+            <div className="job_offer_item_content">
+              <div className="job_offer_nameDesignation">
+                <h5
+                  className="fw-medium fs-5 text_color_36 mb-1"
+                  onClick={() => handleCLick(item)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {item?.type}
+                </h5>
+
+                <p className="fs-14 fw-normal text_color_80 mb-1">
+                  {item?.message}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="right d-flex gap-2">
+            <button className="bg-none" onClick={() => handleDelete(item)}>
+              <img src={deleteIcon} alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

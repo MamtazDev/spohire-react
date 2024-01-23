@@ -22,6 +22,7 @@ import {
 } from "../../../features/chat/chatSlice";
 import { formatMessageTime } from "../../../utils/formateChatTIme";
 import { useGetUserByIdQuery } from "../../../features/auth/authApi";
+import { useCreateNotificationMutation } from "../../../features/notification/notificationApi";
 
 const Messages = () => {
   const { user } = useSelector((state) => state.auth);
@@ -38,6 +39,7 @@ const Messages = () => {
 
   const [createConversation] = useCreateConversationMutation();
   const [addMessages, { isLoading }] = useAddMessagesMutation();
+  const [createNotification] = useCreateNotificationMutation();
   const { data: messageUser } = useGetUserByIdQuery(id);
   const [searchText, setSearchText] = useState("");
 
@@ -81,11 +83,18 @@ const Messages = () => {
   // send messages
   const handleSendClick = async () => {
     const data = { chat: conversationId, sender: user?._id, text: messageText };
+    const notificationInfo = {
+      user: id,
+      type: "Message Received",
+      message: `${user?.first_name} ${user?.last_name} sent you a message.`,
+      senderId: user?._id,
+    };
     try {
       const res = await addMessages(data);
       if (res?.data?.success) {
         const newMessage = [...messages, res?.data?.data];
         dispatch(setMessages(newMessage));
+        await createNotification(notificationInfo);
         setMessageText("");
       }
     } catch (error) {

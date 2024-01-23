@@ -9,14 +9,28 @@ import youtubeIcon from "../../../assets/youtube.png";
 import silver from "../../../assets/silver1.png";
 import bronze from "../../../assets/bronze.png";
 import gold from "../../../assets/gold.png";
+import coachImg from "../../../assets/coachImg.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Gallary from "./../viewDetails/Gallary";
 import { useGetUserByIdQuery } from "../../../features/auth/authApi";
+import obserbeIcon from "../../../assets/observeIcon.svg";
+import ovservedIcon from "../../../assets/observedIcon.svg";
+import { useSelector } from "react-redux";
+import {
+  useGetMyObservationsQuery,
+  useToggleObservationMutation,
+} from "../../../features/observation/observationApi";
+import Swal from "sweetalert2";
 
 const CoachesDetails = () => {
   const { id } = useParams();
+  const { user: loggedInUser } = useSelector((state) => state.auth);
   const { data: user } = useGetUserByIdQuery(id);
+  const { data: userObservation } = useGetMyObservationsQuery();
+  const [toggleObservation] = useToggleObservationMutation();
   // console.log(user, "dd");
+
+  const isObserved = userObservation?.data.find((i) => i.target_id?._id === id);
 
   const convertAge = (dateString) => {
     const dob = new Date(dateString);
@@ -29,13 +43,48 @@ const CoachesDetails = () => {
   const handleMessageLink = (id) => {
     navigate(`/dashboard/messages/${id}`);
   };
+
+  const handleObserve = async () => {
+    const data = {
+      user_id: loggedInUser?._id,
+      target_id: id,
+      target_type: "User",
+    };
+
+    // console.log(data, "jjjDD");
+
+    try {
+      const response = await toggleObservation(data);
+      if (response?.data?.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Successsful!",
+        });
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+
+      console.log(response, "ress");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
+  };
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
       <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
           <div className="col-12 col-lg-3 ">
-            <div className="">
+            <div className="w-100" style={{ position: "relative" }}>
               <img
                 className="img-fluid"
                 src={
@@ -45,9 +94,20 @@ const CoachesDetails = () => {
                           ? import.meta.env.VITE_LOCAL_API_URL
                           : import.meta.env.VITE_LIVE_API_URL
                       }/api/v1/uploads/${user?.image}`
-                    : profileImage
+                    : coachImg
                 }
                 alt="Profile"
+              />
+              <img
+                src={isObserved ? ovservedIcon : obserbeIcon}
+                alt=""
+                style={{
+                  position: "absolute",
+                  bottom: "40px",
+                  left: 0,
+                  cursor: "pointer",
+                }}
+                onClick={handleObserve}
               />
             </div>
           </div>

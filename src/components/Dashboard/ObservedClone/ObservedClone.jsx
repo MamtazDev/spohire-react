@@ -15,12 +15,15 @@ import {
 } from "../../../features/observation/observationApi";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ObservedClone = () => {
   const { data, isLoading, isSuccess } = useGetMyObservationsQuery();
   //   console.log(data?.data, "dddobbb");
   const { user } = useSelector((state) => state.auth);
 
+  const navigate = useNavigate();
   const [toggleObservation] = useToggleObservationMutation();
 
   const handleBookmark = async (id, type) => {
@@ -57,6 +60,17 @@ const ObservedClone = () => {
       });
     }
   };
+
+  const handleNavigatePlayer = (value) => {
+    console.log(value, "klsjflakv");
+    if (value.role === "Coach") {
+      navigate(`/dashboard/coacheDetails/${value?._id}`);
+    }
+    if (value.role === "Player") {
+      navigate(`/dashboard/viewDetails/${value?._id}`);
+    }
+  };
+
   if (isLoading) {
     return <div></div>;
   }
@@ -84,98 +98,124 @@ const ObservedClone = () => {
                 data?.data?.length > 0 &&
                 data?.data
                   .filter((i) => i?.target_type === "Announcement")
-                  .map((item, idx) => (
-                    <div className="announcelist_wrapper pe-3" key={idx}>
-                      <div className="d-flex justify-content-between align-items-start">
-                        <div
-                          className="d-flex align-items-center"
-                          style={{ gap: "20px" }}
-                        >
-                          <div className="announcement_pic">
-                            <img
-                              src={
-                                item?.target_id?.image
-                                  ? `${
-                                      process.env.NODE_ENV !== "production"
-                                        ? import.meta.env.VITE_LOCAL_API_URL
-                                        : import.meta.env.VITE_LIVE_API_URL
-                                    }/api/v1/uploads/${item?.target_id?.image}`
-                                  : a1
-                              }
-                              alt=""
-                              style={{
-                                height: "35px",
-                                width: "35px",
-                                objectFit: "cover",
-                                borderRadius: "8px",
-                              }}
-                            />
-                          </div>
-                          <div className="recruiment f_sfPro">
-                            <p>{item?.target_id?.title}</p>
-                            <div className="d-flex gap-3 flex-wrap">
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={location} alt="" />
-                                <span>{item?.target_id?.location}</span>
-                              </div>
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={flag} alt="" />
-                                <span>{item?.target_id?.status}</span>
-                              </div>
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ gap: "6px" }}
-                              >
-                                <img src={dollar} alt="" />
-                                <span>USD {item?.target_id?.budget}</span>
+                  .map((item, idx) => {
+                    // const [seeMore, setSeeMore] = useState(250);
+                    let seeMore = 250;
+                    const handleSeeMore = (value) => {
+                      seeMore = value;
+                    };
+                    return (
+                      <div className="announcelist_wrapper pe-3" key={idx}>
+                        <div className="d-flex justify-content-between align-items-start">
+                          <div
+                            className="d-flex align-items-center"
+                            style={{ gap: "20px" }}
+                          >
+                            <div className="announcement_pic">
+                              <img
+                                src={
+                                  item?.target_id?.image
+                                    ? `${
+                                        process.env.NODE_ENV !== "production"
+                                          ? import.meta.env.VITE_LOCAL_API_URL
+                                          : import.meta.env.VITE_LIVE_API_URL
+                                      }/api/v1/uploads/${
+                                        item?.target_id?.image
+                                      }`
+                                    : a1
+                                }
+                                alt=""
+                                style={{
+                                  height: "35px",
+                                  width: "35px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                }}
+                              />
+                            </div>
+                            <div className="recruiment f_sfPro">
+                              <p>{item?.target_id?.title}</p>
+                              <div className="d-flex gap-3 flex-wrap">
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={location} alt="" />
+                                  <span>{item?.target_id?.location}</span>
+                                </div>
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={flag} alt="" />
+                                  <span>{item?.target_id?.status}</span>
+                                </div>
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ gap: "6px" }}
+                                >
+                                  <img src={dollar} alt="" />
+                                  <span>USD {item?.target_id?.budget}</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="d-lg-block d-none">
-                          <div
-                            className="d-flex gap-3 "
-                            style={{ cursor: "pointer" }}
-                            onClick={() =>
-                              handleBookmark(
-                                item?.target_id?._id,
-                                "Announcement"
-                              )
-                            }
-                          >
-                            <img src={bookmarkfill} alt="" />
+                          <div className="d-lg-block d-none">
+                            <div
+                              className="d-flex gap-3 "
+                              style={{ cursor: "pointer" }}
+                              onClick={() =>
+                                handleBookmark(
+                                  item?.target_id?._id,
+                                  "Announcement"
+                                )
+                              }
+                            >
+                              <img src={bookmarkfill} alt="" />
+                            </div>
                           </div>
                         </div>
+                        <p
+                          className="announcement_details f_sfPro"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            WebkitLineClamp: 1,
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {/* {item?.target_id?.description} */}
+                          {item?.target_id?.description?.slice(0, seeMore)}{" "}
+                          {item?.target_id?.description?.length > seeMore && (
+                            <>
+                              ...
+                              <span
+                                className="text-primary"
+                                onClick={() =>
+                                  handleSeeMore(
+                                    item?.target_id?.description?.length
+                                  )
+                                }
+                                style={{ cursor: "pointer" }}
+                              >
+                                See More
+                              </span>
+                            </>
+                          )}
+                        </p>
+                        <div
+                          className="d-flex gap-3 d-lg-none d-block justify-content-end"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            handleBookmark(item?.target_id?._id, "Announcement")
+                          }
+                        >
+                          <img src={bookmarkfill} alt="" />
+                        </div>
                       </div>
-                      <p
-                        className="announcement_details f_sfPro"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          WebkitLineClamp: 1,
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {item?.target_id?.description}
-                      </p>
-                      <div
-                        className="d-flex gap-3 d-lg-none d-block justify-content-end"
-                        style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          handleBookmark(item?.target_id?._id, "Announcement")
-                        }
-                      >
-                        <img src={bookmarkfill} alt="" />
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
             </div>
           </div>
         )}
@@ -222,7 +262,15 @@ const ObservedClone = () => {
 
                             <div className="job_offer_item_content">
                               <div className="job_offer_nameDesignation">
-                                <h5 className="fw-medium fs-6 text_color_36 mb-1">
+                                <h5
+                                  className="fw-medium fs-6 text_color_36 mb-1"
+                                  onClick={() =>
+                                    navigate(
+                                      `/jobOffer/jobDetails/${item?.target_id?._id}`
+                                    )
+                                  }
+                                  style={{ cursor: "pointer" }}
+                                >
                                   {item?.target_id?.job_title}
                                 </h5>
 
@@ -325,7 +373,13 @@ const ObservedClone = () => {
 
                             <div className="job_offer_item_content">
                               <div className="job_offer_nameDesignation">
-                                <h5 className="fw-medium fs-6 text_color_36 mb-1">
+                                <h5
+                                  className="fw-medium fs-6 text_color_36 mb-1"
+                                  onClick={() =>
+                                    handleNavigatePlayer(item?.target_id)
+                                  }
+                                  style={{ cursor: "pointer" }}
+                                >
                                   {item?.target_id?.first_name}{" "}
                                   {item?.target_id?.last_name}
                                 </h5>

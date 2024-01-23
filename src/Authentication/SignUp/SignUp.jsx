@@ -318,7 +318,7 @@ const SignUp = () => {
                   {/* Function */}
                   <label className="label_text">Function</label> <br />
                   <>
-                    {["Player", "Coach", "Manager"].map((data) => (
+                    {["Player", "Coach", "Manager", "Other"].map((data) => (
                       <>
                         <button
                           className={`${

@@ -129,29 +129,49 @@ const Topbar = () => {
             <div>
               {location.pathname === "/dashboard" ? (
                 // user?.role === "Manager" ? (
-                <div className="d-flex gap-2">
-                  {user?.role !== "Player" && (
-                    <button className="px-3 py-2 rounded text-white bg_color_fb">
-                      Add Player
-                    </button>
+                <div className="d-flex gap-5">
+                  {!user?.isSubsCribed && user?.role !== "Other" && (
+                    <div
+                      className="d-flex gap-2 align-items-center"
+                      style={{
+                        border: "2px dashed #d1d8e4",
+                        padding: "3px 15px",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <p className="fs-5 me-3">Transfer Market</p>
+                      {user?.role === "Player" && (
+                        <button
+                          className="px-3 py-2 rounded text-white bg_color_fb"
+                          onClick={() => navigate("/addProfile")}
+                        >
+                          Add Player
+                        </button>
+                      )}
+                      {user?.role === "Coach" && (
+                        <button
+                          className="px-3 py-2 rounded text-white bg_color_fb"
+                          onClick={() => navigate("/addProfile")}
+                        >
+                          Add Coach
+                        </button>
+                      )}
+                    </div>
                   )}
-                  {user?.role !== "Coach" && (
-                    <button className="px-3 py-2 rounded text-white bg_color_fb">
-                      Add Coach
+                  <div className="d-flex gap-2">
+                    <button
+                      className="px-3 py-2 rounded text-white bg_color_fb"
+                      onClick={() => handleAddJobOfferClick()}
+                    >
+                      Add Job Offer
                     </button>
-                  )}
-                  <button
-                    className="px-3 py-2 rounded text-white bg_color_fb"
-                    onClick={() => handleAddJobOfferClick()}
-                  >
-                    Add Job Offer
-                  </button>
-                  <button
-                    className="px-3 py-2 rounded text-white bg_color_fb"
-                    onClick={() => handleAddAnnouncementClick()}
-                  >
-                    Add Announcemen
-                  </button>
+                    <button
+                      className="px-3 py-2 rounded text-white bg_color_fb"
+                      onClick={() => handleAddAnnouncementClick()}
+                    >
+                      Add Announcemen
+                    </button>
+                  </div>
                 </div>
               ) : // ) : (
               //   ""

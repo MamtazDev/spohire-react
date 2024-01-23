@@ -37,6 +37,8 @@ import PaymentRoute from "./PaymentRoute.jsx";
 import JobDetails from "../pages/JobOffer/JobDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import AppliedJobs from "../components/Dashboard/dashbordJobOffers/AppliedJobs.jsx";
+import MyAppliedJob from "../components/Dashboard/dashbordJobOffers/MyAppliedJob.jsx";
+import AddedItems from "../components/Dashboard/AddJobOffer/AddedItems.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -135,6 +137,24 @@ export const router = createBrowserRouter([
         element: (
           // <SubscribedRoute>
           <AppliedJobs />
+          // </SubscribedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addedItems",
+        element: (
+          // <SubscribedRoute>
+          // <AppliedJobs />
+          <AddedItems />
+          // </SubscribedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myAppliedJobs",
+        element: (
+          // <SubscribedRoute>
+          // <AppliedJobs />
+          <MyAppliedJob />
           // </SubscribedRoute>
         ),
       },

@@ -42,6 +42,20 @@ export const jobApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Jobs"],
     }),
+    getMyAppliedJobs: builder.query({
+      query: () => "/api/v1/job-applies/myAppliedJobs",
+      providesTags: ["MyAppliedJobs"],
+    }),
+    deleteJobApply: builder.mutation({
+      query: (id) => ({
+        url: `/api/v1/job-applies/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["MyAppliedJobs"],
+    }),
+    getMyJobOffers: builder.query({
+      query: () => "/api/v1/jobs/getMyJobOffers",
+    }),
   }),
 });
 
@@ -53,4 +67,7 @@ export const {
   useGetAppliedJobsQuery,
   useDeleteJobMutation,
   useEditJobMutation,
+  useGetMyAppliedJobsQuery,
+  useDeleteJobApplyMutation,
+  useGetMyJobOffersQuery,
 } = jobApi;
