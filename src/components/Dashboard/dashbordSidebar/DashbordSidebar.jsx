@@ -19,11 +19,24 @@ import billing from "../../../assets/BILLING.png";
 import coach from "../../../assets/coach.png";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
+import {
+  useGetMyNotificationsQuery,
+  useUpdateNotificationMutation,
+} from "../../../features/notification/notificationApi";
 
 // eslint-disable-next-line react/prop-types
 const DashbordSidebar = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { data } = useGetMyNotificationsQuery();
+  const [updateNotification] = useUpdateNotificationMutation();
+
+  const unseenNotifications = data?.filter((i) => i.isSeen === false) || [];
+
+  const handleNotification = async () => {
+    await updateNotification();
+    navigate("/dashboard/notification");
+  };
 
   const handleLoggout = () => {
     dispatch(userLoggedOut());
@@ -177,7 +190,7 @@ const DashbordSidebar = ({ user }) => {
               {/* {user?.role !== "Player" && (
                 <li className="nav_item">
                   <Link
-                    to={"/dashboard/appliedJobs"}
+                    to={"/dashboard/jobApplicants"}
                     className="text-decoration-none d-flex align-items-center gap-4"
                   >
                     <img src={appliedJobsIcon} alt="icon" />
@@ -291,25 +304,35 @@ const DashbordSidebar = ({ user }) => {
                     className="text-decoration-none d-flex align-items-center gap-4"
                   >
                     <img src={messageIcon} alt="icon" />
-                    <span
-                      to={"#"}
-                      className="text_color_36 text-capitalize fs-6"
-                    >
+                    <span className="text_color_36 text-capitalize fs-6">
                       Messages
                     </span>
                   </Link>
                 </li>
               )}
               <li className="nav_item">
-                <Link
-                  to="/dashboard/notification"
+                <span
+                  // to="/dashboard/notification"
                   className="text-decoration-none d-flex align-items-center gap-4"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleNotification}
                 >
                   <img src={coach} alt="icon" />
-                  <span to={"#"} className="text_color_36 text-capitalize fs-6">
+                  <span
+                    className="text_color_36 text-capitalize fs-6"
+                    style={{ position: "relative" }}
+                  >
                     Notifications
+                    {unseenNotifications?.length > 0 && (
+                      <span
+                        class="position-absolute top-0  translate-middle badge rounded-circle bg-primary"
+                        style={{ right: -30 }}
+                      >
+                        {unseenNotifications?.length}
+                      </span>
+                    )}
                   </span>
-                </Link>
+                </span>
               </li>
               <Accordion className="nav_item">
                 <Accordion.Item eventKey="0" className="border-0">
@@ -320,10 +343,7 @@ const DashbordSidebar = ({ user }) => {
                         className="text-decoration-none d-flex align-items-center gap-4"
                       >
                         <img src={settingsIcon} alt="icon" />
-                        <span
-                          to={"#"}
-                          className="text_color_36 text-capitalize fs-6"
-                        >
+                        <span className="text_color_36 text-capitalize fs-6">
                           Settings
                         </span>
                       </Link>
@@ -340,10 +360,7 @@ const DashbordSidebar = ({ user }) => {
                           className="text-decoration-none d-flex align-items-center gap-3"
                         >
                           <img src={coach} alt="icon" />
-                          <span
-                            to={"#"}
-                            className="text_color_36 text-capitalize fs-6"
-                          >
+                          <span className="text_color_36 text-capitalize fs-6">
                             Password
                           </span>
                         </Link>

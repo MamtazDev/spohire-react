@@ -202,10 +202,10 @@ const EditPlayerDetails = () => {
 
     const formData = new FormData();
 
-    Object.entries(infoData).forEach(([key, value]) => {
+    Object.entries(infoData)?.forEach(([key, value]) => {
       formData.append(key, value);
     });
-    gallaryImage.forEach((img, index) => {
+    gallaryImage?.forEach((img, index) => {
       formData.append(`gallery`, img);
     });
 
@@ -338,6 +338,7 @@ const EditPlayerDetails = () => {
                       : profileImage
                   }
                   alt="Profile"
+                  style={{ objectFit: "cover" }}
                 />
                 <div>
                   {!selectedImage && (
@@ -536,9 +537,10 @@ const EditPlayerDetails = () => {
 
         <button
           type="submit"
+          disabled={isLoading}
           className="experience_wrapper playerDetailsUpdate_btn"
         >
-          Update
+          {isLoading ? "Updating..." : "Update"}
         </button>
       </div>
     </form>

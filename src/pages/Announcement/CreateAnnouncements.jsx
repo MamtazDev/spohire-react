@@ -53,7 +53,7 @@ const CreateAnnouncements = () => {
     fromData.append("budget", budget);
     fromData.append("country", country);
     fromData.append("description", description);
-    fromData.append("status", status);
+    // fromData.append("status", status);
     fromData.append("category", category);
     fromData.append("sports", sports);
     fromData.append("creator", user?._id);
@@ -127,7 +127,7 @@ const CreateAnnouncements = () => {
                   />
                 </div>
               </div>
-              <div className="col-lg-6">
+              {/* <div className="col-lg-6">
                 <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlInput1"
@@ -161,7 +161,7 @@ const CreateAnnouncements = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="col-lg-6">
                 <div className="buttons1">

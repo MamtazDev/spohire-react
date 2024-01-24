@@ -133,7 +133,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/appliedJobs",
+        path: "/dashboard/jobApplicants/:id",
         element: (
           // <SubscribedRoute>
           <AppliedJobs />

@@ -15,6 +15,7 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         <li
           className={`page-item ${currentPage === 1 && "disabled"}`}
           onClick={() => setCurrentPage((prev) => prev - 1)}
+          style={{ cursor: "pointer" }}
         >
           <span className="page-link">
             <i className="fa fa-angle-left"></i>
@@ -22,13 +23,19 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         </li>
 
         {pageNumbers.map((i) => (
-          <li className={`page-item ${currentPage === i && "active"}`}>
-            <span className="page-link">{i}</span>
+          <li
+            className={`page-item ${currentPage === i && "active"}`}
+            style={{ cursor: "pointer" }}
+          >
+            <span className="page-link" onClick={() => setCurrentPage(i)}>
+              {i}
+            </span>
           </li>
         ))}
         <li
           className={`page-item ${currentPage === totalPages && "disabled"}`}
           onClick={() => setCurrentPage((prev) => prev + 1)}
+          style={{ cursor: "pointer" }}
         >
           <span className="page-link">
             {" "}

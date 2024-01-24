@@ -109,8 +109,8 @@ const Topbar = () => {
                   {location.pathname === "/dashboard" && "Overview"}
                   {location.pathname === "/dashboard/jobOffers" && "job offer"}
                   {location.pathname === "/dashboard/basicinfo" && "job offer"}
-                  {location.pathname === "/dashboard/appliedJobs" &&
-                    "Applied Jobs"}
+                  {location.pathname.includes("/dashboard/jobApplicants") &&
+                    "Applicants"}
                   {location.pathname === "/dashboard/players" && "Players List"}
                   {location.pathname === "/dashboard/createAnnouncements" &&
                     "Create Announcements"}
@@ -169,14 +169,14 @@ const Topbar = () => {
                       className="px-3 py-2 rounded text-white bg_color_fb"
                       onClick={() => handleAddAnnouncementClick()}
                     >
-                      Add Announcemen
+                      Add Announcement
                     </button>
                   </div>
                 </div>
               ) : // ) : (
               //   ""
               // )
-              location.pathname === "/dashboard/appliedJobs" ? (
+              location.pathname.includes("/dashboard/jobApplicants") ? (
                 ""
               ) : (
                 <div className="dashbord_topbar_button d-flex gap-4">
@@ -189,7 +189,7 @@ const Topbar = () => {
                       <span className="text_color_cb">Filter</span>
                     </button>
                   )}
-                  {/* {location.pathname === "/dashboard/announcements" && (
+                  {location.pathname === "/dashboard/announcements" && (
                     <button
                       onClick={(event) => handleButtonClick1(event)}
                       className={`${"filter_btn d-flex gap-2 text-decoration-none"} `}
@@ -197,7 +197,7 @@ const Topbar = () => {
                       <img src={filterIcon} alt="icon" />
                       <span className="text_color_cb">Filter</span>
                     </button>
-                  )} */}
+                  )}
 
                   <Link
                     to={`${

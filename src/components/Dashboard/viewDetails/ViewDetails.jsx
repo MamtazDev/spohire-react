@@ -89,9 +89,12 @@ const ViewDetails = () => {
       <div className="job_offer desktop_vd  ps-lg-0 pe-lg-0">
         <div className="row">
           <div className="col-12 col-lg-3 ">
-            <div className="w-100" style={{ position: "relative" }}>
+            <div
+              className="w-100 upload_profile_image ms-4"
+              style={{ position: "relative" }}
+            >
               <img
-                className="img-fluid "
+                className="img-fluid profiles"
                 src={
                   user?.image
                     ? `${

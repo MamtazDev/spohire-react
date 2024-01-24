@@ -22,12 +22,13 @@ import {
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Pagination from "../../Pagination/Pagination";
 
 const DashboardAnnouncements = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
-  const { filter, announcementLocation } = useSelector(
-    (state) => state.announcement
-  );
+  const { dashboardFilterParams } = useSelector((state) => state.announcement);
+
+  console.log(dashboardFilterParams, "dashboardFilterParams");
 
   const { user } = useSelector((state) => state.auth);
   const [announcementType, setAnnouncementType] = useState("All");
@@ -40,8 +41,6 @@ const DashboardAnnouncements = () => {
   // );
 
   const handleDelete = async (item) => {
-    console.log(item, "djkf");
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -73,6 +72,39 @@ const DashboardAnnouncements = () => {
       return data?.creator !== user?._id;
     }
   };
+
+  const filtering = (data) => {
+    if (
+      dashboardFilterParams?.sports ||
+      dashboardFilterParams?.country ||
+      dashboardFilterParams?.categories
+    ) {
+      return (
+        (dashboardFilterParams?.sports &&
+          dashboardFilterParams.sports === data?.sports) ||
+        (dashboardFilterParams?.country &&
+          dashboardFilterParams?.country === data?.country) ||
+        (dashboardFilterParams?.categories &&
+          dashboardFilterParams?.categories === data?.category)
+      );
+    } else {
+      return true;
+    }
+  };
+
+  const filteredData =
+    allAnnouncements?.data?.filter(filtering)?.filter(announcementTypeFilter) ||
+    [];
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(filteredData?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   return (
     <>
       <div
@@ -107,9 +139,9 @@ const DashboardAnnouncements = () => {
         </div> */}
         </div>
         <div>
-          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 ? (
-            allAnnouncements?.data
-              ?.filter(announcementTypeFilter)
+          {allAnnouncements?.data && filteredData?.length > 0 ? (
+            filteredData
+              .slice(startIndex, endIndex)
               .map((announcement, idx) => (
                 <SingleAnnouncement
                   key={idx}
@@ -126,6 +158,14 @@ const DashboardAnnouncements = () => {
             </div>
           )}
         </div>
+        {filteredData?.length > itemsPerPage && (
+          <Pagination
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+          // <div>fsjkjfsk</div>
+        )}
       </div>
       <DeleteModal />
     </>
@@ -216,13 +256,13 @@ const SingleAnnouncement = ({ announcement, handleDelete }) => {
                   <img src={location} alt="" />
                   <span>{announcement?.location}</span>
                 </div>
-                <div
+                {/* <div
                   className="d-flex align-items-center"
                   style={{ gap: "6px" }}
                 >
                   <img src={flag} alt="" />
                   <span>{announcement?.status}</span>
-                </div>
+                </div> */}
                 <div
                   className="d-flex align-items-center"
                   style={{ gap: "6px" }}

@@ -13,6 +13,7 @@ import { useState } from "react";
 import {
   useDeleteJobMutation,
   useGetAllJobsQuery,
+  useGetJobApplicantsQuery,
 } from "../../../features/job/jobApi";
 import { useSelector } from "react-redux";
 import {
@@ -22,6 +23,7 @@ import {
 import Swal from "sweetalert2";
 import EditJobOffer from "../AddJobOffer/EditJobOffer";
 import { Link, useNavigate } from "react-router-dom";
+import Pagination from "../../Pagination/Pagination";
 
 const JobOffers = () => {
   const { data: allJobs } = useGetAllJobsQuery();
@@ -93,18 +95,29 @@ const JobOffers = () => {
     // return true;
   });
 
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(filteredJobs?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   return (
     <div className="job_offers_wrapper">
       <div className="job_offer_items_wrapper">
-        {allJobs?.data && allJobs?.data?.length > 0 ? (
-          filteredJobs.map((item, index) => (
-            <SingleJob
-              key={index}
-              item={item}
-              handleEditJobOfferClick={handleEditJobOfferClick}
-              handleDelete={handleDelete}
-            />
-          ))
+        {allJobs?.data && filteredJobs?.length > 0 ? (
+          filteredJobs
+            .slice(startIndex, endIndex)
+            .map((item, index) => (
+              <SingleJob
+                key={index}
+                item={item}
+                handleEditJobOfferClick={handleEditJobOfferClick}
+                handleDelete={handleDelete}
+              />
+            ))
         ) : (
           <div
             className="d-flex justify-content-center align-items-center fs-4"
@@ -114,6 +127,14 @@ const JobOffers = () => {
           </div>
         )}
       </div>
+      {filteredJobs?.length > itemsPerPage && (
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+        // <div>fsjkjfsk</div>
+      )}
       <MobileButtons />
 
       <AddJobOffer />
@@ -140,6 +161,8 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
 
   console.log(item, "jkj");
   const { user } = useSelector((state) => state.auth);
+
+  const { data: applicants } = useGetJobApplicantsQuery(item?._id);
 
   const navigate = useNavigate();
   const handleCLick = (value) => {
@@ -250,8 +273,14 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
                   </span>
                 </div>
                 <div className="job_offer_flag d-flex align-items-center gap-1">
+                  {/* <img src={dollarIcon} alt="icon" /> */}
+                  <span className="fs-14 fw-normal text_color_80">
+                    Applicants: {applicants?.length}
+                  </span>
+                </div>
+                <div className="job_offer_flag d-flex align-items-center gap-1">
                   <Link
-                    to={"/dashboard/appliedJobs"}
+                    to={`/dashboard/jobApplicants/${item?._id}`}
                     className="fs-14 fw-normal text-primary"
                   >
                     View Applicant

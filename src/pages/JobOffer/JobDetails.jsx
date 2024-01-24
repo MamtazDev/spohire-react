@@ -115,7 +115,9 @@ const JobDetails = ({ jobId, setSearchParams, searchParams }) => {
               //   user?.role === "Manager" ||
               //   user?.role === "Coach" ||
               //   user?._id === data?.creator) ? (
-              <Link to={"/dashboard/appliedJobs"}>See Applicant</Link>
+              <Link to={`/dashboard/jobApplicants/${detailsId}`}>
+                See Applicant
+              </Link>
             ) : (
               <button
                 className="apply_btn"

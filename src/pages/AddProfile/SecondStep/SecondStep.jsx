@@ -125,7 +125,7 @@ const SecondStep = ({ setStep }) => {
   return (
     <div className="login_wrapper player_wrapper">
       <div>
-        <h3>Add Profile</h3>
+        <h3>Add to Transfer Market</h3>
         <p>Fill all input to create a account</p>
         <form onSubmit={handleFormSubmit}>
           {experience?.length > 0 &&

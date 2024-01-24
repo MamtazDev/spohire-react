@@ -7,10 +7,11 @@ import b1 from "../../../assets/bookmark.png";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
 import MobileButtons from "../players/MobileButtons";
 import AddJobOffer from "../AddJobOffer/AddJobOffer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   useGetAllJobsQuery,
   useGetAppliedJobsQuery,
+  useGetJobApplicantsQuery,
 } from "../../../features/job/jobApi";
 import { useSelector } from "react-redux";
 import {
@@ -20,9 +21,13 @@ import {
 import Swal from "sweetalert2";
 import { convertDate } from "../../../utils/TimeConverter";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const AppliedJobs = () => {
-  const { data, isSuccess, isLoading } = useGetAppliedJobsQuery();
+  const { id } = useParams();
+  // const { data, isSuccess, isLoading } = useGetAppliedJobsQuery();
+
+  const { data, isSuccess, isLoading } = useGetJobApplicantsQuery(id);
 
   //   const filteredJobs = allJobs?.data.filter((value) => {
   //     if (jobType || JobLocation || jobCategory) {
@@ -49,6 +54,8 @@ const AppliedJobs = () => {
       </div>
     );
   }
+
+  // useEffect(() => {}, [id]);
 
   return (
     <div className="job_offers_wrapper">

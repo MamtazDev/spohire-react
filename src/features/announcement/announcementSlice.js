@@ -8,6 +8,11 @@ const initialState = {
     country: [],
     categories: [],
   },
+  dashboardFilterParams: {
+    sports: null,
+    country: null,
+    categories: null,
+  },
 };
 
 const announcementSlice = createSlice({
@@ -54,9 +59,31 @@ const announcementSlice = createSlice({
           return;
       }
     },
+    setDashboardFilterParams: (state, action) => {
+      const { type, data } = action.payload;
+
+      switch (type) {
+        case "sports":
+          state.dashboardFilterParams.sports = data;
+          return;
+        case "country":
+          state.dashboardFilterParams.country = data;
+          return;
+        case "categories":
+          state.dashboardFilterParams.categories = data;
+          return;
+
+        default:
+          return;
+      }
+    },
   },
 });
 
-export const { setFilter, setannouncementLocation, setFilterParams } =
-  announcementSlice.actions;
+export const {
+  setFilter,
+  setannouncementLocation,
+  setFilterParams,
+  setDashboardFilterParams,
+} = announcementSlice.actions;
 export default announcementSlice.reducer;

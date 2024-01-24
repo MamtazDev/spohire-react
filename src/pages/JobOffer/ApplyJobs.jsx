@@ -150,6 +150,7 @@ const ApplyJobs = ({ selectedJob, user }) => {
       type: "Job Applied",
       message: `${user?.first_name} ${user?.last_name} has been applied for the ${selectedJob?.job_title}.`,
       senderId: user?._id,
+      jobId: selectedJob?._id,
     };
 
     try {

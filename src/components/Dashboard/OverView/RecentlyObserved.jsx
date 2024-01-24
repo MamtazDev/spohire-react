@@ -103,13 +103,13 @@ const RecentlyObserved = () => {
                             <img src={location} alt="" />
                             <span>{item?.target_id?.location}</span>
                           </div>
-                          <div
+                          {/* <div
                             className="d-flex align-items-center"
                             style={{ gap: "6px" }}
                           >
                             <img src={flag} alt="" />
                             <span>{item?.target_id?.status}</span>
-                          </div>
+                          </div> */}
                           <div
                             className="d-flex align-items-center"
                             style={{ gap: "6px" }}

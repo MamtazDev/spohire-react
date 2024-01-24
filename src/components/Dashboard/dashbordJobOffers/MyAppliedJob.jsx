@@ -9,10 +9,21 @@ import { convertDate } from "../../../utils/TimeConverter";
 import pdfIcon from "../../../assets/pdfIcon.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import Pagination from "../../Pagination/Pagination";
 
 const MyAppliedJob = () => {
   const { data, isLoading, isSuccess } = useGetMyAppliedJobsQuery();
   const [deleteJobApply, { isLoading: deleting }] = useDeleteJobApplyMutation();
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(data?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   const handleCancleJob = async (job) => {
     try {
@@ -57,14 +68,16 @@ const MyAppliedJob = () => {
     <div className="job_offers_wrapper">
       <div className="job_offer_items_wrapper">
         {data && isSuccess && data?.length > 0 ? (
-          data.map((item, index) => (
-            <SingleJob
-              key={index}
-              item={item}
-              handleCancleJob={handleCancleJob}
-              deleting={deleting}
-            />
-          ))
+          data
+            .slice(startIndex, endIndex)
+            .map((item, index) => (
+              <SingleJob
+                key={index}
+                item={item}
+                handleCancleJob={handleCancleJob}
+                deleting={deleting}
+              />
+            ))
         ) : (
           <div
             className="d-flex justify-content-center align-items-center fs-4"
@@ -75,6 +88,14 @@ const MyAppliedJob = () => {
         )}
       </div>
       <MobileButtons />
+      {data?.length > itemsPerPage && (
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+        // <div>fsjkjfsk</div>
+      )}
     </div>
   );
 };
@@ -85,6 +106,8 @@ function SingleJob({ item, handleCancleJob, deleting }) {
   // const handleBookmark = () => {
   //   setBookmark(!bookmark);
   // };
+
+  const navigate = useNavigate();
   const [pdfLoading, setPdfLoading] = useState(false);
 
   const handleViewPdf = async () => {
@@ -122,7 +145,11 @@ function SingleJob({ item, handleCancleJob, deleting }) {
 
   return (
     <>
-      <div className="job_offers_item p-3">
+      <div
+        className="job_offers_item p-3"
+        onClick={() => navigate(`/jobOffer/jobDetails/${item?.job?._id}`)}
+        style={{ cursor: "pointer" }}
+      >
         <div className="job_offers_item_content d-flex justify-content-between align-items-center">
           <div className=" ">
             <h2 className="mb-2">{item?.job?.job_title}</h2>
@@ -223,7 +250,10 @@ function SingleJob({ item, handleCancleJob, deleting }) {
               ) : (
                 <button
                   className="bg-none d-flex flex-column align-items-center gap-2"
-                  onClick={handleViewPdf}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewPdf();
+                  }}
                   //   disabled={isLoading}
                 >
                   <img src={pdfIcon} alt="" />
@@ -232,7 +262,10 @@ function SingleJob({ item, handleCancleJob, deleting }) {
               )}
               <button
                 className="btn btn-sm btn-primary"
-                onClick={() => handleCancleJob(item)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCancleJob(item);
+                }}
                 disabled={deleting}
               >
                 {deleting ? "Cancling..." : "Cancle"}

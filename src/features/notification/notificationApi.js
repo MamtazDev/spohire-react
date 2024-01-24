@@ -21,6 +21,13 @@ export const notificationApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Notifications"],
     }),
+    updateNotification: builder.mutation({
+      query: () => ({
+        url: "/api/v1/notification/updateMyNotificationStatus",
+        method: "PATCH",
+      }),
+      invalidatesTags: ["Notifications"],
+    }),
   }),
 });
 
@@ -28,4 +35,5 @@ export const {
   useCreateNotificationMutation,
   useGetMyNotificationsQuery,
   useDeleteNotificationMutation,
+  useUpdateNotificationMutation,
 } = notificationApi;

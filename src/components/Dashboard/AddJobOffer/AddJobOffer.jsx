@@ -706,7 +706,7 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
                         type="text"
                         className="form-control ps-5"
                         id="exampleFormControlInput1"
-                        placeholder="Enter Announcement Title"
+                        placeholder="Enter Job Title"
                         name="title"
                         required
                       />

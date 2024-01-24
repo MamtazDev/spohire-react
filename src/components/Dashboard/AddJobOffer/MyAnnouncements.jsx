@@ -22,6 +22,7 @@ import {
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Pagination from "../../Pagination/Pagination";
 
 const MyAnnouncement = () => {
   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
@@ -70,6 +71,18 @@ const MyAnnouncement = () => {
       return data?.creator !== user?._id;
     }
   };
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const filteredData =
+    allAnnouncements?.data?.filter(announcementTypeFilter) || [];
+
+  const totalPages = Math.ceil(filteredData?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   return (
     <>
       <div
@@ -77,9 +90,9 @@ const MyAnnouncement = () => {
         style={{ margin: "30px", paddingTop: "30px" }}
       >
         <div>
-          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 ? (
-            allAnnouncements?.data
-              ?.filter(announcementTypeFilter)
+          {allAnnouncements?.data && filteredData.length > 0 ? (
+            filteredData
+              ?.slice(startIndex, endIndex)
               .map((announcement, idx) => (
                 <SingleAnnouncement
                   key={idx}
@@ -96,6 +109,14 @@ const MyAnnouncement = () => {
             </div>
           )}
         </div>
+        {filteredData?.length > itemsPerPage && (
+          <Pagination
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+          // <div>fsjkjfsk</div>
+        )}
       </div>
       <DeleteModal />
     </>

@@ -4,7 +4,7 @@ import arrowRight from "../../assets/ArrowRight.png";
 import { useEffect, useRef, useState } from "react";
 import DateSelector from "./DateSelector";
 import "./SignUp.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { convertDate } from "../../utils/TimeConverter";
 import { useRegisterUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
@@ -387,6 +387,9 @@ const SignUp = () => {
                     </div>
                   )}
                 </form>
+                <div className="d-flex justify-content-center mt-2 gap-1">
+                  Already have and account? <Link to="/login">Login</Link>
+                </div>
               </div>
             </div>
           </div>

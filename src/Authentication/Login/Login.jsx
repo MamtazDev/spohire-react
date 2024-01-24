@@ -4,7 +4,7 @@ import "./Login.css";
 import LoginSlider from "./LoginSlider";
 import { useLoginUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [loginUser, { isLoading, error, isError }] = useLoginUserMutation();
@@ -138,6 +138,9 @@ const Login = () => {
                 <AiOutlineApple />
                 <span>Continue with Apple</span>
               </div> */}
+              <div className="d-flex justify-content-center mt-2 ">
+                <Link to="/">Go to homepage</Link>
+              </div>
             </div>
           </div>
         </div>

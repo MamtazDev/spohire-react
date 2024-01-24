@@ -19,7 +19,7 @@ const AddedItems = () => {
             }`}
             onClick={() => setJobOffersType("player")}
           >
-            Player
+            {user?.role === "Coach" ? "Players" : "Player"}
           </button>
 
           <button

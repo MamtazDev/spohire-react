@@ -23,6 +23,7 @@ export const jobApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["MyAppliedJobs"],
     }),
     getAppliedJobs: builder.query({
       query: () => "/api/v1/job-applies/appliedJobs",
@@ -56,6 +57,9 @@ export const jobApi = apiSlice.injectEndpoints({
     getMyJobOffers: builder.query({
       query: () => "/api/v1/jobs/getMyJobOffers",
     }),
+    getJobApplicants: builder.query({
+      query: (id) => `/api/v1/job-applies/appliedJobsByJobId/${id}`,
+    }),
   }),
 });
 
@@ -70,4 +74,5 @@ export const {
   useGetMyAppliedJobsQuery,
   useDeleteJobApplyMutation,
   useGetMyJobOffersQuery,
+  useGetJobApplicantsQuery,
 } = jobApi;

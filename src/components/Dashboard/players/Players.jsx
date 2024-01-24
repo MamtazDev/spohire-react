@@ -55,10 +55,8 @@ const Players = () => {
                   player?.subscriptionName &&
                   allowedPlans.includes(player?.subscriptionName)
               )
-              .map((player, idx) => (
-                <>
-                  <SinglePlayer key={idx} player={player} />
-                </>
+              ?.map((player, idx) => (
+                <SinglePlayer key={idx} player={player} />
               ))}
           {/* blank tr for taking space */}
         </tbody>
@@ -90,7 +88,13 @@ const SinglePlayer = ({ player }) => {
 
   const [toggleObservation, { isLoading }] = useToggleObservationMutation();
 
-  const handleBookmark = async (id) => {
+  const handleMessageRoute = (e, id) => {
+    e.stopPropagation();
+    navigate(`/dashboard/messages/${id}`);
+  };
+
+  const handleBookmark = async (e, id) => {
+    e.stopPropagation();
     const data = {
       user_id: user?._id,
       target_id: id,
@@ -152,7 +156,7 @@ const SinglePlayer = ({ player }) => {
   };
   return (
     <>
-      <tr className="table_hover pointer">
+      <tr className="table_hover pointer" onClick={() => handlePath(player)}>
         <td>
           <div className="player_info d-flex align-items-center gap-2">
             <div className="player_info_wrapper d-flex gap-2">
@@ -176,7 +180,7 @@ const SinglePlayer = ({ player }) => {
                   }}
                 />
               </div>
-              <div className="player_name" onClick={() => handlePath(player)}>
+              <div className="player_name">
                 <p className="text_color_36 fw-medium fs_14">
                   {player?.first_name} <br /> {player?.last_name}
                 </p>
@@ -196,19 +200,19 @@ const SinglePlayer = ({ player }) => {
 
         <td>
           <p className="text_color_55 fw-normal fs_14">
-            {player?.club_position ? player?.club_position : "N/A"}
+            {player.club_position ? player.club_position : "N/A"}
           </p>
         </td>
 
         <td>
           <p className="text_color_55 fw-normal fs_14">
-            {player?.club_name ? player?.club_name : "N/A"}
+            {player.club_name ? player.club_name : "N/A"}
           </p>
         </td>
 
         <td>
           <p className="text_color_55 fw-normal fs_14">
-            {player?.subscriptionName ? player?.subscriptionName : "N/A"}
+            {player.subscriptionName ? player.subscriptionName : "N/A"}
           </p>
         </td>
 
@@ -216,7 +220,7 @@ const SinglePlayer = ({ player }) => {
           <div className="d-flex align-items-center">
             <button
               className="bg-none me-3"
-              onClick={() => handleBookmark(player?._id)}
+              onClick={(e) => handleBookmark(e, player?._id)}
               style={{ width: "20px" }}
               disabled={isLoading}
             >
@@ -226,12 +230,12 @@ const SinglePlayer = ({ player }) => {
                 <img src={b1} alt="" />
               )}
             </button>
-            <Link
-              to={`/dashboard/messages/${player?._id}`}
+            <span
+              onClick={(e) => handleMessageRoute(e, player?._id)}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />
-            </Link>
+            </span>
           </div>
         </td>
       </tr>

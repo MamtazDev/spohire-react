@@ -86,7 +86,8 @@ const SingleCoach = ({ coach }) => {
 
   const [toggleObservation, { isLoading }] = useToggleObservationMutation();
 
-  const handleBookmark = async (id) => {
+  const handleBookmark = async (e, id) => {
+    e.stopPropagation();
     const data = {
       user_id: user?._id,
       target_id: id,
@@ -143,9 +144,14 @@ const SingleCoach = ({ coach }) => {
       });
     }
   };
+
+  const hancleMessageLink = (e, id) => {
+    e.stopPropagation();
+    navigate(`/dashboard/messages/${id}`);
+  };
   return (
     <>
-      <tr className="table_hover pointer">
+      <tr className="table_hover pointer" onClick={() => handlePath(coach)}>
         <td>
           <div className="player_info d-flex align-items-center gap-2">
             <div className="player_info_wrapper d-flex gap-2">
@@ -169,7 +175,7 @@ const SingleCoach = ({ coach }) => {
                   }}
                 />
               </div>
-              <div className="player_name" onClick={() => handlePath(coach)}>
+              <div className="player_name">
                 <p className="text_color_36 fw-medium fs_14">
                   {coach?.first_name} <br /> {coach?.last_name}
                 </p>
@@ -207,7 +213,7 @@ const SingleCoach = ({ coach }) => {
           <div className="d-flex align-items-center">
             <button
               className="bg-none me-3"
-              onClick={() => handleBookmark(coach?._id)}
+              onClick={(e) => handleBookmark(e, coach?._id)}
               style={{ width: "20px" }}
               disabled={isLoading}
             >
@@ -217,12 +223,13 @@ const SingleCoach = ({ coach }) => {
                 <img src={b1} alt="" />
               )}
             </button>
-            <Link
-              to={`/dashboard/messages/${coach?._id}`}
+            <span
+              // to={`/dashboard/messages/${coach?._id}`}
+              onClick={(e) => hancleMessageLink(e, coach?._id)}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />
-            </Link>
+            </span>
           </div>
         </td>
       </tr>

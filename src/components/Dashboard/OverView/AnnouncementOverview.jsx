@@ -65,13 +65,13 @@ const AnnouncementOverview = () => {
                         <img src={location} alt="" />
                         <span>{item?.location}</span>
                       </div>
-                      <div
+                      {/* <div
                         className="d-flex align-items-center"
                         style={{ gap: "6px" }}
                       >
                         <img src={flag} alt="" />
                         <span>{item?.status}</span>
-                      </div>
+                      </div> */}
                       <div
                         className="d-flex align-items-center"
                         style={{ gap: "6px" }}

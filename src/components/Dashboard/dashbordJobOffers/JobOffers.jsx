@@ -22,6 +22,7 @@ import {
 import Swal from "sweetalert2";
 import EditJobOffer from "../AddJobOffer/EditJobOffer";
 import { useNavigate } from "react-router-dom";
+import Pagination from "../../Pagination/Pagination";
 
 const JobOffers = () => {
   const { data: allJobs } = useGetAllJobsQuery();
@@ -95,6 +96,15 @@ const JobOffers = () => {
     // return true;
   });
 
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(filteredJobs?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   return (
     <div className="job_offers_wrapper">
       <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
@@ -126,15 +136,17 @@ const JobOffers = () => {
       </div>
 
       <div className="job_offer_items_wrapper">
-        {allJobs?.data && allJobs?.data?.length > 0 ? (
-          filteredJobs.map((item, index) => (
-            <SingleJob
-              key={index}
-              item={item}
-              handleEditJobOfferClick={handleEditJobOfferClick}
-              handleDelete={handleDelete}
-            />
-          ))
+        {allJobs?.data && filteredJobs.length > 0 ? (
+          filteredJobs
+            .slice(startIndex, endIndex)
+            .map((item, index) => (
+              <SingleJob
+                key={index}
+                item={item}
+                handleEditJobOfferClick={handleEditJobOfferClick}
+                handleDelete={handleDelete}
+              />
+            ))
         ) : (
           <div
             className="d-flex justify-content-center align-items-center fs-4"
@@ -144,6 +156,14 @@ const JobOffers = () => {
           </div>
         )}
       </div>
+      {filteredJobs?.length > itemsPerPage && (
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+        // <div>fsjkjfsk</div>
+      )}
       <MobileButtons />
 
       <AddJobOffer />
@@ -220,7 +240,11 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
   };
   return (
     <>
-      <div className="job_offers_item p-3">
+      <div
+        className="job_offers_item p-3"
+        onClick={() => handleCLick(item)}
+        style={{ cursor: "pointer" }}
+      >
         <div className="job_offers_item_content d-flex justify-content-between align-items-center">
           <div className="left d-flex align-items-center gap-3">
             <div className="job_offer_item_img">
@@ -248,7 +272,6 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
               <div className="job_offer_nameDesignation">
                 <h5
                   className="fw-medium fs-6 text_color_36 mb-1"
-                  onClick={() => handleCLick(item)}
                   style={{ cursor: "pointer" }}
                 >
                   {item?.job_title}
@@ -286,7 +309,10 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
             {item?.creator !== user?._id && (
               <button
                 className="bg-none"
-                onClick={() => handleBookmark(item?._id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBookmark(item?._id);
+                }}
                 style={{ width: "20px" }}
                 disabled={isLoading}
               >
@@ -300,13 +326,22 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
             {item?.creator === user?._id && (
               <button
                 className="bg-none"
-                onClick={() => handleEditJobOfferClick(item)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleEditJobOfferClick(item);
+                }}
               >
                 <img src={editIcon} alt="" />
               </button>
             )}
             {item?.creator === user?._id && (
-              <button className="bg-none" onClick={() => handleDelete(item)}>
+              <button
+                className="bg-none"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDelete(item);
+                }}
+              >
                 <img src={deleteIcon} alt="" />
               </button>
             )}

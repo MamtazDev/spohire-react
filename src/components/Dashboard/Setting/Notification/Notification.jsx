@@ -7,10 +7,20 @@ import "./Notification.css";
 import deleteIcon from "../../../../assets/deleteIcon.png";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import Pagination from "../../../Pagination/Pagination";
+
 const Notification = () => {
   const { data } = useGetMyNotificationsQuery();
   const [deleteNotification] = useDeleteNotificationMutation();
-  console.log(data, "ddd");
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 10;
+
+  const totalPages = Math.ceil(data?.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -143,13 +153,15 @@ const Notification = () => {
 
       <div className="job_offer_items_wrapper">
         {data && data.length > 0 ? (
-          data.map((item, index) => (
-            <SingleNotification
-              key={index}
-              item={item}
-              handleDelete={handleDelete}
-            />
-          ))
+          data
+            .slice(startIndex, endIndex)
+            .map((item, index) => (
+              <SingleNotification
+                key={index}
+                item={item}
+                handleDelete={handleDelete}
+              />
+            ))
         ) : (
           <div
             className="d-flex justify-content-center align-items-center fs-4"
@@ -159,6 +171,14 @@ const Notification = () => {
           </div>
         )}
       </div>
+      {data?.length > itemsPerPage && (
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+        // <div>fsjkjfsk</div>
+      )}
     </div>
   );
 };
@@ -170,7 +190,8 @@ function SingleNotification({ item, handleDelete }) {
   const handleCLick = (value) => {
     // if (value.creator !== user?._id)
     if (value?.type === "Job Applied") {
-      navigate(`/dashboard/appliedJobs`);
+      // console.log(value, "jfklajlk");
+      navigate(`/dashboard/jobApplicants/${value?.jobId}`);
     } else {
       navigate(`/dashboard/messages/${value?.senderId}`);
     }
