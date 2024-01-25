@@ -43,6 +43,8 @@ const DashbordSidebar = ({ user }) => {
     localStorage.removeItem("spohireAuth");
     navigate("/login");
   };
+
+  console.log(user?.role, "user");
   return (
     <div className="dashbord_sidebar">
       <div className="dashbord_logo">
@@ -111,6 +113,8 @@ const DashbordSidebar = ({ user }) => {
 
           <div className="menu_link">
             <ul className="menu_wrapper_one list-unstyled m-0">
+              <p>{user?.role}</p>
+              {/* <p>{user?.role}</p> */}
               {(user?.role !== "Player" || user?.role !== "Other") && (
                 <Accordion className="nav_item">
                   <Accordion.Item eventKey="0" className="border-0">

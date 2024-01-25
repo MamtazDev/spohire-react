@@ -66,10 +66,6 @@ const authSlice = createSlice({
   },
 });
 
-export const {
-  userLoggedIn,
-  userLoggedOut,
-  setPlayerFilterParams,
-  setCoachFilterParams,
-} = authSlice.actions;
+export const { userLoggedIn, userLoggedOut, setPlayerFilterParams,setCoachFilterParams } =
+  authSlice.actions;
 export default authSlice.reducer;
