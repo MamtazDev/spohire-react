@@ -113,9 +113,7 @@ const DashbordSidebar = ({ user }) => {
 
           <div className="menu_link">
             <ul className="menu_wrapper_one list-unstyled m-0">
-              <p>{user?.role}</p>
-              {/* <p>{user?.role}</p> */}
-              {(user?.role !== "Player" || user?.role !== "Other") && (
+              {(user?.role === "Coach" || user?.role === "Manager") && (
                 <Accordion className="nav_item">
                   <Accordion.Item eventKey="0" className="border-0">
                     <Accordion.Header className="p-0">

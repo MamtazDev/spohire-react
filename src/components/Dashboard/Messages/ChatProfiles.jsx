@@ -36,49 +36,53 @@ const ChatProfiles = ({ user, searchText }) => {
 
         {data &&
           data?.length > 0 &&
-          data.filter(handleFilter).map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => handleClick(item)}
-              style={{ cursor: "pointer" }}
-              className={`${
-                selectedMsgUser?._id === item?._id && "bg-light rounded"
-              } px-2 py-2 my-2`}
-            >
-              <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
-                <div className="d-flex align-items-center gap-3 w-100 h-100">
-                  <div>
-                    <img
-                      src={
-                        item?.image
-                          ? `${
-                              process.env.NODE_ENV !== "production"
-                                ? import.meta.env.VITE_LOCAL_API_URL
-                                : import.meta.env.VITE_LIVE_API_URL
-                            }/api/v1/uploads/${item?.image}`
-                          : profile
-                      }
-                      alt="profile"
-                      style={{
-                        height: "49px",
-                        width: "49px",
-                        objectFit: "cover",
-                        borderRadius: "50%",
-                      }}
-                    />
+          data.filter(handleFilter).map((item, idx) => {
+            return item?.message !== 0 ? (
+              <div
+                key={idx}
+                onClick={() => handleClick(item)}
+                style={{ cursor: "pointer" }}
+                className={`${
+                  selectedMsgUser?._id === item?._id && "bg-light rounded"
+                } px-2 py-2 my-2`}
+              >
+                <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
+                  <div className="d-flex align-items-center gap-3 w-100 h-100">
+                    <div>
+                      <img
+                        src={
+                          item?.image
+                            ? `${
+                                process.env.NODE_ENV !== "production"
+                                  ? import.meta.env.VITE_LOCAL_API_URL
+                                  : import.meta.env.VITE_LIVE_API_URL
+                              }/api/v1/uploads/${item?.image}`
+                            : profile
+                        }
+                        alt="profile"
+                        style={{
+                          height: "49px",
+                          width: "49px",
+                          objectFit: "cover",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </div>
+
+                    <h5>
+                      {item?.first_name} {item?.last_name}
+                    </h5>
+                    {/* <span>Yeah, I’m done with it...</span> */}
                   </div>
 
-                  <h5>
-                    {item?.first_name} {item?.last_name}
-                  </h5>
-                  {/* <span>Yeah, I’m done with it...</span> */}
+                  <div>{/* <p>12:34</p> */}</div>
                 </div>
-
-                <div>{/* <p>12:34</p> */}</div>
+                <hr className="chat_line mt-2" />
               </div>
-              <hr className="chat_line mt-2" />
-            </div>
-          ))}
+            ) : (
+              <></>
+            );
+          })}
         {/* <div className="d-flex align-items-start chat_wrapper justify-content-between w-100 ">
           <div className="d-flex align-items-start gap-3">
             <div>
