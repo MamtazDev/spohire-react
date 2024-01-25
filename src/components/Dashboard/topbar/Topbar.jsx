@@ -9,6 +9,8 @@ import AddJobOffer from "../AddJobOffer/AddJobOffer";
 import AddAnnouncement from "../Announcements/AddAnnouncement";
 import { useSelector } from "react-redux";
 import FilteAnnouncementModal from "./FilteAnnouncementModal";
+import PlayerFilterModal from "./PlayerFilterModal";
+import CoachFilterModal from "./CoachFilterModal";
 
 const Topbar = () => {
   const { user } = useSelector((state) => state.auth);
@@ -44,16 +46,41 @@ const Topbar = () => {
   };
   // joboffer modal-------------
 
+  // player modal ----
+  const playerRef = useRef(null);
+  const [playerFilter, setPlayerFilter] = useState(false);
+
+  const handlePlayerFilterModal = (event) => {
+    event.stopPropagation();
+    setPlayerFilter(!playerFilter);
+  };
+
+  // player modal ----
+
+  // coach modal ----
+  const coachRef = useRef(null);
+  const [coachFilter, setCoachFilter] = useState(false);
+  const handleCoachFilterModal = (event) => {
+    event.stopPropagation();
+    setCoachFilter(!coachFilter);
+  };
+
+  // coach modal ----
+
   // outside close ------------------
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         (myDivRef.current && !myDivRef.current.contains(event.target)) ||
-        (myDivRef1.current && !myDivRef1.current.contains(event.target))
+        (myDivRef1.current && !myDivRef1.current.contains(event.target)) ||
+        (playerRef.current && !playerRef.current.contains(event.target)) ||
+        (coachRef.current && !coachRef.current.contains(event.target))
       ) {
         setFilter(false);
         setFilterAnnouncement(false);
+        setPlayerFilter(false);
+        setCoachFilter(false);
       }
     };
     document.addEventListener("click", handleClickOutside);
@@ -180,6 +207,24 @@ const Topbar = () => {
                 ""
               ) : (
                 <div className="dashbord_topbar_button d-flex gap-4">
+                  {location.pathname === "/dashboard/players" && (
+                    <button
+                      onClick={(event) => handlePlayerFilterModal(event)}
+                      className={`${"filter_btn d-flex gap-2 text-decoration-none"} `}
+                    >
+                      <img src={filterIcon} alt="icon" />
+                      <span className="text_color_cb">Filter</span>
+                    </button>
+                  )}
+                  {location.pathname === "/dashboard/coaches" && (
+                    <button
+                      onClick={(event) => handleCoachFilterModal(event)}
+                      className={`${"filter_btn d-flex gap-2 text-decoration-none"} `}
+                    >
+                      <img src={filterIcon} alt="icon" />
+                      <span className="text_color_cb">Filter</span>
+                    </button>
+                  )}
                   {location.pathname === "/dashboard/jobOffers" && (
                     <button
                       onClick={(event) => handleButtonClick(event)}
@@ -288,6 +333,8 @@ const Topbar = () => {
               {filterAnnouncement && (
                 <FilteAnnouncementModal myDivRef1={myDivRef1} />
               )}
+              {playerFilter && <PlayerFilterModal playerRef={playerRef} />}
+              {coachFilter && <CoachFilterModal playerRef={coachRef} />}
 
               {/* filter modal */}
             </div>

@@ -15,10 +15,11 @@ import {
   useToggleObservationMutation,
 } from "../../../features/observation/observationApi";
 import Swal from "sweetalert2";
+import { getCountryFlag } from "../../../utils/getFlag";
 
 const Players = () => {
   const { data: players, isLoading } = useGetFilteredUsersQuery("role=Player");
-  const { user } = useSelector((state) => state.auth);
+  const { user, playerFilterParams } = useSelector((state) => state.auth);
   const allowedPlans =
     user?.subscriptionName === "Gold"
       ? ["Gold", "Silver", "Bronze"]
@@ -27,6 +28,34 @@ const Players = () => {
       : user?.subscriptionName === "Bronze"
       ? ["Bronze"]
       : [];
+
+  const handleFilter = (value) => {
+    if (
+      playerFilterParams?.sports ||
+      playerFilterParams?.country ||
+      playerFilterParams?.categories
+    ) {
+      return (
+        (playerFilterParams?.sports &&
+          playerFilterParams?.sports === value?.sports) ||
+        (playerFilterParams?.country &&
+          playerFilterParams?.country === value?.nationality) ||
+        (playerFilterParams?.categories &&
+          playerFilterParams?.categories === value?.category)
+      );
+    } else {
+      return true;
+    }
+  };
+
+  const filteredData =
+    players
+      ?.filter(
+        (player) =>
+          player?.subscriptionName &&
+          allowedPlans.includes(player?.subscriptionName)
+      )
+      .filter(handleFilter) || [];
 
   return (
     <div className="players">
@@ -47,17 +76,13 @@ const Players = () => {
           </tr>
         </thead>
         <tbody>
-          {players &&
-            players.length > 0 &&
-            players
-              .filter(
-                (player) =>
-                  player?.subscriptionName &&
-                  allowedPlans.includes(player?.subscriptionName)
-              )
-              ?.map((player, idx) => (
-                <SinglePlayer key={idx} player={player} />
-              ))}
+          {players && filteredData?.length > 0 ? (
+            filteredData?.map((player, idx) => (
+              <SinglePlayer key={idx} player={player} />
+            ))
+          ) : (
+            <tr className="mx-auto">No Players Found</tr>
+          )}
           {/* blank tr for taking space */}
         </tbody>
       </Table>
@@ -134,6 +159,9 @@ const SinglePlayer = ({ player }) => {
   //   navigate(`/dashboard/viewDetails/${id}`);
   // };
 
+  const gg = getCountryFlag("Afghanistan");
+  console.log(gg, "gg");
+
   const handlePath = (player) => {
     const allowedPlans =
       user?.subscriptionName === "Gold"
@@ -189,7 +217,15 @@ const SinglePlayer = ({ player }) => {
           </div>
         </td>
         <td>
-          <p className="text_color_55 fw-normal fs_14">{player?.nationality}</p>
+          <p className="text_color_55 fw-normal fs_14 d-flex align-items-center gap-2">
+            {" "}
+            <p
+              dangerouslySetInnerHTML={{
+                __html: getCountryFlag(player?.nationality),
+              }}
+            />{" "}
+            {player?.nationality}{" "}
+          </p>
         </td>
 
         <td>

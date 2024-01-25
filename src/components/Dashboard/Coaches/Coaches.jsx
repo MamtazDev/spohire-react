@@ -15,10 +15,11 @@ import {
   useToggleObservationMutation,
 } from "../../../features/observation/observationApi";
 import Swal from "sweetalert2";
+import { getCountryFlag } from "../../../utils/getFlag";
 const Coaches = () => {
   const { data: coachs, isLoading } = useGetFilteredUsersQuery("role=Coach");
 
-  const { user } = useSelector((state) => state.auth);
+  const { user, coachFilterParams } = useSelector((state) => state.auth);
   const allowedPlans =
     user?.subscriptionName === "Gold"
       ? ["Gold", "Silver", "Bronze"]
@@ -27,6 +28,34 @@ const Coaches = () => {
       : user?.subscriptionName === "Bronze"
       ? ["Bronze"]
       : [];
+
+  const handleFilter = (value) => {
+    if (
+      coachFilterParams?.sports ||
+      coachFilterParams?.country ||
+      coachFilterParams?.categories
+    ) {
+      return (
+        (coachFilterParams?.sports &&
+          coachFilterParams?.sports === value?.sports) ||
+        (coachFilterParams?.country &&
+          coachFilterParams?.country === value?.nationality) ||
+        (coachFilterParams?.categories &&
+          coachFilterParams?.categories === value?.category)
+      );
+    } else {
+      return true;
+    }
+  };
+
+  const filteredData =
+    coachs
+      ?.filter(
+        (coach) =>
+          coach?.subscriptionName &&
+          allowedPlans.includes(coach?.subscriptionName)
+      )
+      .filter(handleFilter) || [];
   return (
     <>
       <div className="players">
@@ -47,19 +76,15 @@ const Coaches = () => {
             </tr>
           </thead>
           <tbody>
-            {coachs &&
-              coachs?.length > 0 &&
-              coachs
-                ?.filter(
-                  (coach) =>
-                    coach?.subscriptionName &&
-                    allowedPlans.includes(coach?.subscriptionName)
-                )
-                .map((coach, idx) => (
-                  <>
-                    <SingleCoach key={idx} coach={coach} />
-                  </>
-                ))}
+            {coachs && filteredData?.length > 0 ? (
+              filteredData.map((coach, idx) => (
+                <>
+                  <SingleCoach key={idx} coach={coach} />
+                </>
+              ))
+            ) : (
+              <tr className="mx-auto">No Coaches Found</tr>
+            )}
           </tbody>
         </Table>
         <MobilePlayers></MobilePlayers>
@@ -184,7 +209,14 @@ const SingleCoach = ({ coach }) => {
           </div>
         </td>
         <td>
-          <p className="text_color_55 fw-normal fs_14">{coach?.nationality}</p>
+          <p className="text_color_55 fw-normal fs_14 d-flex align-items-center gap-2">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: getCountryFlag(coach?.nationality),
+              }}
+            />
+            {coach?.nationality}
+          </p>
         </td>
         <td>
           <p className="text_color_55 fw-normal fs_14">
