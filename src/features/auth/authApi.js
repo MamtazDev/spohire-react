@@ -83,6 +83,12 @@ export const authApi = apiSlice.injectEndpoints({
     getFilteredUsers: builder.query({
       query: (queryString) => `/api/v1/users/filteredUsers?${queryString}`,
     }),
+    cancleSubscription: builder.mutation({
+      query: () => ({
+        url: "/api/v1/users/cancleSubscription",
+        method: "PATCH",
+      }),
+    }),
   }),
 });
 
@@ -94,4 +100,5 @@ export const {
   useUpdateUserMutation,
   useGetFilteredUsersQuery,
   useUpdateProfileCreationStatusMutation,
+  useCancleSubscriptionMutation,
 } = authApi;

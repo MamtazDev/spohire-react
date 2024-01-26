@@ -1,14 +1,59 @@
 import React, { useState } from "react";
 import JobOffers from "./JobOffers";
 import MyAnnouncement from "./MyAnnouncements";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import footBallCoachImg from "../../../assets/footballCoach.png";
+import { useCancleSubscriptionMutation } from "../../../features/auth/authApi";
+import Swal from "sweetalert2";
 
 const AddedItems = () => {
   const [jobOffersType, setJobOffersType] = useState("player");
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  console.log();
 
-  console.log(user, "jkfjksf");
+  const [cancleSubscription, { isLoading }] = useCancleSubscriptionMutation();
+
+  const handleUndoAddProfile = async () => {
+    console.log("dd");
+    try {
+      const response = await cancleSubscription();
+      if (response?.data?.success) {
+        const previousUserInfo = JSON.parse(
+          localStorage.getItem("spohireAuth")
+        );
+
+        const newUserInfo = {
+          accessToken: previousUserInfo?.accessToken,
+          user: response.data.data,
+        };
+
+        // dispatch(userLoggedIn);
+
+        localStorage.setItem("spohireAuth", JSON.stringify(newUserInfo));
+        Swal.fire({
+          icon: "success",
+          title: "Successsful!",
+        });
+      }
+      if (response?.error?.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response?.error?.data?.message}`,
+        });
+      }
+
+      console.log(response, "ress");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error?.message}`,
+      });
+    }
+  };
+
   return (
     <div className="job_offers_wrapper">
       <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
@@ -128,8 +173,22 @@ const AddedItems = () => {
                 <button
                   className="btn btn-primary btn-sm rounded"
                   // onClick={() => handleDelete(item)}
+                  onClick={() => handleUndoAddProfile()}
+                  disabled={isLoading}
                 >
-                  Undo Add Profile
+                  {isLoading ? (
+                    <>
+                      <div
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                      >
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                      Loading...
+                    </>
+                  ) : (
+                    <>Undo Add Profile</>
+                  )}
                 </button>
               </div>
             </div>

@@ -183,6 +183,14 @@ const Topbar = () => {
                           Add Coach
                         </button>
                       )}
+                      {user?.role === "Manager" && (
+                        <button
+                          className="px-3 py-2 rounded text-white bg_color_fb"
+                          onClick={() => navigate("/addProfile")}
+                        >
+                          Add player
+                        </button>
+                      )}
                     </div>
                   )}
                   <div className="d-flex gap-2">
