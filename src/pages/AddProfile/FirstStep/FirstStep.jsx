@@ -148,7 +148,9 @@ const FirstStep = ({ setStep }) => {
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
             <div className="col-6">
-              <label htmlFor="">Additional passport</label>
+              <label htmlFor="">
+                <span className="text-danger">*</span>Additional passport
+              </label>
               {/* <Select
                 options={options1}
                 value={options1.find(
@@ -415,7 +417,10 @@ const FirstStep = ({ setStep }) => {
           )}
 
           <div className="social_media_links">
-            <h6>Social media profiles</h6>
+            <h6>
+              {" "}
+              <span className="text-danger">*</span>Social media profiles
+            </h6>
             <div className="social_icons_wrapper">
               {socials?.map((item, idx) => (
                 <Link to={item} key={idx}>

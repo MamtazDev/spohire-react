@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import footBallCoachImg from "../../../assets/footballCoach.png";
 import { useCancleSubscriptionMutation } from "../../../features/auth/authApi";
 import Swal from "sweetalert2";
+import { userLoggedIn } from "../../../features/auth/authSlice";
 
 const AddedItems = () => {
   const [jobOffersType, setJobOffersType] = useState("player");
@@ -28,7 +29,7 @@ const AddedItems = () => {
           user: response.data.data,
         };
 
-        // dispatch(userLoggedIn);
+        dispatch(userLoggedIn(newUserInfo));
 
         localStorage.setItem("spohireAuth", JSON.stringify(newUserInfo));
         Swal.fire({
