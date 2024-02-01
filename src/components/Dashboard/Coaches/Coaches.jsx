@@ -53,7 +53,8 @@ const Coaches = () => {
       ?.filter(
         (coach) =>
           coach?.subscriptionName &&
-          allowedPlans.includes(coach?.subscriptionName)
+          allowedPlans.includes(coach?.subscriptionName) &&
+          coach?.isCreatedProfile
       )
       .filter(handleFilter) || [];
   return (

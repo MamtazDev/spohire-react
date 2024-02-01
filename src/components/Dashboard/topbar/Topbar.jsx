@@ -157,39 +157,63 @@ const Topbar = () => {
               {location.pathname === "/dashboard" ? (
                 // user?.role === "Manager" ? (
                 <div className="d-flex gap-5">
-                  {!user?.isSubsCribed && user?.role !== "Other" && (
+                  {user?.role !== "Other" && (
                     <div
                       className="d-flex gap-2 align-items-center"
                       style={{
-                        border: "2px dashed #d1d8e4",
+                        border: `${
+                          user?.role === "Player" && user?.isCreatedProfile
+                            ? ""
+                            : "2px dashed #d1d8e4"
+                        }`,
                         padding: "3px 15px",
                         borderRadius: "8px",
                       }}
                     >
-                      <p className="fs-5 me-3">Transfer Market</p>
-                      {user?.role === "Player" && (
+                      {user?.role === "Player" && user?.isCreatedProfile ? (
+                        <></>
+                      ) : (
+                        <p className="fs-5 me-3">Transfer Market</p>
+                      )}
+                      {user?.role === "Player" && !user?.isCreatedProfile && (
                         <button
                           className="px-3 py-2 rounded text-white bg_color_fb"
                           onClick={() => navigate("/addProfile")}
                         >
-                          Add Player
+                          Add to Transfer Market
+                        </button>
+                      )}
+                      {user?.role === "Coach" && !user?.isCreatedProfile && (
+                        <button
+                          className="px-3 py-2 rounded text-white bg_color_fb"
+                          onClick={() => navigate("/addProfile")}
+                        >
+                          Add to Transfer Market
                         </button>
                       )}
                       {user?.role === "Coach" && (
                         <button
                           className="px-3 py-2 rounded text-white bg_color_fb"
-                          onClick={() => navigate("/addProfile")}
+                          onClick={() => navigate("/addProfilePlayer")}
                         >
-                          Add Coach
+                          Add Player
                         </button>
                       )}
                       {user?.role === "Manager" && (
-                        <button
-                          className="px-3 py-2 rounded text-white bg_color_fb"
-                          onClick={() => navigate("/addProfile")}
-                        >
-                          Add player
-                        </button>
+                        <>
+                          <button
+                            className="px-3 py-2 rounded text-white bg_color_fb"
+                            onClick={() => navigate("/addProfilePlayer")}
+                          >
+                            Add player
+                          </button>
+                          <button
+                            className="px-3 py-2 rounded text-white bg_color_fb"
+                            onClick={() => navigate("/addProfileCoach")}
+                          >
+                            Add coach
+                          </button>
+                        </>
                       )}
                     </div>
                   )}

@@ -39,6 +39,9 @@ import PrivateRoute from "./PrivateRoute.jsx";
 import AppliedJobs from "../components/Dashboard/dashbordJobOffers/AppliedJobs.jsx";
 import MyAppliedJob from "../components/Dashboard/dashbordJobOffers/MyAppliedJob.jsx";
 import AddedItems from "../components/Dashboard/AddJobOffer/AddedItems.jsx";
+import PricingAddProfile from "../pages/pricing/PricingAddProfile.jsx";
+import AddProfilePlayer from "../pages/AddProfile/AddProfilePlayer.jsx";
+import AddProfileCoach from "../pages/AddProfile/AddProflieCoach.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +69,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/paymentProcessAddPlayer",
+        element: (
+          // <PaymentRoute>
+          <PaymentProcess />
+          // </PaymentRoute>
+        ),
+      },
+      {
         path: "/jobOffer",
         element: <JobOffer />,
       },
@@ -82,6 +93,10 @@ export const router = createBrowserRouter([
         path: "/pricing",
         element: <Pricing />,
       },
+      {
+        path: "/pricingAddProfile",
+        element: <PricingAddProfile />,
+      },
     ],
   },
   {
@@ -96,6 +111,14 @@ export const router = createBrowserRouter([
   {
     path: "/addProfile",
     element: <AddProfile />,
+  },
+  {
+    path: "/addProfilePlayer",
+    element: <AddProfilePlayer />,
+  },
+  {
+    path: "/addProfileCoach",
+    element: <AddProfileCoach />,
   },
   // {
   //   path: "/addplayer",

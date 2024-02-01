@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   packageInfo: undefined,
+  addPlayerPackage: undefined,
 };
 
 const paymentSlice = createSlice({
@@ -11,8 +12,11 @@ const paymentSlice = createSlice({
     setPaymentInfo: (state, action) => {
       state.packageInfo = action.payload;
     },
+    setAddPlayerPaymentInfo: (state, action) => {
+      state.addPlayerPackage = action.payload;
+    },
   },
 });
 
-export const { setPaymentInfo } = paymentSlice.actions;
+export const { setPaymentInfo, setAddPlayerPaymentInfo } = paymentSlice.actions;
 export default paymentSlice.reducer;

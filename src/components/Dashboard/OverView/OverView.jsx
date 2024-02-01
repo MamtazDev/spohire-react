@@ -59,7 +59,8 @@ const OverView = () => {
             </p>
           </div>
         </div>
-        {user?.role !== "Player" && <PlayerOverview user={user} />}
+        {user?.role === "Manager" && <PlayerOverview user={user} />}
+        {user?.role === "Coach" && <PlayerOverview user={user} />}
         <div className="container">
           <div className="row mt-4 ps-0">
             <div className="col-lg-6 ps-0 pe-lg-3 pe-0">
@@ -74,7 +75,7 @@ const OverView = () => {
               <RecentlyObserved />
             </div>
             <div className="col-lg-6 mt-lg-0 mt-4 mb-lg-0 mb-5 pe-0 ps-lg-3 ps-0 ">
-              <MessagesOverview />
+              {user?.role !== "Other" && <MessagesOverview />}
             </div>
           </div>
         </div>

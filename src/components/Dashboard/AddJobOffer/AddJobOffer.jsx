@@ -531,6 +531,7 @@ import { useAddJobMutation } from "../../../features/job/jobApi";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const options = [
   { value: "Full-time", label: "Full-time" },
@@ -573,9 +574,22 @@ const AddJobOffer = ({ onHide, isModalOpen, closeModal }) => {
 
   const [addJob, { isLoading }] = useAddJobMutation();
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!user?.isSubsCribed) {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You are not subscribed to any plan.",
+      });
+      navigate("/pricing");
+      return;
+    }
 
     const form = e.target;
     const creator = user?._id;

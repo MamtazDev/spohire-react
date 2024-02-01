@@ -36,6 +36,17 @@ const CreateAnnouncements = () => {
     e.preventDefault();
     setLoading(true);
 
+    if (!user?.isSubsCribed) {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You are not subscribed to any plan.",
+      });
+      navigate("/pricing");
+      return;
+    }
+
     const form = e.target;
 
     const title = form.title.value;
