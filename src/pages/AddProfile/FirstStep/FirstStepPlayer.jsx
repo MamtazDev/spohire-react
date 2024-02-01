@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import twitter from "../../../assets/twiter1.png";
 import facebook from "../../../assets/fb1.png";
 import youtube from "../../../assets/yt1.png";
@@ -16,7 +16,7 @@ import {
 } from "../../../features/auth/authApi";
 import { userLoggedIn } from "../../../features/auth/authSlice";
 import axios from "axios";
-// import ProfileIcon from "../../"
+import ProfileIcon from "../../../assets/ProfileIcon.png";
 
 const FirstStepPlayer = ({ setStep }) => {
   const { user } = useSelector((state) => state.auth);
@@ -25,11 +25,15 @@ const FirstStepPlayer = ({ setStep }) => {
   const [isBelongToClub, setIsBelongToClub] = useState(false);
   const [socials, setSocials] = useState([]);
 
+  const [imageFile, setImageFile] = useState(null);
+
   const [updateUser, { isLoading }] = useUpdateUserMutation();
   const [updateProfileCreationStatus] =
     useUpdateProfileCreationStatusMutation();
 
   const dispatch = useDispatch();
+
+  const imageInputRef = useRef();
 
   const handleAddSocialLink = async () => {
     const { value: url } = await Swal.fire({
@@ -41,6 +45,13 @@ const FirstStepPlayer = ({ setStep }) => {
     if (url) {
       //   Swal.fire(`Entered URL: ${url}`);
       setSocials((current) => [...current, url]);
+    }
+  };
+
+  const handleImageFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
     }
   };
 
@@ -122,9 +133,35 @@ const FirstStepPlayer = ({ setStep }) => {
         <h3>Add to Transfer Market</h3>
         <p>Fill all input to create a account</p>
         <form onSubmit={handleFormSubmit}>
-          <div>
+          <div className="">
             <label htmlFor="">Add Profile Photo</label>
-            <input type="file" className="mt-2 form-control login_input" />
+            <div>
+              <img
+                style={{ width: "67px", height: "67px", objectFit: "cover" }}
+                src={imageFile ? URL.createObjectURL(imageFile) : ProfileIcon}
+                alt=""
+                className="mt-2 d-block "
+              />
+            </div>
+            <input
+              type="file"
+              className="d-none"
+              ref={imageInputRef}
+              onChange={handleImageFileChange}
+              accept="image/*"
+            />
+            <button
+              type="button"
+              className="bg-none my-2"
+              style={{
+                color: "#0177FB",
+                fontWeight: 500,
+                textDecoration: "underline",
+              }}
+              onClick={() => imageInputRef?.current.click()}
+            >
+              Upload File
+            </button>
           </div>
 
           <div className="row right-inner-addon input-container align-items-center">
