@@ -3,16 +3,16 @@ import BestOfferAddProfile from "./BestOfferAddProfile";
 import GetStarted from "./GetStarted";
 import PageHeader from "./PageHeader";
 import "./Pricing.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 import { useEffect } from "react";
 const PricingAddProfile = () => {
   const navigate = useNavigate();
-
+  const { id } = useParams();
   return (
     <div>
       <PageHeader />
-      <BestOfferAddProfile />
+      <BestOfferAddProfile id={id} />
       <div className="slider_bg">
         <div>
           <WhatPeopleSay color="#fff" />

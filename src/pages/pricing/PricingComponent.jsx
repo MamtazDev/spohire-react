@@ -4,7 +4,7 @@ import silver from "../../assets/silver.png";
 import gold from "../../assets/gold.png";
 import dot from "../../assets/bluedot.png";
 
-const PricingComponent = ({ handleSave, user, subscriptionType }) => {
+const PricingComponent = ({ handleSave, user, subscriptionType, id }) => {
   const amountBronze =
     subscriptionType === "Yearly"
       ? "150"
@@ -52,6 +52,8 @@ const PricingComponent = ({ handleSave, user, subscriptionType }) => {
                 handleSave({
                   name: "Bronze",
                   price: Number(amountBronze),
+                  id: id,
+                  subscriptionType: subscriptionType,
                 })
               }
             >
@@ -96,6 +98,8 @@ const PricingComponent = ({ handleSave, user, subscriptionType }) => {
                 handleSave({
                   name: "Silver",
                   price: Number(amountSilver),
+                  id: id,
+                  subscriptionType: subscriptionType,
                 })
               }
             >
@@ -141,6 +145,8 @@ const PricingComponent = ({ handleSave, user, subscriptionType }) => {
                 handleSave({
                   name: "Gold",
                   price: Number(amountGold),
+                  id: id,
+                  subscriptionType: subscriptionType,
                 })
               }
             >

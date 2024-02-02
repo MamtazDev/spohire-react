@@ -48,12 +48,15 @@ const Players = () => {
     }
   };
 
+  console.log(user, "sddd");
+
   const filteredData =
     players
       ?.filter(
         (player) =>
           player?.subscriptionName &&
           allowedPlans.includes(player?.subscriptionName) &&
+          user?.sports === player?.sports &&
           player?.isCreatedProfile
       )
       .filter(handleFilter) || [];
@@ -161,7 +164,7 @@ const SinglePlayer = ({ player }) => {
   // };
 
   const gg = getCountryFlag("Afghanistan");
-  console.log(gg, "gg");
+  // console.log(gg, "gg");
 
   const handlePath = (player) => {
     const allowedPlans =

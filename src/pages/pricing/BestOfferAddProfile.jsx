@@ -5,21 +5,13 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import PricingComponent from "./PricingComponent";
 
-const BestOfferAddProfile = () => {
+const BestOfferAddProfile = ({ id }) => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSave = (data) => {
-    // if (user?.subscriptionName === data?.name) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "You have already subscribed this offer!",
-    //   });
-    // } else {
     dispatch(setAddPlayerPaymentInfo(data));
     navigate("/paymentProcessAddPlayer");
-    // }
   };
 
   const [subscriptionType, setSubscriptionType] = useState("Monthly");
@@ -70,6 +62,7 @@ const BestOfferAddProfile = () => {
             handleSave={handleSave}
             user={user}
             subscriptionType={subscriptionType}
+            id={id}
           />
         </div>
       </div>

@@ -22,6 +22,7 @@ export const apiSlice = createApi({
     "Messages",
     "Notifications",
     "MyAppliedJobs",
-  ], 
+    "ReferralUsers",
+  ],
   endpoints: (builder) => ({}),
 });

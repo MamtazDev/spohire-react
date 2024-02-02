@@ -13,24 +13,18 @@ import { useDispatch, useSelector } from "react-redux";
 import ExperienceTab from "./ExperienceTab";
 import { userLoggedIn } from "../../../features/auth/authSlice";
 
-const SecondStepCoach = ({ setStep }) => {
-  const [firstName, setFirstName] = useState("");
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
-  const [updateProfileCreationStatus] =
-    useUpdateProfileCreationStatusMutation();
-  const { user } = useSelector((state) => state.auth);
-  // const [myYear, setMyYear] = useState(currentDate);
-
+const SecondStepCoach = ({
+  setStep,
+  addPlayerInfo,
+  setAddPlayerInfo,
+  experience,
+  setExperience,
+  gallaryImage,
+  setGallaryImage,
+}) => {
   const [initialYear, setInitialYear] = useState("");
   const [finalYear, setFinalYear] = useState("");
   const [clubDetails, setClubDetails] = useState("");
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const [experience, setExperience] = useState([]);
-
-  const [gallaryImage, setGallaryImage] = useState([]);
 
   const handleExperience = () => {
     const newData = {
@@ -46,73 +40,7 @@ const SecondStepCoach = ({ setStep }) => {
   };
 
   const [selectedImage, setSelectedImage] = useState([]);
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
 
-    const form = e.target;
-
-    const strengths_advantage = form.strengths_advantage.value;
-    const about_me = form.about_me.value;
-    const expectations_from_new_club = form.expectations_from_new_club.value;
-
-    const userFormData = {
-      experience,
-      strengths_advantage,
-      about_me,
-      expectations_from_new_club,
-    };
-
-    const formData = new FormData();
-
-    Object.entries(userFormData).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
-    gallaryImage.forEach((img, index) => {
-      formData.append(`gallery`, img);
-    });
-
-    try {
-      const response = await updateUser({ userId: user?._id, data: formData });
-      console.log(response, "ddd");
-      if (response?.data?.status) {
-        await updateProfileCreationStatus(user?._id);
-
-        const updatedData = {
-          ...response?.data?.data,
-          isCreatedProfile: true,
-        };
-
-        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
-        localStorage.setItem(
-          "spohireAuth",
-          JSON.stringify({ ...infoUser, user: updatedData })
-        );
-
-        dispatch(
-          userLoggedIn({
-            ...infoUser,
-            user: updatedData,
-          })
-        );
-        // navigate("/dashboard/viewProfile");
-        navigate("/pricingAddProfile");
-      }
-      if (response?.error?.data?.message) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `${response?.error?.data?.message}`,
-        });
-      }
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${error?.message}`,
-      });
-    }
-  };
   const fileInputRef = React.useRef(null);
   const handleImageClick = () => {
     fileInputRef.current.click();
@@ -122,12 +50,17 @@ const SecondStepCoach = ({ setStep }) => {
     setGallaryImage([...gallaryImage, selectedFile]);
     setSelectedImage([...selectedImage, URL.createObjectURL(selectedFile)]);
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setAddPlayerInfo({ ...addPlayerInfo, [name]: value });
+  };
   return (
     <div className="login_wrapper player_wrapper">
       <div>
         <h3>Add to Transfer Market</h3>
         <p>Fill all input to create a account</p>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={(e) => e.preventDefault()}>
           {experience?.length > 0 &&
             experience?.map((item, idx) => (
               <div className="d-flex align-items-center gap-3 mb-2" key={idx}>
@@ -197,6 +130,7 @@ const SecondStepCoach = ({ setStep }) => {
                 placeholder="Type here..."
                 name="strengths_advantage"
                 required
+                onChange={handleInputChange}
               />
             </div>
             <div className="">
@@ -207,6 +141,7 @@ const SecondStepCoach = ({ setStep }) => {
                 className="mt-2 form-control login_input"
                 placeholder="Type here..."
                 required
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -217,6 +152,7 @@ const SecondStepCoach = ({ setStep }) => {
                 placeholder="Type here..."
                 name="expectations_from_new_club"
                 required
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -245,28 +181,16 @@ const SecondStepCoach = ({ setStep }) => {
           <div className="next_skip_btns">
             <button
               className="next_btn text-light"
-              type="submit"
-              disabled={isLoading}
+              type="button"
+              onClick={() => setStep((prev) => prev + 1)}
             >
-              {isLoading ? (
-                <>
-                  <div
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                  >
-                    <span className="visually-hidden">Loading...</span>
-                  </div>{" "}
-                  Loading...
-                </>
-              ) : (
-                "Next"
-              )}
+              Next
             </button>
-            <button className="prev_btn" type="button">
+            {/* <button className="prev_btn" type="button">
               <Link to="/pricingAddProfile" className="text-dark">
                 Skip
               </Link>
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

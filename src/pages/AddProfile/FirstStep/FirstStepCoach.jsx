@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import twitter from "../../../assets/twiter1.png";
 import facebook from "../../../assets/fb1.png";
 import youtube from "../../../assets/yt1.png";
@@ -10,25 +10,38 @@ import plus from "../../../assets/blackplus1.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import {
-  useUpdateProfileCreationStatusMutation,
-  useUpdateUserMutation,
-} from "../../../features/auth/authApi";
-import { userLoggedIn } from "../../../features/auth/authSlice";
+import ProfileIcon from "../../../assets/ProfileIcon.png";
+
 import axios from "axios";
 
-const FirstStepCoach = ({ setStep }) => {
-  const { user } = useSelector((state) => state.auth);
+const FirstStepCoach = ({
+  setStep,
+  addPlayerInfo,
+  setAddPlayerInfo,
+  socials,
+  setSocials,
+}) => {
+  const heights = [
+    { value: "150", label: "150 cm" },
+    { value: "160", label: "160 cm" },
+    { value: "170", label: "170 cm" },
+    { value: "180", label: "180 cm" },
+    { value: "190", label: "190 cm" },
+  ];
 
-  const [additionalNationality, setAdditionalNationality] = useState("");
+  const weights = [
+    { value: "50", label: "50 kg" },
+    { value: "60", label: "60 kg" },
+    { value: "70", label: "70 kg" },
+    { value: "80", label: "80 kg" },
+    { value: "90", label: "90 kg" },
+  ];
+
   const [isBelongToClub, setIsBelongToClub] = useState(false);
-  const [socials, setSocials] = useState([]);
 
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
-  const [updateProfileCreationStatus] =
-    useUpdateProfileCreationStatusMutation();
+  const [imageFile, setImageFile] = useState(null);
 
-  const dispatch = useDispatch();
+  const imageInputRef = useRef();
 
   const handleAddSocialLink = async () => {
     const { value: url } = await Swal.fire({
@@ -43,63 +56,41 @@ const FirstStepCoach = ({ setStep }) => {
     }
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleImageFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      setAddPlayerInfo({ ...addPlayerInfo, image: file });
+    }
+  };
 
-    const clubName = e?.target?.club_name?.value;
-    const clubPosition = e?.target?.club_position?.value;
-    const formData = {
-      additional_passport: additionalNationality,
-      social_media: socials,
-      belong_to_the_club: isBelongToClub ? "Yes" : "No",
-      club_name: clubName,
-      club_position: clubPosition,
-    };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setAddPlayerInfo({ ...addPlayerInfo, [name]: value });
+  };
 
-    try {
-      const response = await updateUser({ userId: user?._id, data: formData });
-      console.log(response, "ddd");
-      if (response?.data?.status) {
-        await updateProfileCreationStatus(user?._id);
+  const handleNext = () => {
+    const buttonDisabled =
+      !addPlayerInfo?.first_name ||
+      !addPlayerInfo?.last_name ||
+      !addPlayerInfo?.nationality ||
+      !addPlayerInfo?.additional_passport ||
+      !addPlayerInfo?.image;
 
-        const updatedData = {
-          ...response?.data?.data,
-          isCreatedProfile: true,
-        };
-
-        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
-        localStorage.setItem(
-          "spohireAuth",
-          JSON.stringify({ ...infoUser, user: updatedData })
-        );
-
-        dispatch(
-          userLoggedIn({
-            ...infoUser,
-            user: updatedData,
-          })
-        );
-        setStep((prev) => prev + 1);
-      }
-      if (response?.error?.data?.message) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `${response?.error?.data?.message}`,
-        });
-      }
-    } catch (error) {
+    if (buttonDisabled) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `${error?.message}`,
+        text: "Please fill up all field",
       });
+      return;
+    } else {
+      setStep((prev) => prev + 1);
     }
 
-    console.log(formData, "ddd");
-
-    // setStep((prev) => prev + 1);
+    console.log(buttonDisabled, "buett");
   };
+
   const [countryNames, setCountryNames] = useState([]);
 
   useEffect(() => {
@@ -120,33 +111,93 @@ const FirstStepCoach = ({ setStep }) => {
       <div>
         <h3>Add to Transfer Market</h3>
         <p>Fill all input to create a account</p>
-        <form onSubmit={handleFormSubmit}>
-          <div className="row right-inner-addon input-container align-items-center">
-            <div className="col-6">
-              <label htmlFor="">Full name</label>
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Full name"
-                value={user?.first_name + " " + user?.last_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                readOnly
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="">
+            <label htmlFor="">Add Profile Photo</label>
+            <div>
+              <img
+                style={{ width: "67px", height: "67px", objectFit: "cover" }}
+                src={imageFile ? URL.createObjectURL(imageFile) : ProfileIcon}
+                alt=""
+                className="mt-2 d-block "
               />
             </div>
-            <div className="col-6">
-              <label htmlFor="">Nationality</label>
-
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Full name"
-                value={user?.nationality}
-                readOnly
-              />
-            </div>
+            <input
+              type="file"
+              className="d-none"
+              ref={imageInputRef}
+              onChange={handleImageFileChange}
+              accept="image/*"
+            />
+            <button
+              type="button"
+              className="bg-none my-2"
+              style={{
+                color: "#0177FB",
+                fontWeight: 500,
+                textDecoration: "underline",
+              }}
+              onClick={() => imageInputRef?.current.click()}
+            >
+              Upload File
+            </button>
           </div>
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>First Name
+              </label>
+
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="first_name"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Last Name
+              </label>
+
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="last_name"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Country of Residence
+              </label>
+
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="nationality"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select country
+                </option>
+                {countryNames.map((name, index) => (
+                  <option value={name?.name} key={index}>
+                    {name.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Additional passport
@@ -160,8 +211,8 @@ const FirstStepCoach = ({ setStep }) => {
                   backgroundColor: "",
                   border: "1px solid #F0F0F0",
                 }}
-                name="country"
-                onChange={(e) => setAdditionalNationality(e.target.value)}
+                name="additional_passport"
+                onChange={handleInputChange}
               >
                 <option selected disabled>
                   Select country
@@ -173,126 +224,6 @@ const FirstStepCoach = ({ setStep }) => {
                 ))}
               </select>
             </div>
-
-            <div className="col-6">
-              <label htmlFor="">Date of birth</label>
-              {/* <DateSelector
-                value={user?.date_of_birth}
-                onChange={(selectedDate) => setDateOfBirth(selectedDate)}
-              /> */}
-              <div className="d-flex align-items-center gap-1 w-100">
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[0]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[1]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
-
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[2]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* country select */}
-          {/* email input */}
-          <label htmlFor="">Phone number</label>
-          <div className="row email_input ">
-            <div className="col-4 mb-3">
-              {/* <Select
-                placeholder="+880"
-                options={options2}
-                value={options2.find((option) => option.label === phoneNumber)}
-                onChange={(selectedOption) =>
-                  setPhoneNumber(selectedOption.label)
-                }
-                formatOptionLabel={(countryFlag) => (
-                  <div className="d-flex align-items-center justify-content-between">
-                    <span>{countryFlag.label}</span>
-                    <img src={countryFlag.flagImg} alt="country-image" />
-                  </div>
-                )}
-                styles={{
-                  control: (baseStyles) => ({
-                    ...baseStyles,
-                    minHeight: "0px",
-                    backgroundColor: "#FAFAFA",
-                  }),
-
-                  container: (baseStyles) => ({
-                    ...baseStyles,
-                    width: "100%",
-                  }),
-
-                  valueContainer: (baseStyles) => ({
-                    ...baseStyles,
-                    padding: "0 5px",
-                  }),
-                  placeholder: (baseStyles) => ({
-                    ...baseStyles,
-                    color: "#9CA3A9",
-                    fontSize: "10px",
-                  }),
-                  menuList: (baseStyles) => ({
-                    ...baseStyles,
-                    fontSize: "10px",
-                  }),
-                  singleValue: (baseStyles) => ({
-                    ...baseStyles,
-                    fontSize: "10px",
-                  }),
-                  indicatorsContainer: (baseStyles) => ({
-                    ...baseStyles,
-                    padding: "0px !important",
-                  }),
-                  indicatorSeparator: (baseStyles) => ({
-                    ...baseStyles,
-                    display: "none",
-                    margin: "0",
-                    width: "0",
-                  }),
-
-                  // indicatorsContainer: (baseStyles) =>
-                }}
-              /> */}
-              <input
-                type="text"
-                className="w-100 p-2"
-                value={user?.phone_number?.country_code}
-                style={{ fontSize: "10px", color: "#9c9c9c", height: "46px" }}
-                readOnly
-              />
-            </div>
-            <div className="col-8">
-              <div className="phone_number">
-                <div></div>
-                <input
-                  type="number"
-                  className="ph_number"
-                  placeholder="0123 456 7890 "
-                  value={user?.phone_number?.number}
-                  readOnly
-                />
-              </div>
-            </div>
           </div>
 
           {/*  */}
@@ -302,7 +233,13 @@ const FirstStepCoach = ({ setStep }) => {
               <div
                 className="form-check d-flex align-items-center gap-1"
                 style={{ cursor: "pointer" }}
-                onClick={() => setIsBelongToClub(true)}
+                onClick={() => {
+                  setIsBelongToClub(true);
+                  setAddPlayerInfo({
+                    ...addPlayerInfo,
+                    belong_to_the_club: "Yes",
+                  });
+                }}
               >
                 <input
                   className="form-check-input"
@@ -322,7 +259,13 @@ const FirstStepCoach = ({ setStep }) => {
               <div
                 className="form-check d-flex align-items-center gap-1"
                 style={{ cursor: "pointer" }}
-                onClick={() => setIsBelongToClub(false)}
+                onClick={() => {
+                  setIsBelongToClub(false);
+                  setAddPlayerInfo({
+                    ...addPlayerInfo,
+                    belong_to_the_club: "No",
+                  });
+                }}
               >
                 <input
                   className="form-check-input"
@@ -342,28 +285,17 @@ const FirstStepCoach = ({ setStep }) => {
             </div>
           </div>
           {isBelongToClub && (
-            <>
-              <div className="mb-2">
-                <label htmlFor="">Club Name</label>
-                <input
-                  type="text"
-                  className="mt-2 form-control login_input"
-                  placeholder="Enter club name"
-                  required
-                  name="club_name"
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="">Position</label>
-                <input
-                  type="text"
-                  className="mt-2 form-control login_input"
-                  placeholder="Enter club position"
-                  required
-                  name="club_position"
-                />
-              </div>
-            </>
+            <div className="mb-2">
+              <label htmlFor="">Club Name</label>
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Enter club name"
+                required
+                name="club_name"
+                onChange={handleInputChange}
+              />
+            </div>
           )}
 
           <div className="social_media_links">
@@ -386,16 +318,6 @@ const FirstStepCoach = ({ setStep }) => {
                   {item?.includes("youtube.com") && (
                     <img src={youtube} alt="youtube" />
                   )}
-                  {/* {!item?.includes(
-                    "twitter.com" ||
-                      "instagram.com" ||
-                      "facebook.com" ||
-                      "youtube.com"
-                  ) && (
-                    <span className="rounded-circle bg-secondary px-2 text-white">
-                      L
-                    </span>
-                  )} */}
                 </Link>
               ))}
 
@@ -408,37 +330,13 @@ const FirstStepCoach = ({ setStep }) => {
               </button>
             </div>
           </div>
-          <div className="next_skip_btns">
-            {/* <Link to="/addplayer2">
-              {" "} */}
+          <div className="next_skip_btns" style={{ paddingBottom: "24px" }}>
             <button
-              type="submit"
+              type="button"
               className="next_btn text-light"
-              disabled={
-                !additionalNationality || socials?.length === 0 || isLoading
-              }
+              onClick={handleNext}
             >
-              {isLoading ? (
-                <>
-                  <div
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                  >
-                    <span className="visually-hidden">Loading...</span>
-                  </div>{" "}
-                  Loading...
-                </>
-              ) : (
-                "Next"
-              )}
-            </button>
-            {/* </Link> */}
-
-            <button
-              className="prev_btn text-dark"
-              onClick={() => setStep((prev) => prev + 1)}
-            >
-              Skip
+              Next
             </button>
           </div>
         </form>

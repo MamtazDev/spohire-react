@@ -18,22 +18,72 @@ import { userLoggedIn } from "../../../features/auth/authSlice";
 import axios from "axios";
 import ProfileIcon from "../../../assets/ProfileIcon.png";
 
-const FirstStepPlayer = ({ setStep }) => {
+const footballMainPositon = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+const basketballMainPositon = [
+  "Center",
+  "Power forward",
+  "Small forward",
+  "Point guard",
+  "Shooting guard",
+];
+const handballMainPositon = [
+  "Goalkeeper",
+  "Left wing",
+  "Right wing",
+  "Left back",
+  "Right back",
+  "Centre back",
+  "Pivot",
+];
+const volleyballMainPositon = [
+  "Setter",
+  "Middle blocker",
+  "Outside hitter",
+  "Opposite hitter",
+  "Libero",
+];
+
+const FirstStepPlayer = ({
+  setStep,
+  addPlayerInfo,
+  setAddPlayerInfo,
+  socials,
+  setSocials,
+}) => {
   const { user } = useSelector((state) => state.auth);
 
-  const [additionalNationality, setAdditionalNationality] = useState("");
+  const mainPositions =
+    user?.sports === "Football"
+      ? footballMainPositon
+      : user?.sports === "Basketball"
+      ? basketballMainPositon
+      : user?.sports === "Handball"
+      ? handballMainPositon
+      : volleyballMainPositon;
+
+  const heights = [
+    { value: "150", label: "150 cm" },
+    { value: "160", label: "160 cm" },
+    { value: "170", label: "170 cm" },
+    { value: "180", label: "180 cm" },
+    { value: "190", label: "190 cm" },
+  ];
+
+  const weights = [
+    { value: "50", label: "50 kg" },
+    { value: "60", label: "60 kg" },
+    { value: "70", label: "70 kg" },
+    { value: "80", label: "80 kg" },
+    { value: "90", label: "90 kg" },
+  ];
+
   const [isBelongToClub, setIsBelongToClub] = useState(false);
-  const [socials, setSocials] = useState([]);
 
   const [imageFile, setImageFile] = useState(null);
 
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
-  const [updateProfileCreationStatus] =
-    useUpdateProfileCreationStatusMutation();
-
-  const dispatch = useDispatch();
-
   const imageInputRef = useRef();
+
+  const [dominant, setDominant] = useState("");
 
   const handleAddSocialLink = async () => {
     const { value: url } = await Swal.fire({
@@ -52,66 +102,39 @@ const FirstStepPlayer = ({ setStep }) => {
     const file = e.target.files[0];
     if (file) {
       setImageFile(file);
+      setAddPlayerInfo({ ...addPlayerInfo, image: file });
     }
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setAddPlayerInfo({ ...addPlayerInfo, [name]: value });
+  };
 
-    const clubName = e?.target?.club_name?.value;
-    const clubPosition = e?.target?.club_position?.value;
-    const formData = {
-      additional_passport: additionalNationality,
-      social_media: socials,
-      belong_to_the_club: isBelongToClub ? "Yes" : "No",
-      club_name: clubName,
-      club_position: clubPosition,
-    };
+  const handleNext = () => {
+    const buttonDisabled =
+      !addPlayerInfo?.nationality ||
+      !addPlayerInfo?.additional_passport ||
+      !addPlayerInfo?.club_position ||
+      !addPlayerInfo?.club_position_alter ||
+      !addPlayerInfo?.height ||
+      !addPlayerInfo?.weight ||
+      !addPlayerInfo?.image;
 
-    try {
-      const response = await updateUser({ userId: user?._id, data: formData });
-      console.log(response, "ddd");
-      if (response?.data?.status) {
-        await updateProfileCreationStatus(user?._id);
-
-        const updatedData = {
-          ...response?.data?.data,
-          isCreatedProfile: true,
-        };
-
-        const infoUser = JSON.parse(localStorage.getItem("spohireAuth"));
-        localStorage.setItem(
-          "spohireAuth",
-          JSON.stringify({ ...infoUser, user: updatedData })
-        );
-
-        dispatch(
-          userLoggedIn({
-            ...infoUser,
-            user: updatedData,
-          })
-        );
-        setStep((prev) => prev + 1);
-      }
-      if (response?.error?.data?.message) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `${response?.error?.data?.message}`,
-        });
-      }
-    } catch (error) {
+    if (buttonDisabled) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `${error?.message}`,
+        text: "Please fill up all field",
       });
+      return;
+    } else {
+      setStep((prev) => prev + 1);
     }
 
-    console.log(formData, "ddd");
-
-    // setStep((prev) => prev + 1);
+    console.log(buttonDisabled, "buett");
   };
+
   const [countryNames, setCountryNames] = useState([]);
 
   useEffect(() => {
@@ -132,7 +155,7 @@ const FirstStepPlayer = ({ setStep }) => {
       <div>
         <h3>Add to Transfer Market</h3>
         <p>Fill all input to create a account</p>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="">
             <label htmlFor="">Add Profile Photo</label>
             <div>
@@ -164,32 +187,61 @@ const FirstStepPlayer = ({ setStep }) => {
             </button>
           </div>
 
-          <div className="row right-inner-addon input-container align-items-center">
-            <div className="col-6">
-              <label htmlFor="">Full name</label>
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Full name"
-                value={user?.first_name + " " + user?.last_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                readOnly
-              />
-            </div>
-            <div className="col-6">
-              <label htmlFor="">Nationality</label>
-
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Full name"
-                value={user?.nationality}
-                readOnly
-              />
-            </div>
-          </div>
-
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>First Name
+              </label>
+
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="first_name"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Last Name
+              </label>
+
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="last_name"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Country of Residence
+              </label>
+
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="nationality"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select country
+                </option>
+                {countryNames.map((name, index) => (
+                  <option value={name?.name} key={index}>
+                    {name.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Additional passport
@@ -203,8 +255,8 @@ const FirstStepPlayer = ({ setStep }) => {
                   backgroundColor: "",
                   border: "1px solid #F0F0F0",
                 }}
-                name="country"
-                onChange={(e) => setAdditionalNationality(e.target.value)}
+                name="additional_passport"
+                onChange={handleInputChange}
               >
                 <option selected disabled>
                   Select country
@@ -218,67 +270,126 @@ const FirstStepPlayer = ({ setStep }) => {
             </div>
 
             <div className="col-6">
-              <label htmlFor="">Date of birth</label>
-              {/* <DateSelector
-                value={user?.date_of_birth}
-                onChange={(selectedDate) => setDateOfBirth(selectedDate)}
-              /> */}
-              <div className="d-flex align-items-center gap-1 w-100">
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[0]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[1]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
-
-                <div className="w-100">
-                  <input
-                    className="w-100 p-2"
-                    type="text"
-                    value={user?.date_of_birth?.split(" ")[2]}
-                    style={{ fontSize: "10px", color: "#9c9c9c" }}
-                    readOnly
-                  />
-                </div>
+              <label htmlFor="">
+                <span className="text-danger">*</span>Main position{" "}
+              </label>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="club_position"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select main position
+                </option>
+                {mainPositions.map((name, index) => (
+                  <option value={name} key={index}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Alternative position
+              </label>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="club_position_alter"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select main position
+                </option>
+                {mainPositions.map((name, index) => (
+                  <option value={name} key={index}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Dominant
+              </label>
+              <div className="d-flex">
+                {["Left", "Right"].map((i, idx) => (
+                  <button
+                    key={idx}
+                    className={`${
+                      dominant === i ? "function_btn_active" : "function_btn"
+                    } `}
+                    type="button"
+                    onClick={() => {
+                      setDominant(i);
+                      setAddPlayerInfo({ ...addPlayerInfo, dominant_hand: i });
+                    }}
+                  >
+                    {i}
+                  </button>
+                ))}
               </div>
             </div>
-          </div>
-          {/* country select */}
-          {/* email input */}
-          <label htmlFor="">Phone number</label>
-          <div className="row email_input ">
-            <div className="col-4 mb-3">
-              <input
-                type="text"
-                className="w-100 p-2"
-                value={user?.phone_number?.country_code}
-                style={{ fontSize: "10px", color: "#9c9c9c", height: "46px" }}
-                readOnly
-              />
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Height
+              </label>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="height"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select height
+                </option>
+                {heights.map((name, index) => (
+                  <option value={name.value} key={index}>
+                    {name.label}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="col-8">
-              <div className="phone_number">
-                <div></div>
-                <input
-                  type="number"
-                  className="ph_number"
-                  placeholder="0123 456 7890 "
-                  value={user?.phone_number?.number}
-                  readOnly
-                />
-              </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Weight
+              </label>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="weight"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select weight
+                </option>
+                {weights.map((name, index) => (
+                  <option value={name.value} key={index}>
+                    {name.label}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -289,7 +400,13 @@ const FirstStepPlayer = ({ setStep }) => {
               <div
                 className="form-check d-flex align-items-center gap-1"
                 style={{ cursor: "pointer" }}
-                onClick={() => setIsBelongToClub(true)}
+                onClick={() => {
+                  setIsBelongToClub(true);
+                  setAddPlayerInfo({
+                    ...addPlayerInfo,
+                    belong_to_the_club: "Yes",
+                  });
+                }}
               >
                 <input
                   className="form-check-input"
@@ -309,7 +426,13 @@ const FirstStepPlayer = ({ setStep }) => {
               <div
                 className="form-check d-flex align-items-center gap-1"
                 style={{ cursor: "pointer" }}
-                onClick={() => setIsBelongToClub(false)}
+                onClick={() => {
+                  setIsBelongToClub(false);
+                  setAddPlayerInfo({
+                    ...addPlayerInfo,
+                    belong_to_the_club: "No",
+                  });
+                }}
               >
                 <input
                   className="form-check-input"
@@ -329,28 +452,17 @@ const FirstStepPlayer = ({ setStep }) => {
             </div>
           </div>
           {isBelongToClub && (
-            <>
-              <div className="mb-2">
-                <label htmlFor="">Club Name</label>
-                <input
-                  type="text"
-                  className="mt-2 form-control login_input"
-                  placeholder="Enter club name"
-                  required
-                  name="club_name"
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="">Position</label>
-                <input
-                  type="text"
-                  className="mt-2 form-control login_input"
-                  placeholder="Enter club position"
-                  required
-                  name="club_position"
-                />
-              </div>
-            </>
+            <div className="mb-2">
+              <label htmlFor="">Club Name</label>
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Enter club name"
+                required
+                name="club_name"
+                onChange={handleInputChange}
+              />
+            </div>
           )}
 
           <div className="social_media_links">
@@ -373,16 +485,6 @@ const FirstStepPlayer = ({ setStep }) => {
                   {item?.includes("youtube.com") && (
                     <img src={youtube} alt="youtube" />
                   )}
-                  {/* {!item?.includes(
-                    "twitter.com" ||
-                      "instagram.com" ||
-                      "facebook.com" ||
-                      "youtube.com"
-                  ) && (
-                    <span className="rounded-circle bg-secondary px-2 text-white">
-                      L
-                    </span>
-                  )} */}
                 </Link>
               ))}
 
@@ -395,37 +497,13 @@ const FirstStepPlayer = ({ setStep }) => {
               </button>
             </div>
           </div>
-          <div className="next_skip_btns">
-            {/* <Link to="/addplayer2">
-              {" "} */}
+          <div className="next_skip_btns" style={{ paddingBottom: "24px" }}>
             <button
-              type="submit"
+              type="button"
               className="next_btn text-light"
-              disabled={
-                !additionalNationality || socials?.length === 0 || isLoading
-              }
+              onClick={handleNext}
             >
-              {isLoading ? (
-                <>
-                  <div
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                  >
-                    <span className="visually-hidden">Loading...</span>
-                  </div>{" "}
-                  Loading...
-                </>
-              ) : (
-                "Next"
-              )}
-            </button>
-            {/* </Link> */}
-
-            <button
-              className="prev_btn text-dark"
-              onClick={() => setStep((prev) => prev + 1)}
-            >
-              Skip
+              Next
             </button>
           </div>
         </form>

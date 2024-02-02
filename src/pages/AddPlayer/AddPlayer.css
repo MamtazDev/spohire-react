@@ -1,157 +1,154 @@
 .addplayer_left_banner img {
-    width: 100%;
-    height: 100vh;
-
+  width: 100%;
+  height: 100vh;
 }
 
 .club_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin-top: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 17px;
 }
 
 .club_info h6,
 .social_media_links h6 {
-    color: #161D24;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #161d24;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .hifen {
-    color: #9CA3A9;
-    font-family: SF Pro Display;
-    font-size: 8.489px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #9ca3a9;
+  font-family: SF Pro Display;
+  font-size: 8.489px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .club_info input {
-    height: 12px !important;
-    width: 12px !important;
+  height: 12px !important;
+  width: 12px !important;
 }
 
 .club_info span {
-    color: #9CA3A9;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px !important;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 4px;
+  color: #9ca3a9;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 4px;
 }
 
 .player_wrapper {
-    padding: 45px !important;
-    padding-bottom: 0 !important;
+  padding: 45px !important;
+  padding-bottom: 0 !important;
 }
 
 .social_icons_wrapper {
-    display: flex;
-    align-items: center !important;
-    gap: 11px;
-    margin-top: 9px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center !important;
+  gap: 11px;
+  margin-top: 9px;
+  margin-bottom: 30px;
 }
 
 .social_icons_wrapper img {
-    width: 19px;
-    height: 18px;
+  width: 19px;
+  height: 18px;
 }
 
 .next_skip_btns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 124px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
 }
 
 .next_btn {
-    display: flex;
-    padding: 11px 32px;
-    align-items: flex-start;
-    gap: 7px;
-    border-radius: 8px;
-    background: #2D5BFF;
-    color: #FFF;
-    text-align: center;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 11.3px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  display: flex;
+  padding: 11px 32px;
+  align-items: flex-start;
+  gap: 7px;
+  border-radius: 8px;
+  background: #2d5bff;
+  color: #fff;
+  text-align: center;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 11.3px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .prev_btn {
-    display: flex;
-    padding: 11px 32px;
-    align-items: flex-start;
-    gap: 7px;
-    border-radius: 8px;
-    background: #DFDFDF;
-    color: #141736;
-    text-align: center;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 11.3px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  display: flex;
+  padding: 11px 32px;
+  align-items: flex-start;
+  gap: 7px;
+  border-radius: 8px;
+  background: #dfdfdf;
+  color: #141736;
+  text-align: center;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 11.3px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .black_plus {
-    padding: 6px;
-
+  padding: 6px;
 }
 
 .player_wrapper input {
-    border-radius: 5px;
-    border: 0.7px solid rgba(0, 0, 0, 0.02);
-    background: rgba(0, 0, 0, 0.02);
-    /* margin-top: 9px; */
+  border-radius: 5px;
+  border: 0.7px solid rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.02);
+  /* margin-top: 9px; */
 }
 
 .player_wrapper label {
-    color: #161D24;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-top: 17px;
+  color: #161d24;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 17px;
 }
 
 .add_btn1 {
-    display: inline-flex;
-    padding: 10px 8px;
-    align-items: center;
-    gap: 3px;
-    border-radius: 5.6px;
-    background-color: transparent;
-    border: 0.707px solid rgba(0, 0, 0, 0.04);
-    margin-top: 9px;
-    color: #9CA3A9;
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 8.489px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  display: inline-flex;
+  padding: 10px 8px;
+  align-items: center;
+  gap: 3px;
+  border-radius: 5.6px;
+  background-color: transparent;
+  border: 0.707px solid rgba(0, 0, 0, 0.04);
+  margin-top: 9px;
+  color: #9ca3a9;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 8.489px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .media_wrapper {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .media_wrapper img {
-    width: 63px;
-    height: 55px;
-    border-radius: 7px;
-
+  width: 63px;
+  height: 55px;
+  border-radius: 7px;
 }

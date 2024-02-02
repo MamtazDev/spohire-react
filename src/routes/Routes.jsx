@@ -42,6 +42,7 @@ import AddedItems from "../components/Dashboard/AddJobOffer/AddedItems.jsx";
 import PricingAddProfile from "../pages/pricing/PricingAddProfile.jsx";
 import AddProfilePlayer from "../pages/AddProfile/AddProfilePlayer.jsx";
 import AddProfileCoach from "../pages/AddProfile/AddProflieCoach.jsx";
+import PaymentProcessAddPlayer from "../pages/pricing/PaymentProcessAddPlayer.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -72,7 +73,7 @@ export const router = createBrowserRouter([
         path: "/paymentProcessAddPlayer",
         element: (
           // <PaymentRoute>
-          <PaymentProcess />
+          <PaymentProcessAddPlayer />
           // </PaymentRoute>
         ),
       },
@@ -94,7 +95,7 @@ export const router = createBrowserRouter([
         element: <Pricing />,
       },
       {
-        path: "/pricingAddProfile",
+        path: "/pricingAddProfile/:id",
         element: <PricingAddProfile />,
       },
     ],

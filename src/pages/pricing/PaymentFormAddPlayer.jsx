@@ -24,6 +24,7 @@ import {
   useUpdatePaymentStatusMutation,
 } from "../../features/payment/paymentApi";
 import axios from "axios";
+import { useBuySubscriptionForPlayerMutation } from "../../features/auth/authApi";
 
 const PaymentFormAddPlayer = () => {
   const stripe = useStripe();
@@ -46,12 +47,15 @@ const PaymentFormAddPlayer = () => {
   };
   const [selectedOption, setSelectedOption] = useState("card");
 
-  const { packageInfo } = useSelector((state) => state.payment);
+  const { addPlayerPackage } = useSelector((state) => state.payment);
   const { user } = useSelector((state) => state.auth);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [updatePaymentStatus, { isLoading: updating }] =
-    useUpdatePaymentStatusMutation();
+  // const [updatePaymentStatus, { isLoading: updating }] =
+  //   useUpdatePaymentStatusMutation();
+
+  const [buySubscriptionForPlayer, { isLoading: buying }] =
+    useBuySubscriptionForPlayerMutation();
 
   const [createPayment, { isLoading: paymentCreating }] =
     useCreatePaymentMutation();
@@ -80,7 +84,7 @@ const PaymentFormAddPlayer = () => {
 
     try {
       const clientSecret = await createPaymentIntent(
-        packageInfo?.price * 100,
+        addPlayerPackage?.price * 100,
         "usd"
       );
 
@@ -117,24 +121,26 @@ const PaymentFormAddPlayer = () => {
       } else if (paymentIntent.status === "succeeded") {
         setIsLoading(false);
 
+        const currentDate = new Date();
+
         console.log(paymentIntent, "payyyy");
         // updating user payment status
         // eslint-disable-next-line no-unused-vars
-        const paymentRes = await updatePaymentStatus({
-          userId: user?._id,
-          data: { isSubsCribed: true, subscriptionName: packageInfo?.name },
+        const paymentRes = await buySubscriptionForPlayer({
+          id: addPlayerPackage?.id,
+          subscriptionName: addPlayerPackage?.name,
+          subscriptionDate: currentDate.toISOString(),
+          subscriptionType: addPlayerPackage?.subscriptionType,
         });
         // createing payment
         const createPaymentData = {
           transactionId: paymentIntent?.id,
           userId: user?._id,
-          planName: packageInfo?.name,
-          amount: packageInfo?.price,
+          planName: addPlayerPackage?.name,
+          amount: addPlayerPackage?.price,
         };
         const createPaymentRes = await createPayment(createPaymentData);
-        // console.log(createPaymentRes, "kfjalkfred");
 
-        // navigation
         navigate("/dashboard");
       }
     } catch (error) {
@@ -306,7 +312,7 @@ const PaymentFormAddPlayer = () => {
             <button
               onClick={handlePayment}
               className="pay_nowbtn"
-              disabled={isLoading || updating || paymentCreating || !stripe}
+              disabled={isLoading || paymentCreating || !stripe}
             >
               {isLoading ? (
                 <>
