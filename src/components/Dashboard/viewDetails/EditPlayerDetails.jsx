@@ -122,6 +122,8 @@ const EditPlayerDetails = () => {
   });
   const [editedInfo, setEditedInfo] = useState({});
 
+  console.log(editedInfo, "editinfo");
+
   const navigate = useNavigate();
 
   const handleGallaryImageChange = (e) => {
@@ -202,9 +204,29 @@ const EditPlayerDetails = () => {
 
     const formData = new FormData();
 
-    Object.entries(infoData)?.forEach(([key, value]) => {
-      formData.append(key, value);
+    // Object.entries(infoData)?.forEach(([key, value]) => {
+    //   formData.append(key, value);
+    // });
+
+    Object.keys(infoData).forEach((key) => {
+      const propertyValue = infoData[key];
+
+      if (Array.isArray(propertyValue)) {
+        propertyValue.forEach((element, index) => {
+          if (typeof element === "object") {
+            Object.keys(element).forEach((elementKey) => {
+              const elementValue = element[elementKey];
+              formData.append(`${key}[${index}][${elementKey}]`, elementValue);
+            });
+          } else {
+            formData.append(`${key}[]`, element);
+          }
+        });
+      } else {
+        formData.append(key, propertyValue);
+      }
     });
+
     gallaryImage?.forEach((img, index) => {
       formData.append(`gallery`, img);
     });

@@ -109,14 +109,16 @@ const ViewProfile = () => {
                       </p>
                     </div>
 
-                    <div>
-                      <span className="f_sfPro text_color_cb fs_15">
-                        Height
-                      </span>
-                      <p className="f_sfPro text_color_36 fs_17">
-                        {user?.height ? user?.height : "N/A"}
-                      </p>
-                    </div>
+                    {user?.role === "Player" && (
+                      <div>
+                        <span className="f_sfPro text_color_cb fs_15">
+                          Height
+                        </span>
+                        <p className="f_sfPro text_color_36 fs_17">
+                          {user?.height ? user?.height : "N/A"}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -140,14 +142,16 @@ const ViewProfile = () => {
                       </p>
                     </div>
 
-                    <div>
-                      <span className="f_sfPro text_color_cb fs_15">
-                        Weight
-                      </span>
-                      <p className="f_sfPro text_color_36 fs_17">
-                        {user?.weight ? user?.weight : "N/A"}
-                      </p>
-                    </div>
+                    {user?.role === "Player" && (
+                      <div>
+                        <span className="f_sfPro text_color_cb fs_15">
+                          Weight
+                        </span>
+                        <p className="f_sfPro text_color_36 fs_17">
+                          {user?.weight ? user?.weight : "N/A"}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -160,14 +164,16 @@ const ViewProfile = () => {
                       </p>
                     </div>
 
-                    <div>
-                      <span className="f_sfPro text_color_cb fs_15">
-                        Dominant Hand
-                      </span>
-                      <p className="f_sfPro text_color_36 fs_17">
-                        {user?.dominant_hand ? user?.dominant_hand : "N/A"}
-                      </p>
-                    </div>
+                    {user?.role === "Player" && (
+                      <div>
+                        <span className="f_sfPro text_color_cb fs_15">
+                          Dominant
+                        </span>
+                        <p className="f_sfPro text_color_36 fs_17">
+                          {user?.dominant_hand ? user?.dominant_hand : "N/A"}
+                        </p>
+                      </div>
+                    )}
 
                     {/* <div>
                       <span className="f_sfPro text_color_cb fs_15">

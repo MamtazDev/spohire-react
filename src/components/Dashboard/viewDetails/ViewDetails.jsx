@@ -226,19 +226,19 @@ const ViewDetails = () => {
 
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">
-                        Dominant Hand
+                        Dominant
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">
                         {user?.dominant_hand ? user?.dominant_hand : "N/A"}
                       </p>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <span className="f_sfPro text_color_cb fs_15">
                         Weight
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">99kg</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

@@ -27,7 +27,7 @@ const UpdateexperienceAndMedia = ({
     setExperienceFormData({ ...experienceFormData, [name]: value });
   };
 
-  console.log(experienceFormData, "ess");
+  console.log(userInfo?.experience, "userInfo");
 
   //   const handleSubmit = (e) => {
   //     e.preventDefault();
@@ -55,7 +55,7 @@ const UpdateexperienceAndMedia = ({
   //   };
 
   const handleAddMore = () => {
-    const newData = [...userExperience, experienceFormData];
+    const newData = [...userInfo?.experience, experienceFormData];
 
     setEditedInfo({ ...editedInfo, ["experience"]: newData });
     setUserExperience(newData);
