@@ -180,7 +180,7 @@ const Topbar = () => {
                           className="px-3 py-2 rounded text-white bg_color_fb"
                           onClick={() => navigate("/addProfile")}
                         >
-                          Add to Transfer Market
+                          Add Profile
                         </button>
                       )}
                       {user?.role === "Coach" && !user?.isCreatedProfile && (
@@ -188,7 +188,7 @@ const Topbar = () => {
                           className="px-3 py-2 rounded text-white bg_color_fb"
                           onClick={() => navigate("/addProfile")}
                         >
-                          Add to Transfer Market
+                          Add Profile
                         </button>
                       )}
                       {user?.role === "Coach" && (
