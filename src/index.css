@@ -849,3 +849,14 @@ a {
   color: #0177fb !important;
   text-decoration-line: underline;
 }
+
+
+/*style from ashiq*/
+
+.subscription_wrapper .subs_item{
+  max-width: 370px;
+  width: 100%;
+  padding: 24px 0;
+  border-radius: 11px;
+  background: #F6F8FF;
+}

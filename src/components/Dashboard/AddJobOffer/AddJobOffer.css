@@ -32,7 +32,8 @@
 }
 
 .modal_width1 .modal-dialog {
-    max-width: 90% !important;
+    max-width: 1240px !important;
+    width: 100%;
     overflow-y: hidden;
 }
 

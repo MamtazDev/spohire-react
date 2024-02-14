@@ -95,6 +95,7 @@ const Topbar = () => {
   const handleAddJobOfferClick = () => {
     setIsModalOpen(true);
   };
+
   // close modalo
   const closeModal = () => {
     setIsModalOpen(false);
@@ -104,7 +105,9 @@ const Topbar = () => {
   const [isAnnouncementModalOpen, setAnnouncementIsModalOpen] = useState(false);
 
   const handleAddAnnouncementClick = () => {
-    navigate("/dashboard/createAnnouncements");
+    // navigate("/dashboard/createAnnouncements");
+    setAnnouncementIsModalOpen(true)
+
   };
   const closeAnnouncementModal = () => {
     setAnnouncementIsModalOpen(false);
@@ -224,6 +227,7 @@ const Topbar = () => {
                     >
                       Add Job Offer
                     </button>
+
                     <button
                       className="px-3 py-2 rounded text-white bg_color_fb"
                       onClick={() => handleAddAnnouncementClick()}
