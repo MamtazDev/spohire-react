@@ -134,147 +134,147 @@ const PaymentFormTwo = () => {
     }, []);
 
     return (<>
-            <div className="container mb-2 pb-5">
-                <div className="payment_process_wrapper">
-                    <p className={"mb-0 text-start"}>Select payment option</p>
-                    <div className="all_payments_system mb-4">
-                        <div className="card_wrapper">
-                            <div className={"card_item d-flex gap-2 align-items-center"}>
-                                <div className="form-check-two">
-                                    <input
-                                        className=""
-                                        type="radio"
-                                        name="card"
-                                        id="card"
-                                        checked={selectedOption === "card"}
-                                    />
-                                </div>
-                                <button
-                                    className="card_btn"
-                                    onClick={() => setSelectedOption("card")}
-                                >
-                                    <img className={"mt-0"} src={credit} alt="credit card"/> <span
-                                    className={"text-black"}>Card</span>
-                                </button>
-                            </div>
-
-                            <div className={"card_item d-flex gap-2 align-items-center"}>
-                                <div className="form-check">
-                                    <input
-                                        className=""
-                                        type="radio"
-                                        name="card"
-                                        id="card"
-                                        checked={selectedOption === "paypal"}
-                                    />
-                                </div>
-                                <button
-                                    className="card_btn"
-                                    onClick={() => setSelectedOption("paypal")}
-                                >
-                                    <img className={"mt-0"} src={paypal} alt="credit card"/> <span
-                                    className={"text-black"}>Pay pal</span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className="payment_card">
-                        <p className="text-start mb-4">Strengths Advantages</p>
-                        <CardNumberElement
-                            className="payment_input"
-                            options={{
-                                ...CARD_OPTIONS, placeholder: "Enter card number",
-                            }}
-                        />
-
-                        <div className="card_img">
-                            <img src={v1} alt="card"/>
-                            <img src={v2} alt="card"/>
-                            <img src={v3} alt="card"/>
-                            <img src={v4} alt="card"/>
-                        </div>
-                    </div>
-                    {/* Expiration */}
-                    <div className="row mt-4">
-                        <div className="col-lg-6">
-                            <CardExpiryElement
-                                options={CARD_OPTIONS}
-                                className="payment_input"
-                            />
-                        </div>
-                        <div className="col-lg-6 mt-lg-0 mt-4">
-                            <div className="payment_card">
-                                <CardCvcElement
-                                    options={CARD_OPTIONS}
-                                    className="payment_input"
-                                />
-                                <div className="card_img1">
-                                    <img src={v4} alt=""/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row mt-4">
-                        <div className="col-lg-6">
-                            <div className="">
-                                <div className="payment_country_select">
-                                    <select
-                                        className="form-select"
-                                        aria-label="Default select example"
-                                        onChange={handleInputChange}
-                                        name="nationality"
-                                    >
-                                        <option disabled selected>
-                                            {" "}
-                                            Select country
-                                        </option>
-                                        {countryNames.map((name, index) => (<option value={name.code} key={index}>
-                                                {name.name}
-                                            </option>))}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mt-lg-0 mt-4">
-                            <div className="payment_card">
+        <div className="container mb-2 pb-5">
+            <div className="payment_process_wrapper">
+                <p className={"mb-0 text-start"}>Select payment option</p>
+                <div className="all_payments_system mb-4">
+                    <div className="card_wrapper">
+                        <div className={"card_item d-flex gap-2 align-items-center"}>
+                            <div className="form-check-two">
                                 <input
-                                    type="text"
-                                    className="payment_input"
-                                    placeholder="ZIP"
-                                    name="zip"
-                                    value={formData.zip}
-                                    onChange={handleInputChange}
-                                    style={{fontSize: "14px"}}
+                                    className=""
+                                    type="radio"
+                                    name="card"
+                                    id="card"
+                                    checked={selectedOption === "card"}
                                 />
                             </div>
+                            <button
+                                className="card_btn"
+                                onClick={() => setSelectedOption("card")}
+                            >
+                                <img className={"mt-0"} src={credit} alt="credit card"/> <span
+                                className={"text-black"}>Card</span>
+                            </button>
+                        </div>
+
+                        <div className={"card_item d-flex gap-2 align-items-center"}>
+                            <div className="form-check">
+                                <input
+                                    className=""
+                                    type="radio"
+                                    name="card"
+                                    id="card"
+                                    checked={selectedOption === "paypal"}
+                                />
+                            </div>
+                            <button
+                                className="card_btn"
+                                onClick={() => setSelectedOption("paypal")}
+                            >
+                                <img className={"mt-0"} src={paypal} alt="credit card"/> <span
+                                className={"text-black"}>Pay pal</span>
+                            </button>
                         </div>
                     </div>
 
                 </div>
-            </div>
 
-            <div className="d-flex justify-content-center">
-                <button
-                    onClick={handlePayment}
-                    className="pay_nowbtn_two mt-0"
-                    disabled={isLoading || updating || paymentCreating || !stripe}
-                >
-                    {isLoading ? (<>
-                            <div
-                                className="spinner-border spinner-border-sm me-2"
-                                role="status"
-                            >
-                                <span className="visually-hidden">Loading...</span>
+                <div className="payment_card">
+                    <p className="text-start mb-4">Strengths Advantages</p>
+                    <CardNumberElement
+                        className="payment_input"
+                        options={{
+                            ...CARD_OPTIONS, placeholder: "Enter card number",
+                        }}
+                    />
+
+                    <div className="card_img">
+                        <img src={v1} alt="card"/>
+                        <img src={v2} alt="card"/>
+                        <img src={v3} alt="card"/>
+                        <img src={v4} alt="card"/>
+                    </div>
+                </div>
+                {/* Expiration */}
+                <div className="row mt-4">
+                    <div className="col-lg-6">
+                        <CardExpiryElement
+                            options={CARD_OPTIONS}
+                            className="payment_input"
+                        />
+                    </div>
+                    <div className="col-lg-6 mt-lg-0 mt-4">
+                        <div className="payment_card">
+                            <CardCvcElement
+                                options={CARD_OPTIONS}
+                                className="payment_input"
+                            />
+                            <div className="card_img1">
+                                <img src={v4} alt=""/>
                             </div>
-                            {" "}
-                            Loading...
-                        </>) : ("Pay Now")}
-                </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row mt-4">
+                    <div className="col-lg-6">
+                        <div className="">
+                            <div className="payment_country_select">
+                                <select
+                                    className="form-select"
+                                    aria-label="Default select example"
+                                    onChange={handleInputChange}
+                                    name="nationality"
+                                >
+                                    <option disabled selected>
+                                        {" "}
+                                        Select country
+                                    </option>
+                                    {countryNames.map((name, index) => (<option value={name.code} key={index}>
+                                        {name.name}
+                                    </option>))}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 mt-lg-0 mt-4">
+                        <div className="payment_card">
+                            <input
+                                type="text"
+                                className="payment_input"
+                                placeholder="ZIP"
+                                name="zip"
+                                value={formData.zip}
+                                onChange={handleInputChange}
+                                style={{fontSize: "14px"}}
+                            />
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </>);
+        </div>
+
+        <div className="d-flex justify-content-center">
+            <button
+                onClick={handlePayment}
+                className="pay_nowbtn_two mt-0"
+                disabled={isLoading || updating || paymentCreating || !stripe}
+            >
+                {isLoading ? (<>
+                    <div
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                    >
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                    {" "}
+                    Loading...
+                </>) : ("Pay Now")}
+            </button>
+        </div>
+    </>);
 };
 
 export default PaymentFormTwo;

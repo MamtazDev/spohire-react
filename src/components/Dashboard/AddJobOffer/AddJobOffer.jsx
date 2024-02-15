@@ -20,13 +20,18 @@ const options = [{value: "Full-time", label: "Full-time"}, {value: "Part-time", 
     value: "Contract", label: "Contract"
 }, {value: "Temporary", label: "Temporary"},];
 
-const categoryOptions = [{value: "Coach", label: "Coach"}, {
-    value: "Administration", label: "Administration"
-}, {value: "Marketing", label: "Marketing"}, {value: "Betting", label: "Betting"}, {
-    value: "Customer service", label: "Customer service"
-}, {value: "Manager", label: "Manager"}, {value: "Agent", label: "Agent"}, {
-    value: "Journalist", label: "Journalist"
-}, {value: "Scout", label: "Scout"}, {value: "Referee", label: "Referee"},];
+const categoryOptions = [
+    {value: "Coach", label: "Coach"},
+    {value: "Administration", label: "Administration"},
+    {value: "Marketing", label: "Marketing"},
+    {value: "Betting", label: "Betting"},
+    {value: "Customer service", label: "Customer service"},
+    {value: "Manager", label: "Manager"},
+    {value: "Agent", label: "Agent"},
+    {value: "Journalist", label: "Journalist"},
+    {value: "Scout", label: "Scout"},
+    {value: "Referee", label: "Referee"},
+];
 
 const WorkplaceOptions = [{value: "On-site", label: "On-site"}, {value: "Hybrid", label: "Hybrid"}, {
     value: "Remote", label: "Remote"
