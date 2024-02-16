@@ -79,7 +79,7 @@
   color: #fff;
   text-align: center;
   font-family: "SF Pro Display", sans-serif;
-  font-size: 11.3px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -110,6 +110,11 @@
   border: 0.7px solid rgba(0, 0, 0, 0.02);
   background: rgba(0, 0, 0, 0.02);
   /* margin-top: 9px; */
+  font-size: 14px;
+  height: 46px;
+  border-radius: 5px;
+  border: 0.707px solid rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .player_wrapper label {

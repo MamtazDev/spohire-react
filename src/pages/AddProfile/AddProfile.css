@@ -1,6 +1,6 @@
 .addplayer_left_banner img {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
 }
 
 .club_info {
@@ -45,7 +45,7 @@
 }
 
 .player_wrapper {
-  padding: 45px !important;
+  padding: 30px !important;
   padding-bottom: 0 !important;
 }
 
@@ -79,7 +79,7 @@
   color: #fff;
   text-align: center;
   font-family: "SF Pro Display", sans-serif;
-  font-size: 11.3px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -133,7 +133,7 @@
   margin-top: 9px;
   color: #9ca3a9;
   font-family: "SF Pro Display", sans-serif;
-  font-size: 8.489px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

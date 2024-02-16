@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
@@ -57,10 +58,11 @@ const ExperienceTab = ({
         </div>
       </div>
 
-      <div className="">
+      <div className="clubname">
         <input
+          style={{width: "250px"}}
           type="text"
-          className="mt-2 form-control login_input"
+          className="mt-2 form-control login_input w-full"
           placeholder="Club name"
           value={clubDetails}
           onChange={(e) => setClubDetails(e.target.value)}

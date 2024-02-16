@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import HandleYear from "../../AddPlayer/HandleYear";
 
@@ -58,50 +60,62 @@ const SecondStepCoach = ({
   return (
     <div className="login_wrapper player_wrapper">
       <div>
-        <h3>Add to Transfer Market</h3>
+        <h3>Add Coach to Transfer Market</h3>
         <p>Fill all input to create a account</p>
         <form onSubmit={(e) => e.preventDefault()}>
+          <label>Experience</label>
           {experience?.length > 0 &&
             experience?.map((item, idx) => (
               <div className="d-flex align-items-center gap-3 mb-2" key={idx}>
                 <div className="d-flex align-items-center gap-2">
                   {/* <HandleYear setInitialYear={setInitialYear} /> */}
+
                   <div className="d-flex align-items-center gap-1">
                     <div className="year_input">
                       <input
                         type="text"
-                        className="w-100"
+                        className=""
                         disabled
                         value={item?.start_year}
-                        style={{ padding: "5px", fontSize: "10px" }}
+                        style={{
+                          padding: "5px",
+                          fontSize: "14px",
+                          width: "91px",
+                        }}
                       />
                     </div>
                   </div>
+
                   <div className="hifen">-</div>
                   {/* <HandleYear /> */}
+
                   <div className="d-flex align-items-center gap-1">
                     <div className="year_input">
                       <input
                         type="text"
-                        className="w-100"
+                        className=""
                         disabled
                         value={item?.end_year}
-                        style={{ padding: "5px", fontSize: "10px" }}
+                        style={{
+                          padding: "5px",
+                          fontSize: "14px",
+                          width: "91px",
+                        }}
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="">
+                <div className="club_name">
                   <input
                     type="text"
-                    className="mt-2 form-control login_input w-100"
+                    className="mt-2 form-control login_input"
                     placeholder="Club name"
                     //   value={firstName}
                     onChange={(e) => setClubDetails(e.target.value)}
                     disabled
                     value={item?.club_name}
-                    style={{ padding: "5px", fontSize: "10px" }}
+                    style={{ padding: "5px", fontSize: "14px", width: "250px" }}
                   />
                 </div>
               </div>
@@ -116,8 +130,7 @@ const SecondStepCoach = ({
             className="add_btn1"
             type="button"
             onClick={handleExperience}
-            disabled={!initialYear || !finalYear || !clubDetails}
-          >
+            disabled={!initialYear || !finalYear || !clubDetails}>
             <span>Add</span> <img src={greyplus} alt="plus btn" />
           </button>
 
@@ -182,8 +195,7 @@ const SecondStepCoach = ({
             <button
               className="next_btn text-light"
               type="button"
-              onClick={() => setStep((prev) => prev + 1)}
-            >
+              onClick={() => setStep((prev) => prev + 1)}>
               Next
             </button>
             {/* <button className="prev_btn" type="button">

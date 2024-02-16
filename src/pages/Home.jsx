@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <>
       <main>
-
         <Banner />
         <MarqueeSlider />
         <MobileMarqueeSlider />
@@ -32,4 +31,3 @@ const Home = () => {
 };
 
 export default Home;
-

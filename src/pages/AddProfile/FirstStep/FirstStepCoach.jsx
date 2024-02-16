@@ -70,23 +70,23 @@ const FirstStepCoach = ({
   };
 
   const handleNext = () => {
-    const buttonDisabled =
-      !addPlayerInfo?.first_name ||
-      !addPlayerInfo?.last_name ||
-      !addPlayerInfo?.nationality ||
-      !addPlayerInfo?.additional_passport ||
-      !addPlayerInfo?.image;
+    // const buttonDisabled =
+      // !addPlayerInfo?.first_name ||
+      // !addPlayerInfo?.last_name ||
+      // !addPlayerInfo?.nationality ||
+      // !addPlayerInfo?.additional_passport ||
+      // !addPlayerInfo?.image;
 
-    if (buttonDisabled) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please fill up all field",
-      });
-      return;
-    } else {
+    // if (buttonDisabled) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Oops...",
+    //     text: "Please fill up all field",
+    //   });
+    //   return;
+    // } else {
       setStep((prev) => prev + 1);
-    }
+    // }
 
     console.log(buttonDisabled, "buett");
   };
@@ -109,7 +109,7 @@ const FirstStepCoach = ({
   return (
     <div className="login_wrapper player_wrapper">
       <div>
-        <h3>Add to Transfer Market</h3>
+        <h3>Add Coach to Transfer Market</h3>
         <p>Fill all input to create a account</p>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="">
@@ -137,42 +137,107 @@ const FirstStepCoach = ({
                 fontWeight: 500,
                 textDecoration: "underline",
               }}
-              onClick={() => imageInputRef?.current.click()}
-            >
+              onClick={() => imageInputRef?.current.click()}>
               Upload File
             </button>
           </div>
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
-            <div className="col-6">
+            <div className="col-12">
               <label htmlFor="">
-                <span className="text-danger">*</span>First Name
+                <span className="text-danger">*</span>Additional passport
               </label>
 
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Type here..."
-                name="first_name"
-                required
-                onChange={handleInputChange}
-              />
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "rgba(0, 0, 0, 0.02)",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="nationality"
+                onChange={handleInputChange}>
+                <option selected disabled>
+                  Select country
+                </option>
+                {countryNames.map((name, index) => (
+                  <option value={name?.name} key={index}>
+                    {name.name}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="col-6">
-              <label htmlFor="">
-                <span className="text-danger">*</span>Last Name
-              </label>
 
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Type here..."
-                name="last_name"
-                required
-                onChange={handleInputChange}
-              />
+            <div className="club_info">
+              <h6>Do you currently belong to a club?</h6>
+              <div className="d-flex gap-3 mt-2">
+                <div
+                  className="form-check d-flex align-items-center gap-1"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setIsBelongToClub(true);
+                    setAddPlayerInfo({
+                      ...addPlayerInfo,
+                      belong_to_the_club: "Yes",
+                    });
+                  }}>
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    style={{ cursor: "pointer" }}
+                    checked={isBelongToClub}
+                  />
+                  <span
+                    className="form-check-label mb-0"
+                    htmlFor="flexRadioDefault1">
+                    Yes
+                  </span>
+                </div>
+                <div
+                  className="form-check d-flex align-items-center gap-1"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setIsBelongToClub(false);
+                    setAddPlayerInfo({
+                      ...addPlayerInfo,
+                      belong_to_the_club: "No",
+                    });
+                  }}>
+                  <input
+                    className="form-check-input"
+                    style={{ cursor: "pointer" }}
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    checked={!isBelongToClub}
+                  />
+                  <span
+                    className="form-check-label mb-0"
+                    htmlFor="flexRadioDefault1">
+                    No
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="col-6">
+
+            {isBelongToClub && (
+              <div className="mb-2">
+                <label htmlFor="">Club Name</label>
+                <input
+                  type="text"
+                  className="mt-2 form-control login_input"
+                  placeholder="Enter club name"
+                  required
+                  name="club_name"
+                  onChange={handleInputChange}
+                />
+              </div>
+            )}
+
+            {/* <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Country of Residence
               </label>
@@ -186,8 +251,7 @@ const FirstStepCoach = ({
                   border: "1px solid #F0F0F0",
                 }}
                 name="nationality"
-                onChange={handleInputChange}
-              >
+                onChange={handleInputChange}>
                 <option selected disabled>
                   Select country
                 </option>
@@ -212,8 +276,7 @@ const FirstStepCoach = ({
                   border: "1px solid #F0F0F0",
                 }}
                 name="additional_passport"
-                onChange={handleInputChange}
-              >
+                onChange={handleInputChange}>
                 <option selected disabled>
                   Select country
                 </option>
@@ -223,80 +286,10 @@ const FirstStepCoach = ({
                   </option>
                 ))}
               </select>
-            </div>
+            </div> */}
           </div>
 
           {/*  */}
-          <div className="club_info">
-            <h6>Do you currently belong to a club?</h6>
-            <div className="d-flex gap-3 mt-2">
-              <div
-                className="form-check d-flex align-items-center gap-1"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  setIsBelongToClub(true);
-                  setAddPlayerInfo({
-                    ...addPlayerInfo,
-                    belong_to_the_club: "Yes",
-                  });
-                }}
-              >
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  style={{ cursor: "pointer" }}
-                  checked={isBelongToClub}
-                />
-                <span
-                  className="form-check-label mb-0"
-                  htmlFor="flexRadioDefault1"
-                >
-                  Yes
-                </span>
-              </div>
-              <div
-                className="form-check d-flex align-items-center gap-1"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  setIsBelongToClub(false);
-                  setAddPlayerInfo({
-                    ...addPlayerInfo,
-                    belong_to_the_club: "No",
-                  });
-                }}
-              >
-                <input
-                  className="form-check-input"
-                  style={{ cursor: "pointer" }}
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  checked={!isBelongToClub}
-                />
-                <span
-                  className="form-check-label mb-0"
-                  htmlFor="flexRadioDefault1"
-                >
-                  No
-                </span>
-              </div>
-            </div>
-          </div>
-          {isBelongToClub && (
-            <div className="mb-2">
-              <label htmlFor="">Club Name</label>
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Enter club name"
-                required
-                name="club_name"
-                onChange={handleInputChange}
-              />
-            </div>
-          )}
 
           <div className="social_media_links">
             <h6>
@@ -324,8 +317,7 @@ const FirstStepCoach = ({
               <button
                 className="rounded-circle"
                 type="button"
-                onClick={handleAddSocialLink}
-              >
+                onClick={handleAddSocialLink}>
                 <img src={plus} alt="plus" />
               </button>
             </div>
@@ -334,8 +326,7 @@ const FirstStepCoach = ({
             <button
               type="button"
               className="next_btn text-light"
-              onClick={handleNext}
-            >
+              onClick={handleNext}>
               Next
             </button>
           </div>

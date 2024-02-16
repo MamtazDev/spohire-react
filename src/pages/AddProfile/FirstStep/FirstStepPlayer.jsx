@@ -153,7 +153,7 @@ const FirstStepPlayer = ({
   return (
     <div className="login_wrapper player_wrapper">
       <div>
-        <h3>Add to Transfer Market</h3>
+        <h3>Add Player to Transfer Market</h3>
         <p>Fill all input to create a account</p>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="">
@@ -188,60 +188,7 @@ const FirstStepPlayer = ({
           </div>
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
-            <div className="col-6">
-              <label htmlFor="">
-                <span className="text-danger">*</span>First Name
-              </label>
 
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Type here..."
-                name="first_name"
-                required
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="col-6">
-              <label htmlFor="">
-                <span className="text-danger">*</span>Last Name
-              </label>
-
-              <input
-                type="text"
-                className="mt-2 form-control login_input"
-                placeholder="Type here..."
-                name="last_name"
-                required
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="col-6">
-              <label htmlFor="">
-                <span className="text-danger">*</span>Country of Residence
-              </label>
-
-              <select
-                className="form-select"
-                aria-label="Default select example"
-                style={{
-                  height: "46px",
-                  backgroundColor: "",
-                  border: "1px solid #F0F0F0",
-                }}
-                name="nationality"
-                onChange={handleInputChange}
-              >
-                <option selected disabled>
-                  Select country
-                </option>
-                {countryNames.map((name, index) => (
-                  <option value={name?.name} key={index}>
-                    {name.name}
-                  </option>
-                ))}
-              </select>
-            </div>
             <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Additional passport
@@ -394,7 +341,7 @@ const FirstStepPlayer = ({
           </div>
 
           {/*  */}
-          <div className="club_info">
+          <div className="club_info mb-3  ">
             <h6>Do you currently belong to a club?</h6>
             <div className="d-flex gap-3 mt-2">
               <div
