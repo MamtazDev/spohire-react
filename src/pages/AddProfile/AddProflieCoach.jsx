@@ -12,6 +12,7 @@ import SecondStepCoach from "./SecondStep/SecondStepCoach";
 import ThirdStep from "./ThirdStep/ThirdStep";
 import Layout from "../../Layout/Layout";
 import PaymentProcess from "../pricing/PaymentProcess";
+import NewLayout from "../../Layout/NewLayout";
 
 const AddProfileCoach = () => {
   const [step, setStep] = useState(0);
@@ -82,7 +83,7 @@ const AddProfileCoach = () => {
   };
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         {step === 0 || step === 1 ? (
           <div className="row align-items-center">
             <div className="col-lg-5 p-0  d-none d-lg-block">
@@ -114,15 +115,15 @@ const AddProfileCoach = () => {
         ) : (
           <div className="col-lg-12">
             {step === 2 && (
-              <Layout>
+              <NewLayout>
                 <ThirdStep setStep={setStep} />
-              </Layout>
+              </NewLayout>
             )}
 
             {step === 3 && (
-              <Layout>
+              <NewLayout>
                 <PaymentProcess />
-              </Layout>
+              </NewLayout>
             )}
           </div>
         )}
