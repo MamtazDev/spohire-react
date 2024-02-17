@@ -2,12 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 import {useEffect, useRef, useState} from 'react';
-import {Button, Modal} from 'react-bootstrap';
-import brows from '../../../assets/brows1.png';
-import region from '../../../assets/aregion.png';
-import salary from '../../../assets/asalary.png';
-import AddJobOfferModal from "../AddJobOffer/AddJobOfferModal.jsx";
-import AddJobOfferModalTwo from "../AddJobOffer/AddJobOfferModalTwo.jsx";
+import {Modal} from 'react-bootstrap';
 import CreateAnnouncemnetModal from "./CreateAnnouncemnetModal.jsx";
 import axios from "axios";
 import {useSelector} from "react-redux";
@@ -32,7 +27,6 @@ const categoryOptions = [
     {value: "Scout", label: "Scout"},
     {value: "Referee", label: "Referee"},
 ];
-
 const WorkplaceOptions = [{value: "On-site", label: "On-site"}, {value: "Hybrid", label: "Hybrid"}, {
     value: "Remote", label: "Remote"
 },];
@@ -54,7 +48,6 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-
         if (!user?.isSubsCribed) {
             setLoading(false);
             Swal.fire({
@@ -63,7 +56,6 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
             navigate("/pricing");
             return;
         }
-
         const form = e.target;
         const creator = user?._id;
         const title = form.title.value;
@@ -74,9 +66,7 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
         const job_location = form.job_location.value;
         const salary = form.salary.value;
         const description = form.description.value;
-
         const fromData = new FormData();
-
         fromData.append("job_title", title);
         fromData.append("company", company);
         fromData.append("language", language);
@@ -89,11 +79,11 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
         fromData.append("salary", salary);
         fromData.append("description", description);
         fromData.append("creator", creator);
+
         try {
             const response = await addJob(fromData);
             if (response?.data?.success) {
                 form.reset();
-
                 closeModal();
                 setLoading(false);
             }
@@ -112,11 +102,14 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
             setLoading(false);
         }
     };
+
     const fileInputRef = useRef(null);
+
     const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        setImage(selectedFile.name);
-        setImageFIle(selectedFile);
+        // const selectedFile = e.target.files[0];
+        // setImage(selectedFile.name);
+        // setImageFIle(selectedFile);
+        console.log("handle change", e.value)
     };
     useEffect(() => {
         axios
@@ -128,109 +121,43 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
                 console.log(error);
             });
     }, []);
+
     const handleChange = (selectedOption) => {
         setSelectedCountry(selectedOption);
     };
+
     const handleJobType = (selectedOption) => {
         setJobType(selectedOption);
     };
+
     const handleWorkPlaceType = (selectedOption) => {
         setWorkplaceType(selectedOption);
     };
+
     const handleCategory = (selectedOption) => {
         setRole(selectedOption);
     };
+
     const handleNextOption = () => {
         setNextOption("AddJobOfferModalTwo");
     };
 
+    const resentState = () => {
+        setNextOption('AddJobOfferModal');
+    }
+
 
     return (<div>
         <>
-            {/*<Modal*/}
-            {/*    centered*/}
-            {/*    show={isModalOpen} onHide={onHide} className="modal_width">*/}
-            {/*    <Modal.Header closeButton className='p-0'>*/}
-            {/*        <Modal.Title>Add An Announcement</Modal.Title>*/}
-            {/*    </Modal.Header>*/}
-            {/*    <Modal.Body className='p-0'>*/}
-            {/*        <div className="personal_info_edit_wrapper">*/}
-            {/*            <div className="d-flex flex-column align-items-start gap-3" style={{marginBottom: "40px"}}>*/}
-            {/*                <div className="w-100 player_job_form_wrapper">*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>*/}
-            {/*                        <div className="form_icons" style={{top: "40px"}}>*/}
-            {/*                            <img className="mt-0" src={region} alt="title"/>*/}
-            {/*                        </div>*/}
-            {/*                        <input type="text" className="form-control ps-5" id="exampleFormControlInput1"*/}
-            {/*                               placeholder="Enter Announcement Title"/>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <label htmlFor="exampleFormControlInput1" className="form-label">Location</label>*/}
-            {/*                        <div className="form_icons" style={{top: "40px"}}>*/}
-            {/*                            <img className="mt-0" src={region} alt="title"/>*/}
-            {/*                        </div>*/}
-            {/*                        <input type="text" className="form-control ps-5" id="exampleFormControlInput1"*/}
-            {/*                               placeholder="Enter location"/>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <label htmlFor="exampleFormControlInput1" className="form-label">Status</label>*/}
-            {/*                        <div className="form_icons" style={{top: "40px"}}>*/}
-            {/*                            <img className="mt-0" src={region} alt="title"/>*/}
-            {/*                        </div>*/}
-            {/*                        <input type="text" className="form-control ps-5" id="exampleFormControlInput1"*/}
-            {/*                               placeholder="Status"/>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <label htmlFor="exampleFormControlInput1" className="form-label">Budget</label>*/}
-            {/*                        <div className="form_icons" style={{top: "40px"}}>*/}
-            {/*                            <img className="mt-0" src={salary} alt="title"/>*/}
-            {/*                        </div>*/}
-            {/*                        <input type="number" className="form-control ps-5" id="exampleFormControlInput1"*/}
-            {/*                               placeholder="Numerical digit only"/>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <label htmlFor="exampleFormControlInput1" className="form-label">Image</label>*/}
-            {/*                        <input*/}
-            {/*                            type="file"*/}
-            {/*                            className="form-control"*/}
-            {/*                            id="exampleFormControlInput1"*/}
-            {/*                            ref={fileInputRef}*/}
-            {/*                            onChange={handleFileChange}*/}
-            {/*                            style={{display: 'none'}} // Hide the default file input*/}
-            {/*                        />*/}
-            {/*                        <div className="form_icons" style={{top: "40px"}}>*/}
-            {/*                            <img className="mt-0" src={brows} alt="title"/>*/}
-            {/*                        </div>*/}
-            {/*                        <input type="email" onClick={() => fileInputRef.current.click()} value={image}*/}
-            {/*                               className="form-control ps-5" id="exampleFormControlInput1"*/}
-            {/*                               placeholder="Brows here" style={{cursor: "pointer"}}/>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="position-relative text-start">*/}
-            {/*                        <div className="mb-3">*/}
-            {/*                            <label hytmlFor="exampleFormControlInput1"*/}
-            {/*                                   className="form-label">Description</label>*/}
-            {/*                            <div className="input-group mb-3">*/}
-            {/*                                <textarea type="text" className="form-control" placeholder="Description...."*/}
-            {/*                                          aria-label="Username" aria-describedby="basic-addon1"/>*/}
-            {/*                            </div>*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </Modal.Body>*/}
-            {/*    <Modal.Footer className='border-0 p-0'>*/}
-            {/*        <button className='submit_now_btn w-100 m-0' onClick={onHide}>*/}
-            {/*            Submit Now*/}
-            {/*        </button>*/}
-            {/*    </Modal.Footer>*/}
-            {/*</Modal>*/}
+
         </>
         <Modal
             centered
             show={isModalOpen}
-            onHide={onHide}
+            onHide={() => {
+                onHide(); // Close the modal
+                resentState(); // Reset the state
+            }}
             className="modal_width1"
         >
             {/*closeButton*/}
@@ -257,20 +184,24 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
                         style={{marginBottom: "40px"}}
                     >
                         <div
-                            // onSubmit={handleSubmit}
+                            onSubmit={handleSubmit}
                             className="w-100 player_job_form_wrapper mt-0"
                         >
 
-                            {nextOption === "AddJobOfferModal" && (<CreateAnnouncemnetModal
-                                fileInputRef={fileInputRef}
-                                handleFileChange={handleFileChange}
-                                image={image}
-                                selectedCountry={selectedCountry}
-                                countryNames={countryNames}
-                                options={options}
-                                WorkplaceOptions={WorkplaceOptions}
-                                categoryOptions={categoryOptions}
-                            />)}
+                            {
+                                nextOption === "AddJobOfferModal" && (
+                                    <CreateAnnouncemnetModal
+                                        fileInputRef={fileInputRef}
+                                        handleFileChange={handleFileChange}
+                                        image={image}
+                                        selectedCountry={selectedCountry}
+                                        countryNames={countryNames}
+                                        options={options}
+                                        WorkplaceOptions={WorkplaceOptions}
+                                        categoryOptions={categoryOptions}
+                                    />
+                                )
+                            }
 
                             {nextOption === "AddJobOfferModalTwo" && (<PaymentProcess/>)}
 
@@ -283,7 +214,7 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
                                         // onClick={onHide}
                                         type="button"
                                         // disabled={loading || isLoading}
-                                        style={{maxWidth: '568px',  width: '100%'}}
+                                        style={{maxWidth: '568px', width: '100%'}}
                                     >
                                         Next
                                     </button>
