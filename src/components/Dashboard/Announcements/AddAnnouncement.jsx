@@ -106,10 +106,9 @@ const AddAnnouncement = ({onHide, isModalOpen}) => {
     const fileInputRef = useRef(null);
 
     const handleFileChange = (e) => {
-        // const selectedFile = e.target.files[0];
-        // setImage(selectedFile.name);
-        // setImageFIle(selectedFile);
-        console.log("handle change", e.value)
+        const selectedFile = e.target.files[0];
+        setImage(selectedFile.name);
+        setImageFIle(selectedFile);
     };
     useEffect(() => {
         axios

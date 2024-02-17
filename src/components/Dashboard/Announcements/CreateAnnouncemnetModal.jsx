@@ -28,7 +28,7 @@ const CreateAnnouncemnetModal = ({
                     {/*</div>*/}
 
                     <input
-onChange={handleFileChange}
+
                         type="text"
                         className="form-control"
                         id="exampleFormControlInput1"
