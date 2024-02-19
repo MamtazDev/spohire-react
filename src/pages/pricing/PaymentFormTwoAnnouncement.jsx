@@ -26,12 +26,7 @@ import {
 } from "../../features/payment/paymentApi";
 import axios from "axios";
 
-const PaymentFormTwo = ({
-  handleSubmit,
-  addingJob,
-  selectedSubscription,
-  closeModal,
-}) => {
+const PaymentFormTwoAnnounement = ({ handleSubmit, addingJob, closeModal }) => {
   const stripe = useStripe();
   const elements = useElements();
   const CARD_OPTIONS = {
@@ -89,10 +84,7 @@ const PaymentFormTwo = ({
     }
 
     try {
-      const clientSecret = await createPaymentIntent(
-        selectedSubscription?.price * 100,
-        "usd"
-      );
+      const clientSecret = await createPaymentIntent(20 * 100, "usd");
 
       const cardElement = elements.getElement(CardNumberElement);
 
@@ -130,8 +122,8 @@ const PaymentFormTwo = ({
         const createPaymentData = {
           transactionId: paymentIntent?.id,
           userId: user?._id,
-          amount: selectedSubscription?.price,
-          purpose: "Add Job",
+          amount: 20,
+          purpose: "Add announcement",
         };
         const createPaymentRes = await createPayment(createPaymentData);
         // console.log(createPaymentRes, "kfjalkfred");
@@ -316,7 +308,7 @@ const PaymentFormTwo = ({
   );
 };
 
-export default PaymentFormTwo;
+export default PaymentFormTwoAnnounement;
 
 const createPaymentIntent = async (amountInCents, currency) => {
   const stripe = Stripe(STRIPE_SK);

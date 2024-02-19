@@ -13,7 +13,10 @@ import gold from "../../../assets/gold.png";
 import ViewDetailsMobile from "./ViewDetailsMobile";
 import Gallary from "./Gallary";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useGetUserByIdQuery } from "../../../features/auth/authApi";
+import {
+  useGetPlayerByIdQuery,
+  useGetUserByIdQuery,
+} from "../../../features/auth/authApi";
 import obserbeIcon from "../../../assets/observeIcon.svg";
 import ovservedIcon from "../../../assets/observedIcon.svg";
 import {
@@ -28,7 +31,8 @@ const ViewDetails = () => {
 
   const { user: loggedInUser } = useSelector((state) => state.auth);
 
-  const { data: user } = useGetUserByIdQuery(id);
+  // const { data: user } = useGetUserByIdQuery(id);
+  const { data: user } = useGetPlayerByIdQuery(id);
   const { data: userObservation } = useGetMyObservationsQuery();
   const [toggleObservation] = useToggleObservationMutation();
   console.log(userObservation?.data, "userObservation");
@@ -139,7 +143,7 @@ const ViewDetails = () => {
               <button className="gold_btn">No Plan</button>
             )}
             <p className="text_color_36 f_sfPro fs_40 mb-2">
-              {user?.first_name} {user?.last_name}
+              {/* {user?.first_name} {user?.last_name} */}
             </p>
             <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
               {user?.sports}

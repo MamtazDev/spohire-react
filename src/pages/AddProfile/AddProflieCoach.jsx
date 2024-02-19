@@ -20,67 +20,7 @@ const AddProfileCoach = () => {
   const [experience, setExperience] = useState([]);
   const [gallaryImage, setGallaryImage] = useState([]);
   const [addPlayerInfo, setAddPlayerInfo] = useState({});
-  const { user } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
-  const [addPlayer, { isLoading }] = useAddPlayerMutation();
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/;
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    if (!passwordRegex.test(password)) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Password must contain at least one uppercase, one lowercase, one special character, one digit and it should be at least 8 characters long.",
-      });
-      return;
-    }
-
-    const data = {
-      email,
-      password,
-      social_media: socials,
-      experience,
-      role: "Coach",
-      sports: user?.sports,
-      referral: user?._id,
-      ...addPlayerInfo,
-    };
-
-    const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
-    gallaryImage.forEach((img, index) => {
-      formData.append(`gallery`, img);
-    });
-
-    try {
-      const response = await addPlayer(formData);
-      console.log(response, "ddd");
-      if (response?.data?.success) {
-        navigate(`/pricingAddProfile/${response?.data?.data?._id}`);
-      }
-      if (response?.error?.data?.message) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `${response?.error?.data?.message}`,
-        });
-      }
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${error?.message}`,
-      });
-    }
-  };
   return (
     <>
       <div className="container-fluid p-0">
@@ -97,6 +37,8 @@ const AddProfileCoach = () => {
                   setStep={setStep}
                   addPlayerInfo={addPlayerInfo}
                   setAddPlayerInfo={setAddPlayerInfo}
+                  setSocials={setSocials}
+                  socials={socials}
                 />
               )}
               {step === 1 && (
@@ -116,13 +58,17 @@ const AddProfileCoach = () => {
           <div className="col-lg-12">
             {step === 2 && (
               <NewLayout>
-                <ThirdStep setStep={setStep} />
+                <ThirdStep setStep={setStep} addPlayerInfo={addPlayerInfo} />
               </NewLayout>
             )}
 
             {step === 3 && (
               <NewLayout>
-                <PaymentProcess />
+                <PaymentProcess
+                  gallaryImage={gallaryImage}
+                  experience={experience}
+                  socials={socials}
+                />
               </NewLayout>
             )}
           </div>

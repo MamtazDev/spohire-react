@@ -52,6 +52,8 @@ const FirstStepPlayer = ({
 }) => {
   const { user } = useSelector((state) => state.auth);
 
+  console.log(addPlayerInfo, "addPlayerInfo");
+
   const mainPositions =
     user?.sports === "Football"
       ? footballMainPositon
@@ -115,8 +117,7 @@ const FirstStepPlayer = ({
     const buttonDisabled =
       !addPlayerInfo?.nationality ||
       !addPlayerInfo?.additional_passport ||
-      !addPlayerInfo?.club_position ||
-      !addPlayerInfo?.club_position_alter ||
+      !addPlayerInfo?.mainPosition ||
       !addPlayerInfo?.height ||
       !addPlayerInfo?.weight ||
       !addPlayerInfo?.image;
@@ -188,7 +189,57 @@ const FirstStepPlayer = ({
           </div>
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Full Name
+              </label>
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="fullName"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Date of Birth
+              </label>
+              <input
+                type="date"
+                className="mt-2 form-control login_input"
+                name="date_of_birth"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Nationality
+              </label>
 
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="nationality"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select country
+                </option>
+                {countryNames.map((name, index) => (
+                  <option value={name?.name} key={index}>
+                    {name.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Additional passport
@@ -228,7 +279,7 @@ const FirstStepPlayer = ({
                   backgroundColor: "",
                   border: "1px solid #F0F0F0",
                 }}
-                name="club_position"
+                name="mainPosition"
                 onChange={handleInputChange}
               >
                 <option selected disabled>
@@ -243,7 +294,8 @@ const FirstStepPlayer = ({
             </div>
             <div className="col-6">
               <label htmlFor="">
-                <span className="text-danger">*</span>Alternative position
+                {/* <span className="text-danger">*</span>Alternative position */}
+                Alternative position
               </label>
               <select
                 className="form-select"
@@ -253,7 +305,7 @@ const FirstStepPlayer = ({
                   backgroundColor: "",
                   border: "1px solid #F0F0F0",
                 }}
-                name="club_position_alter"
+                name="alterPosition"
                 onChange={handleInputChange}
               >
                 <option selected disabled>

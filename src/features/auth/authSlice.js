@@ -13,6 +13,7 @@ const initialState = {
     country: null,
     categories: null,
   },
+  addPlayerInfo: undefined,
 };
 
 const authSlice = createSlice({
@@ -63,9 +64,17 @@ const authSlice = createSlice({
           return;
       }
     },
+    setAddPlayerProfileInfo: (state, action) => {
+      state.addPlayerInfo = action.payload;
+    },
   },
 });
 
-export const { userLoggedIn, userLoggedOut, setPlayerFilterParams,setCoachFilterParams } =
-  authSlice.actions;
+export const {
+  userLoggedIn,
+  userLoggedOut,
+  setPlayerFilterParams,
+  setCoachFilterParams,
+  setAddPlayerProfileInfo,
+} = authSlice.actions;
 export default authSlice.reducer;

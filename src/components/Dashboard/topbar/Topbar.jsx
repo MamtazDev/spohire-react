@@ -106,8 +106,7 @@ const Topbar = () => {
 
   const handleAddAnnouncementClick = () => {
     // navigate("/dashboard/createAnnouncements");
-    setAnnouncementIsModalOpen(true)
-
+    setAnnouncementIsModalOpen(true);
   };
   const closeAnnouncementModal = () => {
     setAnnouncementIsModalOpen(false);
@@ -412,6 +411,7 @@ const Topbar = () => {
         onHide={closeAnnouncementModal}
         isModalOpen={isAnnouncementModalOpen}
         style={{ width: "648px" }}
+        closeModal={closeAnnouncementModal}
       />
     </>
   );

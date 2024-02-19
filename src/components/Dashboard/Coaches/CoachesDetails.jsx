@@ -12,7 +12,10 @@ import gold from "../../../assets/gold.png";
 import coachImg from "../../../assets/coachImg.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Gallary from "./../viewDetails/Gallary";
-import { useGetUserByIdQuery } from "../../../features/auth/authApi";
+import {
+  useGetPlayerByIdQuery,
+  useGetUserByIdQuery,
+} from "../../../features/auth/authApi";
 import obserbeIcon from "../../../assets/observeIcon.svg";
 import ovservedIcon from "../../../assets/observedIcon.svg";
 import { useSelector } from "react-redux";
@@ -25,7 +28,8 @@ import Swal from "sweetalert2";
 const CoachesDetails = () => {
   const { id } = useParams();
   const { user: loggedInUser } = useSelector((state) => state.auth);
-  const { data: user } = useGetUserByIdQuery(id);
+  // const { data: user } = useGetUserByIdQuery(id);
+  const { data: user } = useGetPlayerByIdQuery(id);
   const { data: userObservation } = useGetMyObservationsQuery();
   const [toggleObservation] = useToggleObservationMutation();
   // console.log(user, "dd");

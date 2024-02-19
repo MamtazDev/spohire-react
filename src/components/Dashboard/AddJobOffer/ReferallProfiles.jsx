@@ -3,13 +3,17 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import deleteIcon from "../../../assets/deleteIcon.png";
 import locationIcon from "../../../assets/location-icon.svg";
-import { useDeleteUserMutation } from "../../../features/auth/authApi";
+import {
+  useDeletePlayerMutation,
+  useDeleteUserMutation,
+} from "../../../features/auth/authApi";
 import Swal from "sweetalert2";
 
 const ReferallProfiles = ({ data, footBallCoachImg, jobOffersType }) => {
   console.log(data, "data");
 
-  const [deleteUser, { isLoading }] = useDeleteUserMutation();
+  // const [deleteUser, { isLoading }] = useDeleteUserMutation();
+  const [deletePlayer, { isLoading }] = useDeletePlayerMutation();
   const handleDelete = async (item, e) => {
     e.stopPropagation();
     console.log(item, "djkf");
@@ -24,7 +28,7 @@ const ReferallProfiles = ({ data, footBallCoachImg, jobOffersType }) => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await deleteUser(item?._id);
+        const res = await deletePlayer(item?._id);
         console.log(res, "ddd");
         if (res?.data?.success) {
           Swal.fire({

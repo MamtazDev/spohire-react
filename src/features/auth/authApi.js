@@ -67,6 +67,9 @@ export const authApi = apiSlice.injectEndpoints({
     getUserById: builder.query({
       query: (id) => `/api/v1/users/${id}`,
     }),
+    getPlayerById: builder.query({
+      query: (id) => `/api/v1/players/${id}`,
+    }),
     updateUser: builder.mutation({
       query: ({ userId, data }) => ({
         url: `/api/v1/users/${userId}`,
@@ -115,6 +118,13 @@ export const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["ReferralUsers"],
     }),
+    deletePlayer: builder.mutation({
+      query: (id) => ({
+        url: `/api/v1/players/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["ReferralUsers"],
+    }),
   }),
 });
 
@@ -131,4 +141,6 @@ export const {
   useBuySubscriptionForPlayerMutation,
   useGetUserReferallsQuery,
   useDeleteUserMutation,
+  useGetPlayerByIdQuery,
+  useDeletePlayerMutation,
 } = authApi;

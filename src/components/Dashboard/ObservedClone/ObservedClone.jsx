@@ -335,7 +335,7 @@ const ObservedClone = () => {
 
       {/* player profile */}
       <div className="job" style={{ margin: "30px" }}>
-        {data?.data.filter((i) => i?.target_type === "User").length > 0 && (
+        {data?.data.filter((i) => i?.target_type === "Player").length > 0 && (
           <div>
             <p className="title">Player Profile</p>
             <div className="job_offers_wrapper p-0">
@@ -343,7 +343,7 @@ const ObservedClone = () => {
                 {data?.data &&
                   data?.data?.length > 0 &&
                   data?.data
-                    .filter((i) => i?.target_type === "User")
+                    .filter((i) => i?.target_type === "Player")
                     .map((item, idx) => (
                       <div className="job_offers_item p-3" key={idx}>
                         <div className="job_offers_item_content d-flex justify-content-between align-items-center">

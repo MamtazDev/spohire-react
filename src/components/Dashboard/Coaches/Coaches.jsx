@@ -55,7 +55,8 @@ const Coaches = () => {
           coach?.subscriptionName &&
           allowedPlans.includes(coach?.subscriptionName) &&
           user?.sports === coach?.sports &&
-          coach?.isCreatedProfile
+          coach?.isCreatedProfile &&
+          coach?.isActive
       )
       .filter(handleFilter) || [];
   return (
@@ -118,7 +119,8 @@ const SingleCoach = ({ coach }) => {
     const data = {
       user_id: user?._id,
       target_id: id,
-      target_type: "User",
+      // target_type: "User",
+      target_type: "Player",
     };
 
     // console.log(data, "jjjDD");
@@ -204,7 +206,8 @@ const SingleCoach = ({ coach }) => {
               </div>
               <div className="player_name">
                 <p className="text_color_36 fw-medium fs_14">
-                  {coach?.first_name} <br /> {coach?.last_name}
+                  {/* {coach?.first_name} <br /> {coach?.last_name} */}
+                  {coach?.fullName}
                 </p>
               </div>
             </div>

@@ -63,7 +63,11 @@ const SecondStepPlayer = ({
                         className=""
                         disabled
                         value={item?.start_year}
-                        style={{ padding: "5px", fontSize: "14px", width: "91px" }}
+                        style={{
+                          padding: "5px",
+                          fontSize: "14px",
+                          width: "91px",
+                        }}
                       />
                     </div>
                   </div>
@@ -76,7 +80,11 @@ const SecondStepPlayer = ({
                         className=""
                         disabled
                         value={item?.end_year}
-                        style={{ padding: "5px", fontSize: "14px", width: "91px" }}
+                        style={{
+                          padding: "5px",
+                          fontSize: "14px",
+                          width: "91px",
+                        }}
                       />
                     </div>
                   </div>
@@ -106,7 +114,8 @@ const SecondStepPlayer = ({
             className="add_btn1"
             type="button"
             onClick={handleExperience}
-            disabled={!initialYear || !finalYear || !clubDetails}>
+            disabled={!initialYear || !finalYear || !clubDetails}
+          >
             <span>Add</span> <img src={greyplus} alt="plus btn" />
           </button>
 
@@ -171,7 +180,8 @@ const SecondStepPlayer = ({
             <button
               className="next_btn text-light"
               type="button"
-              onClick={() => setStep((prev) => prev + 1)}>
+              onClick={() => setStep((prev) => prev + 1)}
+            >
               Next
             </button>
             {/* <button className="prev_btn" type="button">

@@ -74,7 +74,7 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const filteredJobs = allJobs?.data.filter((value) => {
+  const filteredJobs = allJobs?.data?.filter((value) => {
     if (
       searchParams?.jobTitle ||
       searchParams?.jobLocation?.length > 0 ||

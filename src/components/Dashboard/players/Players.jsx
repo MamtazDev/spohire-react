@@ -57,7 +57,8 @@ const Players = () => {
           player?.subscriptionName &&
           allowedPlans.includes(player?.subscriptionName) &&
           user?.sports === player?.sports &&
-          player?.isCreatedProfile
+          player?.isCreatedProfile &&
+          player?.isActive
       )
       .filter(handleFilter) || [];
 

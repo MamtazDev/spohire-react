@@ -69,26 +69,26 @@ const FirstStepCoach = ({
     setAddPlayerInfo({ ...addPlayerInfo, [name]: value });
   };
 
+  console.log(addPlayerInfo, "fjksfd");
+
   const handleNext = () => {
-    // const buttonDisabled =
-      // !addPlayerInfo?.first_name ||
-      // !addPlayerInfo?.last_name ||
-      // !addPlayerInfo?.nationality ||
-      // !addPlayerInfo?.additional_passport ||
-      // !addPlayerInfo?.image;
+    const buttonDisabled =
+      !addPlayerInfo?.fullName ||
+      !addPlayerInfo?.additional_passport ||
+      !addPlayerInfo?.nationality ||
+      !addPlayerInfo?.image ||
+      !socials;
 
-    // if (buttonDisabled) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Please fill up all field",
-    //   });
-    //   return;
-    // } else {
+    if (buttonDisabled) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill up all field",
+      });
+      return;
+    } else {
       setStep((prev) => prev + 1);
-    // }
-
-    console.log(buttonDisabled, "buett");
+    }
   };
 
   const [countryNames, setCountryNames] = useState([]);
@@ -137,13 +137,66 @@ const FirstStepCoach = ({
                 fontWeight: 500,
                 textDecoration: "underline",
               }}
-              onClick={() => imageInputRef?.current.click()}>
+              onClick={() => imageInputRef?.current.click()}
+            >
               Upload File
             </button>
           </div>
 
           <div className="row flex-wrap date_wrapper mb-3 align-items-center">
-            <div className="col-12">
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Full Name
+              </label>
+              <input
+                type="text"
+                className="mt-2 form-control login_input"
+                placeholder="Type here..."
+                name="fullName"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Date of Birth
+              </label>
+              <input
+                type="date"
+                className="mt-2 form-control login_input"
+                name="date_of_birth"
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-6">
+              <label htmlFor="">
+                <span className="text-danger">*</span>Nationality
+              </label>
+
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                style={{
+                  height: "46px",
+                  backgroundColor: "",
+                  border: "1px solid #F0F0F0",
+                }}
+                name="nationality"
+                onChange={handleInputChange}
+              >
+                <option selected disabled>
+                  Select country
+                </option>
+                {countryNames.map((name, index) => (
+                  <option value={name?.name} key={index}>
+                    {name.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="col-6">
               <label htmlFor="">
                 <span className="text-danger">*</span>Additional passport
               </label>
@@ -156,8 +209,9 @@ const FirstStepCoach = ({
                   backgroundColor: "rgba(0, 0, 0, 0.02)",
                   border: "1px solid #F0F0F0",
                 }}
-                name="nationality"
-                onChange={handleInputChange}>
+                name="additional_passport"
+                onChange={handleInputChange}
+              >
                 <option selected disabled>
                   Select country
                 </option>
@@ -181,7 +235,8 @@ const FirstStepCoach = ({
                       ...addPlayerInfo,
                       belong_to_the_club: "Yes",
                     });
-                  }}>
+                  }}
+                >
                   <input
                     className="form-check-input"
                     type="radio"
@@ -192,7 +247,8 @@ const FirstStepCoach = ({
                   />
                   <span
                     className="form-check-label mb-0"
-                    htmlFor="flexRadioDefault1">
+                    htmlFor="flexRadioDefault1"
+                  >
                     Yes
                   </span>
                 </div>
@@ -205,7 +261,8 @@ const FirstStepCoach = ({
                       ...addPlayerInfo,
                       belong_to_the_club: "No",
                     });
-                  }}>
+                  }}
+                >
                   <input
                     className="form-check-input"
                     style={{ cursor: "pointer" }}
@@ -216,7 +273,8 @@ const FirstStepCoach = ({
                   />
                   <span
                     className="form-check-label mb-0"
-                    htmlFor="flexRadioDefault1">
+                    htmlFor="flexRadioDefault1"
+                  >
                     No
                   </span>
                 </div>
@@ -317,7 +375,8 @@ const FirstStepCoach = ({
               <button
                 className="rounded-circle"
                 type="button"
-                onClick={handleAddSocialLink}>
+                onClick={handleAddSocialLink}
+              >
                 <img src={plus} alt="plus" />
               </button>
             </div>
@@ -326,7 +385,8 @@ const FirstStepCoach = ({
             <button
               type="button"
               className="next_btn text-light"
-              onClick={handleNext}>
+              onClick={handleNext}
+            >
               Next
             </button>
           </div>
