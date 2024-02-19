@@ -1,7 +1,6 @@
 import React from "react";
 import region from "../../../assets/aregion.png";
 import brows from "../../../assets/brows.svg";
-import salary from "../../../assets/asalary.png";
 
 const CreateAnnouncemnetModal = ({
   fileInputRef,
