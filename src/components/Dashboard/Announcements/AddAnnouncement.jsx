@@ -75,8 +75,6 @@ const AddAnnouncement = ({ onHide, isModalOpen, closeModal }) => {
   const handleSubmit = async (e) => {
     setLoading(true);
 
-    const creator = user?._id;
-
     const jobDataInfo = {
       ...announcementData,
       creator: user?._id,

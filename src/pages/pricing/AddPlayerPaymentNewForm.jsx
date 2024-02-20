@@ -78,6 +78,55 @@ const AddPlayerPaymentNewForm = ({ gallaryImage, experience, socials }) => {
       return;
     }
 
+    const date = new Date();
+
+    const playerData = {
+      ...addPlayerInfo,
+      experience: experience,
+      social_media: socials,
+      isSubsCribed: true,
+      subscriptionName: addPlayerPackage?.name,
+      isCreatedProfile: true,
+      subscriptionDate: date,
+      expirationDate: setExpireDate(addPlayerPackage?.month),
+    };
+
+    const formData = new FormData();
+
+    Object.keys(playerData).forEach((key) => {
+      const propertyValue = playerData[key];
+
+      if (Array.isArray(propertyValue)) {
+        propertyValue.forEach((element, index) => {
+          if (typeof element === "object") {
+            Object.keys(element).forEach((elementKey) => {
+              const elementValue = element[elementKey];
+              formData.append(`${key}[${index}][${elementKey}]`, elementValue);
+            });
+          } else {
+            formData.append(`${key}[]`, element);
+          }
+        });
+      } else {
+        formData.append(key, propertyValue);
+      }
+    });
+
+    gallaryImage?.forEach((img, index) => {
+      formData.append(`gallery`, img);
+    });
+
+    const paymentRes = await addPlayer(formData);
+    if (paymentRes?.error?.data?.message) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${response?.error?.data?.message}`,
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const clientSecret = await createPaymentIntent(
         addPlayerPackage?.price * 100,
@@ -119,48 +168,6 @@ const AddPlayerPaymentNewForm = ({ gallaryImage, experience, socials }) => {
 
         console.log(paymentIntent, "payyyy");
 
-        const date = new Date();
-
-        const playerData = {
-          ...addPlayerInfo,
-          experience: experience,
-          social_media: socials,
-          isSubsCribed: true,
-          subscriptionName: addPlayerPackage?.name,
-          isCreatedProfile: true,
-          subscriptionDate: date,
-          expirationDate: setExpireDate(addPlayerPackage?.month),
-        };
-
-        const formData = new FormData();
-
-        Object.keys(playerData).forEach((key) => {
-          const propertyValue = playerData[key];
-
-          if (Array.isArray(propertyValue)) {
-            propertyValue.forEach((element, index) => {
-              if (typeof element === "object") {
-                Object.keys(element).forEach((elementKey) => {
-                  const elementValue = element[elementKey];
-                  formData.append(
-                    `${key}[${index}][${elementKey}]`,
-                    elementValue
-                  );
-                });
-              } else {
-                formData.append(`${key}[]`, element);
-              }
-            });
-          } else {
-            formData.append(key, propertyValue);
-          }
-        });
-
-        gallaryImage?.forEach((img, index) => {
-          formData.append(`gallery`, img);
-        });
-
-        const paymentRes = await addPlayer(formData);
         // createing payment
         const createPaymentData = {
           transactionId: paymentIntent?.id,
