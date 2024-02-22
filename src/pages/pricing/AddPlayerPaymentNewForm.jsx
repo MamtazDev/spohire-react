@@ -117,11 +117,12 @@ const AddPlayerPaymentNewForm = ({ gallaryImage, experience, socials }) => {
     });
 
     const paymentRes = await addPlayer(formData);
+    console.log(paymentRes, "pafkljfkld");
     if (paymentRes?.error?.data?.message) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `${response?.error?.data?.message}`,
+        text: `${paymentRes?.error?.data?.message}`,
       });
       setIsLoading(false);
       return;
@@ -190,6 +191,8 @@ const AddPlayerPaymentNewForm = ({ gallaryImage, experience, socials }) => {
         showConfirmButton: false,
         timer: 1500,
       });
+    } finally {
+      setIsLoading(false);
     }
   };
   const [countryNames, setCountryNames] = useState([]);

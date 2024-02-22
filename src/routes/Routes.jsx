@@ -43,6 +43,7 @@ import PricingAddProfile from "../pages/pricing/PricingAddProfile.jsx";
 import AddProfilePlayer from "../pages/AddProfile/AddProfilePlayer.jsx";
 import AddProfileCoach from "../pages/AddProfile/AddProflieCoach.jsx";
 import PaymentProcessAddPlayer from "../pages/pricing/PaymentProcessAddPlayer.jsx";
+import PaymentProcessNew from "../pages/pricing/PaymentProcessNew.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -65,7 +66,7 @@ export const router = createBrowserRouter([
         path: "/paymentProcess",
         element: (
           <PaymentRoute>
-            <PaymentProcess />
+            <PaymentProcessNew />
           </PaymentRoute>
         ),
       },

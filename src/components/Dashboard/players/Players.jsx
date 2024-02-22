@@ -128,7 +128,7 @@ const SinglePlayer = ({ player }) => {
     const data = {
       user_id: user?._id,
       target_id: id,
-      target_type: "User",
+      target_type: "Player",
     };
 
     // console.log(data, "jjjDD");
@@ -215,8 +215,17 @@ const SinglePlayer = ({ player }) => {
               </div>
               <div className="player_name">
                 <p className="text_color_36 fw-medium fs_14">
-                  {player?.first_name} <br /> {player?.last_name}
+                  {/* {player?.first_name} <br /> {player?.last_name} */}
+                  {player?.fullName}
                 </p>
+                <Link
+                  to={`/dashboard/messages/${player?.referral}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ fontSize: "12px", textDecoration: "underline" }}
+                  className="text-primary"
+                >
+                  Contact with Owner
+                </Link>
               </div>
             </div>
           </div>
@@ -241,7 +250,7 @@ const SinglePlayer = ({ player }) => {
 
         <td>
           <p className="text_color_55 fw-normal fs_14">
-            {player.club_position ? player.club_position : "N/A"}
+            {player.mainPosition ? player.mainPosition : "N/A"}
           </p>
         </td>
 
@@ -272,7 +281,7 @@ const SinglePlayer = ({ player }) => {
               )}
             </button>
             <span
-              onClick={(e) => handleMessageRoute(e, player?._id)}
+              onClick={(e) => handleMessageRoute(e, player?.referral)}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />

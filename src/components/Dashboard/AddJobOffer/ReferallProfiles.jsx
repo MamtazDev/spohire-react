@@ -119,7 +119,8 @@ function SingleJob({ item, handleDelete, jobOffersType }) {
                   //   onClick={() => handleCLick(item)}
                   style={{ cursor: "pointer" }}
                 >
-                  {item?.first_name} {item?.last_name}
+                  {/* {item?.first_name} {item?.last_name} */}
+                  {item?.fullName}
                 </h5>
 
                 <p className="fs-14 fw-normal text_color_80 mb-1">

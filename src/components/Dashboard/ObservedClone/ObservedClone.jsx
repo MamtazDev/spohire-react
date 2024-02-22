@@ -380,8 +380,9 @@ const ObservedClone = () => {
                                   }
                                   style={{ cursor: "pointer" }}
                                 >
-                                  {item?.target_id?.first_name}{" "}
-                                  {item?.target_id?.last_name}
+                                  {/* {item?.target_id?.first_name}{" "}
+                                  {item?.target_id?.last_name} */}
+                                  {item?.target_id?.fullName}
                                 </h5>
 
                                 <p className="fs-14 fw-normal text_color_80 mb-1">

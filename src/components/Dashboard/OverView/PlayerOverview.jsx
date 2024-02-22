@@ -86,8 +86,20 @@ const PlayerOverview = ({ user }) => {
                           </div>
                           <div className="player_name">
                             <p className="text_color_36 fw-medium fs_14">
-                              {item?.first_name} <br /> {item?.last_name}
+                              {/* {item?.first_name} <br /> {item?.last_name} */}
+                              {item?.fullName}
                             </p>
+                            <Link
+                              to={`/dashboard/messages/${item?.referral}`}
+                              onClick={(e) => e.stopPropagation()}
+                              style={{
+                                fontSize: "12px",
+                                textDecoration: "underline",
+                              }}
+                              className="text-primary"
+                            >
+                              Contact with Owner
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -127,7 +139,7 @@ const PlayerOverview = ({ user }) => {
                     <td>
                       <div className="d-flex align-items-center">
                         <p className="text_color_55 fw-normal fs_14">
-                          <Link to={`/dashboard/messages/${item?._id}`}>
+                          <Link to={`/dashboard/messages/${item?.referral}`}>
                             {" "}
                             <img
                               src={messageIcon}

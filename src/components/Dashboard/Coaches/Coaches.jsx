@@ -209,6 +209,14 @@ const SingleCoach = ({ coach }) => {
                   {/* {coach?.first_name} <br /> {coach?.last_name} */}
                   {coach?.fullName}
                 </p>
+                <Link
+                  to={`/dashboard/messages/${coach?.referral}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ fontSize: "12px", textDecoration: "underline" }}
+                  className="text-primary"
+                >
+                  Contact with Owner
+                </Link>
               </div>
             </div>
           </div>
@@ -262,7 +270,7 @@ const SingleCoach = ({ coach }) => {
             </button>
             <span
               // to={`/dashboard/messages/${coach?._id}`}
-              onClick={(e) => hancleMessageLink(e, coach?._id)}
+              onClick={(e) => hancleMessageLink(e, coach?.referral)}
               className="text_color_55 fw-normal fs_14"
             >
               <img src={messageIcon} alt="message-icon" className="ms-2" />
