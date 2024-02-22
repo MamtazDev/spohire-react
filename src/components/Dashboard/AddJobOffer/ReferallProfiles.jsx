@@ -8,15 +8,22 @@ import {
   useDeleteUserMutation,
 } from "../../../features/auth/authApi";
 import Swal from "sweetalert2";
+import { userLoggedIn } from "../../../features/auth/authSlice";
+import { formatDate } from "../../../utils/formateChatTIme";
 
-const ReferallProfiles = ({ data, footBallCoachImg, jobOffersType }) => {
-  console.log(data, "data");
+const ReferallProfiles = ({
+  data,
+  footBallCoachImg,
+  jobOffersType,
+  cancleSubscription,
+  user,
+}) => {
+  console.log(user, "usersdsdd");
 
   // const [deleteUser, { isLoading }] = useDeleteUserMutation();
   const [deletePlayer, { isLoading }] = useDeletePlayerMutation();
   const handleDelete = async (item, e) => {
     e.stopPropagation();
-    console.log(item, "djkf");
 
     Swal.fire({
       title: "Are you sure?",
@@ -36,6 +43,9 @@ const ReferallProfiles = ({ data, footBallCoachImg, jobOffersType }) => {
             text: "Your file has been deleted.",
             icon: "success",
           });
+          if (item?.fullName === `${user?.first_name} ${user?.last_name}`) {
+            const response = await cancleSubscription();
+          }
         }
       }
     });
@@ -145,7 +155,7 @@ function SingleJob({ item, handleDelete, jobOffersType }) {
                 <div className="job_offer_flag d-flex align-items-center gap-1">
                   {/* <img src={dollarIcon} alt="icon" /> */}
                   <span className="fs-14 fw-normal text_color_80">
-                    Subscription: {item?.subscriptionType ?? "N/A"}
+                    Expire Date: {formatDate(item?.expirationDate) ?? "N/A"}
                   </span>
                 </div>
               </div>

@@ -163,42 +163,46 @@ const Topbar = () => {
                     <div
                       className="d-flex gap-2 align-items-center"
                       style={{
-                        border: `${
-                          user?.role === "Player" && user?.isCreatedProfile
-                            ? ""
-                            : "2px dashed #d1d8e4"
-                        }`,
+                        border: "2px dashed #d1d8e4",
+                        // border: `${
+                        //   user?.role === "Player" && user?.isCreatedProfile
+                        //     ? ""
+                        //     : "2px dashed #d1d8e4"
+                        // }`,
                         padding: "3px 15px",
                         borderRadius: "8px",
                       }}
                     >
-                      {user?.role === "Player" && user?.isCreatedProfile ? (
+                      {/* {user?.role === "Player" && user?.isCreatedProfile ? (
                         <></>
-                      ) : (
-                        <p className="fs-5 me-3">Transfer Market</p>
-                      )}
-                      {user?.role === "Player" && !user?.isCreatedProfile && (
+                      ) : ( */}
+                      <p className="fs-5 me-3">Transfer Market</p>
+                      {/* )} */}
+                      {user?.role === "Player" && (
                         <button
                           className="px-3 py-2 rounded text-white bg_color_fb"
-                          onClick={() => navigate("/addProfile")}
+                          onClick={() => navigate("/addPlayerProfile")}
+                          disabled={user?.addedProfile}
                         >
-                          Add Profile
+                          {user?.addedProfile ? "Added" : "Add Player"}
                         </button>
                       )}
-                      {user?.role === "Coach" && !user?.isCreatedProfile && (
-                        <button
-                          className="px-3 py-2 rounded text-white bg_color_fb"
-                          onClick={() => navigate("/addProfile")}
-                        >
-                          Add Profile
-                        </button>
-                      )}
+
                       {user?.role === "Coach" && (
                         <button
                           className="px-3 py-2 rounded text-white bg_color_fb"
                           onClick={() => navigate("/addProfilePlayer")}
                         >
                           Add Player
+                        </button>
+                      )}
+                      {user?.role === "Coach" && (
+                        <button
+                          className="px-3 py-2 rounded text-white bg_color_fb"
+                          onClick={() => navigate("/addCoachProfile")}
+                          disabled={user?.addedProfile}
+                        >
+                          {user?.addedProfile ? "Added" : "Add Coach"}
                         </button>
                       )}
                       {user?.role === "Manager" && (

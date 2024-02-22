@@ -88,6 +88,17 @@ const AddedItems = () => {
               Coaches
             </button>
           )}
+          {user?.role === "Coach" && (
+            <button
+              className={`fs-6 fw-medium text_color_80 ${
+                jobOffersType === "coach" && "border-primary"
+              }`}
+              onClick={() => setJobOffersType("coach")}
+            >
+              {/* {user?.role === "Coach" ? "Players" : "Player"} */}
+              Coaches
+            </button>
+          )}
 
           <button
             className={`fs-6 fw-medium text_color_80 ${
@@ -121,6 +132,8 @@ const AddedItems = () => {
           data={data?.filter((i) => i.role === "Coach")}
           footBallCoachImg={footBallCoachImg}
           jobOffersType={jobOffersType}
+          cancleSubscription={cancleSubscription}
+          user={user}
         />
       )}
       {jobOffersType === "player" && user?.isSubsCribed && (
@@ -231,6 +244,8 @@ const AddedItems = () => {
           data={data?.filter((i) => i.role === "Player")}
           footBallCoachImg={footBallCoachImg}
           jobOffersType={jobOffersType}
+          cancleSubscription={cancleSubscription}
+          user={user}
         />
       )}
     </div>

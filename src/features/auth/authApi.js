@@ -91,6 +91,26 @@ export const authApi = apiSlice.injectEndpoints({
         url: "/api/v1/users/cancleSubscription",
         method: "PATCH",
       }),
+      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+        try {
+          const result = await queryFulfilled;
+
+          const previousUserInfo = JSON.parse(
+            localStorage.getItem("spohireAuth")
+          );
+
+          const newUserInfo = {
+            accessToken: previousUserInfo?.accessToken,
+            user: result.data.data,
+          };
+
+          dispatch(userLoggedIn(newUserInfo));
+
+          localStorage.setItem("spohireAuth", JSON.stringify(newUserInfo));
+        } catch (err) {
+          // do nothing, handle from ui
+        }
+      },
     }),
     addPlayer: builder.mutation({
       query: (data) => ({

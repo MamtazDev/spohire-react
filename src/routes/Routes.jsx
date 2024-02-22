@@ -44,6 +44,8 @@ import AddProfilePlayer from "../pages/AddProfile/AddProfilePlayer.jsx";
 import AddProfileCoach from "../pages/AddProfile/AddProflieCoach.jsx";
 import PaymentProcessAddPlayer from "../pages/pricing/PaymentProcessAddPlayer.jsx";
 import PaymentProcessNew from "../pages/pricing/PaymentProcessNew.jsx";
+import AddPlayerProfile from "../pages/AddProfile/AddPlayerProfile.jsx";
+import AddCoachProfile from "../pages/AddProfile/AddCoachProfile.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -113,6 +115,14 @@ export const router = createBrowserRouter([
   {
     path: "/addProfile",
     element: <AddProfile />,
+  },
+  {
+    path: "/addPlayerProfile",
+    element: <AddPlayerProfile />,
+  },
+  {
+    path: "/addCoachProfile",
+    element: <AddCoachProfile />,
   },
   {
     path: "/addProfilePlayer",
