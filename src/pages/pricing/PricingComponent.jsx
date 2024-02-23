@@ -52,7 +52,6 @@ const PricingComponent = ({ handleSave, user, subscriptionType, id }) => {
                 handleSave({
                   name: "Bronze",
                   price: Number(amountBronze),
-                  id: id,
                   subscriptionType: subscriptionType,
                 })
               }
@@ -98,7 +97,6 @@ const PricingComponent = ({ handleSave, user, subscriptionType, id }) => {
                 handleSave({
                   name: "Silver",
                   price: Number(amountSilver),
-                  id: id,
                   subscriptionType: subscriptionType,
                 })
               }
@@ -145,7 +143,6 @@ const PricingComponent = ({ handleSave, user, subscriptionType, id }) => {
                 handleSave({
                   name: "Gold",
                   price: Number(amountGold),
-                  id: id,
                   subscriptionType: subscriptionType,
                 })
               }

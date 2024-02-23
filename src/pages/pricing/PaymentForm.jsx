@@ -24,6 +24,7 @@ import {
   useUpdatePaymentStatusMutation,
 } from "../../features/payment/paymentApi";
 import axios from "axios";
+import { setExpireDate } from "../../utils/setExpireDate";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -118,11 +119,24 @@ const PaymentForm = () => {
         setIsLoading(false);
 
         console.log(paymentIntent, "payyyy");
+        const currentDate = new Date();
         // updating user payment status
         // eslint-disable-next-line no-unused-vars
         const paymentRes = await updatePaymentStatus({
           userId: user?._id,
-          data: { isSubsCribed: true, subscriptionName: packageInfo?.name },
+          data: {
+            isSubsCribed: true,
+            isActive: true,
+            subscriptionName: packageInfo?.name,
+            subscriptionDate: currentDate.toISOString(),
+            expirationDate: setExpireDate(
+              packageInfo?.subscriptionType === "Monthly"
+                ? 1
+                : packageInfo?.subscriptionType === "Quaterly"
+                ? 3
+                : 12
+            ),
+          },
         });
         // createing payment
         const createPaymentData = {
@@ -149,6 +163,8 @@ const PaymentForm = () => {
     }
   };
   const [countryNames, setCountryNames] = useState([]);
+
+  console.log(packageInfo, "packageInfo");
 
   useEffect(() => {
     axios

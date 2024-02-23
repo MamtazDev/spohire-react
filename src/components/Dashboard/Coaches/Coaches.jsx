@@ -16,6 +16,7 @@ import {
 } from "../../../features/observation/observationApi";
 import Swal from "sweetalert2";
 import { getCountryFlag } from "../../../utils/getFlag";
+import { convertAge } from "../../../utils/TimeConverter";
 const Coaches = () => {
   const { data: coachs, isLoading } = useGetFilteredUsersQuery("role=Coach");
 
@@ -30,19 +31,25 @@ const Coaches = () => {
       : [];
 
   const handleFilter = (value) => {
-    if (
-      coachFilterParams?.sports ||
-      coachFilterParams?.country ||
-      coachFilterParams?.categories
-    ) {
+    if (coachFilterParams?.country || coachFilterParams?.categories) {
       return (
-        (coachFilterParams?.sports &&
-          coachFilterParams?.sports === value?.sports) ||
         (coachFilterParams?.country &&
           coachFilterParams?.country === value?.nationality) ||
         (coachFilterParams?.categories &&
           coachFilterParams?.categories === value?.category)
       );
+    } else {
+      return true;
+    }
+  };
+
+  const handleAgeFilter = (a, b) => {
+    if (coachFilterParams?.age) {
+      if (coachFilterParams?.age === "youngest") {
+        return new Date(b?.date_of_birth) - new Date(a?.date_of_birth);
+      } else {
+        return new Date(a?.date_of_birth) - new Date(b?.date_of_birth);
+      }
     } else {
       return true;
     }
@@ -55,7 +62,6 @@ const Coaches = () => {
           coach?.subscriptionName &&
           allowedPlans.includes(coach?.subscriptionName) &&
           user?.sports === coach?.sports &&
-          coach?.isCreatedProfile &&
           coach?.isActive
       )
       .filter(handleFilter) || [];
@@ -80,7 +86,7 @@ const Coaches = () => {
           </thead>
           <tbody>
             {coachs && filteredData?.length > 0 ? (
-              filteredData.map((coach, idx) => (
+              filteredData.sort(handleAgeFilter).map((coach, idx) => (
                 <>
                   <SingleCoach key={idx} coach={coach} />
                 </>
@@ -182,8 +188,8 @@ const SingleCoach = ({ coach }) => {
     <>
       <tr className="table_hover pointer" onClick={() => handlePath(coach)}>
         <td>
-          <div className="player_info d-flex align-items-center gap-2">
-            <div className="player_info_wrapper d-flex gap-2">
+          <div className="player_info d-flex align-items-center gap-2 ">
+            <div className="player_info_wrapper d-flex gap-2 align-items-center">
               <div className="player_img">
                 <img
                   src={
@@ -209,14 +215,14 @@ const SingleCoach = ({ coach }) => {
                   {/* {coach?.first_name} <br /> {coach?.last_name} */}
                   {coach?.fullName}
                 </p>
-                <Link
+                {/* <Link
                   to={`/dashboard/messages/${coach?.referral}`}
                   onClick={(e) => e.stopPropagation()}
                   style={{ fontSize: "12px", textDecoration: "underline" }}
                   className="text-primary"
                 >
                   Contact with Owner
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -238,7 +244,7 @@ const SingleCoach = ({ coach }) => {
         </td>
         <td>
           <p className="text_color_55 fw-normal fs_14">
-            {coach?.club_position ? coach?.club_position : "N/A"}
+            {coach?.date_of_birth ? convertAge(coach?.date_of_birth) : "N/A"}
           </p>
         </td>
 

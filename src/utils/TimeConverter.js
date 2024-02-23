@@ -24,3 +24,11 @@ export const convertDate = (dateString) => {
 
   return formattedDate;
 };
+
+export const convertAge = (dateString) => {
+  const dob = new Date(dateString);
+  const currentDate = new Date();
+  const timeDiff = currentDate - dob;
+  const age = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
+  return age;
+};

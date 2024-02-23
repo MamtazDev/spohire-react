@@ -6,7 +6,7 @@ import "./Pricing.css";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const PaymentProcessNew = ({ gallaryImage, experience, socials }) => {
+const PaymentProcessNew = () => {
   const stripePromise = loadStripe(STRIPE_PK);
   return (
     <>

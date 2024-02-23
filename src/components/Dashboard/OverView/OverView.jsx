@@ -7,6 +7,10 @@ import PlayerOverview from "./PlayerOverview";
 import RecentlyObserved from "./RecentlyObserved";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import silver from "../../../assets/silver1.png";
+import bronze from "../../../assets/bronze.png";
+import gold from "../../../assets/gold.png";
+import { convertDate } from "../../../utils/TimeConverter";
 const OverView = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const { user } = useSelector((state) => state.auth);
@@ -25,32 +29,56 @@ const OverView = () => {
     weekday: "long",
   });
 
+  console.log(user);
+
   return (
     <>
       <div className="overview_wrapper">
-        <div className="d-flex align-items-center justify-content-between">
-          <div className="d-flex">
-            <h1>
-              Hello {user?.first_name} {user?.last_name}!
-            </h1>
-            {/* {!user?.isCreatedProfile && ( */}
-            <p className="ms-4 createProFIleButton ">
-              {" "}
-              <Link
-                className="text-white"
-                style={{
-                  fontSize: "12px",
-                  textTransform: "capitalize",
-                  letterSpacing: "2px",
-                  fontWeight: "400",
-                }}
-                to="/dashboard/editPlayerDetals"
-              >
-                Update profile
-              </Link>
-              {/* if you are looking for clubs */}
-            </p>
-            {/* )} */}
+        <div className="d-flex align-items-center justify-content-between mb-3 ">
+          <div>
+            <div className="d-flex mt-3">
+              <h1 style={{ marginBottom: "15px" }}>
+                Hello {user?.first_name} {user?.last_name}!
+              </h1>
+              {/* {!user?.isCreatedProfile && ( */}
+              <p className="ms-4 createProFIleButton ">
+                {" "}
+                <Link
+                  className="text-white"
+                  style={{
+                    fontSize: "12px",
+                    textTransform: "capitalize",
+                    letterSpacing: "2px",
+                    fontWeight: "400",
+                  }}
+                  to="/dashboard/editPlayerDetals"
+                >
+                  Update profile
+                </Link>
+                {/* if you are looking for clubs */}
+              </p>
+              {/* )} */}
+            </div>
+            {user?.subscriptionName && (
+              <p className="d-flex align-items-center gap-2">
+                <span>Current Package: </span>
+                <button className="gold_btn">
+                  <img
+                    src={
+                      user?.subscriptionName === "Gold"
+                        ? gold
+                        : user?.subscriptionName === "Silver"
+                        ? silver
+                        : bronze
+                    }
+                    alt=""
+                  />{" "}
+                  {user?.subscriptionName}
+                </button>{" "}
+                <span>until</span>
+                <span>{convertDate(user?.expirationDate)}</span>
+              </p>
+            )}
           </div>
           <div className="date">
             <h3>{dayOfWeek}</h3>

@@ -4,17 +4,53 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlayerFilterParams } from "../../../features/auth/authSlice";
 
+const footballMainPositon = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+const basketballMainPositon = [
+  "Center",
+  "Power forward",
+  "Small forward",
+  "Point guard",
+  "Shooting guard",
+];
+const handballMainPositon = [
+  "Goalkeeper",
+  "Left wing",
+  "Right wing",
+  "Left back",
+  "Right back",
+  "Centre back",
+  "Pivot",
+];
+const volleyballMainPositon = [
+  "Setter",
+  "Middle blocker",
+  "Outside hitter",
+  "Opposite hitter",
+  "Libero",
+];
+
 const PlayerFilterModal = ({ playerRef }) => {
-  const { user } = useSelector((state) => state.auth);
+  const { user, playerFilterParams } = useSelector((state) => state.auth);
+
+  const Positions =
+    user?.sports === "Football"
+      ? footballMainPositon
+      : user?.sports === "Basketball"
+      ? basketballMainPositon
+      : user?.sports === "Handball"
+      ? handballMainPositon
+      : volleyballMainPositon;
 
   const [countryNames, setCountryNames] = useState([]);
   const dispatch = useDispatch();
 
-  const handleSportsChange = (e) => {
+  const handlePositionChange = (e) => {
     if (e.target.value === "All") {
-      dispatch(setPlayerFilterParams({ type: "sports", data: null }));
+      dispatch(setPlayerFilterParams({ type: "position", data: null }));
     } else {
-      dispatch(setPlayerFilterParams({ type: "sports", data: e.target.value }));
+      dispatch(
+        setPlayerFilterParams({ type: "position", data: e.target.value })
+      );
     }
   };
   const handleLocationChange = (e) => {
@@ -57,20 +93,22 @@ const PlayerFilterModal = ({ playerRef }) => {
           </div>
         </div> */}
         <div className="buttons1">
-          <h2>Sports</h2>
+          <h2>Position</h2>
           <select
             className="form-select"
             aria-label="Default select example"
-            onChange={handleSportsChange}
+            onChange={handlePositionChange}
           >
             <option value="All">All</option>
-            {["Football", "Basketball", "Handball", "Volleyball"].map(
-              (item, index) => (
-                <option value={item} key={index}>
-                  {item}
-                </option>
-              )
-            )}
+            {Positions.map((item, index) => (
+              <option
+                value={item}
+                key={index}
+                selected={playerFilterParams?.position === item}
+              >
+                {item}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -83,7 +121,11 @@ const PlayerFilterModal = ({ playerRef }) => {
           >
             <option value="All">All</option>
             {countryNames.map((name, index) => (
-              <option value={name.name} key={index}>
+              <option
+                value={name.name}
+                key={index}
+                selected={playerFilterParams?.country === name.name}
+              >
                 {name.name}
               </option>
             ))}

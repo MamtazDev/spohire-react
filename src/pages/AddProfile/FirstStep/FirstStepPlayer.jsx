@@ -332,7 +332,7 @@ const FirstStepPlayer = ({
                     type="button"
                     onClick={() => {
                       setDominant(i);
-                      setAddPlayerInfo({ ...addPlayerInfo, dominant_hand: i });
+                      setAddPlayerInfo({ ...addPlayerInfo, dominantHand: i });
                     }}
                   >
                     {i}

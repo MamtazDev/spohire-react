@@ -46,6 +46,7 @@ import PaymentProcessAddPlayer from "../pages/pricing/PaymentProcessAddPlayer.js
 import PaymentProcessNew from "../pages/pricing/PaymentProcessNew.jsx";
 import AddPlayerProfile from "../pages/AddProfile/AddPlayerProfile.jsx";
 import AddCoachProfile from "../pages/AddProfile/AddCoachProfile.jsx";
+import EditAddedPlayerDetails from "../components/Dashboard/viewDetails/EditAddedPlayerDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -255,6 +256,17 @@ export const router = createBrowserRouter([
           // <SubscribedRoute>
           <PrivateRoute>
             <EditPlayerDetails />
+          </PrivateRoute>
+
+          // </SubscribedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/editDetails/:id",
+        element: (
+          // <SubscribedRoute>
+          <PrivateRoute>
+            <EditAddedPlayerDetails />
           </PrivateRoute>
 
           // </SubscribedRoute>

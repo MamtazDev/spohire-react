@@ -14,12 +14,12 @@ const Pricing = () => {
       {/* <button onClick={clickHandler}>Click</button> */}
       <PageHeader />
       <BestOffer />
-      <div className="slider_bg">
+      {/* <div className="slider_bg">
         <div>
           <WhatPeopleSay color="#fff" />
         </div>
       </div>
-      <GetStarted />
+      <GetStarted /> */}
     </div>
   );
 };

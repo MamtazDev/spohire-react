@@ -10,6 +10,7 @@ import {
 import Swal from "sweetalert2";
 import { userLoggedIn } from "../../../features/auth/authSlice";
 import { formatDate } from "../../../utils/formateChatTIme";
+import editIcon from "../../../assets/editIcon.png";
 
 const ReferallProfiles = ({
   data,
@@ -18,7 +19,7 @@ const ReferallProfiles = ({
   cancleSubscription,
   user,
 }) => {
-  console.log(user, "usersdsdd");
+  const navigate = useNavigate();
 
   // const [deleteUser, { isLoading }] = useDeleteUserMutation();
   const [deletePlayer, { isLoading }] = useDeletePlayerMutation();
@@ -50,6 +51,12 @@ const ReferallProfiles = ({
       }
     });
   };
+
+  const handleEditPlayerProfile = (item, e) => {
+    e.stopPropagation();
+    console.log(item, "iiii");
+    navigate(`/dashboard/editDetails/${item?._id}`);
+  };
   return (
     <div className="job_offers_wrapper">
       <div className="job_offer_items_wrapper">
@@ -62,6 +69,7 @@ const ReferallProfiles = ({
                 item={item}
                 handleDelete={handleDelete}
                 jobOffersType={jobOffersType}
+                handleEditPlayerProfile={handleEditPlayerProfile}
               />
             ))
         ) : (
@@ -79,7 +87,12 @@ const ReferallProfiles = ({
 
 export default ReferallProfiles;
 
-function SingleJob({ item, handleDelete, jobOffersType }) {
+function SingleJob({
+  item,
+  handleDelete,
+  jobOffersType,
+  handleEditPlayerProfile,
+}) {
   const [bookmark, setBookmark] = useState(false);
 
   console.log(item, "jkj");
@@ -161,21 +174,16 @@ function SingleJob({ item, handleDelete, jobOffersType }) {
               </div>
             </div>
           </div>
-          <div className="right d-flex flex-column gap-2">
+          <div className="right d-flex  gap-2">
+            <button
+              className="bg-none"
+              onClick={(e) => handleEditPlayerProfile(item, e)}
+            >
+              <img src={editIcon} alt="" />
+            </button>
             <button className="bg-none" onClick={(e) => handleDelete(item, e)}>
               <img src={deleteIcon} alt="" />
             </button>
-            {!item?.isSubsCribed && (
-              <button
-                className="btn btn-primary btn-sm rounded"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigate(`/pricingAddProfile/${item?._id}`);
-                }}
-              >
-                Buy subscription
-              </button>
-            )}
           </div>
         </div>
       </div>

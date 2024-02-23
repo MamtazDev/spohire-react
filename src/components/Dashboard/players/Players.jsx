@@ -31,13 +31,13 @@ const Players = () => {
 
   const handleFilter = (value) => {
     if (
-      playerFilterParams?.sports ||
+      playerFilterParams?.position ||
       playerFilterParams?.country ||
       playerFilterParams?.categories
     ) {
       return (
-        (playerFilterParams?.sports &&
-          playerFilterParams?.sports === value?.sports) ||
+        (playerFilterParams?.position &&
+          playerFilterParams?.position === value?.mainPosition) ||
         (playerFilterParams?.country &&
           playerFilterParams?.country === value?.nationality) ||
         (playerFilterParams?.categories &&
@@ -57,7 +57,6 @@ const Players = () => {
           player?.subscriptionName &&
           allowedPlans.includes(player?.subscriptionName) &&
           user?.sports === player?.sports &&
-          player?.isCreatedProfile &&
           player?.isActive
       )
       .filter(handleFilter) || [];
@@ -192,7 +191,7 @@ const SinglePlayer = ({ player }) => {
       <tr className="table_hover pointer" onClick={() => handlePath(player)}>
         <td>
           <div className="player_info d-flex align-items-center gap-2">
-            <div className="player_info_wrapper d-flex gap-2">
+            <div className="player_info_wrapper d-flex gap-2 align-items-center">
               <div className="player_img">
                 <img
                   src={
@@ -218,14 +217,14 @@ const SinglePlayer = ({ player }) => {
                   {/* {player?.first_name} <br /> {player?.last_name} */}
                   {player?.fullName}
                 </p>
-                <Link
+                {/* <Link
                   to={`/dashboard/messages/${player?.referral}`}
                   onClick={(e) => e.stopPropagation()}
                   style={{ fontSize: "12px", textDecoration: "underline" }}
                   className="text-primary"
                 >
                   Contact with Owner
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

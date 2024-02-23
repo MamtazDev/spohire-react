@@ -151,6 +151,10 @@ const Topbar = () => {
                   {location.pathname === "/dashboard/billing" &&
                     "Billing history"}
                   {location.pathname === "/dashboard/observed" && "Observed"}
+                  {location.pathname === "/dashboard/addedItems" &&
+                    "My Added Items"}
+                  {location.pathname === "/dashboard/myAppliedJobs" &&
+                    "My Applied Jobs"}
                   {location.pathname === "/dashboard/coaches" && "Coaches List"}
                 </h2>
               )}
@@ -288,7 +292,7 @@ const Topbar = () => {
                       location.pathname === "/dashboard/jobOffers"
                         ? "/dashboard/jobOffers"
                         : (location.pathname === "/dashboard/coachesProfile") |
-                            (location.pathname == "/dashboard/viewProfile") |
+                            // (location.pathname == "/dashboard/viewProfile") |
                             (location.pathname ==
                               "/dashboard/editCoacheProfile") |
                             (location.pathname ==
@@ -301,6 +305,12 @@ const Topbar = () => {
                     }`}
                     className={`${
                       location.pathname == "/dashboard/observed" ||
+                      location.pathname == "/dashboard/viewProfile" ||
+                      location.pathname.includes("/dashboard/coacheDetails") ||
+                      location.pathname.includes("/dashboard/viewDetails") ||
+                      location.pathname.includes("/dashboard/messages") ||
+                      location.pathname == "/dashboard/addedItems" ||
+                      location.pathname == "/dashboard/myAppliedJobs" ||
                       location.pathname == "/dashboard/messages" ||
                       location.pathname == "/dashboard/password" ||
                       location.pathname == "/dashboard/notification" ||

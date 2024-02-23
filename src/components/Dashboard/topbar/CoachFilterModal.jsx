@@ -5,16 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCoachFilterParams } from "../../../features/auth/authSlice";
 
 const CoachFilterModal = ({ playerRef }) => {
-  const { user } = useSelector((state) => state.auth);
+  const { user, coachFilterParams } = useSelector((state) => state.auth);
 
   const [countryNames, setCountryNames] = useState([]);
   const dispatch = useDispatch();
 
-  const handleSportsChange = (e) => {
+  const handleAgeChange = (e) => {
     if (e.target.value === "All") {
-      dispatch(setCoachFilterParams({ type: "sports", data: null }));
+      dispatch(setCoachFilterParams({ type: "age", data: null }));
     } else {
-      dispatch(setCoachFilterParams({ type: "sports", data: e.target.value }));
+      dispatch(setCoachFilterParams({ type: "age", data: e.target.value }));
     }
   };
   const handleLocationChange = (e) => {
@@ -27,7 +27,9 @@ const CoachFilterModal = ({ playerRef }) => {
 
   useEffect(() => {
     axios
-      .get("https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json")
+      .get(
+        "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
+      )
       .then(function (response) {
         setCountryNames(response.data);
       })
@@ -53,20 +55,23 @@ const CoachFilterModal = ({ playerRef }) => {
           </div>
         </div> */}
         <div className="buttons1">
-          <h2>Sports</h2>
+          <h2>Age</h2>
           <select
             className="form-select"
             aria-label="Default select example"
-            onChange={handleSportsChange}
+            onChange={handleAgeChange}
           >
             <option value="All">All</option>
-            {["Football", "Basketball", "Handball", "Volleyball"].map(
-              (item, index) => (
-                <option value={item} key={index}>
-                  {item}
-                </option>
-              )
-            )}
+            {["youngest", "oldest"].map((item, index) => (
+              <option
+                value={item}
+                key={index}
+                style={{ textTransform: "capitalize" }}
+                selected={coachFilterParams?.age === item}
+              >
+                {item}
+              </option>
+            ))}
           </select>
         </div>
 

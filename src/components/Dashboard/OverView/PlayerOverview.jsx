@@ -63,7 +63,7 @@ const PlayerOverview = ({ user }) => {
                   <tr className="table_hover" key={idx}>
                     <td>
                       <div className="player_info d-flex align-items-center gap-2">
-                        <div className="player_info_wrapper d-flex gap-2">
+                        <div className="player_info_wrapper d-flex gap-2 align-items-center">
                           <div className="player_img">
                             <img
                               src={
@@ -89,7 +89,7 @@ const PlayerOverview = ({ user }) => {
                               {/* {item?.first_name} <br /> {item?.last_name} */}
                               {item?.fullName}
                             </p>
-                            <Link
+                            {/* <Link
                               to={`/dashboard/messages/${item?.referral}`}
                               onClick={(e) => e.stopPropagation()}
                               style={{
@@ -99,7 +99,7 @@ const PlayerOverview = ({ user }) => {
                               className="text-primary"
                             >
                               Contact with Owner
-                            </Link>
+                            </Link> */}
                           </div>
                         </div>
                       </div>

@@ -77,6 +77,14 @@ export const authApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    updatePlayerDetails: builder.mutation({
+      query: ({ playerId, data }) => ({
+        url: `/api/v1/players/${playerId}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["ReferralUsers"],
+    }),
     updateProfileCreationStatus: builder.mutation({
       query: (userId) => ({
         url: `/api/v1/users/updateAddProfile/${userId}`,
@@ -145,6 +153,9 @@ export const authApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["ReferralUsers"],
     }),
+    getPlayerDetails: builder.query({
+      query: (id) => `/api/v1/players/${id}`,
+    }),
   }),
 });
 
@@ -163,4 +174,6 @@ export const {
   useDeleteUserMutation,
   useGetPlayerByIdQuery,
   useDeletePlayerMutation,
+  useGetPlayerDetailsQuery,
+  useUpdatePlayerDetailsMutation,
 } = authApi;

@@ -87,6 +87,8 @@ const ViewDetails = () => {
       });
     }
   };
+
+  console.log(user, "dsf");
   return (
     <div className="View_details container p-0 overflow-hidden">
       {/* <!-- Personal Info Start --> */}
@@ -142,9 +144,17 @@ const ViewDetails = () => {
             ) : (
               <button className="gold_btn">No Plan</button>
             )}
-            <p className="text_color_36 f_sfPro fs_40 mb-2">
-              {/* {user?.first_name} {user?.last_name} */}
-            </p>
+            <div className="d-flex align-items-center justify-content-between">
+              <p className="text_color_36 f_sfPro fs_40 mb-2">
+                {/* {user?.first_name} {user?.last_name} */}
+                {user?.fullName}
+              </p>
+              <p className="me-5">
+                Added By: {user?.referral?.first_name}{" "}
+                {user?.referral?.last_name}
+              </p>
+            </div>
+
             <span className="d-block f_sfPro text_color_cb fs_28 mb-3">
               {user?.sports}
             </span>
@@ -154,7 +164,7 @@ const ViewDetails = () => {
               </p>
               <button
                 className="message"
-                onClick={() => handleMessageLink(user?._id)}
+                onClick={() => handleMessageLink(user?.referral)}
               >
                 <img className="img-fluid" src={messageImage} alt="Message" />
               </button>
@@ -164,7 +174,7 @@ const ViewDetails = () => {
                     <div>
                       <span className="f_sfPro text_color_cb fs_15">Name</span>
                       <p className="f_sfPro text_color_36 fs_17">
-                        {user?.first_name} {user?.last_name}
+                        {user?.fullName}
                       </p>
                     </div>
 
@@ -204,7 +214,7 @@ const ViewDetails = () => {
                         Position
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">
-                        {user?.position ? user?.position : "N/A"}
+                        {user?.mainPosition ? user?.mainPosition : "N/A"}
                       </p>
                     </div>
 
@@ -233,7 +243,7 @@ const ViewDetails = () => {
                         Dominant
                       </span>
                       <p className="f_sfPro text_color_36 fs_17">
-                        {user?.dominant_hand ? user?.dominant_hand : "N/A"}
+                        {user?.dominantHand ? user?.dominantHand : "N/A"}
                       </p>
                     </div>
 
@@ -250,20 +260,16 @@ const ViewDetails = () => {
               <div>
                 <p className="f_sfPro text_color_cb fs_15 mb-2">Experience</p>
                 <div className="d-flex flex-column flex-lg-row align-items-start gap-5">
-                  <div>
-                    <p className="f_sfPro text_color_36 fs_18">
-                      2003-2010 Cleveland Cavaliers
-                    </p>
-                    <p className="f_sfPro text_color_36 fs_18">
-                      2010–2014 Miami Heat{" "}
-                    </p>
-                    <p className="f_sfPro text_color_36 fs_18">
-                      2014–2018 Cleveland Cavaliers
-                    </p>
-                    <p className="f_sfPro text_color_36 fs_18">
-                      2018–present Los Angeles Lakers
-                    </p>
+                  <div className="d-flex flex-column">
+                    {user?.experience.map((i, idx) => (
+                      <div key={idx}>
+                        <p className="f_sfPro text_color_36 fs_18">
+                          {i?.start_year}-{i?.end_year} {i?.club_name}
+                        </p>
+                      </div>
+                    ))}
                   </div>
+
                   <div className="d-flex gap-2">
                     {user?.social_media.length > 0 &&
                       user?.social_media.map((item, idx) => (
@@ -329,7 +335,7 @@ const ViewDetails = () => {
       >
         Gallery
       </p>
-      <Gallary />
+      <Gallary gallary={user?.gallary} />
       {/* <!-- Slider End --> */}
     </div>
   );

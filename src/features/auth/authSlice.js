@@ -4,12 +4,12 @@ const initialState = {
   accessToken: undefined,
   user: undefined,
   playerFilterParams: {
-    sports: null,
+    position: null,
     country: null,
     categories: null,
   },
   coachFilterParams: {
-    sports: null,
+    age: null,
     country: null,
     categories: null,
   },
@@ -32,8 +32,8 @@ const authSlice = createSlice({
       const { type, data } = action.payload;
 
       switch (type) {
-        case "sports":
-          state.playerFilterParams.sports = data;
+        case "position":
+          state.playerFilterParams.position = data;
           return;
         case "country":
           state.playerFilterParams.country = data;
@@ -50,8 +50,8 @@ const authSlice = createSlice({
       const { type, data } = action.payload;
 
       switch (type) {
-        case "sports":
-          state.coachFilterParams.sports = data;
+        case "age":
+          state.coachFilterParams.age = data;
           return;
         case "country":
           state.coachFilterParams.country = data;
