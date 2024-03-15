@@ -113,31 +113,13 @@ const Login = () => {
                       ) : (
                         <>
                           Log in
-                          
+
                         </>
                       )}
                     </button>
                   </div>
-                  {/* <div className="d-flex align-items-center gap-1 my-4">
-                    <div className="line"></div>
-                    <p className="mb-0">or</p>
-                    <div className="line"></div>
-                  </div> */}
                 </form>
               </div>
-              {/* 
-              <div className="login_with_social">
-                <AiOutlineTwitter />
-                <span>Continue with Twitter</span>
-              </div>
-              <div className="login_with_social">
-                <RiGoogleLine />
-                <span>Continue with Google</span>
-              </div>
-              <div className="login_with_social">
-                <AiOutlineApple />
-                <span>Continue with Apple</span>
-              </div> */}
               <div className="d-flex justify-content-center mt-2 ">
                 <Link to="/">Go to homepage</Link>
               </div>

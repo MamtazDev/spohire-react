@@ -355,17 +355,14 @@ const SignUp = () => {
                   </>
                 )
               )}
-
               {/* terms and condition */}
               <div className="d-flex justify-content-start terms_condition" >
                 <input type="checkbox" />
                 <h6>I agree to all statements included in terms of servicee.</h6>
 
               </div>
-
               <div
                 className="d-flex justify-content-center"
-
                 onClick={handleButtonError}
               >
                 <button

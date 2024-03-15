@@ -40,6 +40,8 @@ const LoginSlider = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+
+  
   );
 };
 
