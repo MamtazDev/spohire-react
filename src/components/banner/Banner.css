@@ -7,7 +7,7 @@
     display: inline-block;
     padding: 12px 26px;
     border-radius: 50px;
-    border: 2px solid #FFF;
+    border: 1.5px solid #0095FF;
     color: #FFF;
     font-size: 16px;
     font-weight: 600;
@@ -19,29 +19,33 @@
 
 .banner .bannerContent h1 {
     color: #FFF;
-    font-size: 82px;
-    font-weight: 700;
+    font-size: 80px;
+    font-weight: 500;
     line-height: 110%;
     letter-spacing: -0.82px;
+    font-family: "SF Pro Display",sans-serif    ;
+    margin-bottom: 30px;
+    
 }
 
 .banner .bannerContent p {
     color: #FFF;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 180%;
     margin-bottom: 40px;
+    font-family: "SF Pro Display",sans-serif    ;
 }
 
 .banner .bannerContent a {
     display: inline-block;
     padding: 25px 54px;
     border-radius: 60px;
-    background: #3378FF;
+    background: #4318FF;
     color: #FFF;
     text-align: center;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 32px;
     text-transform: uppercase;
     transition: 0.4s ease-in-out;
@@ -100,7 +104,7 @@
 .middleLine {
     width: 30px;
     height: 5px;
-    background-color: #0A0119;
+    background-color: #2B3674;
 }
 
 .playTxt span::before {

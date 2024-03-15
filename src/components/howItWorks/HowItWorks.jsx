@@ -26,13 +26,13 @@ const HowItWorks = () => {
 
                 <div className="innerWhiteBox d-flex  flex-wrap  flex-lg-row justify-content-center align-items-center gap-2 w-100 innerBox2">
                   <div className="playerBox">
-                    <p className="mb-2">Robert Lewandowski</p>
+                    <p className="">Robert Lewandowski</p>
                     <div className="d-flex justify-content-start gap-2">
-                      <div className="d-flex flex-column justify-content-start gap-2 align-items-center">
+                      <div className="d-flex flex-column justify-content-start align-items-center" style={{ gap: "18px" }}>
                         <span>Place of birth:</span>
                         <span>Current Team:</span>
                       </div>
-                      <div className="d-flex flex-column justify-content-end gap-2 align-items-center">
+                      <div className="d-flex flex-column justify-content-end align-items-center" style={{ gap: "18px" }}>
                         <span>Poland</span>
                         <span>Barcelona</span>
                       </div>
@@ -40,7 +40,7 @@ const HowItWorks = () => {
                   </div>
                   <img className="img-fluid img3" src={Robert} alt="img" />
                   <div className="detailBox d-flex justify-content-between align-items-start gap-3">
-                    <div className="d-flex flex-column justify-content-start gap-2">
+                    <div className="d-flex flex-column justify-content-start" style={{ gap: "15px" }}>
                       <span>Age:</span>
                       <span style={{ background: "#F4DBFF" }}>Height :</span>
                       <span style={{ background: "#FFE3D4" }}>Weight:</span>
@@ -64,6 +64,8 @@ const HowItWorks = () => {
                         </span>
                       </div>
                     </div>
+                    <div className="hiw_divider"></div>
+
                     <div className="d-flex justify-content-start gap-2 align-items-center mobile_numtag">
                       <div className="numTag ">
                         <p>04</p>

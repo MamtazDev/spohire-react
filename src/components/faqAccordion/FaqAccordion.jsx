@@ -4,6 +4,7 @@ import plus from "../../assets/accordion-plus.png";
 import minus from "../../assets/accordion-minus.png";
 import up from "../../assets/uparrow.png";
 import down from "../../assets/downarrow.png";
+import add_circle from "../../assets/add_circle.png";
 
 const FaqAccordion = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -95,6 +96,13 @@ const FaqAccordion = () => {
               )}
             </div>
           ))}
+        </div>
+
+        <div className="d-flex justify-content-center">
+
+          <button className="more_btn">
+            <img src={add_circle} alt="" />   More
+          </button>
         </div>
       </div>
     </div>

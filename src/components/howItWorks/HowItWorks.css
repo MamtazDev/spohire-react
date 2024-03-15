@@ -11,10 +11,17 @@
 
 
 .workBg h3 {
-    color: #FFF;
+    /* color: #FFF;
     text-align: center;
     font-size: 80px;
     font-weight: 700;
+    line-height: 93px; */
+    color: white;
+    text-align: center;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 500;
     line-height: 93px;
     margin-bottom: 50px;
 }
@@ -59,6 +66,7 @@
     font-size: 32px;
     font-weight: 700;
     line-height: 45px;
+
 }
 
 .workBg .local button {
@@ -72,6 +80,8 @@
     font-weight: 700;
     line-height: 21px;
     transition: 0.4s ease-in-out;
+    font-family: 'SF Pro Display', sans-serif;
+
 }
 
 .workBg .local button:hover {
@@ -83,6 +93,7 @@
     font-size: 24px;
     font-weight: 700;
     line-height: 26px;
+    margin-bottom: 18px;
 }
 
 .workBg .playerBox span,
@@ -112,7 +123,7 @@
 .workBg .leftBlueBox {
     padding: 40px 60px;
     border-radius: 28px;
-    background: #2D5BFF;
+    background: #2B3674;
 }
 
 .workBg .leftBlueBox button {
@@ -141,9 +152,9 @@
 }
 
 .numTag p {
-    color: #000;
+    color: #4C4E52;
     text-align: center;
-    font-size: 29px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 29px;
     margin: auto;
@@ -156,10 +167,11 @@
     font-size: 26px;
     font-weight: 700;
     line-height: 26px;
+    margin-bottom: 15px;
 }
 
 .workBg .connect span {
-    color: #a5b6fc;
+    color: #F5F3FA;
     font-size: 21px;
     font-weight: 500;
     line-height: 26px;
@@ -168,7 +180,7 @@
 .workBg .howWorkRight {
     padding: 53px 42px 42px 42px;
     border-radius: 28px;
-    background: #2D5BFF;
+    background: #2B3674;
 }
 
 .workBg .howWorkRight p {
@@ -178,14 +190,24 @@
     line-height: 32px;
     margin-bottom: 12px;
 }
-
+.howWorkRight input::placeholder{
+    color: #878697;
+font-family: "Plus Jakarta Sans";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.6px;
+}
 
 .workBg .howWorkRight span {
-    color: #a5b6fc;
+    color: #fff;
     font-size: 24px;
     font-weight: 500;
     line-height: 34px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-family: "Helvetica Now Display";
+
 }
 
 .workBg .howWorkRight form {
@@ -312,4 +334,10 @@
     .tabOutter {
         flex-wrap: wrap !important;
     }
+}
+
+.hiw_divider {
+    background: #8748FD;
+    height: 1px;
+    width: 100%;
 }

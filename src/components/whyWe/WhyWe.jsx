@@ -14,17 +14,17 @@ const WhyWe = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="right_content_wrapper">
-                            <div className="top_content mb-5">
+                            <div className="top_content mb-3">
                                 <h1 className='fs_82 fw-bold text-white mb-4'>
-                                    Why we made Spohire
+                                    Why we <br /> made Spohire
                                 </h1>
-                                <p className='fs_32 fw-semibold' style={{ color: '#FFF' }}>
+                                <p className='we_aimed'>
                                     We aimed to simplify the process of  finding <br className='d-block d-md-none' /> a club for the player and coach.
                                 </p>
                             </div>
                             <ul className='mb-2 md-mb-5 p-3 WhyWeList'>
                                 <li className='md-fs_18  fw-medium mb-3' style={{ color: '#ffffff6e' }}>
-                                    I can tell you first hand, ChainGPT is absolutely amazing. They have helped me and my team speed up our working process by 125%. The access to blockchain information was never easier.
+                                I can tell you first hand, ChainGPT is absolutely amazing. They have helped me and my team speed up our working process by 125%. The access to blockchain information was never easier.
                                 </li>
 
                                 <li className='fs_18 fw-medium mb-3' style={{ color: '#ffffff6e' }}>

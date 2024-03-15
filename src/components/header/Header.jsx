@@ -53,9 +53,8 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${
-        location.pathname === "/" ? "header_position" : ""
-      }`}
+      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
+        }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">
         <Container>
@@ -108,11 +107,10 @@ const Header = () => {
                     className="d-none"
                     src={
                       user?.image
-                        ? `${
-                            process.env.NODE_ENV !== "production"
-                              ? import.meta.env.VITE_LOCAL_API_URL
-                              : import.meta.env.VITE_LIVE_API_URL
-                          }/api/v1/uploads/${user?.image}`
+                        ? `${process.env.NODE_ENV !== "production"
+                          ? import.meta.env.VITE_LOCAL_API_URL
+                          : import.meta.env.VITE_LIVE_API_URL
+                        }/api/v1/uploads/${user?.image}`
                         : profile
                     }
                     alt=""
@@ -245,6 +243,11 @@ const Header = () => {
                   Pricing
                 </Link>
               </Nav.Link>
+              <Nav.Link href="/pricing">
+                <Link to="/pricing" className="nav-link">
+                  News
+                </Link>
+              </Nav.Link>
             </Nav>
             {user ? (
               <div>
@@ -258,11 +261,10 @@ const Header = () => {
                       className="profile_picture d-lg-block d-none"
                       src={
                         user?.image
-                          ? `${
-                              process.env.NODE_ENV !== "production"
-                                ? import.meta.env.VITE_LOCAL_API_URL
-                                : import.meta.env.VITE_LIVE_API_URL
-                            }/api/v1/uploads/${user?.image}`
+                          ? `${process.env.NODE_ENV !== "production"
+                            ? import.meta.env.VITE_LOCAL_API_URL
+                            : import.meta.env.VITE_LIVE_API_URL
+                          }/api/v1/uploads/${user?.image}`
                           : profile
                       }
                       alt=""
@@ -281,9 +283,8 @@ const Header = () => {
 
                         <img
                           src={dropdown}
-                          className={`${
-                            isDropdownActive ? "" : "rotate_arrow"
-                          }`}
+                          className={`${isDropdownActive ? "" : "rotate_arrow"
+                            }`}
                           alt="dropdown"
                         />
                       </div>

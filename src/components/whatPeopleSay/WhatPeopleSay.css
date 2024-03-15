@@ -5,7 +5,7 @@
 }
 
 .sayHeader p {
-    color: #2D2D2D;
+    color: #2B3674 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 68px;
     font-weight: 600;
@@ -15,7 +15,7 @@
 }
 
 .sayHeader span {
-    color: #818181;
+    color: #2D2D2D;
     text-align: center;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 22px;
