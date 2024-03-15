@@ -4,7 +4,7 @@ import Logosm from "../../assets/responsive-logo.png";
 import profile from "../../assets/PROFILE.png";
 import TransfarMarket from "../../assets/modal-market-img.png";
 import dropdown from "../../assets/dropdownicon.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useState } from "react";
 import { useRef } from "react";
@@ -17,14 +17,6 @@ const Header = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const myDivRef = useRef(null);
-
-  const navigate = useNavigate();
-  const closeModalAndNavigate = () => {
-    navigate("/login");
-  };
-  const closeModalAndNavigateSignUp = () => {
-    navigate("/signup");
-  };
 
   const handleFilterModal = () => {
     setIsDropdownActive(!isDropdownActive);
@@ -182,47 +174,22 @@ const Header = () => {
                     </div>
                     <div className="modal-body">
                       <h2>
-                        Unlock the Gateway to{" "}
+                        Unlock the Gateway to
                         <span>
                           Endless <br /> Excitement
                         </span>
                       </h2>
                       <p>
-                        {" "}
+
                         Log in and Dive into a World of Sports Thrills and
                         Exclusive Content!
                       </p>
-                      <button
-                        onClick={closeModalAndNavigate}
-                        className=" login_modal_btn"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                        type="button"
-                      >
-                        <Link
-                          to="/login"
-                          className="text-decoration-none text-dark"
-                        >
-                          LOG IN
-                        </Link>
-                      </button>
-                      <button
-                        onClick={closeModalAndNavigateSignUp}
-                        className=" login_modal_btn ms-3"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                        type="button"
-                      >
-                        <Link
-                          to="/signup"
-                          className="text-decoration-none text-dark"
-                        >
-                          SIGN UP
-                        </Link>
-                      </button>
-                      <div>
+
+                      <div style={{ marginBottom: "70px" }}>
                         <img src={TransfarMarket} alt="TransfarMarket" />
                       </div>
+
+                      <button className="unlock_btn">unlock now</button>
                     </div>
                   </div>
                 </div>

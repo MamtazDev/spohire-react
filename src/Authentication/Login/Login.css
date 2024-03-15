@@ -14,7 +14,7 @@
 }
 
 .input-container {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .left-inner-addon {
@@ -90,27 +90,38 @@
   margin: 0em !important;
   box-sizing: border-box;
   height: 46px !important;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 0.707px solid rgba(0, 0, 0, 0.02);
-  background: rgba(0, 0, 0, 0.02);
+  background: #F3F7FF;
+}
+
+.login_select {
+  border-radius: 4px;
+  border: 0.707px solid rgba(0, 0, 0, 0.02);
+  /* background: #F3F7FF; */
+
 }
 
 .login_input::placeholder {
-  color: #9ca3a9;
-  font-size: 12px;
+  color: var(--b3, #8593BC);
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  letter-spacing: 0.3px;
 }
 
 .login_wrapper {
-  padding: 38px;
+  padding: 81px 87px 41px 94px;
   margin: auto;
-  max-width: 564px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   border: 1px solid rgba(0, 0, 0, 0.04);
-  background: #fff;
-  box-shadow: 24px 24px 65px 0px rgba(0, 0, 0, 0.02);
+  /* border-radius: 50px; */
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background: var(--White, #FFF);
+  box-shadow: 6px -2px 39.9px 4px rgba(86, 95, 104, 0.08);
 }
 
 .login_slider .carousel-item {
@@ -168,7 +179,7 @@
 
 .login_wrapper .login-btn {
   border-radius: 8px;
-  background: #2d5bff;
+  background: #0095FF;
   color: #fff;
   text-align: center;
   font-family: "SF Pro Display", sans-serif;
@@ -177,8 +188,7 @@
   font-weight: 500;
   line-height: normal;
   display: flex;
-  /* width: 218px; */
-  /* height: 36px; */
+  width: 100%;
   padding: 16px 90px;
   justify-content: center;
   align-items: center;
@@ -188,7 +198,7 @@
 }
 
 .login_wrapper h3 {
-  color: #141736;
+  color: #4C4E52;
   text-align: center;
   font-size: 32px;
   font-style: normal;
@@ -197,25 +207,27 @@
 }
 
 .login_wrapper p {
-  color: #a5b4cb !important;
+  color: #8593BC !important;
   text-align: center !important;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 45px;
+}
+
+.text-errors {
+  color: red !important;
+}
+
+.login_wrapper label {
+  color: var(--Black, #1E2128);
+  font-family: "SF Pro Display";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 33px;
-}
-.text-errors {
-  color: red !important;
-}
-.login_wrapper label {
   margin-bottom: 10px;
-  color: #161d24;
-  /* font-size: 11.3px; */
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
 }
 
 .login_with_social {
@@ -262,7 +274,7 @@
 }
 
 .function_btn:hover {
-  background: #2d5bff !important;
+  background: #05CD99 !important;
   color: #fff;
   margin-left: 0 !important;
 }
@@ -281,6 +293,9 @@
   font-weight: 400;
   line-height: normal;
   margin-right: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--Gray-for-line, #C5CDE7);
+  box-shadow: 4px 4px 10px 0px rgba(191, 191, 191, 0.25);
 }
 
 .label_text {
@@ -315,4 +330,18 @@
     width: 100%;
     text-align: center;
   }
+}
+
+.already_acnt_text{
+  color: var(--Black-2, #4C4E52);
+font-family: "SF Pro Display";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 30px !important;
+}
+
+.already_acnt_text a{
+  color: #0095FF;
 }

@@ -112,8 +112,8 @@ const Login = () => {
                         </>
                       ) : (
                         <>
-                          Log in{" "}
-                          <img className="ms-1" src={arrowRight} alt="" />
+                          Log in
+                          
                         </>
                       )}
                     </button>

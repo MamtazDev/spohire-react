@@ -41,7 +41,7 @@ input {
 }
 
 .function_btn_active {
-  background: #2d5bff !important;
+  background: #05CD99 !important;
   color: #fff;
   margin-left: 0 !important;
   height: 46px;
@@ -54,6 +54,18 @@ input {
   font-weight: 400;
   line-height: normal;
   margin-right: 12px;
+}
+
+.terms_condition {
+  margin-top: 48px;
+  color: var(--Black-2, #4C4E52);
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.54px;
+  gap: 12px;
 }
 
 .year_input,
@@ -77,9 +89,7 @@ input {
   cursor: pointer;
 }
 
-.react-datepicker-wrapper
-  .react-datepicker__input-container
-  input::placeholder {
+.react-datepicker-wrapper .react-datepicker__input-container input::placeholder {
   font-size: 10px;
 }
 

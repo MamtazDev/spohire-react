@@ -1,15 +1,14 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 import arrowRight from "../../assets/ArrowRight.png";
-import { useEffect, useRef, useState } from "react";
-import DateSelector from "./DateSelector";
+import { useEffect, useState } from "react";
 import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { convertDate } from "../../utils/TimeConverter";
 import { useRegisterUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
 import axios from "axios";
-import signupImg from "../../assets/signup--.svg";
+import signupImg from "../../assets/sign-up.png";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -144,257 +143,266 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row align-items-center">
-          <div className="col-lg-6 p-0  d-none d-lg-block">
-            <div className="signup-left_bg">
-              <img className="" src={signupImg} alt="" />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="login_wrapper">
-              <div>
-                <h3>Create new account</h3>
-                <p>Fill all input to create a account</p>
-                <form onSubmit={handleFormSubmit}>
-                  <div className="row right-inner-addon input-container">
-                    <div className="col-6">
-                      <label htmlFor="">Full name</label>
-                      <input
-                        type="text"
-                        className="mt-2 form-control login_input"
-                        placeholder="First name"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="col-6">
-                      <label htmlFor="">Last Name</label>
-                      <input
-                        type="text"
-                        className="form-control login_input"
-                        placeholder="Last name"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="right-inner-addon input-container">
-                    <i
-                      className="fa-regular fa-envelope"
-                      style={{ color: "#9CA3A9" }}
-                    ></i>
 
-                    <label htmlFor="">Email Address</label>
 
-                    <input
-                      type="email"
-                      className="form-control login_input"
-                      placeholder="Enter email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="d-flex gap-3">
-                    <div className="right-inner-addon input-container">
-                      <label htmlFor="">Password</label>
+      <div className="d-flex  flex-lg-row flex-column  overflow-hidden">
 
-                      <input
-                        type="password"
-                        className="form-control login_input"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="right-inner-addon input-container">
-                      <label htmlFor="">Confirm Password</label>
+        <div className="" style={{ margin: "60px 0px 80px 100px" }}>
+          <img className="" src={signupImg} alt="image" />
+        </div>
 
-                      <input
-                        type="password"
-                        className="form-control login_input"
-                        placeholder="Enter password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="row flex-wrap date_wrapper mb-3 align-items-center">
-                    <div className="col-lg-4">
-                      <label htmlFor="">Nationality</label>
-
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        style={{
-                          height: "46px",
-                          backgroundColor: "rgba(0, 0, 0, 0.02)",
-                          border: " 0.707px solid rgba(0, 0, 0, 0.02)",
-                        }}
-                        onChange={(e) => setNationality(e.target.value)}
-                      >
-                        <option disabled selected>
-                          {" "}
-                          Select country
-                        </option>
-                        {countryNames.map((name, index) => (
-                          <option value={name.name} key={index}>
-                            {name.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="col-8">
-                      <label
-                        htmlFor=""
-                        className=""
-                        style={{ marginBottom: "10px" }}
-                      >
-                        Date of birth
-                      </label>
-                      <DateSelector
-                        value={dateOfBirth}
-                        onChange={(selectedDate) =>
-                          setDateOfBirth(selectedDate)
-                        }
-                      />
-                    </div>
-                  </div>
-                  {/* country select */}
-                  {/* email input */}
-                  <div className="row email_input">
-                    <label htmlFor="">Phone number</label>
-                    <div className="col-4 mb-3">
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        style={{
-                          height: "46px",
-                          backgroundColor: "rgba(0, 0, 0, 0.02)",
-                          border: " 0.707px solid rgba(0, 0, 0, 0.02)",
-                        }}
-                        onChange={(e) => setCoutryCode(e.target.value)}
-                      >
-                        <option disabled selected>
-                          {" "}
-                          Select country code
-                        </option>
-                        {countryNames.map((name, index) => (
-                          <option value={name.dial_code} key={index}>
-                            {name.dial_code}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="col-8">
-                      <div className="phone_number">
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={phoneNumber}
-                          style={{ color: "#212529" }}
-                          //  onChange={(e) => setPhoneNumber(e.target.value)}
-                          onChange={(e) => {
-                            const inputVal = e.target.value;
-                            const validatedInput = inputVal.replace(
-                              /[^0-9+\-]/g,
-                              ""
-                            );
-                            setPhoneNumber(validatedInput);
-                          }}
-                          placeholder="012 345 6789"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  {/* email input end */}
-                  {/* Function */}
-                  <label className="label_text">Function</label> <br />
-                  <>
-                    {["Player", "Coach", "Manager", "Other"].map((data) => (
-                      <>
-                        <button
-                          className={`${
-                            functionType === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
-                          type="button"
-                          onClick={() => setFunctionType(data)}
-                        >
-                          {data}
-                        </button>
-                      </>
-                    ))}
-                  </>
-                  <br />
-                  <label className="label_text mt-3">Sports</label> <br />
-                  {["Football", "Basketball", "Volleyball", "Handball"].map(
-                    (data) => (
-                      <>
-                        <button
-                          // className={${function===data?"function_btn_active": "function_btn"}}
-                          className={`${
-                            sports === data
-                              ? "function_btn_active"
-                              : "function_btn"
-                          } `}
-                          type="button"
-                          onClick={() => setSports(data)}
-                        >
-                          {data}
-                        </button>
-                      </>
-                    )
-                  )}
-                  <div
-                    className="d-flex justify-content-center"
-                    onClick={handleButtonError}
-                  >
-                    <button
-                      type="submit"
-                      className="login-btn"
-                      disabled={button_disability}
-                    >
-                      {isLoading ? (
-                        <>
-                          <div
-                            className="spinner-border spinner-border-sm me-2"
-                            role="status"
-                          >
-                            <span className="visually-hidden">Loading...</span>
-                          </div>{" "}
-                          Loading...
-                        </>
-                      ) : (
-                        <>
-                          Create account{" "}
-                          <img src={arrowRight} alt="img" className="ms-1" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-                  {errorss?.length > 0 && (
-                    <div className="text-errors text-center mt-2">
-                      {errorss?.join(", ")} fields required!
-                    </div>
-                  )}
-                </form>
-                <div className="d-flex justify-content-center mt-2 gap-1">
-                  Already have and account? <Link to="/login">Login</Link>
+        <div className="login_wrapper" style={{ margin: "60px 100px 80px 0px", width: "100%" }}>
+          <div>
+            <h3>Create new account</h3>
+            <p>Fill all input to create a account</p>
+            <form onSubmit={handleFormSubmit}>
+              <div className="row right-inner-addon input-container">
+                <div className="col-6">
+                  <label htmlFor="">First Name *</label>
+                  <input
+                    type="text"
+                    className="mt-2 form-control login_input"
+                    placeholder="Enter First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="col-6">
+                  <label htmlFor="">Last Name *</label>
+                  <input
+                    type="text"
+                    className="form-control login_input"
+                    placeholder="Enter Last name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                  />
                 </div>
               </div>
+              <div className="right-inner-addon input-container">
+                {/* <i
+                  className="fa-regular fa-envelope"
+                  style={{ color: "#9CA3A9" }}
+                ></i> */}
+
+                <label htmlFor="">Email *</label>
+
+                <input
+                  type="email"
+                  className="form-control login_input"
+                  placeholder="Enter Your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  style={{ color: "#212529", backgroundColor: "#F3F7FF" }}
+                />
+              </div>
+              <div className="d-flex gap-3">
+                <div className=" input-container" style={{ width: "100%" }}>
+                  <label htmlFor="">Password*</label>
+
+                  <input
+                    type="password"
+                    className="form-control login_input"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ color: "#212529", backgroundColor: "#F3F7FF" }}
+                    required
+                  />
+                </div>
+                <div className=" w-full input-container" style={{ width: "100%" }}>
+                  <label htmlFor="">Confirm Password*</label>
+                  <input
+                    type="password"
+                    className="form-control login_input"
+                    placeholder="Enter password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    style={{ color: "#212529", backgroundColor: "#F3F7FF" }}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row flex-wrap date_wrapper mb-3 align-items-center">
+                <div className="col-lg-4 input-container">
+                  <label htmlFor="">Nationality *</label>
+
+                  <select
+                    className="form-select login_select "
+                    aria-label="Default select example"
+                    style={{
+                      height: "46px",
+                      backgroundColor: "#F3F7FF",
+                      border: " 0.707px solid rgba(0, 0, 0, 0.02)",
+                    }}
+                    onChange={(e) => setNationality(e.target.value)}
+                  >
+                    <option disabled selected>
+                      {" "}
+                      Select country
+                    </option>
+                    {countryNames.map((name, index) => (
+                      <option value={name.name} key={index}>
+                        {name.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="col-8 input-container">
+                  <label
+                    htmlFor=""
+                    className=""
+                    style={{ marginBottom: "10px" }}
+                  >
+                    Date of birth
+                  </label>
+
+                  <input
+                    type="date"
+                    className="form-control login_input"
+                    placeholder="Enter password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+
+                </div>
+              </div>
+
+              <div className="row email_input input-container">
+                <label htmlFor="">Phone number</label>
+                <div className="col-4">
+                  <select
+                    className="form-select login_input"
+                    aria-label="Default select example"
+                    style={{
+                      height: "46px",
+                      backgroundColor: "#F3F7FF",
+                      border: " 0.707px solid rgba(0, 0, 0, 0.02)",
+                    }}
+                    onChange={(e) => setCoutryCode(e.target.value)}
+                  >
+                    <option disabled selected>
+                      {" "}
+                      Select country code
+                    </option>
+                    {countryNames.map((name, index) => (
+                      <option value={name.dial_code} key={index}>
+                        {name.dial_code}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-8">
+                  <div className="phone_number">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={phoneNumber}
+                      style={{ color: "#212529", backgroundColor: "#F3F7FF" }}
+                      //  onChange={(e) => setPhoneNumber(e.target.value)}
+                      onChange={(e) => {
+                        const inputVal = e.target.value;
+                        const validatedInput = inputVal.replace(
+                          /[^0-9+\-]/g,
+                          ""
+                        );
+                        setPhoneNumber(validatedInput);
+                      }}
+                      placeholder="012 345 6789"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <label className="label_text">Function</label> <br />
+              <>
+                {["Player", "Coach", "Manager", "Other"].map((data) => (
+                  <>
+                    <button
+                      style={{ marginBottom: "30px" }}
+                      className={`${functionType === data
+                        ? "function_btn_active"
+                        : "function_btn"
+                        } `}
+                      type="button"
+                      onClick={() => setFunctionType(data)}
+                    >
+                      {data}
+                    </button>
+                  </>
+                ))}
+              </>
+              <br />
+              <label className="label_text">Sports</label> <br />
+              {["Football", "Basketball", "Volleyball", "Handball"].map(
+                (data) => (
+                  <>
+                    <button
+                      className={`${sports === data
+                        ? "function_btn_active"
+                        : "function_btn"
+                        } `}
+                      type="button"
+                      onClick={() => setSports(data)}
+                    >
+                      {data}
+                    </button>
+                  </>
+                )
+              )}
+
+              {/* terms and condition */}
+              <div className="d-flex justify-content-start terms_condition" >
+                <input type="checkbox" />
+                <h6>I agree to all statements included in terms of servicee.</h6>
+
+              </div>
+
+              <div
+                className="d-flex justify-content-center"
+
+                onClick={handleButtonError}
+              >
+                <button
+                  type="submit"
+                  className="login-btn"
+                  disabled={button_disability}
+                >
+                  {isLoading ? (
+                    <>
+                      <div
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                      >
+                        <span className="visually-hidden">Loading...</span>
+                      </div>{" "}
+                      Loading...
+                    </>
+                  ) : (
+                    <>
+                      Create an account
+                    </>
+                  )}
+                </button>
+              </div>
+              {errorss?.length > 0 && (
+                <div className="text-errors text-center mt-2">
+                  {errorss?.join(", ")} fields required!
+                </div>
+              )}
+            </form>
+            <div className="d-flex justify-content-center mt-2 gap-1 already_acnt_text">
+              Already have and account? <Link to="/login">Log in</Link>
             </div>
           </div>
         </div>
       </div>
+
     </>
   );
 };

@@ -158,35 +158,35 @@
     .authBtn {
         background-image: url('../../assets/signupbgsm.png');
     }
-
-
-
 }
 
 .modal-body h2 {
-    color: #333;
-    text-align: center;
+    color: #4C4E52;
     font-family: 'SF Pro Display' sans-serif;
-    font-size: 48px;
+    font-size: 60px;
     font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+    font-weight: 700;
+    line-height: 84px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
     margin-bottom: 30px;
+
 }
 
 .modal-body h2 span {
-    color: #0177FB;
+    color: #2B3674;
+    margin-left: 10px;
 }
 
 .modal-body p {
-    color: #000;
-    text-align: center;
+    color: #4C4E52;
     font-family: ' SF Pro Display-Regular' sans-serif;
-    font-size: 18px;
+    text-align: center;
+    font-size: 32px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    margin-bottom: 40px;
+    line-height: 50px;
+    letter-spacing: 0.64px;
 }
 
 .modal-body {
@@ -215,6 +215,23 @@
     text-align: center;
     font-weight: 500;
     line-height: 120%;
+}
+
+.unlock_btn {
+    border-radius: 37px;
+    background: #2B3674;
+    width: 294px;
+    height: 72px;
+    color: white;
+    text-align: center;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 28.8px */
+    text-transform: uppercase;
+    /* margin-bottom: 150px; */
 }
 
 .profilename {
