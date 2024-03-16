@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-key */
+
 
 const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
   const pageNumbers = [];
@@ -25,8 +27,7 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         {pageNumbers.map((i) => (
           <li
             className={`page-item ${currentPage === i && "active"}`}
-            style={{ cursor: "pointer" }}
-          >
+            style={{ cursor: "pointer" }}>
             <span className="page-link" onClick={() => setCurrentPage(i)}>
               {i}
             </span>

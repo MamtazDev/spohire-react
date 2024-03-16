@@ -13,18 +13,19 @@
 .page_header {
     background-image: url('/src/assets/announcementheaderbg.png') !important;
 }
-.annuncement_inner_wrapper{
+
+.annuncement_inner_wrapper {
     border-radius: 16px;
-border: 1px solid var(--Light-blue, #F4F7FE);
-background: var(--White, #FFF);
-box-shadow: 3px 2px 31.1px 0px rgba(124, 124, 124, 0.12);
-padding: 38px;
+    border: 1px solid var(--Light-blue, #F4F7FE);
+    background: var(--White, #FFF);
+    box-shadow: 3px 2px 31.1px 0px rgba(124, 124, 124, 0.12);
+    padding: 38px;
 }
 
 .announcement_heading {
     color: #4C4E52;
     text-align: center;
-    font-family: "SF Pro Display",sans-serif;
+    font-family: "SF Pro Display", sans-serif;
     font-size: 48px;
     font-style: normal;
     font-weight: 500;
@@ -34,11 +35,11 @@ padding: 38px;
 }
 
 .announcelist_wrapper {
-    border-radius: 16px;
-    border: 1px solid #DFE5F1;
-    background: #FFF;
-    padding: 18px 48px 16px 16px;
+    border-radius: 20px;
+    background: #F5F8FE;
+    padding: 30px 33px 39px 32px;
     margin-bottom: 24px;
+
 }
 
 .editAnnouncement_wrapper {
@@ -48,7 +49,7 @@ padding: 38px;
 
 .blue_cat p {
     color: #FFF;
-    font-family: "SF Pro Display",sans-serif;
+    font-family: "SF Pro Display", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -56,24 +57,63 @@ padding: 38px;
 }
 
 
-.announcelist_wrapper p {
-    margin-bottom: 13px;
-}
 
-.announcement_details {
-    margin-top: 12px;
-    color: #222;
+.detail_span span {
+    color: var(--Blue-2, #0095FF);
+    font-family: "SF Pro Display", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
+    line-height: normal;
+}
+
+.detail_span {
+    margin-bottom: 24px;
+}
+
+.announcement_details {
+    margin-bottom: 20px;
+    color: #1C1C1C;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.jobOpen_btn button {
+    border-radius: 8px;
+    background: var(--Blue-2, #0095FF);
+    display: inline-flex;
+    padding: 13px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 204px;
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
 }
 
 .recruiment p {
-    color: #141736;
-    font-size: 16px;
+    color: #4C4E52;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 24px;
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+}
+
+.recruiment small {
+    color: #546580;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
 }
 

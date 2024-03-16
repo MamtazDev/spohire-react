@@ -7,7 +7,7 @@ const JobOffer = () => {
   const [searchParams, setSearchParams] = useState({});
 
   return (
-    <div>
+    <>
       <JobOfferHeader
         setFilterItems={setFilterItems}
         filterItems={filterItems}
@@ -18,7 +18,7 @@ const JobOffer = () => {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-    </div>
+    </>
   );
 };
 

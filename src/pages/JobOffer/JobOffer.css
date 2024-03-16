@@ -103,7 +103,7 @@
 }
 
 .job_matches_title {
-  color: #0a0119;
+  /* color: #0a0119;
   font-family: "SF Pro Display-SemiBold" sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -111,6 +111,16 @@
   line-height: 110%;
   letter-spacing: -0.32px;
   margin-top: 90px;
+  margin-bottom: 40px; */
+  color: var(--Black-2, #4C4E52);
+  font-family: "SF Pro Display";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  /* 35.2px */
+  letter-spacing: 0.64px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
@@ -376,7 +386,7 @@
   line-height: normal;
   margin-top: 14px;
   border: none;
-  padding:20px 28px;
+  padding: 20px 28px;
 }
 
 .job_header_wrapper label {

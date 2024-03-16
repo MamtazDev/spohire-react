@@ -1,7 +1,209 @@
+// /* eslint-disable react/prop-types */
+// /* eslint-disable no-unused-vars */
+// import a1 from "../../assets/a11.png";
+// import flag from "../../assets/flag.png";
+// import dollar from "../../assets/coin-dollar.png";
+// import location from "../../assets/location.png";
+// import JobCategory from "./JobCategory";
+// import DeleteModal from "./DeleteModal";
+// import { useState } from "react";
+// import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
+// import { useSelector } from "react-redux";
+// import { setFilterParams } from "../../features/announcement/announcementSlice";
+// import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
+
+// const sports = ["Football", "Basketball", "Handball", "Volleyball"];
+// const country = [
+//   "Paris",
+//   "London",
+//   "Finland",
+//   "Canada",
+//   "Canada",
+//   "Canada",
+//   "Canada",
+// ];
+// const jobcategory = [
+//   "Tournament",
+//   "Championship",
+//   "Friendly matches",
+//   "Camps",
+//   "Tournaments",
+//   "Player recruitment",
+//   "Others",
+// ];
+// const AnnouncementList = () => {
+//   const { data: allAnnouncements, isLoading } = useGetAllAnnouncementQuery();
+//   const [sortedItems, setSortedItems] = useState([]);
+
+//   const { filterParams } = useSelector((state) => state.announcement);
+
+//   const handleFilter = (value) => {
+//     if (
+//       filterParams?.sports?.length > 0 ||
+//       filterParams?.country?.length > 0 ||
+//       filterParams?.categories?.length > 0
+//     ) {
+//       return (
+//         (filterParams?.sports?.length > 0 &&
+//           filterParams?.sports?.includes(value?.sports)) ||
+//         (filterParams?.country?.length > 0 &&
+//           filterParams?.country?.includes(value?.country)) ||
+//         (filterParams?.categories?.length > 0 &&
+//           filterParams?.categories?.includes(value?.category))
+//       );
+//     } else {
+//       return true;
+//     }
+//   };
+
+//   const filteredAnnouncements = allAnnouncements?.data?.filter(handleFilter);
+
+//   return (
+//     <>
+//       <div
+//         className="container"
+//         style={{ marginTop: "104px", marginBottom: "150px" }}
+//       >
+//         <div className="row">
+//           <div className="col-lg-9">
+//             {/* {allAnnouncements?.data &&
+//               allAnnouncements?.data?.length > 0 &&
+//               allAnnouncements?.data
+//                 ?.filter(handleFilter)
+//                 .map((item, index) => {
+//                   <SingleAnnouncement key={index} item={item} />
+//                 })}
+//             {(!allAnnouncements?.data || allAnnouncements?.data?.length === 0) && (
+//               <p>No data found</p>
+//             )} */}
+//             {filteredAnnouncements?.length > 0
+//               ? filteredAnnouncements.map((item, index) => (
+//                   <SingleAnnouncement key={index} item={item} />
+//                 ))
+//               : allAnnouncements?.data?.length > 0 && (
+//                   <p className="d-flex justify-content-center align-items-center  fs-3">
+//                     No data found
+//                   </p>
+//                 )}
+//           </div>
+//           <div className="col-lg-3">
+//             <AnnouncementFilterCategory
+//               setSortedItems={setSortedItems}
+//               sortedItems={sortedItems}
+//               sports={sports}
+//               country={country}
+//               jobcategory={jobcategory}
+//             />
+//           </div>
+//         </div>
+//       </div>
+//       <DeleteModal />
+//     </>
+//   );
+// };
+
+// export default AnnouncementList;
+
+// const SingleAnnouncement = ({ item }) => {
+//   const [bookmark, setBookmark] = useState(false);
+
+//   console.log(item, "item");
+//   const handleBookmark = () => {
+//     setBookmark(!bookmark);
+//   };
+//   return (
+//     <>
+//       <div className="announcelist_wrapper">
+//         <div className="d-flex justify-content-between align-items-start">
+//           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
+//             <div className="announcement_pic">
+//               <img
+//                 src={`${
+//                   process.env.NODE_ENV !== "production"
+//                     ? import.meta.env.VITE_LOCAL_API_URL
+//                     : import.meta.env.VITE_LIVE_API_URL
+//                 }/api/v1/uploads/${item?.image}`}
+//                 alt=""
+//                 style={{
+//                   height: "56px",
+//                   width: "56px",
+//                   borderRadius: "8px",
+//                   objectFit: "cover",
+//                 }}
+//               />
+//             </div>
+//             <div className="recruiment f_sfPro">
+//               <p>{item?.title}</p>
+//               <div className="d-flex gap-3 flex-wrap">
+//                 <div
+//                   className="d-flex align-items-center"
+//                   style={{ gap: "6px" }}
+//                 >
+//                   <img src={location} alt="" />
+//                   <span>{item?.location}</span>
+//                 </div>
+//                 {/* <div
+//                   className="d-flex align-items-center"
+//                   style={{ gap: "6px" }}
+//                 >
+//                   <img src={flag} alt="" />
+//                   <span>{item?.status}</span>
+//                 </div> */}
+//                 <div
+//                   className="d-flex align-items-center"
+//                   style={{ gap: "6px" }}
+//                 >
+//                   <img src={dollar} alt="" />
+//                   <span>USD {item?.budget}</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           {/* icon div */}
+//           <div className="d-lg-block d-none">
+//             {/* <div>
+//               <button
+//                 className="bg-none"
+//                 style={{ width: "20px" }}
+//                 onClick={handleBookmark}
+//               >
+//                 {bookmark ? (
+//                   <img src={bookmarkfill} alt="" />
+//                 ) : (
+//                   <img src={b1} alt="" />
+//                 )}
+//               </button>
+//             </div> */}
+//           </div>
+//         </div>
+//         <p
+//           className="announcement_details f_sfPro"
+//           style={{
+//             display: "-webkit-box",
+//             WebkitBoxOrient: "vertical",
+//             overflow: "hidden",
+//             WebkitLineClamp: 3, // Number of lines to show
+//             textOverflow: "ellipsis",
+//           }}
+//         >
+//           {item?.description}
+//         </p>
+//         <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
+//           <button className="bg-none" style={{ color: "#929292" }}>
+//             {" "}
+//             <i className="fa-regular fa-bookmark"></i>
+//           </button>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import a1 from "../../assets/a11.png";
-import flag from "../../assets/flag.png";
+import tennis from "../../assets/tennis.png";
+import flag from "../../assets/flag-icon.svg";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
 import JobCategory from "./JobCategory";
@@ -10,7 +212,6 @@ import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
 import { useSelector } from "react-redux";
 import { setFilterParams } from "../../features/announcement/announcementSlice";
-import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
 
 const sports = ["Football", "Basketball", "Handball", "Volleyball"];
 const country = [
@@ -65,29 +266,16 @@ const AnnouncementList = () => {
         style={{ marginTop: "104px", marginBottom: "150px" }}
       >
         <div className="row">
-          <div className="col-lg-9">
-
-            {/* {filteredAnnouncements?.length > 0
-              ? filteredAnnouncements.map((item, index) => ( */}
-                <SingleAnnouncement />
-              {/* ))
-              : allAnnouncements?.data?.length > 0 && (
-                <p className="d-flex justify-content-center align-items-center  fs-3">
-                  No data found
-                </p>
-              )} */}
-            {/*           
-            {filteredAnnouncements?.length > 0
-              ? filteredAnnouncements.map((item, index) => (
-                  <SingleAnnouncement key={index} item={item} />
-                ))
-              : allAnnouncements?.data?.length > 0 && (
-                  <p className="d-flex justify-content-center align-items-center  fs-3">
-                    No data found
-                  </p>
-                )} */}
+          {/* <div className="col-lg-4">
+            <SingleAnnouncement />
           </div>
-          
+          <div className="col-lg-4">
+            <SingleAnnouncement />
+          </div>
+          <div className="col-lg-4">
+            <SingleAnnouncement />
+          </div> */}
+
         </div>
       </div>
       <DeleteModal />
@@ -107,68 +295,48 @@ const SingleAnnouncement = ({ item }) => {
   return (
     <>
       <div className="announcelist_wrapper">
-        <div className="d-flex justify-content-between align-items-start">
-          <div className="d-flex align-items-center" style={{ gap: "20px" }}>
+        <div>
+          <div className="d-flex align-items-center" style={{ gap: "20px", marginBottom: "20px " }}>
             <div className="announcement_pic">
               <img
-                // src={`${process.env.NODE_ENV !== "production"
-                //     ? import.meta.env.VITE_LOCAL_API_URL
-                //     : import.meta.env.VITE_LIVE_API_URL
-                //   }/api/v1/uploads/${item?.image}`}
-                src=""
+                src={tennis}
                 alt=""
                 style={{
-                  height: "56px",
-                  width: "56px",
+                  height: "80px",
+                  width: "80px",
                   borderRadius: "8px",
                   objectFit: "cover",
                 }}
               />
             </div>
-            <div className="recruiment f_sfPro">
-              <p>sdlkfldsfkl;dkf</p>
-              {/* <p>{item?.title}</p> */}
-              <div className="d-flex gap-3 flex-wrap">
-                <div
-                  className="d-flex align-items-center"
-                  style={{ gap: "6px" }}
-                >
-                  <img src={location} alt="" />
-                  <span>london</span>
-                  {/* <span>{item?.location}</span> */}
-                </div>
-                <div
-                  className="d-flex align-items-center"
-                  style={{ gap: "6px" }}
-                >
-                  <img src={flag} alt="" />
-                  <span>sdfdsf</span>
-                </div>
-                <div
-                  className="d-flex align-items-center"
-                  style={{ gap: "6px" }}
-                >
-                  <img src={dollar} alt="" />
-                  <span>USD {item?.budget}</span>
-                </div>
-              </div>
+            <div className="recruiment">
+              <p>Senior UX Designer </p>
+              <small>HCL Company</small>
+
             </div>
           </div>
-          {/* icon div */}
-          <div className="d-lg-block d-none">
-            {/* <div>
-              <button
-                className="bg-none"
-                style={{ width: "20px" }}
-                onClick={handleBookmark}
-              >
-                {bookmark ? (
-                  <img src={bookmarkfill} alt="" />
-                ) : (
-                  <img src={b1} alt="" />
-                )}
-              </button>
-            </div> */}
+          <div className="d-flex gap-3 flex-wrap detail_span">
+            <div
+              className="d-flex align-items-center"
+              style={{ gap: "6px" }}
+            >
+              <img style={{width:"20px",height:"20px"}} src={location} alt="" />
+              <span>Bari, Haly</span>
+            </div>
+            <div
+              className="d-flex align-items-center"
+              style={{ gap: "6px" }}
+            >
+              <img style={{width:"20px",height:"20px"}} src={flag} alt="" />
+              <span>Remote</span>
+            </div>
+            <div
+              className="d-flex align-items-center"
+              style={{ gap: "6px" }}
+            >
+              <img style={{width:"20px",height:"20px"}} src={dollar} alt="" />
+              <span>Undisclosed Salary</span>
+            </div>
           </div>
         </div>
         <p
@@ -177,15 +345,17 @@ const SingleAnnouncement = ({ item }) => {
             display: "-webkit-box",
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
-            WebkitLineClamp: 3, // Number of lines to show
+            WebkitLineClamp: 3,
             textOverflow: "ellipsis",
           }}
         >
-          {item?.description}
+          Learn various UI UX Design materials including UX Research, UI Design, UX Writing, and Product Design for 4.5 months with professionals  product designer practitioners.
         </p>
+        <div className="jobOpen_btn">
+            <button>Open</button>
+          </div>
         <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
           <button className="bg-none" style={{ color: "#929292" }}>
-            {" "}
             <i className="fa-regular fa-bookmark"></i>
           </button>
         </div>
