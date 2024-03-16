@@ -51,17 +51,17 @@ const Login = () => {
   };
   return (
     <>
-      <div className="container-fluid">
-        <div className="row align-items-center">
+      <div className="container">
+        <div className="row align-items-center" style={{margin:"80px 0"}}>
           <div className="col-lg-6 p-0">
-            <div className="login-left_bg_img d-none d-lg-block">
-              <div className="login_slider">
+            <div className="login-left_bg_img d-none d-lg-block" style={{ position: "relative" }}>
+              <div className="login_slider" style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
                 <LoginSlider />
               </div>
             </div>
           </div>
-          <div className="col-lg-6 p-0">
-            <div className="login_wrapper">
+          <div className="col-lg-6 p-0" style={{height:"100vh"}}>
+            <div className="login_wrapper h-100 ">
               <div>
                 <h3>Log in</h3>
                 <p>Fill all input to Login on your account</p>

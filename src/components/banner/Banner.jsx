@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="banner mb_40 bgBanner">
       <div className="container">
-        <div className="row banner_top_pd">
+        <div className="row banner_top_pd align-items-center">
           <div className="col-12 col-md-6">
             <div className="bannerContent">
               <span>Sports + Announcements only for you</span>
@@ -36,7 +36,7 @@ const Banner = () => {
           </div>
           <div className="col-12 col-md-6">
             <div className="text-center banner-right-image">
-              <img className="img-fluid" src={bannerImg} alt="Banner" />
+              <img className="img-fluid" style={{marginTop:"50px"}} src={bannerImg} alt="Banner" />
             </div>
           </div>
         </div>
