@@ -66,16 +66,17 @@ const AnnouncementList = () => {
       >
         <div className="row">
           <div className="col-lg-9">
-            {/* {allAnnouncements?.data &&
-              allAnnouncements?.data?.length > 0 &&
-              allAnnouncements?.data
-                ?.filter(handleFilter)
-                .map((item, index) => {
-                  <SingleAnnouncement key={index} item={item} />
-                })}
-            {(!allAnnouncements?.data || allAnnouncements?.data?.length === 0) && (
-              <p>No data found</p>
-            )} */}
+
+            {/* {filteredAnnouncements?.length > 0
+              ? filteredAnnouncements.map((item, index) => ( */}
+                <SingleAnnouncement />
+              {/* ))
+              : allAnnouncements?.data?.length > 0 && (
+                <p className="d-flex justify-content-center align-items-center  fs-3">
+                  No data found
+                </p>
+              )} */}
+            {/*           
             {filteredAnnouncements?.length > 0
               ? filteredAnnouncements.map((item, index) => (
                   <SingleAnnouncement key={index} item={item} />
@@ -84,17 +85,9 @@ const AnnouncementList = () => {
                   <p className="d-flex justify-content-center align-items-center  fs-3">
                     No data found
                   </p>
-                )}
+                )} */}
           </div>
-          <div className="col-lg-3">
-            <AnnouncementFilterCategory
-              setSortedItems={setSortedItems}
-              sortedItems={sortedItems}
-              sports={sports}
-              country={country}
-              jobcategory={jobcategory}
-            />
-          </div>
+          
         </div>
       </div>
       <DeleteModal />
@@ -118,11 +111,11 @@ const SingleAnnouncement = ({ item }) => {
           <div className="d-flex align-items-center" style={{ gap: "20px" }}>
             <div className="announcement_pic">
               <img
-                src={`${
-                  process.env.NODE_ENV !== "production"
-                    ? import.meta.env.VITE_LOCAL_API_URL
-                    : import.meta.env.VITE_LIVE_API_URL
-                }/api/v1/uploads/${item?.image}`}
+                // src={`${process.env.NODE_ENV !== "production"
+                //     ? import.meta.env.VITE_LOCAL_API_URL
+                //     : import.meta.env.VITE_LIVE_API_URL
+                //   }/api/v1/uploads/${item?.image}`}
+                src=""
                 alt=""
                 style={{
                   height: "56px",
@@ -133,22 +126,24 @@ const SingleAnnouncement = ({ item }) => {
               />
             </div>
             <div className="recruiment f_sfPro">
-              <p>{item?.title}</p>
+              <p>sdlkfldsfkl;dkf</p>
+              {/* <p>{item?.title}</p> */}
               <div className="d-flex gap-3 flex-wrap">
                 <div
                   className="d-flex align-items-center"
                   style={{ gap: "6px" }}
                 >
                   <img src={location} alt="" />
-                  <span>{item?.location}</span>
+                  <span>london</span>
+                  {/* <span>{item?.location}</span> */}
                 </div>
-                {/* <div
+                <div
                   className="d-flex align-items-center"
                   style={{ gap: "6px" }}
                 >
                   <img src={flag} alt="" />
-                  <span>{item?.status}</span>
-                </div> */}
+                  <span>sdfdsf</span>
+                </div>
                 <div
                   className="d-flex align-items-center"
                   style={{ gap: "6px" }}

@@ -5,6 +5,7 @@ import LoginSlider from "./LoginSlider";
 import { useLoginUserMutation } from "../../features/auth/authApi";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import passlock from '../../assets/passlock.png';
 
 const Login = () => {
   const [loginUser, { isLoading, error, isError }] = useLoginUserMutation();
@@ -52,7 +53,7 @@ const Login = () => {
   return (
     <>
       <div className="container">
-        <div className="row align-items-center" style={{margin:"80px 0"}}>
+        <div className="row align-items-center" style={{ margin: "80px 0" }}>
           <div className="col-lg-6 p-0">
             <div className="login-left_bg_img d-none d-lg-block" style={{ position: "relative" }}>
               <div className="login_slider" style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
@@ -60,24 +61,22 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6 p-0" style={{height:"100vh"}}>
+          <div className="col-lg-6 p-0" style={{ height: "100vh" }}>
             <div className="login_wrapper h-100 ">
               <div>
                 <h3>Log in</h3>
                 <p>Fill all input to Login on your account</p>
                 <form onSubmit={handleSubmit}>
                   <div className="right-inner-addon input-container">
-                    <i
-                      className="fa-regular fa-envelope"
-                      style={{ color: "#9CA3A9" }}
-                    ></i>
-                    <label htmlFor="">Email Address</label>
+                 
+                    <label htmlFor="">Email *</label>
                     <input
                       type="email"
                       name="email"
                       className="form-control login_input"
-                      placeholder="Enter email"
+                      placeholder="Enter Your Email"
                       required
+                      style={{ color: "#212529", backgroundColor: "#F3F7FF" }}
                     />
                   </div>
                   <div className="right-inner-addon input-container">
@@ -85,14 +84,22 @@ const Login = () => {
                       className="fa-solid fa-lock"
                       style={{ color: "#9CA3A9" }}
                     ></i>
-                    <label htmlFor="">Password</label>
-                    <input
-                      type="password"
-                      className="form-control login_input"
-                      placeholder="Enter password"
-                      name="password"
-                      required
-                    />
+                    <label htmlFor="">Password*</label>
+
+                    <div className="position-relative">
+                      <div className="passlock">
+                        <img src={passlock} alt="" />
+                      </div>
+                      <input
+                        type="password"
+                        className="form-control login_input"
+                        placeholder="Enter Your Password"
+                        name="password"
+                        required
+                        style={{paddingLeft:"40px",color: "#212529", backgroundColor: "#F3F7FF"}}
+                      />
+
+                    </div>
                   </div>
                   <div className="d-flex justify-content-center">
                     <button
@@ -120,7 +127,7 @@ const Login = () => {
                   </div>
                 </form>
               </div>
-              <div className="d-flex justify-content-center mt-2 ">
+              <div className="d-flex justify-content-center home_page_link" >
                 <Link to="/">Go to homepage</Link>
               </div>
             </div>

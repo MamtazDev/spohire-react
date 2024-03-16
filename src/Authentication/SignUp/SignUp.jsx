@@ -181,10 +181,7 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="right-inner-addon input-container">
-                {/* <i
-                  className="fa-regular fa-envelope"
-                  style={{ color: "#9CA3A9" }}
-                ></i> */}
+           
 
                 <label htmlFor="">Email *</label>
 

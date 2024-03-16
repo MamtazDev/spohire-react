@@ -2,6 +2,13 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import CustomSelect from "./CustomSelect";
+import DatePosted from "./DatePosted";
+const jobTypeOptions = [
+  { value: 'Full-time', label: 'Full-time' },
+  { value: 'Part-time', label: 'Part-time' },
+  { value: 'Other', label: 'Other' }
+];
 
 const JobOfferHeader = ({
   filterItems,
@@ -115,140 +122,38 @@ const JobOfferHeader = ({
   };
   return (
     <>
-      <div className="jobsearch_page page_header f_SF Pro Display">
-        <h2>
-          <span>3,000+</span> Browse Jobs
-        </h2>
-        <p>Find Jobs, Employment & Career Opportunities</p>
-        <div className="search_jobs">
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div style={{ width: "308px" }}>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="w-100"
-                placeholder="Keywords e.g ( job Title, description)"
-                onChange={(e) =>
-                  setFilterItems({ ...filterItems, jobTitle: e.target.value })
-                }
-              />
+
+      <div className="container job_header_wrapper">
+        <div className="search_input">
+          <div className="position-relative">
+            <div className="search_icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0  0 14 15" fill="none">
+                <circle cx="6.36364" cy="6.36364" r="5.66364" stroke="#2B3674" strokeWidth="1.4" />
+                <line x1="13.0101" y1="14" x2="10.1818" y2="11.1718" stroke="#2B3674" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
             </div>
+            <input type="text" placeholder="Keywords e.g ( job Title, description)" />
+          </div>
 
-            {/* <Select
-              style={{ minHeight: "50px" }}
-              options={countryNames.map((country) => ({
-                value: country.name,
-                label: country.name,
-              }))}
-              value={selectedCountry}
-              onChange={handleChange}
-              styles={{
-                control: (baseStyles) => ({
-                  ...baseStyles,
-                  minHeight: "50px",
-                  backgroundColor: "#FAFAFA",
-                }),
 
-                container: (baseStyles) => ({
-                  ...baseStyles,
-                  width: "268px",
-                }),
-
-                valueContainer: (baseStyles) => ({
-                  ...baseStyles,
-                  padding: "0 5px",
-                }),
-                placeholder: (baseStyles) => ({
-                  ...baseStyles,
-                  color: "#9CA3A9",
-                  fontSize: "10px",
-                }),
-                menuList: (baseStyles) => ({
-                  ...baseStyles,
-                  fontSize: "16px",
-                }),
-                singleValue: (baseStyles) => ({
-                  ...baseStyles,
-                  fontSize: "14px",
-                }),
-                indicatorsContainer: (baseStyles) => ({
-                  ...baseStyles,
-                  padding: "0px !important",
-                }),
-                indicatorSeparator: (baseStyles) => ({
-                  ...baseStyles,
-                  display: "none",
-                  margin: "0",
-                  width: "0",
-                }),
-              }}
-            /> */}
-
-            <div className="dropdown " ref={dropdownRef}>
-              <button
-                className="btn dropdown-toggle country-dropdown "
-                type="button"
-                id="dropdownMenuButton"
-                aria-haspopup="true"
-                aria-expanded={showDropdown}
-                onClick={() => setShowDropdown(!showDropdown)}
-                style={{ whiteSpace: "nowrap" }}
-              >
-                Select Countries
-              </button>
-              {showDropdown && (
-                <div
-                  className="dropdown-menu show"
-                  aria-labelledby="dropdownMenuButton"
-                  style={{
-                    maxHeight: "500px",
-                    overflowY: "auto",
-                    width: "300px",
-                  }}
-                  onMouseDown={(event) => event.stopPropagation()} // Prevent event propagation
-                >
-                  {countryNames.map((name, index) => (
-                    <div key={index} className="form-check">
-                      <div
-                        className="d-flex align-items-center"
-                        style={{ cursor: "pointer" }}
-                        onClick={(event) =>
-                          handleCheckboxChange(event, name.name)
-                        }
-                      >
-                        <div style={{ width: "20px", marginRight: "5px" }}>
-                          {searchParams?.jobLocation?.includes(name.name) && (
-                            <>&#10003;</>
-                          )}
-                        </div>
-                        <label
-                          className="form-check-label"
-                          htmlFor={`flexCheck${name.name}`}
-                          style={{ cursor: "pointer" }}
-                        >
-                          {name.name}
-                        </label>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-            <select
-              className="form-select"
+        </div>
+        {/* filters */}
+        <div className="row">
+          <div className="col">
+            <label htmlFor="">Category</label>
+            <select className="form-select"
               aria-label="Default select example"
               style={{
-                height: "50px",
-                backgroundColor: "",
-                border: "1px solid #F0F0F0",
-                width: "268px",
+                // height: "50px",
+                backgroundColor: "rgba(245, 245, 245, 0.70)",
+                // border: "1px solid #F0F0F0",
+                // width: "268px",
               }}
               name="country"
               onChange={handleChangeJobType}
             >
               <option value="All" className="">
-                All
+                Select here
               </option>
               {options.map((name, index) => (
                 <option value={name?.value} className="" key={index}>
@@ -256,73 +161,57 @@ const JobOfferHeader = ({
                 </option>
               ))}
             </select>
-            {/* <Select
-              onChange={handleChangeJobType}
-              style={{ minHeight: "50px" }}
-              options={options}
-              value={options.label}
-              placeholder="Select job type"
-              styles={{
-                control: (baseStyles) => ({
-                  ...baseStyles,
-                  minHeight: "50px",
-                  backgroundColor: "#FAFAFA",
-                }),
-
-                container: (baseStyles) => ({
-                  ...baseStyles,
-                  width: "268px",
-                }),
-
-                valueContainer: (baseStyles) => ({
-                  ...baseStyles,
-                  padding: "0 5px",
-                }),
-                placeholder: (baseStyles) => ({
-                  ...baseStyles,
-                  color: "#9CA3A9",
-                  fontSize: "10px",
-                }),
-                menuList: (baseStyles) => ({
-                  ...baseStyles,
-                  fontSize: "16px",
-                }),
-                singleValue: (baseStyles) => ({
-                  ...baseStyles,
-                  fontSize: "14px",
-                }),
-                indicatorsContainer: (baseStyles) => ({
-                  ...baseStyles,
-                  padding: "0px !important",
-                }),
-                indicatorSeparator: (baseStyles) => ({
-                  ...baseStyles,
-                  display: "none",
-                  margin: "0",
-                  width: "0",
-                }),
+          </div>
+          <div className="col">
+            <label htmlFor="">Location</label>
+            <select className="form-select"
+              aria-label="Default select example"
+              style={{
+                backgroundColor: "rgba(245, 245, 245, 0.70)",
               }}
-            /> */}
-
-            <button
-              type="button"
-              className="jobsearchbtn"
-              onClick={handleSearch}
+              name="country"
+              onChange={handleChangeJobType}
             >
-              Search
-            </button>
-            <button
-              type="button"
-              className="jobsearchbtn "
-              onClick={handleClear}
-              style={{ backgroundColor: "#8b4eb4" }}
+              <option value="All" className="">
+                Select here
+              </option>
+              {countryNames.map((name, index) => (
+                <option value={name?.value} className="" key={index}>
+                  {name.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="col">
+            <label htmlFor="">Remote</label>
+            <select className="form-select"
+              aria-label="Default select example"
+              style={{
+                backgroundColor: "rgba(245, 245, 245, 0.70)",
+              }}
+              name="country"
+              onChange={handleChangeJobType}
             >
-              Clear All
-            </button>
-            {/* </div> */}
-          </form>
+              <option value="All" className="">
+                Select here
+              </option>
+              <option value="All" className="">
+                Select here
+              </option>
+            </select>
+          </div>
+          <div className="col">
+            <label htmlFor="">Job type</label>
+            <CustomSelect options={jobTypeOptions} />
+          </div>
+          <div className="col">
+            <label htmlFor="">Date posted</label>
+            <DatePosted />
+          </div>
         </div>
+
       </div>
+
     </>
   );
 };

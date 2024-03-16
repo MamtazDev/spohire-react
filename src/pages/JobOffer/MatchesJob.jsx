@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import tennis from "../../assets/tennis.png";
 import flag from "../../assets/flag.png";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
@@ -10,7 +9,7 @@ import JobCategory from "../Announcement/JobCategory";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../../components/Pagination/Pagination";
 import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
+
 const sports = [
   "Coach",
   "Administration",

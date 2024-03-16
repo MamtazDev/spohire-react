@@ -92,12 +92,16 @@
   padding: 9.903px 10.597px 9.778px 11.318px;
   margin: 0em !important;
   box-sizing: border-box;
-  height: 46px !important;
+  height: 50px !important;
   border-radius: 4px;
   border: 0.707px solid rgba(0, 0, 0, 0.02);
   background: #F3F7FF;
 }
-
+.passlock{
+  position: absolute;
+  top: 12px;
+  left: 15px;
+}
 .login_select {
   border-radius: 4px;
   border: 0.707px solid rgba(0, 0, 0, 0.02);
@@ -336,6 +340,17 @@
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   width: 100%;
 }
+
+.home_page_link a{
+  color: var(--Dark-blue, #2B3674);
+font-family: "SF Pro Display";
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-top: 30px;
+}
+
 
 @media screen and (max-width: 767px) {
   .login_wrapper {
