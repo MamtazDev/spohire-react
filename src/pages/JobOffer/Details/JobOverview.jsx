@@ -3,6 +3,9 @@ import timer from "./../../../assets/timer.svg";
 import stack from "./../../../assets/stack.svg";
 import wallet from "./../../../assets/wallet.svg";
 import briefcase from "./../../../assets/briefcase.svg";
+import { PiLinkSimpleThin } from "react-icons/pi";
+import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import { TfiEmail } from "react-icons/tfi";
 
 const JobOverview = () => {
   const details = [
@@ -43,6 +46,24 @@ const JobOverview = () => {
             <p className="result">{data.result}</p>
           </div>
         ))}
+      </div>
+      <p className="title mb-1">Share this job:</p>
+      <div className="d-flex items-center gap-1">
+        <button style={{ color: "#05CD99", fontSize: "16px" }}>
+          <PiLinkSimpleThin /> Copy Links
+        </button>
+        <button>
+          <FaLinkedin />
+        </button>
+        <button>
+          <FaFacebook />
+        </button>
+        <button>
+          <FaTwitter />
+        </button>
+        <button>
+          <TfiEmail />
+        </button>
       </div>
     </div>
   );

@@ -589,6 +589,10 @@ a {
   letter-spacing: 1.28px;
 }
 
+.job_overview {
+  margin-bottom: 85px;
+}
+
 .job_overview .title {
   color: var(--Gray-900, #18191C);
   font-family: Inter;
@@ -610,6 +614,20 @@ a {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.job_overview button {
+  border-radius: 4px;
+  background: var(--Light-blue, #F4F7FE);
+  padding: 10px;
+  color: #0095FF;
+  font-size: 20px;
+  transition: 0.3s ease-in;
+}
+
+.job_overview button:hover {
+  background: var(--Light-blue, #0095FF);
+  color: #FFF;
 }
 
 @media (max-width: 1024px) {
