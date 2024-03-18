@@ -61,10 +61,8 @@ const FaqAccordion = () => {
   return (
     <div className="accordion section_padding">
       <div className="container">
-        <div className="section_heading text-center">
-          <h2 className=" fs_62 text_color_19 font-bold">
-            Frequently Asked Questions
-          </h2>
+        <div className="section_heading text-center ">
+          <h2>Frequently Asked Questions</h2>
         </div>
         <div>
           {accoprdionData.map((data, index) => (
@@ -99,9 +97,8 @@ const FaqAccordion = () => {
         </div>
 
         <div className="d-flex justify-content-center">
-
-          <button className="more_btn">
-            <img src={add_circle} alt="" />   More
+          <button className="more_btn mt-5">
+            <img src={add_circle} alt="" /> More
           </button>
         </div>
       </div>

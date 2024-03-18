@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
 @import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 
+
 /* How it works section font family did not add i didn't get cdn */
 
 * {
@@ -283,7 +284,7 @@ a {
 }
 
 .section_heading {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .common_btn a {
@@ -395,7 +396,7 @@ a {
   border: 1px solid #0177fb;
   height: 30px;
   color: #0177fb;
-  font-family: "SF Pro Display" !important;
+  font-family: "SF Pro Display" sans-serif !important;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -467,6 +468,7 @@ a {
 .details_header {
   background: #FAFAFA;
   padding: 50px 0;
+  margin-bottom: 25px;
 }
 
 .details_header .inner {
@@ -518,6 +520,96 @@ a {
   font-weight: 600;
   line-height: 24px;
   text-transform: capitalize;
+}
+
+.description_outline {
+  border-radius: 10px;
+  border: 1px solid #C5CDE7;
+  padding: 40px;
+}
+
+.description h5 {
+  color: var(--Dark-blue, #2B3674);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+
+.description h6,
+.salary .title {
+  color: #000;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.description p,
+.description li {
+  color: var(--Gray-600, #5E6670);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  margin-bottom: 12px;
+}
+
+.description li {
+  line-height: 41px;
+}
+
+.salary .location {
+  color: var(--Gray-900, #18191C);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.salary .amount {
+  color: var(--green, #05CD99);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.salary .subtitle {
+  color: var(--Gray-500, #767F8C);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.accordion h2 {
+  color: var(--Dark-blue, #2B3674);
+  text-align: center;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: 1.28px;
+}
+
+.job_overview .title {
+  color: var(--Gray-900, #18191C);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.job_overview .label {
+  color: var(--Gray-500, #767F8C);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.job_overview .result {
+  color: var(--Dark-blue, #2B3674);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 @media (max-width: 1024px) {

@@ -308,7 +308,7 @@
     font-size: 24px;
     color: #000;
     text-align: left;
-    font-family: Gilroy;
+    font-family: 'Gilroy-SemiBold', sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
@@ -391,12 +391,12 @@
 
 }
 
-.player_details_bg img{
+.player_details_bg img {
     width: 100% !important;
 }
 
 
- .player_details_bg .player_details_img {
+.player_details_bg .player_details_img {
     position: absolute;
     right: 68%;
     top: 16%;
@@ -405,7 +405,7 @@
     background: url(<path-to-image>), lightgray 50% / cover no-repeat;
     max-width: 322px;
 
-} 
+}
 
 @media(max-width:768px) {
     .market_filter_wrapper {

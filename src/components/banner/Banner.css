@@ -23,18 +23,18 @@
     font-weight: 500;
     line-height: 110%;
     letter-spacing: -0.82px;
-    font-family: "SF Pro Display",sans-serif    ;
+    font-family: "SF Pro Display", sans-serif;
     margin-bottom: 30px;
-    
+
 }
 
 .banner .bannerContent p {
-    color: #FFF;
+    color: #B5B3BA;
     font-size: 24px;
     font-weight: 400;
     line-height: 180%;
     margin-bottom: 40px;
-    font-family: "SF Pro Display",sans-serif    ;
+    font-family: "SF Pro Display", sans-serif;
 }
 
 .banner .bannerContent a {
@@ -63,14 +63,17 @@
     position: absolute;
     width: 100%;
 }
-@media(max-width:768px){
+
+@media(max-width:768px) {
     .header_position {
-        position:static;
+        position: static;
         width: 100%;
     }
-    .banner-right-image{
+
+    .banner-right-image {
         padding-top: 10px;
     }
+
     .banner .bannerContent {
         padding-top: 41px !important;
     }

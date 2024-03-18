@@ -4,7 +4,6 @@ import readyTogetsm from "../../assets/readytogetsm.png";
 import bannerImg from "../../assets/bannerImg.png";
 import { Link } from "react-router-dom";
 const Banner = () => {
-
   return (
     <div className="banner mb_40 bgBanner">
       <div className="container">
@@ -13,7 +12,7 @@ const Banner = () => {
             <div className="bannerContent">
               <span>Sports + Announcements only for you</span>
               <img
-                className="mb-2 img-fluid d-none d-md-block"
+                className="mb-5 img-fluid d-none d-md-block"
                 src={readyToget}
                 alt="Ready to get"
               />
@@ -36,7 +35,12 @@ const Banner = () => {
           </div>
           <div className="col-12 col-md-6">
             <div className="text-center banner-right-image">
-              <img className="img-fluid" style={{marginTop:"50px"}} src={bannerImg} alt="Banner" />
+              <img
+                className="img-fluid"
+                style={{ marginTop: "50px" }}
+                src={bannerImg}
+                alt="Banner"
+              />
             </div>
           </div>
         </div>

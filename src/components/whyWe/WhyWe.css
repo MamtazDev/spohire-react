@@ -7,7 +7,7 @@
 
 .we_aimed {
     color: var(--Gray-for-line, #C5CDE7);
-    font-family: Gilroy;
+    font-family: 'Gilroy-SemiBold', sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
