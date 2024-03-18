@@ -32,6 +32,7 @@ p {
 .form-select:focus {
   box-shadow: none;
 }
+
 /* .category_wrapper ::-webkit-scrollbar {
   width:2px;
 } */
@@ -235,6 +236,7 @@ a {
 .f_sfPro {
   font-family: "SF Pro Display", sans-serif;
 }
+
 .f_sfPro:disabled {
   background-color: #5b7fac;
 }
@@ -300,6 +302,232 @@ a {
 
 .common_btn a:hover {
   opacity: 0.9;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px !important;
+  max-width: 285px;
+  width: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider_bg {
+  background: #04012f;
+  padding: 83px 0 40px 0;
+  /* color: white  ; */
+  margin-bottom: 130px;
+}
+
+.sayInnerBox {
+  background-color: #fff;
+}
+
+.gold_btn {
+  border-radius: 100px;
+  border: 1px solid #141736;
+  display: inline-flex;
+  padding: 8px 24px;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  height: 32px;
+  color: #141736;
+  font-family: "SF Pro Display" sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.gold_btn img {
+  width: 14px;
+  height: 16px;
+}
+
+.country-dropdown {
+  display: block;
+  width: 100%;
+  /* padding: 0.375rem 2.25rem 0.375rem 0.75rem; */
+  height: 50px;
+  font-size: 1rem;
+  font-weight: 400;
+
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  background-color: var(--bs-body-bg);
+
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-transform: capitalize;
+}
+
+.dropdown-toggle:hover {
+  background-color: white !important;
+  color: initial !important;
+}
+
+.createProFIleButton {
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 45px;
+  border: 1px solid #0177fb;
+  height: 30px;
+  color: #0177fb;
+  font-family: "SF Pro Display" !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5px;
+}
+
+.createProFIleButton a {
+  color: #0177fb !important;
+  text-decoration-line: underline;
+}
+
+
+/*style from ashiq*/
+
+.subscription_wrapper .subs_item {
+  max-width: 370px;
+  width: 100%;
+  padding: 24px 0;
+  border-radius: 11px;
+  background: #F6F8FF;
+}
+
+
+.upload_wrapper {
+  border: 1px solid #F0F0F0;
+  border-radius: 5px;
+}
+
+.status_wrapper .status_btn_active {
+  width: 172px;
+  padding: 8px 0;
+  background-color: #2d5bff;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.status_wrapper .status_btn {
+  width: 172px;
+  padding: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #F0F0F0;
+  color: #B1B1B1;
+  background-color: white;
+}
+
+.add_payment .main_payment_wrapper {
+  max-width: 1246px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: #FFF;
+  box-shadow: 24px 24px 65px 0px rgba(0, 0, 0, 0.02);
+  padding: 28px;
+  margin: 0 auto;
+}
+
+.add_payment .bestOffer_title {
+  color: #1A1A1A;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+
+/* job offer details page css */
+.details_header {
+  background: #FAFAFA;
+  padding: 50px 0;
+}
+
+.details_header .inner {
+  border-radius: 10px;
+  background: var(--White, #FFF);
+  box-shadow: 6px -2px 39.9px 4px rgba(86, 95, 104, 0.08);
+  padding: 20px;
+}
+
+.details_header h4 {
+  color: var(--Gray-900, #18191C);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 25px;
+}
+
+.details_header .at {
+  color: var(--Gray-700, #474C54);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.details_header .time_btn {
+  border-radius: 3px;
+  background: var(--green, #05CD99);
+  color: var(--Gray-00, var(--White, #FFF));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 4px 12px;
+}
+
+.details_header .bookmark_btn {
+  border-radius: 4px;
+  background: var(--Light-blue, #F4F7FE);
+  width: 56px;
+  height: 56px;
+  color: #05CD99;
+}
+
+.details_header .applyNow_btn {
+  border-radius: 4px;
+  background: var(--Blue-2, #0095FF);
+  padding: 16px 30px;
+  color: var(--Gray-00, var(--White, #FFF));
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1024px) {
+  .dashbord_sidebar {
+    display: none !important;
+  }
+
+  .mobileTopbar {
+    display: block !important;
+  }
 }
 
 @media (max-width: 990px) {
@@ -704,18 +932,6 @@ a {
   }
 }
 
-/* .job_offers_wrapper{
-  padding: 40px;
-} */
-@media (max-width: 1024px) {
-  .dashbord_sidebar {
-    display: none !important;
-  }
-
-  .mobileTopbar {
-    display: block !important;
-  }
-}
 
 @media (max-width: 768px) {
   .all_mb {
@@ -745,162 +961,3 @@ a {
     height: 15px !important;
   }
 }
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 30px !important;
-  max-width: 285px;
-  width: 100%;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slider_bg {
-  background: #04012f;
-  padding: 83px 0 40px 0;
-  /* color: white  ; */
-  margin-bottom: 130px;
-}
-
-.sayInnerBox {
-  background-color: #fff;
-}
-
-.gold_btn {
-  border-radius: 100px;
-  border: 1px solid #141736;
-  display: inline-flex;
-  padding: 8px 24px;
-  align-items: center;
-  gap: 6px;
-  background-color: transparent;
-  height: 32px;
-  color: #141736;
-  font-family: "SF Pro Display" sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.gold_btn img {
-  width: 14px;
-  height: 16px;
-}
-
-.country-dropdown {
-  display: block;
-  width: 100%;
-  /* padding: 0.375rem 2.25rem 0.375rem 0.75rem; */
-  height: 50px;
-  font-size: 1rem;
-  font-weight: 400;
-
-  color: var(--bs-body-color);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
-  background-color: var(--bs-body-bg);
-
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  text-transform: capitalize;
-}
-
-.dropdown-toggle:hover {
-  background-color: white !important;
-  color: initial !important;
-}
-
-.createProFIleButton {
-  display: flex;
-  padding: 8px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 45px;
-  border: 1px solid #0177fb;
-  height: 30px;
-  color: #0177fb;
-  font-family: "SF Pro Display" !important;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: 5px;
-}
-
-.createProFIleButton a {
-  color: #0177fb !important;
-  text-decoration-line: underline;
-}
-
-
-/*style from ashiq*/
-
-.subscription_wrapper .subs_item{
-  max-width: 370px;
-  width: 100%;
-  padding: 24px 0;
-  border-radius: 11px;
-  background: #F6F8FF;
-}
-
-
-.upload_wrapper{
-  border: 1px solid #F0F0F0;
-  border-radius: 5px;
-}
-
-.status_wrapper .status_btn_active{
-  width: 172px;
-  padding: 8px 0;
-  background-color: #2d5bff;
-  color: #fff;
-  border-radius: 5px;
-  border: 1px solid transparent;
-}
-
-.status_wrapper .status_btn{
-  width: 172px;
-  padding: 8px 0;
-  border-radius: 5px;
-  border: 1px solid #F0F0F0;
-  color: #B1B1B1;
-  background-color: white;
-}
-
-.add_payment .main_payment_wrapper{
-  max-width: 1246px;
-width: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  background: #FFF;
-  box-shadow: 24px 24px 65px 0px rgba(0, 0, 0, 0.02);
-  padding: 28px;
-  margin: 0 auto;
-}
-
-.add_payment .bestOffer_title{
-  color: #1A1A1A;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 36px;
-}
-

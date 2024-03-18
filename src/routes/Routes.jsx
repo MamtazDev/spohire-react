@@ -47,6 +47,7 @@ import PaymentProcessNew from "../pages/pricing/PaymentProcessNew.jsx";
 import AddPlayerProfile from "../pages/AddProfile/AddPlayerProfile.jsx";
 import AddCoachProfile from "../pages/AddProfile/AddCoachProfile.jsx";
 import EditAddedPlayerDetails from "../components/Dashboard/viewDetails/EditAddedPlayerDetails.jsx";
+import JobOfferDetails from "../pages/JobOffer/JobOfferDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -87,7 +88,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/jobOffer/jobDetails/:id",
-        element: <JobDetails />,
+        // element: <JobDetails />,
+        element: <JobOfferDetails />,
       },
       {
         path: "/announcements",

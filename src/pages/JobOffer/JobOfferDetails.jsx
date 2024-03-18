@@ -1,11 +1,11 @@
+import DetailsHeader from "./Details/DetailsHeader";
 
 const JobOfferDetails = () => {
-    return (
-        <div>
-            JobOfferDetails
+  return (
+    <div>
+      <DetailsHeader />
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default JobOfferDetails
+export default JobOfferDetails;
