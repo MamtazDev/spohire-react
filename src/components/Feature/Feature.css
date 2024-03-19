@@ -8,7 +8,6 @@
     line-height: 110%;
     letter-spacing: -0.62px; */
     color: var(--Dark-blue, #2B3674);
-    font-family: "SF Pro Display";
     font-size: 68px;
     font-style: normal;
     font-weight: 500;
@@ -21,7 +20,7 @@
     font-weight: 500;
     line-height: 160%; */
     color: var(--Black-2, #4C4E52);
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
@@ -42,7 +41,6 @@
 
 .feature .featureBottom p {
     color: #0A0119;
-    /* font-family: 'Gilroy',sans-serif; */
     font-family: 'Gilroy-SemiBold', sans-serif;
     font-size: 18px;
     font-style: normal;
