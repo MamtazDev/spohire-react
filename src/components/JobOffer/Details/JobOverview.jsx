@@ -38,7 +38,7 @@ const JobOverview = () => {
   return (
     <div className="description_outline job_overview">
       <p className="title mb-5">Job Overview</p>
-      <div className="row g-4">
+      <div className="row g-4 mb-5">
         {details.map((data, index) => (
           <div className="col-lg-4" key={index}>
             <img className="mb-3" src={data.pic} alt="" />

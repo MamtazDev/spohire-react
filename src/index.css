@@ -627,7 +627,55 @@ a {
 
 .job_overview button:hover {
   background: var(--Light-blue, #0095FF);
-  color: #FFF;
+  color: #FFF !important;
+}
+
+.related_job .title {
+  color: var(--Gray-900, #18191C);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+
+.related_job .jobs {
+  border-radius: 8px;
+  border: 1px solid var(--Gray-100, #E4E5E8);
+  background: var(--White, #FFF);
+  box-shadow: 0px 2px 18px 0px rgba(24, 25, 28, 0.03);
+  padding: 24px;
+}
+
+.related_job .name {
+  color: var(--Gray-900, #18191C);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 4px;
+}
+
+.related_job .status_btn {
+  border-radius: 3px;
+  background: var(--Success-50, #E7F6EA);
+  padding: 4px 8px;
+  color: var(--green, #05CD99);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.related_job .secondary_text {
+  color: var(--Gray-500, #767F8C);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.related_job .icon {
+  color: #767F8C;
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 1024px) {

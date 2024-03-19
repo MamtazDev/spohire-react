@@ -1,7 +1,8 @@
-import Description from "./Details/Description";
-import DetailsHeader from "./Details/DetailsHeader";
-import JobOverview from "./Details/JobOverview";
-import Salary from "./Details/Salary";
+import DetailsHeader from "../../components/JobOffer/Details/DetailsHeader";
+import Description from "../../components/JobOffer/Details/Description";
+import Salary from "../../components/JobOffer/Details/Salary";
+import JobOverview from "../../components/JobOffer/Details/JobOverview";
+import RelatedJob from "../../components/JobOffer/Details/RelatedJob";
 
 const JobOfferDetails = () => {
   return (
@@ -15,6 +16,7 @@ const JobOfferDetails = () => {
           <div className="col-lg-5">
             <Salary />
             <JobOverview />
+            <RelatedJob />
           </div>
         </div>
       </div>
