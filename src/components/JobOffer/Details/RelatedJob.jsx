@@ -1,8 +1,19 @@
 import google from "../../../assets/google.svg";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
+import { useState } from "react";
 
 const RelatedJob = () => {
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const handleBookmark = (index) => {
+    if (bookmarks.includes(index)) {
+      setBookmarks(bookmarks.filter((item) => item !== index));
+    } else {
+      setBookmarks([...bookmarks, index]);
+    }
+  };
+
   return (
     <div className="related_job description_outline">
       <p className="title">Related Jobs</p>
@@ -25,9 +36,11 @@ const RelatedJob = () => {
                   </div>
                 </div>
               </div>
-              <button className="bg-transparent">
-                <FaRegBookmark />
-                {/* <FaBookmark /> */}
+              <button
+                onClick={() => handleBookmark(index)}
+                className="bookmark bg-transparent"
+              >
+                {bookmarks.includes(index) ? <FaBookmark /> : <FaRegBookmark />}
               </button>
             </div>
           </div>

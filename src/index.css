@@ -678,6 +678,10 @@ a {
   height: 18px;
 }
 
+.related_job .bookmark {
+  color: #C8CCD1;
+}
+
 @media (max-width: 1024px) {
   .dashbord_sidebar {
     display: none !important;
