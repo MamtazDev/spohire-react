@@ -15,7 +15,7 @@ const RelatedJob = () => {
   };
 
   return (
-    <div className="related_job description_outline">
+    <div className="related_job ">
       <p className="title">Related Jobs</p>
       <div className="d-flex flex-column gap-4">
         {[1, 2, 3].map((index) => (

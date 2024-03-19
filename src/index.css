@@ -682,6 +682,87 @@ a {
   color: #C8CCD1;
 }
 
+.apply_job .modal-content {
+  max-width: 830px;
+  margin: auto;
+}
+
+.apply_job label {
+  color: var(--Black-2, #4C4E52);
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.apply_job input,
+.apply_job textarea,
+.apply_job .drop,
+.apply_job .upload {
+  border-radius: 4px;
+  background: #F3F7FF;
+  padding: 14px;
+  border: none;
+  width: 100%;
+}
+
+.apply_job textarea,
+.apply_job .upload {
+  border: 1px dashed var(--Blue-2, #0095FF);
+  min-height: 137px;
+}
+
+.apply_job input::placeholder,
+.apply_job textarea::placeholder {
+  color: var(--b3, #8593BC);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.26px;
+}
+
+.apply_job #special label {
+  color: var(--b3, #8593BC);
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 0;
+}
+
+.apply_job .cancel_btn {
+  color: var(--b3, #8593BC);
+  font-size: 20px;
+  font-weight: 500;
+  background-color: transparent !important;
+
+}
+
+.apply_job .submit_btn {
+  border-radius: 5px;
+  background: var(--Blue-2, #0095FF);
+  padding: 15px 30px;
+  color: var(--White, #FFF);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.apply_job .upload span {
+  color: #0095FF;
+  text-decoration: underline;
+
+
+}
+
+.apply_job .upload p {
+  color: var(--Black-2, #4C4E52);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+
 @media (max-width: 1024px) {
   .dashbord_sidebar {
     display: none !important;
