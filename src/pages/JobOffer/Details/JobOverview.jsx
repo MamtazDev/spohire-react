@@ -1,5 +1,6 @@
 import calender from "./../../../assets/CalendarBlank.svg";
-import timer from "./../../../assets/timer.svg";
+// import timer from "./../../../assets/timer.svg";
+import timer from "../../../assets/Timer.svg"
 import stack from "./../../../assets/stack.svg";
 import wallet from "./../../../assets/wallet.svg";
 import briefcase from "./../../../assets/briefcase.svg";
