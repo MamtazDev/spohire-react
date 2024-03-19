@@ -493,3 +493,84 @@
     text-transform: uppercase;
     padding-top: 30px;
 }
+
+.price_card {
+    border-radius: 24px;
+    border: 1px solid var(--Neutral-300, #EFF0F6);
+    background: var(--White, #FFF);
+    box-shadow: 0px 2px 12px 0px rgba(20, 20, 43, 0.08);
+    padding: 40px;
+    transition: 0.3s ease-in;
+}
+
+.price_card .model {
+    width: 72px;
+    height: 72px;
+    background-color: #ECEBFF;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price_card .title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+}
+
+.price_card:hover .title {
+    color: #C5CDE7 !important;
+}
+
+.price_card .price {
+    color: var(--Neutral-800, #170F49);
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 66px;
+}
+
+.price_card .price span {
+    color: var(--Neutral-600, #6F6C90);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+
+.price_card .include {
+    color: var(--Neutral-800, #170F49);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 24px;
+}
+
+.price_card .options {
+    color: var(--Neutral-800, #170F49);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.price_card:hover .options,
+.price_card:hover .price span,
+.price_card:hover .price,
+.price_card:hover .include {
+    color: #D9DBE9;
+
+}
+
+.price_range .row {
+    max-width: 1241px;
+    margin: auto;
+    padding-bottom: 61px;
+}
+
+.price_card:hover {
+    background-color: #2B196A;
+}
+
+.price_card:hover .model {
+    background-color: #FFFFFF;
+}

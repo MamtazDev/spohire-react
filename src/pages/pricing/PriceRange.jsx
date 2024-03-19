@@ -1,5 +1,7 @@
 import React from "react";
 import bronze from "../../assets/bronze.svg";
+import silver from "../../assets/silver.svg";
+import gold from "../../assets/gold.svg";
 import check from "../../assets/indigo-check.svg";
 import checkActive from "../../assets/white-check.svg";
 
@@ -10,6 +12,28 @@ const PriceRange = ({ component }) => {
     "Normal support",
     "Up to 3 team members",
   ];
+
+  const priceOptions = [
+    {
+      pic: bronze,
+      title: "BRONZE",
+      price: 10,
+      color: "#CD7F32",
+    },
+    {
+      pic: silver,
+      title: "SILVER",
+      price: 20,
+      color: "#C5CDE7",
+    },
+    {
+      pic: gold,
+      title: "GOLD",
+      price: 30,
+      color: "#FFD029",
+    },
+  ];
+
   return (
     <div>
       <div className="container">
@@ -17,30 +41,37 @@ const PriceRange = ({ component }) => {
           {component}
 
           <div className="row g-4">
-            <div className="col-lg-4">
-              <div className="pricing_card">
-                <div>
-                  <div className="model">
-                    <img src={bronze} alt="" />
-                  </div>
-                  <p className="title">BRONZE</p>
-                </div>
-
-                <p className="price">
-                  $10 <span>/month</span>
-                </p>
-                <p className="">What’s included</p>
-
-                <div>
-                  {options.map((data, index) => (
-                    <div key={index}>
-                      <img src={check} alt="" />
-                      <p>{data}</p>
+            {priceOptions.map((data, index) => (
+              <div key={index} className="col-lg-4">
+                <div className="price_card">
+                  <div className="d-flex align-items-center gap-4 mb-5">
+                    <div className="model">
+                      <img src={data.pic} alt="" />
                     </div>
-                  ))}
+                    <p style={{ color: `${data.color}` }} className="title">
+                      {data.title}
+                    </p>
+                  </div>
+
+                  <p className="price mb-3">
+                    ${data.price} <span>/month</span>
+                  </p>
+                  <p className="include">What’s included</p>
+
+                  <div className="d-flex flex-column gap-4">
+                    {options.map((data, index) => (
+                      <div
+                        className="d-flex align-items-center gap-2"
+                        key={index}
+                      >
+                        <img src={check} alt="" />
+                        <p className="options">{data}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
