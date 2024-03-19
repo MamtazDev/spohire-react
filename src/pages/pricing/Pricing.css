@@ -445,3 +445,51 @@
     color: #9CA3A9;
     font-size: 14px !important;
 }
+
+
+
+.pricing_banner {
+    background-color: #FCFCFC;
+    padding: 53px 0 32px;
+}
+
+.pricing_inner {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 6px -2px 39.9px 4px rgba(86, 95, 104, 0.08);
+    padding: 72px;
+    color: var(--Black-2, #4C4E52);
+    text-align: center;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.price_range {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 6px -2px 39.9px 4px rgba(86, 95, 104, 0.08);
+}
+
+.pricing_dropdown {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 6px -2px 39.9px 4px rgba(86, 95, 104, 0.04);
+    color: var(--Neutral-700, #514F6E);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.range_header {
+    margin-bottom: 135px;
+}
+
+.range_header h6 {
+    color: var(--Black, #1E2128);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: uppercase;
+    padding-top: 30px;
+}

@@ -6,20 +6,26 @@ import "./Pricing.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { useEffect } from "react";
+import PricingBanner from "./PricingBanner";
+import PriceRange from "./PriceRange";
+import AddToTrandfer from "./AddToTrandfer";
 const Pricing = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      {/* <button onClick={clickHandler}>Click</button> */}
+      {/* <button onClick={clickHandler}>Click</button>
       <PageHeader />
       <BestOffer />
-      {/* <div className="slider_bg">
+      <div className="slider_bg">
         <div>
           <WhatPeopleSay color="#fff" />
         </div>
       </div>
       <GetStarted /> */}
+
+      <PricingBanner />
+      <PriceRange component={<AddToTrandfer />} />
     </div>
   );
 };

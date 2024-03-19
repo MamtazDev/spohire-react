@@ -275,7 +275,6 @@ const AnnouncementList = () => {
           <div className="col-lg-4">
             <SingleAnnouncement />
           </div> */}
-
         </div>
       </div>
       <DeleteModal />
@@ -296,7 +295,10 @@ const SingleAnnouncement = ({ item }) => {
     <>
       <div className="announcelist_wrapper">
         <div>
-          <div className="d-flex align-items-center" style={{ gap: "20px", marginBottom: "20px " }}>
+          <div
+            className="d-flex align-items-center"
+            style={{ gap: "20px", marginBottom: "20px " }}
+          >
             <div className="announcement_pic">
               <img
                 src={tennis}
@@ -312,29 +314,31 @@ const SingleAnnouncement = ({ item }) => {
             <div className="recruiment">
               <p>Senior UX Designer </p>
               <small>HCL Company</small>
-
             </div>
           </div>
           <div className="d-flex gap-3 flex-wrap detail_span">
-            <div
-              className="d-flex align-items-center"
-              style={{ gap: "6px" }}
-            >
-              <img style={{width:"20px",height:"20px"}} src={location} alt="" />
+            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
+              <img
+                style={{ width: "20px", height: "20px" }}
+                src={location}
+                alt=""
+              />
               <span>Bari, Haly</span>
             </div>
-            <div
-              className="d-flex align-items-center"
-              style={{ gap: "6px" }}
-            >
-              <img style={{width:"20px",height:"20px"}} src={flag} alt="" />
+            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
+              <img
+                style={{ width: "20px", height: "20px" }}
+                src={flag}
+                alt=""
+              />
               <span>Remote</span>
             </div>
-            <div
-              className="d-flex align-items-center"
-              style={{ gap: "6px" }}
-            >
-              <img style={{width:"20px",height:"20px"}} src={dollar} alt="" />
+            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
+              <img
+                style={{ width: "20px", height: "20px" }}
+                src={dollar}
+                alt=""
+              />
               <span>Undisclosed Salary</span>
             </div>
           </div>
@@ -349,11 +353,13 @@ const SingleAnnouncement = ({ item }) => {
             textOverflow: "ellipsis",
           }}
         >
-          Learn various UI UX Design materials including UX Research, UI Design, UX Writing, and Product Design for 4.5 months with professionals  product designer practitioners.
+          Learn various UI UX Design materials including UX Research, UI Design,
+          UX Writing, and Product Design for 4.5 months with professionals
+          product designer practitioners.
         </p>
         <div className="jobOpen_btn">
-            <button>Open</button>
-          </div>
+          <button>Open</button>
+        </div>
         <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
           <button className="bg-none" style={{ color: "#929292" }}>
             <i className="fa-regular fa-bookmark"></i>
