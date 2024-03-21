@@ -8,7 +8,7 @@ const OptionDropdown = ({ title, subtitle }) => {
     <div className="pricing_dropdown">
       <div
         style={{ color: "#05CD99" }}
-        className="d-flex items-center gap-3 p-3 "
+        className="d-flex items-center justify-content-between  gap-3 p-3 "
         onClick={() => setOpen(!open)}
       >
         <p>{selected}</p>
@@ -22,7 +22,7 @@ const OptionDropdown = ({ title, subtitle }) => {
         </button>
       </div>
       {open && (
-        <div className="p-3 d-flex flex-column gap-3  border-top">
+        <div className=" d-flex flex-column gap-3 dropDown_lists  border-top">
           {subtitle.map((data, index) => (
             <p onClick={() => setSelected(data)} key={index}>
               {data}

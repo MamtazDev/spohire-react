@@ -1,16 +1,12 @@
-import WhatPeopleSay from "../../components/whatPeopleSay/WhatPeopleSay";
-import BestOffer from "./BestOffer";
-import GetStarted from "./GetStarted";
-import PageHeader from "./PageHeader";
-import "./Pricing.css";
-import { useNavigate, useLocation } from "react-router-dom";
 
-import { useEffect } from "react";
+import "./Pricing.css";
+
 import PricingBanner from "./PricingBanner";
 import PriceRange from "./PriceRange";
 import AddToTrandfer from "./AddToTrandfer";
+import SubsCriptionPricing from "../../components/PricingPages/SubsCriptionPricing";
+import AddJobOfferPricing from "../../components/PricingPages/AddJobOfferPricing";
 const Pricing = () => {
-  const navigate = useNavigate();
 
   return (
     <div>
@@ -25,7 +21,24 @@ const Pricing = () => {
       <GetStarted /> */}
 
       <PricingBanner />
-      <PriceRange component={<AddToTrandfer />} />
+      <div className="container pricing_bg_wrapper">
+        <PriceRange component={<AddToTrandfer />} />
+        {/* additional infor */}
+        <div className="additional_pricing_wrapper">
+          <p>Additional fee for longer advertiser options</p>
+        </div>
+        <div className="pricing_line"></div>
+      </div>
+
+      <div className="container pricing_bg_wrapper">
+        <SubsCriptionPricing />
+      </div>
+      <div className="container pricing_bg_wrapper pb-0">
+        <AddJobOfferPricing />
+      </div>
+
+
+
     </div>
   );
 };
