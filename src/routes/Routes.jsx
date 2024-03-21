@@ -9,7 +9,6 @@ import Players from "../components/Dashboard/players/Players";
 import ViewDetails from "../components/Dashboard/viewDetails/ViewDetails";
 import Login from "../Authentication/Login/Login";
 import SignUp from "../Authentication/SignUp/SignUp";
-import PaymentProcess from "../pages/pricing/PaymentProcess.jsx";
 import Billing from "../components/Dashboard/Setting/Billing/Billing.jsx";
 import Notification from "../components/Dashboard/Setting/Notification/Notification.jsx";
 import Password from "../components/Dashboard/Setting/Password/Password";
@@ -34,7 +33,6 @@ import SubscribedRoute from "./SubscribedRoute.jsx";
 import CreateAnnouncements from "../pages/Announcement/CreateAnnouncements.jsx";
 import BlankMessages from "../components/Dashboard/Messages/BlankMessages.jsx";
 import PaymentRoute from "./PaymentRoute.jsx";
-import JobDetails from "../pages/JobOffer/JobDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import AppliedJobs from "../components/Dashboard/dashbordJobOffers/AppliedJobs.jsx";
 import MyAppliedJob from "../components/Dashboard/dashbordJobOffers/MyAppliedJob.jsx";
@@ -48,6 +46,7 @@ import AddPlayerProfile from "../pages/AddProfile/AddPlayerProfile.jsx";
 import AddCoachProfile from "../pages/AddProfile/AddCoachProfile.jsx";
 import EditAddedPlayerDetails from "../components/Dashboard/viewDetails/EditAddedPlayerDetails.jsx";
 import JobOfferDetails from "../pages/JobOffer/JobOfferDetails.jsx";
+import News from "../pages/News/News.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/news",
+        element: <News />,
       },
       {
         path: "/transfarMarket",
