@@ -119,6 +119,10 @@
     text-transform: uppercase;
 
 }
-.page-link{
+.news_pagination .page-link{
     border: none;
+}
+
+.news_pagination{
+margin-bottom: 187px;
 }

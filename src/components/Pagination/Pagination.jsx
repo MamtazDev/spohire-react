@@ -13,34 +13,34 @@
 
 //   return (
 //     <nav aria-label="">
-//       <ul className="pagination d-flex justify-content-center gap-3">
+//       <ul classNameName="pagination d-flex justify-content-center gap-3">
 //         <li
-//           className={`page-item ${currentPage === 1 && "disabled"}`}
+//           classNameName={`page-item ${currentPage === 1 && "disabled"}`}
 //           onClick={() => setCurrentPage((prev) => prev - 1)}
 //           style={{ cursor: "pointer" }}
 //         >
-//           <span className="page-link">
-//             <i className="fa fa-angle-left"></i>
+//           <span classNameName="page-link p-0">
+//             <i classNameName="fa fa-angle-left"></i>
 //           </span>
 //         </li>
 
 //         {pageNumbers.map((i) => (
 //           <li
-//             className={`page-item ${currentPage === i && "active"}`}
+//             classNameName={`page-item ${currentPage === i && "active"}`}
 //             style={{ cursor: "pointer" }}>
-//             <span className="page-link" onClick={() => setCurrentPage(i)}>
+//             <span classNameName="page-link p-0" onClick={() => setCurrentPage(i)}>
 //               {i}
 //             </span>
 //           </li>
 //         ))}
 //         <li
-//           className={`page-item ${currentPage === totalPages && "disabled"}`}
+//           classNameName={`page-item ${currentPage === totalPages && "disabled"}`}
 //           onClick={() => setCurrentPage((prev) => prev + 1)}
 //           style={{ cursor: "pointer" }}
 //         >
-//           <span className="page-link">
+//           <span classNameName="page-link p-0">
 //             {" "}
-//             <i className="fa fa-angle-right"></i>
+//             <i classNameName="fa fa-angle-right"></i>
 //           </span>
 //         </li>
 //       </ul>
@@ -60,18 +60,18 @@ const Pagination = () => {
   return (
     <div>
       <nav aria-label="Page navigation example " className='news_pagination'>
-        <ul class="pagination d-flex  align-items-center justify-content-center " style={{gap:"43px"}}>
-          <li class="">
-            <a class="page-link" href="#" aria-label="Previous">
+        <ul className="pagination mb-0 d-flex  align-items-center justify-content-center " style={{ gap: "43px" }}>
+          <li className="">
+            <a className="page-link p-0" href="#" aria-label="Previous">
               <img src={leftinacivepag} alt="" />
             </a>
           </li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">4</a></li>
-          <li class="">
-            <a class="page-link" href="#" aria-label="Next">
+          <li className="page-item active"><a className="page-link p-0" href="#">1</a></li>
+          <li className="page-item"><a className="page-link p-0" href="#">2</a></li>
+          <li className="page-item"><a className="page-link p-0" href="#">3</a></li>
+          <li className="page-item"><a className="page-link p-0" href="#">4</a></li>
+          <li className="">
+            <a className="page-link p-0" href="#" aria-label="Next">
               <img src={rightacivepag} alt="" />
             </a>
           </li>

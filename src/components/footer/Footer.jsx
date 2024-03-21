@@ -70,7 +70,7 @@ const Footer = () => {
         <hr />
         <div className="fooBottom d-flex  flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
           <Link to="#">Privacy policy</Link>
-          <Link to="#">Terms & condition</Link>
+          <Link to="/terms-condition">Terms & condition</Link>
           <Link to="#">AMSL All Right Reserved</Link>
         </div>
       </div>

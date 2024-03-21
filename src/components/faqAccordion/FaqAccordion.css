@@ -4,6 +4,11 @@
     padding-bottom: 27px;
 }
 
+.accordion .accordion_items:last-child {
+    border-bottom: none; 
+}
+
+
 .accordion .container {
     max-width: 1140px;
 }
@@ -25,7 +30,6 @@
     background: #F4F7FE;
     color: #8593BC;
     text-align: center;
-    /* font-family: "DM Sans"; */
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -38,7 +42,6 @@
         border-radius: 6px;
         border: 1px solid rgba(0, 0, 0, 0.04);
         background: #FFF;
-
         padding: 16px;
     }
 

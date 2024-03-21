@@ -47,6 +47,7 @@ import AddCoachProfile from "../pages/AddProfile/AddCoachProfile.jsx";
 import EditAddedPlayerDetails from "../components/Dashboard/viewDetails/EditAddedPlayerDetails.jsx";
 import JobOfferDetails from "../pages/JobOffer/JobOfferDetails.jsx";
 import News from "../pages/News/News.jsx";
+import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "/news",
         element: <News />,
+      },
+      {
+        path: "/terms-condition",
+        element: <TermsAndCondition />,
       },
       {
         path: "/transfarMarket",

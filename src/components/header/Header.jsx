@@ -210,8 +210,8 @@ const Header = () => {
                   Pricing
                 </Link>
               </Nav.Link>
-              <Nav.Link href="/pricing">
-                <Link to="/pricing" className="nav-link">
+              <Nav.Link href="/news">
+                <Link to="/news" className="nav-link">
                   News
                 </Link>
               </Nav.Link>

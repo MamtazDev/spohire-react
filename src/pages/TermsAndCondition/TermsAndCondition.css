@@ -1,0 +1,92 @@
+.terms_list {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 8px 30px 0px rgba(165, 165, 165, 0.12);
+    padding: 65px 0 185px 53px;
+    margin-bottom: 36px;
+}
+
+.terms_list ul li {
+    color: var(--Black, #1E2128);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+    letter-spacing: 1.28px;
+    margin-bottom: 74px;
+}
+
+.terms_list ul li.active {
+    color: var(--Black, #0095FF);
+    text-decoration: underline;
+}
+
+.terms_list ul li span {
+    background: var(--Light-blue, #F4F7FE);
+    color: var(--Black, #1E2128);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.28px;
+    padding: 5px 15px;
+    margin-right: 20px;
+}
+
+.terms_list ul li.active span {
+    color: #0095FF;
+}
+
+.faq_list {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 8px 30px 0px rgba(165, 165, 165, 0.12);
+    padding: 50px;
+}
+
+.terms_faq_title {
+    color: var(--Black-2, #4C4E52);
+    text-align: start;
+    font-family: "SF Pro Display";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    margin-bottom: 47px;
+
+}
+
+.terms_wrapper {
+    margin-bottom: 187px;
+}
+
+.terms_condition_details {
+    border-radius: 10px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 8px 30px 0px rgba(165, 165, 165, 0.12);
+    padding: 50px 79px 84px 58px;
+}
+
+.terms_condition_details h2 {
+    color: var(--Black-2, #4C4E52);
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.terms_condition_details p {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    /* 32px */
+    letter-spacing: 0.4px;
+}
