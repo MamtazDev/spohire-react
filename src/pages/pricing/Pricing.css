@@ -627,13 +627,12 @@
 /* .price_card:hover {
     background-color: #2B196A;
 } */
-.active {
+.price_range .active {
     background-color: #2B196A;
 }
 
 .active_color {
     color: var(--Neutral-400, #D9DBE9);
-    font-feature-settings: 'clig' off, 'liga' off;
     font-family: "DM Sans", sans-serif;
     font-size: 18px;
     font-style: normal;
@@ -666,7 +665,7 @@
 
 .pricing_buttons .inactive {
     color: var(--Black, #1E2128);
-    font-family: "SF Pro Display";
+    font-family: "SF Pro Display",sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -680,7 +679,7 @@
 
 .pricing_buttons .active {
     color: var(--Black, #FFF);
-    font-family: "SF Pro Display";
+    font-family: "SF Pro Display",sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
