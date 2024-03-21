@@ -4,6 +4,7 @@ import './News.css';
 import n1 from '../../assets/news/n1.png'
 import n2 from '../../assets/news/n2.png'
 import n4 from '../../assets/news/n4.png'
+import Pagination from "../../components/Pagination/Pagination";
 
 const newsData = [
     {
@@ -42,6 +43,9 @@ const News = () => {
                     <NewsCard data={data} />
                 </>
             ))}
+
+            <Pagination />
+
         </div>
     )
 }

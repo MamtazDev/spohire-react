@@ -101,3 +101,24 @@
     background: none;
     align-items: center;
 }
+
+.news_pagination .pagination .page-item.active .page-link {
+    border-radius: 50%;
+    background-color: #4C4E52 !important;
+}
+
+.pagination .page-item .page-link {
+    border: none;
+    color: rgba(38, 38, 38, 0.61);
+    font-family: "Sequel Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 405;
+    line-height: 60px;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+
+}
+.page-link{
+    border: none;
+}
