@@ -39,9 +39,7 @@ const Faq = () => {
 
 
     return (
-        <div>
-
-
+        <>
             <div className="faq_list">
                 <div className="accordion">
                     <div className="container">
@@ -82,7 +80,7 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

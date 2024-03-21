@@ -201,17 +201,21 @@
 
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+// /* eslint-disable react/prop-types */
+// /* eslint-disable no-unused-vars */
 import a1 from "../../assets/a11.png";
-import tennis from "../../assets/tennis.png";
-import flag from "../../assets/flag-icon.svg";
+import flag from "../../assets/flag.png";
 import dollar from "../../assets/coin-dollar.png";
 import location from "../../assets/location.png";
+import bookmark1 from "../../assets/bookmark11.png";
+import bookmark2 from "../../assets/bookmark12.svg";
 import JobCategory from "./JobCategory";
 import DeleteModal from "./DeleteModal";
 import { useState } from "react";
 import { useGetAllAnnouncementQuery } from "../../features/announcement/announcementApi";
 import { useSelector } from "react-redux";
 import { setFilterParams } from "../../features/announcement/announcementSlice";
+import AnnouncementFilterCategory from "./AnnouncementFilterCategory";
 
 const sports = ["Football", "Basketball", "Handball", "Volleyball"];
 const country = [
@@ -266,15 +270,11 @@ const AnnouncementList = () => {
         style={{ marginTop: "104px", marginBottom: "150px" }}
       >
         <div className="row">
-          {/* <div className="col-lg-4">
-            <SingleAnnouncement />
-          </div>
-          <div className="col-lg-4">
-            <SingleAnnouncement />
-          </div>
-          <div className="col-lg-4">
-            <SingleAnnouncement />
-          </div> */}
+          <SingleAnnouncement />
+          <SingleAnnouncement />
+          <SingleAnnouncement />
+          <SingleAnnouncement />
+          <SingleAnnouncement />
         </div>
       </div>
       <DeleteModal />
@@ -291,81 +291,89 @@ const SingleAnnouncement = ({ item }) => {
   const handleBookmark = () => {
     setBookmark(!bookmark);
   };
-  return (
-    <>
-      <div className="announcelist_wrapper">
-        <div>
-          <div
-            className="d-flex align-items-center"
-            style={{ gap: "20px", marginBottom: "20px " }}
-          >
-            <div className="announcement_pic">
-              <img
-                src={tennis}
-                alt=""
-                style={{
-                  height: "80px",
-                  width: "80px",
-                  borderRadius: "8px",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-            <div className="recruiment">
-              <p>Senior UX Designer </p>
-              <small>HCL Company</small>
-            </div>
+
+  return (<>
+    <div className="announcelist_wrapper">
+      <div className="d-flex justify-content-between align-items-start">
+        <div className="d-flex align-items-center" style={{ gap: "36px" }}>
+          <div className="announcement_pic">
+            <img
+              src={a1}
+              alt=""
+              style={{
+                height: "213px",
+                width: "213px",
+                borderRadius: "8px",
+                objectFit: "cover",
+              }}
+            />
           </div>
-          <div className="d-flex gap-3 flex-wrap detail_span">
-            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
-              <img
-                style={{ width: "20px", height: "20px" }}
-                src={location}
-                alt=""
-              />
-              <span>Bari, Haly</span>
+          <div className="recruiment f_sfPro">
+            <p className="title">Player recruitment</p>
+            <p className="position">Korner Kick</p>
+            <div className="d-flex gap-3 flex-wrap" style={{ marginBottom: "31px" }}>
+              <div
+                className="d-flex align-items-center"
+                style={{ gap: "6px" }}
+              >
+                <img src={location} alt="" />
+                <span>Vegas Street Circuit</span>
+              </div>
+              {/* <div
+                   className="d-flex align-items-center"
+                   style={{ gap: "6px" }}
+                 >
+                   <img src={flag} alt="" />
+                   <span>{item?.status}</span>
+                 </div> */}
+              <div
+                className="d-flex align-items-center"
+                style={{ gap: "6px" }}
+              >
+                <img src={dollar} alt="" />
+                <span>USD 5000</span>
+              </div>
             </div>
-            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
-              <img
-                style={{ width: "20px", height: "20px" }}
-                src={flag}
-                alt=""
-              />
-              <span>Remote</span>
-            </div>
-            <div className="d-flex align-items-center" style={{ gap: "6px" }}>
-              <img
-                style={{ width: "20px", height: "20px" }}
-                src={dollar}
-                alt=""
-              />
-              <span>Undisclosed Salary</span>
-            </div>
+
+            <p className="details">We can't wait to share this milestone with our incredible sports community. Your passion and support have fueled our  journey, and we're  <br /> thrilled to  fueled our take it to the next level together.</p>
           </div>
         </div>
-        <p
-          className="announcement_details f_sfPro"
-          style={{
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            WebkitLineClamp: 3,
-            textOverflow: "ellipsis",
-          }}
-        >
-          Learn various UI UX Design materials including UX Research, UI Design,
-          UX Writing, and Product Design for 4.5 months with professionals
-          product designer practitioners.
-        </p>
-        <div className="jobOpen_btn">
-          <button>Open</button>
-        </div>
-        <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
-          <button className="bg-none" style={{ color: "#929292" }}>
-            <i className="fa-regular fa-bookmark"></i>
-          </button>
+        {/* icon div */}
+        <div className="d-lg-block d-none">
+          <div>
+            <button
+              className="bg-none"
+              
+              onClick={handleBookmark}
+            >
+              {bookmark ? (
+                <img style={{ width: "23px",height:"30px" }} src={bookmark2} alt="" />
+              ) : (
+                <img style={{ width: "23px",height:"30px" }} src={bookmark1} alt="" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
-    </>
+      <p
+        className="announcement_details f_sfPro"
+        style={{
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          WebkitLineClamp: 3,
+          textOverflow: "ellipsis",
+        }}
+      >
+        {item?.description}
+      </p>
+      <div className="d-flex gap-3 d-lg-none d-block justify-content-end">
+        <button className="bg-none" style={{ color: "#929292" }}>
+          {" "}
+          <i className="fa-regular fa-bookmark"></i>
+        </button>
+      </div>
+    </div>
+  </>
   );
 };

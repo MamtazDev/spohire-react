@@ -35,9 +35,13 @@
 }
 
 .announcelist_wrapper {
-    border-radius: 20px;
-    background: #F5F8FE;
-    padding: 30px 33px 39px 32px;
+    /* border-radius: 20px;
+    background: #F5F8FE; */
+    border-radius: 16px;
+    border: 1px solid var(--Light-blue, #F4F7FE);
+    background: var(--White, #FFF);
+    box-shadow: 0px 8px 30px 0px rgba(165, 165, 165, 0.12);
+    padding: 25px;
     margin-bottom: 24px;
 
 }
@@ -98,14 +102,26 @@
 
 }
 
-.recruiment p {
-    color: #4C4E52;
-    font-family: "SF Pro Display", sans-serif;
+.recruiment .title {
+    color: var(--Blue-2, #0095FF);
+    font-family: "DM Sans", sans-serif;
     font-size: 24px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: normal;
-    margin-bottom: 11px;
+    letter-spacing: -0.48px;
+    margin-bottom: 15px;
+}
+
+.recruiment .position {
+    color: var(--b3, #8593BC);
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    margin-bottom: 16px;
 }
 
 .recruiment small {
@@ -119,10 +135,23 @@
 
 .recruiment span {
     color: #546580;
-    font-size: 14px;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+}
+
+.recruiment .details {
+    color: var(--Black-2, #4C4E52);
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    /* 125% */
+    letter-spacing: 0.2px;
 }
 
 .recruiment img {
