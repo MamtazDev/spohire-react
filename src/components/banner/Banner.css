@@ -59,10 +59,10 @@
     padding-top: 74px;
 }
 
-.header_position {
+/* .header_position {
     position: absolute;
     width: 100%;
-}
+} */
 
 @media(max-width:768px) {
     .header_position {

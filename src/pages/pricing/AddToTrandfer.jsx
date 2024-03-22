@@ -7,9 +7,9 @@ const AddToTrandfer = () => {
       <h6>ADD</h6>
       <OptionDropdown
         title="HANDBALL"
-        subtitle={["Football", "basketball", "volleyball"]}
+        subtitle={["HANDBALL","Football", "basketball", "volleyball"]}
       />
-      <OptionDropdown title="player" subtitle={["coach"]} />
+      <OptionDropdown title="Player" subtitle={["Player","Coach"]} />
       <h6>TO Transfer Market LIST</h6>
     </div>
   );
