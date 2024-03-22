@@ -64,21 +64,26 @@
 }
 
 .chat_wrapper h5 {
-  color: #2e3138;
-  font-family: "SF Pro Display" sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+
+  color: #2B3674 !important;
+  font-family: "SF Pro Display", sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 28px !important;
+  letter-spacing: -0.32px !important;
+  margin-bottom: 0;
 }
 
 .chat_wrapper span {
-  color: #adacb1;
   font-family: "SF Pro Display" sans-serif;
+  color: #A3AED0;
   font-size: 12px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 500;
+  line-height: 20px;
+  /* 166.667% */
+  letter-spacing: -0.24px;
 }
 
 .chat_wrapper p {
@@ -150,6 +155,7 @@
   width: 33px;
   border-bottom-right-radius: 100px;
 }
+
 .bg_curve_blue1 {
   background: white;
   height: 90px;

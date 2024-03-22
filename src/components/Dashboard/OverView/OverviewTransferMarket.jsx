@@ -35,10 +35,10 @@ const OverviewTransferMarket = () => {
                         </div>
                     </div>
                     <div className="row mt-4">
-                        <div className="col-lg-6 ps-0 pe-lg-3 pe-0">
+                        <div className="col-lg-8 ps-0 pe-lg-3 pe-0">
                             <RecentlyObserved />
                         </div>
-                        <div className="col-lg-6 mt-lg-0 mt-4 mb-lg-0 mb-5 pe-0 ps-lg-3 ps-0 ">
+                        <div className="col-lg-4 mt-lg-0 mt-4 mb-lg-0 mb-5 pe-0 ps-lg-3 ps-0 ">
                             {user?.role !== "Other" && <MessagesOverview />}
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const RecentlyObserved = () => {
       <div className="job_offer_overrview_wrapper">
         <div
           className="d-flex justify-content-between"
-          style={{ marginBottom: "65px" }}
+          style={{ marginBottom: "0px" }}
         >
           <h4>Recently Observed</h4>
           {data?.data?.length > 0 && (
@@ -32,13 +32,14 @@ const RecentlyObserved = () => {
                   <div className="job_offer_item_img">
                     <img
                       src={
-                        item?.target_id?.club_logo
-                          ? `${
-                              process.env.NODE_ENV !== "production"
-                                ? import.meta.env.VITE_LOCAL_API_URL
-                                : import.meta.env.VITE_LIVE_API_URL
-                            }/api/v1/uploads/${item?.target_id?.club_logo}`
-                          : footBallCoachImg
+                        // item?.target_id?.club_logo
+                        //   ? `${
+                        //       process.env.NODE_ENV !== "production"
+                        //         ? import.meta.env.VITE_LOCAL_API_URL
+                        //         : import.meta.env.VITE_LIVE_API_URL
+                        //     }/api/v1/uploads/${item?.target_id?.club_logo}`
+                        //   :
+                        footBallCoachImg
                       }
                       alt="img"
                       style={{
@@ -59,7 +60,7 @@ const RecentlyObserved = () => {
                         {item?.target_id?.company}
                       </p>
                     </div>
-                    <div className="align-self-lg-center align-self-end">
+                    <div className="align-self-lg-center align-self-end observed_links">
                       <Link to="/dashboard/jobOffers">Job Offers</Link>
                     </div>
                   </div>
@@ -76,13 +77,14 @@ const RecentlyObserved = () => {
                       <div className="announcement_pic">
                         <img
                           src={
-                            item?.target_id?.image
-                              ? `${
-                                  process.env.NODE_ENV !== "production"
-                                    ? import.meta.env.VITE_LOCAL_API_URL
-                                    : import.meta.env.VITE_LIVE_API_URL
-                                }/api/v1/uploads/${item?.target_id?.image}`
-                              : a1
+                            // item?.target_id?.image
+                            //   ? `${
+                            //       process.env.NODE_ENV !== "production"
+                            //         ? import.meta.env.VITE_LOCAL_API_URL
+                            //         : import.meta.env.VITE_LIVE_API_URL
+                            //     }/api/v1/uploads/${item?.target_id?.image}`
+                            //   :
+                            a1
                           }
                           alt=""
                           style={{
@@ -140,11 +142,10 @@ const RecentlyObserved = () => {
                         <img
                           src={
                             item?.target_id?.image
-                              ? `${
-                                  process.env.NODE_ENV !== "production"
-                                    ? import.meta.env.VITE_LOCAL_API_URL
-                                    : import.meta.env.VITE_LIVE_API_URL
-                                }/api/v1/uploads/${item?.target_id?.image}`
+                              ? `${process.env.NODE_ENV !== "production"
+                                ? import.meta.env.VITE_LOCAL_API_URL
+                                : import.meta.env.VITE_LIVE_API_URL
+                              }/api/v1/uploads/${item?.target_id?.image}`
                               : a1
                           }
                           alt=""
@@ -191,11 +192,10 @@ const RecentlyObserved = () => {
                       className="align-self-lg-center align-self-end"
                     >
                       <Link
-                        to={`${
-                          item?.target_id?.role === "Coach"
+                        to={`${item?.target_id?.role === "Coach"
                             ? "/dashboard/coaches"
                             : "/dashboard/players"
-                        }`}
+                          }`}
                       >
                         {item?.target_id?.role}
                         {item?.target_id?.role === "Coach" ? "es" : "s"}

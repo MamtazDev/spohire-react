@@ -1,18 +1,18 @@
 .news_header h2 {
     font-family: "SF Pro Display", sans-serif;
     color: var(--Dark-blue, #2B3674);
-    font-size: 48px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 500;
     line-height: 123.9%;
-    padding: 86px 0;
+    padding: 52px 0;
 }
 
 .h_line_design {
     width: 100%;
     height: 1px;
     background: #000;
-    margin-bottom: 128px;
+    margin-bottom: 81px;
 
 }
 
@@ -22,12 +22,12 @@
 
 .news_card .date_wrapper h3 {
     color: #000;
-    margin-bottom: 25px;
-    font-size: 40px;
+    font-family: "SF Pro Display",sans-serif;
+    font-size: 32px;
     font-style: normal;
     font-weight: 500;
-    line-height: 50px;
-    letter-spacing: 1.6px;
+    line-height: 50px; /* 156.25% */
+    letter-spacing: 1.28px;
 }
 
 .news_card .date_line {
@@ -40,11 +40,11 @@
 .date_wrapper h2 {
     color: var(--Black-2, #4C4E52);
     font-family: "SF Pro Display";
-    font-size: 96px;
+    font-size: 72px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    letter-spacing: 3.84px;
+    letter-spacing: 2.88px;
 }
 
 .news_card {
@@ -77,8 +77,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 35px;
-    margin-top: 98px;
-    margin-bottom: 40px;
+    margin-top: 25px;
+    margin-bottom: 31px;
 }
 
 .card_details .desc_line {
@@ -117,7 +117,6 @@
     line-height: 60px;
     letter-spacing: 0.24px;
     text-transform: uppercase;
-
 }
 .news_pagination .page-link{
     border: none;
@@ -125,4 +124,9 @@
 
 .news_pagination{
 margin-bottom: 187px;
+}
+.news_img{
+    max-width: 581px;
+    width: 100%;
+    height: 419px;
 }

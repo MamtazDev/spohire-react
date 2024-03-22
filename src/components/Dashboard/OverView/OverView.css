@@ -195,7 +195,7 @@
     line-height: 28px;
     /* 175% */
     letter-spacing: -0.32px;
-margin-bottom: 4px;
+    margin-bottom: 4px;
 
 }
 
@@ -219,7 +219,7 @@ margin-bottom: 4px;
 }
 
 .overview_wrapper h4 {
-    margin-bottom: 22px;
+    margin-bottom: 2px;
     color: #2B3674;
     font-family: "DM Sans", sans-serif;
     font-size: 20px;
@@ -228,6 +228,16 @@ margin-bottom: 4px;
     line-height: 32px;
     /* 160% */
     letter-spacing: -0.4px;
+}
+
+.observed_links a {
+    color: var(--green, #05CD99);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none !important;
 }
 
 .message_overview_hr {
@@ -366,4 +376,14 @@ table.table th,
 table.table td {
     padding-top: 18px !important;
     padding-bottom: 0 !important;
+}
+
+.message_overview_header {
+    border-radius: 20px 20px 0px 0px;
+    background: #F6FFFD;
+    padding: 25px 30px 9px;
+}
+
+.messages_list{
+    padding: 21px 30px;
 }

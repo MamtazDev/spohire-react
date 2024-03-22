@@ -48,6 +48,7 @@ import EditAddedPlayerDetails from "../components/Dashboard/viewDetails/EditAdde
 import JobOfferDetails from "../pages/JobOffer/JobOfferDetails.jsx";
 import News from "../pages/News/News.jsx";
 import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition.jsx";
+import NewsDetails from "../components/News/NewsDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: "/news",
         element: <News />,
+      },
+      {
+        path: "/newsDetails",
+        element: <NewsDetails />,
       },
       {
         path: "/terms-condition",

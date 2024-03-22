@@ -17,7 +17,7 @@ const AddToSubscription = () => {
                 <h6>IN</h6>
                 <OptionDropdown
                     title="HANDBALL"
-                    subtitle={["Football", "basketball", "volleyball"]}
+                    subtitle={["HANDBALL","Football", "basketball", "volleyball"]}
                 />
                 <h6>Transfer Market LIST</h6>
             </div>
