@@ -3,7 +3,7 @@
 }
 
 .dashobard_layout .dashbord_sidebar {
-    background-color: white;
+    background-color: #1E2128;
     position: fixed;
     width: inherit;
     top: 0;
@@ -11,9 +11,12 @@
     padding: 30px;
     border-right: 2px solid #DFE5F1;
     height: 100vh;
+    color: #E3E3E3;
 }
 
 .dashobard_layout .dashbord_content {
     /* padding: 30px; */
     margin-top: 90px;
+    background-color: #F8F8F8;
+    /* height: auto; */
 }

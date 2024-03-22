@@ -1,7 +1,7 @@
 .player_overview {
-    border-radius: 7px;
-    border: 1px solid #DFE5F1;
-    background: #FFFDFD;
+    border-radius: 20px;
+    /* border: 1px solid #DFE5F1; */
+    background: #FFF;
 
     padding: 31px 17px 24px 30px;
 }
@@ -69,7 +69,7 @@
 .overview_wrapper h1 {
     color: var(--dark-1-dark, #202020);
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: SF Pro Display;
+
     font-size: 39px;
     font-style: normal;
     font-weight: 700;
@@ -80,6 +80,7 @@
 .overview_wrapper {
     margin: 41px 46px !important;
     /* padding-top: 20px; */
+    font-family: 'SF Pro Display', sans-serif;
 
 }
 
@@ -108,9 +109,9 @@
 
 /* job_offer_overrview_wrapper */
 .job_offer_overrview_wrapper {
-    border-radius: 7px;
-    border: 1px solid #DFE5F1;
-    background: #FFFDFD;
+    border-radius: 20px;
+    /* border: 1px solid #DFE5F1; */
+    background: #FFF;
     padding: 32px 30px 23px;
 }
 
@@ -120,27 +121,44 @@
 }
 
 .job_offer_overrview_wrapper h5 {
-    font-size: 14px !important;
+    /* font-size: 14px !important; */
+    color: #2B3674;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 175% */
+    letter-spacing: -0.32px;
 }
 
 .job_offer_overrview_wrapper p {
-    font-size: 12px !important;
+    /* font-size: 12px !important; */
+    color: #A3AED0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 166.667% */
+    letter-spacing: -0.24px;
 }
 
 .joboffer_ov_wrapper {
-    border-radius: 11px;
-    border: 1px solid #EDF1F8;
-    padding: 7px 0px 7px 10px;
+    padding: 11px 16px 13px 16px;
     margin-top: 10px;
+    border-radius: 16px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 8px 30px 0px rgba(165, 165, 165, 0.12);
 }
 
 
 .announcelist_wrapper1 {
-    border-radius: 11px;
-    border: 1px solid #DFE5F1;
-    background: transparent;
-    padding: 7px 0px 7px 10px;
+    padding: 12px 16px 14px 20px;
     margin-bottom: 0;
+    border-radius: 16px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 7px 31.1px 0px rgba(165, 165, 165, 0.12);
 }
 
 .recruiment1 img {
@@ -149,7 +167,13 @@
 }
 
 .recruiment1 span {
+    /* color: #546580;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; */
     color: #546580;
+    font-family: "SF Pro Display", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -157,12 +181,22 @@
 }
 
 .recruiment1 p {
-    color: #141736;
+    /* color: #141736;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-bottom: 7px;
+    margin-bottom: 7px; */
+    color: #2B3674;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 175% */
+    letter-spacing: -0.32px;
+margin-bottom: 4px;
+
 }
 
 .job_offer_item_content {
@@ -174,21 +208,26 @@
 }
 
 .overview_wrapper a {
-    color: #0177FB;
-    text-align: center;
-    font-size: 16px;
+    color: var(--Blue-2, #0095FF);
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    letter-spacing: 0.14px;
+    text-decoration-line: underline;
 }
 
 .overview_wrapper h4 {
-    color: #141736;
-
+    margin-bottom: 22px;
+    color: #2B3674;
+    font-family: "DM Sans", sans-serif;
     font-size: 20px;
     font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-weight: 500;
+    line-height: 32px;
+    /* 160% */
+    letter-spacing: -0.4px;
 }
 
 .message_overview_hr {
@@ -243,4 +282,88 @@
         display: flex;
         flex-direction: column;
     }
+}
+
+
+/* updated css start */
+.overView_date {
+    color: var(--Dark-blue, #2B3674);
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    margin-top: 33px;
+    margin-bottom: 16px;
+    text-align: end;
+    width: 100%;
+}
+
+
+/* over_tm_wrapper */
+.over_tm_wrapper .transfer_title {
+    color: var(--Dark-blue, #2B3674);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.over_tm_wrapper .buttons_design {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 51px;
+}
+
+.over_tm_wrapper .buttons_design button {
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: var(--White, #FFF);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--b3, #8593BC);
+    text-align: center;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.32px;
+
+}
+
+/* over_tm_wrapper */
+
+.players_table_head th {
+    color: #A3AED0;
+    text-align: center;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 171.429% */
+    letter-spacing: -0.28px;
+    text-align: start;
+    padding: 0 0 6px 9px !important;
+}
+
+.player_overview p {
+    color: #2B3674;
+    font-size: 12px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 200% */
+    letter-spacing: -0.24px;
+}
+
+table.table th,
+table.table td {
+    padding-top: 18px !important;
+    padding-bottom: 0 !important;
 }

@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import a1 from "../../../assets/a11.png";
-import flag from "../../../assets/flag.png";
+import publishedFlag from "../../../assets/publishedFlag.png";
 import dollar from "../../../assets/coin-dollar.png";
 import location from "../../../assets/location.png";
+import threedot from "../../../assets/threedot.png";
 import { Link } from "react-router-dom";
 import { useGetAllAnnouncementQuery } from "../../../features/announcement/announcementApi";
 
@@ -18,7 +19,7 @@ const AnnouncementOverview = () => {
       >
         <div className="d-flex justify-content-between">
           <h4>Announcements</h4>
-          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 && (
+          {allAnnouncements?.data && allAnnouncements?.data?.length > 0 && (  
             <Link to="/dashboard/announcements">View More</Link>
           )}
         </div>
@@ -26,8 +27,8 @@ const AnnouncementOverview = () => {
         {allAnnouncements?.data && allAnnouncements?.data.length > 0 ? (
           allAnnouncements?.data.slice(0, 3).map((item, idx) => (
             <div
-              className="announcelist_wrapper1"
-              style={{ marginTop: "10px" }}
+              className="announcelist_wrapper1 d-flex  justify-content-between align-items-center"
+              style={{ marginTop: "20px" }}
               key={idx}
             >
               <div className="d-flex justify-content-between align-items-start">
@@ -38,14 +39,16 @@ const AnnouncementOverview = () => {
                   <div className="announcement_pic">
                     <img
                       src={
-                        item?.image
-                          ? `${
-                              process.env.NODE_ENV !== "production"
-                                ? import.meta.env.VITE_LOCAL_API_URL
-                                : import.meta.env.VITE_LIVE_API_URL
-                            }/api/v1/uploads/${item?.image}`
-                          : a1
+                         a1
                       }
+                      // src={
+                      //   item?.image
+                      //     ? `${process.env.NODE_ENV !== "production"
+                      //       ? import.meta.env.VITE_LOCAL_API_URL
+                      //       : import.meta.env.VITE_LIVE_API_URL
+                      //     }/api/v1/uploads/${item?.image}`
+                      //     : a1
+                      // }
                       alt=""
                       style={{
                         height: "46px",
@@ -57,7 +60,7 @@ const AnnouncementOverview = () => {
                   </div>
                   <div className="recruiment1 f_sfPro">
                     <p>{item?.title}</p>
-                    <div className="d-flex gap-3 flex-wrap">
+                    <div className="d-flex flex-wrap" style={{ gap: "30px" }}>
                       <div
                         className="d-flex align-items-center"
                         style={{ gap: "6px" }}
@@ -65,13 +68,13 @@ const AnnouncementOverview = () => {
                         <img src={location} alt="" />
                         <span>{item?.location}</span>
                       </div>
-                      {/* <div
+                      <div
                         className="d-flex align-items-center"
                         style={{ gap: "6px" }}
                       >
-                        <img src={flag} alt="" />
-                        <span>{item?.status}</span>
-                      </div> */}
+                        <img src={publishedFlag} alt="" />
+                        <span style={{ color: "#05CD99" }}>{item?.status ? item.status : "Not Published"}</span>
+                      </div>
                       <div
                         className="d-flex align-items-center"
                         style={{ gap: "6px" }}
@@ -83,6 +86,9 @@ const AnnouncementOverview = () => {
                   </div>
                 </div>
               </div>
+              <img style={{width:"24px",height:"24px"}} src={threedot} alt="" />
+
+
             </div>
           ))
         ) : (

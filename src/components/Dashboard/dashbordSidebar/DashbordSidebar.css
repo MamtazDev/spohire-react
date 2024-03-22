@@ -2,56 +2,82 @@
     margin-bottom: 46px;
 }
 
-.dashbord_sidebar .dashbord_user {
-    border-bottom: 1px solid var(--color_f1);
-}
-
 .dashbord_sidebar .overview {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--color_f1);
+    padding-top: 48px;
+    /* padding-bottom: 30px; */
+    /* border-bottom: 1px solid var(--color_f1); */
 }
 
 .dashbord_sidebar .menu_link .menu_wrapper_one {
-    padding-top: 36px;
-    padding-bottom: 24px;
+    /* padding-top: 36px; */
+    /* padding-bottom: 24px; */
     border-bottom: 1px solid var(--color_f1);
+}
+
+.text_color_E3 {
+    color: #E3E3E3;
+    font-family: "SF Pro Display", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.32px;
 }
 
 .dashbord_sidebar .menu_link .menu_wrapper_two {
     padding-top: 16px;
 }
-
-.dashbord_sidebar .menu_link .nav_item {
-    margin-bottom: 24px;
+.accordion-body{
+    padding: 0;
 }
 
 .dashbord_sidebar .dashbord_sidebar_content {
     height: 90%;
 }
-
+.dashbord_sidebar_content li{
+    padding-top: 40px;
+}
 .dashbord_sidebar .dashbord_sidebar_content .bottom .logout {
     padding-top: 35px;
     border-top: 1px solid var(--color_f1);
 }
 
-.accordion-button{
+.accordion-button {
     padding: 0;
 }
 
-.accordion-button:focus{
+.accordion-button:focus {
     box-shadow: none;
 }
 
-.accordion-item:last-of-type .accordion-button.collapsed{
+.accordion-item:last-of-type .accordion-button.collapsed {
     border-radius: 0;
 }
 
-.accordion-item:first-of-type .accordion-button{
+.accordion-item:first-of-type .accordion-button {
     border-radius: 0;
 }
 
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed) {
     background-color: white;
     box-shadow: none;
+}
+
+
+
+/* updated css start */
+.accordion-button,
+.accordion-item,
+.accordion-button:not(.collapsed) {
+    background-color: #1E2128;
+}
+
+.accordion-button:not(.collapsed)::after {
+    display: none !important;
+}
+.accordion-collapse .collapse .show .collapse_hide {
+display: none !important;
+}
+.accordion-button::after{
+    display: none !important;
 }

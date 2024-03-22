@@ -1,16 +1,20 @@
 import MobilePlayers from "../players/MobilePlayers";
 import playerImgOne from "../../../assets/playerImg.svg";
 import messageIcon from "../../../assets/messageIcon.svg";
+import more from "../../../assets/More.png";
+import nation from "../../../assets/nation.png";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useGetFilteredUsersQuery } from "../../../features/auth/authApi";
+
+
 const PlayerOverview = ({ user }) => {
   const { data, isLoading } = useGetFilteredUsersQuery(
     user?.role === "Manager"
       ? ""
       : user?.role === "Player"
-      ? "role=Coach"
-      : "role=Player"
+        ? "role=Coach"
+        : "role=Player"
   );
   // console.log(data, "duser");
 
@@ -18,27 +22,27 @@ const PlayerOverview = ({ user }) => {
     user?.subscriptionName === "Gold"
       ? ["Gold", "Silver", "Bronze"]
       : user?.subscriptionName === "Silver"
-      ? ["Silver", "Bronze"]
-      : user?.subscriptionName === "Bronze"
-      ? ["Bronze"]
-      : [];
+        ? ["Silver", "Bronze"]
+        : user?.subscriptionName === "Bronze"
+          ? ["Bronze"]
+          : [];
   return (
     <>
       <div className="overview player_overview">
         <div className="d-flex justify-content-between mt-lg-0 mt-4 mb-lg-0 mb-3">
           {(user?.role === "Manager" || user?.role === "Coach") && (
-            <h4> Players</h4>
+            <h4 className="players_title"> Players</h4>
           )}
           {user?.role === "Player" && <h4> Coachs</h4>}
           {data && data?.length > 0 && (
             <Link
-              to={`${
-                user?.role === "Manager" || user?.role === "Coach"
-                  ? "/dashboard/players"
-                  : "/dashboard/coaches"
-              }`}
+              to={`${user?.role === "Manager" || user?.role === "Coach"
+                ? "/dashboard/players"
+                : "/dashboard/coaches"
+                }`}
             >
-              View More
+              <img src={more} alt="more" />
+
             </Link>
           )}
         </div>
@@ -49,6 +53,18 @@ const PlayerOverview = ({ user }) => {
             background: "#FFFDFD",
           }}
         >
+
+          <thead>
+            <tr className="players_table_head">
+              <th scope="col">Name</th>
+              <th scope="col">Nation</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Position</th>
+              <th scope="col">Club</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
           <tbody>
             {data &&
               data?.length > 0 &&
@@ -58,7 +74,7 @@ const PlayerOverview = ({ user }) => {
                     i?.subscriptionName &&
                     allowedPlans.includes(i?.subscriptionName)
                 )
-                .slice(0, 6)
+                .slice(1, 5)
                 .map((item, idx) => (
                   <tr className="table_hover" key={idx}>
                     <td>
@@ -68,11 +84,10 @@ const PlayerOverview = ({ user }) => {
                             <img
                               src={
                                 data?.image
-                                  ? `${
-                                      process.env.NODE_ENV !== "production"
-                                        ? import.meta.env.VITE_LOCAL_API_URL
-                                        : import.meta.env.VITE_LIVE_API_URL
-                                    }/api/v1/uploads/${data?.image}`
+                                  ? `${process.env.NODE_ENV !== "production"
+                                    ? import.meta.env.VITE_LOCAL_API_URL
+                                    : import.meta.env.VITE_LIVE_API_URL
+                                  }/api/v1/uploads/${data?.image}`
                                   : playerImgOne
                               }
                               alt="player-img"
@@ -85,60 +100,48 @@ const PlayerOverview = ({ user }) => {
                             />
                           </div>
                           <div className="player_name">
-                            <p className="text_color_36 fw-medium fs_14">
-                              {/* {item?.first_name} <br /> {item?.last_name} */}
+                            <p className="text_color_36 fw-medium mb-0">
                               {item?.fullName}
                             </p>
-                            {/* <Link
-                              to={`/dashboard/messages/${item?.referral}`}
-                              onClick={(e) => e.stopPropagation()}
-                              style={{
-                                fontSize: "12px",
-                                textDecoration: "underline",
-                              }}
-                              className="text-primary"
-                            >
-                              Contact with Owner
-                            </Link> */}
+
                           </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <p className="text_color_55 fw-normal fs_14">
-                        {item?.nationality}
+                      <p className="text_color_55 fw-normal ">
+                        <img className="me-2" src={nation} alt="nation" />   {item?.nationality}
                       </p>
                     </td>
 
                     <td>
-                      <p className="text_color_55 fw-normal fs_14">
+                      <p className="text_color_55 fw-normal ">
                         {item?.date_of_birth}
                       </p>
                     </td>
 
                     <td>
-                      <p className="text_color_55 fw-normal fs_14">
+                      <p className="text_color_55 fw-normal ">
                         {item?.position ? item?.position : "N/A"}
                       </p>
                     </td>
 
                     <td>
-                      <p className="text_color_55 fw-normal fs_14">
+                      <p className="text_color_55 fw-normal ">
                         {item?.club_name ? item?.club_name : "N/A"}
                       </p>
                     </td>
 
                     <td>
-                      <p className="text_color_55 fw-normal fs_14">
-                        {item?.subscriptionName
-                          ? item?.subscriptionName
-                          : "N/A"}
+                      <p className="text_color_55 fw-normal" style={{ color: item?.subscriptionName === 'Silver' ? '#AEAEAE' : (item?.subscriptionName === 'Bronze' ? '#CD7F32' : 'inherit') }}>
+                        {item?.subscriptionName ? item?.subscriptionName : "N/A"}
                       </p>
+
                     </td>
 
                     <td>
                       <div className="d-flex align-items-center">
-                        <p className="text_color_55 fw-normal fs_14">
+                        <p className="text_color_55 fw-normal ">
                           <Link to={`/dashboard/messages/${item?.referral}`}>
                             {" "}
                             <img

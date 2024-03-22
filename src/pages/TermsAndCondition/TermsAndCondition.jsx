@@ -4,7 +4,7 @@ import './TermsAndCondition.css'
 import TermsDetails from './TermsDetails';
 import Faq from './Faq';
 const TermsAndCondition = () => {
- 
+
     return (
         <div className='container'>
             <div className='news_header'>
@@ -27,7 +27,7 @@ const TermsAndCondition = () => {
                             </ul>
                         </div>
 
-<Faq/>
+                        {/* <Faq /> */}
                     </div>
 
 
