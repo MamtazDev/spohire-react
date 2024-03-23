@@ -54,7 +54,7 @@ const PricingCard = () => {
                   }`}>
                   <div className="d-flex align-items-center gap-4 mb-5">
                     <div className="model">
-                      <img src={data.pic} alt="" />
+                      <img className='mt-0' src={data.pic} alt="" />
                     </div>
                     <p style={{ color: `${data.color}` }} className="title">
                       {data.title}
@@ -73,7 +73,7 @@ const PricingCard = () => {
                         className="d-flex align-items-center gap-2"
                       // key={index}
                       >
-                        <img src={activeCard === index ? checkActive : check} alt="" />
+                        <img className='mt-0' src={activeCard === index ? checkActive : check} alt="" />
                         <p className={` ${activeCard === index ? "active_color" : "options"
                           }`}>{option}</p>
                       </div>

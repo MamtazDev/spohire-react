@@ -3,6 +3,7 @@ import addpicon from '../../../assets/addpicon.png'
 import add2icon from '../../../assets/add2icon.png'
 import add3icon from '../../../assets/add3icon.png'
 import nosubplayer from '../../../assets/nosubplayer.png'
+import '../../../pages/pricing/Pricing.css'
 import PlayerOverview from './PlayerOverview'
 import { useSelector } from "react-redux";
 import JobOfferOverview from './JobOfferOverview'
@@ -18,7 +19,7 @@ const OverviewTransferMarket = () => {
 
     const { user } = useSelector((state) => state.auth);
 
-    console.log(user)
+    console.log('user role detect', user.role)
 
     return (
         <>
@@ -29,13 +30,21 @@ const OverviewTransferMarket = () => {
                     <button> <img src={addpicon} alt="addpicon" /> <span>Add Coach</span> </button>
                     <button> <img src={add2icon} alt="addpicon" /> <span>Add Job Offer</span> </button>
                     <button> <img src={add2icon} alt="addpicon" /> <span>Add Announcement</span> </button>
+
+
                     <button className="modal_link"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop" > <img src={add3icon} alt="addpicon" /> <span>Buy Subscription</span> </button>
+
+                    {/* {user.role == "Coach" && <button className="modal_link"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" > <img src={add3icon} alt="addpicon" /> <span>Buy dfdsfSubscription</span> </button>
+                    } */}
+
                 </div>
-                <BuySubscriptionModal />
-
-
+                {/* buy subscription coatch */}
+                <BuySubscriptionModal user={user} />
+                {/* buy subscription coatch */}
 
                 {user?.role === "Manager" && <PlayerOverview user={user} />}
 
@@ -65,7 +74,7 @@ const OverviewTransferMarket = () => {
 
 export default OverviewTransferMarket
 
-function BuySubscriptionModal() {
+function BuySubscriptionModal({ user }) {
     return (
         <>
             <div
@@ -88,7 +97,7 @@ function BuySubscriptionModal() {
                         </div>
                         <div className="modal-body">
                             <div style={{ paddingBottom: "150px" }}>
-                                <PriceRange component={<BuySubscriptionModalContent />} />
+                                <PriceRange component={<BuySubscriptionModalContent user={user} />} />
                             </div>
                         </div>
                     </div>
