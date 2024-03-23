@@ -6,6 +6,8 @@ import MobileButtons from "./MobileButtons";
 import MobilePlayers from "./MobilePlayers";
 import { Link, useNavigate } from "react-router-dom";
 import b1 from "../../../assets/bookmark.png";
+import bookmark1 from "../../../assets/bookmark11.png";
+import bookmark2 from "../../../assets/bookmark12.svg";
 import bookmarkfill from "../../../assets/bookmark-fill.png";
 import { useState } from "react";
 import { useGetFilteredUsersQuery } from "../../../features/auth/authApi";
@@ -24,10 +26,10 @@ const Players = () => {
     user?.subscriptionName === "Gold"
       ? ["Gold", "Silver", "Bronze"]
       : user?.subscriptionName === "Silver"
-      ? ["Silver", "Bronze"]
-      : user?.subscriptionName === "Bronze"
-      ? ["Bronze"]
-      : [];
+        ? ["Silver", "Bronze"]
+        : user?.subscriptionName === "Bronze"
+          ? ["Bronze"]
+          : [];
 
   const handleFilter = (value) => {
     if (
@@ -62,36 +64,40 @@ const Players = () => {
       .filter(handleFilter) || [];
 
   return (
-    <div className="players">
-      <Table responsive className="players_desk content">
-        <thead>
-          <tr>
-            <th className="fs_14 text_color_36 fw-normal">
-              <div className="d-flex align-items-center">
-                <p>Name</p>
-              </div>
-            </th>
-            <th className="fs_14 text_color_36 fw-normal">Nation</th>
-            <th className="fs_14 text_color_36 fw-normal">Date of Birth</th>
-            <th className="fs_14 text_color_36 fw-normal">Position</th>
-            <th className="fs_14 text_color_36 fw-normal">Club</th>
-            <th className="fs_14 text_color_36 fw-normal">Status</th>
-            <th className="fs_14 text_color_36 fw-normal">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players && filteredData?.length > 0 ? (
-            filteredData?.map((player, idx) => (
-              <SinglePlayer key={idx} player={player} />
-            ))
-          ) : (
-            <tr className="mx-auto">No Players Found</tr>
-          )}
-          {/* blank tr for taking space */}
-        </tbody>
-      </Table>
-      <MobilePlayers />
-      <MobileButtons />
+    <div style={{ paddingTop: "40px" }}>
+      <div className="players" >
+        <h2>Players</h2>
+
+        <Table responsive className="players_desk content" >
+          <thead className="text-start">
+            <tr>
+              <th className="fs_14 text_color_36 fw-normal">
+                <div className="d-flex align-items-center">
+                  <p>Name</p>
+                </div>
+              </th>
+              <th className="text-start" >Nation</th>
+              <th className="text-start" >Date of Birth</th>
+              <th className="text-start" >Position</th>
+              <th className="text-start" >Club</th>
+              <th className="text-start" >Status</th>
+              <th className="text-start" >Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {players && filteredData?.length > 0 ? (
+              filteredData?.map((player, idx) => (
+                <SinglePlayer key={idx} player={player} />
+              ))
+            ) : (
+              <tr className="mx-auto">No Players Found</tr>
+            )}
+
+          </tbody>
+        </Table>
+        <MobilePlayers />
+        <MobileButtons />
+      </div>
     </div>
   );
 };
@@ -99,17 +105,12 @@ const Players = () => {
 export default Players;
 
 const SinglePlayer = ({ player }) => {
-  const [bookmark, setBookmark] = useState(false);
 
   const navigate = useNavigate();
 
-  // const handleBookmark = () => {
-  //   setBookmark(!bookmark);
-  // };
-
   const { user } = useSelector((state) => state.auth);
 
-  const { data, isSuccess } = useGetMyObservationsQuery();
+  const { data } = useGetMyObservationsQuery();
 
   const isBookmarked = data?.data?.find(
     (i) => i?.target_id?._id === player?._id
@@ -130,7 +131,6 @@ const SinglePlayer = ({ player }) => {
       target_type: "Player",
     };
 
-    // console.log(data, "jjjDD");
 
     try {
       const response = await toggleObservation(data);
@@ -171,10 +171,10 @@ const SinglePlayer = ({ player }) => {
       user?.subscriptionName === "Gold"
         ? ["Gold", "Silver", "Bronze"]
         : user?.subscriptionName === "Silver"
-        ? ["Silver", "Bronze"]
-        : user?.subscriptionName === "Bronze"
-        ? ["Bronze"]
-        : [];
+          ? ["Silver", "Bronze"]
+          : user?.subscriptionName === "Bronze"
+            ? ["Bronze"]
+            : [];
 
     if (allowedPlans.includes(player?.subscriptionName)) {
       navigate(`/dashboard/viewDetails/${player?._id}`);
@@ -195,13 +195,14 @@ const SinglePlayer = ({ player }) => {
               <div className="player_img">
                 <img
                   src={
-                    player?.image
-                      ? `${
-                          process.env.NODE_ENV !== "production"
-                            ? import.meta.env.VITE_LOCAL_API_URL
-                            : import.meta.env.VITE_LIVE_API_URL
-                        }/api/v1/uploads/${player?.image}`
-                      : playerImgOne
+                    // player?.image
+                    //   ? `${
+                    //       process.env.NODE_ENV !== "production"
+                    //         ? import.meta.env.VITE_LOCAL_API_URL
+                    //         : import.meta.env.VITE_LIVE_API_URL
+                    //     }/api/v1/uploads/${player?.image}`
+                    //   : 
+                    playerImgOne
                   }
                   alt="player-img"
                   style={{
@@ -260,8 +261,22 @@ const SinglePlayer = ({ player }) => {
         </td>
 
         <td>
-          <p className="text_color_55 fw-normal fs_14">
-            {player.subscriptionName ? player.subscriptionName : "N/A"}
+          <p
+            className="text_color_55 fw-normal"
+            style={{
+              color:
+                player?.subscriptionName === "Silver"
+                  ? "#AEAEAE"
+                  : player?.subscriptionName === "Bronze"
+                    ? "#CD7F32"
+
+                    : player?.subscriptionName === "Gold"
+                      ? "#FFC21B" :
+                      "inherit",
+
+            }}
+          >
+            {player?.subscriptionName ? player?.subscriptionName : "N/A"}
           </p>
         </td>
 
@@ -274,9 +289,9 @@ const SinglePlayer = ({ player }) => {
               disabled={isLoading}
             >
               {isBookmarked ? (
-                <img src={bookmarkfill} alt="" />
+                <img style={{ width: "12px", height: "17px" }} src={bookmark2} alt="" />
               ) : (
-                <img src={b1} alt="" />
+                <img style={{ width: "12px", height: "17px" }} src={bookmark1} alt="" />
               )}
             </button>
             <span

@@ -17,7 +17,6 @@ const NewsCard = ({ data }) => {
                             <img className='news_img' src={data?.img} alt="" />
                         </div>
                     </div>
-                    {/* <div className="col-lg-1 col-12"></div> */}
                     <div className="col-lg-6 col-12">
                         <div className="card_details">
                             <h2>{data?.title}</h2>

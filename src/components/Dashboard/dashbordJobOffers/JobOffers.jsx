@@ -3,8 +3,8 @@ import footBallCoachImg from "../../../assets/footballCoach.png";
 import locationIcon from "../../../assets/location-icon.svg";
 import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
-import b1 from "../../../assets/bookmark.png";
-import bookmarkfill from "../../../assets/bookmark-fill.png";
+import b1 from "../../../assets/bookmark11.png";
+import bookmarkfill from "../../../assets/bookmark12.svg";
 import deleteIcon from "../../../assets/deleteIcon.png";
 import editIcon from "../../../assets/editIcon.png";
 import MobileButtons from "../players/MobileButtons";
@@ -110,29 +110,22 @@ const JobOffers = () => {
       <div className="job_offers_topBtn d-flex align-items-center justify-content-between">
         <div className="job_offers_topBtn_left d-flex gap-4">
           <button
-            className={`fs-6 fw-medium text_color_80 ${
-              jobOffersType === "All" && "border-primary"
-            }`}
+            className={`fs-6 fw-medium text_color_80 ${jobOffersType === "All" && "border-primary"
+              }`}
             onClick={() => setJobOffersType("All")}
           >
             All
           </button>
 
           <button
-            className={`fs-6 fw-medium text_color_80 ${
-              jobOffersType === "My" && "border-primary"
-            }`}
+            className={`fs-6 fw-medium text_color_80 ${jobOffersType === "My" && "border-primary"
+              }`}
             onClick={() => setJobOffersType("My")}
           >
             My Job Offers
           </button>
         </div>
 
-        {/* <div className="job_offers_topBtn_right">
-          <button className="bg-transparent border-0 text_color_fb">
-            Clear All
-          </button>
-        </div> */}
       </div>
 
       <div className="job_offer_items_wrapper">
@@ -239,7 +232,7 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
     }
   };
   return (
-    <>
+    <div  >
       <div
         className="job_offers_item p-3"
         onClick={() => handleCLick(item)}
@@ -250,13 +243,14 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
             <div className="job_offer_item_img">
               <img
                 src={
-                  item?.club_logo
-                    ? `${
-                        process.env.NODE_ENV !== "production"
-                          ? import.meta.env.VITE_LOCAL_API_URL
-                          : import.meta.env.VITE_LIVE_API_URL
-                      }/api/v1/uploads/${item?.club_logo}`
-                    : footBallCoachImg
+                  // item?.club_logo
+                  //   ? `${process.env.NODE_ENV !== "production"
+                  //     ? import.meta.env.VITE_LOCAL_API_URL
+                  //     : import.meta.env.VITE_LIVE_API_URL
+                  //   }/api/v1/uploads/${item?.club_logo}`
+                  //   : 
+                    
+                    footBallCoachImg
                 }
                 alt="img"
                 style={{
@@ -317,9 +311,9 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
                 disabled={isLoading}
               >
                 {isBookmarked ? (
-                  <img src={bookmarkfill} alt="" />
+                  <img style={{height:"24px",width:"24px"}} src={bookmarkfill} alt="" />
                 ) : (
-                  <img src={b1} alt="" />
+                  <img style={{height:"24px",width:"24px"}} src={b1} alt="" />
                 )}
               </button>
             )}
@@ -348,6 +342,6 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

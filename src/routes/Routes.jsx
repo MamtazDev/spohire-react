@@ -51,6 +51,7 @@ import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition.jsx"
 import NewsDetails from "../components/News/NewsDetails.jsx";
 
 export const router = createBrowserRouter([
+
   {
     path: "/",
     element: <Layout />,

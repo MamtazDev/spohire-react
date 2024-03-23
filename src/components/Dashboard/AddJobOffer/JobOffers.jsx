@@ -273,7 +273,6 @@ function SingleJob({ item, handleEditJobOfferClick, handleDelete }) {
                   </span>
                 </div>
                 <div className="job_offer_flag d-flex align-items-center gap-1">
-                  {/* <img src={dollarIcon} alt="icon" /> */}
                   <span className="fs-14 fw-normal text_color_80">
                     Applicants: {applicants?.length}
                   </span>

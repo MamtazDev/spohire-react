@@ -106,6 +106,7 @@ import { Link } from 'react-router-dom';
 
 
 const NewsSlider = () => {
+
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -128,7 +129,6 @@ const NewsSlider = () => {
     return (
         <div className='news_slider_wrapper' style={{padding:"82px 78px"}}>
             <Carousel responsive={responsive}>
-
                 <div className='col-lg-4 col-12 w-100'>
                     <div className='text-start bg-transparent'>
                         <img className='banner' src={n1} alt="" />
