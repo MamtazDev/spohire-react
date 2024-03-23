@@ -30,7 +30,7 @@ const OverView = () => {
     weekday: "long",
   });
 
-  console.log(user);
+  // console.log(user.subscriptionName,'subscriptionName');
 
   return (
     <>
@@ -41,7 +41,7 @@ const OverView = () => {
               <p className="overView_date">Monday, February 26, 2024</p>
             </div>
               
-              <OverviewTransferMarket />
+              <OverviewTransferMarket/>
 
             {/* {user?.subscriptionName && (
               <p className="d-flex align-items-center gap-2">

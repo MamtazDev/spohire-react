@@ -81,42 +81,13 @@
 // export default PriceRange;
 
 import React, { useState } from "react";
-import bronze from "../../assets/bronze.svg";
-import silver from "../../assets/silver.svg";
-import gold from "../../assets/gold.svg";
-import check from "../../assets/indigo-check.svg";
-import checkActive from "../../assets/white-check.svg";
+
+import PricingCard from "./PricingCard";
 
 const PriceRange = ({ component }) => {
   const [activeCard, setActiveCard] = useState(1);
 
-  const options = [
-    "All analytics features",
-    "Up to 250,000 tracked visits",
-    "Normal support",
-    "Up to 3 team members",
-  ];
-
-  const priceOptions = [
-    {
-      pic: bronze,
-      title: "BRONZE",
-      price: 10,
-      color: "#CD7F32",
-    },
-    {
-      pic: silver,
-      title: "SILVER",
-      price: 20,
-      color: "#C5CDE7",
-    },
-    {
-      pic: gold,
-      title: "GOLD",
-      price: 30,
-      color: "#FFD029",
-    },
-  ];
+  
 
   const handleCardClick = (index) => {
     setActiveCard(index);
@@ -127,7 +98,8 @@ const PriceRange = ({ component }) => {
       <div>
         <div className="price_range">
           {component}
-          <div className="row g-4">
+
+          {/* <div className="row g-4">
             {priceOptions.map((data, index) => (
               <div
                 key={index}
@@ -164,14 +136,12 @@ const PriceRange = ({ component }) => {
                     ))}
                   </div>
                 </div>
+
               </div>
             ))}
-          </div>
-                   {/* additional infor */}
-                   {/* <div className="additional_pricing_wrapper">
-            <p>Additional fee for longer advertiser options</p>
-          </div>
-          <div className="pricing_line"></div> */}
+          </div> */}
+          <PricingCard />
+
         </div>
       </div>
     </div>

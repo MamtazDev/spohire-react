@@ -25,7 +25,6 @@ const NewsCard = ({ data }) => {
                             <p>{data.desc}</p>
                             <div className='desc_line'></div>
                             <div className='view_morebtn'>
-
                                 <Link to="/newsDetails"> <button>View More  <img src={RightButton} alt="RightButton" />  </button>
                                 </Link>
                             </div>
