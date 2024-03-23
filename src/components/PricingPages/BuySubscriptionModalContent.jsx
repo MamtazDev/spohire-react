@@ -24,7 +24,6 @@ const BuySubscriptionModalContent = ({ user }) => {
                 />}
                 <h6>Transfer Market LIST</h6>
             </div>
-            {/* <button /> */}
             <div className='pricing_buttons'>
                 <button
                     className={activeButton === "MONTHLY" ? "active" : "inactive"}

@@ -16,7 +16,7 @@
 }
 
 .dashbord_topbar {
-  position: fixed;
+  /* position: fixed; */
   width: inherit;
   background-color: white;
   z-index: 99;
@@ -88,6 +88,7 @@
 }
 
 @media (max-width: 768px) {
+
   /*   .deskTopbar {
         display: none;
     }
@@ -244,8 +245,7 @@
   border-radius: 7px;
 }
 
-.addJob_wrapper .modal-dialog {
-}
+.addJob_wrapper .modal-dialog {}
 
 .dialog_modal {
   width: 648px;

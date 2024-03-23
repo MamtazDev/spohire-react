@@ -85,12 +85,6 @@ import React, { useState } from "react";
 import PricingCard from "./PricingCard";
 
 const PriceRange = ({ component }) => {
-  const [activeCard, setActiveCard] = useState(1);
-
-
-  const handleCardClick = (index) => {
-    setActiveCard(index);
-  };
 
   return (
     <div>

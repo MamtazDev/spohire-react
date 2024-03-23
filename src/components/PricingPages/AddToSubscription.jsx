@@ -13,11 +13,11 @@ const AddToSubscription = () => {
         <div>
             <div className="range_header d-flex align-items-center w-100 justify-content-center gap-4">
                 <h6>Subscription to view</h6>
-                <OptionDropdown title="Players" subtitle={["Players","COACHES", "PLAYERS + COACHES"]} />
+                <OptionDropdown title="Players" subtitle={["Players", "COACHES", "PLAYERS + COACHES"]} />
                 <h6>IN</h6>
                 <OptionDropdown
                     title="HANDBALL"
-                    subtitle={["HANDBALL","Football", "basketball", "volleyball"]}
+                    subtitle={["HANDBALL", "Football", "basketball", "volleyball"]}
                 />
                 <h6>Transfer Market LIST</h6>
             </div>
@@ -27,7 +27,7 @@ const AddToSubscription = () => {
                     className={activeButton === "MONTHLY" ? "active" : "inactive"}
                     onClick={() => handleButtonClick("MONTHLY")}
                 >
-                    MONTHLY 
+                    MONTHLY
                 </button>
                 <button
                     className={activeButton === "QUARTERLY" ? "active" : "inactive"}

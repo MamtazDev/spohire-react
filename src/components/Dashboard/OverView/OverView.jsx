@@ -12,6 +12,7 @@ import bronze from "../../../assets/bronze.png";
 import gold from "../../../assets/gold.png";
 import { convertDate } from "../../../utils/TimeConverter";
 import OverviewTransferMarket from "./OverviewTransferMarket";
+import Topbar from "../topbar/Topbar";
 const OverView = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const { user } = useSelector((state) => state.auth);
@@ -34,14 +35,15 @@ const OverView = () => {
 
   return (
     <>
+      <Topbar />
       <div className="overview_wrapper">
         <div className=" ">
           <div>
             <div className="d-flex justify-content-end">
               <p className="overView_date">Monday, February 26, 2024</p>
             </div>
-              
-              <OverviewTransferMarket/>
+
+            <OverviewTransferMarket />
 
             {/* {user?.subscriptionName && (
               <p className="d-flex align-items-center gap-2">
