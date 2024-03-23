@@ -51,6 +51,7 @@ const MyAppliedJob = () => {
       });
     }
   };
+  
   if (isLoading) {
     return (
       <div

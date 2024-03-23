@@ -1,7 +1,6 @@
 import "./jobOffers.css";
 import footBallCoachImg from "../../../assets/footballCoach.png";
 import locationIcon from "../../../assets/location-icon.svg";
-import flagIcon from "../../../assets/flag-icon.svg";
 import dollarIcon from "../../../assets/dollar-icon.svg";
 import b1 from "../../../assets/bookmark11.png";
 import bookmarkfill from "../../../assets/bookmark12.svg";
