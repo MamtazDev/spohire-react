@@ -1,32 +1,31 @@
-import DashbordLogo from "../../../assets/dashbord-logo.png";
-import DashbordUser from "../../../assets/dashbord-user.png";
-import "./DashbordSidebar.css";
-import { Link, useNavigate } from "react-router-dom";
-import overviewIcon from "../../../assets/overview-icon.svg";
-import transfarIcon from "../../../assets/transfar-icon.svg";
-import jobOfferIcon from "../../../assets/joboffer-icon.svg";
-import announcementOffer from "../../../assets/announcementOffer-icon.svg";
-import observedIcon from "../../../assets/observed-icon.svg";
-import messageIcon from "../../../assets/messages-icon.svg";
-import settingsIcon from "../../../assets/settings-icon.svg";
-import helpIcon from "../../../assets/help-icon.svg";
-import appliedJobsIcon from "../../../assets/AppliedIcon.svg";
-import logoutIcon from "../../../assets/logout-icon.svg";
 import { Accordion } from "react-bootstrap";
-import basketBallIcon from "../../../assets/basketBall-icon.svg";
-import coachesIcon from "../../../assets/coaches-icon.svg";
+import { Link, useNavigate } from "react-router-dom";
+import appliedJobsIcon from "../../../assets/AppliedIcon.svg";
 import billing from "../../../assets/BILLING.png";
-import coach from "../../../assets/coach.png";
-import rightArrow from "../../../assets/rightClosemenuicon.svg";
 import activesidebarbottomshape from "../../../assets/activesidebarbottomshape.svg";
+import announcementOffer from "../../../assets/announcementOffer-icon.svg";
+import basketBallIcon from "../../../assets/basketBall-icon.svg";
+import coach from "../../../assets/coach.png";
+import coachesIcon from "../../../assets/coaches-icon.svg";
+import DashbordLogo from "../../../assets/dashbord-logo.png";
+import jobOfferIcon from "../../../assets/joboffer-icon.svg";
+import logoutIcon from "../../../assets/logout-icon.svg";
+import messageIcon from "../../../assets/messages-icon.svg";
+import notificationIcon from "../../../assets/notification-icon.svg";
+import observedIcon from "../../../assets/observed-icon.svg";
+import overviewIcon from "../../../assets/overview-icon.svg";
+import rightArrow from "../../../assets/rightClosemenuicon.svg";
+import settingsIcon from "../../../assets/settings-icon.svg";
+import transfarIcon from "../../../assets/transfar-icon.svg";
+import "./DashbordSidebar.css";
 
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
 import {
   useGetMyNotificationsQuery,
   useUpdateNotificationMutation,
 } from "../../../features/notification/notificationApi";
-import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const DashbordSidebar = ({ user }) => {
@@ -58,10 +57,9 @@ const DashbordSidebar = ({ user }) => {
     setIsAccordionOpen1(!isAccordionOpen1);
   };
 
-
   return (
     <div className="dashbord_sidebar">
-      <div className="text-center">
+      <div className="text-center sidebar_logo">
         <Link to="/">
           <img src={DashbordLogo} alt="logo" />
         </Link>
@@ -69,56 +67,63 @@ const DashbordSidebar = ({ user }) => {
 
       <div className="dashbord_sidebar_content d-flex flex-column justify-content-between">
         <div className="top">
-
-          <div className="overview">
-            <Link
-              to="/dashboard"
-              className="text-decoration-none d-flex align-items-center gap-4">
-              <img src={overviewIcon} alt="icon" />
-              <span to={"#"} className="text_color_E3 text-capitalize fs-6">
-                overview
-              </span>
-            </Link>
-          </div>
           <div className="menu_link">
             <ul className="menu_wrapper_one list-unstyled m-0">
-              {/* {(user?.role === "Coach" || user?.role === "Manager") && ( */}
+
+              <li className="overview">
+                <Link
+                  to="/dashboard"
+                  className="text-decoration-none d-flex align-items-center gap-4">
+                  <img src={overviewIcon} alt="icon" />
+                  <span to={"#"} className="text_color_E3 text-capitalize fs-6">
+                    overview
+                  </span>
+                </Link>
+              </li>
+
               <Accordion className="nav_item">
                 <Accordion.Item eventKey="0" className="border-0">
-                  <Accordion.Header className="p-0" onClick={handleAccordionToggle1}>
-                    <li className="d-flex align-content-center" style={{ gap: "12px" }}>
+                  <Accordion.Header
+                    className="p-0"
+                    onClick={handleAccordionToggle1}>
+                    <li
+                      className="d-flex align-items-center"
+                      style={{ gap: "12px" }}>
                       <Link
                         to={"#"}
-                        className="text-decoration-none d-flex align-items-center gap-4"
-                      >
+                        className="text-decoration-none d-flex align-items-center gap-4">
                         <img src={transfarIcon} alt="icon" />
                         <span
                           to={"#"}
-                          className="text_color_E3 text-capitalize fs-6"
-                        >
+                          className="text_color_E3 text-capitalize fs-6">
                           Transfer Market
                         </span>
                       </Link>
-                      <img className='mt-1' src={isAccordionOpen1 ? activesidebarbottomshape : rightArrow} alt="rightArrow" />
+                      <img
+                        className="mt-1"
+                        src={
+                          isAccordionOpen1
+                            ? activesidebarbottomshape
+                            : rightArrow
+                        }
+                        alt="rightArrow"
+                      />
                     </li>
                   </Accordion.Header>
                   <Accordion.Body className="pb-0">
                     <ul
                       className="list-unstyled"
-                      style={{ paddingLeft: "30px" }}
-                    >
+                      style={{ paddingLeft: "30px" }}>
                       {/* {(user?.role === "Manager" ||
                           user?.role === "Coach") && ( */}
-                      <li className="nav_item" style={{ paddingTop: "23px" }}>
+                      <li className="nav_item">
                         <Link
                           to={"/dashboard/players"}
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
+                          className="text-decoration-none d-flex align-items-center gap-3">
                           <img src={basketBallIcon} alt="icon" />
                           <span
                             to={"#"}
-                            className="text_color_E3 text-capitalize fs-6"
-                          >
+                            className="text_color_E3 text-capitalize fs-6">
                             Players
                           </span>
                         </Link>
@@ -127,16 +132,14 @@ const DashbordSidebar = ({ user }) => {
 
                       {/* {(user?.role === "Manager" ||
                           user?.role === "Player") && ( */}
-                      <li className="" style={{ paddingTop: "23px" }}>
+                      <li className="">
                         <Link
                           to="/dashboard/coaches"
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
+                          className="text-decoration-none d-flex align-items-center gap-3">
                           <img src={coachesIcon} alt="icon" />
                           <span
                             to={"#"}
-                            className="text_color_E3 text-capitalize fs-6"
-                          >
+                            className="text_color_E3 text-capitalize fs-6">
                             Coaches
                           </span>
                         </Link>
@@ -146,13 +149,11 @@ const DashbordSidebar = ({ user }) => {
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
-              {/* )} */}
-              {/*  */}
+
               <li className="nav_item">
                 <Link
                   to={"/dashboard/jobOffers"}
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
+                  className="text-decoration-none d-flex align-items-center gap-4">
                   <img src={jobOfferIcon} alt="icon" />
                   <span className="text_color_E3 text-capitalize fs-6">
                     Job Offers
@@ -160,11 +161,10 @@ const DashbordSidebar = ({ user }) => {
                 </Link>
               </li>
 
-              <li className="nav_item" style={{ marginBottom: "40px" }}>
+              <li className="nav_item">
                 <Link
                   to="/dashboard/announcements"
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
+                  className="text-decoration-none d-flex align-items-center gap-4">
                   <img src={announcementOffer} alt="icon" />
                   <span to={"#"} className="text_color_E3 text-capitalize fs-6">
                     Announcements
@@ -174,50 +174,56 @@ const DashbordSidebar = ({ user }) => {
             </ul>
 
             <ul className="menu_wrapper_two list-unstyled m-0">
-              <Accordion className="border-0" >
-                <Accordion.Item eventKey="0" className="border-0" >
-                  <Accordion.Header className="p-0 w-100" onClick={handleAccordionToggle}>
-                    <li className="d-flex align-content-center" style={{ gap: "12px" }}>
+              <Accordion className="border-0">
+                <Accordion.Item eventKey="0" className="border-0">
+                  <Accordion.Header
+                    className="p-0 w-100"
+                    onClick={handleAccordionToggle}>
+                    <li
+                      className="d-flex align-content-center"
+                      style={{ gap: "12px" }}>
                       <Link
                         to={"#"}
-                        className="text-decoration-none d-flex align-items-center gap-4"
-                      >
+                        className="text-decoration-none d-flex align-items-center gap-4">
                         <img src={settingsIcon} alt="icon" />
                         <span
                           to={"#"}
-                          className="text_color_E3 text-capitalize fs-6"
-                        >
+                          className="text_color_E3 text-capitalize fs-6">
                           My Activity
                         </span>
                       </Link>
-                      <img className='mt-1' src={isAccordionOpen ? activesidebarbottomshape : rightArrow} alt="rightArrow" />
+                      <img
+                        className="mt-1"
+                        src={
+                          isAccordionOpen
+                            ? activesidebarbottomshape
+                            : rightArrow
+                        }
+                        alt="rightArrow"
+                      />
                     </li>
                   </Accordion.Header>
                   <Accordion.Body className="pb-0">
                     <ul
                       className="list-unstyled"
-                      style={{ paddingLeft: "30px" }}
-                    >
-                      <li className="nav_item" style={{ paddingTop: "23px" }}>
+                      style={{ paddingLeft: "30px" }}>
+                      <li className="nav_item">
                         <Link
                           to="/dashboard/addedItems"
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
+                          className="text-decoration-none d-flex align-items-center gap-3">
                           <img src={settingsIcon} alt="icon" />
                           <span
                             to={"#"}
-                            className="text_color_E3 text-capitalize fs-6"
-                          >
+                            className="text_color_E3 text-capitalize fs-6">
                             Added
                           </span>
                         </Link>
                       </li>
 
-                      <li className="nav_item" style={{ paddingTop: "23px" }}>
+                      <li className="nav_item">
                         <Link
                           to={"/dashboard/myAppliedJobs"}
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
+                          className="text-decoration-none d-flex align-items-center gap-3">
                           <img src={appliedJobsIcon} alt="icon" />
                           <span className="text_color_E3 text-capitalize fs-6">
                             Applied job
@@ -225,16 +231,14 @@ const DashbordSidebar = ({ user }) => {
                         </Link>
                       </li>
 
-                      <li className="nav_item" style={{ paddingTop: "23px" }}>
+                      <li className="nav_item">
                         <Link
                           to="/dashboard/observed"
-                          className="text-decoration-none d-flex align-items-center gap-3"
-                        >
+                          className="text-decoration-none d-flex align-items-center gap-3">
                           <img src={observedIcon} alt="icon" />
                           <span
                             to={"#"}
-                            className="text_color_E3 text-capitalize fs-6"
-                          >
+                            className="text_color_E3 text-capitalize fs-6">
                             Observed
                           </span>
                         </Link>
@@ -243,17 +247,15 @@ const DashbordSidebar = ({ user }) => {
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
-
-
             </ul>
           </div>
+
           <ul className="menu_wrapper_two list-unstyled m-0">
             {user?.role !== "Other" && (
               <li className="nav_item">
                 <Link
                   to="/dashboard/messages"
-                  className="text-decoration-none d-flex align-items-center gap-4"
-                >
+                  className="text-decoration-none d-flex align-items-center gap-4">
                   <img src={messageIcon} alt="icon" />
                   <span className="text_color_E3 text-capitalize fs-6">
                     Messages
@@ -262,55 +264,55 @@ const DashbordSidebar = ({ user }) => {
               </li>
             )}
             <li className="nav_item">
-              <span
+              <Link
                 // to="/dashboard/notification"
                 className="text-decoration-none d-flex align-items-center gap-4"
                 style={{ cursor: "pointer" }}
-                onClick={handleNotification}
-              >
-                <img src={messageIcon} alt="icon" />
+                onClick={handleNotification}>
+                <img src={notificationIcon} alt="icon" />
                 <span
                   className="text_color_E3 text-capitalize fs-6"
-                  style={{ position: "relative" }}
-                >
+                  style={{ position: "relative" }}>
                   Notifications
                   {unseenNotifications?.length > 0 && (
                     <span
                       class="position-absolute top-0  translate-middle badge rounded-circle bg-primary"
-                      style={{ right: -30 }}
-                    >
+                      style={{ right: -30 }}>
                       {unseenNotifications?.length}
                     </span>
                   )}
                 </span>
-              </span>
+              </Link>
             </li>
-            <Accordion className="nav_item" style={{ paddingBottom: "86px" }}>
+            <Accordion className="nav_item">
               <Accordion.Item eventKey="0" className="border-0">
                 <Accordion.Header className="p-0">
-                  <li className="d-flex align-content-center" style={{ gap: "12px" }}>
+                  <li
+                    className="d-flex align-content-center"
+                    style={{ gap: "12px" }}>
                     <Link
                       to={"#"}
-                      className="text-decoration-none d-flex align-items-center gap-4"
-                    >
+                      className="text-decoration-none d-flex align-items-center gap-4">
                       <img src={settingsIcon} alt="icon" />
                       <span className="text_color_E3 text-capitalize fs-6">
                         Settings
                       </span>
                     </Link>
-                    <img className='mt-1' src={isAccordionOpen1 ? activesidebarbottomshape : rightArrow} alt="rightArrow" />
+                    <img
+                      className="mt-1"
+                      src={
+                        isAccordionOpen1 ? activesidebarbottomshape : rightArrow
+                      }
+                      alt="rightArrow"
+                    />
                   </li>
                 </Accordion.Header>
                 <Accordion.Body className="pb-0">
-                  <ul
-                    className="list-unstyled"
-                    style={{ paddingLeft: "30px" }}
-                  >
-                    <li className="nav_item" style={{ paddingTop: "23px" }}>
+                  <ul className="list-unstyled">
+                    <li className="nav_item">
                       <Link
                         to="/dashboard/password"
-                        className="text-decoration-none d-flex align-items-center gap-3"
-                      >
+                        className="text-decoration-none d-flex align-items-center gap-3">
                         <img src={coach} alt="icon" />
                         <span className="text_color_E3 text-capitalize fs-6">
                           Password
@@ -331,16 +333,14 @@ const DashbordSidebar = ({ user }) => {
                           </span>
                         </Link>
                       </li> */}
-                    <li className="nav_item" style={{ paddingTop: "23px" }}>
+                    <li className="nav_item">
                       <Link
                         to="/dashboard/billing"
-                        className="text-decoration-none d-flex align-items-center gap-3"
-                      >
+                        className="text-decoration-none d-flex align-items-center gap-3">
                         <img src={billing} alt="icon" />
                         <span
                           to={"#"}
-                          className="text_color_E3 text-capitalize fs-6"
-                        >
+                          className="text_color_E3 text-capitalize fs-6">
                           Billing
                         </span>
                       </Link>
@@ -357,8 +357,7 @@ const DashbordSidebar = ({ user }) => {
             <button
               type="button"
               className="text-decoration-none d-flex align-items-center gap-4 bg-none"
-              onClick={handleLoggout}
-            >
+              onClick={handleLoggout}>
               <img src={logoutIcon} alt="icon" />
               <span to={"#"} className="text_color_E3 text-capitalize fs-6">
                 logout

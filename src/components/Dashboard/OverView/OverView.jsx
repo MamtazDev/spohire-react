@@ -35,13 +35,13 @@ const OverView = () => {
 
   return (
     <>
-      <Topbar />
+      {/* <Topbar /> */}
       <div className="overview_wrapper">
         <div className=" ">
           <div>
-            <div className="d-flex justify-content-end">
+            {/* <div className="d-flex justify-content-end">
               <p className="overView_date">Monday, February 26, 2024</p>
-            </div>
+            </div> */}
 
             <OverviewTransferMarket />
 

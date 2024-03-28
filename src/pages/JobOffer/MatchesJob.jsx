@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
-import tennis from "../../assets/tennis.png";
-import flag from "../../assets/flag.png";
-import dollar from "../../assets/coin-dollar.png";
-import location from "../../assets/location.png";
-import ApplyJobs from "./ApplyJobs";
-import { useGetAllJobsQuery } from "../../features/job/jobApi";
 import { useState } from "react";
-import JobCategory from "../Announcement/JobCategory";
-import { useNavigate } from "react-router-dom";
-import Pagination from "../../components/Pagination/Pagination";
 import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import dollar from "../../assets/coin-dollar.png";
+import flag from "../../assets/flag.png";
+import location from "../../assets/location.png";
+import tennis from "../../assets/tennis.png";
+import Pagination from "../../components/Pagination/Pagination";
+import { useGetAllJobsQuery } from "../../features/job/jobApi";
+import ApplyJobs from "./ApplyJobs";
 const sports = [
   "Coach",
   "Administration",
@@ -120,7 +118,8 @@ const MatchesJob = ({ searchParams, setSearchParams }) => {
     <>
       <div className="container">
         <h3 className="job_matches_title">
-          We found <span style={{ color: "#05CD99" }}>300</span> Matches for you
+          We found <span style={{ color: "#05CD99" }}>300</span> Job Offers for
+          you
         </h3>
         <div className="row">
           {/* <>

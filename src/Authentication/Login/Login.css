@@ -10,7 +10,7 @@
   height: 100vh;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.04);
-  border-radius: 0px 0px 0px 50px;
+  border-radius: 50px 0px 0px 50px;
   /* padding: 0 19px; */
 }
 
@@ -118,7 +118,7 @@
 }
 
 .login_wrapper {
-  padding: 81px 87px 41px 94px;
+  padding: 42px 87px 41px 94px;
   margin: auto;
   border: 1px solid rgba(0, 0, 0, 0.04);
   border-top-right-radius: 50px;

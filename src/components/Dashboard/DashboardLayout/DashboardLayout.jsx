@@ -16,12 +16,13 @@ const DashboardLayout = () => {
               <DashbordSidebar user={user} />
             </div>
             <div className="col-lg-10 p-0">
-              {/* <Topbar className="deskTopbar" user={user} /> */}
+              <Topbar className="deskTopbar" user={user} />
               <MobileTopbar user={user} />
-              <div className="">
-                {/* <div className="dashbord_content"> */}
+              {/* <div className=""> */}
+              <div className="dashbord_content">
                 <Outlet />
               </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

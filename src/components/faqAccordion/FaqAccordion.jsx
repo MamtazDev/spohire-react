@@ -1,12 +1,12 @@
 import { useState } from "react";
-import "./FaqAccordion.css";
-import plus from "../../assets/accordion-plus.png";
 import minus from "../../assets/accordion-minus.png";
-import up from "../../assets/uparrow.png";
-import down from "../../assets/downarrow.png";
+import plus from "../../assets/accordion-plus.png";
 import add_circle from "../../assets/add_circle.png";
+import down from "../../assets/downarrow.png";
+import up from "../../assets/uparrow.png";
+import "./FaqAccordion.css";
 
-const FaqAccordion = () => {
+const FaqAccordion = ({ fontSize }) => {
   const [isOpen, setIsOpen] = useState(null);
   const accoprdionData = [
     {
@@ -61,16 +61,15 @@ const FaqAccordion = () => {
   return (
     <div className="accordion section_padding">
       <div className="container">
-        <div className="section_heading text-center ">
-          <h2>Frequently Asked Questions</h2>
+        <div className="section_heading text-center">
+          <h2 className={`${fontSize}`}>Frequently Asked Questions</h2>
         </div>
         <div>
           {accoprdionData.map((data, index) => (
             <div key={index} className="accordion_items mb-4 m-auto">
               <div
                 onClick={() => setIsOpen(index === isOpen ? null : index)}
-                className="d-flex align-items-center justify-content-between"
-              >
+                className="d-flex align-items-center justify-content-between">
                 <p className="question text_color_19 fs-4 fw-medium">
                   {data.ques}
                 </p>

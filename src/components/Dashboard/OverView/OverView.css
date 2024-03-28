@@ -78,10 +78,12 @@
 }
 
 .overview_wrapper {
-    margin: 41px 46px !important;
+    padding: 41px 46px !important;
     /* padding-top: 20px; */
     font-family: 'SF Pro Display', sans-serif;
-
+    height: 82vh;
+    margin-top: 80px;
+    overflow-x: scroll;
 }
 
 .date p {

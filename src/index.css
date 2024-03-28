@@ -1,7 +1,7 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 @import url("https://fonts.cdnfonts.com/css/SF Pro Display:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
-@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* How it works section font family did not add i didn't get cdn */
 
@@ -75,6 +75,7 @@ button {
   --color_fb: #0177fb;
   --color_80: #546580;
   --color_55: #2b2e55;
+  --clr_70:#FE6470;
 }
 
 .css-1ltuaou-control {
@@ -138,6 +139,10 @@ button {
   margin-bottom: 55px;
 }
 
+.fw-medium{
+  font-weight: 500;
+}
+
 .fs_10 {
   font-size: 10px;
   font-weight: 400;
@@ -163,6 +168,11 @@ button {
 
 .fs_28 {
   font-size: 28px;
+  font-weight: 500;
+}
+
+.fs_30 {
+  font-size: 30px;
   font-weight: 500;
 }
 
@@ -267,6 +277,10 @@ a {
 
 .text_color_55 {
   color: var(--color_55);
+}
+
+.text_clr_70{
+  color: var(--clr_70);
 }
 
 .bg_color_fb {

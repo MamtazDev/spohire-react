@@ -1,9 +1,13 @@
+.dashbord_sidebar {
+    background-color: #1E2128;
+}
+
 .dashbord_sidebar .dashbord_logo {
     margin-bottom: 46px;
 }
 
 .dashbord_sidebar .overview {
-    padding-top: 48px;
+    /* padding-top: 48px; */
     /* padding-bottom: 30px; */
     /* border-bottom: 1px solid var(--color_f1); */
 }
@@ -24,19 +28,30 @@
     letter-spacing: 0.32px;
 }
 
-.dashbord_sidebar .menu_link .menu_wrapper_two {
+/* .dashbord_sidebar .menu_link .menu_wrapper_two {
     padding-top: 16px;
-}
-.accordion-body{
+} */
+
+.accordion-body {
     padding: 0;
+}
+
+.dashbord_sidebar .sidebar_logo {
+    padding-bottom: 37px;
 }
 
 .dashbord_sidebar .dashbord_sidebar_content {
     height: 90%;
 }
+
 .dashbord_sidebar_content li{
-    padding-top: 40px;
+    padding: 15px 0;
 }
+
+.dashbord_sidebar_content li a {
+    padding: 16px 11px;
+}
+
 .dashbord_sidebar .dashbord_sidebar_content .bottom .logout {
     padding-top: 35px;
     border-top: 1px solid var(--color_f1);
@@ -75,9 +90,11 @@
 .accordion-button:not(.collapsed)::after {
     display: none !important;
 }
+
 .accordion-collapse .collapse .show .collapse_hide {
-display: none !important;
+    display: none !important;
 }
-.accordion-button::after{
+
+.accordion-button::after {
     display: none !important;
 }

@@ -1,16 +1,14 @@
-import "./Header.css";
-import Logo from "../../assets/logo.png";
-import Logosm from "../../assets/responsive-logo.png";
-import profile from "../../assets/PROFILE.png";
-import TransfarMarket from "../../assets/modal-market-img.png";
-import dropdown from "../../assets/dropdownicon.png";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import profile from "../../assets/PROFILE.png";
+import dropdown from "../../assets/dropdownicon.png";
+import Logo from "../../assets/logo.png";
+import TransfarMarket from "../../assets/modal-market-img.png";
+import Logosm from "../../assets/responsive-logo.png";
 import { userLoggedOut } from "../../features/auth/authSlice";
+import "./Header.css";
 
 const Header = () => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -45,7 +43,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position" : ""
+      className={`${!user && "pt-4 pb-4"} ${location.pathname === "/" ? "header_position position-absolute w-100" : ""
         }`}
     >
       <Navbar expand="lg" className="navbar navbar-expand-lg">

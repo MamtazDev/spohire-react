@@ -143,15 +143,14 @@ const SignUp = () => {
 
   return (
     <>
-
-
       <div className="d-flex  flex-lg-row flex-column  overflow-hidden">
-
         <div className="" style={{ margin: "60px 0px 80px 100px" }}>
           <img className="" src={signupImg} alt="image" />
         </div>
 
-        <div className="login_wrapper" style={{ margin: "60px 100px 80px 0px", width: "100%" }}>
+        <div
+          className="login_wrapper"
+          style={{ margin: "60px 100px 80px 0px", width: "100%" }}>
           <div>
             <h3>Create new account</h3>
             <p>Fill all input to create a account</p>
@@ -181,8 +180,6 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="right-inner-addon input-container">
-           
-
                 <label htmlFor="">Email *</label>
 
                 <input
@@ -209,7 +206,9 @@ const SignUp = () => {
                     required
                   />
                 </div>
-                <div className=" w-full input-container" style={{ width: "100%" }}>
+                <div
+                  className=" w-full input-container"
+                  style={{ width: "100%" }}>
                   <label htmlFor="">Confirm Password*</label>
                   <input
                     type="password"
@@ -234,8 +233,7 @@ const SignUp = () => {
                       backgroundColor: "#F3F7FF",
                       border: " 0.707px solid rgba(0, 0, 0, 0.02)",
                     }}
-                    onChange={(e) => setNationality(e.target.value)}
-                  >
+                    onChange={(e) => setNationality(e.target.value)}>
                     <option disabled selected>
                       {" "}
                       Select country
@@ -252,8 +250,7 @@ const SignUp = () => {
                   <label
                     htmlFor=""
                     className=""
-                    style={{ marginBottom: "10px" }}
-                  >
+                    style={{ marginBottom: "10px" }}>
                     Date of birth
                   </label>
 
@@ -265,10 +262,8 @@ const SignUp = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
-
                 </div>
               </div>
-
               <div className="row email_input input-container">
                 <label htmlFor="">Phone number</label>
                 <div className="col-4">
@@ -280,8 +275,7 @@ const SignUp = () => {
                       backgroundColor: "#F3F7FF",
                       border: " 0.707px solid rgba(0, 0, 0, 0.02)",
                     }}
-                    onChange={(e) => setCoutryCode(e.target.value)}
-                  >
+                    onChange={(e) => setCoutryCode(e.target.value)}>
                     <option disabled selected>
                       {" "}
                       Select country code
@@ -315,20 +309,19 @@ const SignUp = () => {
                   </div>
                 </div>
               </div>
-
               <label className="label_text">Function</label> <br />
               <>
                 {["Player", "Coach", "Manager", "Other"].map((data) => (
                   <>
                     <button
                       style={{ marginBottom: "30px" }}
-                      className={`${functionType === data
-                        ? "function_btn_active"
-                        : "function_btn"
-                        } `}
+                      className={`${
+                        functionType === data
+                          ? "function_btn_active"
+                          : "function_btn"
+                      } `}
                       type="button"
-                      onClick={() => setFunctionType(data)}
-                    >
+                      onClick={() => setFunctionType(data)}>
                       {data}
                     </button>
                   </>
@@ -340,47 +333,41 @@ const SignUp = () => {
                 (data) => (
                   <>
                     <button
-                      className={`${sports === data
-                        ? "function_btn_active"
-                        : "function_btn"
-                        } `}
+                      className={`${
+                        sports === data ? "function_btn_active" : "function_btn"
+                      } `}
                       type="button"
-                      onClick={() => setSports(data)}
-                    >
+                      onClick={() => setSports(data)}>
                       {data}
                     </button>
                   </>
                 )
               )}
               {/* terms and condition */}
-              <div className="d-flex justify-content-start terms_condition" >
-                <input type="checkbox" />
-                <h6>I agree to all statements included in terms of servicee.</h6>
-
+              <div className="d-flex justify-content-start terms_condition">
+                <label htmlFor="checkBox" className="d-flex align-items-center gap-2">
+                  <input type="checkbox" id="checkBox" />I agree to all
+                  statements included in terms of servicee.
+                </label>
               </div>
               <div
-                className="d-flex justify-content-center"
-                onClick={handleButtonError}
-              >
+                className="d-flex justify-content-center pointer"
+                onClick={handleButtonError}>
                 <button
                   type="submit"
                   className="login-btn"
-                  disabled={button_disability}
-                >
+                  disabled={button_disability}>
                   {isLoading ? (
                     <>
                       <div
                         className="spinner-border spinner-border-sm me-2"
-                        role="status"
-                      >
+                        role="status">
                         <span className="visually-hidden">Loading...</span>
                       </div>{" "}
                       Loading...
                     </>
                   ) : (
-                    <>
-                      Create an account
-                    </>
+                    <>Create an account</>
                   )}
                 </button>
               </div>
@@ -396,7 +383,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-
     </>
   );
 };

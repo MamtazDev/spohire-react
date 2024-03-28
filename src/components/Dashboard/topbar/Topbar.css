@@ -60,9 +60,9 @@
   color: #232627;
 }
 
-.dashbord_content {
+/* .dashbord_content {
   margin-bottom: 70px;
-}
+} */
 
 .mobile_topbar p {
   color: #a5b4cb;
@@ -157,7 +157,7 @@
   line-height: normal;
 }
 
-/* 
+/*
 .filter_blue_btn {
     padding: 11px 0 12px 0;
     border-radius: 5px;
